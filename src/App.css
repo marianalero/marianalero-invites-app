@@ -1,0 +1,138 @@
+:root {
+  --mui-palette-primary-main: #555555;
+  --bs-primary-rgb:255,255,255;
+}
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.slide-img{
+  height: calc(100vh - 50px);
+}
+
+@media (max-width: 767.98px) {
+  .slide-img {
+    width: calc(100vw - 50px);
+    height: auto;
+  }
+}
+.cinzel-400{
+  font-family:"Cinzel", serif!important;
+  font-weight: 400!important;
+}
+.alex-brush-regular {
+  font-family: "Alex Brush", serif!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+.dm-serif-display-regular {
+  font-family: "DM Serif Display", serif!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+
+.dm-serif-display-regular-italic {
+  font-family: "DM Serif Display", serif!important;
+  font-weight: 400!important;
+  font-style: italic!important;
+}
+.great-vibes-regular {
+  font-family: "Great Vibes", serif!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+.montserrat-400 {
+  font-family: "Montserrat", serif!important;
+  font-optical-sizing: auto!important;
+  font-style: normal!important;
+}
+
+.pt-serif-caption-regular {
+  font-family: "PT Serif Caption", serif!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+
+.pt-serif-caption-regular-italic {
+  font-family: "PT Serif Caption", serif!important;
+  font-weight: 400!important;
+  font-style: italic!important;
+}
+.parisienne-regular {
+  font-family: "Parisienne", serif!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+.pinyon-script-regular {
+  font-family: "Pinyon Script", serif!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+.playfair-display-400 {
+  font-family: "Playfair Display", serif!important;
+  font-optical-sizing: auto!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+.tangerine-regular {
+  font-family: "Tangerine", serif!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+
+.tangerine-bold {
+  font-family: "Tangerine", serif!important;
+  font-weight: 700!important;
+  font-style: normal!important;
+}
+
+.d-flex{
+  display: flex!important;
+}
+.justify-center{
+  justify-content: center!important;
+}
+.overlay {
+  position: absolute !important;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background: rgba(0, 0, 0, 0.4);
+}

@@ -1,0 +1,9 @@
+.image-circle{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position-x: 50%!important;
+    display: inline-block;
+  }
+  

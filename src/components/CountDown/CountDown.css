@@ -1,0 +1,81 @@
+#countdown {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+    background-repeat: repeat;
+    background-position-x: 50%;
+    text-align: center;
+    height: 100vh;
+    padding: 7em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    #countdown {
+      background-size: cover;
+      background-repeat: repeat;
+     height: 50vh;
+     background-position-x: 40%!important;
+    }
+  }
+  #countdown .section-heading {
+    margin-bottom: 0 !important;
+  }
+  #countdown .section-heading h2 {
+    color: #fff;
+  }
+  @media screen and (max-width: 768px) {
+    #countdown .section-heading h2 {
+      font-size: 30px;
+    }
+  }
+  #countdown .section-heading .datewed {
+    font-size: 50px;
+    color: white;
+    text-transform: none;
+  }
+  #countdown .section-heading.svg-sm .svg {
+    height: 180px;
+    margin-bottom: -50px;
+    padding: 0;
+  }
+  #countdown .section-heading.colored .svg {
+    fill: #fff;
+  }
+  #countdown .overlay {
+    position: absolute !important;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  #countdown .countdown {
+    margin-bottom: 0;
+    font-size: 28px;
+    color: #fff;
+  }
+  #countdown .countdown span {
+    margin: 0 0;
+    display: inline-block;
+  }
+
+  #countdown .countdown span .labels {
+    font-size: 16px;
+  }
+  #countdown .countdown small {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+  }
+  #countdown .display-over {
+    z-index: 2;
+  }
+  

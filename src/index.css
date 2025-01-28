@@ -1,0 +1,21 @@
+:root {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  background-color: #f2eadd;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
