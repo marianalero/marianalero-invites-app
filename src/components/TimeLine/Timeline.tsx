@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
 import { Event } from '../EventCard/models/EventCardProps';
 import dayjs from 'dayjs';
+import { Fade } from 'react-awesome-reveal';
 export interface CustomizedTimelineProps {
     mainTypo?:string;
     bodyTypo?:string;
@@ -22,16 +23,22 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
     return (
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:props.bgColor}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                <Typography variant='h4' color={props.colorTitle} textAlign={"center"} className={`${props.mainTypo}`}>El Gran Día</Typography>
+            <Fade direction="up" triggerOnce={true}>
+              <Typography variant='h4' color={props.colorTitle} textAlign={"center"} className={`${props.mainTypo}`}>El Gran Día</Typography>
+            </Fade>
             </Grid>	
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+            <Fade direction="up" triggerOnce={true}>
                 <Typography color={props.colorBody} textAlign={"center"} className={`${props?.bodyTypo}`}>No te pierdas ningún momento</Typography>
-            </Grid>	
+            </Fade>
+           
+           </Grid>	
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                 <Timeline position="alternate">
                 {
                 props.events?.map((item,index) => (
-                    <TimelineItem key={index}>
+                  <Fade direction="up" triggerOnce={true}>
+                  <TimelineItem key={index}>
                         <TimelineOppositeContent
                             sx={{ m: 'auto 0' }}
                             align="right"
@@ -51,6 +58,7 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
                             <Typography sx={{color:props.colorPrimary}}> {dayjs(item.date).format("hh:mm A")}</Typography>
                         </TimelineContent>
                     </TimelineItem>
+                    </Fade>
                 ))
             }
        

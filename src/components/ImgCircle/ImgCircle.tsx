@@ -1,3 +1,4 @@
+import './ImgCircle.css';
 export interface ImageCircleProps {
     imgSrc:string;
 } 

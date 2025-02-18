@@ -1,18 +1,31 @@
 import CountDown from "../../../components/CountDown/CountDown";
 import Cover from "../../../components/Cover/Cover";
+import DressCode, { DressCodeProps } from "../../../components/DressCode/DressCode";
 import EventCard from "../../../components/EventCard/EventCard";
 import { EventCardProps } from "../../../components/EventCard/models/EventCardProps";
-
 import FooterInvites from "../../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../../components/Gifts/GiftList";
 import Introduction from "../../../components/Introduction/Introduction";
-import Qoute from "../../../components/Qoute/Qoute";
+import Qoute, { QouteProps } from "../../../components/Qoute/Qoute";
 import RSVP from "../../../components/RSVP/RSVP";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../../components/TimeLine/Timeline";
 import { PairSponsors } from "../../../components/WeddingSponsor/models/Sponsors";
 import WeddingSponsor from "../../../components/WeddingSponsor/WeddingSponsor";
 import Grid from '@mui/material/Grid2';
+import WithoutKids from "../../../components/WithOutKids/WithoutKids";
+import Adornment from "../../../components/Adornment/Adornment";
+import ImageMiddle from "../../../components/ImageMiddle/ImageMiddle";
+import { useSearchParams } from "react-router-dom";
+import { useMemo } from "react";
+import { Fab } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+import { Fade } from "react-awesome-reveal";
 const DemoOne  = () => {
+    const [searchParams] = useSearchParams();
+    const invitedGuests: number | undefined = useMemo(() => {
+        const num = Number(searchParams.get("number"));
+        return isNaN(num) ? undefined : num;
+    }, [searchParams]);
     const COLOR_PRIMARY = "#0E6655";
     const MAIN_TYPO = "great-vibes-regular";
     const BODY_TYPO = "montserrat-400";
@@ -112,6 +125,27 @@ const DemoOne  = () => {
             
         ],
     };
+    const dresscode:DressCodeProps = {
+        mainTypo: MAIN_TYPO,
+        bodyTypo:BODY_TYPO,
+        color:COLOR_PRIMARY,
+        type:2,
+        title:"Etiqueta Rigurosa"
+    }
+    const qoute:QouteProps ={
+        qoute : "No fuiste ni antes ni después , fuiste a tiempo. A tiempo para que me enamorara de ti.",
+        images : [
+            "https://marianalero.github.io/Invitacion/images/DSC_9995.jpg",
+            "https://marianalero.github.io/Invitacion/images/285460514_10160042584270789_1637739613758679016_n.jpg",
+        ]
+    }
+
+    const fabStyle = {
+        position: 'fixed',
+        bottom: 16,
+        right: 16,
+      };
+      
     return (
         <div style={{backgroundColor:"white"}}>
             <Cover 
@@ -124,8 +158,9 @@ const DemoOne  = () => {
                 >
             </Cover>
             <Qoute 
-                qoute={"No fuiste ni antes ni después , fuiste a tiempo. A tiempo para que me enamorara de ti."}>
+               {...qoute}>
             </Qoute>
+            <ImageMiddle bgImage={"https://marianalero.github.io/Invitacion/images/DSC_9877.JPG"}></ImageMiddle>
             <Introduction
                 brideFather="Jesus Lerma Luna"
                 brideMother="María Elena Rodríguez Moreno"
@@ -155,7 +190,7 @@ const DemoOne  = () => {
 
             <Grid container spacing={2} padding={4} >
             {
-                eventCards.map((item,index) => (
+                eventCards.map((item,index) => (          
                    <EventCard key={index} {...item}></EventCard>
                 ))
             }
@@ -164,7 +199,15 @@ const DemoOne  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
             <GiftList {...giftListData} ></GiftList>
-            <RSVP mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={1} dateLine={new Date(2025,9,1)} color={COLOR_PRIMARY} ></RSVP>
+            <RSVP bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025,9,1)} color={COLOR_PRIMARY} ></RSVP>
+            <DressCode {...dresscode}></DressCode>
+            <Fade direction="up" >
+            <Adornment image={"https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"} width={"250px"} />
+            </Fade>
+            <WithoutKids/>
+            <Fab sx={fabStyle } color="primary" aria-label="add">
+                <AddIcon />
+            </Fab>
             <div style={{height:100}}></div>
             <FooterInvites></FooterInvites>
         </div>

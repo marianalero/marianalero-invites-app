@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import React from 'react';
 import CustomButton from '../CustomButton/CustomButton';
 import { RSVPType } from './RSVPType';
+import { Fade } from 'react-awesome-reveal';
 
 const RSVP  = (props:RSVPType) => {
     const [radioValue, setRadioValue] = React.useState('yes');
@@ -14,11 +15,13 @@ const RSVP  = (props:RSVPType) => {
         
     }
     return( 
-        <Grid container spacing={1} padding={4} >
+        <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgColor}} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                <Fade direction="up" triggerOnce={true}>
                 <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >Confirma tu asistencia!</Typography>
                 <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography>
                 <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Esta invitación es valida por {(props.count && props.count === 1) ? '1 pase': `${props.count} pases`} </Typography>
+                </Fade>
             </Grid>
             
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
@@ -30,7 +33,7 @@ const RSVP  = (props:RSVPType) => {
                     >
                         <Grid container spacing={2} padding={4} >
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                                <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>¿Asistiras?</Typography>
+                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo}>¿Asistiras?</Typography>
                                 <RadioGroup 
                                 row
                                 aria-labelledby="demo-row-radio-buttons-group-label"
@@ -80,8 +83,10 @@ const RSVP  = (props:RSVPType) => {
                             sx={{
                                 "&:hover:not(.Mui-focused,.Mui-disabled) .MuiOutlinedInput-notchedOutline" :{
                                     borderColor:"black"
-                                }
+                                },
+                                minWidth:300
                             }}
+                            
                             />
                         </Grid>
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
@@ -89,6 +94,9 @@ const RSVP  = (props:RSVPType) => {
                             id="name"
                             label="Teléfono"
                             fullWidth={true}
+                            sx={{
+                                minWidth:300
+                            }}
                             />
                         </Grid>
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>

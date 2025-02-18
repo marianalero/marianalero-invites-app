@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav,Image } from "react-bootstrap";
-import logo from './../../../assets/logo.png';
+import logo from './../assets/logo.png';
 const HeaderHome = () => {
     return (
         <Navbar expand="lg" className="bg-primary">

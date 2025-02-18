@@ -4,4 +4,5 @@ export interface RSVPType {
     mainTypo?:string;
     bodyTypo?:string;
     color:string;
+    bgColor:string;
 }
