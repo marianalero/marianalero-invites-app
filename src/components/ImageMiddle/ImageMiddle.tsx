@@ -1,9 +1,12 @@
 
 import './ImageMiddle.css';
-const ImageMiddle  = ({bgImage}) => {
+export interface ImageMiddleProps {
+    bgImage:string;
+}
+const ImageMiddle  = (props:ImageMiddleProps) => {
 
     return(
-        <div className="middle-image" style={{backgroundImage:`url('${bgImage}')`}}>
+        <div className="middle-image" style={{backgroundImage:`url('${props.bgImage}')`}}>
         </div>
     )
 }
