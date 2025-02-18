@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     background-position-x: 50%!important;
     color: white;
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 
   .cover-container  .holder
