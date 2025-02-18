@@ -1,5 +1,5 @@
 
-import './ImageMiddle.css';
+import './ImgMiddle.css';
 export interface ImageMiddleProps {
     bgImage:string;
 }
