@@ -37,8 +37,9 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
                 <Timeline position="alternate">
                 {
                 props.events?.map((item,index) => (
-                  <Fade direction="up" triggerOnce={true}>
+               
                   <TimelineItem key={index}>
+                       <Fade direction="up" triggerOnce={true}>
                         <TimelineOppositeContent
                             sx={{ m: 'auto 0' }}
                             align="right"
@@ -57,8 +58,9 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
                             </Typography>
                             <Typography sx={{color:props.colorPrimary}}> {dayjs(item.date).format("hh:mm A")}</Typography>
                         </TimelineContent>
+                        </Fade>
                     </TimelineItem>
-                    </Fade>
+                   
                 ))
             }
        
