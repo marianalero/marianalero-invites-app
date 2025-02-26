@@ -1,6 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import HeaderHome from '../../layouts/headerHome';
+import demo1 from './../../assets/1.svg';
 const DemosPage  = () => {
     return (
         <><HeaderHome></HeaderHome>
@@ -11,11 +12,14 @@ const DemosPage  = () => {
             <Grid size={{ xs: 6, sm: 4, md: 4, lg: 4 }}>
 
                 <div className="d-flex justify-center">
-                    <img src="./images/1.svg" />
+                    <img src={demo1} />
                 </div>
 
                 <Typography typography={"h4"} color='primary' textAlign={"center"}>Demo1</Typography>
-                <Button href="/demos/1"> Ver Demo </Button>
+                <div className="d-flex justify-center">    
+                    <Button href="/demos/1"> Ver Demo </Button>
+                </div>
+            
             </Grid>
         </Grid></>
     )
