@@ -39,12 +39,14 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
                 props.events?.map((item,index) => (
                
                   <TimelineItem key={index}>
-                       <Fade direction="up" triggerOnce={true}>
+                     
                         <TimelineOppositeContent
                             sx={{ m: 'auto 0' }}
                             align="right"
                             >
-                            <img className="intinerario-icon" src={item.icon} height="60"/>
+                            <Fade direction="up" triggerOnce={true} >
+                              <img className="intinerario-icon" src={item.icon} height="60"/>
+                            </Fade>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
                         <TimelineConnector  sx={{backgroundColor:props.colorPrimary}} />
@@ -53,55 +55,21 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
                         <TimelineConnector sx={{backgroundColor:props.colorPrimary}}/>
                         </TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
+                          <Fade direction="up" triggerOnce={true} >
                             <Typography sx={{color:props.colorPrimary}}  variant="subtitle1" component="span">
                             {item.eventName}
                             </Typography>
+                            </Fade>
+                            <Fade direction="up" triggerOnce={true} >
                             <Typography sx={{color:props.colorPrimary}}> {dayjs(item.date).format("hh:mm A")}</Typography>
+                            </Fade>
                         </TimelineContent>
-                        </Fade>
                     </TimelineItem>
                    
                 ))
             }
        
-        {/* <TimelineItem>
-          <TimelineOppositeContent
-            sx={{ m: 'auto 0' }}
-          >
-             <img className="intinerario-icon" src="https://marianalero.github.io/Invitacion/images/Icons/vals4.svg" height="60"/>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineConnector  sx={{backgroundColor:"#0E6655"}} />
-            <TimelineDot sx={{backgroundColor:"#0E6655"}}>
-            </TimelineDot>
-            <TimelineConnector sx={{backgroundColor:"#0E6655"}} />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: '12px', px: 2 }}>
-            <Typography sx={{color:"#0E6655"}} variant="subtitle1" component="span">
-              Vals
-            </Typography>
-            <Typography sx={{color:"#0E6655"}}>8:00 PM</Typography>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent
-            sx={{ m: 'auto 0' }}
-          >
-             <img className="intinerario-icon" src="https://marianalero.github.io/Invitacion/images/Icons/vals4.svg" height="60"/>
-          </TimelineOppositeContent>
-          <TimelineSeparator>
-            <TimelineConnector  sx={{backgroundColor:"#0E6655"}} />
-            <TimelineDot sx={{backgroundColor:"#0E6655"}}>
-            </TimelineDot>
-            <TimelineConnector sx={{backgroundColor:"#0E6655"}} />
-          </TimelineSeparator>
-          <TimelineContent sx={{ py: '12px', px: 2 }}>
-            <Typography sx={{color:"#0E6655"}} variant="subtitle1" component="span">
-              Cena
-            </Typography>
-            <Typography sx={{color:"#0E6655"}}>8:00 PM</Typography>
-          </TimelineContent>
-        </TimelineItem> */}
+   
       </Timeline>
       </Grid>	
       </Grid>

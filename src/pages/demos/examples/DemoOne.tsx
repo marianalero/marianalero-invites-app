@@ -20,6 +20,7 @@ import { useMemo } from "react";
 import { Fab } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { Fade } from "react-awesome-reveal";
+import Gallery from "../../../components/Gallery/Gallert";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -145,9 +146,15 @@ const DemoOne  = () => {
         bottom: 16,
         right: 16,
       };
-      
+    const galleryPhotos = [
+        "https://marianalero.github.io/Invitacion/images/DSC_9786.JPG",
+        "https://marianalero.github.io/Invitacion/images/DSC_9988.jpg",
+        "https://marianalero.github.io/Invitacion/images/DSC_9771.JPG",
+        "https://marianalero.github.io/Invitacion/images/DSC_9815.jpg",
+        "https://marianalero.github.io/Invitacion/images/DSC_9786.JPG",
+    ]
     return (
-        <div style={{backgroundColor:"white"}}>
+        <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto"}}>
             <Cover 
                 weddingDate="21.10.22"
                 bgImage="https://marianalero.github.io/Invitacion/images/DSC_9633.jpg" 
@@ -173,7 +180,7 @@ const DemoOne  = () => {
             </Introduction>
             <CountDown 
                 eventDate={new Date(2025,9,18)} 
-                bgImage="https://marianalero.github.io/Invitacion/images/DSC_9633.jpg"
+                bgImage="https://marianalero.github.io/Invitacion/images/anillo.jpeg"
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} >  
             </CountDown>
@@ -209,6 +216,7 @@ const DemoOne  = () => {
                 <AddIcon />
             </Fab>
             <div style={{height:100}}></div>
+            <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites></FooterInvites>
         </div>
     )

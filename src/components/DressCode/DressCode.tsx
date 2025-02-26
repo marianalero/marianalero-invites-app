@@ -28,13 +28,19 @@ const DressCode  = (props:DressCodeProps) =>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent={"center"} >
                 
                { props.type == 1 &&
+                    <Fade direction="up" triggerOnce={true}>
                    <img src={formal} height="100" />
+                   </Fade>
                }
                { props.type == 2 &&
+                    <Fade direction="up" triggerOnce={true}>
                    <img src={etiqueta} height="100" />
+                   </Fade>
                }
                { props.type == 3 &&
+                    <Fade direction="up" triggerOnce={true}>
                    <img src={props.image} height="100" />
+                   </Fade>
                }
             </Grid>
         </Grid>
