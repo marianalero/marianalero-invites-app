@@ -14,7 +14,9 @@ const RSVP  = (props:RSVPType) => {
     const handleSend =()=> {
         
     }
-    return( 
+
+    const RenderForm = () =>{
+        return(
         <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgColor}} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" triggerOnce={true}>
@@ -100,13 +102,27 @@ const RSVP  = (props:RSVPType) => {
                             />
                         </Grid>
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                            <CustomButton bgColor={props.color} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
+                            <CustomButton bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
                         </Grid>
                         </Grid>
                                           
                 </Box>
             </Grid>
         </Grid>
+
+        );
+    }
+    return ( 
+        <>
+         { props.bgImage !== undefined ? (     
+          <div style={{backgroundImage:`url('${props.bgImage}')`}} className='cover-container'>
+            {RenderForm()}
+          </div>
+        ) :
+        (
+            RenderForm()
+        )}
+       </>
     )
 }
 export default RSVP;

@@ -1,9 +1,10 @@
 .cover-container  {
     height: 100vh;
-    background-size: contain;
+    background-size: cover;
     position: relative;
     background-repeat: no-repeat;
     background-position-x: 50%!important;
+    background-position: center;
     color: white;
     width: 100%;
   }

@@ -86,9 +86,13 @@
 
 .pt-serif-caption-regular {
   font-family: "PT Serif Caption", serif!important;
-  font-weight: 400!important;
   font-style: normal!important;
 }
+
+.to-upper {
+  text-transform: uppercase;
+}
+
 
 .pt-serif-caption-regular-italic {
   font-family: "PT Serif Caption", serif!important;
@@ -128,6 +132,12 @@
 }
 .justify-center{
   justify-content: center!important;
+}
+.justify-items-center{
+  justify-items: center!important;
+}
+.align-items{
+  align-items: center!important;
 }
 .overlay {
   position: absolute !important;

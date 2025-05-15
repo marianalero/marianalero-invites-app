@@ -1,11 +1,10 @@
-import { Paper, Typography } from '@mui/material';
+import { IconButton, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import CustomButton from '../CustomButton/CustomButton';
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import BankCard from './BankCard';
 import { GiftItem } from './models/gifItem';
 import { BankAccount } from './models/bankAccount';
 import { Fade } from 'react-awesome-reveal';
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 export interface GiftListProps {
     mainPhrase?:string;
     items?:GiftItem[]
@@ -14,7 +13,10 @@ export interface GiftListProps {
     color:string;
     bgColor?:string;
     bankDetails?:BankAccount[];
-    bankIcon?:string
+    bankIconStart?:string;
+    bankIconEnd?:string;
+    showEnvelope:boolean;
+    envelopePhrase?:string;
 }
 
 
@@ -33,9 +35,9 @@ const GiftList = (props:GiftListProps) =>{
             (
                 
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                        <Paper elevation={6}>
+                        <Paper elevation={0} sx={{display:"column",justifyItems:"center"}}>
                         <img width="175px" src={props.items[0].icon}/>	
-                        <Typography variant='body1' color={props.color} textAlign={"center"} className={`${props.bodyTypo}`}>
+                        <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`}>
                             Clic <a style={{color:props.color}} href={props.items[0].link}>aquí</a> para ir a
                             nuestra mesa de regalos
                                 
@@ -47,29 +49,51 @@ const GiftList = (props:GiftListProps) =>{
             }
             { props.items && props.items?.length > 1 &&
             (           
-                    <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} display={'flow'} justifyItems={'center'} >
                       
-                        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} justifyContent={"center"} >
+                           
                         {props.items?.map((item, index) => (
-                            <Grid size={{xs:12,sm:12,md:12,lg:12}} key={index} display={"inline-flex"}  justifyContent={"center"}>
-                                  <img width="175px" src={item.icon}/>	
-                                 <CustomButton href={item.link} bgColor={props.color} color={'white'} label={'Ir a mesa regalos'} icon={<CardGiftcardIcon></CardGiftcardIcon>} />
-                            </Grid>
+                            <Paper elevation={2} key={index} sx={{
+                                border:"1px solid rgb(215, 174, 84, .2)",
+                                boxShadow:"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
+                                marginBottom:2,
+                                display:'flex',
+                                padding:2,
+                                alignItems:'center',justifyContent:'space-between'
+                                }}  >
+                            
+                                  <img style={{width:"175px"}} src={item.icon}/>	
+                               
+                                 <IconButton href={item.link}>
+                                    <KeyboardArrowRightRoundedIcon sx={{color:props.color}} />
+                                </IconButton>
+                          </Paper>
                         ))}
-                        </Grid>
+                          
+                        
+                      
                     </Grid>
            
             )}
-            { props.bankIcon &&
+            { props.showEnvelope &&
             (
                
-                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
+                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} >
                      <Fade direction="up" triggerOnce={true} >
                         <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`}>Lluvia de sobres</Typography>
-                        <div style={{display:"flex", justifyContent:"center"}}>
-                        <img height="60px" src={props.bankIcon}/>	
-                        </div>
-                        <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`} >Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo o si lo prefieres puedes hacer transferencia bancaria a la siguiente cuenta:</Typography>
+                        <div style={{display:"block", justifyItems:"center"}}>
+                         { props.bankIconStart &&
+                        (
+                            <img height="60px" src={props.bankIconEnd}/>	
+                        )}
+                      
+                        <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`} >{props.envelopePhrase}</Typography>
+                        
+                        { props.bankIconEnd &&
+                        (
+                            <img height="60px" src={props.bankIconEnd}/>	
+                        )}
+                          </div>
                         </Fade>
                 </Grid>
            
@@ -86,6 +110,7 @@ const GiftList = (props:GiftListProps) =>{
                     </Grid>
            
             )}
+           
 	    </Grid>
     )
 }

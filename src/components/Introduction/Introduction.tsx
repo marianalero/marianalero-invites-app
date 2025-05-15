@@ -17,7 +17,7 @@ export interface IntroductionProps {
 const Introduction  = (props:IntroductionProps) => {
 
     return(
-        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4}>			
+        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={3}>			
 						<Grid size={{xs:12,sm:12,md:12,lg:12}} >
                         <Fade direction="up" >
                             <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >Deseamos compartir con ustedes la alegría de nuestra unión</Typography>
@@ -30,8 +30,8 @@ const Introduction  = (props:IntroductionProps) => {
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:props.color}} variant="h5" textAlign={"center"} className={`${props.mainTypo}`}>{props.brideMother}</Typography>
-                                <Typography sx={{color:props.color}}  variant="h5" textAlign={"center"} className={`${props.mainTypo}`}>{props.brideFather}</Typography>
+                                <Typography sx={{color:props.color}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.brideMother}</Typography>
+                                <Typography sx={{color:props.color}}  variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.brideFather}</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
@@ -42,8 +42,8 @@ const Introduction  = (props:IntroductionProps) => {
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
                             
-                            <Typography sx={{color:props.color}} variant="h5" textAlign={"center"} className={`${props.mainTypo}`} >{props.groomMother}</Typography>
-                            <Typography sx={{color:props.color}}  variant="h5" textAlign={"center"} className={`${props.mainTypo}`}>{props.groomFather}</Typography>
+                            <Typography sx={{color:props.color}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >{props.groomMother}</Typography>
+                            <Typography sx={{color:props.color}}  variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.groomFather}</Typography>
                             </Fade>
                         </Grid>	
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} >

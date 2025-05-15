@@ -8,9 +8,13 @@ export interface EventCardProps extends  Event{
     mainTypo?:string;
     bodyTypo?:string;
     href:string;
+    colorButton:string;
+    colorIcon?:string;
+    bgColor?:string
 }
 export interface Event {
     eventName?:string;
     date?:Date;
-    icon:string;
+    icon?:string;
+    image?:string;
 }

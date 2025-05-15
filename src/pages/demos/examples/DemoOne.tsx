@@ -39,7 +39,7 @@ const DemoOne  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Ceremonia Religiosa",
-                date: new Date(2025, 9, 18,11,0,0),
+                date: new Date(2025, 9, 18, 11, 0, 0),
                 locationName: "Parroquia Nuestra Señora del Rosario de Fátima",
                 address: "Calle Guadalupe Victoria, San Benito, 83190 Hermosillo, Son.",
                 size: 6,
@@ -47,11 +47,12 @@ const DemoOne  = () => {
                 icon: "https://marianalero.github.io/Invitacion/images/Icons/church2.svg",
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
-                href:"https://maps.app.goo.gl/angKKs6d62iJRnSG6",
+                href: "https://maps.app.goo.gl/angKKs6d62iJRnSG6",
+                colorButton: COLOR_PRIMARY,
             },
             {
                 eventName: "Recepción",
-                date: new Date(2025, 9, 18,17,0,0),
+                date: new Date(2025, 9, 18, 17, 0, 0),
                 locationName: "Parroquia Nuestra Señora del Rosario de Fátima",
                 address: "Calle Guadalupe Victoria, San Benito, 83190 Hermosillo, Son.",
                 size: 6,
@@ -59,7 +60,8 @@ const DemoOne  = () => {
                 icon: "https://marianalero.github.io/Invitacion/images/Icons/cheers5.svg",
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
-                href:"https://maps.app.goo.gl/angKKs6d62iJRnSG6",
+                href: "https://maps.app.goo.gl/angKKs6d62iJRnSG6",
+                colorButton: COLOR_PRIMARY,
             },
     ];
     const timelineData: CustomizedTimelineProps = {
@@ -103,15 +105,17 @@ const DemoOne  = () => {
         bodyTypo: BODY_TYPO,
         color: "#0E6655", 
         bgColor: "#FFFFFF", 
-        bankIcon: "https://marianalero.github.io/Invitacion/images/Icons/sobre.svg",
+        showEnvelope:true,
+        envelopePhrase:"Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo o si lo prefieres puedes hacer transferencia bancaria a la siguiente cuenta:",
+        bankIconStart: "https://marianalero.github.io/Invitacion/images/Icons/sobre.svg",
         items: [
             {
                 link: "https://www.amazon.com/example-item1",
                 icon: "https://marianalero.github.io/invitacion-andrea-david/images/adornos/4.svg", 
             },
             {
-                link: "https://www.etsy.com/example-item2",
-                icon: "https://marianalero.github.io/invitacion-andrea-david/images/adornos/4.svg",
+                link: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/liverpool.png",
+                icon: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/liverpool.png",
             },
         ],
         bankDetails: [

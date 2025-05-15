@@ -10,6 +10,7 @@ export interface CoverProps{
     className?:string;
     bgImage?:string;
     weddingDate?:string;
+    bgSize?:string
 }
 const Cover  = (props:CoverProps) => {
 
