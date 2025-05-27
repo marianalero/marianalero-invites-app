@@ -13,7 +13,7 @@ function App() {
           ))}
           </Routes>
       </Router>
-       <div className="App">
+       <div className="App h-100">
        
      </div>
     </>

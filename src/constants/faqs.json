@@ -1,0 +1,87 @@
+[
+  {
+    "category": "Sobre el servicio",
+    "questions": [
+      {
+        "question": "¿Qué incluye la invitación digital?",
+        "answer": "Incluye diseño personalizado, sección de confirmación, ubicación en mapa, itinerario del evento, mesa de regalos, y mucho más."
+      },
+      {
+        "question": "¿Cómo se entrega la invitación?",
+        "answer": "La invitación se entrega por un enlace que puedes compartir fácilmente por WhatsApp, email o redes sociales."
+      },
+      {
+        "question": "¿Cuánto tiempo tarda en entregarse?",
+        "answer": "Una vez recibidos todos los datos, el diseño puede estar listo en 2 a 4 días hábiles."
+      },
+      {
+        "question": "¿Puedo ver una muestra antes de pagar?",
+        "answer": "Podemos mostrarte ejemplos de trabajos anteriores, pero el diseño personalizado comienza después del pago inicial."
+      }
+    ]
+  },
+  {
+    "category": "Pagos y cancelaciones",
+    "questions": [
+      {
+        "question": "¿Qué formas de pago aceptan?",
+        "answer": "Puedes pagar mediante transferencia bancaria o plataformas como PayPal."
+      },
+      {
+        "question": "¿Qué pasa si deseo cancelar mi pedido?",
+        "answer": "Se puede cancelar antes de que comencemos el diseño. Después de eso, no ofrecemos reembolsos por tiempo y trabajo invertido."
+      }
+    ]
+  },
+  {
+    "category": "Edición y personalización",
+    "questions": [
+      {
+        "question": "¿Puedo hacer cambios después de recibir la invitación?",
+        "answer": "Sí, puedes hacer ajustes menores sin costo adicional dentro de los 3 días posteriores a la entrega."
+      },
+      {
+        "question": "¿Puedo elegir un diseño específico?",
+        "answer": "Sí, contamos con varios modelos que puedes elegir y personalizar a tu gusto."
+      },
+      {
+        "question": "¿Qué pasa si se retrasa mi evento?",
+        "answer": "Podemos modificar la fecha y horarios sin costo adicional si nos avisas con tiempo."
+      },
+      {
+        "question": "¿Puedo incluir hashtag, colores y código de vestimenta?",
+        "answer": "Sí, esos detalles se integran visualmente en el diseño de la invitación."
+      }
+    ]
+  },
+  {
+    "category": "Funcionalidad de la invitación",
+    "questions": [
+      {
+        "question": "¿La invitación tiene límite de visualizaciones o duración?",
+        "answer": "No. La invitación estará disponible durante la planificación y un mes posterior al evento"
+      },
+      {
+        "question": "¿La invitación digital puede contener música?",
+        "answer": "Sí, puedes elegir una canción especial que sonará al abrir la invitación."
+      },
+      {
+        "question": "¿Se puede agregar un enlace a una mesa de regalos?",
+        "answer": "Sí, podemos integrar enlaces a Amazon, Liverpool, o tiendas específicas, así como cuentas bancarias para transferencias."
+      }
+    ]
+  },
+  {
+    "category": "Soporte y confirmación de asistencia",
+    "questions": [
+      {
+        "question": "¿Cómo confirmarán los invitados su asistencia?",
+        "answer": "Podrán hacerlo desde un formulario en la invitación o directamente a tu número de WhatsApp."
+      },
+      {
+        "question": "¿Ofrecen soporte si tengo dudas después de la entrega?",
+        "answer": "Claro que sí, puedes escribirnos por WhatsApp o email y estaremos encantados de ayudarte."
+      }
+    ]
+  }
+]

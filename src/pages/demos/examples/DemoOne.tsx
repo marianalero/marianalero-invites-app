@@ -17,8 +17,6 @@ import Adornment from "../../../components/Adornment/Adornment";
 import ImageMiddle from "../../../components/ImageMiddle/ImageMiddle";
 import { useSearchParams } from "react-router-dom";
 import { useMemo } from "react";
-import { Fab } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
 import { Fade } from "react-awesome-reveal";
 import Gallery from "../../../components/Gallery/Gallert";
 const DemoOne  = () => {
@@ -124,9 +122,10 @@ const DemoOne  = () => {
                 number: "123456789012",
                 bank: "BBVA",
                 name: "Juan Pérez",
-                color: COLOR_PRIMARY,
+                color: "white",
                 bodyTypo: BODY_TYPO,
                 bgColor: COLOR_PRIMARY,
+                
             }
             
         ],
@@ -146,12 +145,6 @@ const DemoOne  = () => {
         ],
         bodyTypo: BODY_TYPO,
     }
-
-    const fabStyle = {
-        position: 'fixed',
-        bottom: 16,
-        right: 16,
-      };
     const galleryPhotos = [
         "https://marianalero.github.io/Invitacion/images/DSC_9786.JPG",
         "https://marianalero.github.io/Invitacion/images/DSC_9988.jpg",
@@ -162,7 +155,7 @@ const DemoOne  = () => {
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto"}}>
             <Cover 
                 weddingDate="21.10.22"
-                bgImage="https://marianalero.github.io/Invitacion/images/DSC_9633.jpg" 
+                bgImage="https://marianalero.github.io/Invitacion/images/DSC_9636.JPG" 
                 brideName="Elena Marai" 
                 symbolr={"&"} 
                 groomName={"Jose Carlos"} 
@@ -217,9 +210,9 @@ const DemoOne  = () => {
             <Adornment image={"https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"} width={"250px"} />
             </Fade>
             <WithoutKids/>
-            <Fab sx={fabStyle } color="primary" aria-label="add">
+            {/* <Fab sx={fabStyle } color="primary" aria-label="add">
                 <AddIcon />
-            </Fab>
+            </Fab> */}
             <div style={{height:100}}></div>
             <Gallery photos={galleryPhotos} ></Gallery>
                <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>

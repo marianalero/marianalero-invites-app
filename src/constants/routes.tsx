@@ -2,6 +2,7 @@ import DemosPage from "../pages/demos/DemosPage";
 import DemoOne from "../pages/demos/examples/DemoOne";
 import DemoTree from "../pages/demos/examples/DemoTree";
 import DemoTwo from "../pages/demos/examples/DemoTwo";
+import FaqPage from "../pages/faq/faq";
 import HomePage from "../pages/home/HomePage";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsConditions from "../pages/termsConditions/TermsConditions";
@@ -19,7 +20,7 @@ const routes: RouteConfig[] = [
   {path:'/demos/3', element: <DemoTree></DemoTree>},
   {path:'/terminos', element: <TermsConditions></TermsConditions>},
    {path:'/privacidad', element: <PrivacyPolicy></PrivacyPolicy>},
-    // {path:'/faq', element: <DemoTree></DemoTree>}
+    {path:'/faq', element: <FaqPage></FaqPage>}
 ];
 
 export default routes;

@@ -13,18 +13,18 @@ import {
   Button,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import CollectionsIcon from '@mui/icons-material/Collections';
+import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import EmailIcon from '@mui/icons-material/Email';
-import CreateIcon from '@mui/icons-material/Create';
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import logo from './../assets/logos/logo header.svg';
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const menuItems = [
-    { label: 'Modelos', href: '/demos', icon: <CollectionsIcon sx={{ color: '#a41423' }} /> },
-    { label: 'Preguntas', href: '/preguntas', icon: <HelpOutlineIcon sx={{ color: '#a41423' }} /> },
-    { label: 'Contacto', href: '/contacto', icon: <EmailIcon sx={{ color: '#a41423' }} /> },
+    { label: 'Modelos', href: '/demos', icon: <AppsRoundedIcon sx={{ color: '#a41423' }} /> },
+    { label: 'Preguntas', href: '/faq', icon: <HelpOutlineIcon sx={{ color: '#a41423' }} /> },
+    { label: 'Contacto', href: '/contacto', icon: <EmailRoundedIcon sx={{ color: '#a41423' }} /> },
   ];
 
   return (
@@ -41,7 +41,12 @@ const Header = () => {
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           {/* Logo */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <img src={logo} alt="Logo" style={{ height: "50px", marginRight: 8 }} />
+             <Link
+                href="/"
+              >
+                 <img src={logo} alt="Logo" style={{ height: "50px", marginRight: 8 }} />
+              </Link>
+          
           </Box>
 
           {/* Menú desktop */}
@@ -127,7 +132,7 @@ const Header = () => {
             onClick={() => setDrawerOpen(false)}
           >
             <ListItemIcon>
-              <CreateIcon sx={{ color: '#a41423' }} />
+              <AddRoundedIcon sx={{ color: '#a41423' }} />
             </ListItemIcon>
             <ListItemText
               primary="Crear mi invitación"
