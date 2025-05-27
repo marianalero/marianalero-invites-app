@@ -1,7 +1,7 @@
 import { Paper, Typography } from "@mui/material"
 import { BankAccount } from "./models/bankAccount"
 import ReactCardFlip from "react-card-flip";
-import React, { useState } from 'react';
+import { useState } from 'react';
 const BankCard  = (item:BankAccount) => {
     const [isFlipped, setIsFlipped] = useState(false);
 

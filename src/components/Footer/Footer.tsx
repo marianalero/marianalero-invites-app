@@ -1,5 +1,3 @@
-// Footer.jsx
-import React from 'react';
 import { Box, Typography, IconButton, Stack, Link } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
