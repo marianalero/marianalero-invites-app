@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, Typography, IconButton, Stack, Link } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
-
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 const Footer = () => {
   return (
     <Box
@@ -27,6 +27,9 @@ const Footer = () => {
         </IconButton>
         <IconButton href="https://facebook.com/lerostudio" target="_blank" sx={{ color: '#a41423' }}>
           <FacebookIcon />
+        </IconButton>
+        <IconButton href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales." sx={{ color: '#a41423' }}>
+          <WhatsAppIcon />
         </IconButton>
       </Stack>
 

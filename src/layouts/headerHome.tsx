@@ -59,16 +59,17 @@ const Header = () => {
               </Link>
             ))}
             <Button
-              href="/crear"
+             href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
               variant="contained"
-              startIcon={<CreateIcon />}
               sx={{
-                bgcolor: '#f4ebd7',
+                bgcolor: '#f2eadd',
                 color: '#a41423',
                 fontWeight: 'bold',
                 textTransform: 'none',
                 '&:hover': {
-                  bgcolor: '#e8dcc7',
+                  bgcolor: '#f2eadd',
+                  color:"#a41423",
+                  border:"1px solid #a41423"
                 },
               }}
             >
@@ -122,7 +123,7 @@ const Header = () => {
           <ListItem
             
             component="a"
-            href="/crear"
+            href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
             onClick={() => setDrawerOpen(false)}
           >
             <ListItemIcon>
