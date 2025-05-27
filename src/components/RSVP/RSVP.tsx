@@ -5,7 +5,6 @@ import React from 'react';
 import CustomButton from '../CustomButton/CustomButton';
 import { RSVPType } from './RSVPType';
 import { Fade } from 'react-awesome-reveal';
-
 const RSVP  = (props:RSVPType) => {
     const [radioValue, setRadioValue] = React.useState('yes');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,10 +82,15 @@ const RSVP  = (props:RSVPType) => {
                             id="name"
                             label="Nombre"
                             sx={{
-                                "&:hover:not(.Mui-focused,.Mui-disabled) .MuiOutlinedInput-notchedOutline" :{
-                                    borderColor:"black"
+                                minWidth:300,
+                                 '& label.Mui-focused': {
+                                color: props.colorButton, // Borde en focus
                                 },
-                                minWidth:300
+                                '& .MuiOutlinedInput-root': {
+                                '&.Mui-focused fieldset': {
+                                    borderColor: props.colorButton, // Borde en focus
+                                },
+                                },
                             }}
                             
                             />
@@ -97,7 +101,15 @@ const RSVP  = (props:RSVPType) => {
                             label="Teléfono"
                             fullWidth={true}
                             sx={{
-                                minWidth:300
+                                minWidth:300,
+                                 '& label.Mui-focused': {
+                                color: props.colorButton, // Borde en focus
+                                },
+                                '& .MuiOutlinedInput-root': {
+                                '&.Mui-focused fieldset': {
+                                    borderColor: props.colorButton, // Borde en focus
+                                },
+                                },
                             }}
                             />
                         </Grid>

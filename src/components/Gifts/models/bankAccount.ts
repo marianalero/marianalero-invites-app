@@ -5,4 +5,5 @@ export interface BankAccount{
     name:string;
     color:string;
     bodyTypo:string
+    bgColor:string;
 }

@@ -5,13 +5,26 @@ import { Fade } from "react-awesome-reveal";
 
 export interface QouteProps {
     qoute:string;
-    images?:string[]
+    images?:string[];
+    bgColor?:string;
+    textColor?:string;
+    bodyTypo:string;
 }
 
 const Qoute  = (props:QouteProps) => {
 
     return(
-        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} minHeight={"30vh"} >
+        <Grid container
+        spacing={2}
+        display={"flex"}
+        alignItems={"center"}
+        padding={4}
+        minHeight={"30vh"} 
+        sx={{
+            bgcolor : props.bgColor ? props.bgColor : "white",
+            color : props.textColor ? props.textColor : "black"
+        }}            
+        >
             
             {props.images?.map((img, index) => (
                 
@@ -24,8 +37,7 @@ const Qoute  = (props:QouteProps) => {
             
 			<Grid size={{xs:12,sm:12,md:12,lg:12}}>
             <Fade direction="up" triggerOnce={true}>
-            <Typography typography={"body"}  textAlign={"center"} >{props.qoute}</Typography>
-            <Typography typography={"body"}  textAlign={"center"} ><strong> &mdash; Marai & Jose Carlos</strong></Typography>
+            <Typography className={props.bodyTypo}  textAlign={"center"} >{props.qoute}</Typography>
             </Fade>		
                
             

@@ -2,16 +2,8 @@
 import { Typography } from '@mui/material';
 import './Cover.css';
 import { Fade } from 'react-awesome-reveal';
+import { CoverProps } from '../CoverProps';
 
-export interface CoverProps{
-    brideName:string;
-    symbolr:string;
-    groomName:string;
-    className?:string;
-    bgImage?:string;
-    weddingDate?:string;
-    bgSize?:string
-}
 const Cover  = (props:CoverProps) => {
 
     return(

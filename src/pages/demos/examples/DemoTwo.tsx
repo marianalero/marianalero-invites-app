@@ -1,5 +1,5 @@
-import CountDown from "../../../components/CountDown/CountDown";
-import Cover from "../../../components/Cover/Cover";
+import CountDown from "../../../components/CountDown/CountDownImage/CountDown";
+import Cover from "../../../components/Cover/CoverImage/Cover";
 import DressCode, { DressCodeProps } from "../../../components/DressCode/DressCode";
 import { EventCardProps } from "../../../components/EventCard/models/EventCardProps";
 import FooterInvites from "../../../components/Footer/FooterInvites";
@@ -186,7 +186,8 @@ const DemoOne  = () => {
             </Fab> */}
             <div style={{height:100}}></div>
             <Gallery photos={galleryPhotos} ></Gallery>
-            <FooterInvites></FooterInvites>
+                       <FooterInvites bgColor="rgb(249, 249, 249)" color={COLOR_PRIMARY}></FooterInvites>
+
         </div>
     )
 }

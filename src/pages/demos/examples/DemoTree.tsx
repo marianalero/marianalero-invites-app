@@ -1,5 +1,3 @@
-import CountDown from "../../../components/CountDown/CountDownImage/CountDown";
-import Cover from "../../../components/Cover/CoverImage/Cover";
 import DressCode, { DressCodeProps } from "../../../components/DressCode/DressCode";
 import EventCard from "../../../components/EventCard/EventCard";
 import { EventCardProps } from "../../../components/EventCard/models/EventCardProps";
@@ -9,58 +7,37 @@ import Introduction from "../../../components/Introduction/Introduction";
 import Qoute, { QouteProps } from "../../../components/Qoute/Qoute";
 import RSVP from "../../../components/RSVP/RSVP";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../../components/TimeLine/Timeline";
-import { PairSponsors } from "../../../components/WeddingSponsor/models/Sponsors";
-import WeddingSponsor from "../../../components/WeddingSponsor/WeddingSponsor";
 import Grid from '@mui/material/Grid2';
 import WithoutKids from "../../../components/WithOutKids/WithoutKids";
 import Adornment from "../../../components/Adornment/Adornment";
-import ImageMiddle from "../../../components/ImageMiddle/ImageMiddle";
 import { useSearchParams } from "react-router-dom";
 import { useMemo } from "react";
-import { Fab } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
 import { Fade } from "react-awesome-reveal";
-import Gallery from "../../../components/Gallery/Gallert";
-const DemoOne  = () => {
+import CountDownSimple from "../../../components/CountDown/CountDownSimple/CountDownSimple";
+import CoverSimple from "../../../components/Cover/CoverSimple/CoverSimple";
+const DemoTree  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
         const num = Number(searchParams.get("number"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
-    const COLOR_PRIMARY = "#0E6655";
+    const COLOR_PRIMARY = "#c69f58";
+    const COLOR_SECONDARY= "#d5b36f";
     const MAIN_TYPO = "great-vibes-regular";
-    const BODY_TYPO = "montserrat-400";
-    const sponsors:PairSponsors[] = [
-            {
-                sponsorOne: { name: "Mariana Lerma" },
-                sponsorTwo: { name: "Hector Rodriguez" },
-            },
-        ];
+    const BODY_TYPO = "pt-serif-caption-regular to-upper";
+    const BG_COLOR ="rgba(244, 240, 215, 0.5)"
         const eventCards: EventCardProps[] = [
             {
-                eventName: "Ceremonia Religiosa",
-                date: new Date(2025, 9, 18, 11, 0, 0),
-                locationName: "Parroquia Nuestra Señora del Rosario de Fátima",
-                address: "Calle Guadalupe Victoria, San Benito, 83190 Hermosillo, Son.",
+                eventName: "Ceremonia Civil Recepción",
+                date: new Date(2026, 5, 14, 17, 0, 0),
+                locationName: "The Rustic Garden",
+                address: "Calle Las Moras #17, La Victoria Hermosillo, Sonora.",
                 size: 6,
                 color: COLOR_PRIMARY,
-                icon: "https://marianalero.github.io/Invitacion/images/Icons/church2.svg",
+                icon: "https://marianalero.github.io/invitacion-pricila-eduardo/images/iconos-pricila/1.svg",
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/angKKs6d62iJRnSG6",
-                colorButton: COLOR_PRIMARY,
-            },
-            {
-                eventName: "Recepción",
-                date: new Date(2025, 9, 18, 17, 0, 0),
-                locationName: "Parroquia Nuestra Señora del Rosario de Fátima",
-                address: "Calle Guadalupe Victoria, San Benito, 83190 Hermosillo, Son.",
-                size: 6,
-                color: COLOR_PRIMARY,
-                icon: "https://marianalero.github.io/Invitacion/images/Icons/cheers5.svg",
-                mainTypo: MAIN_TYPO,
-                bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/angKKs6d62iJRnSG6",
+                href: "https://maps.app.goo.gl/qk5eheggwTdz4CUv5",
                 colorButton: COLOR_PRIMARY,
             },
     ];
@@ -70,7 +47,7 @@ const DemoOne  = () => {
         colorPrimary: COLOR_PRIMARY,
         colorTitle: COLOR_PRIMARY,
         colorBody: COLOR_PRIMARY, 
-        bgColor: "rgb(215,174,84,.05)", 
+        bgColor: BG_COLOR, 
         events: [
             {
                 eventName: "Recepción",
@@ -103,16 +80,11 @@ const DemoOne  = () => {
         mainPhrase: "Agradecemos mucho todo su amor y apoyo al iniciar esta etapa de formar nuestro hogar.",
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
-        color: "#0E6655", 
+        color: COLOR_PRIMARY, 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
         envelopePhrase:"Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo o si lo prefieres puedes hacer transferencia bancaria a la siguiente cuenta:",
-        bankIconStart: "https://marianalero.github.io/Invitacion/images/Icons/sobre.svg",
         items: [
-            {
-                link: "https://www.amazon.com/example-item1",
-                icon: "https://marianalero.github.io/invitacion-andrea-david/images/adornos/4.svg", 
-            },
             {
                 link: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/liverpool.png",
                 icon: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/liverpool.png",
@@ -126,7 +98,7 @@ const DemoOne  = () => {
                 name: "Juan Pérez",
                 color: COLOR_PRIMARY,
                 bodyTypo: BODY_TYPO,
-                bgColor: COLOR_PRIMARY,
+                bgColor:BG_COLOR,
             }
             
         ],
@@ -135,72 +107,51 @@ const DemoOne  = () => {
         mainTypo: MAIN_TYPO,
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
-        type:2,
-        title:"Etiqueta Rigurosa"
+        type:1,
+        title:"Formal"
     }
     const qoute:QouteProps ={
-        qoute: "No fuiste ni antes ni después , fuiste a tiempo. A tiempo para que me enamorara de ti.",
-        images: [
-            "https://marianalero.github.io/Invitacion/images/DSC_9995.jpg",
-            "https://marianalero.github.io/Invitacion/images/285460514_10160042584270789_1637739613758679016_n.jpg",
-        ],
         bodyTypo: BODY_TYPO,
+        bgColor:"rgb(209, 185, 137,.5)",
+        qoute : "Cuando te das cuenta de que quieres pasar el resto de tu vida con alguien, deseas que el resto de tu vida empiece lo antes posible",
     }
-
-    const fabStyle = {
-        position: 'fixed',
-        bottom: 16,
-        right: 16,
-      };
-    const galleryPhotos = [
-        "https://marianalero.github.io/Invitacion/images/DSC_9786.JPG",
-        "https://marianalero.github.io/Invitacion/images/DSC_9988.jpg",
-        "https://marianalero.github.io/Invitacion/images/DSC_9771.JPG",
-        "https://marianalero.github.io/Invitacion/images/DSC_9815.jpg",
-    ]
     return (
-        <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto"}}>
-            <Cover 
+        <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
+            <CoverSimple 
                 weddingDate="21.10.22"
-                bgImage="https://marianalero.github.io/Invitacion/images/DSC_9633.jpg" 
-                brideName="Elena Marai" 
+                bgImage="https://marianalero.github.io/invitacion-pricila-eduardo/images/portada/portada%20beig-dorado.png" 
+                bgImage2="https://marianalero.github.io/invitacion-pricila-eduardo/images/portada/portada beig-dorado (1200 x 800 px).png" 
+                brideName="Pricila" 
                 symbolr={"&"} 
-                groomName={"Jose Carlos"} 
+                groomName={"Eduardo"} 
                 className={MAIN_TYPO}
+                textColor={COLOR_PRIMARY}
                 >
-            </Cover>
+            </CoverSimple>
             <Qoute 
                {...qoute}>
             </Qoute>
-            <ImageMiddle bgImage={"https://marianalero.github.io/Invitacion/images/DSC_9877.JPG"}></ImageMiddle>
-            <Introduction
-                brideFather="Jesus Lerma Luna"
-                brideMother="María Elena Rodríguez Moreno"
-                groomFather="Ramon Madrid"
-                groomMother="Mercedes Gil"
+                        <Introduction
+                brideMother="Yolanda Acuña Monge"
+                groomFather="Olivia Molina Noriega"
+                groomMother="Rosario Grijalva Rendón"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_PRIMARY}
+                adornment="https://marianalero.github.io/invitacion-pricila-eduardo/images/adornos/adornos%20(4).svg"
             >
             </Introduction>
-            <CountDown 
-                eventDate={new Date(2025,9,18)} 
-                bgImage="https://marianalero.github.io/Invitacion/images/anillo.jpeg"
+            <CountDownSimple 
+                eventDate={new Date(2025, 4, 12)}
+                bgColor={BG_COLOR}
                 typoHeader={MAIN_TYPO}
-                typoCountdown={BODY_TYPO} >  
-            </CountDown>
-           
-            <WeddingSponsor 
-                sponsors={sponsors}
-                mainTypo={MAIN_TYPO}
-                bodyTypo={BODY_TYPO}
-                height="50vh"
-                color={COLOR_PRIMARY}
-                addorment="https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"
-            >
-            </WeddingSponsor>
+                typoCountdown={BODY_TYPO} 
+                primaryColor={COLOR_PRIMARY} 
+                secondarColor={COLOR_SECONDARY}
+                circleBgColor="white" >  
+            </CountDownSimple>
 
-            <Grid container spacing={2} padding={4} >
+            <Grid container spacing={2} padding={4} justifyContent={"center"} >
             {
                 eventCards.map((item,index) => (          
                    <EventCard key={index} {...item}></EventCard>
@@ -214,16 +165,13 @@ const DemoOne  = () => {
             <RSVP colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025,9,1)} color={COLOR_PRIMARY} ></RSVP>
             <DressCode {...dresscode}></DressCode>
             <Fade direction="up" >
-            <Adornment image={"https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"} width={"250px"} />
+            <Adornment image={"https://marianalero.github.io/invitacion-pricila-eduardo/images/adornos/adornos%20(4).svg"} width={"250px"} />
             </Fade>
             <WithoutKids/>
-            <Fab sx={fabStyle } color="primary" aria-label="add">
-                <AddIcon />
-            </Fab>
             <div style={{height:100}}></div>
-            <Gallery photos={galleryPhotos} ></Gallery>
-               <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
+
+            <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
         </div>
     )
 }
-export default DemoOne;
+export default DemoTree;

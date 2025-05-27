@@ -8,6 +8,7 @@ export interface CustomButtonProps {
     href?:string;
     icon?: React.JSX.Element;
     onClick?:() => void;
+    width?:string;
 }
 
 const CustomButton  = (props:CustomButtonProps) => {
@@ -18,7 +19,7 @@ const CustomButton  = (props:CustomButtonProps) => {
             href={props.href}
             endIcon={props.icon}
             sx={{
-            minWidth:"200px",
+            minWidth: props.width ? props.width : "200px",
             borderRadius:8,
             color: props.color,
             backgroundColor: props.bgColor,

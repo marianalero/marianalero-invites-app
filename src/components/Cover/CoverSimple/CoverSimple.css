@@ -1,0 +1,70 @@
+.cover-container  {
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position-x: 50%!important;
+    background-position: center;
+    color: white;
+    width: 100%;
+  }
+
+  .cover-container  .holder
+  {
+  color: #fff;
+  font-family: 'PT Serif Caption', serif;;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  }
+  .cover-container > h2
+  {
+    color: #fff;
+    font-size: 80px;
+  }
+  
+  @media (max-width: 767.98px) {
+    .cover-container
+    {
+      height: 50vh;
+      -webkit-background-size: cover!important;
+      -moz-background-size: cover!important;
+      -o-background-size: cover!important;
+      background-size: cover!important;
+      position: relative!important;
+      background-repeat: repeat!important;
+      background-position-x: 50%!important;
+
+    }
+  
+  }
+  .cover-container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+box-shadow:none;
+  }
+
+  .cover-container > p {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 80px;
+    font-family: 'PT Serif Caption', serif;
+    z-index: 0;
+  }
+.cover-container .cover-date{
+  font-size: 25px;
+}
+  .cover-container .overlay {
+    position: absolute !important;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  

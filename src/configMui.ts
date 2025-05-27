@@ -211,6 +211,7 @@ const THEME = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          fontWeight:400,
           borderRadius: "0.5rem",
           borderStyle: "solid",
         },

@@ -46,24 +46,10 @@ const CountDown = (props:CountDownProps) => {
 				<span className="" id="">: <br/> <span ></span></span>
 				<span className="" id="seconds">{seconds.toString().padStart(2, "0")}<br/> <span className="labels">Segs</span></span>
 			</p>
-        //   <div className="countdown-display">
-        //     <div className="countdown-value">
-        //       {days.toString().padStart(2, "0")} <span>days</span>
-        //     </div>
-        //     <div className="countdown-value">
-        //       {hours.toString().padStart(2, "0")} <span> hours</span>
-        //     </div>
-        //     <div className="countdown-value">
-        //       {minutes.toString().padStart(2, "0")} <span>minutes</span>
-        //     </div>
-        //     <div className="countdown-value">
-        //       {seconds.toString().padStart(2, "0")} <span>seconds</span>
-        //     </div>
-        //   </div>
         );
       };
     return (
-        <div id="countdown" style={{backgroundImage:`url('${props.bgImage}')`}}  >
+        <div id="countdown" style={{backgroundColor:`url('${props.bgImage}')`}}  >
 			<div className="overlay"></div>
 			<div className="display-over">
 				<div className="container" >

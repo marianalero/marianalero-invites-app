@@ -1,12 +1,13 @@
-import { Box, Typography ,Button} from '@mui/material';
+import { Box, Typography ,Button, useMediaQuery} from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import { Carousel,Image } from 'react-bootstrap';
+import {Image } from 'react-bootstrap';
 import HeaderHome from '../../layouts/headerHome';
-import slide1 from './../../assets/slides/1.png';
-import slide2 from './../../assets/slides/2.png';
-import slide3 from './../../assets/slides/3.png';
+import slide3 from './../../assets/slides/prinicpal.png';
 import logo from './../../assets/logos/2.png';
+import Footer from '../../components/Footer/Footer';
+
 const Home = () => {
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
         <><HeaderHome></HeaderHome>
         <Box sx={{ flexGrow: 1 }}>
@@ -17,24 +18,16 @@ const Home = () => {
                     <Image className='logo-home' src={logo} rounded  />
                     </div>
                     <div className='d-flex justify-center'>
-                    <Button sx={{width:"200px",marginTop:2}} href='/demos' variant='contained' color='primary'>Ver Demo</Button>
+                    <Button sx={{width:"200px",marginTop:2}} href='/demos' variant='contained' color='primary'>Ver Modelos</Button>
                     </div>
                 </Grid>
-                <Grid size={{xs:12,sm:6,md:6,lg:6}}>
-                    <Carousel>
-                        <Carousel.Item className='d-flex justify-center'>
-                            <img src={slide1} className='slide-img'/>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img src={slide2} className='slide-img'/>      
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img src={slide3} className='slide-img'/>
-                        </Carousel.Item>
-                    </Carousel>
+                <Grid size={{xs:12,sm:6,md:6,lg:6}} display={"flex"} justifyContent={"center"}>
+                  <Image src={slide3} style={{height: isSmallScreen ? "50vh" : "calc(100vh - 100px)"}}></Image>
                 </Grid>
             </Grid>
-        </Box></>
+        </Box>
+        <Footer></Footer>
+        </>
     )
 }
 export default Home;

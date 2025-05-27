@@ -1,3 +1,4 @@
+
 import { IconButton, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import BankCard from './BankCard';
@@ -21,6 +22,7 @@ export interface GiftListProps {
 
 
 const GiftList = (props:GiftListProps) =>{
+
     return (
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:props.bgColor}}>
              <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -62,7 +64,7 @@ const GiftList = (props:GiftListProps) =>{
                                 alignItems:'center',justifyContent:'space-between'
                                 }}  >
                             
-                                  <img style={{width:"175px"}} src={item.icon}/>	
+                                <img style={{width:"175px"}} src={item.icon}/>	
                                
                                  <IconButton href={item.link}>
                                     <KeyboardArrowRightRoundedIcon sx={{color:props.color}} />
@@ -102,9 +104,9 @@ const GiftList = (props:GiftListProps) =>{
             (           
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                       
-                        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} >
+                        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={2} >
                         {props.bankDetails?.map((item, index) => (
-                           <BankCard key={index} type={item.type} number={item.number} bank={item.bank} name={item.name} color={props.color} bodyTypo={props.bodyTypo}></BankCard>
+                           <BankCard key={index} type={item.type} number={item.number} bank={item.bank} name={item.name} color={props.color} bodyTypo={props.bodyTypo} bgColor={item.bgColor}></BankCard>
                         ))}
                         </Grid>
                     </Grid>
