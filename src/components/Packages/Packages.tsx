@@ -1,6 +1,5 @@
 import {
-  Card, CardContent, Typography,Button, Box, Chip, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, Divider, Stack
+  Card, CardContent, Typography,Button, Chip, Divider, Stack
 } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import CheckIcon from '@mui/icons-material/Check';
@@ -58,35 +57,35 @@ const packages = [
   }
 ];
 
-const featureList = [
-  'Portada personalizada',
-  'Información del evento',
-  'Ubicación',
-  'Confirmación WhatsApp',
-  'Canción',
-  'Nombres de padres/padrinos',
-  'Código vestimenta',
-  'Cuenta regresiva',
-  'Itinerario',
-  'Mesa de regalos',
-  'Frase personalizada',
-  'Galería de fotos',
-  'Confirmación web',
-  'Código QR'
-];
+// const featureList = [
+//   'Portada personalizada',
+//   'Información del evento',
+//   'Ubicación',
+//   'Confirmación WhatsApp',
+//   'Canción',
+//   'Nombres de padres/padrinos',
+//   'Código vestimenta',
+//   'Cuenta regresiva',
+//   'Itinerario',
+//   'Mesa de regalos',
+//   'Frase personalizada',
+//   'Galería de fotos',
+//   'Confirmación web',
+//   'Código QR'
+// ];
 
-const packageInclusion = [
-  ['Esencia',      [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-  ['Memorias',     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0]],
-  ['Celebra+',     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]],
-  ['Código QR',    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
-];
+// const packageInclusion = [
+//   ['Esencia',      [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+//   ['Memorias',     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0]],
+//   ['Celebra+',     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]],
+//   ['Código QR',    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+// ];
 
 const Packages = () => {
   return (
-    <Box p={4}>
+      <Grid container spacing={2}  paddingY={2}>
       <Typography variant="h4" mb={4} textAlign="center" className='cinzel-700' color='primary'>Nuestros Paquetes</Typography>
-      <Grid container spacing={4}>
+   
         {packages.map((pkg) => (
           <Grid size={{xs:12, sm:6, md:3}}  key={pkg.name}>
             <Card>
@@ -111,8 +110,8 @@ const Packages = () => {
             </Card>
           </Grid>
         ))}
-      </Grid>
-
+{/*       
+ <Grid size={{xs:12, sm:12, md:12}}>
       <Typography variant="h5" mt={8} mb={2} textAlign="center" className='cinzel-700' color='primary'>Comparativa de características</Typography>
       <TableContainer component={Paper}>
         <Table>
@@ -138,7 +137,8 @@ const Packages = () => {
           </TableBody>
         </Table>
       </TableContainer>
-    </Box>
+      </Grid> */}
+      </Grid>
   );
 };
 
