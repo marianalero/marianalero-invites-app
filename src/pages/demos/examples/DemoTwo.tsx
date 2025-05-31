@@ -5,7 +5,6 @@ import { EventCardProps } from "../../../components/EventCard/models/EventCardPr
 import FooterInvites from "../../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../../components/Gifts/GiftList";
 import Introduction from "../../../components/Introduction/Introduction";
-import RSVP from "../../../components/RSVP/RSVP";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../../components/TimeLine/Timeline";
 // import { PairSponsors } from "../../../components/WeddingSponsor/models/Sponsors";
 // import WeddingSponsor from "../../../components/WeddingSponsor/WeddingSponsor";
@@ -15,6 +14,7 @@ import { useSearchParams } from "react-router-dom";
 import { useMemo } from "react";
 import Gallery from "../../../components/Gallery/Gallert";
 import EventCardImage from "../../../components/EventCard/EventCardImage";
+import RSVPDemo from "../../../components/RSVP/RSVPDemo";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -178,7 +178,7 @@ const DemoOne  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
             <GiftList {...giftListData} ></GiftList>
-            <RSVP bgImage="https://marianalero.github.io/invitacion-selene-juan-carlos/images/UNI04765.jpg" bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025,9,1)} color={"white"} colorButton={COLOR_PRIMARY} ></RSVP>
+            <RSVPDemo bgImage="https://marianalero.github.io/invitacion-selene-juan-carlos/images/UNI04765.jpg" bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} ></RSVPDemo>
             <DressCode {...dresscode}></DressCode>
             <WithoutKids {...withOutKids} />
             {/* <Fab sx={fabStyle } color="primary" aria-label="add">

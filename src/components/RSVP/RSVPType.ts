@@ -7,4 +7,7 @@ export interface RSVPType {
     bgColor:string;
     bgImage?:string;
     colorButton:string;
+    guestId?:number;
+    invitationId:number;
+    confirmed?:() => void;
 }

@@ -49,7 +49,7 @@ const CountDown = (props:CountDownProps) => {
         );
       };
     return (
-        <div id="countdown" style={{backgroundColor:`url('${props.bgImage}')`}}  >
+        <div id="countdown" style={{backgroundImage:`url('${props.bgImage}')`}}  >
 			<div className="overlay"></div>
 			<div className="display-over">
 				<div className="container" >

@@ -7,7 +7,6 @@ import FooterInvites from "../../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../../components/Gifts/GiftList";
 import Introduction from "../../../components/Introduction/Introduction";
 import Qoute, { QouteProps } from "../../../components/Qoute/Qoute";
-import RSVP from "../../../components/RSVP/RSVP";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../../components/TimeLine/Timeline";
 import { PairSponsors } from "../../../components/WeddingSponsor/models/Sponsors";
 import WeddingSponsor from "../../../components/WeddingSponsor/WeddingSponsor";
@@ -19,13 +18,20 @@ import { useSearchParams } from "react-router-dom";
 import { useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import Gallery from "../../../components/Gallery/Gallert";
+// import RSVPForm from "../../../components/RSVP/RSVPForm";
+import RSVP from "../../../components/RSVP/RSVP";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();
-    const invitedGuests: number | undefined = useMemo(() => {
+    const invitedGuests: number = useMemo(() => {
         const num = Number(searchParams.get("number"));
+        return isNaN(num) ? 1 : num;
+    }, [searchParams]);
+    const guestId: number | undefined = useMemo(() => {
+        const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
     const COLOR_PRIMARY = "#0E6655";
+    const INVITATION_ID = 1;
     const MAIN_TYPO = "great-vibes-regular";
     const BODY_TYPO = "montserrat-400";
     const sponsors:PairSponsors[] = [
@@ -122,7 +128,7 @@ const DemoOne  = () => {
                 number: "123456789012",
                 bank: "BBVA",
                 name: "Juan Pérez",
-                color: "white",
+                color: '#FFFFFF',
                 bodyTypo: BODY_TYPO,
                 bgColor: COLOR_PRIMARY,
                 
@@ -204,7 +210,31 @@ const DemoOne  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
             <GiftList {...giftListData} ></GiftList>
-            <RSVP colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025,9,1)} color={COLOR_PRIMARY} ></RSVP>
+            {/* <RSVPForm 
+                colorButton={COLOR_PRIMARY} 
+                bgColor="rgb(215,174,84,.05)" 
+                mainTypo={MAIN_TYPO} 
+                bodyTypo={BODY_TYPO} 
+                count={invitedGuests}
+                dateLine={new Date(2025,9,1)}
+                color={COLOR_PRIMARY}
+                guestId={guestId}
+                invitationId={INVITATION_ID}
+            >
+                
+            </RSVPForm> */}
+            <RSVP 
+                colorButton={COLOR_PRIMARY} 
+                bgColor="rgb(215,174,84,.05)" 
+                mainTypo={MAIN_TYPO} 
+                bodyTypo={BODY_TYPO} 
+                count={invitedGuests}
+                dateLine={new Date(2025,9,1)}
+                color={COLOR_PRIMARY}
+                guestId={guestId}
+                invitationId={INVITATION_ID}
+            >
+            </RSVP>
             <DressCode {...dresscode}></DressCode>
             <Fade direction="up" >
             <Adornment image={"https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"} width={"250px"} />

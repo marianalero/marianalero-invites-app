@@ -8,12 +8,13 @@ import { Fade } from 'react-awesome-reveal';
 import { Confirm, CreateAndConfirm, getGuestById } from '../../services/guestApiClient';
 import { Guest } from '../../models/guest';
 import { CreateGuestParameters } from '../../models/createGuestParameters';
+import ConfirmQR from './ConfirmQR';
 
-const RSVP  = (props:RSVPType) => {
+const RSVPForm  = (props:RSVPType) => {
     const [guest, setGuest] = useState<Guest>({
     id: 0,
     fullName: '',
-    isConfirmed: true,
+    isConfirmed: false,
     phoneNumber: '',
     totalConfirmed: 1,
     totalAssigned: 1,
@@ -24,7 +25,8 @@ const RSVP  = (props:RSVPType) => {
     useEffect(() => {
     const fetchGuest = async () => {
         console.log(props)
-        if(props.guestId){
+        if( props.guestId && props.guestId > 0 ){
+              console.log("condicion")
             const response = await getGuestById(props.guestId);
             setGuest(response);
             
@@ -32,16 +34,25 @@ const RSVP  = (props:RSVPType) => {
         else
         {
             updateGuest({
-                totalAssigned:props.count
+                totalAssigned:props.count == 0 ? 1 : props.count,
+                totalConfirmed:props.count == 0 ? 1 : props.count
             })
         }
     };
     fetchGuest();
   }, [props]);
-
+    const [disabledForm, setDisabledForm] = React.useState(false)
     const [radioValue, setRadioValue] = React.useState('yes');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRadioValue((event.target as HTMLInputElement).value);
+        setDisabledForm(false);
+        const value = (event.target as HTMLInputElement).value;
+        if(value == 'no'){
+            setDisabledForm(true);
+            updateGuest({
+                totalConfirmed:0
+            })
+        }
+        setRadioValue(value);
     };
     const handleSend =async ()=> {
          console.log("send")
@@ -57,7 +68,7 @@ const RSVP  = (props:RSVPType) => {
             phoneNumber: guest.phoneNumber,
             }
             const response = await CreateAndConfirm(createParam);
-            console.log(response)
+            setGuest(response);
         }else{
        
             const updated = await Confirm({
@@ -66,7 +77,7 @@ const RSVP  = (props:RSVPType) => {
                 isConfirmed: radioValue == "yes",
                 totalAssigned: guest.totalAssigned,
             });
-            console.log(updated)
+            setGuest(updated);
         
         
         }
@@ -82,9 +93,16 @@ const RSVP  = (props:RSVPType) => {
         <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgColor}} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" triggerOnce={true}>
+                {!props.guestId ? (
                 <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >Confirma tu asistencia!</Typography>
-                <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography>
-                <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Esta invitación es valida por {(props.count && props.count === 1) ? '1 pase': `${props.count} pases`} </Typography>
+                ):(
+                    <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >{guest.fullName}</Typography>
+
+                )
+                }
+           
+                <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Hemos reservado {(props.count && props.count === 1) ? '1 lugar': `${props.count} lugares`} para ti. </Typography>
+                     <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography>
                 </Fade>
             </Grid>
             
@@ -138,8 +156,8 @@ const RSVP  = (props:RSVPType) => {
 
                             </RadioGroup>
                         </Grid>
-                     
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                     {!props.guestId && (
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <TextField
                             required
                             id="name"
@@ -162,6 +180,10 @@ const RSVP  = (props:RSVPType) => {
                             
                             />
                         </Grid>
+                        )
+
+                     }
+                    
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <TextField
                             id="name"
@@ -186,7 +208,8 @@ const RSVP  = (props:RSVPType) => {
                             />
                      
                         </Grid>
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                        { !disabledForm && (
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Select<number>
                                 labelId="guests"
                                 id="guests"
@@ -232,6 +255,8 @@ const RSVP  = (props:RSVPType) => {
                                 ))}
                                 </Select>
                         </Grid>
+                        )}
+                        
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <CustomButton bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
                         </Grid>
@@ -247,13 +272,23 @@ const RSVP  = (props:RSVPType) => {
         <>
          { props.bgImage !== undefined ? (     
           <div style={{backgroundImage:`url('${props.bgImage}')`}} className='cover-container'>
-            {RenderForm()}
+            {
+                guest && !guest.isConfirmed ? (
+                      RenderForm()
+                ):(
+                    <ConfirmQR guest={guest}></ConfirmQR>
+                )
+            }
           </div>
         ) :
         (
-            RenderForm()
+            guest && !guest.isConfirmed ? (
+                      RenderForm()
+                ):(
+                      <ConfirmQR guest={guest}></ConfirmQR>
+                )
         )}
        </>
     )
 }
-export default RSVP;
+export default RSVPForm;

@@ -1,82 +1,19 @@
-import { Box, FormControlLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
+import { Box, FormControlLabel, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import CustomButton from '../CustomButton/CustomButton';
 import { RSVPType } from './RSVPType';
 import { Fade } from 'react-awesome-reveal';
-import { Confirm, CreateAndConfirm, getGuestById } from '../../services/guestApiClient';
-import { Guest } from '../../models/guest';
-import { CreateGuestParameters } from '../../models/createGuestParameters';
-
-const RSVP  = (props:RSVPType) => {
-    const [guest, setGuest] = useState<Guest>({
-    id: 0,
-    fullName: '',
-    isConfirmed: true,
-    phoneNumber: '',
-    totalConfirmed: 1,
-    totalAssigned: 1,
-    invitationId: props.invitationId,
-    qrCodeToken: '',
-    registeredAttendance: false,
-    });
-    useEffect(() => {
-    const fetchGuest = async () => {
-        console.log(props)
-        if(props.guestId){
-            const response = await getGuestById(props.guestId);
-            setGuest(response);
-            
-        }
-        else
-        {
-            updateGuest({
-                totalAssigned:props.count
-            })
-        }
-    };
-    fetchGuest();
-  }, [props]);
-
+const RSVPDemo  = (props:RSVPType) => {
     const [radioValue, setRadioValue] = React.useState('yes');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRadioValue((event.target as HTMLInputElement).value);
-    };
-    const handleSend =async ()=> {
-         console.log("send")
-          try {
-        if (!guest || !guest.id) {
-    
-        const createParam: CreateGuestParameters ={
-            fullName: guest.fullName,
-            isConfirmed: radioValue == "yes",
-            totalConfirmed: guest.totalConfirmed,
-            totalAssigned: guest.totalAssigned,
-            invitationId: props.invitationId,
-            phoneNumber: guest.phoneNumber,
-            }
-            const response = await CreateAndConfirm(createParam);
-            console.log(response)
-        }else{
-       
-            const updated = await Confirm({
-                guestId: guest.id,
-                totalConfirmed: guest.totalConfirmed,
-                isConfirmed: radioValue == "yes",
-                totalAssigned: guest.totalAssigned,
-            });
-            console.log(updated)
+      };
+    const handleSend =()=> {
         
-        
-        }
-       } catch (error) {
-            console.error(error);
     }
-    }
-    const updateGuest = (newData: Partial<Guest>) => {
-        setGuest((prevData) => ({ ...prevData, ...newData }));
-    };
+
     const RenderForm = () =>{
         return(
         <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgColor}} >
@@ -155,10 +92,6 @@ const RSVP  = (props:RSVPType) => {
                                 },
                                 },
                             }}
-                            value={guest.fullName}
-                            onChange={(e) => updateGuest({
-                                    fullName: e.target.value
-                                })}
                             
                             />
                         </Grid>
@@ -178,59 +111,7 @@ const RSVP  = (props:RSVPType) => {
                                 },
                                 },
                             }}
-                            value={guest.phoneNumber}
-                            onChange={(e) => updateGuest({
-                                    phoneNumber: e.target.value
-                                })}
-                            
                             />
-                     
-                        </Grid>
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                            <Select<number>
-                                labelId="guests"
-                                id="guests"
-                                value={guest.totalConfirmed}
-                                onChange={(e) =>  updateGuest({
-                                    totalConfirmed: Number(e.target.value)
-                                })}
-                                sx={{
-                                    minWidth:300,
-                                    color: props.colorButton,
-                                    '& .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: props.colorButton, // borde normal
-                                    },
-                                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: props.colorButton,
-                                    },
-                                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: props.colorButton,
-                                    },
-                                    '& .MuiSvgIcon-root': {
-                                    color: props.colorButton,
-                                    },
-                                }}
-                                >
-                                {Array.from({ length: guest.totalAssigned }, (_, index) => (
-                                    <MenuItem key={index + 1} value={index + 1} 
-                                    sx={{
-                                        '&.Mui-selected': {
-                                            color: '#fff',
-                                            backgroundColor: `${props.colorButton}!important`,
-                                        },
-                                        '&.Mui-selected:hover': {
-                                            backgroundColor: props.colorButton,
-                                        },
-                                        '&:hover': {
-                                            backgroundColor: props.colorButton,
-                                            color: "white",
-                                        },
-                                    }}      
-                                    >
-                                    {index + 1}
-                                    </MenuItem>
-                                ))}
-                                </Select>
                         </Grid>
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <CustomButton bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
@@ -256,4 +137,4 @@ const RSVP  = (props:RSVPType) => {
        </>
     )
 }
-export default RSVP;
+export default RSVPDemo;

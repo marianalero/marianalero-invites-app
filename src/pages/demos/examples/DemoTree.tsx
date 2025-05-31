@@ -5,7 +5,6 @@ import FooterInvites from "../../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../../components/Gifts/GiftList";
 import Introduction from "../../../components/Introduction/Introduction";
 import Qoute, { QouteProps } from "../../../components/Qoute/Qoute";
-import RSVP from "../../../components/RSVP/RSVP";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../../components/TimeLine/Timeline";
 import Grid from '@mui/material/Grid2';
 import WithoutKids from "../../../components/WithOutKids/WithoutKids";
@@ -15,6 +14,8 @@ import { useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import CountDownSimple from "../../../components/CountDown/CountDownSimple/CountDownSimple";
 import CoverSimple from "../../../components/Cover/CoverSimple/CoverSimple";
+import RSVPDemo from "../../../components/RSVP/RSVPDemo";
+
 const DemoTree  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -162,7 +163,7 @@ const DemoTree  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
             <GiftList {...giftListData} ></GiftList>
-            <RSVP colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025,9,1)} color={COLOR_PRIMARY} ></RSVP>
+            <RSVPDemo colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={COLOR_PRIMARY} invitationId={0} ></RSVPDemo>
             <DressCode {...dresscode}></DressCode>
             <Fade direction="up" >
             <Adornment image={"https://marianalero.github.io/invitacion-pricila-eduardo/images/adornos/adornos%20(4).svg"} width={"250px"} />
