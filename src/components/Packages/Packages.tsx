@@ -84,7 +84,10 @@ const packages = [
 const Packages = () => {
   return (
       <Grid container spacing={2}  paddingY={2}>
+        <Grid size={{xs:12, sm:12, md:12}}>
       <Typography variant="h4" mb={4} textAlign="center" className='cinzel-700' color='primary'>Nuestros Paquetes</Typography>
+
+        </Grid>
    
         {packages.map((pkg) => (
           <Grid size={{xs:12, sm:6, md:3}}  key={pkg.name}>

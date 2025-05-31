@@ -18,8 +18,10 @@ const DemosPage  = () => {
 
                 <div className="justify-items-center align-items">
                     <img src={demo1} height={300}/>
-                    <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Clasico 1</Typography>
-                <Button variant="contained" color= "primary"
+                    <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Memorias</Typography>
+                    <Typography className="dm-serif-display-regular" typography={"body1"} color='primary' textAlign={"center"}>Elena Marai y Jose Carlos</Typography>
+
+                 <Button variant="contained" color= "primary"
                             href="/demos/1"
                             sx={{
                     
@@ -33,7 +35,8 @@ const DemosPage  = () => {
             <Grid size={{ xs: 6, sm: 6, md: 6, lg: 4 }}  display={"flex"} justifyContent={"center"} gap={3}>
                 <div className="justify-items-center align-items">
                     <img  src={demo2} height={300} />
-                    <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Clasico 2</Typography>
+                    <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Memorias</Typography>
+                    <Typography className="dm-serif-display-regular" typography={"body1"} color='primary' textAlign={"center"}>Selene y Juan Carlos</Typography>
                     <Button variant="contained"color= "primary"
                             href="/demos/2"
                             sx={{
@@ -49,7 +52,7 @@ const DemosPage  = () => {
             <Grid size={{ xs: 6, sm: 6, md: 6, lg: 4 }}  display={"flex"} justifyContent={"center"} gap={3}>
                 <div className="justify-items-center align-items">
                     <img  src={demo3} height={300} />
-                    <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Clásico</Typography>
+                    <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Memorias</Typography>
                         <Typography className="dm-serif-display-regular" typography={"body1"} color='primary' textAlign={"center"}>*Sin fotografías</Typography>
                         <Button variant="contained" color= "primary"
                             href="/demos/3"
@@ -66,7 +69,7 @@ const DemosPage  = () => {
              <Grid size={{ xs: 6, sm: 6, md: 6, lg: 4 }}  display={"flex"} justifyContent={"center"} gap={3}>
                 <div className="justify-items-center align-items">
                     <img  src={demo3} height={300} />
-                    <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Basico</Typography>                        <Button variant="contained" color= "primary"
+                    <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Esencia</Typography>                        <Button variant="contained" color= "primary"
                             href="/demos/3"
                             sx={{
                     
