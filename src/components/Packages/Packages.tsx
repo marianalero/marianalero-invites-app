@@ -2,8 +2,6 @@ import {
   Card, CardContent, Typography,Button, Chip, Divider, Stack
 } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import CheckIcon from '@mui/icons-material/Check';
-
 const packages = [
   {
     name: 'Esencia',
@@ -102,7 +100,7 @@ const Packages = () => {
                 <ul>
                   {pkg.features.map((feature, i) => (
                     <li key={i}>
-                      <Typography variant="body2"><CheckIcon fontSize="small" /> {feature}</Typography>
+                      <Typography variant="body2"> {feature}</Typography>
                     </li>
                   ))}
                 </ul>
