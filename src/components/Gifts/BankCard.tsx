@@ -1,7 +1,9 @@
-import { Paper, Typography } from "@mui/material"
+import { IconButton, Paper, Typography } from "@mui/material"
 import { BankAccount } from "./models/bankAccount"
 import ReactCardFlip from "react-card-flip";
 import { useState } from 'react';
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+
 const BankCard  = (item:BankAccount) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
@@ -54,8 +56,18 @@ const BankCard  = (item:BankAccount) => {
                 padding:2,
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
                 }} >
-                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{item.type}: {item.number}</Typography>
-                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>Banco: {item.bank}</Typography>
+                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{item.type}: {item.number}
+                    <IconButton
+                      onClick={() => {
+                      setIsFlipped(false);
+                      navigator.clipboard.writeText(item.number.trim());
+                     
+                      }}
+                    >
+                    <ContentCopyIcon sx={{color:item.bgColor}} />
+                </IconButton>
+                </Typography>
+                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>Banco: {item.bank}  </Typography>
                 <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>Beneficiario: {item.name}</Typography>
          </Paper>
       </div>

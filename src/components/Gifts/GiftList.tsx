@@ -37,7 +37,7 @@ const GiftList = (props:GiftListProps) =>{
             (
                 
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                        <Paper elevation={0} sx={{display:"column",justifyItems:"center"}}>
+                        <Paper elevation={0} sx={{display:"column",justifyContent:"center"}}>
                         <img width="175px" src={props.items[0].icon}/>	
                         <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`}>
                             Clic <a style={{color:props.color}} href={props.items[0].link}>aquí</a> para ir a

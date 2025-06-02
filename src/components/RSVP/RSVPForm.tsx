@@ -285,7 +285,7 @@ const RSVPForm  = (props:RSVPType) => {
             guest && !guest.isConfirmed ? (
                       RenderForm()
                 ):(
-                      <ConfirmQR guest={guest}></ConfirmQR>
+                      <ConfirmQR guest={guest} mainTypo={props.mainTypo} bodyTypo={props.bodyTypo} colorPrimary={props.color} bgColor={props.bgColor}></ConfirmQR>
                 )
         )}
        </>

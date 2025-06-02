@@ -15,6 +15,9 @@ export interface CountDownSimpleProps{
 const CountDownSimple = (props:CountDownSimpleProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
     dayjs.locale('es');
+    const formattedDate = dayjs(props.eventDate)
+        .format("dddd DD MMMM YYYY");
+    const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
     useEffect(() => {
         
         if (props.eventDate) {
@@ -72,7 +75,7 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
 				<div className="container" >
 					<div className="row animate-box">
 						<div className="col-md-12 section-heading text-center svg-sm colored">							
-							<span style={{color:props.secondarColor}}  className={`datewed ${props.typoHeader}`}>{dayjs(props.eventDate).format("dddd DD MMMM YYYY")}</span>
+							<span style={{color:props.secondarColor}}  className={`datewed ${props.typoHeader}`}>{capitalizedDate}</span>
 						</div>
 					</div>
 					<div className="row animate-box">

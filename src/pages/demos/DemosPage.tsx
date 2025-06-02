@@ -1,4 +1,4 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container, Typography,Card, CardMedia, CardContent } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import HeaderHome from '../../layouts/headerHome';
 import demo1 from './../../assets/3.png';
@@ -7,14 +7,208 @@ import demo3 from './../../assets/1.png';
 import Footer from "../../components/Footer/Footer";
 
 const DemosPage  = () => {
+
     return (
         <><HeaderHome></HeaderHome>
           <Container maxWidth="md">
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} minHeight={"100vh"}>
             <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                 <Typography typography={"h2"} color='primary' textAlign={"center"} className='cinzel-400'>Modelos</Typography>
-            </Grid>
-            <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}  display={"flex"} justifyContent={"center"} gap={3}>
+            </Grid>     
+          <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}>
+            <Card
+                sx={{
+                    maxWidth: 250,
+                    textAlign: 'center',
+                    backgroundColor: '#f2eadd',
+                    borderRadius: 4,
+                    boxShadow: 3,
+                    overflow: 'visible'
+                }}
+                >
+                <CardMedia
+                    component="img"
+                    image={demo1}
+                    alt={"Elena Marai y Jose Carlos"}
+                    sx={{
+                    width: '100%',
+                    borderRadius: '16px',
+                    mt: -6,
+                    boxShadow: 3
+                    }}
+                />
+                <CardContent>
+                    <Typography
+                    variant="h6"
+                    sx={{
+                        fontFamily: 'Cinzel',
+                        fontWeight: 'bold',
+                        color: '#a41423',
+                        mt: 2
+                    }}
+                    >
+                   Modelo Memorias
+                    </Typography>
+                    <Typography
+                    variant="body2"
+                    sx={{
+                        fontFamily: 'Montserrat',
+                        color: '#a41423',
+                        mb: 2
+                    }}
+                    >
+               Elena Marai y Jose Carlos
+                    </Typography>
+                    <Button
+                    variant="contained"
+                    href={"/demos/1"}
+                    sx={{
+                        backgroundColor: '#a41423',
+                        color: '#fff',
+                        borderRadius: 8,
+                        textTransform: 'none',
+                        px: 3,
+                        fontFamily: 'Montserrat',
+                        '&:hover': {
+                        backgroundColor: '#b3151d'
+                        }
+                    }}
+                    >
+                    Ver Modelo
+                    </Button>
+                </CardContent>
+                </Card>
+          </Grid>
+          <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}>
+            <Card
+                sx={{
+                    maxWidth: 250,
+                    textAlign: 'center',
+                    backgroundColor: '#f2eadd',
+                    borderRadius: 4,
+                    boxShadow: 3,
+                    overflow: 'visible'
+                }}
+                >
+                <CardMedia
+                    component="img"
+                    image={demo2}
+                    alt={"Selene y Juan Carlos"}
+                    sx={{
+                    width: '100%',
+                    borderRadius: '16px',
+                    mt: -6,
+                    boxShadow: 3
+                    }}
+                />
+                <CardContent>
+                    <Typography
+                    variant="h6"
+                    sx={{
+                        fontFamily: 'Cinzel',
+                        fontWeight: 'bold',
+                        color: '#a41423',
+                        mt: 2
+                    }}
+                    >
+                   Modelo Memorias
+                    </Typography>
+                    <Typography
+                    variant="body2"
+                    sx={{
+                        fontFamily: 'Montserrat',
+                        color: '#a41423',
+                        mb: 2
+                    }}
+                    >
+               Elena Marai y Jose Carlos
+                    </Typography>
+                    <Button
+                    variant="contained"
+                    href={"/demos/1"}
+                    sx={{
+                        backgroundColor: '#a41423',
+                        color: '#fff',
+                        borderRadius: 8,
+                        textTransform: 'none',
+                        px: 3,
+                        fontFamily: 'Montserrat',
+                        '&:hover': {
+                        backgroundColor: '#b3151d'
+                        }
+                    }}
+                    >
+                    Ver Modelo
+                    </Button>
+                </CardContent>
+                </Card>
+          </Grid>         
+           <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}} >
+            <Card
+                sx={{
+                    maxWidth: 250,
+                    textAlign: 'center',
+                    backgroundColor: '#f2eadd',
+                    borderRadius: 4,
+                    boxShadow: 3,
+                    overflow: 'visible'
+                }}
+                >
+                <CardMedia
+                    component="img"
+                    image={demo3}
+                    alt={"Selene y Juan Carlos"}
+                    sx={{
+                    width: '100%',
+                    borderRadius: '16px',
+                    mt: -6,
+                    boxShadow: 3
+                    }}
+                />
+                <CardContent>
+                    <Typography
+                    variant="h6"
+                    sx={{
+                        fontFamily: 'Cinzel',
+                        fontWeight: 'bold',
+                        color: '#a41423',
+                        mt: 2
+                    }}
+                    >
+                   Modelo Memorias
+                    </Typography>
+                    <Typography
+                    variant="body2"
+                    sx={{
+                        fontFamily: 'Montserrat',
+                        color: '#a41423',
+                        mb: 2
+                    }}
+                    >
+              Sin fotografías
+                    </Typography>
+                    <Button
+                    variant="contained"
+                    href={"/demos/2"}
+                    sx={{
+                        backgroundColor: '#a41423',
+                        color: '#fff',
+                        borderRadius: 8,
+                        textTransform: 'none',
+                        px: 3,
+                        fontFamily: 'Montserrat',
+                        '&:hover': {
+                        backgroundColor: '#b3151d'
+                        }
+                    }}
+                    >
+                    Ver Modelo
+                    </Button>
+                </CardContent>
+                </Card>
+          </Grid>        
+      </Grid>
+            {/* <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}  display={"flex"} justifyContent={"center"} gap={3}>
 
                 <div className="justify-items-center align-items">
                     <img src={demo1} height={300}/>
@@ -67,7 +261,7 @@ const DemosPage  = () => {
                 </div>
             </Grid>
              <Grid size={{ xs: 6, sm: 6, md: 6, lg: 4 }}  display={"flex"} justifyContent={"center"} gap={3}>
-                <div className="justify-items-center align-items">
+                <div className="d-flex justify-center align-items">
                     <img  src={demo3} height={300} />
                     <Typography className="dm-serif-display-regular" typography={"h4"} color='primary' textAlign={"center"}>Modelo Esencia</Typography>                        <Button variant="contained" color= "primary"
                             href="/demos/3"
@@ -80,8 +274,7 @@ const DemosPage  = () => {
                     </Button>
 
                 </div>
-            </Grid>
-        </Grid>
+            </Grid> */}
         </Container>
         <Footer />
         </>

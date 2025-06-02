@@ -13,7 +13,7 @@ const RSVP  = (props:RSVPType) => {
     const [guest, setGuest] = useState<Guest>({
     id: 0,
     fullName: '',
-    isConfirmed: true,
+    isConfirmed: false,
     phoneNumber: '',
     totalConfirmed: 1,
     totalAssigned: 1,
