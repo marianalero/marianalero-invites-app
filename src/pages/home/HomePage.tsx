@@ -8,8 +8,6 @@ import Footer from '../../components/Footer/Footer';
 import invitacion from './../../assets/iconos/17.svg';
 import confirm from './../../assets/iconos/18.svg';
 import register from './../../assets/iconos/19.svg';
-import locations from './../../assets/iconos/22.svg';
-import gifts from './../../assets/iconos/21.svg';
 import responsive from './../../assets/iconos/20.svg';
 import Packages from '../../components/Packages/Packages';
 const Home = () => {
