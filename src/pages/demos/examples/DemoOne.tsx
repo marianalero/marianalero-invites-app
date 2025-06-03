@@ -19,7 +19,7 @@ import { useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import Gallery from "../../../components/Gallery/Gallert";
 import RSVP from "../../../components/RSVP/RSVP";
-import RSVPForm from "../../../components/RSVP/RSVPForm";
+// import RSVPForm from "../../../components/RSVP/RSVPForm";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number = useMemo(() => {
