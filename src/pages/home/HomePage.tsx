@@ -89,7 +89,7 @@ const Home = () => {
                                 </Typography>
                                 </Box>
                             </Grid>
-
+{/* 
                             <Grid size={{xs:12,sm:6,md:6,lg:4}} >
                                 <Box textAlign="center">
                                 <img src={locations} alt="Ubicación y horarios" width={60} />
@@ -100,8 +100,8 @@ const Home = () => {
                                     Incluye mapa, itinerario y horarios claros para cada parte del evento, con diseño visualmente atractivo.
                                 </Typography>
                                 </Box>
-                            </Grid>
-
+                            </Grid> */}
+{/* 
                             <Grid size={{xs:12,sm:6,md:6,lg:4}} >
                                 <Box textAlign="center">
                                 <img src={gifts} alt="Mesa de regalos" width={60} />
@@ -112,7 +112,7 @@ const Home = () => {
                                     Ofrece la opción de mesa de regalos, cuenta bancaria o links para facilitar la aportación de tus invitados.
                                 </Typography>
                                 </Box>
-                            </Grid>
+                            </Grid> */}
 
                             <Grid size={{xs:12,sm:6,md:6,lg:4}} >
                                 <Box textAlign="center">

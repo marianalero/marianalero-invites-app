@@ -21,10 +21,9 @@ const DemosPage  = () => {
                     maxWidth: 250,
                     textAlign: 'center',
                     backgroundColor: '#f2eadd',
-                    borderRadius: 4,
-                    boxShadow: 3,
                     overflow: 'visible'
                 }}
+                elevation={0}
                 >
                 <CardMedia
                     component="img"
@@ -34,7 +33,7 @@ const DemosPage  = () => {
                     width: '100%',
                     borderRadius: '16px',
                     mt: -6,
-                    boxShadow: 3
+ 
                     }}
                 />
                 <CardContent>
@@ -81,12 +80,13 @@ const DemosPage  = () => {
           </Grid>
           <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}>
             <Card
+                elevation={0}
                 sx={{
                     maxWidth: 250,
                     textAlign: 'center',
                     backgroundColor: '#f2eadd',
                     borderRadius: 4,
-                    boxShadow: 3,
+                   
                     overflow: 'visible'
                 }}
                 >
@@ -98,7 +98,7 @@ const DemosPage  = () => {
                     width: '100%',
                     borderRadius: '16px',
                     mt: -6,
-                    boxShadow: 3
+
                     }}
                 />
                 <CardContent>
@@ -121,11 +121,11 @@ const DemosPage  = () => {
                         mb: 2
                     }}
                     >
-               Elena Marai y Jose Carlos
+               Selene y Juan Carlos
                     </Typography>
                     <Button
                     variant="contained"
-                    href={"/demos/1"}
+                    href={"/demos/2"}
                     sx={{
                         backgroundColor: '#a41423',
                         color: '#fff',
@@ -145,12 +145,13 @@ const DemosPage  = () => {
           </Grid>         
            <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}} >
             <Card
+                 elevation={0}
                 sx={{
                     maxWidth: 250,
                     textAlign: 'center',
                     backgroundColor: '#f2eadd',
                     borderRadius: 4,
-                    boxShadow: 3,
+  
                     overflow: 'visible'
                 }}
                 >
@@ -162,7 +163,7 @@ const DemosPage  = () => {
                     width: '100%',
                     borderRadius: '16px',
                     mt: -6,
-                    boxShadow: 3
+                    
                     }}
                 />
                 <CardContent>

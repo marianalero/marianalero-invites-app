@@ -127,7 +127,8 @@ const RSVPDemo  = (props:RSVPType) => {
     return ( 
         <>
          { props.bgImage !== undefined ? (     
-          <div style={{backgroundImage:`url('${props.bgImage}')`}} className='cover-container'>
+          <div style={{backgroundImage:`url('${props.bgImage}')`}}>
+     
             {RenderForm()}
           </div>
         ) :

@@ -19,21 +19,34 @@ const EventCardImage  = (props:EventCardProps) => {
                         elevation={0} 
                         sx={{ 
                             border:"1px solid rgb(215, 174, 84, .2)",
-                            boxShadow:"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
+                            boxShadow:2
                         }}>	
                           <CardMedia
-                            sx={{ height: 450 }}
+                            sx={{ height: 350 }}
                             image={props.image}
                             />	
                         <CardContent>
-                            <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={2} bgcolor={props.bgColor}>	
+                            <Grid container spacing={2} display={"flex"}  alignItems={"center"} padding={2} bgcolor={props.bgColor}>	
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  >
                                     <Typography variant='h3'  style={{color:props.color}} textAlign={"center"} className={props.mainTypo} >{props.eventName}</Typography>
                                 </Grid>		
-                                <Grid size={{xs:12,sm:5,md:5,lg:5}} display="column" justifyItems="center"  alignItems={"center"}>
-                                 <FontAwesomeIcon fontSize={"24px"} color={props.color} icon={faCalendarRegular} />
-                                    <Typography variant='h6'  style={{color:props.color}} textAlign={"center"} className={props.bodyTypo} >{dayjs(props.date).format("dddd D MMMM YYYY").toLocaleUpperCase()}</Typography>
-                                </Grid>
+                                { isSmallScreen ? 
+                                (
+                                    <Grid size={{xs:12,sm:5,md:5,lg:5}} display="flex"  justifyContent={"center"} alignItems={"center"}>
+                                    <FontAwesomeIcon fontSize={"24px"} color={props.color} icon={faCalendarRegular} />
+                                        <Typography marginLeft={2} variant='body1'  style={{color:props.color}} textAlign={"center"} className={props.bodyTypo} >{dayjs(props.date).format("dddd D MMMM YYYY").toLocaleUpperCase()}</Typography>
+                                    </Grid>
+                                )
+                                :
+                                (
+                                    <Grid size={{xs:12,sm:5,md:5,lg:5}} display="column" justifyItems="center"  alignItems={"center"}>
+                                    <FontAwesomeIcon fontSize={"24px"} color={props.color} icon={faCalendarRegular} />
+                                        <Typography variant='body1' style={{color:props.color}} textAlign={"center"} className={props.bodyTypo} >{dayjs(props.date).format("dddd D MMMM YYYY").toLocaleUpperCase()}</Typography>
+                                    </Grid>
+                                )
+
+                                }
+                                
                                 <Grid size={{xs:12,sm:2,md:2,lg:2}} display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                     <Paper sx={{
                                         borderRadius:"50%",
@@ -49,15 +62,28 @@ const EventCardImage  = (props:EventCardProps) => {
                                     </Paper>
                                  
                                 </Grid>
-                                 <Grid size={{xs:12,sm:5,md:5,lg:5}} display="column" justifyItems="center"  alignItems={"center"}>
+                                { isSmallScreen ? 
+                                (
+                                <Grid size={{xs:12,sm:5,md:5,lg:5}} display="flex" justifyContent={"center"}  alignItems={"center"}>
                                     <AccessTimeIcon style={{color:props.color}} ></AccessTimeIcon> 
-                                    <Typography  variant='h6' style={{color:props.color}}  textAlign={"center"} className={props.bodyTypo}>  {dayjs(props.date).format("hh:mm A")}</Typography>
+                                    <Typography marginLeft={2} variant='body1' style={{color:props.color}}  textAlign={"center"} className={props.bodyTypo}>  {dayjs(props.date).format("hh:mm A")}</Typography>
+                                </Grid>
+                                )
+                                :
+                                (
+                                      <Grid size={{xs:12,sm:5,md:5,lg:5}} display="column" justifyItems="center"  alignItems={"center"}>
+                                    <AccessTimeIcon style={{color:props.color}} ></AccessTimeIcon> 
+                                    <Typography  variant='body1' style={{color:props.color}}  textAlign={"center"} className={props.bodyTypo}>  {dayjs(props.date).format("hh:mm A")}</Typography>
+                                </Grid>
+                                )
+
+                                }
+                             
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                                    <Typography  variant='body1'  textAlign={"center"} className={props.bodyTypo} fontWeight={700}><b>{props.locationName}</b></Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography  variant='h6' textAlign={"center"} className={props.bodyTypo} fontWeight={700}><b>{props.locationName}</b></Typography>
-                                </Grid>
-                                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography  textAlign={"center"} className={props.bodyTypo} >{props.address}</Typography>
+                                    <Typography   variant='body1' textAlign={"center"} className={props.bodyTypo} >{props.address}</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                                 </Grid>

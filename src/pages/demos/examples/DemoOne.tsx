@@ -18,7 +18,6 @@ import { useSearchParams } from "react-router-dom";
 import { useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import Gallery from "../../../components/Gallery/Gallert";
-// import RSVPForm from "../../../components/RSVP/RSVPForm";
 import RSVP from "../../../components/RSVP/RSVP";
 import RSVPForm from "../../../components/RSVP/RSVPForm";
 const DemoOne  = () => {
@@ -211,7 +210,7 @@ const DemoOne  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
             <GiftList {...giftListData} ></GiftList>
-            <RSVPForm 
+            {/* <RSVPForm 
                 colorButton={COLOR_PRIMARY} 
                 bgColor="rgb(215,174,84,.05)" 
                 mainTypo={MAIN_TYPO} 
@@ -223,8 +222,8 @@ const DemoOne  = () => {
                 invitationId={INVITATION_ID}
             >
                 
-            </RSVPForm>
-            {/* <RSVP 
+            </RSVPForm> */}
+            <RSVP 
                 colorButton={COLOR_PRIMARY} 
                 bgColor="rgb(215,174,84,.05)" 
                 mainTypo={MAIN_TYPO} 
@@ -235,7 +234,7 @@ const DemoOne  = () => {
                 guestId={guestId}
                 invitationId={INVITATION_ID}
             >
-            </RSVP> */}
+            </RSVP>
             <DressCode {...dresscode}></DressCode>
             <Fade direction="up" >
             <Adornment image={"https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"} width={"250px"} />

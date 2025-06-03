@@ -37,13 +37,21 @@ const GiftList = (props:GiftListProps) =>{
             (
                 
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                        <Paper elevation={0} sx={{display:"column",justifyContent:"center"}}>
-                        <img width="175px" src={props.items[0].icon}/>	
-                        <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`}>
-                            Clic <a style={{color:props.color}} href={props.items[0].link}>aquí</a> para ir a
-                            nuestra mesa de regalos
+                        <Paper elevation={0} >
+                            <Grid container>
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
+                                    <img width="175px" src={props.items[0].icon}/>	    
+                                </Grid>
+                            
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                                <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`}>
+                                    Clic <a style={{color:props.color}} href={props.items[0].link}>aquí</a> para ir a
+                                    nuestra mesa de regalos
                                 
-                        </Typography>
+                                </Typography>
+                            </Grid>
+                       </Grid>
+                      
                         </Paper>
                     </Grid>
 
@@ -86,14 +94,24 @@ const GiftList = (props:GiftListProps) =>{
                         <div style={{display:"block", justifyItems:"center"}}>
                          { props.bankIconStart &&
                         (
-                            <img height="60px" src={props.bankIconEnd}/>	
+                           
+                             <Grid container>
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
+                                    <img height="60px" src={props.bankIconEnd}/>	
+                                </Grid>
+                            </Grid>
                         )}
                       
                         <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`} >{props.envelopePhrase}</Typography>
                         
                         { props.bankIconEnd &&
                         (
-                            <img height="60px" src={props.bankIconEnd}/>	
+                             <Grid container>
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
+                                    <img height="60px" src={props.bankIconEnd}/>	
+                                </Grid>
+                            </Grid>
+                           
                         )}
                           </div>
                         </Fade>

@@ -6,8 +6,6 @@ import FooterInvites from "../../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../../components/Gifts/GiftList";
 import Introduction from "../../../components/Introduction/Introduction";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../../components/TimeLine/Timeline";
-// import { PairSponsors } from "../../../components/WeddingSponsor/models/Sponsors";
-// import WeddingSponsor from "../../../components/WeddingSponsor/WeddingSponsor";
 import Grid from '@mui/material/Grid2';
 import WithoutKids, { WithoutKidsProps } from "../../../components/WithOutKids/WithoutKids";
 import { useSearchParams } from "react-router-dom";
@@ -26,12 +24,6 @@ const DemoOne  = () => {
     const COLOR_TREE ="#777777";
     const MAIN_TYPO = "great-vibes-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
-    // const sponsors:PairSponsors[] = [
-    //         {
-    //             sponsorOne: { name: "Mariana Lerma Rodriguez" },
-    //             sponsorTwo: { name: "Hector Rodriguez Flores" },
-    //         },
-    //     ];
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Iglesia",
@@ -58,7 +50,8 @@ const DemoOne  = () => {
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/angKKs6d62iJRnSG6",
-                colorButton: COLOR_SECONDARY
+                colorButton: COLOR_SECONDARY,
+                bgColor:"#f2f1e9"
             },
     ];
     const timelineData: CustomizedTimelineProps = {
@@ -156,17 +149,6 @@ const DemoOne  = () => {
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} >  
             </CountDown>
-           
-            {/* <WeddingSponsor 
-                sponsors={sponsors}
-                mainTypo={MAIN_TYPO}
-                bodyTypo={BODY_TYPO}
-                height="50vh"
-                color={COLOR_PRIMARY}
-                addorment="https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"
-            >
-            </WeddingSponsor> */}
-
             <Grid container spacing={2} padding={4} >
             {
                 eventCards.map((item,index) => (          
