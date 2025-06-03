@@ -11,10 +11,11 @@ const packages = [
       'Información del evento (fecha, lugar, horario)',
       'Link de ubicación (Google Maps)',
       'Confirmación por WhatsApp',
-      'Canción favorita'
+      // 'Canción favorita'
     ],
     badge: 'Ideal para comenzar',
-    color: 'success'
+    color: 'success',
+    price: '$500 MX'
   },
   {
     name: 'Memorias',
@@ -31,7 +32,8 @@ const packages = [
       'Confirmación por WhatsApp'
     ],
     badge: 'Más vendido',
-    color: 'warning'
+    color: 'warning',
+    price: '$850 MX'
   },
   {
     name: 'Celebra+',
@@ -41,7 +43,8 @@ const packages = [
       'Sistema web de confirmaciones'
     ],
     badge: 'Recomendado',
-    color: 'info'
+    color: 'info',
+    price: '$1,100 MX'
   },
   {
     name: 'Código QR',
@@ -51,7 +54,8 @@ const packages = [
       'Código QR personalizado'
     ],
     badge: 'Completo',
-    color: 'secondary'
+    color: 'secondary',
+    price: '$1,300 MX'
   }
 ];
 
@@ -104,6 +108,8 @@ const Packages = () => {
                     </li>
                   ))}
                 </ul>
+                  <Divider sx={{ mb: 2 }} />
+                  <Typography variant="h6" color="text.primary" mb={2}>{pkg.price}</Typography>
                 <Button fullWidth variant="contained" color="primary" sx={{ mt: 2 }}>
                   Ver Modelo
                 </Button>
