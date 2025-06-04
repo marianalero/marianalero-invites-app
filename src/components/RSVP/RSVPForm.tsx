@@ -7,7 +7,7 @@ import { RSVPType } from './RSVPType';
 import { Fade } from 'react-awesome-reveal';
 import { Confirm, CreateAndConfirm, getGuestById } from '../../services/guestApiClient';
 import { Guest } from '../../models/guest';
-import { CreateGuestParameters } from '../../models/createGuestParameters';
+import { CreateGuestParameters } from '../../models/parameters/createGuestParameters';
 import ConfirmQR from './ConfirmQR';
 
 const RSVPForm  = (props:RSVPType) => {

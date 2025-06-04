@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material";
+import type {} from '@mui/x-data-grid/themeAugmentation';
 import * as locales from "@mui/material/locale";
 
 const COLORTHEME = createTheme({
@@ -32,6 +33,14 @@ const COLORTHEME = createTheme({
     background: {
       default: "#f2eadd",
       paper: "#FFFFFF",
+    },
+    DataGrid: {
+      // Container background
+      bg: '#ffffff',
+      // Pinned rows and columns background
+      pinnedBg: '#f1f5f9',
+      // Column header background
+      headerBg: '#ffffff',
     },
   },
 });
@@ -550,9 +559,58 @@ const THEME = createTheme({
         },
       },
     },
-
+    MuiDataGrid: {
+      styleOverrides: {
+        root:
+        {
+          backgroundColor:"white",
+          fontSize: "16px",
+          "& .MuiDataGrid-row": {
+            maxHeight: "48px!important",
+            minHeight: "48px!important",
+            "&:hover": {
+              backgroundColor: "white",
+            },
+          },
+          "& .MuiDataGrid-row.Mui-selected": {
+            backgroundColor: "white",
+            "&:hover": {
+              backgroundColor: "white",
+            },
+          },
+          "& .MuiDataGrid-columnHeaderTitle": {
+            fontWeight: 700,
+          },
+          "& .MuiDataGrid-columnHeader": {
+            "&:focus": {
+              outline: 0,
+            },
+            cursor: "auto",
+            fontSize: "14px",
+            
+          },
+          "& .MuiDataGrid-cell": {
+            "&:focus": {
+              outline: 0,
+            },
+            "&:focus-within": {
+              outline: 0,
+            },
+          },
+          "& .MuiDataGrid-columnSeparator": {
+            color: COLORTHEME.palette.primary,
+          },
+          // "& .MuiDataGrid-virtualScrollerContent":
+          // {
+          //   height: "100%!important",
+          // },
+        },
+      },
+    },
 
   },
+  
+  
 }, locales.esES);
 
 export default THEME;

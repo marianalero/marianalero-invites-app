@@ -1,8 +1,9 @@
 import { AxiosInstance } from "axios";
-import createApiClient from "./api";
+
 import { Guest } from "../models/guest";
-import { CreateGuestParameters } from "../models/createGuestParameters";
-import { ConfirmGuestParameters } from "../models/ConfirmGuestParameters";
+import { CreateGuestParameters } from "../models/parameters/createGuestParameters";
+import { ConfirmGuestParameters } from "../models/parameters/ConfirmGuestParameters";
+import { createApiClient } from "./api";
 const apiClient: AxiosInstance = createApiClient();
 
 async function getGuestById(id: number): Promise<Guest> {

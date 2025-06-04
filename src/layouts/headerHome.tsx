@@ -18,8 +18,13 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import logo from './../assets/logos/logo header.svg';
+import { useAuth } from '../context/authContext';
+import { isAuthenticated } from '../services/authService';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { logout } = useAuth();
 
   const menuItems = [
     { label: 'Modelos', href: '/demos', icon: <AppsRoundedIcon sx={{ color: '#a41423' }} /> },
@@ -80,6 +85,16 @@ const Header = () => {
             >
               Empieza tu invitacion
             </Button>
+            { isAuthenticated() && (
+               <IconButton
+                onClick={() => logout()}
+                >
+                <LogoutRoundedIcon color='secondary' />
+              </IconButton>
+            )
+
+            }
+            
           </Box>
 
           {/* Menú hamburguesa */}
@@ -136,6 +151,20 @@ const Header = () => {
             </ListItemIcon>
             <ListItemText
               primary="Crear mi invitación"
+              sx={{
+                fontWeight: 'bold',
+                color: '#a41423',
+              }}
+            />
+          </ListItem>
+            <ListItem
+            onClick={() => logout()}
+          >
+            <ListItemIcon>
+              <AddRoundedIcon sx={{ color: '#a41423' }} />
+            </ListItemIcon>
+            <ListItemText
+              primary="Cerrar sesion"
               sx={{
                 fontWeight: 'bold',
                 color: '#a41423',

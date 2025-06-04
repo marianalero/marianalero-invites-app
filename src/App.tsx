@@ -1,21 +1,33 @@
 import './App.css'
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import routes from './constants/routes';
-
+import { ProtectedRoute } from './constants/protectedRoutes';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 function App() {
   return (
     <>
-     <Router >
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
           <Routes>
-          {routes.map((route, index) => (
-              <Route key={index} path={route.path} element={route.element} />
-          ))}
-          </Routes>
-      </Router>
+         {routes.map((route, index) => {
+            console.log('Rendering route:', route.path, 'Protected:', route.protected);
+          const element = route.protected ? (
+            <ProtectedRoute adminOnly={route.adminOnly}>
+              {route.element}
+            </ProtectedRoute>
+          ) : (
+            route.element
+          );
+
+
+          return <Route key={index} path={route.path} element={element} />;
+        })}
+        </Routes>
        <div className="App h-100">
        
      </div>
+     </LocalizationProvider>
     </>
   )
 }

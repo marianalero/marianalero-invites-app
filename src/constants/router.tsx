@@ -1,14 +1,25 @@
 
   import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import routes from "./routes";
+import { ProtectedRoute } from "./protectedRoutes";
   
 const router: React.FC = () => {
 return (
     <Router >
      <Routes>
-        {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={route.element} />
-        ))}
+         {routes.map((route, index) => {
+            console.log('Rendering route:', route.path, 'Protected:', route.protected);
+          const element = route.protected ? (
+            <ProtectedRoute adminOnly={route.adminOnly}>
+              {route.element}
+            </ProtectedRoute>
+          ) : (
+            route.element
+          );
+
+
+          return <Route key={index} path={route.path} element={element} />;
+        })}
         </Routes>
     </Router>
   );
