@@ -166,7 +166,7 @@ const DemoOne  = () => {
             title="Boda Elena Marai & Jose Carlos"
             description=""
             image="https://marianalero.github.io/Invitacion/images/og-elena.JPG"
-            url={APP_URl}
+            url={`${APP_URl}/demos/1`}
             />
             <Cover 
                 weddingDate="21.10.22"
