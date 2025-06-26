@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Boda Elena Marai & Jose Carlos</title>
+    <meta name="description" content="Invitación" />
+    <meta property="og:title" content="Boda Elena Marai & Jose Carlos" />
+    <meta property="og:description" content="Invitación" />
+    <meta property="og:image" content="https://marianalero.github.io/Invitacion/images/og-elena.jpg" />
+    <meta property="og:url" content="https://marianalero-invites-app.vercel.app/demos/1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      var params = {};
+	    location.search.slice(1).split("&").forEach(function(pair) {
+		pair = pair.split("=");
+		params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);});
+        window.location.href = "https://marianalero-invites-app.vercel.app/demos/1?number="+params.id;
+    </script>
+  </body>
+</html>
