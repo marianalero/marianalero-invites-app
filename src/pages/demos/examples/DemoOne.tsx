@@ -164,8 +164,8 @@ const DemoOne  = () => {
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto"}}>
             <Seo
             title="Boda Elena Marai & Jose Carlos"
-            description=""
-            image="https://marianalero.github.io/Invitacion/images/og-elena.JPG"
+            description="Invitación"
+            image="https://marianalero.github.io/Invitacion/images/og-elena.jpg"
             url={`${APP_URl}/demos/1`}
             />
             <Cover 
