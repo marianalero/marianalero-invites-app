@@ -1,10 +1,10 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
 export interface StatsCardsProps {
-  totalAssigned: number;
-  totalConfirmed: number;
-  totalNotConfirmed: number;
-  totalWithoutResponse: number;
+  totalAssigned?: number;
+  totalConfirmed?: number;
+  totalNotConfirmed?: number;
+  totalWithoutResponse?: number;
 }
 
 const StatsCards: React.FC<StatsCardsProps> = ({
