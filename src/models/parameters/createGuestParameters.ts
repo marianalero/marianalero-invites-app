@@ -1,6 +1,6 @@
 export interface CreateGuestParameters {
   fullName: string;
-  isConfirmed: boolean;
+  rsvpStatus: number;
   phoneNumber?: string;
   totalConfirmed: number;
   totalAssigned: number;

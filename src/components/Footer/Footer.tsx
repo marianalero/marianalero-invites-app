@@ -21,7 +21,7 @@ const Footer = () => {
     <div>
   {/* Redes sociales */}
       <Stack direction="row" spacing={2} justifyContent="center" mb={1}>
-        <IconButton href="https://instagram.com/lerostudio" target="_blank" sx={{ color: '#a41423' }}>
+        <IconButton href="https://www.instagram.com/marianalero.invitaciones/" target="_blank" sx={{ color: '#a41423' }}>
           <InstagramIcon />
         </IconButton>
         <IconButton href="https://facebook.com/lerostudio" target="_blank" sx={{ color: '#a41423' }}>

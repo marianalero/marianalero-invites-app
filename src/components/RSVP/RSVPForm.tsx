@@ -14,7 +14,7 @@ const RSVPForm  = (props:RSVPType) => {
     const [guest, setGuest] = useState<Guest>({
     id: 0,
     fullName: '',
-    isConfirmed: false,
+    rsvpStatus: 1,
     phoneNumber: '',
     totalConfirmed: 1,
     totalAssigned: 1,
@@ -24,12 +24,14 @@ const RSVPForm  = (props:RSVPType) => {
     });
     useEffect(() => {
     const fetchGuest = async () => {
-        console.log(props)
+
         if( props.guestId && props.guestId > 0 ){
-              console.log("condicion")
+           
             const response = await getGuestById(props.guestId);
             setGuest(response);
-            
+            updateGuest({
+                totalConfirmed:1
+            })
         }
         else
         {
@@ -55,13 +57,13 @@ const RSVPForm  = (props:RSVPType) => {
         setRadioValue(value);
     };
     const handleSend =async ()=> {
-         console.log("send")
+
           try {
         if (!guest || !guest.id) {
     
         const createParam: CreateGuestParameters ={
             fullName: guest.fullName,
-            isConfirmed: radioValue == "yes",
+            rsvpStatus: radioValue == "yes"? 2 : 3,
             totalConfirmed: guest.totalConfirmed,
             totalAssigned: guest.totalAssigned,
             invitationId: props.invitationId,
@@ -74,7 +76,7 @@ const RSVPForm  = (props:RSVPType) => {
             const updated = await Confirm({
                 guestId: guest.id,
                 totalConfirmed: guest.totalConfirmed,
-                isConfirmed: radioValue == "yes",
+                rsvpStatus: radioValue == "yes"? 2 : 3,
                 totalAssigned: guest.totalAssigned,
             });
             setGuest(updated);
@@ -101,7 +103,7 @@ const RSVPForm  = (props:RSVPType) => {
                 )
                 }
            
-                <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Hemos reservado {(props.count && props.count === 1) ? '1 lugar': `${props.count} lugares`} para ti. </Typography>
+                <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Hemos reservado {(guest.totalAssigned && guest.totalAssigned === 1) ? '1 lugar': `${guest.totalAssigned} lugares`} para ti. </Typography>
                      <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography>
                 </Fade>
             </Grid>
@@ -273,7 +275,7 @@ const RSVPForm  = (props:RSVPType) => {
          { props.bgImage !== undefined ? (     
           <div style={{backgroundImage:`url('${props.bgImage}')`}} className='cover-container'>
             {
-                guest && !guest.isConfirmed ? (
+                guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 2) ? (
                       RenderForm()
                 ):(
                     <ConfirmQR guest={guest}></ConfirmQR>
@@ -282,7 +284,7 @@ const RSVPForm  = (props:RSVPType) => {
           </div>
         ) :
         (
-            guest && !guest.isConfirmed ? (
+            guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 2 )? (
                       RenderForm()
                 ):(
                       <ConfirmQR guest={guest} mainTypo={props.mainTypo} bodyTypo={props.bodyTypo} colorPrimary={props.color} bgColor={props.bgColor}></ConfirmQR>

@@ -9,7 +9,6 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Toolbar,
   Typography,
@@ -18,7 +17,7 @@ import {
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import LogoutIcon from '@mui/icons-material/Logout';
+
 
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
@@ -31,7 +30,9 @@ interface ResponsiveLayoutProps {
 }
 
 const routeTitles: Record<string, string> = {
-  '/panel': 'Panel de Usuario',
+  '/guests': 'Lista de invitados',
+  '/panel': 'Panel de Confirmaciones',
+ 
   '/admin': 'Administración de Usuarios',
   '/invitations': 'Invitaciones',
 };
@@ -55,7 +56,7 @@ const filteredMenu:MenuItem[] = user
   const drawer = (
     <div>
       <Toolbar>
-        <Typography variant="h6">Mariana Lero</Typography>
+        <img src='/logo.svg'/>
       </Toolbar>
       <Divider />
       <List>
@@ -66,9 +67,6 @@ const filteredMenu:MenuItem[] = user
             </ListItem>
         ))}
         <ListItem  onClick={logout}>
-          <ListItemIcon>
-            <LogoutIcon />
-          </ListItemIcon>
           <ListItemText primary="Cerrar sesión" />
         </ListItem>
       </List>
@@ -81,8 +79,10 @@ const filteredMenu:MenuItem[] = user
 
       {/* AppBar */}
       <AppBar
+      elevation={1}
         position="fixed"
         sx={{
+          backgroundColor:"white!important",
           width: { md: `calc(100% - ${drawerWidth}px)` },
           ml: { md: `${drawerWidth}px` },
         }}
@@ -91,7 +91,7 @@ const filteredMenu:MenuItem[] = user
           <Box display="flex" alignItems="center">
             {isMobile && (
               <IconButton
-                color="inherit"
+                color="primary"
                 edge="start"
                 onClick={handleDrawerToggle}
                 sx={{ mr: 2 }}
@@ -99,12 +99,12 @@ const filteredMenu:MenuItem[] = user
                 <MenuIcon />
               </IconButton>
             )}
-            <Typography variant="h6" noWrap>
+            <Typography variant="h6" noWrap color='primary' fontWeight={500}>
               {title}
             </Typography>
           </Box>
           {user && (
-            <Typography variant="subtitle1">
+            <Typography variant="subtitle1" color='primary' fontWeight={500}>
               Bienvenido, {user.name}
             </Typography>
           )}
@@ -124,6 +124,7 @@ const filteredMenu:MenuItem[] = user
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
           sx={{
+            backgroundColor:"white!important",
             display: { xs: 'block', md: 'none' },
             '& .MuiDrawer-paper': { width: drawerWidth },
           }}
@@ -148,6 +149,7 @@ const filteredMenu:MenuItem[] = user
       <Box
         component="main"
         sx={{
+          backgroundColor:"#f1e9dd",
           flexGrow: 1,
           p: 3,
           width: { md: `calc(100% - ${drawerWidth}px)` },

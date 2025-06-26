@@ -18,8 +18,11 @@ import { useSearchParams } from "react-router-dom";
 import { useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import Gallery from "../../../components/Gallery/Gallert";
-import RSVP from "../../../components/RSVP/RSVP";
+// import RSVPDemo from "../../../components/RSVP/RSVPDemo";
 // import RSVPForm from "../../../components/RSVP/RSVPForm";
+import Seo from "../../../components/Seo/Seo";
+import RSVPDemo from "../../../components/RSVP/RSVPDemo";
+import { APP_URl } from "../../../config";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number = useMemo(() => {
@@ -36,8 +39,8 @@ const DemoOne  = () => {
     const BODY_TYPO = "montserrat-400";
     const sponsors:PairSponsors[] = [
             {
-                sponsorOne: { name: "Mariana Lerma" },
-                sponsorTwo: { name: "Hector Rodriguez" },
+                sponsorOne: { name: "Mayra Alvarez" },
+                sponsorTwo: { name: "Juan Madrid Gil" },
             },
         ];
         const eventCards: EventCardProps[] = [
@@ -159,6 +162,12 @@ const DemoOne  = () => {
     ]
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto"}}>
+            <Seo
+            title="Boda Elena Marai & Jose Carlos"
+            description=""
+            image="https://marianalero.github.io/Invitacion/images/og-elena.JPG"
+            url={APP_URl}
+            />
             <Cover 
                 weddingDate="21.10.22"
                 bgImage="https://marianalero.github.io/Invitacion/images/DSC_9636.JPG" 
@@ -223,7 +232,7 @@ const DemoOne  = () => {
             >
                 
             </RSVPForm> */}
-            <RSVP 
+            <RSVPDemo 
                 colorButton={COLOR_PRIMARY} 
                 bgColor="rgb(215,174,84,.05)" 
                 mainTypo={MAIN_TYPO} 
@@ -234,7 +243,7 @@ const DemoOne  = () => {
                 guestId={guestId}
                 invitationId={INVITATION_ID}
             >
-            </RSVP>
+            </RSVPDemo>
             <DressCode {...dresscode}></DressCode>
             <Fade direction="up" >
             <Adornment image={"https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"} width={"250px"} />

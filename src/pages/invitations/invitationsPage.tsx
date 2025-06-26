@@ -1,7 +1,8 @@
 
 import Grid from '@mui/material/Grid2';
 import ResponsiveLayout from "../../layouts/headerPanel";
-import InvitationsList from '../../components/Invitation/InvitationsList';
+import InvitationsList from '../../components/panel/Invitation/InvitationsList';
+
 const InvitationsPage = () => {
  
 return (

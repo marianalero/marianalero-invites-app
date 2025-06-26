@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
-import API_URl from '../config';
+import { API_URl } from '../config';
+
 
  function createApiClient(){
     const api:AxiosInstance = axios.create({

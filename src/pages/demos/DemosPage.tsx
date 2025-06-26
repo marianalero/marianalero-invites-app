@@ -60,7 +60,7 @@ const DemosPage  = () => {
                     </Typography>
                     <Button
                     variant="contained"
-                    href={"/demos/1"}
+                    href={"/demos/1?number=2"}
                     sx={{
                         backgroundColor: '#a41423',
                         color: '#fff',
@@ -125,7 +125,7 @@ const DemosPage  = () => {
                     </Typography>
                     <Button
                     variant="contained"
-                    href={"/demos/2"}
+                    href={"/demos/2?number=2"}
                     sx={{
                         backgroundColor: '#a41423',
                         color: '#fff',
@@ -190,7 +190,7 @@ const DemosPage  = () => {
                     </Typography>
                     <Button
                     variant="contained"
-                    href={"/demos/2"}
+                    href={"/demos/3?number=2"}
                     sx={{
                         backgroundColor: '#a41423',
                         color: '#fff',

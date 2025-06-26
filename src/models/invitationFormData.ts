@@ -1,4 +1,4 @@
-export interface CreateInvitationParameters {
+export interface InvitationFormData {
   eventDate: Date;
   deadlineDate: Date;
   userId: number;

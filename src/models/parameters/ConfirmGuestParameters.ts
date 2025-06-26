@@ -1,6 +1,6 @@
 export interface ConfirmGuestParameters {
   guestId: number;
-  isConfirmed: boolean;
+  rsvpStatus: number;
   totalConfirmed: number;
   totalAssigned: number;
 }

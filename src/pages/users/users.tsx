@@ -1,6 +1,6 @@
 
 import Grid from '@mui/material/Grid2';
-import UserTable from "../../components/User/UserLists";
+import UserTable from "../../components/panel/User/UserLists";
 import ResponsiveLayout from "../../layouts/headerPanel";
 const AdminPage = () => {
  

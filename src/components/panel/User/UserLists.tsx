@@ -1,23 +1,24 @@
 import { IconButton, Button, Box,
   Snackbar,
   Alert,
-  Tooltip
+  Tooltip,
+  TextField
 } from '@mui/material';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useMemo, useState } from 'react';
 import CreateUserDialog from './Dialog/CreateUserDialog';
-import { getUsers } from '../../services/userService';
-import { User } from '../../models/user';
+import { deleteUser, getUsers } from '../../../services/userService';
+import { User } from '../../../models/user';
 import { GridColDef } from '@mui/x-data-grid';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import DataGridCustom from '../DataGridCustom/DataGridCustom';
+import DataGridCustom from '../../DataGridCustom/DataGridCustom';
 import { Add } from '@mui/icons-material';
 export default function UserTable() {
   const [users, setUsers] = useState<User[]>([]);
+  const [editId, setEditId] = useState<number | null>(null);
   const [openCreate, setOpenCreate] = useState(false);
   const [showSnackbar, setShowSnackbar] = useState(false)
-  // const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
 
     const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', flex: 1 },
@@ -56,11 +57,11 @@ export default function UserTable() {
   }, []);
 
   const handleEdit = (id: number) => {
-    console.log('Editar usuario', id);
-    // Abrir modal, navegar, etc.
+    setEditId(id);
+    setOpenCreate(true);
   };
   const handleDelete = async (id: number) => {
-    await axios.delete(`/api/users/${id}`);
+    await deleteUser(id);
     fetchUsers();
   };
 
@@ -71,9 +72,22 @@ export default function UserTable() {
     setShowSnackbar(true);
   };
 
+   const filteredRows = useMemo(() => {
+    return users.filter(row =>
+      row.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [search, users]);
   return (
     <Box>
-      <Box display="flex" justifyContent="end" mb={2}>
+      <Box display="flex" justifyContent="space-between" mb={2}>
+        <TextField
+          size="small"
+          variant="outlined"
+          label="Buscar por nombre"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          sx={{width:"50%"}}
+        />
         <Button
           variant="contained"
           startIcon={<Add />}
@@ -83,10 +97,10 @@ export default function UserTable() {
         </Button>
       </Box>
 
-       <DataGridCustom rows={users} columns={columns} />
+       <DataGridCustom rows={filteredRows} columns={columns} />
 
     {openCreate && (
-        <CreateUserDialog open={openCreate} onClose={() => setOpenCreate(false)} onUserCreated={handleUserCreated} ></CreateUserDialog>
+        <CreateUserDialog open={openCreate} onClose={() => setOpenCreate(false)} onUserCreated={handleUserCreated} id={editId}></CreateUserDialog>
     )}
         <Snackbar
         open={showSnackbar}
@@ -95,7 +109,7 @@ export default function UserTable() {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       >
         <Alert onClose={() => setShowSnackbar(false)} severity="success" variant="filled">
-          Usuario creado exitosamente
+          Invitado creado exitosamente
         </Alert>
       </Snackbar>
     </Box>

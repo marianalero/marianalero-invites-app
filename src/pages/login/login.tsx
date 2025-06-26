@@ -24,11 +24,10 @@ const LoginPage = () => {
       if (role === "admin") {
         navigate("/admin");
       } else {
-        navigate("/panel");
+        navigate("/guests");
       }
 
     } catch (err) {
-      console.error(err);
       setError("Email o contraseña incorrectos");
     }
   };

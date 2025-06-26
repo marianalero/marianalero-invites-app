@@ -1,5 +1,6 @@
 export interface CreateUserParameters {
   name: string;
   email:string;
-password:string;
+  password?:string;
+  id?:number;
 }

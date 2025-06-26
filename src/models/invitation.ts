@@ -14,4 +14,6 @@ export interface Invitation {
   qrActive?: boolean;
   user: User;
   guests: Guest[];
+  link:string;
+  statusId:number;
 }

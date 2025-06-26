@@ -42,9 +42,14 @@ const TermsConditions = () => {
         <strong>8. Modificaciones:</strong> Mariana Lero Invitaciones puede modificar estos Términos y Condiciones en cualquier momento. Las modificaciones serán efectivas una vez publicadas en este sitio.
       </Typography>
       <Typography variant="body1">
-        <strong>9. Contacto:</strong> Para cualquier duda, puedes escribirnos a marianalero.invitaciones@gmail.com
+        <strong>9. Uso del código QR:</strong> El servicio de invitaciones digitales puede incluir un código QR para facilitar el registro de asistencia. Es importante tener en cuenta que el funcionamiento correcto del QR depende de que el dispositivo del usuario cuente con conexión a internet al momento de escanearlo. Mariana Lero Invitaciones no se hace responsable por fallas en el acceso causadas por falta de conexión o problemas de red en el dispositivo del invitado.
         .
       </Typography>
+      <Typography variant="body1">
+        <strong>10. Contacto:</strong> Para cualquier duda, puedes escribirnos a marianalero.invitaciones@gmail.com
+        .
+      </Typography>
+     
     </Box>
     </Container>
     <Footer />

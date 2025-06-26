@@ -26,9 +26,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const token = localStorage.getItem("token");
     const name = localStorage.getItem("name");
     const role = localStorage.getItem("role");
-    console.log(localStorage)
+
     if (token && name && role) {
-       console.log("set user")
+    
       setUser({ name, token, role });
     }
       setLoading(false);

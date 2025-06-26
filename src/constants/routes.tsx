@@ -5,6 +5,7 @@ import DemoOne from "../pages/demos/examples/DemoOne";
 import DemoTree from "../pages/demos/examples/DemoTree";
 import DemoTwo from "../pages/demos/examples/DemoTwo";
 import FaqPage from "../pages/faq/faq";
+import RegisterGuestPage from "../pages/guests/guests";
 import HomePage from "../pages/home/HomePage";
 import InvitationsPage from "../pages/invitations/invitationsPage";
 import LoginPage from "../pages/login/login";
@@ -30,6 +31,7 @@ const routes: RouteConfig[] = [
     {path:'/faq', element: <FaqPage></FaqPage>},
      {path:'/login', element: <LoginPage></LoginPage>},
   { path: '/panel', element: <Dashboard />, protected: true },
+  { path: '/guests', element: <RegisterGuestPage />, protected: true },
   { path: '/admin', element: <AdminPage />, protected: true, adminOnly: true },
   { path: '/invitations', element: <InvitationsPage />, protected: true, adminOnly: true }
   

@@ -8,11 +8,17 @@ export interface MenuItem {
 }
 
 export const menuItems: MenuItem[] = [
+   {
+    label: 'Lita de Invitados',
+    path: '/guests',
+    roles: ['admin', 'cliente']
+  },
   {
-    label: 'Panel',
+    label: 'Panel de Confirmaciones',
     path: '/panel',
     roles: ['admin', 'cliente']
   },
+ 
   {
     label: 'Usuarios',
     path: '/admin',

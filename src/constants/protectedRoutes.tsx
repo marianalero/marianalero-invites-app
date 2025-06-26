@@ -11,7 +11,7 @@ interface ProtectedRouteProps {
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, adminOnly = false }) => {
   const { user, isAuthenticated,loading  } = useAuth();
 
-   console.log('ProtectedRoute', { user, isAuthenticated });
+
   if (loading) {
     return <div>Cargando sesión...</div>; // Spinner de MUI si deseas
   }

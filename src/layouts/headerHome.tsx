@@ -9,8 +9,7 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
-  Button,
+  ListItemText
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
@@ -68,7 +67,7 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <Button
+            {/* <Button
              href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
               variant="contained"
               sx={{
@@ -84,12 +83,24 @@ const Header = () => {
               }}
             >
               Empieza tu invitacion
-            </Button>
+            </Button> */}
+             { isAuthenticated() && (
+               <Link
+                key="guests"
+                href="/guests"
+                underline="hover"
+                color="#fff"
+                sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+              >
+                Ir al Panel
+              </Link>
+            )
+          }
             { isAuthenticated() && (
-               <IconButton
+               <IconButton 
                 onClick={() => logout()}
                 >
-                <LogoutRoundedIcon color='secondary' />
+                <LogoutRoundedIcon sx={{color: '#f2eadd'}} />
               </IconButton>
             )
 

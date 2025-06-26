@@ -12,8 +12,27 @@ async function getUsers(): Promise<User[]> {
   return response.data;
 }
 
+async function getUserById(id:number): Promise<User> {
+  const response = await apiClient.get<User>(
+    `User/users/${id}`,
+  );
+  return response.data;
+}
 async function CreateUser(body: CreateUserParameters): Promise<User> {
   const response = await apiClient.post<User>("User/", body);
   return response.data;
 }
-export { getUsers , CreateUser}
+
+async function UpdateUser(body: CreateUserParameters): Promise<User> {
+  const response = await apiClient.put<User>("User/", body);
+  return response.data;
+}
+
+async function deleteUser(id:number): Promise<any> {
+  const response = await apiClient.delete(
+    `User/${id}`,
+  );
+  return response.data;
+}
+export { getUsers , CreateUser,getUserById,UpdateUser,deleteUser}
+
