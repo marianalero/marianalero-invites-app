@@ -8,7 +8,6 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -144,7 +143,6 @@ const Header = () => {
               key={item.label}
               onClick={() => setDrawerOpen(false)}
             >
-              <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText
                 primary={item.label}
                 sx={{ color: '#a41423' }}
@@ -157,9 +155,6 @@ const Header = () => {
             href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
             onClick={() => setDrawerOpen(false)}
           >
-            <ListItemIcon>
-              <AddRoundedIcon sx={{ color: '#a41423' }} />
-            </ListItemIcon>
             <ListItemText
               primary="Crear mi invitación"
               sx={{
@@ -168,12 +163,27 @@ const Header = () => {
               }}
             />
           </ListItem>
+          { isAuthenticated() && (
+              <ListItem
+            
+            component="a"
+            href="/guests"
+            onClick={() => setDrawerOpen(false)}
+          >
+            <ListItemText
+              primary="Ir al Panel"
+              sx={{
+                fontWeight: 'bold',
+                color: '#a41423',
+              }}
+            />
+          </ListItem>
+            )
+          }
+          { isAuthenticated() && (
             <ListItem
             onClick={() => logout()}
           >
-            <ListItemIcon>
-              <AddRoundedIcon sx={{ color: '#a41423' }} />
-            </ListItemIcon>
             <ListItemText
               primary="Cerrar sesion"
               sx={{
@@ -182,6 +192,7 @@ const Header = () => {
               }}
             />
           </ListItem>
+          )}
         </List>
       </Drawer>
     </>
