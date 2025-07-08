@@ -214,8 +214,8 @@ const columns: GridColDef[] = !isMobile  ? [
         <GenerateGenericLinks
           open={openLinks}
           onClose={() => setOpenLinks(false)}
-          link={invitation?.link}
-        />
+          link={invitation?.link} onSave={function (): void {
+          } }        />
       )}
 
     </Grid>

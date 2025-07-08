@@ -4,7 +4,7 @@ import InsertLinkRoundedIcon from '@mui/icons-material/InsertLinkRounded';
 import { DialogProps } from "../../../../models/component/dialogProps";
 
 interface GenerateGenericLinksProps extends DialogProps{
-    link:string;
+    link?:string;
 }
 
 const GenerateGenericLinks =({ open, onClose,link }:GenerateGenericLinksProps) => {

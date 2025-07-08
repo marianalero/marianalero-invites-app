@@ -14,7 +14,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import logo from './../assets/logos/logo header.svg';
 import { useAuth } from '../context/authContext';
 import { isAuthenticated } from '../services/authService';
