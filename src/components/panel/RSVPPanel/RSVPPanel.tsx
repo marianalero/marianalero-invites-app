@@ -16,8 +16,9 @@ export default function RSVPPanel() {
   const [guests, setGuest] = useState<Guest[]>([]);
     const invitationId:string =getInvitationIdFromToken() ? getInvitationIdFromToken()?.toString() : "";
     const [stats, setStats] = useState<StatsCardsProps>();
+    const [loading,setLoading] = useState<boolean>(false)
   const fetchGuests = async () =>  {
-
+    setLoading(true);
     const res = await getGuests(Number.parseInt(invitationId));
     setGuest(res.guests);
 
@@ -29,6 +30,7 @@ export default function RSVPPanel() {
         totalWithoutResponse: res.totalWithoutResponse,
     }
     );
+     setLoading(false);
   };
 
   useEffect(() => {
@@ -74,7 +76,8 @@ const columns: GridColDef[] = [
               guests={guests.filter(row => row.rsvpStatus == 2)} 
               showActions={false}
               columns={columnsConfirmed}
-
+              status={3}
+              loading={loading}
              >
             </GuestTable>
           </TabPanel>
@@ -83,14 +86,18 @@ const columns: GridColDef[] = [
               guests={guests.filter(row => row.rsvpStatus == 3)} 
               showActions={false}
               columns={columnsNotConfirmed}
+              status={2}
+              loading={loading}
              >
             </GuestTable>
           </TabPanel>
           <TabPanel value="3">
            <GuestTable 
+              loading={loading}
               guests={guests.filter(row => row.rsvpStatus == 1)} 
               showActions={false}
               columns={columns}
+              status={1}
              >
             </GuestTable>
           </TabPanel>

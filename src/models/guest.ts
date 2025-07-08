@@ -8,4 +8,5 @@ export interface Guest {
   invitationId: number;
   qrCodeToken?: string;
   registeredAttendance: boolean;
+  companion?: string;
 }

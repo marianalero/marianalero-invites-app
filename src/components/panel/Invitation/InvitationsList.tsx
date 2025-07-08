@@ -1,9 +1,4 @@
-import {
-Button, Box,
-  Snackbar,
-  Alert,
-  Switch
-} from '@mui/material';
+import { Button, Box,Switch } from '@mui/material';
 import { Add } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import CreateInvitationModal from './Dialog/CreateInvitationDialog';
@@ -12,11 +7,13 @@ import { Invitation } from '../../../models/invitation';
 import { GridColDef } from '@mui/x-data-grid';
 import DataGridCustom from '../../DataGridCustom/DataGridCustom';
 import InvitationActions from './InvitationActions';
+import { useSnackbar } from '../../../context/snackbarContext';
+import dayjs from 'dayjs';
 
 export default function InvitationsList() {
   const [invitations, setInvitations] = useState<Invitation[]>([]);
   const [open, setOpen] = useState(false);
-  const [showSnackbar, setShowSnackbar] = useState(false)
+  const { showSnackbar } = useSnackbar();
   // const [loading, setLoading] = useState(true);
 
   const fetchInvitations = async () => {
@@ -36,7 +33,7 @@ export default function InvitationsList() {
   const handleCreated = () => {
     setOpen(false);
     fetchInvitations(); 
-    setShowSnackbar(true);
+    showSnackbar('Invitación creada exitosamente', 'success')
   };
   const handleChangeStatus =async (id:number,checked:boolean) => {
       await changeStatus(id,checked ? 1 : 2)
@@ -46,8 +43,16 @@ const invitationColumns: GridColDef[] = [
   { field: 'id', headerName: 'ID', flex: 1 },
   { field: 'brideName', headerName: 'Novia', flex: 2 },
   { field: 'groomName', headerName: 'Novio', flex: 2 },
-  { field: 'eventDate', headerName: 'Fecha Evento', flex: 2 },
-  { field: 'expirationDate', headerName: 'Fecha de Expiración', flex: 2 },
+  { field: 'eventDate', headerName: 'Fecha Evento', flex: 2,
+    valueFormatter:(value) =>(
+      dayjs(value).format("DD MMMM YYYY")
+    )
+   },
+  { field: 'expirationDate', headerName: 'Fecha de Expiración', flex: 2,
+    valueFormatter:(value) =>(
+      value ? dayjs(value).format("DD MMMM YYYY") : ""
+    )
+   },
   { field: 'statusId', headerName: 'Activo', flex: 2 ,
      renderCell: (params) => (
         <Switch
@@ -86,16 +91,6 @@ const invitationColumns: GridColDef[] = [
     {open && (
         <CreateInvitationModal open={open} onClose={() => setOpen(false)} handleCreate={handleCreated} ></CreateInvitationModal>
     )}
-        <Snackbar
-        open={showSnackbar}
-        autoHideDuration={4000}
-        onClose={() => setShowSnackbar(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      >
-        <Alert onClose={() => setShowSnackbar(false)} severity="success" variant="filled">
-          Invitación creada exitosamente
-        </Alert>
-      </Snackbar>
     </Box>
   );
 }

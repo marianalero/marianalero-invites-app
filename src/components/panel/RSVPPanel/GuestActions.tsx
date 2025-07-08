@@ -7,6 +7,7 @@ import ModeEditOutlineRoundedIcon from '@mui/icons-material/ModeEditOutlineRound
 import InsertLinkRoundedIcon from '@mui/icons-material/InsertLinkRounded';
 import { Confirm } from "../../../services/guestApiClient";
 import { RSVPSTATUS } from "../../../constants/rsvpStatus";
+import { useSnackbar } from "../../../context/snackbarContext";
 interface GuestActionsProps {
     guest:Guest;
     link:string;
@@ -15,9 +16,10 @@ interface GuestActionsProps {
 
 const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
   const [openCreated, setOpenCreated] = useState(false);
-
+   const { showSnackbar } = useSnackbar();
   const handleCreated = () => {
     setOpenCreated(false);
+    showSnackbar('Invitado actualizado exitosamente', 'info')
     refresh();
   };
 
@@ -28,6 +30,7 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
       totalConfirmed: guest.totalAssigned,
       totalAssigned: guest.totalAssigned,
     });
+    showSnackbar('Se confirmo la asistencia correctamente', 'success')
     refresh();
   }
 
@@ -35,11 +38,14 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
     <>
       <Box display="flex" gap={2}>
         <Tooltip title="Generar link">
-        <IconButton  onClick={() => {
-                      navigator.clipboard.writeText(   link+guest.id);
+          <span>
+          <IconButton disabled={!link}  onClick={() => {
+                      navigator.clipboard.writeText(`${link}?id=${guest.id}`);
+                      showSnackbar('Link copiado en portapaples', 'success')
                       }}>
             <InsertLinkRoundedIcon color="primary"/>
         </IconButton>
+        </span>
         </Tooltip>
         <Tooltip title="Editar" >
             <IconButton  onClick={() => setOpenCreated(true)} >
@@ -47,9 +53,12 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
             </IconButton>
         </Tooltip>
         <Tooltip title="Confirmar">
-            <IconButton onClick={() => confirmGuest()} >
+            <span>
+              <IconButton onClick={() => confirmGuest()} disabled={guest.rsvpStatus == RSVPSTATUS.Confirmed} >
                 <SystemSecurityUpdateGoodRoundedIcon />
             </IconButton>
+            </span>
+            
          </Tooltip>
         {/* <Tooltip title="Eliminar">
             <IconButton >
@@ -68,8 +77,10 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
           id={guest.id}
         />
       )}
+      
     </>
   );
 };
 
 export default GuestActions;
+

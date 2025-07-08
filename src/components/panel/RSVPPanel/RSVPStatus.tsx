@@ -10,13 +10,13 @@ const RsvpStatusChip: React.FC<RsvpStatusChipProps> = ({ statusId }) => {
     switch (statusId) {
       case RSVPSTATUS.Confirmed:
         return {
-          label: 'Confirmado',
+          label: 'Asistirá',
           color: '#d4edda',
           textColor: '#155724',
         };
       case RSVPSTATUS.NotConfirmed:
         return {
-          label: 'No confirmado',
+          label: 'No Asistirá',
           color: '#f8d7da',
           textColor: '#721c24',
         };

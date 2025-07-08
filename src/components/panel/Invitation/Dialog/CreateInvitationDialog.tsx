@@ -124,6 +124,7 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
         await updateInvitation( {
           eventDate: formData.eventDate,
           deadlineDate: formData.deadlineDate,
+          expirationDate: formData.expirationDate,
           groomName: formData.groomName,
           brideName: formData.brideName,
           link: formData.link,
@@ -133,6 +134,7 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
         await createInvitation( {
           eventDate: formData.eventDate,
           deadlineDate: formData.deadlineDate,
+          expirationDate: formData.expirationDate,
           groomName: formData.groomName,
           brideName: formData.brideName,
           link: formData.link,

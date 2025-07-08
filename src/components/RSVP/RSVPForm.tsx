@@ -102,9 +102,19 @@ const RSVPForm  = (props:RSVPType) => {
 
                 )
                 }
-           
-                <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Hemos reservado {(guest.totalAssigned && guest.totalAssigned === 1) ? '1 lugar': `${guest.totalAssigned} lugares`} para ti. </Typography>
-                     <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography>
+
+                {guest && guest.rsvpStatus ===2 ? (
+                    <div>
+                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Gracias por confirmar tu asistencia. Si necesitas hacer algún cambio, aún estás a tiempo de modificar tu respuesta.</Typography>
+                     <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Haz confirmado tu asistencia para {(guest.totalConfirmed && guest.totalConfirmed === 1) ? '1 persona' : `${guest.totalConfirmed} personas`} </Typography>
+
+                    </div>
+
+                ):(
+                    <div>
+                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Hemos reservado {(guest.totalAssigned && guest.totalAssigned === 1) ? '1 lugar' : `${guest.totalAssigned} lugares`} para ti. </Typography>
+                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography></div>
+                )}
                 </Fade>
             </Grid>
             
@@ -211,52 +221,77 @@ const RSVPForm  = (props:RSVPType) => {
                      
                         </Grid>
                         { !disabledForm && (
-                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                            <Select<number>
-                                labelId="guests"
-                                id="guests"
-                                value={guest.totalConfirmed}
-                                onChange={(e) =>  updateGuest({
-                                    totalConfirmed: Number(e.target.value)
-                                })}
-                                sx={{
-                                    minWidth:300,
-                                    color: props.colorButton,
-                                    '& .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: props.colorButton, // borde normal
-                                    },
-                                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: props.colorButton,
-                                    },
-                                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                    borderColor: props.colorButton,
-                                    },
-                                    '& .MuiSvgIcon-root': {
-                                    color: props.colorButton,
-                                    },
-                                }}
-                                >
-                                {Array.from({ length: guest.totalAssigned }, (_, index) => (
-                                    <MenuItem key={index + 1} value={index + 1} 
-                                    sx={{
-                                        '&.Mui-selected': {
-                                            color: '#fff',
-                                            backgroundColor: `${props.colorButton}!important`,
-                                        },
-                                        '&.Mui-selected:hover': {
-                                            backgroundColor: props.colorButton,
-                                        },
-                                        '&:hover': {
-                                            backgroundColor: props.colorButton,
-                                            color: "white",
-                                        },
-                                    }}      
+                            <><Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
+                                    <Select<number>
+                                        labelId="guests"
+                                        id="guests"
+                                        value={guest.totalConfirmed}
+                                        onChange={(e) => updateGuest({
+                                            totalConfirmed: Number(e.target.value)
+                                        })}
+                                        sx={{
+                                            minWidth: 300,
+                                            color: props.colorButton,
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderColor: props.colorButton, // borde normal
+                                            },
+                                            '&:hover .MuiOutlinedInput-notchedOutline': {
+                                                borderColor: props.colorButton,
+                                            },
+                                            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                                borderColor: props.colorButton,
+                                            },
+                                            '& .MuiSvgIcon-root': {
+                                                color: props.colorButton,
+                                            },
+                                        }}
                                     >
-                                    {index + 1}
-                                    </MenuItem>
-                                ))}
-                                </Select>
-                        </Grid>
+                                        {Array.from({ length: guest.totalAssigned }, (_, index) => (
+                                            <MenuItem key={index + 1} value={index + 1}
+                                                sx={{
+                                                    '&.Mui-selected': {
+                                                        color: '#fff',
+                                                        backgroundColor: `${props.colorButton}!important`,
+                                                    },
+                                                    '&.Mui-selected:hover': {
+                                                        backgroundColor: props.colorButton,
+                                                    },
+                                                    '&:hover': {
+                                                        backgroundColor: props.colorButton,
+                                                        color: "white",
+                                                    },
+                                                }}
+                                            >
+                                                {index + 1}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </Grid>
+                                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
+                                        <TextField
+                                            id="companion"
+                                            label="Acompañante(s)"
+                                            fullWidth={true}
+                                            sx={{
+                                                minWidth:300,
+                                                '& label.Mui-focused': {
+                                                color: props.colorButton, // Borde en focus
+                                                },
+                                                '& .MuiOutlinedInput-root': {
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: props.colorButton, // Borde en focus
+                                                },
+                                                },
+                                            }}
+                                            value={guest.companion}
+                                            onChange={(e) => updateGuest({
+                                                    companion: e.target.value
+                                                })}
+                                            
+                                            />
+                                
+                                </Grid>
+                            </>
                         )}
                         
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
@@ -271,26 +306,26 @@ const RSVPForm  = (props:RSVPType) => {
         );
     }
     return ( 
-        <>
+        <div>
          { props.bgImage !== undefined ? (     
           <div style={{backgroundImage:`url('${props.bgImage}')`}} className='cover-container'>
             {
-                guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 2) ? (
+                guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 3) ? (
                       RenderForm()
                 ):(
-                    <ConfirmQR guest={guest}></ConfirmQR>
+                    <ConfirmQR guest={guest} bgColor={props.bgColor}></ConfirmQR>
                 )
             }
           </div>
         ) :
         (
-            guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 2 )? (
+            (guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 3 )) || !props.qrActive? (
                       RenderForm()
                 ):(
                       <ConfirmQR guest={guest} mainTypo={props.mainTypo} bodyTypo={props.bodyTypo} colorPrimary={props.color} bgColor={props.bgColor}></ConfirmQR>
                 )
         )}
-       </>
+       </div>
     )
 }
 export default RSVPForm;

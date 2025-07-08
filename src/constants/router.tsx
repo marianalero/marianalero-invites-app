@@ -8,7 +8,7 @@ return (
     <Router >
      <Routes>
          {routes.map((route, index) => {
-            console.log('Rendering route:', route.path, 'Protected:', route.protected);
+           
           const element = route.protected ? (
             <ProtectedRoute adminOnly={route.adminOnly}>
               {route.element}

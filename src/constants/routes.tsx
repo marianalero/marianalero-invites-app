@@ -34,7 +34,6 @@ const routes: RouteConfig[] = [
   { path: '/guests', element: <RegisterGuestPage />, protected: true },
   { path: '/admin', element: <AdminPage />, protected: true, adminOnly: true },
   { path: '/invitations', element: <InvitationsPage />, protected: true, adminOnly: true }
-  
 ];
 
 

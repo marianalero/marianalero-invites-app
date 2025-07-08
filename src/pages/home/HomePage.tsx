@@ -10,17 +10,10 @@ import confirm from './../../assets/iconos/18.svg';
 import register from './../../assets/iconos/19.svg';
 import responsive from './../../assets/iconos/20.svg';
 import Packages from '../../components/Packages/Packages';
-import Seo from '../../components/Seo/Seo';
-import { APP_URl } from '../../config';
 const Home = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
         <>
-        <Seo
-            title="Mariana Lero "
-            description="Invitaciones Digitales"
-            url={APP_URl}
-            />
         <HeaderHome></HeaderHome>
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} display={"flex"} alignItems={"center"} paddingX={4} paddingY={4}>

@@ -34,5 +34,15 @@ async function deleteUser(id:number): Promise<any> {
   );
   return response.data;
 }
-export { getUsers , CreateUser,getUserById,UpdateUser,deleteUser}
+
+async function changePassword( currentPassword: string, newPassword: string ): Promise<any> {
+  const response = await apiClient.post(
+    `User/change-password`,{
+      currentPassword,
+      newPassword
+    }
+  );
+  return response.data;
+}
+export { getUsers , CreateUser,getUserById,UpdateUser,deleteUser,changePassword}
 

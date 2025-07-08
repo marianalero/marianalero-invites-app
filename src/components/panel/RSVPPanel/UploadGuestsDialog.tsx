@@ -91,7 +91,17 @@ const UploadGuestsDialog =({ open, onClose, onCreated, }: Props) => {
               </IconButton>
             </Box>
           )}
-
+          {uploadResult ? 
+          (
+             <Typography
+            variant="caption"
+            color="text.secondary"
+            textAlign="center"
+            fontSize={isMobile ? 11 : 13}
+          >
+            {uploadResult}
+          </Typography>
+          ):(
           <Typography
             variant="caption"
             color="text.secondary"
@@ -100,6 +110,9 @@ const UploadGuestsDialog =({ open, onClose, onCreated, }: Props) => {
           >
             Asegúrate que el archivo tenga columnas: <strong>Nombre</strong> y <strong>Número de invitados</strong>
           </Typography>
+          )
+          }
+         
         </Box>
       </DialogContent>
          {uploadResult ? (

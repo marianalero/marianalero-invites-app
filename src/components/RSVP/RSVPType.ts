@@ -9,5 +9,6 @@ export interface RSVPType {
     colorButton:string;
     guestId?:number;
     invitationId:number;
+    qrActive:boolean;
     confirmed?:() => void;
 }

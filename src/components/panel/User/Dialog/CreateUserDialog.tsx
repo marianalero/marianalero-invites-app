@@ -2,6 +2,7 @@ import { Dialog, DialogTitle, DialogContent, TextField, DialogActions,Button } f
 import { User } from "../../../../models/user";
 import { CreateUser, getUserById, UpdateUser } from "../../../../services/userService";
 import { useEffect, useState } from "react";
+import PasswordInput from "../../../PasswordInput/PasswordInput";
 
 interface Props {
   open: boolean;
@@ -42,7 +43,7 @@ const CreateUserDialog =({ open, onClose, onUserCreated,id }: Props) => {
 
     const handleCreateSave = async () => {
      
-        if (!id && newPassword) {
+        if (!id) {
 
             await CreateUser( {
                 name: userModel.name,
@@ -55,8 +56,10 @@ const CreateUserDialog =({ open, onClose, onUserCreated,id }: Props) => {
                 name: userModel.name,
                 email: userModel.email,
                 id:userModel.id,
+                password: newPassword,
             });
           onUserCreated();
+          setUserModel(emptyUser);
         }
     };
 
@@ -64,8 +67,8 @@ const CreateUserDialog =({ open, onClose, onUserCreated,id }: Props) => {
     setUserModel((prevData) => ({ ...prevData, ...newData }));
   };
     return (
-      <Dialog open={open} onClose={() => onClose()}>
-        <DialogTitle>Crear Nuevo Usuario</DialogTitle>
+      <Dialog open={open} onClose={() => {onClose()}}>
+        <DialogTitle>{id ? "Editar": "Crear"} Usuario</DialogTitle>
         <DialogContent>
           <TextField
             fullWidth
@@ -81,22 +84,13 @@ const CreateUserDialog =({ open, onClose, onUserCreated,id }: Props) => {
             value={userModel?.email}
             onChange={(e) => updateData({ email: e.target.value })}
           />
-          {!id && (
+          <PasswordInput value={newPassword}  onChange={(value) => setNewPassword(value)}  label="Contraseña"/>
 
-          <TextField
-            fullWidth
-            label="Contraseña"
-            type="password"
-            margin="dense"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
-          ) }
          
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => onClose()}>Cancelar</Button>
-          <Button variant="contained" onClick={handleCreateSave}>Crear</Button>
+          <Button onClick={() =>{onClose();}}>Cancelar</Button>
+          <Button variant="contained" onClick={handleCreateSave}>{id ? "Editar": "Crear"}</Button>
         </DialogActions>
       </Dialog>
     )

@@ -11,14 +11,13 @@ export const menuItems: MenuItem[] = [
    {
     label: 'Lita de Invitados',
     path: '/guests',
-    roles: ['admin', 'cliente']
+    roles: [ 'cliente']
   },
-  {
-    label: 'Panel de Confirmaciones',
-    path: '/panel',
-    roles: ['admin', 'cliente']
-  },
- 
+  // {
+  //   label: 'Panel de Confirmaciones',
+  //   path: '/panel',
+  //   roles: ['cliente']
+  // },
   {
     label: 'Usuarios',
     path: '/admin',

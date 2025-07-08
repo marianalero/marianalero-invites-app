@@ -15,14 +15,15 @@ import WithoutKids from "../../../components/WithOutKids/WithoutKids";
 import Adornment from "../../../components/Adornment/Adornment";
 import ImageMiddle from "../../../components/ImageMiddle/ImageMiddle";
 import { useSearchParams } from "react-router-dom";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import Gallery from "../../../components/Gallery/Gallert";
-// import RSVPDemo from "../../../components/RSVP/RSVPDemo";
 // import RSVPForm from "../../../components/RSVP/RSVPForm";
-import Seo from "../../../components/Seo/Seo";
 import RSVPDemo from "../../../components/RSVP/RSVPDemo";
-import { APP_URl } from "../../../config";
+import { IMAGES_URl } from "../../../config";
+import MusicFabPlayer, { MusicFabPlayerHandle } from "../../../components/MusicFabPlayer/MusicFabPlayer";
+import { Box, Button, Dialog, DialogActions, DialogContent,  Typography } from "@mui/material";
+import CustomButton from "../../../components/CustomButton/CustomButton";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number = useMemo(() => {
@@ -33,6 +34,20 @@ const DemoOne  = () => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
+    const [open, setOpen] = useState(false);
+    const musicRef = useRef<MusicFabPlayerHandle>(null);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+        musicRef.current?.play()
+     };
+
+    useEffect(() => {
+       handleClickOpen()
+    }, []);
     const COLOR_PRIMARY = "#0E6655";
     const INVITATION_ID = 1;
     const MAIN_TYPO = "great-vibes-regular";
@@ -130,7 +145,7 @@ const DemoOne  = () => {
                 type: "CLABE",
                 number: "123456789012",
                 bank: "BBVA",
-                name: "Juan Pérez",
+                name: "Elena Maraí Lerma Rodríguez",
                 color: '#FFFFFF',
                 bodyTypo: BODY_TYPO,
                 bgColor: COLOR_PRIMARY,
@@ -160,16 +175,15 @@ const DemoOne  = () => {
         "https://marianalero.github.io/Invitacion/images/DSC_9771.JPG",
         "https://marianalero.github.io/Invitacion/images/DSC_9815.jpg",
     ]
+
+     useEffect(() => {
+        document.title = "Boda Elena Marai & Jose Carlos";
+      }, []);
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto"}}>
-            <Seo
-            title="Boda Elena Marai & Jose Carlos"
-            description="Invitación"
-            image="https://marianalero.github.io/Invitacion/images/og-elena.jpg"
-            url={`${APP_URl}/demos/1`}
-            />
+            <MusicFabPlayer ref={musicRef}  src={`${IMAGES_URl}/invitacion-hidai-leonardo/audio/cancion.mp3`} backgroundColor={COLOR_PRIMARY}/>
             <Cover 
-                weddingDate="21.10.22"
+                weddingDate="18.10.25"
                 bgImage="https://marianalero.github.io/Invitacion/images/DSC_9636.JPG" 
                 brideName="Elena Marai" 
                 symbolr={"&"} 
@@ -229,6 +243,7 @@ const DemoOne  = () => {
                 color={COLOR_PRIMARY}
                 guestId={guestId}
                 invitationId={INVITATION_ID}
+                qrActive={false}
             >
                 
             </RSVPForm> */}
@@ -242,6 +257,7 @@ const DemoOne  = () => {
                 color={COLOR_PRIMARY}
                 guestId={guestId}
                 invitationId={INVITATION_ID}
+                qrActive={false}
             >
             </RSVPDemo>
             <DressCode {...dresscode}></DressCode>
@@ -254,7 +270,31 @@ const DemoOne  = () => {
             </Fab> */}
             <div style={{height:100}}></div>
             <Gallery photos={galleryPhotos} ></Gallery>
-               <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
+            <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
+                <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+        >
+           
+            <DialogContent >
+
+               <Box display={"flex"} justifyContent={"center"}>
+                <Typography variant="h2" className={MAIN_TYPO}>Bienvenidos</Typography>
+               </Box>
+                <Box display={"flex"} justifyContent={"center"}>
+                 <CustomButton bgColor={COLOR_PRIMARY} color={'#FFFFFF'} label={'Entrar'} onClick={handleClose}></CustomButton>
+               </Box>
+                
+               
+           
+            </DialogContent>
+            <DialogActions>
+            
+           
+            </DialogActions>
+        </Dialog>
         </div>
     )
 }

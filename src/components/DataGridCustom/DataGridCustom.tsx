@@ -7,9 +7,10 @@ interface StyledTableProps {
   rows: GridRowsProp;
   columns: GridColDef[];
   height?: string;
+  loading?:boolean;
 }
 
-const DataGridCustom: React.FC<StyledTableProps> = ({ rows, columns, height = 400 }) => {
+const DataGridCustom: React.FC<StyledTableProps> = ({ rows, columns, height = 400,loading = false }) => {
   return (
     <Box
       sx={{
@@ -17,6 +18,7 @@ const DataGridCustom: React.FC<StyledTableProps> = ({ rows, columns, height = 40
       }}
     >
       <DataGrid
+        loading={loading}
         disableColumnMenu
         disableColumnResize
         disableColumnSelector
@@ -24,6 +26,13 @@ const DataGridCustom: React.FC<StyledTableProps> = ({ rows, columns, height = 40
         columns={columns}
         disableRowSelectionOnClick
         disableMultipleRowSelection
+        localeText={{
+          noRowsLabel:"No se encontraron registos",
+          paginationRowsPerPage: 'Filas por página', 
+          paginationDisplayedRows:({ from, to, count }) => `${from} - ${to} de ${
+            count === -1 ? `más de ${to}` : count
+            }`,
+      }}
       />
     </Box>
   );

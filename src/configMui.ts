@@ -457,11 +457,14 @@ const THEME = createTheme({
           paddingTop: "0.75rem",
           paddingBottom: "0.75rem",
           backgroundColor: "white",
+          "&:is(:hover,.Mui-focusVisible)": {
+            backgroundColor: COLORTHEME.palette.grey[100],
+          },
           "&.Mui-selected": {
-            backgroundColor: COLORTHEME.palette.primary.main,
+            backgroundColor: COLORTHEME.palette.primary.light,
             color: "white",
             "&:hover": {
-              backgroundColor: COLORTHEME.palette.primary.main,
+              backgroundColor: COLORTHEME.palette.primary.light,
             },
           },
         },

@@ -12,7 +12,7 @@ type ConfirmQRProps = {
   bgColor?:string;
 };
 
-const ConfirmQR  = ({ guest,mainTypo,bodyTypo,colorPrimary }: ConfirmQRProps) => {
+const ConfirmQR  = ({ guest,mainTypo,bodyTypo,colorPrimary,bgColor }: ConfirmQRProps) => {
       const qrRef = useRef<HTMLCanvasElement>(null);
     const qrValue = guest.qrCodeToken || `Invitado-${guest.id}`;
  
@@ -27,7 +27,7 @@ const ConfirmQR  = ({ guest,mainTypo,bodyTypo,colorPrimary }: ConfirmQRProps) =>
 //     link.click();
 //   };
   return (
-     <Box textAlign="center" p={4}>
+     <Box textAlign="center" p={4} sx={{backgroundColor:bgColor}}>
       <Typography variant="h4" gutterBottom className={mainTypo} sx={{color:colorPrimary}}>
         ¡Gracias por confirmar tu asistencia, {guest.fullName}!
       </Typography>
@@ -41,10 +41,6 @@ const ConfirmQR  = ({ guest,mainTypo,bodyTypo,colorPrimary }: ConfirmQRProps) =>
           ref={qrRef}
         />
       </Box>
-      {/* <Button variant="contained" color="primary" onClick={handleDownload}>
-        Descargar QR
-      </Button> */}
-     
     </Box>
   );
 

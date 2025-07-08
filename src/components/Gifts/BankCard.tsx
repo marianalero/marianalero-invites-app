@@ -47,6 +47,7 @@ const BankCard  = (item:BankAccount) => {
           boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
           backgroundColor:item.bgColor,
           color:item.color,
+          padding:16
         }}
       >
        <Paper 

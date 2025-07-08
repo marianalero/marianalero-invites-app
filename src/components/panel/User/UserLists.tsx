@@ -1,6 +1,4 @@
 import { IconButton, Button, Box,
-  Snackbar,
-  Alert,
   Tooltip,
   TextField
 } from '@mui/material';
@@ -13,11 +11,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DataGridCustom from '../../DataGridCustom/DataGridCustom';
 import { Add } from '@mui/icons-material';
+import { useSnackbar } from '../../../context/snackbarContext';
 export default function UserTable() {
   const [users, setUsers] = useState<User[]>([]);
   const [editId, setEditId] = useState<number | null>(null);
   const [openCreate, setOpenCreate] = useState(false);
-  const [showSnackbar, setShowSnackbar] = useState(false)
+  const { showSnackbar } = useSnackbar();
   const [search, setSearch] = useState('');
 
     const columns: GridColDef[] = [
@@ -69,7 +68,7 @@ export default function UserTable() {
   const handleUserCreated = () => {
     setOpenCreate(false);
     fetchUsers(); 
-    setShowSnackbar(true);
+    showSnackbar('Usuario creado exitosamente', 'success')
   };
 
    const filteredRows = useMemo(() => {
@@ -100,18 +99,8 @@ export default function UserTable() {
        <DataGridCustom rows={filteredRows} columns={columns} />
 
     {openCreate && (
-        <CreateUserDialog open={openCreate} onClose={() => setOpenCreate(false)} onUserCreated={handleUserCreated} id={editId}></CreateUserDialog>
+        <CreateUserDialog open={openCreate} onClose={() => {setOpenCreate(false);setEditId(null)}} onUserCreated={handleUserCreated} id={editId}></CreateUserDialog>
     )}
-        <Snackbar
-        open={showSnackbar}
-        autoHideDuration={4000}
-        onClose={() => setShowSnackbar(false)}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      >
-        <Alert onClose={() => setShowSnackbar(false)} severity="success" variant="filled">
-          Invitado creado exitosamente
-        </Alert>
-      </Snackbar>
     </Box>
   );
 }

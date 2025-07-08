@@ -1,5 +1,4 @@
-// src/components/layout/ResponsiveLayout.tsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   AppBar,
   Box,
@@ -17,11 +16,10 @@ import {
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
-
-
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import { MenuItem,menuItems } from '../constants/menuItems';
+import ChangePasswordForm from '../components/panel/User/ChangePassword';
 
 const drawerWidth = 240;
 
@@ -31,7 +29,7 @@ interface ResponsiveLayoutProps {
 
 const routeTitles: Record<string, string> = {
   '/guests': 'Lista de invitados',
-  '/panel': 'Panel de Confirmaciones',
+  // '/panel': 'Panel de Confirmaciones',
  
   '/admin': 'Administración de Usuarios',
   '/invitations': 'Invitaciones',
@@ -44,6 +42,7 @@ export default function ResponsiveLayout({ children }: ResponsiveLayoutProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const [open, setOpen] = useState(false);
 const filteredMenu:MenuItem[] = user
   ? menuItems.filter(item => item.roles.includes(user.role))
   : [];
@@ -51,8 +50,10 @@ const filteredMenu:MenuItem[] = user
     setMobileOpen(!mobileOpen);
   };
 
-  const title = routeTitles[location.pathname] || 'Mi Aplicación';
-
+  const title = routeTitles[location.pathname];
+  useEffect(() => {
+    document.title = title;
+  }, []);
   const drawer = (
     <div>
       <Toolbar>
@@ -66,6 +67,9 @@ const filteredMenu:MenuItem[] = user
             <ListItemText primary={item.label} />
             </ListItem>
         ))}
+        <ListItem  onClick={() => setOpen(true)}>
+          <ListItemText primary="Cambiar contraseña" />
+        </ListItem>
         <ListItem  onClick={logout}>
           <ListItemText primary="Cerrar sesión" />
         </ListItem>
@@ -76,7 +80,6 @@ const filteredMenu:MenuItem[] = user
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-
       {/* AppBar */}
       <AppBar
       elevation={1}
@@ -158,6 +161,12 @@ const filteredMenu:MenuItem[] = user
         <Toolbar />
         {children}
       </Box>
+
+      {
+        open && (
+          <ChangePasswordForm open={open} onClose={()=> setOpen(false) } onSave={() =>{ setOpen(false);logout()} }></ChangePasswordForm>
+        )
+      }
     </Box>
   );
 }
