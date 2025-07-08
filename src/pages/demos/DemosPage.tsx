@@ -11,11 +11,11 @@ const DemosPage  = () => {
     return (
         <><HeaderHome></HeaderHome>
           <Container maxWidth="md">
-        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} minHeight={"100vh"}>
-            <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
+        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={2} minHeight={"100vh"} gap={2}>
+            <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} padding={1}>
                 <Typography typography={"h2"} color='primary' textAlign={"center"} className='cinzel-400'>Modelos</Typography>
             </Grid>     
-          <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}>
+          <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}  padding={1}>
             <Card
                 sx={{
                     maxWidth: 250,
@@ -32,11 +32,13 @@ const DemosPage  = () => {
                     sx={{
                     width: '100%',
                     borderRadius: '16px',
-                    mt: -6,
- 
                     }}
                 />
-                <CardContent>
+                <CardContent sx={
+                    {
+                        padding:"0px"
+                    }
+                }>
                     <Typography
                     variant="h6"
                     sx={{
@@ -78,7 +80,7 @@ const DemosPage  = () => {
                 </CardContent>
                 </Card>
           </Grid>
-          <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}>
+          <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}  padding={1}>
             <Card
                 elevation={0}
                 sx={{
@@ -97,11 +99,13 @@ const DemosPage  = () => {
                     sx={{
                     width: '100%',
                     borderRadius: '16px',
-                    mt: -6,
-
                     }}
                 />
-                <CardContent>
+                <CardContent sx={
+                    {
+                        padding:"0px"
+                    }
+                }>
                     <Typography
                     variant="h6"
                     sx={{
@@ -143,7 +147,7 @@ const DemosPage  = () => {
                 </CardContent>
                 </Card>
           </Grid>         
-           <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}} >
+           <Grid size={{ xs: 6, sm: 6,  md: 6, lg: 4}}  padding={1}>
             <Card
                  elevation={0}
                 sx={{
@@ -162,11 +166,14 @@ const DemosPage  = () => {
                     sx={{
                     width: '100%',
                     borderRadius: '16px',
-                    mt: -6,
-                    
+
                     }}
                 />
-                <CardContent>
+                <CardContent sx={
+                    {
+                        padding:"0px"
+                    }
+                }>
                     <Typography
                     variant="h6"
                     sx={{
@@ -202,6 +209,7 @@ const DemosPage  = () => {
                         backgroundColor: '#b3151d'
                         }
                     }}
+                    fullWidth
                     >
                     Ver Modelo
                     </Button>

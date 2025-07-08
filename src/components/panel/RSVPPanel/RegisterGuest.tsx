@@ -35,10 +35,10 @@ export default function RegisterGuest() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const openMenu = Boolean(anchorEl);
   const [stats, setStats] = useState<StatsCardsProps>();
-  const [age, setAge] = useState('');
+  const [age, setAge] = useState('0');
   const filteredRows = useMemo(() => {
   return guests.filter(row => {
-    const matchesAge = age ? row.rsvpStatus == Number(age) : true;
+    const matchesAge = age!== "0" ? row.rsvpStatus == Number(age) : true;
     const matchesSearch = search
       ? row.fullName.toLowerCase().includes(search.toLowerCase())
       : true;
@@ -89,7 +89,8 @@ export default function RegisterGuest() {
 
   const download = async () => {
     // setLoadingDownload(true);
-     await exportGuestsToExcel(Number.parseInt(invitationId), age != "0" ? Number(age) :undefined);
+    console.log(age)
+     await exportGuestsToExcel(Number.parseInt(invitationId), Number(age) !== 0 ? Number(age) :undefined);
   //  setLoadingDownload(false);
   };
 
@@ -141,7 +142,7 @@ const columns: GridColDef[] = !isMobile  ? [
       <Grid size={{xs:12,sm:12,md:12,lg:12}}>
          <StatsCards {...stats} />
       </Grid>
-       <Grid size={{xs:12,sm:12,md:8,lg:8}} mb={2}>
+       <Grid size={{xs:12,sm:12,md:6,lg:6}} mb={2}>
               <TextField
                 size="small"
                 variant="outlined"
@@ -151,7 +152,7 @@ const columns: GridColDef[] = !isMobile  ? [
                 fullWidth={true}
               />
               </Grid>
-              <Grid size={{xs:12,sm:12,md:4,lg:4}} mb={2} display="flex" justifyContent={"end"} gap={2} paddingLeft={2}> 
+              <Grid size={{xs:12,sm:12,md:6,lg:6}} mb={2} display="flex" justifyContent={"end"} gap={2} paddingLeft={2}> 
                 <FormControl fullWidth  size="small">
                   <InputLabel id="demo-simple-select-label">Confirmación</InputLabel>
                   <Select

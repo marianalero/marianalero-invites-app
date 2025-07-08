@@ -1,25 +1,17 @@
 import React, { useState } from 'react';
 import {
-  Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  FormControl,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField,
   Typography,
 } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { changePassword } from '../../../services/userService';
 import { DialogProps } from '../../../models/component/dialogProps';
 import PasswordInput from '../../PasswordInput/PasswordInput';
 
-const ChangePasswordForm: React.FC<DialogProps> = ({ open, onClose, onSave,id }: DialogProps) => {
+const ChangePasswordForm: React.FC<DialogProps> = ({ open, onClose, onSave}: DialogProps) => {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -38,6 +30,7 @@ const ChangePasswordForm: React.FC<DialogProps> = ({ open, onClose, onSave,id }:
 
     setError('');
     await changePassword(currentPassword,newPassword);
+    onSave()
   };
 
   return (

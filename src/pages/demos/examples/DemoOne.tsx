@@ -22,7 +22,7 @@ import Gallery from "../../../components/Gallery/Gallert";
 import RSVPDemo from "../../../components/RSVP/RSVPDemo";
 import { IMAGES_URl } from "../../../config";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../../components/MusicFabPlayer/MusicFabPlayer";
-import { Box, Button, Dialog, DialogActions, DialogContent,  Typography } from "@mui/material";
+import { Box, Dialog, DialogActions, DialogContent,  Typography } from "@mui/material";
 import CustomButton from "../../../components/CustomButton/CustomButton";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();

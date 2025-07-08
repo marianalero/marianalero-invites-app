@@ -1,8 +1,13 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import InsertLinkRoundedIcon from '@mui/icons-material/InsertLinkRounded';
-const GenerateGenericLinks =({ open, onClose,link }) => {
-    
+import { DialogProps } from "../../../../models/component/dialogProps";
+
+interface GenerateGenericLinksProps extends DialogProps{
+    link:string;
+}
+
+const GenerateGenericLinks =({ open, onClose,link }:GenerateGenericLinksProps) => {
 
     return (
         <Dialog open={open} onClose={onClose} fullWidth maxWidth="xs">
