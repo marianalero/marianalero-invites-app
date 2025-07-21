@@ -47,17 +47,17 @@ const packages = [
     color: 'info',
     price: '$1,100 MX'
   },
-  {
-    name: 'Código QR',
-    level: 'Premium',
-    features: [
-      'Todo lo de Celebra+',
-      'Código QR personalizado'
-    ],
-    badge: 'Completo',
-    color: 'secondary',
-    price: '$1,300 MX'
-  }
+  // {
+  //   name: 'Código QR',
+  //   level: 'Premium',
+  //   features: [
+  //     'Todo lo de Celebra+',
+  //     'Código QR personalizado'
+  //   ],
+  //   badge: 'Completo',
+  //   color: 'secondary',
+  //   price: '$1,300 MX'
+  // }
 ];
 
 // const featureList = [
