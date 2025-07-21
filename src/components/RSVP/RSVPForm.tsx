@@ -28,10 +28,14 @@ const RSVPForm  = (props:RSVPType) => {
         if( props.guestId && props.guestId > 0 ){
            
             const response = await getGuestById(props.guestId);
+            console.log(response);
             setGuest(response);
-            updateGuest({
+            if(response.totalConfirmed == 0){
+                updateGuest({
                 totalConfirmed:1
-            })
+                })
+            }
+            
         }
         else
         {
@@ -68,6 +72,7 @@ const RSVPForm  = (props:RSVPType) => {
             totalAssigned: guest.totalAssigned,
             invitationId: props.invitationId,
             phoneNumber: guest.phoneNumber,
+            companion: guest.companion
             }
             const response = await CreateAndConfirm(createParam);
             setGuest(response);
@@ -78,6 +83,7 @@ const RSVPForm  = (props:RSVPType) => {
                 totalConfirmed: guest.totalConfirmed,
                 rsvpStatus: radioValue == "yes"? 2 : 3,
                 totalAssigned: guest.totalAssigned,
+                ccompanion:guest.companion
             });
             setGuest(updated);
         
@@ -98,7 +104,7 @@ const RSVPForm  = (props:RSVPType) => {
                 {!props.guestId ? (
                 <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >Confirma tu asistencia!</Typography>
                 ):(
-                    <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >{guest.fullName}</Typography>
+                    <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >Hola, {guest.fullName}</Typography>
 
                 )
                 }

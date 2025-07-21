@@ -10,6 +10,8 @@ import confirm from './../../assets/iconos/18.svg';
 import register from './../../assets/iconos/19.svg';
 import responsive from './../../assets/iconos/20.svg';
 import Packages from '../../components/Packages/Packages';
+import ConfirmationBenefits from '../../components/benefits/benefits';
+import { Fade } from 'react-awesome-reveal';
 const Home = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
@@ -17,18 +19,24 @@ const Home = () => {
         <HeaderHome></HeaderHome>
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2} display={"flex"} alignItems={"center"} paddingX={4} paddingY={4}>
+                
                 <Grid size={{xs:12,sm:6,md:6,lg:6}}>
+                    <Fade direction="up" >
                     <Typography typography={"h4"} color='primary' textAlign={"center"} className='cinzel-400'>Tu evento, tu estilo</Typography>
                     <div className='d-flex justify-center'>
                     <Image className='logo-home' src={logo} rounded  />
                     </div>
+                    </Fade>
                     <div className='d-flex justify-center'>
                     <Button sx={{width:"200px",marginTop:2}} href='/demos' variant='contained' color='secondary'>Ver Modelos</Button>
                     </div>
                 </Grid>
                 <Grid size={{xs:12,sm:6,md:6,lg:6}} display={"flex"} justifyContent={"center"}>
+                        <Fade direction="up" >
                   <Image src={slide3} style={{height: isSmallScreen ? "50vh" : "calc(100vh - 100px)"}}></Image>
+                     </Fade>
                 </Grid>
+           
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                     <Box
                         sx={{
@@ -39,7 +47,7 @@ const Home = () => {
                             borderRadius: "16px !important",
                         }}
                         >
-                       
+                            <Fade direction="up" >
                             <Typography
                             variant="h4"
                             sx={{
@@ -51,21 +59,26 @@ const Home = () => {
                             >
                             ¿Por qué elegir nuestras invitaciones digitales?
                             </Typography>
-
+                            </Fade>
                             <Grid container spacing={4} justifyContent="center">
+                               
+                                    <Grid size={{xs:12,sm:6,md:6,lg:4}} >
+                                         <Fade direction="up" >
+                                        <Box textAlign="center">
+                                        <img src={invitacion} alt="Diseño único" width={60} />
+                                        <Typography variant="h6" sx={{ mt: 2, color: '#a41423' }}>
+                                            Diseño único
+                                        </Typography>
+                                        <Typography>
+                                            Personalizamos tu invitación para reflejar tu estilo y el de tu evento, con detalles elegantes y modernos.
+                                        </Typography>
+                                        </Box>
+                                          </Fade>
+                                    </Grid>
+                              
+                                
                             <Grid size={{xs:12,sm:6,md:6,lg:4}} >
-                                <Box textAlign="center">
-                                <img src={invitacion} alt="Diseño único" width={60} />
-                                <Typography variant="h6" sx={{ mt: 2, color: '#a41423' }}>
-                                    Diseño único
-                                </Typography>
-                                <Typography>
-                                    Personalizamos tu invitación para reflejar tu estilo y el de tu evento, con detalles elegantes y modernos.
-                                </Typography>
-                                </Box>
-                            </Grid>
-
-                            <Grid size={{xs:12,sm:6,md:6,lg:4}} >
+                                <Fade direction="up" >
                                 <Box textAlign="center">
                                 <img src={confirm} alt="Confirmación integrada" width={60} />
                                 <Typography variant="h6" sx={{ mt: 2, color: '#a41423' }}>
@@ -75,19 +88,24 @@ const Home = () => {
                                     Los invitados pueden confirmar su asistencia fácilmente desde cualquier dispositivo.
                                 </Typography>
                                 </Box>
+                                </Fade>
                             </Grid>
-
-                            <Grid size={{xs:12,sm:6,md:6,lg:4}} >
-                                <Box textAlign="center">
-                                <img src={register} alt="Control de invitados" width={60} />
-                                <Typography variant="h6" sx={{ mt: 2, color: '#a41423' }}>
-                                    Control de invitados
-                                </Typography>
-                                <Typography>
-                                    Accede a un panel donde podrás ver quién confirmó, quién falta y otros detalles importantes.
-                                </Typography>
-                                </Box>
-                            </Grid>
+                            
+                         
+                                <Grid size={{xs:12,sm:6,md:6,lg:4}} >
+                                       <Fade direction="up" >
+                                    <Box textAlign="center">
+                                    <img src={register} alt="Control de invitados" width={60} />
+                                    <Typography variant="h6" sx={{ mt: 2, color: '#a41423' }}>
+                                        Control de invitados
+                                    </Typography>
+                                    <Typography>
+                                        Accede a un panel donde podrás ver quién confirmó, quién falta y otros detalles importantes.
+                                    </Typography>
+                                    </Box>
+                                     </Fade>
+                                </Grid>
+                           
 {/* 
                             <Grid size={{xs:12,sm:6,md:6,lg:4}} >
                                 <Box textAlign="center">
@@ -112,8 +130,9 @@ const Home = () => {
                                 </Typography>
                                 </Box>
                             </Grid> */}
-
+                          
                             <Grid size={{xs:12,sm:6,md:6,lg:4}} >
+                                  <Fade direction="up" >
                                 <Box textAlign="center">
                                 <img src={responsive} alt="Accesible en cualquier dispositivo" width={60} />
                                 <Typography variant="h6" sx={{ mt: 2, color: '#a41423' }}>
@@ -123,14 +142,21 @@ const Home = () => {
                                     Tus invitados recibirán la invitación directamente por WhatsApp, email o redes sociales.
                                 </Typography>
                                 </Box>
+                                     </Fade>
                             </Grid>
+                         
                             </Grid>
+                          
                         </Box>
                 
                  </Grid>
-                    <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-  <Packages></Packages>
+                 <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                        <ConfirmationBenefits></ConfirmationBenefits>
                     </Grid>
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                        <Packages></Packages>
+                    </Grid>
+                     
             </Grid>
         </Box>
         <Footer></Footer>

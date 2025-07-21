@@ -5,4 +5,5 @@ export interface CreateGuestParameters {
   totalConfirmed: number;
   totalAssigned: number;
   invitationId: number;
+  companion?:string;
 }

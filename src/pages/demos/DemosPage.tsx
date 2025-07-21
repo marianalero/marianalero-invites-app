@@ -209,7 +209,7 @@ const DemosPage  = () => {
                         backgroundColor: '#b3151d'
                         }
                     }}
-                    fullWidth
+                    
                     >
                     Ver Modelo
                     </Button>

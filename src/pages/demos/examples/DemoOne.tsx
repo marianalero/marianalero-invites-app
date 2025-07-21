@@ -18,8 +18,8 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import Gallery from "../../../components/Gallery/Gallert";
-// import RSVPForm from "../../../components/RSVP/RSVPForm";
-import RSVPDemo from "../../../components/RSVP/RSVPDemo";
+import RSVPForm from "../../../components/RSVP/RSVPForm";
+// import RSVPDemo from "../../../components/RSVP/RSVPDemo";
 import { IMAGES_URl } from "../../../config";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../../components/MusicFabPlayer/MusicFabPlayer";
 import { Box, Dialog, DialogActions, DialogContent,  Typography } from "@mui/material";
@@ -233,7 +233,7 @@ const DemoOne  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
             <GiftList {...giftListData} ></GiftList>
-            {/* <RSVPForm 
+            <RSVPForm 
                 colorButton={COLOR_PRIMARY} 
                 bgColor="rgb(215,174,84,.05)" 
                 mainTypo={MAIN_TYPO} 
@@ -246,8 +246,8 @@ const DemoOne  = () => {
                 qrActive={false}
             >
                 
-            </RSVPForm> */}
-            <RSVPDemo 
+            </RSVPForm>
+            {/* <RSVPDemo 
                 colorButton={COLOR_PRIMARY} 
                 bgColor="rgb(215,174,84,.05)" 
                 mainTypo={MAIN_TYPO} 
@@ -259,7 +259,7 @@ const DemoOne  = () => {
                 invitationId={INVITATION_ID}
                 qrActive={false}
             >
-            </RSVPDemo>
+            </RSVPDemo> */}
             <DressCode {...dresscode}></DressCode>
             <Fade direction="up" >
             <Adornment image={"https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"} width={"250px"} />

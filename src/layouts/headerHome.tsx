@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -27,9 +27,19 @@ const Header = () => {
     { label: 'Modelos', href: '/demos', icon: <AppsRoundedIcon sx={{ color: '#a41423' }} /> },
     { label: 'Preguntas', href: '/faq', icon: <HelpOutlineIcon sx={{ color: '#a41423' }} /> },
     { label: 'Contacto', href: '/contacto', icon: <EmailRoundedIcon sx={{ color: '#a41423' }} /> },
+    { label: 'Términos y Condiciones', href: '/terminos' , hidden:true},
+    { label: 'Política de Privacidad', href: '/privacidad' , hidden:true},
   ];
-
+  const item = menuItems.find(x=>x.href == location.pathname);
+    useEffect(() => {
+        if (item) {
+          document.title = item.label;
+        } else {
+          document.title = "Mariana Lerma | Invitaciones Digitales"; // o déjalo en blanco si prefieres
+        }
+      }, [location.pathname]);
   return (
+ 
     <>
       <AppBar
         position="static"
@@ -54,16 +64,19 @@ const Header = () => {
           {/* Menú desktop */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 3 }}>
             {menuItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                underline="hover"
-                color="#fff"
-                sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-              >
-                {item.icon}
-                {item.label}
-              </Link>
+              !item.hidden && (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  underline="hover"
+                  color="#fff"
+                  sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+                >
+                  {item.icon}
+                  {item.label}
+                </Link>
+              )
+              
             ))}
             {/* <Button
              href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
@@ -82,7 +95,7 @@ const Header = () => {
             >
               Empieza tu invitacion
             </Button> */}
-             { isAuthenticated() && (
+             { isAuthenticated() ? (
                <Link
                 key="guests"
                 href="/guests"
@@ -91,6 +104,16 @@ const Header = () => {
                 sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
               >
                 Ir al Panel
+              </Link>
+            ):(
+              <Link
+                key="login"
+                href="/login"
+                underline="hover"
+                color="#fff"
+                sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+              >
+                Iniciar Sesión
               </Link>
             )
           }
