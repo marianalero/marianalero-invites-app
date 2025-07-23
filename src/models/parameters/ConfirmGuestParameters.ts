@@ -3,5 +3,6 @@ export interface ConfirmGuestParameters {
   rsvpStatus: number;
   totalConfirmed: number;
   totalAssigned: number;
-  ccompanion?:string;
+  companion?:string;
+  phoneNumber?: string;
 }

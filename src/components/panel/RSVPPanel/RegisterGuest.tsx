@@ -38,11 +38,11 @@ export default function RegisterGuest() {
   const [age, setAge] = useState('0');
   const filteredRows = useMemo(() => {
   return guests.filter(row => {
-    const matchesAge = age!== "0" ? row.rsvpStatus == Number(age) : true;
-    const matchesSearch = search
-      ? row.fullName.toLowerCase().includes(search.toLowerCase())
-      : true;
+    const rsvp = Number(age); // lo convertimos a número solo una vez
 
+    const matchesAge = rsvp === 0 || row.rsvpStatus === rsvp;
+    const matchesSearch = !search || row.fullName.toLowerCase().includes(search.toLowerCase());
+    
     return matchesAge && matchesSearch;
   });
 }, [search, guests, age]);

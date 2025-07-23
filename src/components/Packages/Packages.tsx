@@ -94,7 +94,7 @@ const Packages = () => {
         </Grid>
    
         {packages.map((pkg) => (
-          <Grid size={{xs:12, sm:6, md:3}}  key={pkg.name}>
+          <Grid size={{xs:12, sm:6, md:4}}  key={pkg.name}>
             <Fade direction="up" >
             <Card>
               <CardContent>

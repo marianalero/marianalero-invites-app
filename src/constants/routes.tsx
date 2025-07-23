@@ -1,4 +1,5 @@
 
+import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
 import DemosPage from "../pages/demos/DemosPage";
 import DemoOne from "../pages/demos/examples/DemoOne";
@@ -34,6 +35,7 @@ const routes: RouteConfig[] = [
   { path: '/guests', element: <RegisterGuestPage />, protected: true },
   { path: '/admin', element: <AdminPage />, protected: true, adminOnly: true },
   { path: '/invitations', element: <InvitationsPage />, protected: true, adminOnly: true },
+  {path:'/boda-korina-daniel', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
 ];
 
 

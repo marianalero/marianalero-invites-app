@@ -168,6 +168,7 @@ const DemoOne  = () => {
             "https://marianalero.github.io/Invitacion/images/285460514_10160042584270789_1637739613758679016_n.jpg",
         ],
         bodyTypo: BODY_TYPO,
+        addormentStart:"https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"
     }
     const galleryPhotos = [
         "https://marianalero.github.io/Invitacion/images/DSC_9786.JPG",
@@ -194,6 +195,7 @@ const DemoOne  = () => {
             <Qoute 
                {...qoute}>
             </Qoute>
+        
             <ImageMiddle bgImage={"https://marianalero.github.io/Invitacion/images/DSC_9877.JPG"}></ImageMiddle>
             <Introduction
                 brideFather="Jesus Lerma Luna"
@@ -219,6 +221,7 @@ const DemoOne  = () => {
                 height="50vh"
                 color={COLOR_PRIMARY}
                 addorment="https://marianalero.github.io/Invitacion/images/Icons/adorno123.svg"
+                bgColor="rgb(215,174,84,.05)"
             >
             </WeddingSponsor>
 
@@ -239,7 +242,7 @@ const DemoOne  = () => {
                 mainTypo={MAIN_TYPO} 
                 bodyTypo={BODY_TYPO} 
                 count={invitedGuests}
-                dateLine={new Date(2025,9,1)}
+                dateLine={new Date(2025,6,20)}
                 color={COLOR_PRIMARY}
                 guestId={guestId}
                 invitationId={INVITATION_ID}
@@ -271,7 +274,7 @@ const DemoOne  = () => {
             <div style={{height:100}}></div>
             <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
-                <Dialog
+        <Dialog
             open={open}
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
@@ -281,10 +284,10 @@ const DemoOne  = () => {
             <DialogContent >
 
                <Box display={"flex"} justifyContent={"center"}>
-                <Typography variant="h2" className={MAIN_TYPO}>Bienvenidos</Typography>
+                <Typography variant="h3" className={MAIN_TYPO}>Bienvenidos</Typography>
                </Box>
                 <Box display={"flex"} justifyContent={"center"}>
-                 <CustomButton bgColor={COLOR_PRIMARY} color={'#FFFFFF'} label={'Entrar'} onClick={handleClose}></CustomButton>
+                 <CustomButton borderColor="#d7ae54" bgColor={"#ffffff"} color={'#d7ae54'} label={'Entrar'} onClick={handleClose}></CustomButton>
                </Box>
                 
                

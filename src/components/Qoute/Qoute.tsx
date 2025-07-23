@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import ImageCircle from "../ImgCircle/ImgCircle";
 import { Fade } from "react-awesome-reveal";
+import Adornment from "../Adornment/Adornment";
 
 export interface QouteProps {
     qoute:string;
@@ -9,6 +10,8 @@ export interface QouteProps {
     bgColor?:string;
     textColor?:string;
     bodyTypo:string;
+    addormentStart?:string;
+    addormentEnd?:string;
 }
 
 const Qoute  = (props:QouteProps) => {
@@ -34,14 +37,36 @@ const Qoute  = (props:QouteProps) => {
                 </Grid>
             ))}
             
-            
+            {
+                props.addormentStart &&(
+                
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} justifyContent={"center"} display={"flex"}>
+                        <Fade direction="up" >
+                            <Adornment image={props.addormentStart} width={"250px"} />
+                        </Fade>
+                    </Grid>
+                
+                )
+            }
 			<Grid size={{xs:12,sm:12,md:12,lg:12}}>
             <Fade direction="up" triggerOnce={true}>
-            <Typography className={props.bodyTypo}  textAlign={"center"} >{props.qoute}</Typography>
+            <Typography className={props.bodyTypo}  textAlign={"center"} >{`"${props.qoute}"`}</Typography>
             </Fade>		
-               
-            
             </Grid>
+            {
+                props.addormentEnd &&(
+                
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} justifyContent={"center"} display={"flex"}>
+                        <Fade direction="up" >
+                            <Adornment image={props.addormentEnd} width={"250px"} />
+                        </Fade>
+                    </Grid>
+
+                )
+            }
+          
+            
+            
 		</Grid>
     )
 }

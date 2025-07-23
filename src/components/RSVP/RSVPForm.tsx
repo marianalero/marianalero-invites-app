@@ -23,12 +23,18 @@ const RSVPForm  = (props:RSVPType) => {
     registeredAttendance: false,
     });
     useEffect(() => {
+       if (props.dateLine < new Date()) {
+       setDisabledRSVP(true);
+       console.log("paso tiempo")
+    } else {
+        setDisabledRSVP(false);
+        console.log("no paso tiempo")
+    }
     const fetchGuest = async () => {
 
         if( props.guestId && props.guestId > 0 ){
            
             const response = await getGuestById(props.guestId);
-            console.log(response);
             setGuest(response);
             if(response.totalConfirmed == 0){
                 updateGuest({
@@ -48,6 +54,7 @@ const RSVPForm  = (props:RSVPType) => {
     fetchGuest();
   }, [props]);
     const [disabledForm, setDisabledForm] = React.useState(false)
+    const [disabledRSVP, setDisabledRSVP] = React.useState(false)
     const [radioValue, setRadioValue] = React.useState('yes');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setDisabledForm(false);
@@ -78,14 +85,29 @@ const RSVPForm  = (props:RSVPType) => {
             setGuest(response);
         }else{
        
-            const updated = await Confirm({
+            const response = await Confirm({
                 guestId: guest.id,
                 totalConfirmed: guest.totalConfirmed,
                 rsvpStatus: radioValue == "yes"? 2 : 3,
                 totalAssigned: guest.totalAssigned,
-                ccompanion:guest.companion
+                phoneNumber: guest.phoneNumber,
+                companion: guest.companion
             });
-            setGuest(updated);
+            if(!response.state.hasError){
+                const guestResponse = response.result;
+                setGuest({
+                id: guestResponse.id ?? 0,
+                fullName: guestResponse.fullName ?? '',
+                rsvpStatus: guestResponse.rsvpStatus,
+                totalConfirmed: guestResponse.totalConfirmed ?? 0,
+                totalAssigned: guestResponse.totalAssigned ?? 0,
+                invitationId: guestResponse.invitationId ?? 0,
+                phoneNumber: guestResponse.phoneNumber,
+                companion: guestResponse.companion,
+                registeredAttendance: guestResponse.registeredAttendance ?? false,
+                });
+            }
+            
         
         
         }
@@ -109,18 +131,33 @@ const RSVPForm  = (props:RSVPType) => {
                 )
                 }
 
-                {guest && guest.rsvpStatus ===2 ? (
-                    <div>
-                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Gracias por confirmar tu asistencia. Si necesitas hacer algún cambio, aún estás a tiempo de modificar tu respuesta.</Typography>
-                     <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Haz confirmado tu asistencia para {(guest.totalConfirmed && guest.totalConfirmed === 1) ? '1 persona' : `${guest.totalConfirmed} personas`} </Typography>
+       {disabledRSVP ? (
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+              Lo sentimos, el plazo para confirmar asistencia ya terminó.
+            </Typography>
+        ) : (
+        guest && guest.rsvpStatus === 2 ? (
+            <div>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+                Gracias por confirmar tu asistencia. Si necesitas hacer algún cambio, aún estás a tiempo de modificar tu respuesta.
+            </Typography>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+                Has confirmado tu asistencia para {guest.totalConfirmed === 1 ? '1 persona' : `${guest.totalConfirmed} personas`}.
+            </Typography>
+            </div>
+        ) : (
+            <div>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+                Hemos reservado {guest.totalAssigned === 1 ? '1 lugar' : `${guest.totalAssigned} lugares`} para ti.
+            </Typography>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+                Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
+            </Typography>
+            </div>
+        )
+        )}
 
-                    </div>
-
-                ):(
-                    <div>
-                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Hemos reservado {(guest.totalAssigned && guest.totalAssigned === 1) ? '1 lugar' : `${guest.totalAssigned} lugares`} para ti. </Typography>
-                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography></div>
-                )}
+                
                 </Fade>
             </Grid>
             
@@ -140,6 +177,7 @@ const RSVPForm  = (props:RSVPType) => {
                                 name="row-radio-buttons-group"
                                 value={radioValue}
                                 onChange={handleChange}
+                                
                             >
                                 <FormControlLabel 
                                     value="yes" 
@@ -155,6 +193,7 @@ const RSVPForm  = (props:RSVPType) => {
 
                                     }
                                     label="Sí" 
+                                    disabled={disabledRSVP}
                                 />
                                 <FormControlLabel 
                                     value="no" 
@@ -170,6 +209,7 @@ const RSVPForm  = (props:RSVPType) => {
 
                                     }
                                     label="No" 
+                                    disabled={disabledRSVP}
                                 />
 
                             </RadioGroup>
@@ -195,7 +235,7 @@ const RSVPForm  = (props:RSVPType) => {
                             onChange={(e) => updateGuest({
                                     fullName: e.target.value
                                 })}
-                            
+                            disabled={disabledRSVP}
                             />
                         </Grid>
                         )
@@ -218,11 +258,12 @@ const RSVPForm  = (props:RSVPType) => {
                                 },
                                 },
                             }}
-                            value={guest.phoneNumber}
+                            value={guest.phoneNumber ?? ''}
                             onChange={(e) => updateGuest({
                                     phoneNumber: e.target.value
                                 })}
-                            
+                            slotProps={{ inputLabel: { shrink: true } }} 
+                            disabled={disabledRSVP}
                             />
                      
                         </Grid>
@@ -251,6 +292,7 @@ const RSVPForm  = (props:RSVPType) => {
                                                 color: props.colorButton,
                                             },
                                         }}
+                                        disabled={disabledRSVP}
                                     >
                                         {Array.from({ length: guest.totalAssigned }, (_, index) => (
                                             <MenuItem key={index + 1} value={index + 1}
@@ -275,6 +317,7 @@ const RSVPForm  = (props:RSVPType) => {
                                 </Grid>
                                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
                                         <TextField
+                                            disabled={disabledRSVP}
                                             id="companion"
                                             label="Acompañante(s)"
                                             fullWidth={true}
@@ -289,20 +332,23 @@ const RSVPForm  = (props:RSVPType) => {
                                                 },
                                                 },
                                             }}
-                                            value={guest.companion}
+                                            value={guest.companion ?? ''}
                                             onChange={(e) => updateGuest({
                                                     companion: e.target.value
                                                 })}
-                                            
+                                            slotProps={{ inputLabel: { shrink: true } }} 
                                             />
                                 
                                 </Grid>
                             </>
                         )}
                         
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                            <CustomButton bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
-                        </Grid>
+                        {!disabledRSVP && (
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                                <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
+                            </Grid>
+                        )}
+                        
                         </Grid>
                                           
                 </Box>
@@ -316,7 +362,7 @@ const RSVPForm  = (props:RSVPType) => {
          { props.bgImage !== undefined ? (     
           <div style={{backgroundImage:`url('${props.bgImage}')`}} className='cover-container'>
             {
-                guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 3) ? (
+               (guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 3 )) || !props.qrActive? (
                       RenderForm()
                 ):(
                     <ConfirmQR guest={guest} bgColor={props.bgColor}></ConfirmQR>

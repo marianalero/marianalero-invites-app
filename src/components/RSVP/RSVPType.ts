@@ -11,4 +11,5 @@ export interface RSVPType {
     invitationId:number;
     qrActive:boolean;
     confirmed?:() => void;
+    excelURL?:string;
 }

@@ -5,6 +5,7 @@ import { ConfirmGuestParameters } from "../models/parameters/ConfirmGuestParamet
 import { createApiAuthClient } from "./api";
 import { GuestsResult } from "../models/guestsResult";
 import { UpdateGuestParameters } from "../models/parameters/updateGuestParameters";
+import { BaseStateResponse } from "../models/BaseStateResponse";
 const apiAuthClient: AxiosInstance = createApiAuthClient();
 const apiClient: AxiosInstance = createApiAuthClient();
 async function getGuestById(id: number): Promise<Guest> {
@@ -24,8 +25,9 @@ async function CreateAndConfirm(body: CreateGuestParameters): Promise<Guest> {
   return response.data;
 }
 
-async function Confirm(body: ConfirmGuestParameters): Promise<Guest> {
-  const response = await apiClient.put<Guest>("Guests/ConfirmGuest", body);
+async function Confirm(body: ConfirmGuestParameters): Promise<BaseStateResponse<Guest>> {
+  const response = await apiClient.put<BaseStateResponse<Guest>>("Guests/ConfirmGuest", body);
+  console.log(response);
   return response.data;
 }
 

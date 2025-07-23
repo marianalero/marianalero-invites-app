@@ -165,6 +165,9 @@ const THEME = createTheme({
           "&:hover:not(.Mui-focused,.Mui-disabled) .MuiOutlinedInput-notchedOutline": {
             
           },
+          '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#DADADA', // nuevo color del borde para disabled
+          },
         },
         input: {
           "&::placeholder": {
@@ -173,6 +176,7 @@ const THEME = createTheme({
         },
       },
     },
+    
     MuiInputBase: {
       styleOverrides: {
         root: {
@@ -383,6 +387,9 @@ const THEME = createTheme({
         root: {
           padding: 0,
           color: COLORTHEME.palette.primary.main,
+          '&.Mui-disabled': {
+            color: '#dadada', // color cuando está deshabilitado
+          },
         },
       },
     },

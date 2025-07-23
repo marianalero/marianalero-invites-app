@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 export interface CustomButtonProps {
     bgColor:string;
     color:string;
+    borderColor?:string;
     label:string;
     href?:string;
     icon?: React.JSX.Element;
@@ -23,10 +24,13 @@ const CustomButton  = (props:CustomButtonProps) => {
             borderRadius:8,
             color: props.color,
             backgroundColor: props.bgColor,
+            borderColor: props.borderColor ? props.borderColor : props.bgColor,
+            borderStyle:props.borderColor ?"solid":"none",
+            borderWidth:props.borderColor ? "1px" : "0",
             '&:hover': {
                 backgroundColor: props.color,
                 color:props.bgColor,
-                borderColor: props.bgColor,
+                borderColor: props.borderColor ? props.borderColor : props.bgColor,
                 borderStyle:"solid",
                 borderWidth:2
             },

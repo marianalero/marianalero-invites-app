@@ -84,7 +84,7 @@ const CreateUserDialog =({ open, onClose, onUserCreated,id }: Props) => {
             value={userModel?.email}
             onChange={(e) => updateData({ email: e.target.value })}
           />
-          <PasswordInput value={newPassword}  onChange={(value) => setNewPassword(value)}  label="Contraseña"/>
+          <PasswordInput value={newPassword}  onChange={(value) => setNewPassword(value)}  label={ id ? "Cambiar contraseña" : "Contraseña"}/>
 
          
         </DialogContent>

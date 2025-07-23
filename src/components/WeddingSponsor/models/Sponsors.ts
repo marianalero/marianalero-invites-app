@@ -5,6 +5,7 @@ export interface WeddingSponsorProps {
     sponsors:PairSponsors[];
     height:string;
     color:string;
+    bgColor?:string;
 }
 
 export interface XVSponsorProps {
