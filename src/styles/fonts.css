@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "Boheme-Floral";
+  src: local('Boheme-Floral'), url('../assets/fonts/Boheme-Floral.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

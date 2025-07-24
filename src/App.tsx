@@ -1,4 +1,5 @@
 import './App.css'
+import './styles/fonts.css';
 import { Route, Routes } from "react-router-dom";
 import routes from './constants/routes';
 import { ProtectedRoute } from './constants/protectedRoutes';
