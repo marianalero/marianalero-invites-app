@@ -93,8 +93,13 @@ const DemoTree  = () => {
         ],
         bankDetails: [
             {
-                type: "CLABE",
-                number: "123456789012",
+                numbers:[
+                    {
+                        numberType: "CLABE",
+                        number: "123456789012",
+                    }
+                ],
+               
                 bank: "BBVA",
                 name: "Juan Pérez",
                 color: COLOR_PRIMARY,

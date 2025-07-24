@@ -29,6 +29,7 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
       rsvpStatus: RSVPSTATUS.Confirmed,
       totalConfirmed: guest.totalAssigned,
       totalAssigned: guest.totalAssigned,
+      invitationId:guest.invitationId
     });
     showSnackbar('Se confirmo la asistencia correctamente', 'success')
     refresh();

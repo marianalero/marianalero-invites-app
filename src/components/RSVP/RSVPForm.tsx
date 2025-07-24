@@ -25,16 +25,16 @@ const RSVPForm  = (props:RSVPType) => {
     useEffect(() => {
        if (props.dateLine < new Date()) {
        setDisabledRSVP(true);
-       console.log("paso tiempo")
+      
     } else {
         setDisabledRSVP(false);
-        console.log("no paso tiempo")
+      
     }
     const fetchGuest = async () => {
 
         if( props.guestId && props.guestId > 0 ){
            
-            const response = await getGuestById(props.guestId);
+            const response = await getGuestById(props.guestId,props.invitationId);
             setGuest(response);
             if(response.totalConfirmed == 0){
                 updateGuest({
@@ -91,8 +91,10 @@ const RSVPForm  = (props:RSVPType) => {
                 rsvpStatus: radioValue == "yes"? 2 : 3,
                 totalAssigned: guest.totalAssigned,
                 phoneNumber: guest.phoneNumber,
-                companion: guest.companion
+                companion: guest.companion,
+                invitationId: props.invitationId,
             });
+
             if(!response.state.hasError){
                 const guestResponse = response.result;
                 setGuest({

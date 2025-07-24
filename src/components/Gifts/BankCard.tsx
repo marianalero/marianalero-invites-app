@@ -38,7 +38,7 @@ const BankCard  = (item:BankAccount) => {
         onClick={handleClick}
         style={{
           width: '300px',
-          height: '200px',
+          minHeight: '200px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -55,19 +55,23 @@ const BankCard  = (item:BankAccount) => {
             sx={{
                 borderColor:item.color,
                 padding:2,
-                boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
+                boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                marginY:"10px"
                 }} >
-                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{item.type}: {item.number}
-                    <IconButton
-                      onClick={() => {
-                      setIsFlipped(false);
-                      navigator.clipboard.writeText(item.number.trim());
-                     
-                      }}
-                    >
-                    <ContentCopyIcon sx={{color:item.bgColor}} />
-                </IconButton>
-                </Typography>
+                  {item.numbers.map((n, index) => (
+                    <Typography key={index} variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{n.numberType}: {n.number}
+                      <IconButton
+                        onClick={() => {
+                        setIsFlipped(false);
+                        navigator.clipboard.writeText(n.number.trim());
+                      
+                        }}
+                      >
+                      <ContentCopyIcon sx={{color:item.bgColor}} />
+                    </IconButton>
+                    </Typography>
+                  ))}
+                
                 <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>Banco: {item.bank}  </Typography>
                 <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>Beneficiario: {item.name}</Typography>
          </Paper>

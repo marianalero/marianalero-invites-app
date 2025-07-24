@@ -130,7 +130,10 @@
   font-weight: 700!important;
   font-style: normal!important;
 }
-
+.boheme-floral {
+  font-family: "Boheme-Floral"!important;;
+  font-style: normal!important;
+}
 .d-flex{
   display: flex!important;
 }

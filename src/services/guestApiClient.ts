@@ -8,9 +8,9 @@ import { UpdateGuestParameters } from "../models/parameters/updateGuestParameter
 import { BaseStateResponse } from "../models/BaseStateResponse";
 const apiAuthClient: AxiosInstance = createApiAuthClient();
 const apiClient: AxiosInstance = createApiAuthClient();
-async function getGuestById(id: number): Promise<Guest> {
+async function getGuestById(id: number,invitacionId:number): Promise<Guest> {
   const { data } = await apiClient.get<Guest>(
-    `Guests/${id}`,
+    `Guests/${id}?invitationId=${invitacionId}`,
   );
   return data;
 }

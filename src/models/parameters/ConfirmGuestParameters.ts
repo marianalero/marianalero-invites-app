@@ -5,4 +5,5 @@ export interface ConfirmGuestParameters {
   totalAssigned: number;
   companion?:string;
   phoneNumber?: string;
+  invitationId: number;
 }

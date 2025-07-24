@@ -22,3 +22,9 @@ h1 {
 p{
   margin: 0;
 }
+
+@font-face {
+  font-family: "Boheme-Floral";
+  src: local("Boheme-Floral"),
+    url(./fonts/Boheme-Floral.ttf) format("truetype");
+}

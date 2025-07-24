@@ -1,12 +1,12 @@
-import { ImageList, ImageListItem } from "@mui/material";
+import { ImageList, ImageListItem, useMediaQuery } from "@mui/material";
 
 interface GalleryProps {
     photos:string[]
 }
 const Gallery = (props:GalleryProps)=> {
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
     return ( 
-    <ImageList variant="masonry" cols={2} gap={8}>
+    <ImageList variant="masonry" cols={isSmallScreen ? 1: 2} gap={8} sx={{paddingX:2}}>
     {props.photos.map((item) => (
         <ImageListItem key={item}>
               

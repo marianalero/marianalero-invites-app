@@ -1,9 +1,14 @@
 export interface BankAccount{
-    type:string;
-    number:string;
+    
     bank:string;
     name:string;
     color:string;
     bodyTypo:string
     bgColor:string;
+    numbers: BankNumber[]
+}
+
+export interface BankNumber {
+    numberType:string;
+    number:string;
 }

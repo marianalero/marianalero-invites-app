@@ -25,7 +25,7 @@ const CreateGuestDialog =({ open, onClose, onCreated,id=0 }: Props) => {
 
     const fetchGuests = async () =>  {
 
-    const res = await getGuestById(id);
+    const res = await getGuestById(id,invitationId);
     setGuest(res);
   };
 

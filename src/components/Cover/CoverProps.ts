@@ -8,4 +8,5 @@ export interface CoverProps{
     weddingDate?:string;
     bgSize?:string
     textColor?:string;
+    hideText?:boolean;
 }

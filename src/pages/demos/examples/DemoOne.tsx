@@ -22,7 +22,7 @@ import RSVPForm from "../../../components/RSVP/RSVPForm";
 // import RSVPDemo from "../../../components/RSVP/RSVPDemo";
 import { IMAGES_URl } from "../../../config";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../../components/MusicFabPlayer/MusicFabPlayer";
-import { Box, Dialog, DialogActions, DialogContent,  Typography } from "@mui/material";
+import { Box, Dialog, DialogContent,  Typography } from "@mui/material";
 import CustomButton from "../../../components/CustomButton/CustomButton";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();
@@ -142,8 +142,13 @@ const DemoOne  = () => {
         ],
         bankDetails: [
             {
-                type: "CLABE",
-                number: "123456789012",
+                numbers: [
+                    {
+                        numberType: "CLABE",
+                        number: "123456789012",
+                    }
+                ],
+                
                 bank: "BBVA",
                 name: "Elena Maraí Lerma Rodríguez",
                 color: '#FFFFFF',
@@ -242,7 +247,7 @@ const DemoOne  = () => {
                 mainTypo={MAIN_TYPO} 
                 bodyTypo={BODY_TYPO} 
                 count={invitedGuests}
-                dateLine={new Date(2025,6,20)}
+                dateLine={new Date(2025,8,20)}
                 color={COLOR_PRIMARY}
                 guestId={guestId}
                 invitationId={INVITATION_ID}
@@ -284,19 +289,15 @@ const DemoOne  = () => {
             <DialogContent >
 
                <Box display={"flex"} justifyContent={"center"}>
-                <Typography variant="h3" className={MAIN_TYPO}>Bienvenidos</Typography>
+                <Typography variant="body1" sx={{fontSize:"25px"}} >Bienvenidos</Typography>
                </Box>
-                <Box display={"flex"} justifyContent={"center"}>
+                <Box display={"flex"} justifyContent={"center"} marginTop={2}>
                  <CustomButton borderColor="#d7ae54" bgColor={"#ffffff"} color={'#d7ae54'} label={'Entrar'} onClick={handleClose}></CustomButton>
                </Box>
                 
                
            
             </DialogContent>
-            <DialogActions>
-            
-           
-            </DialogActions>
         </Dialog>
         </div>
     )
