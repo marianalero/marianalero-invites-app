@@ -9,7 +9,7 @@ const CoverSimple  = (props:CoverProps) => {
 
     return(
      
-     <div style={{backgroundImage:`url('${isSmallScreen ? props.bgImage : props.bgImage2}')`}} className='cover-container'>
+     <div style={{backgroundImage:`url('${isSmallScreen ? props.bgImage : props.bgImage2}')`,backgroundSize: props.bgSize? props.bgSize : "cover"}} className='cover-container'>
     
         <Fade direction="up" triggerOnce={true}>
           {

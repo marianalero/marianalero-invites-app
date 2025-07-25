@@ -20,6 +20,7 @@ import Adornment from "../../components/Adornment/Adornment";
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import RSVPExcel from "../../components/RSVP/RSVPExcel";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import HashtagSection from "../../components/Instagram/Instagram";
 const WeddingFerMario = () => {
         const [searchParams] = useSearchParams();
     const invitedGuests: number = useMemo(() => {
@@ -160,7 +161,7 @@ const WeddingFerMario = () => {
         omitColorsLabel:"Omitir colores de la novia",
         omitColors:[
             COLOR_PRIMARY,
-            "#F7E7CE",
+            
             "#F5F5DC",
         ],
     }
@@ -177,7 +178,8 @@ const WeddingFerMario = () => {
        `${URL_IMAGES}galeria1.jpg`,
        `${URL_IMAGES}galeria2.jpg`,
        `${URL_IMAGES}galeria3.jpg`,
-       `${URL_IMAGES}galeria6.jpg`,
+       `${URL_IMAGES}galeria7.jpg`,
+        `${URL_IMAGES}galeria10.jpg`,
     ]
 
      useEffect(() => {
@@ -200,18 +202,21 @@ const WeddingFerMario = () => {
                 >
             </CoverSimple>
 
-            <ImageMiddle bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/Monogram sin fondo con fecha).png`}></ImageMiddle>
+            <ImageMiddle bgSize="auto" bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/Monogram sin fondo con fecha).png`}></ImageMiddle>
              <Qoute 
                {...qoute}>
             </Qoute>
             <Grid container spacing={2} padding={4} justifyContent={"center"} >
-
+ <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                  <Fade direction="up" >
                          <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Deseamos compartir con ustedes la alegría de nuestra unión</Typography>
                   </Fade>
+                  </Grid>
+                  <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                   <Fade direction="up" >
                     <Typography variant="h2" align="center" sx={{color:COLOR_PRIMARY}} className={MAIN_TYPO}>Fernanda & Mario</Typography>
                 </Fade>
+                </Grid>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" >
                             <Typography  textAlign={"center"} className={`${BODY_TYPO}`}>Tenemos el honor de invitarte a celebrar el inicio de nuestro matrimonio</Typography>
@@ -233,12 +238,12 @@ const WeddingFerMario = () => {
             }
             </Grid>
 
-            <ImageMiddle bgImage={`${URL_IMAGES}galeria5.jpg`}></ImageMiddle>
+            <ImageMiddle bgImage={`${URL_IMAGES}galeria6.jpg`} bgSize="contain"></ImageMiddle>
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-            <RSVPExcel excelURL="https://docs.google.com/forms/d/e/1FAIpQLSfOXS6266IS8IL6lwpHbGYDuZcjZ6-aheJRCIMSF96zyqiz8g/formResponse" qrActive={false} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} ></RSVPExcel>
+            <RSVPExcel bgImage={`${URL_IMAGES}galeria9.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} ></RSVPExcel>
 
              <GiftList {...giftListData} ></GiftList>
-              <ImageMiddle bgImage={`${URL_IMAGES}galeria8.jpg`}></ImageMiddle>
+              <ImageMiddle bgImage={`${URL_IMAGES}galeria8.jpg`} bgSize="contain"></ImageMiddle>
              <DressCode {...dresscode}></DressCode>
             <Fade direction="up" >
             <Adornment image={"https://marianalero.github.io/Invitacion/images/Icons/adornos.svg"} width={"250px"} />
@@ -246,6 +251,10 @@ const WeddingFerMario = () => {
             <WithoutKids title="Mamá y papá merecen un día libre, por lo que el evento será únicamente para adultos." subtitle2="NO NIÑOS"
             
             />
+            <HashtagSection
+                  imageSrc={"https://marianalero.github.io/Invitacion/images/instagram.png"}
+                  bgColor="#ffffff" 
+                  hashtags={["#FerYMarioLoveStory","#TeamRamosSalazar"]}     bodyTypo={BODY_TYPO}           />
             <div style={{height:100}}></div>
             <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>

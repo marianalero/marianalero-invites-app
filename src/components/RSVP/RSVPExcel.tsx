@@ -1,4 +1,4 @@
-import { Box, Dialog, DialogActions, DialogContent, FormControlLabel, IconButton, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
+import { Box, Dialog, DialogActions, DialogContent, FormControl, FormControlLabel, IconButton, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
@@ -6,6 +6,7 @@ import CustomButton from '../CustomButton/CustomButton';
 import { RSVPType } from './RSVPType';
 import { Fade } from 'react-awesome-reveal';
 import CloseIcon from '@mui/icons-material/Close';
+import './rsvp.css';
 const RSVPDemo  = (props:RSVPType) => {
     const [radioValue, setRadioValue] = React.useState('yes');
     const [name, setName] =  useState<string>('');
@@ -61,7 +62,8 @@ const RSVPDemo  = (props:RSVPType) => {
      };
      const RenderForm = () =>{
         return(
-        <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgColor}} >
+        <Grid container spacing={1} padding={2} sx={{bgcolor: props.bgColor,
+        }}  >
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" triggerOnce={true}>
           
@@ -70,8 +72,8 @@ const RSVPDemo  = (props:RSVPType) => {
 
                
                     <div>
-                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Hemos reservado {(props.count && props.count === 1) ? '1 lugar' : `${props.count} lugares`} para ti. </Typography>
-                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography></div>
+                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.color}}>Hemos reservado {(props.count && props.count === 1) ? '1 lugar' : `${props.count} lugares`} para ti. </Typography>
+                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.color}}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography></div>
               
                 </Fade>
             </Grid>
@@ -85,7 +87,7 @@ const RSVPDemo  = (props:RSVPType) => {
                     >
                         <Grid container spacing={2} padding={4} >
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo}>¿Asistiras?</Typography>
+                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.color}}>¿Asistiras?</Typography>
                                 <RadioGroup 
                                 row
                                 aria-labelledby="demo-row-radio-buttons-group-label"
@@ -94,6 +96,7 @@ const RSVPDemo  = (props:RSVPType) => {
                                 onChange={handleChange}
                             >
                                 <FormControlLabel 
+                                    sx={{color:props.color}}
                                     value="yes" 
                                     control=
                                     {
@@ -109,6 +112,7 @@ const RSVPDemo  = (props:RSVPType) => {
                                     label="Sí" 
                                 />
                                 <FormControlLabel 
+                                 sx={{color:props.color}}
                                     value="no" 
                                     control=
                                     {
@@ -128,7 +132,8 @@ const RSVPDemo  = (props:RSVPType) => {
                         </Grid>
                      
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                            <TextField
+                       
+                                     <TextField
                             required
                             id="name"
                             label="Nombre"
@@ -141,6 +146,14 @@ const RSVPDemo  = (props:RSVPType) => {
                                 '&.Mui-focused fieldset': {
                                     borderColor: props.colorButton, // Borde en focus
                                 },
+                                },
+                                '& .MuiInputLabel-root': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                    padding: '0 4px',
+                                    borderRadius: '4px',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
                                 },
                             }}
                             value={name}
@@ -167,6 +180,14 @@ const RSVPDemo  = (props:RSVPType) => {
                                     borderColor: props.colorButton, // Borde en focus
                                 },
                                 },
+                                '& .MuiInputLabel-root': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                    padding: '0 4px',
+                                    borderRadius: '4px',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                },
                             }}
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(
@@ -178,7 +199,18 @@ const RSVPDemo  = (props:RSVPType) => {
                         </Grid>
 
                            <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
+                            <FormControl >
+                              
+                                        <InputLabel sx={{color:"#757575",
+                                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                            padding: '0 4px',
+                                            borderRadius: '4px',
+                                        }} id="demo-simple-select-label">Número de asistentes</InputLabel>
+
+                                    
+                                
                                     <Select<number>
+                                        label="Número de asistentes"
                                         labelId="guests"
                                         id="guests"
                                         value={totalConfirmed}
@@ -222,6 +254,7 @@ const RSVPDemo  = (props:RSVPType) => {
                                             </MenuItem>
                                         ))}
                                     </Select>
+                                    </FormControl>
                             </Grid>
                             
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
@@ -265,7 +298,7 @@ const RSVPDemo  = (props:RSVPType) => {
     return ( 
         <>
          { props.bgImage !== undefined ? (     
-          <div style={{backgroundImage:`url('${props.bgImage}')`}}>
+          <div className="fondo-con-overlay" style={{backgroundImage:`url('${props.bgImage}')`, backgroundSize:"cover"}}>
      
             {RenderForm()}
           </div>

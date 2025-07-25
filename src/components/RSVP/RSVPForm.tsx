@@ -1,4 +1,4 @@
-import { Box, FormControlLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
+import { Box, FormControl, FormControlLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react';
@@ -9,7 +9,7 @@ import { Confirm, CreateAndConfirm, getGuestById } from '../../services/guestApi
 import { Guest } from '../../models/guest';
 import { CreateGuestParameters } from '../../models/parameters/createGuestParameters';
 import ConfirmQR from './ConfirmQR';
-
+import './rsvp.css';
 const RSVPForm  = (props:RSVPType) => {
     const [guest, setGuest] = useState<Guest>({
     id: 0,
@@ -134,13 +134,13 @@ const RSVPForm  = (props:RSVPType) => {
                 }
 
        {disabledRSVP ? (
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.color}}>
               Lo sentimos, el plazo para confirmar asistencia ya terminó.
             </Typography>
         ) : (
         guest && guest.rsvpStatus === 2 ? (
             <div>
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.color}}>
                 Gracias por confirmar tu asistencia. Si necesitas hacer algún cambio, aún estás a tiempo de modificar tu respuesta.
             </Typography>
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
@@ -149,7 +149,7 @@ const RSVPForm  = (props:RSVPType) => {
             </div>
         ) : (
             <div>
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.color}}>
                 Hemos reservado {guest.totalAssigned === 1 ? '1 lugar' : `${guest.totalAssigned} lugares`} para ti.
             </Typography>
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
@@ -182,6 +182,7 @@ const RSVPForm  = (props:RSVPType) => {
                                 
                             >
                                 <FormControlLabel 
+                                    sx={{color:props.color}}
                                     value="yes" 
                                     control=
                                     {
@@ -198,6 +199,7 @@ const RSVPForm  = (props:RSVPType) => {
                                     disabled={disabledRSVP}
                                 />
                                 <FormControlLabel 
+                                    sx={{color:props.color}}
                                     value="no" 
                                     control=
                                     {
@@ -231,6 +233,14 @@ const RSVPForm  = (props:RSVPType) => {
                                 '&.Mui-focused fieldset': {
                                     borderColor: props.colorButton, // Borde en focus
                                 },
+                                '& .MuiInputLabel-root': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                    padding: '0 4px',
+                                    borderRadius: '4px',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                },
                                 },
                             }}
                             value={guest.fullName}
@@ -259,6 +269,14 @@ const RSVPForm  = (props:RSVPType) => {
                                     borderColor: props.colorButton, // Borde en focus
                                 },
                                 },
+                                '& .MuiInputLabel-root': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                    padding: '0 4px',
+                                    borderRadius: '4px',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                },
                             }}
                             value={guest.phoneNumber ?? ''}
                             onChange={(e) => updateGuest({
@@ -271,7 +289,18 @@ const RSVPForm  = (props:RSVPType) => {
                         </Grid>
                         { !disabledForm && (
                             <><Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
+                                  <FormControl >
+                                                                
+                                        <InputLabel sx={{color:"#757575",
+                                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                            padding: '0 4px',
+                                            borderRadius: '4px',
+                                            }} 
+                                            id="demo-simple-select-label">Número de asistentes</InputLabel>
+                                  
+                                                               
                                     <Select<number>
+                                        label="Número de asistentes"
                                         labelId="guests"
                                         id="guests"
                                         value={guest.totalConfirmed}
@@ -316,12 +345,13 @@ const RSVPForm  = (props:RSVPType) => {
                                             </MenuItem>
                                         ))}
                                     </Select>
+                                    </FormControl>
                                 </Grid>
                                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
                                         <TextField
                                             disabled={disabledRSVP}
                                             id="companion"
-                                            label="Acompañante(s)"
+                                            label="Nombre(s) de acompañante(s)"
                                             fullWidth={true}
                                             sx={{
                                                 minWidth:300,
@@ -331,6 +361,14 @@ const RSVPForm  = (props:RSVPType) => {
                                                 '& .MuiOutlinedInput-root': {
                                                 '&.Mui-focused fieldset': {
                                                     borderColor: props.colorButton, // Borde en focus
+                                                },
+                                                '& .MuiInputLabel-root': {
+                                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                                    padding: '0 4px',
+                                                    borderRadius: '4px',
+                                                },
+                                                '& .MuiInputLabel-root.Mui-focused': {
+                                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
                                                 },
                                                 },
                                             }}
@@ -362,7 +400,7 @@ const RSVPForm  = (props:RSVPType) => {
     return ( 
         <div>
          { props.bgImage !== undefined ? (     
-          <div style={{backgroundImage:`url('${props.bgImage}')`}} className='cover-container'>
+          <div style={{backgroundImage:`url('${props.bgImage}')`}} className="fondo-con-overlay" >
             {
                (guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 3 )) || !props.qrActive? (
                       RenderForm()

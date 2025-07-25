@@ -1,0 +1,23 @@
+.fondo-con-overlay {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.fondo-con-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Capa oscura */
+  z-index: 1;
+}
+
+.fondo-con-overlay > * {
+  position: relative;
+  z-index: 2; /* Para estar encima del ::before */
+}

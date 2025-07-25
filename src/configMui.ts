@@ -568,6 +568,14 @@ const THEME = createTheme({
           },
         },
       },
+    },MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          '&.Mui-focused': {
+            color: 'black', // cambia este color al que desees
+          },
+        },
+      },
     },
     MuiDataGrid: {
       styleOverrides: {
