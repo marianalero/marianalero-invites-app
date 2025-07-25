@@ -134,25 +134,34 @@ const RSVPForm  = (props:RSVPType) => {
                 }
 
        {disabledRSVP ? (
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.color}}>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
               Lo sentimos, el plazo para confirmar asistencia ya terminó.
             </Typography>
         ) : (
         guest && guest.rsvpStatus === 2 ? (
             <div>
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.color}}>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
                 Gracias por confirmar tu asistencia. Si necesitas hacer algún cambio, aún estás a tiempo de modificar tu respuesta.
             </Typography>
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
                 Has confirmado tu asistencia para {guest.totalConfirmed === 1 ? '1 persona' : `${guest.totalConfirmed} personas`}.
             </Typography>
             </div>
+        ) : guest && guest.rsvpStatus === 3 ? (
+            <div>
+                <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
+                 Lamentamos que no puedas acompañarnos en esta ocasión tan especial.
+                </Typography>
+                <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
+                   Gracias por tomarte el tiempo de confirmar. Puedes actualizar tu respuesta si surge algún cambio antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
+                </Typography>
+            </div>
         ) : (
             <div>
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.color}}>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
                 Hemos reservado {guest.totalAssigned === 1 ? '1 lugar' : `${guest.totalAssigned} lugares`} para ti.
             </Typography>
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo}>
+            <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
                 Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
             </Typography>
             </div>
@@ -288,7 +297,11 @@ const RSVPForm  = (props:RSVPType) => {
                      
                         </Grid>
                         { !disabledForm && (
-                            <><Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
+                            <>
+                            {
+                                guest.totalAssigned > 1 &&
+                                (
+                                       <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
                                   <FormControl >
                                                                 
                                         <InputLabel sx={{color:"#757575",
@@ -347,6 +360,11 @@ const RSVPForm  = (props:RSVPType) => {
                                     </Select>
                                     </FormControl>
                                 </Grid>
+                                )
+                            }
+                            {
+                                guest.totalConfirmed > 1 &&
+                                (
                                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
                                         <TextField
                                             disabled={disabledRSVP}
@@ -380,6 +398,7 @@ const RSVPForm  = (props:RSVPType) => {
                                             />
                                 
                                 </Grid>
+                                )}
                             </>
                         )}
                         

@@ -240,7 +240,7 @@ const WeddingFerMario = () => {
 
             <ImageMiddle bgImage={`${URL_IMAGES}galeria6.jpg`} bgSize="contain"></ImageMiddle>
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-            <RSVPExcel bgImage={`${URL_IMAGES}galeria9.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} ></RSVPExcel>
+            <RSVPExcel textColor="white" bgImage={`${URL_IMAGES}galeria9.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} ></RSVPExcel>
 
              <GiftList {...giftListData} ></GiftList>
               <ImageMiddle bgImage={`${URL_IMAGES}galeria8.jpg`} bgSize="contain"></ImageMiddle>
@@ -271,7 +271,7 @@ const WeddingFerMario = () => {
                 <Typography variant="body1" sx={{fontSize:"25px"}} >Bienvenidos</Typography>
                </Box>
                 <Box display={"flex"} justifyContent={"center"} marginTop={2}>
-                 <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"} color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>
+                 <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"}  color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>
                </Box>
                 
                

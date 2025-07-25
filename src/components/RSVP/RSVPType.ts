@@ -12,4 +12,5 @@ export interface RSVPType {
     qrActive:boolean;
     confirmed?:() => void;
     excelURL?:string;
+    textColor:string;
 }

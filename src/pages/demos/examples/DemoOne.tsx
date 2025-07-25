@@ -242,6 +242,7 @@ const DemoOne  = () => {
 
             <GiftList {...giftListData} ></GiftList>
             <RSVPForm 
+            textColor="black"
                 colorButton={COLOR_PRIMARY} 
                 bgColor="rgb(215,174,84,.05)" 
                 mainTypo={MAIN_TYPO} 
