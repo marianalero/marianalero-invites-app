@@ -1,4 +1,4 @@
-import { Box, FormControl, FormControlLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
+import { Box, Dialog, DialogContent, FormControl, FormControlLabel, IconButton, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react';
@@ -10,6 +10,7 @@ import { Guest } from '../../models/guest';
 import { CreateGuestParameters } from '../../models/parameters/createGuestParameters';
 import ConfirmQR from './ConfirmQR';
 import './rsvp.css';
+import CloseIcon from '@mui/icons-material/Close';
 const RSVPForm  = (props:RSVPType) => {
     const [guest, setGuest] = useState<Guest>({
     id: 0,
@@ -57,6 +58,7 @@ const RSVPForm  = (props:RSVPType) => {
     const [disabledForm, setDisabledForm] = React.useState(false)
     const [disabledRSVP, setDisabledRSVP] = React.useState(false)
     const [radioValue, setRadioValue] = React.useState('yes');
+    const [open, setOpen] = useState(false);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setDisabledForm(false);
         const value = (event.target as HTMLInputElement).value;
@@ -121,6 +123,9 @@ const RSVPForm  = (props:RSVPType) => {
     const updateGuest = (newData: Partial<Guest>) => {
         setGuest((prevData) => ({ ...prevData, ...newData }));
     };
+    const handleClose = () => {
+        setOpen(false);
+     };
     const RenderForm = () =>{
         return(
         <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgColor}} >
@@ -437,6 +442,29 @@ const RSVPForm  = (props:RSVPType) => {
                       <ConfirmQR guest={guest} mainTypo={props.mainTypo} bodyTypo={props.bodyTypo} colorPrimary={props.color} bgColor={props.bgColor}></ConfirmQR>
                 )
         )}
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                   
+                    <DialogContent >
+                        <Box display={"flex"} justifyContent={"end"}>
+                            <IconButton aria-label="delete" onClick={handleClose}>
+                                <CloseIcon sx={{color:props.color}} />
+                            </IconButton>
+                         
+                       </Box>
+                       <Box display={"flex"} justifyContent={"center"}>
+                        <Typography variant="h3" className={props.mainTypo}>Confirmación enviada</Typography>
+                       </Box>
+                   
+                        
+                       
+                   
+                    </DialogContent>
+                </Dialog>
        </div>
     )
 }

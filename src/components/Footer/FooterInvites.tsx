@@ -1,4 +1,4 @@
-import { Box, Typography, IconButton } from "@mui/material";
+import { Box, Typography, IconButton, Link } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -20,8 +20,11 @@ const FooterInvites  = (props:FooterInvitesProps) => {
         borderTop: '1px solid #ccc',
       }}
     >
-      <Typography variant="body2" sx={{ color: '#555' }}>
-        © {new Date().getFullYear()} Mariana Lero Invitaciones. Todos los derechos reservados.
+      <Typography variant="caption" display="block" sx={{ color: '#777', mt: 1 }}>
+        Diseñado con amor desde México ♥
+      </Typography>
+      <Typography variant="caption" sx={{ color: '#999' }}>
+        © {new Date().getFullYear()} <Link href="https://www.marianalero-invites.com/" color="inherit">Mariana Lero Invitaciones</Link>
       </Typography>
 
       <Grid container direction="row" spacing={2} justifyContent="center" mt={1}>
@@ -31,7 +34,7 @@ const FooterInvites  = (props:FooterInvitesProps) => {
         <IconButton href="https://www.facebook.com/profile.php?id=100094953459966" target="_blank" sx={{ color: props.color }}>
           <FacebookIcon />
         </IconButton>
-        <IconButton href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales." sx={{ color: props.color }}>
+        <IconButton href="https://wa.me/+526621942534/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales." sx={{ color: props.color }}>
           <WhatsAppIcon />
         </IconButton>
       </Grid>

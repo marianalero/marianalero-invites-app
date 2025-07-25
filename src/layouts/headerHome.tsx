@@ -79,7 +79,7 @@ const Header = () => {
               
             ))}
             {/* <Button
-             href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
+             href="https://wa.me/+526621942534/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
               variant="contained"
               sx={{
                 bgcolor: '#f2eadd',
@@ -174,7 +174,7 @@ const Header = () => {
           <ListItem
             
             component="a"
-            href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
+            href="https://wa.me/+526621942534/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
             onClick={() => setDrawerOpen(false)}
           >
             <ListItemText

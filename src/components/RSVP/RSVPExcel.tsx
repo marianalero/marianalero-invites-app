@@ -281,15 +281,7 @@ const RSVPDemo  = (props:RSVPType) => {
                <Box display={"flex"} justifyContent={"center"}>
                 <Typography variant="h3" className={props.mainTypo}>Confirmación enviada</Typography>
                </Box>
-           
-                
-               
-           
-            </DialogContent>
-            <DialogActions>
-            
-           
-            </DialogActions>
+            </DialogContent>        
         </Dialog>
         </Grid>
 

@@ -27,7 +27,7 @@ const Footer = () => {
         <IconButton href="https://facebook.com/lerostudio" target="_blank" sx={{ color: '#a41423' }}>
           <FacebookIcon />
         </IconButton>
-        <IconButton href="https://wa.me/+526621729312/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales." sx={{ color: '#a41423' }}>
+        <IconButton href="https://wa.me/+526621942534/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales." sx={{ color: '#a41423' }}>
           <WhatsAppIcon />
         </IconButton>
       </Stack>
@@ -45,14 +45,9 @@ const Footer = () => {
         </Link>
       </Stack>
 
-      {/* Frase emocional */}
-      <Typography variant="caption" display="block" sx={{ color: '#777', mt: 1 }}>
-        Diseñado con amor desde México ♥
-      </Typography>
-
       {/* Copyright */}
       <Typography variant="caption" sx={{ color: '#999' }}>
-        © {new Date().getFullYear()} Mariana Lero Invitaciones
+        © {new Date().getFullYear()} <Link href="https://www.marianalero-invites.com/" color="inherit">Mariana Lero Invitaciones</Link>
       </Typography>
     </div>
     
