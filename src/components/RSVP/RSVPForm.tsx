@@ -21,6 +21,7 @@ const RSVPForm  = (props:RSVPType) => {
     invitationId: props.invitationId,
     qrCodeToken: '',
     registeredAttendance: false,
+    companion:''
     });
     useEffect(() => {
        if (props.dateLine < new Date()) {

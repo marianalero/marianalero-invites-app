@@ -34,7 +34,7 @@ const RSVPDemo  = (props:RSVPType) => {
     });
 
      const url = `${props.excelURL}?${params.toString()}`;
-    console.log(url);
+   
     try {
       await fetch(url, {
         method: 'GET',
@@ -274,12 +274,12 @@ const RSVPDemo  = (props:RSVPType) => {
             <DialogContent >
                 <Box display={"flex"} justifyContent={"end"}>
                     <IconButton aria-label="delete" onClick={handleClose}>
-                        <CloseIcon />
+                        <CloseIcon sx={{color:props.color}} />
                     </IconButton>
                  
                </Box>
                <Box display={"flex"} justifyContent={"center"}>
-                <Typography variant="h6" className={props.mainTypo}>Confirmación enviada</Typography>
+                <Typography variant="h3" className={props.mainTypo}>Confirmación enviada</Typography>
                </Box>
            
                 

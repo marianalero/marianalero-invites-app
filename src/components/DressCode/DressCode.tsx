@@ -47,14 +47,16 @@ const DressCode  = (props:DressCodeProps) =>
             </Grid>
             
                     { props.omitColors && (
-                          <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent={"center"} gap={1} >
-                       <div style={{backgroundColor:"#FFFFFF", borderColor:"lightgray",borderStyle:"solid", borderWidth:1, borderRadius:"50%",height:"40px",width:"40px"}}></div>
+                        <><Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} alignItems={"center"} justifyContent={"center"}>
+                    <Typography className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={400}>{props.omitColorsLabel}</Typography>
+                </Grid><Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} alignItems={"center"} justifyContent={"center"} gap={1}>
+                        <div style={{ backgroundColor: "#FFFFFF", borderColor: "lightgray", borderStyle: "solid", borderWidth: 1, borderRadius: "50%", height: "40px", width: "40px" }}></div>
 
                         {props.omitColors.map((item, index) => (
-                            <div key={index} style={{backgroundColor:item,borderRadius:"50%",height:"40px",width:"40px"}}></div>
+                            <div key={index} style={{ backgroundColor: item, borderRadius: "50%", height: "40px", width: "40px" }}></div>
                         ))}
-                     
-                        </Grid>
+
+                    </Grid></>
                         )
                     }
               
