@@ -13,7 +13,6 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import logo from './../assets/logos/logo header.svg';
 import { useAuth } from '../context/authContext';
 import { isAuthenticated } from '../services/authService';
@@ -26,7 +25,6 @@ const Header = () => {
   const menuItems = [
     { label: 'Modelos', href: '/demos', icon: <AppsRoundedIcon sx={{ color: '#a41423' }} /> },
     { label: 'Preguntas', href: '/faq', icon: <HelpOutlineIcon sx={{ color: '#a41423' }} /> },
-    { label: 'Contacto', href: '/contacto', icon: <EmailRoundedIcon sx={{ color: '#a41423' }} /> },
     { label: 'Términos y Condiciones', href: '/terminos' , hidden:true},
     { label: 'Política de Privacidad', href: '/privacidad' , hidden:true},
   ];

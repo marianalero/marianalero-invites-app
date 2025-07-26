@@ -160,7 +160,7 @@ const DemoOne  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
             <GiftList {...giftListData} ></GiftList>
-            <RSVPDemo qrActive={false} bgImage="https://marianalero.github.io/invitacion-selene-juan-carlos/images/UNI04765.jpg" bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} ></RSVPDemo>
+            <RSVPDemo qrActive={false} bgImage="https://marianalero.github.io/invitacion-selene-juan-carlos/images/UNI04765.jpg" bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} textColor={"white"} ></RSVPDemo>
             <DressCode {...dresscode}></DressCode>
             <WithoutKids {...withOutKids} />
             {/* <Fab sx={fabStyle } color="primary" aria-label="add">

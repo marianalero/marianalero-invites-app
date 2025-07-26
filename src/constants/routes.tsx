@@ -2,7 +2,7 @@
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 // import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
-import DemosPage from "../pages/demos/DemosPage";
+import DemosPage from "../pages/demos/DemosPage2";
 import DemoOne from "../pages/demos/examples/DemoOne";
 import DemoTree from "../pages/demos/examples/DemoTree";
 import DemoTwo from "../pages/demos/examples/DemoTwo";
