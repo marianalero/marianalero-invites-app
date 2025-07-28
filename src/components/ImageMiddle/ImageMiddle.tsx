@@ -2,7 +2,7 @@
 import './ImgMiddle.css';
 export interface ImageMiddleProps {
     bgImage:string;
-    maxHeight?:string;
+    height?:string;
     bgSize?:string;
 }
 const ImageMiddle  = (props:ImageMiddleProps) => {

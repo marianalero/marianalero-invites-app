@@ -12,6 +12,7 @@ export interface EventCardProps extends  Event{
     colorIcon?:string;
     bgColor?:string;
     fontSize?:string;
+    textColor?:string;
 }
 export interface Event {
     eventName?:string;

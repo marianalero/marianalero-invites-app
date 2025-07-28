@@ -29,7 +29,7 @@ const BankCard  = (item:BankAccount) => {
           color:item.color,
         }}
       >
-        <h6 style={{textAlign:"center"}}  className={`${item.bodyTypo}`}>Ver datos bancarios<br/> {item.name}</h6>
+        <h6 style={{textAlign:"center"}}  className={`${item.bodyTypo}`}>Clic para ver datos bancarios<br/> {item.name}</h6>
       </div>
 
       {/* Reverso de la tarjeta */}

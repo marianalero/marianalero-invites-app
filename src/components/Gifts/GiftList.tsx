@@ -18,6 +18,7 @@ export interface GiftListProps {
     bankIconEnd?:string;
     showEnvelope:boolean;
     envelopePhrase?:string;
+    secondPhrase?:string;
 }
 
 
@@ -118,8 +119,16 @@ const GiftList = (props:GiftListProps) =>{
                 </Grid>
            
             )}
+            {props.secondPhrase &&(
+                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} >
+                      <Fade direction="up" triggerOnce={true} >
+                         <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`} >{props.secondPhrase}</Typography>
+                      </Fade>
+                 </Grid>
+            )}
             { props.bankDetails &&
             (           
+                
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                       
                         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={2} >

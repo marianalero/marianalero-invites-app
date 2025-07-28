@@ -17,14 +17,15 @@ export interface CustomizedTimelineProps {
     colorTitle?:string;
     colorBody?:string;
     bgColor?:string;
-    events?:Event[]
+    events?:Event[];
+    fontSize?:string;
 }
 const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
     return (
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:props.bgColor}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
-              <Typography variant='h4' color={props.colorTitle} textAlign={"center"} className={`${props.mainTypo}`}>El Gran Día</Typography>
+              <Typography variant='h4' style={{fontSize: props.fontSize ? props.fontSize :"2rem"}} color={props.colorTitle} textAlign={"center"} className={`${props.mainTypo}`}>El Gran Día</Typography>
             </Fade>
             </Grid>	
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >

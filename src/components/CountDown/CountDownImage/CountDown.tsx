@@ -7,12 +7,14 @@ export interface CountDownProps{
     bgImage?:string;
     typoHeader?:string;
     typoCountdown?:string;
+    format?:string;
+    fontSize?:string;
 }
 const CountDown = (props:CountDownProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
     dayjs.locale('es');
     const formattedDate = dayjs(props.eventDate)
-    .format("dddd DD MMMM YYYY");
+    .format(props.format ? props.format : "dddd DD MMMM YYYY");
 
     const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
     useEffect(() => {
@@ -59,7 +61,7 @@ const CountDown = (props:CountDownProps) => {
 				<div className="container" >
 					<div className="row animate-box">
 						<div className="col-md-12 section-heading text-center svg-sm colored">							
-							<span className={`datewed ${props.typoHeader}`}>{capitalizedDate}</span>
+							<span style={{fontSize: props.fontSize? props.fontSize : "50px"}} className={`datewed ${props.typoHeader}`}>{capitalizedDate}</span>
 						</div>
 					</div>
 					<div className="row animate-box">

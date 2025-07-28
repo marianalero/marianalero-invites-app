@@ -3,6 +3,7 @@ import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 // import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
 import DemosPage from "../pages/demos/DemosPage2";
+import BabyShower from "../pages/demos/examples/BabyShower";
 import DemoOne from "../pages/demos/examples/DemoOne";
 import DemoTree from "../pages/demos/examples/DemoTree";
 import DemoTwo from "../pages/demos/examples/DemoTwo";
@@ -37,7 +38,8 @@ const routes: RouteConfig[] = [
   { path: '/admin', element: <AdminPage />, protected: true, adminOnly: true },
   { path: '/invitations', element: <InvitationsPage />, protected: true, adminOnly: true },
   // {path:'/boda-korina-daniel', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-   {path:'/prev-fm', element: <WeddingFerMario></WeddingFerMario>},
+   {path:'/prev-fm-2', element: <WeddingFerMario></WeddingFerMario>},
+   {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
 ];
 
 

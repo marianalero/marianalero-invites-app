@@ -41,7 +41,7 @@ const DressCode  = (props:DressCodeProps) =>
                }
                { props.type == 3 &&
                     <Fade direction="up" triggerOnce={true}>
-                   <img src={props.image} height="100" />
+                   <img src={props.image} style={{height:"40vh"}}/>
                    </Fade>
                }
             </Grid>

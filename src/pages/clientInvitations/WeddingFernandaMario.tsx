@@ -46,7 +46,7 @@ const WeddingFerMario = () => {
        handleClickOpen()
     }, []);
     const COLOR_PRIMARY = "#01313d";
-    const MAIN_TYPO = "boheme-floral";
+    const MAIN_TYPO = "southland";
     const BODY_TYPO = "montserrat-400";
     const URL_IMAGES = `${URL_REPO}boda-fernando-mario/`;
     const URL_SONG = `${URL_REPO}canciones/Unconditionally-KatyPerryPiano.mp3`;
@@ -63,7 +63,7 @@ const WeddingFerMario = () => {
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/JqYwMT3FxbuTsAmP8",
                 colorButton: COLOR_PRIMARY,
-                fontSize:"45px"
+                fontSize:"55px"
             },
             {
                 eventName: "Recepción",
@@ -77,7 +77,7 @@ const WeddingFerMario = () => {
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/5vKR4xMx2d6VXat67",
                 colorButton: COLOR_PRIMARY,
-                fontSize:"45px"
+                fontSize:"55px"
             },
     ];
     const timelineData: CustomizedTimelineProps = {
@@ -86,6 +86,7 @@ const WeddingFerMario = () => {
         colorPrimary: COLOR_PRIMARY,
         colorTitle: COLOR_PRIMARY,
         colorBody: COLOR_PRIMARY, 
+        fontSize:"50px",
         bgColor: "rgb(215,174,84,.05)", 
         events: [
             {
@@ -122,7 +123,8 @@ const WeddingFerMario = () => {
         color: COLOR_PRIMARY, 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
-        envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo, o bien, si deseas sumar a nuestra la luna de miel:",
+        envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
+        secondPhrase:"O bien, si deseas sumar a nuestra la luna de miel:",
         bankIconEnd: `${URL_IMAGES}iconos/6.svg`,
         items: [
             {
@@ -156,8 +158,9 @@ const WeddingFerMario = () => {
         mainTypo: MAIN_TYPO,
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
-        type:2,
-        title:"Etiqueta Rigurosa",
+        type:3,
+        image: `${URL_IMAGES}dresscode.png`,
+        title:"Etiqueta",
         omitColorsLabel:"Omitir colores de la novia",
         omitColors:[
             COLOR_PRIMARY,
@@ -192,7 +195,7 @@ const WeddingFerMario = () => {
              <CoverSimple 
                 weddingDate=""
                 bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/sobre.jpg`}
-                bgImage2={`https://marianalero.github.io/invites-images/boda-fernando-mario/sobre.jpg`}
+                bgImage2={`https://marianalero.github.io/invites-images/boda-fernando-mario/sobrehor.jpg`}
                 brideName="" 
                 symbolr={""} 
                 groomName={""} 
@@ -202,19 +205,29 @@ const WeddingFerMario = () => {
                 >
             </CoverSimple>
 
-            <ImageMiddle bgSize="auto" bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/Monogram sin fondo con fecha).png`}></ImageMiddle>
+            <ImageMiddle bgSize="cover" bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/galeria11.jpg`}></ImageMiddle>
              <Qoute 
                {...qoute}>
             </Qoute>
             <Grid container spacing={2} padding={4} justifyContent={"center"} >
  <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                 <Fade direction="up" >
-                         <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Deseamos compartir con ustedes la alegría de nuestra unión</Typography>
+                <Fade direction="up" >
+                         <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Con la bendición de Dios, el amor de nuestros padres y el cariño de nuestros padrinos</Typography>
                   </Fade>
                   </Grid>
-                  <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                  <Grid size={{xs:5,sm:5,md:5,lg:5}} >
                   <Fade direction="up" >
-                    <Typography variant="h2" align="center" sx={{color:COLOR_PRIMARY}} className={MAIN_TYPO}>Fernanda & Mario</Typography>
+                    <Typography variant="h2" align="center" sx={{color:COLOR_PRIMARY}} className={MAIN_TYPO}>Fernanda <br></br> Salazar</Typography>
+                </Fade>
+                </Grid>
+                <Grid size={{xs:2,sm:2,md:2,lg:2}} alignItems={"center"} display="flex" justifyContent="center">
+                  <Fade direction="up" >
+                    <Typography variant="h2" align="center" sx={{color:COLOR_PRIMARY}} className={MAIN_TYPO}> & </Typography>
+                </Fade>
+                </Grid>
+                <Grid size={{xs:5,sm:5,md:5,lg:5}} >
+                  <Fade direction="up" >
+                    <Typography variant="h2" align="center" sx={{color:COLOR_PRIMARY}} className={MAIN_TYPO}>Mario<br></br>Ramos</Typography>
                 </Fade>
                 </Grid>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -227,7 +240,10 @@ const WeddingFerMario = () => {
                             eventDate={new Date(2025,10,16)} 
                             bgImage={`${URL_IMAGES}galeria4.jpg`}
                             typoHeader={MAIN_TYPO}
-                            typoCountdown={BODY_TYPO} >  
+                            typoCountdown={BODY_TYPO}
+                            format="dddd DD MMMM"
+                            fontSize="65px"
+                            >  
             </CountDown>
 
             <Grid container spacing={2} padding={4} >
@@ -238,9 +254,9 @@ const WeddingFerMario = () => {
             }
             </Grid>
 
-            <ImageMiddle bgImage={`${URL_IMAGES}galeria6.jpg`} bgSize="contain"></ImageMiddle>
+            <ImageMiddle bgImage={`${URL_IMAGES}galeria9.jpg`}></ImageMiddle>
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-            <RSVPExcel textColor="white" bgImage={`${URL_IMAGES}galeria9.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} ></RSVPExcel>
+            <RSVPExcel textColor="white" bgImage={`${URL_IMAGES}galeria6.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} ></RSVPExcel>
 
              <GiftList {...giftListData} ></GiftList>
               <ImageMiddle bgImage={`${URL_IMAGES}galeria8.jpg`} bgSize="contain"></ImageMiddle>

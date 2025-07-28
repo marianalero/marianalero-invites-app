@@ -4,7 +4,7 @@ import DressCode, { DressCodeProps } from "../../../components/DressCode/DressCo
 import EventCard from "../../../components/EventCard/EventCard";
 import { EventCardProps } from "../../../components/EventCard/models/EventCardProps";
 import FooterInvites from "../../../components/Footer/FooterInvites";
-import GiftList, { GiftListProps } from "../../../components/Gifts/GiftList";
+import GiftList, { GiftListProps } from "../../../components/Gifts/GiftList";Adornment
 import Introduction from "../../../components/Introduction/Introduction";
 import Qoute, { QouteProps } from "../../../components/Qoute/Qoute";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../../components/TimeLine/Timeline";
@@ -12,7 +12,6 @@ import { PairSponsors } from "../../../components/WeddingSponsor/models/Sponsors
 import WeddingSponsor from "../../../components/WeddingSponsor/WeddingSponsor";
 import Grid from '@mui/material/Grid2';
 import WithoutKids from "../../../components/WithOutKids/WithoutKids";
-import Adornment from "../../../components/Adornment/Adornment";
 import ImageMiddle from "../../../components/ImageMiddle/ImageMiddle";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -24,6 +23,7 @@ import { IMAGES_URl } from "../../../config";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../../components/MusicFabPlayer/MusicFabPlayer";
 import { Box, Dialog, DialogContent,  Typography } from "@mui/material";
 import CustomButton from "../../../components/CustomButton/CustomButton";
+import Adornment from "../../../components/Adornment/Adornment";
 const DemoOne  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number = useMemo(() => {
