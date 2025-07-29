@@ -10,7 +10,7 @@ import { URL_REPO } from "../../config";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import Grid from '@mui/material/Grid2';
-import {Box, Dialog, DialogContent, Typography } from "@mui/material";
+import {Box, Dialog, DialogContent, IconButton, Typography } from "@mui/material";
 import { Fade } from "react-awesome-reveal";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import EventCard from "../../components/EventCard/EventCard";
@@ -21,6 +21,8 @@ import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import RSVPExcel from "../../components/RSVP/RSVPExcel";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import HashtagSection from "../../components/Instagram/Instagram";
+import { ConfirmExcel } from "../../services/guestApiClient";
+import CloseIcon from '@mui/icons-material/Close';
 const WeddingFerMario = () => {
         const [searchParams] = useSearchParams();
     const invitedGuests: number = useMemo(() => {
@@ -28,6 +30,7 @@ const WeddingFerMario = () => {
         return isNaN(num) ? 1 : num;
     }, [searchParams]);
     const [open, setOpen] = useState(false);
+    const [openConfirm, setOpenConfirm] = useState(false);
     const musicRef = useRef<MusicFabPlayerHandle>(null);
     const handleClickOpen = () => {
         setOpen(true);
@@ -184,7 +187,24 @@ const WeddingFerMario = () => {
      useEffect(() => {
         document.title = "Boda Fernanda y Mario";
       }, []);
+      const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
+        console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
+           //https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/viewform?usp=pp_url&entry.516140191=mar&entry.827025270=6621&entry.1599079301=yes&entry.465259973=5
 
+           const params = new URLSearchParams({
+            'entry.516140191': name,
+            'entry.827025270': phoneNumber,
+            'entry.1599079301': confirmText,
+            'entry.465259973': totalConfirmed.toString(),
+            submit: 'Submit',
+            });
+            const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/formResponse"
+            const url = `${excelURL}?${params.toString()}`;
+            const response = await ConfirmExcel(url);
+            if(response){
+                setOpenConfirm(true);
+            }
+      }
       return (
          <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
              <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
@@ -252,7 +272,11 @@ const WeddingFerMario = () => {
 
             <ImageMiddle bgImage={`${URL_IMAGES}galeria9.jpg`}></ImageMiddle>
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-            <RSVPExcel textColor="white" bgImage={`${URL_IMAGES}galeria6.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} ></RSVPExcel>
+            <RSVPExcel textColor="white" bgImage={`${URL_IMAGES}galeria6.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} 
+             confirmed={handleConfirm}
+            >
+
+            </RSVPExcel>
 
              <GiftList {...giftListData} ></GiftList>
               <ImageMiddle bgImage={`${URL_IMAGES}galeria8.jpg`} bgSize="contain"></ImageMiddle>
@@ -290,6 +314,29 @@ const WeddingFerMario = () => {
            
             </DialogContent>
         </Dialog>
+        <Dialog
+                    open={openConfirm}
+                    onClose={() => {
+                        setOpenConfirm(false)
+                    }}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                   
+                    <DialogContent >
+                        <Box display={"flex"} justifyContent={"end"}>
+                            <IconButton aria-label="delete" onClick={() => {
+                                setOpenConfirm(false)
+                            }}>
+                                <CloseIcon sx={{color:"lightgray"}} />
+                            </IconButton>
+                         
+                       </Box>
+                       <Box display={"flex"} justifyContent={"center"}>
+                        <Typography variant="h3" className={MAIN_TYPO}>Confirmación enviada</Typography>
+                       </Box>
+                    </DialogContent>        
+                </Dialog>
          </div>
       )
 

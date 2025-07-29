@@ -1,18 +1,18 @@
-import { Box, Dialog, DialogContent, FormControl, FormControlLabel, IconButton, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
+import { Box, FormControl, FormControlLabel,  InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import CustomButton from '../CustomButton/CustomButton';
 import { RSVPType } from './RSVPType';
 import { Fade } from 'react-awesome-reveal';
-import CloseIcon from '@mui/icons-material/Close';
+
 import './rsvp.css';
 const RSVPDemo  = (props:RSVPType) => {
     const [radioValue, setRadioValue] = React.useState('yes');
     const [name, setName] =  useState<string>('');
     const [totalConfirmed, setTotalConfirmed] = useState<number>(1);
     const [phoneNumber, setPhoneNumber] =  useState<string>('');
-    const [open, setOpen] = useState(false);
+    
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRadioValue((event.target as HTMLInputElement).value);
     };
@@ -24,42 +24,38 @@ const RSVPDemo  = (props:RSVPType) => {
     } else {
       confirmText = 'No Asistiré';
     }
+    if (props.confirmed) {
+         props.confirmed( name,confirmText, phoneNumber,totalConfirmed.toString())
+    }
 
-    const params = new URLSearchParams({
-    'entry.516140191': name,
-    'entry.827025270': phoneNumber,
-    'entry.1599079301': confirmText,
-    'entry.465259973': totalConfirmed.toString(),
-    submit: 'Submit',
-    });
-
-     const url = `${props.excelURL}?${params.toString()}`;
    
-    try {
-      await fetch(url, {
-        method: 'GET',
-        mode: 'no-cors',
-        redirect: 'follow',
-        referrer: 'no-referrer',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      });
-      setOpen(true);
 
-    } catch (err) {
-      console.error(err);
+ 
+    // try {
+    //   await fetch(url, {
+    //     method: 'GET',
+    //     mode: 'no-cors',
+    //     redirect: 'follow',
+    //     referrer: 'no-referrer',
+    //     headers: {
+    //       'Content-Type': 'application/x-www-form-urlencoded',
+    //     },
+    //   });
+    //   setOpen(true);
+
+    // } catch (err) {
+    //   console.error(err);
+    // }
+
     }
 
-    }
+    // const handleClose = () => {
+    //     setOpen(false);
+    //     setName("");
+    //     setPhoneNumber("");
+    //     setTotalConfirmed(0)
 
-    const handleClose = () => {
-        setOpen(false);
-        setName("");
-        setPhoneNumber("");
-        setTotalConfirmed(0)
-
-     };
+    //  };
      const RenderForm = () =>{
         return(
         <Grid container spacing={1} padding={2} sx={{bgcolor: props.bgColor,
@@ -264,25 +260,7 @@ const RSVPDemo  = (props:RSVPType) => {
                                           
                 </Box>
             </Grid>
-             <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-        >
-           
-            <DialogContent >
-                <Box display={"flex"} justifyContent={"end"}>
-                    <IconButton aria-label="delete" onClick={handleClose}>
-                        <CloseIcon sx={{color:props.color}} />
-                    </IconButton>
-                 
-               </Box>
-               <Box display={"flex"} justifyContent={"center"}>
-                <Typography variant="h3" className={props.mainTypo}>Confirmación enviada</Typography>
-               </Box>
-            </DialogContent>        
-        </Dialog>
+             
         </Grid>
 
         );

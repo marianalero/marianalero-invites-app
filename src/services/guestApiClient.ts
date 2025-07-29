@@ -96,4 +96,22 @@ async function exportGuestsToExcel(invitationId: number, rsvpStatus?: number): P
   }
 }
 
-export {getGuestById,CreateAndConfirm,Confirm,getGuestByToken,getGuests,uploadGuestExcel,createGuest,updateGuest,exportGuestsToExcel}
+async function ConfirmExcel(URL:string){
+    try {
+      await fetch(URL, {
+        method: 'GET',
+        mode: 'no-cors',
+        redirect: 'follow',
+        referrer: 'no-referrer',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+      return true;
+
+    } catch (err) {
+      console.error(err);
+    }
+}
+
+export {getGuestById,CreateAndConfirm,Confirm,getGuestByToken,getGuests,uploadGuestExcel,createGuest,updateGuest,exportGuestsToExcel,ConfirmExcel}
