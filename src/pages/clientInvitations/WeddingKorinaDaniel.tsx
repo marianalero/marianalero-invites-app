@@ -92,7 +92,7 @@ const WeddingKorinaDaniel  = () => {
         color: COLOR_TREE, 
         bgColor: COLOR_BG, 
         showEnvelope:true,
-        envelopePhrase:"Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
+        envelopePhrase:"Su presencia en este día tan especial es todo lo que deseamos. Quienes deseen honrarnos con un obsequio, les agradecemos de corazón su generosidad en un sobre.",
         bankIconEnd: `${URL_IMAGES}adornos.svg`
     };
     const dresscode:DressCodeProps = {
