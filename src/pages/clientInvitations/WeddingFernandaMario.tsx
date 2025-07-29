@@ -44,7 +44,7 @@ const WeddingFerMario = () => {
     useEffect(() => {
        handleClickOpen()
     }, []);
-    const COLOR_PRIMARY = "#01313d";
+    const COLOR_PRIMARY = "#146870";
     const MAIN_TYPO = "southland";
     const BODY_TYPO = "montserrat-400";
     const URL_IMAGES = `${URL_REPO}boda-fernando-mario/`;
@@ -162,9 +162,10 @@ const WeddingFerMario = () => {
         title:"Etiqueta",
         omitColorsLabel:"Omitir colores de la novia",
         omitColors:[
-            "#10347A",
-            "#084d6e",
             "#165668",
+            "#104046",
+            "#034948",
+            "#005D5C"
         ],
     }
     const qoute:QouteProps ={
