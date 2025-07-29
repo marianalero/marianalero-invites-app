@@ -39,7 +39,7 @@ const routes: RouteConfig[] = [
   { path: '/admin', element: <AdminPage />, protected: true, adminOnly: true },
   { path: '/invitations', element: <InvitationsPage />, protected: true, adminOnly: true },
   {path:'/prev-kd-2', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-   {path:'/prev-fm-3', element: <WeddingFerMario></WeddingFerMario>},
+   {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
    {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
 ];
 
