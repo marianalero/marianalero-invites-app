@@ -50,7 +50,7 @@ const EventCardImage  = (props:EventCardProps) => {
                                 <Grid size={{xs:12,sm:2,md:2,lg:2}} display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                     <Paper sx={{
                                         borderRadius:"50%",
-                                        bgcolor:props.color,
+                                        bgcolor:props.colorIcon ? props.colorIcon : props.color,
                                         height: isSmallScreen ? 30 : 50,
                                         width:isSmallScreen ? 30 : 50,
                                         display:"flex" ,

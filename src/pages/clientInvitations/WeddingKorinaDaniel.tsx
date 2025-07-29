@@ -46,6 +46,7 @@ const WeddingKorinaDaniel  = () => {
     }, []);
     const COLOR_PRIMARY = "#ed796a";
     const COLOR_SECONDARY = "#fcd8b8";
+    const COLOR_TREE = "#929292"
     const MAIN_TYPO = "alex-brush-regular ";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const COLOR_BG ="rgb(247,242,233,.6)";
@@ -59,13 +60,14 @@ const WeddingKorinaDaniel  = () => {
                 locationName: "Parroquia San Carlos Borromeo",
                 address: "Gabriel Estrada plaza comercial s/n, Caracol Turístico, San Carlos, Son.",
                 size: 6,
-                color: COLOR_PRIMARY,
+                color: COLOR_TREE,
                 image: `${URL_IMAGES}iglesia.jpg`,
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/VUAnSLKYQJCjVtYn6",
                 colorButton: COLOR_SECONDARY,
-                bgColor:COLOR_BG
+                bgColor:COLOR_BG,
+                colorIcon: COLOR_PRIMARY
             },
             {
                 eventName: "Civil y Recepción ",
@@ -73,20 +75,21 @@ const WeddingKorinaDaniel  = () => {
                 locationName: "Casa Santuario",
                 address: "Lote 9 y 10, P.º Villa Hermosa, San Carlos, Son.",
                 size: 6,
-                color: COLOR_PRIMARY,
+                color: COLOR_TREE,
                 image:  `${URL_IMAGES}local.jpeg`,
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/uRtsyaQb8S7rvvY36",
                 colorButton: COLOR_SECONDARY,
-                bgColor:COLOR_BG
+                bgColor:COLOR_BG,
+                colorIcon: COLOR_PRIMARY
             },
     ];
     
     const giftListData: GiftListProps = {
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
-        color: COLOR_PRIMARY, 
+        color: COLOR_TREE, 
         bgColor: COLOR_BG, 
         showEnvelope:true,
         envelopePhrase:"Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
@@ -95,7 +98,7 @@ const WeddingKorinaDaniel  = () => {
     const dresscode:DressCodeProps = {
         mainTypo: MAIN_TYPO,
         bodyTypo:BODY_TYPO,
-        color:COLOR_PRIMARY,
+        color:COLOR_TREE,
         type:2,
         title:"Elegante, formal playero"
     }
@@ -134,7 +137,7 @@ const WeddingKorinaDaniel  = () => {
                 groomMother="María del Carmen Gámez"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
-                color={COLOR_PRIMARY}
+                color={COLOR_TREE}
             >
             </Introduction>
             <CountDown 
@@ -173,7 +176,7 @@ const WeddingKorinaDaniel  = () => {
                          <DialogContent >
              
                             <Box display={"flex"} justifyContent={"center"}>
-                             <Typography variant="h2" className={MAIN_TYPO} sx={{color:COLOR_PRIMARY}}>Bienvenidos</Typography>
+                             <Typography variant="h2" className={MAIN_TYPO} sx={{color:COLOR_TREE}}>Bienvenidos</Typography>
                             </Box>
                              <Box display={"flex"} justifyContent={"center"}>
                             <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"} color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>

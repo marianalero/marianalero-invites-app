@@ -14,6 +14,7 @@ export interface DressCodeProps
     image?:string;
     omitColors?:string[];
     omitColorsLabel?:string;
+    fontWeight?:string;
 }
 
 const DressCode  = (props:DressCodeProps) => 
@@ -23,7 +24,7 @@ const DressCode  = (props:DressCodeProps) =>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                 <Fade direction="up" triggerOnce={true}>
                 <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`}>Código de vestimenta</Typography>
-                <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={400}>{props.title}</Typography>
+                <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={props.fontWeight ? props.fontWeight:400}>{props.title}</Typography>
                 <Typography className={props.bodyTypo} variant='body1'>{props.description}</Typography>
                 </Fade>
             </Grid>

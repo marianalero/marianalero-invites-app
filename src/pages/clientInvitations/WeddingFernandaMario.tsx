@@ -167,6 +167,7 @@ const WeddingFerMario = () => {
             "#034948",
             "#005D5C"
         ],
+        fontWeight:"700"
     }
     const qoute:QouteProps ={
         qoute: "Tú y yo encontramos la frecuencia perfecta del amor. Esa que late fuerte, cura heridas y nos une para siempre",
