@@ -26,11 +26,16 @@ const GiftList = (props:GiftListProps) =>{
 
     return (
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:props.bgColor}}>
-             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                <Fade direction="up" triggerOnce={true}>
-                <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`}>Mesa de regalos</Typography>
-                </Fade>
-            </Grid>	
+            {
+                props.mainPhrase && (
+                     <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                        <Fade direction="up" triggerOnce={true}>
+                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`}>Mesa de regalos</Typography>
+                        </Fade>
+                    </Grid>	
+                )
+            }
+            
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                 <Typography variant='body1'  textAlign={"center"} className={`${props.bodyTypo}`}>{props.mainPhrase}</Typography>
             </Grid>	

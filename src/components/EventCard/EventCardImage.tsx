@@ -26,7 +26,7 @@ const EventCardImage  = (props:EventCardProps) => {
                             image={props.image}
                             />	
                         <CardContent>
-                            <Grid container spacing={2} display={"flex"}  alignItems={"center"} padding={2} bgcolor={props.bgColor}>	
+                            <Grid container spacing={2} display={"flex"}  alignItems={"center"} padding={2} bgcolor={props.bgColor} sx={{borderRadius:1}}>	
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  >
                                     <Typography variant='h3'  style={{color:props.color}} textAlign={"center"} className={props.mainTypo} >{props.eventName}</Typography>
                                 </Grid>		

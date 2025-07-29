@@ -27,10 +27,6 @@ const WeddingFerMario = () => {
         const num = Number(searchParams.get("number"));
         return isNaN(num) ? 1 : num;
     }, [searchParams]);
-    // const guestId: number | undefined = useMemo(() => {
-    //     const num = Number(searchParams.get("id"));
-    //     return isNaN(num) ? undefined : num;
-    // }, [searchParams]);
     const [open, setOpen] = useState(false);
     const musicRef = useRef<MusicFabPlayerHandle>(null);
     const handleClickOpen = () => {
@@ -124,7 +120,7 @@ const WeddingFerMario = () => {
         bgColor: "#FFFFFF", 
         showEnvelope:true,
         envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
-        secondPhrase:"O bien, si deseas sumar a nuestra la luna de miel:",
+        secondPhrase:"O bien, si deseas sumar a nuestra luna de miel:",
         bankIconEnd: `${URL_IMAGES}iconos/6.svg`,
         items: [
             {
@@ -163,9 +159,9 @@ const WeddingFerMario = () => {
         title:"Etiqueta",
         omitColorsLabel:"Omitir colores de la novia",
         omitColors:[
-            COLOR_PRIMARY,
-            
-            "#F5F5DC",
+            "#10347A",
+            "#084d6e",
+            "#165668",
         ],
     }
     const qoute:QouteProps ={

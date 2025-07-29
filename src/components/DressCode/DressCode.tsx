@@ -31,12 +31,12 @@ const DressCode  = (props:DressCodeProps) =>
                 
                { props.type == 1 &&
                     <Fade direction="up" triggerOnce={true}>
-                   <img src={formal} height="100" />
+                   <img src={formal} height="150" />
                    </Fade>
                }
                { props.type == 2 &&
                     <Fade direction="up" triggerOnce={true}>
-                   <img src={etiqueta} height="100" />
+                   <img src={etiqueta} height="150" />
                    </Fade>
                }
                { props.type == 3 &&
