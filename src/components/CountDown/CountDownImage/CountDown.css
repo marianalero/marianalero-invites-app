@@ -7,10 +7,14 @@
     /* background-position-x: 50% !important; */
     padding: 7em 0;
     background-position: center;
+    height: 100vh;
   }
 
   @media screen and (max-width: 768px) {
-  
+    #countdown {
+      height: 50vh;
+    }
+    
   }
   #countdown .section-heading {
     margin-bottom: 0 !important;

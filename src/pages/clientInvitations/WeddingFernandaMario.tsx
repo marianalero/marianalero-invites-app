@@ -201,7 +201,7 @@ const WeddingFerMario = () => {
                 >
             </CoverSimple>
 
-            <ImageMiddle bgSize="cover" bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/galeria11.jpg`}></ImageMiddle>
+            <ImageMiddle bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/galeria11.jpg`}></ImageMiddle>
              <Qoute 
                {...qoute}>
             </Qoute>
