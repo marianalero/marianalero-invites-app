@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Boda Fernanda y Mario</title>
+    <meta name="description" content="Invitación" />
+    <meta property="og:title" content="Boda Fernanda y Mario" />
+    <meta property="og:description" content="Invitación" />
+    <meta property="og:image" content="https://marianalero.github.io/invites-images/boda-fernando-mario/link.jpg" />
+    <meta property="og:url" content="http://marianalero-invites.com/prev-fm-3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      var params = {};
+	    location.search.slice(1).split("&").forEach(function(pair) {
+		pair = pair.split("=");
+		params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);});
+        if(params.number){
+        window.location.href = "http://marianalero-invites.com/prev-fm-3?number="+params.number;
+        }
+ 
+    </script>
+  </body>
+</html>
