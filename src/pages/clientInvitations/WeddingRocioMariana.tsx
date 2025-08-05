@@ -76,7 +76,7 @@ const WeddingRocioMariana  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Civil y Recepción ",
-                date: new Date(2025, 9, 11, 15, 30, 0),
+                date: new Date(2025, 9, 31, 22, 30, 0),
                 locationName: "Jardín Mayorca",
                 address: "Blvd. Musaro 1132, Cerro, Hermosillo, Son.",
                 size: 6,
