@@ -205,7 +205,7 @@ const WeddingRocioMariana  = () => {
             </Introduction>
             <CountDown 
                 eventDate={new Date(2025,9,31)}
-                bgImage={`${URL_IMAGES}contador.jpeg`}
+                bgImage={`${URL_IMAGES}contador.jpg`}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} >  
             </CountDown>
