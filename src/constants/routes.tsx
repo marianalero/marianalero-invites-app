@@ -1,6 +1,7 @@
 
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
+import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
 // import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
 import DemosPage from "../pages/demos/DemosPage2";
@@ -41,6 +42,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-kd-2', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
    {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
    {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
+    {path:'/prev-rm', element: <WeddingRocioMariana></WeddingRocioMariana>},
 ];
 
 
