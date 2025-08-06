@@ -4,7 +4,6 @@ import { EventCardProps } from "../../components/EventCard/models/EventCardProps
 
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
-import Cover from "../../components/Cover/CoverImage/Cover";
 import Introduction from "../../components/Introduction/Introduction";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
