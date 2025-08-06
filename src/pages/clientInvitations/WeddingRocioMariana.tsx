@@ -130,7 +130,7 @@ const WeddingRocioMariana  = () => {
         `${URL_IMAGES}galeria3.jpg`,
         `${URL_IMAGES}galeria4.jpg`,
         `${URL_IMAGES}galeria5.jpg`,
-        `${URL_IMAGES}portada.jpg`,
+        `${URL_IMAGES}galeria6.jpg`,
     ];
     const qoute:QouteProps ={
             qoute: "Tú,mi amor,fuiste,eres y siempre serás mi mayor SERENDIPIA",
@@ -176,11 +176,11 @@ const WeddingRocioMariana  = () => {
         };
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
-               <div className="overlay" style={{backgroundImage:`url('${URL_IMAGES}galeria6.jpg')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover",boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" }} >
+               <div  style={{backgroundImage:`url('${URL_IMAGES}portada.jpg')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover",boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" }} >
                 <div style={{display:"flex",justifyContent:"center",paddingTop:"10vh"}} >
                     <h6 className="holder pt-serif-caption-regular to-upper" style={{color:"white"}}><span>Nuestra boda</span></h6>
                 </div>
-                <div style={{marginTop:"15vh"}}>
+                <div style={{marginTop:"5vh"}}>
                     <Typography  textAlign={"center"} color='white' typography={"h2"} className={`${MAIN_TYPO}`}>Rocio</Typography>
                     <Typography  textAlign={"center"} color='white' typography={"h4"} className={`great-vibes-regular`}>&</Typography>
                     <Typography  textAlign={"center"} color='white' typography={"h2"} className={`${MAIN_TYPO}`}>Mariana</Typography>

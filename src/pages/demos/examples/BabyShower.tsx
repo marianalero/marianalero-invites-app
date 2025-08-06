@@ -77,25 +77,25 @@ const BabyShower = () => {
                 </Grid>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                     <Grid container spacing={2} justifyContent="center">
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
                         <Typography
                             className={MAIN_TYPO}
-                            sx={{ fontSize: '80px', fontWeight: 'bold' }}
+                            sx={{ fontSize: '80px', fontWeight: 'bold', color:COLOR_SECONDARY }}
                         >
                             ¡Te esperamos!
                         </Typography>
                         </Grid>
 
-                        <Grid size={{xs:6,sm:6,md:6,lg:6}} textAlign="center">
+                        <Grid size={{xs:6,sm:6,md:6,lg:6}} textAlign="center"  paddingTop={2}>
                         <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
                             <img src="https://marianalero.github.io/baby-shower-alondra//images/adornos/7.svg" height="35px" alt="Icono 1" />
-                            <Typography className="texto" sx={{ ml: 1, fontWeight: 'bold' }}>
+                            <Typography className="texto" sx={{ ml: 1, fontWeight: 'bold', color:COLOR_SECONDARY }}>
                             $300
                             </Typography>
                         </Box>
                         </Grid>
 
-                        <Grid size={{xs:6,sm:6,md:6,lg:6}} textAlign="center">
+                        <Grid size={{xs:6,sm:6,md:6,lg:6}} textAlign="center"  paddingTop={2}>
                         <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
                             <img
                             src="https://marianalero.github.io/baby-shower-alondra//images/adornos/9.svg"
@@ -103,7 +103,7 @@ const BabyShower = () => {
                             alt="Icono 2"
                             style={{ marginRight: '4px' }}
                             />
-                            <Typography className="texto" sx={{ fontWeight: 'bold' }}>
+                            <Typography className="texto" sx={{ fontWeight: 'bold', color:COLOR_SECONDARY }}>
                             $500
                             </Typography>
                         </Box>
