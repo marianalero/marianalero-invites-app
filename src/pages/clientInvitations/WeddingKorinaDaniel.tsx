@@ -161,6 +161,7 @@ const WeddingKorinaDaniel  = () => {
                 groomName={"Daniel"} 
                 className={MAIN_TYPO}
                 bgSize="cover"
+                overlay={true}
                 >
             </Cover>
              <Qoute 

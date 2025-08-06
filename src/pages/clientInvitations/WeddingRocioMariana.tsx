@@ -19,6 +19,7 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import Adornment from "../../components/Adornment/Adornment";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import CloseIcon from '@mui/icons-material/Close';
+import { ConfirmExcel } from "../../services/guestApiClient";
 const WeddingRocioMariana  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -43,21 +44,21 @@ const WeddingRocioMariana  = () => {
 
           const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
             console.log(name,confirmText,phoneNumber,totalConfirmed)
-           //https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/viewform?usp=pp_url&entry.516140191=mar&entry.827025270=6621&entry.1599079301=yes&entry.465259973=5
+           //https://docs.google.com/forms/d/e/1FAIpQLSc1eCkCWRmF2C_NWOOL5u1t4nhwrEOQ_nk67ASSP6dWMviJ2w/viewform?usp=pp_url&entry.516140191=mariana&entry.827025270=66215151&entry.1599079301=si&entry.465259973=8
 
-        //    const params = new URLSearchParams({
-        //     'entry.516140191': name,
-        //     'entry.827025270': phoneNumber,
-        //     'entry.1599079301': confirmText,
-        //     'entry.465259973': totalConfirmed.toString(),
-        //     submit: 'Submit',
-        //     });
-        //     const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/formResponse"
-        //     const url = `${excelURL}?${params.toString()}`;
-        //     const response = await ConfirmExcel(url);
-        //     if(response){
-        //         setOpenConfirm(true);
-        //     }
+           const params = new URLSearchParams({
+            'entry.516140191': name,
+            'entry.827025270': phoneNumber,
+            'entry.1599079301': confirmText,
+            'entry.465259973': totalConfirmed.toString(),
+            submit: 'Submit',
+            });
+            const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLSc1eCkCWRmF2C_NWOOL5u1t4nhwrEOQ_nk67ASSP6dWMviJ2w/formResponse"
+            const url = `${excelURL}?${params.toString()}`;
+            const response = await ConfirmExcel(url);
+            if(response){
+                setOpenConfirm(true);
+            }
       }
     useEffect(() => {
         document.title = "Boda Rocio & Mariana";

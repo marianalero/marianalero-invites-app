@@ -190,13 +190,12 @@ const DemoOne  = () => {
             <MusicFabPlayer ref={musicRef}  src={`${IMAGES_URl}/invitacion-hidai-leonardo/audio/cancion.mp3`} backgroundColor={COLOR_PRIMARY}/>
             <Cover 
                 weddingDate="18.10.25"
-                bgImage="https://marianalero.github.io/Invitacion/images/DSC_9636.JPG" 
-                brideName="Elena Marai" 
-                symbolr={"&"} 
-                groomName={"Jose Carlos"} 
+                bgImage="https://marianalero.github.io/Invitacion/images/DSC_9636.JPG"
+                brideName="Elena Marai"
+                symbolr={"&"}
+                groomName={"Jose Carlos"}
                 className={MAIN_TYPO}
-                ourWeddingStart={true}
-                >
+                ourWeddingStart={true} overlay={true}                >
             </Cover>
             <Qoute 
                {...qoute}>
