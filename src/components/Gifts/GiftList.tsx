@@ -19,6 +19,7 @@ export interface GiftListProps {
     showEnvelope:boolean;
     envelopePhrase?:string;
     secondPhrase?:string;
+    iconSize?:string;
 }
 
 
@@ -103,7 +104,7 @@ const GiftList = (props:GiftListProps) =>{
                            
                              <Grid container>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
-                                    <img height="60px" src={props.bankIconEnd}/>	
+                                    <img height={props.iconSize? props.iconSize : "60px"} src={props.bankIconEnd}/>	
                                 </Grid>
                             </Grid>
                         )}
@@ -114,7 +115,7 @@ const GiftList = (props:GiftListProps) =>{
                         (
                              <Grid container>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
-                                    <img height="60px" src={props.bankIconEnd}/>	
+                                    <img height={props.iconSize? props.iconSize : "60px"} src={props.bankIconEnd}/>	
                                 </Grid>
                             </Grid>
                            

@@ -97,7 +97,8 @@ const WeddingRocioMariana  = () => {
         bgColor: COLOR_BG, 
         showEnvelope:true,
         envelopePhrase:"Si deseas contribuir con un regalo, súmale kilómetros a Nuestra LUNA DE MIEL a través de una trasferencia",
-        bankIconEnd: `${URL_IMAGES}/iconos/6.svg`,
+        bankIconEnd: `${URL_IMAGES}/iconos/7.svg`,
+        iconSize:"80px",
         bankDetails: [
             {
                 bank: "Banamex  ",
