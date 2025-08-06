@@ -177,8 +177,20 @@ const WeddingRocioMariana  = () => {
         };
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
+               <div className="overlay" style={{backgroundImage:`url('${URL_IMAGES}galeria6.jpg')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover",boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" }} >
+                <div style={{display:"flex",justifyContent:"center",paddingTop:"10vh"}} >
+                    <h6 className="holder pt-serif-caption-regular to-upper" style={{color:"white"}}><span>Nuestra boda</span></h6>
+                </div>
+                <div style={{marginTop:"15vh"}}>
+                    <Typography  textAlign={"center"} color='white' typography={"h2"} className={`${MAIN_TYPO}`}>Rocio</Typography>
+                    <Typography  textAlign={"center"} color='white' typography={"h4"} className={`great-vibes-regular`}>&</Typography>
+                    <Typography  textAlign={"center"} color='white' typography={"h2"} className={`${MAIN_TYPO}`}>Mariana</Typography>
+
+                </div>
+                  
+               </div>
             {/* <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_PRIMARY}/> */}
-            <Cover 
+            {/* <Cover 
                 weddingDate="31.10.25"
                 bgImage={`${URL_IMAGES}galeria6.jpg`}
                 brideName="Rocio" 
@@ -190,7 +202,7 @@ const WeddingRocioMariana  = () => {
                 margin="120px"
                 ourWeddingStart={true}
                 >
-            </Cover>
+            </Cover> */}
              <Grid  marginTop={4}>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                     <Typography
@@ -217,16 +229,16 @@ const WeddingRocioMariana  = () => {
             <Grid sx={{backgroundColor:"rgb(215,174,84,.05)"}}>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                     <Introduction
-                brideFather="Samuel valenzuela Mendivil (&#8224;)"
+                brideFather="Samuel Valenzuela M. (&#8224;)"
                 brideMother="Regina Ibarra Arellanes"
                 groomFather="Mario Escobar Velázquez "
-                groomMother="Rosa Armida Silva Renteria"
+                groomMother="Rosa Armida Silva R."
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_SECONDARY}
                 firstQoute="Con la Bendición de Dios y el amor de nuestros padres."
                 secondQoute="⁠uniremos nuestras vidas en matrimonio "
-                thirdQoute="Tenemos el gusto de invitarlos nuestra celebración"
+                thirdQoute="Tenemos el gusto de invitarlos a nuestra celebración"
                 amperson="y"
                 
                 
