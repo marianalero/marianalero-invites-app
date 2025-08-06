@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo,useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 
@@ -14,7 +14,6 @@ import Gallery from "../../components/Gallery/Gallert";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
-import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
 import { Dialog, DialogContent, Box, Typography, DialogActions, IconButton } from "@mui/material";
 import CustomButton from "../../components/CustomButton/CustomButton";
