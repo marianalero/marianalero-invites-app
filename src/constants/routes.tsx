@@ -43,6 +43,7 @@ const routes: RouteConfig[] = [
    {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
    {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
     {path:'/prev-rm-2', element: <WeddingRocioMariana></WeddingRocioMariana>},
+     {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},
 ];
 
 
