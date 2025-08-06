@@ -211,17 +211,18 @@ const WeddingFerMario = () => {
          <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
              <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
              <CoverSimple 
-                weddingDate=""
-                bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/sobre.jpg`}
-                bgImage2={`https://marianalero.github.io/invites-images/boda-fernando-mario/sobrehor.jpg`}
-                brideName="" 
-                symbolr={""} 
-                groomName={""} 
-                className={MAIN_TYPO}
-                textColor={COLOR_PRIMARY}
-                hideText={true}
-                ourWeddingStart={true}
-                >
+                  weddingDate=""
+                  bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/sobre.jpg`}
+                  bgImage2={`https://marianalero.github.io/invites-images/boda-fernando-mario/sobrehor.jpg`}
+                  brideName=""
+                  symbolr={""}
+                  groomName={""}
+                  className={MAIN_TYPO}
+                  textColor={COLOR_PRIMARY}
+                  hideText={true}
+                  ourWeddingStart={true}
+                    overlay={true}
+                  >
             </CoverSimple>
 
             <ImageMiddle bgImage={`https://marianalero.github.io/invites-images/boda-fernando-mario/galeria11.jpg`}></ImageMiddle>

@@ -133,6 +133,7 @@ const DemoTree  = () => {
                 className={MAIN_TYPO}
                 textColor={COLOR_PRIMARY}
                 ourWeddingStart={true}
+                 overlay={false}
                 >
             </CoverSimple>
             <Qoute 

@@ -100,7 +100,7 @@ const WeddingRocioMariana  = () => {
         bankDetails: [
             {
                 bank: "Banamex  ",
-                name: "",
+                name: "Mariana Guadalupe Escobar S.",
                 color: "white",
                 bodyTypo: BODY_TYPO,
                 bgColor: COLOR_PRIMARY,

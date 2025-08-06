@@ -11,5 +11,6 @@ export interface CoverProps{
     hideText?:boolean;
     bgPosition?:string;
     margin?:string;
-    ourWeddingStart:boolean
+    ourWeddingStart:boolean;
+    overlay:boolean;
 }

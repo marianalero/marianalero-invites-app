@@ -21,12 +21,13 @@ const BabyShower = () => {
                 textColor={COLOR_PRIMARY}
                 hideText={true}
                 ourWeddingStart={true}
+                overlay={false}
                 >
             </CoverSimple>
-             <Grid container spacing={2} justifyContent="center" paddingTop={2}>
+             <Grid container spacing={2} justifyContent="center" paddingY={4}>
           <Adornment image={"https://marianalero.github.io/baby-shower-alondra/images/9.png"} width={"250px"} />
 
-          <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
+          <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
             <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_SECONDARY  }}>
               ¡Una hermosa princesa está a punto de llegar!
             </Typography>
@@ -38,7 +39,7 @@ const BabyShower = () => {
             </Typography>
           </Grid>
 
-          <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" marginTop={2}>
+          <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" marginTop={2} paddingY={2}>
             <Typography
               sx={{
                 fontFamily: `'DM Serif Display', serif`,
@@ -61,18 +62,18 @@ const BabyShower = () => {
             </Typography>
           </Grid>
 
-          <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
+          <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
             <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_SECONDARY }} >
               <b>5 PM</b> a <b>9 PM</b>
             </Typography>
           </Grid>
-           <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
+           <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingY={2}>
                 <Adornment image={"https://marianalero.github.io/baby-shower-alondra/images/10.png"} width={"250px"} />
 
            </Grid>
         </Grid>
               <Grid container spacing={2} justifyContent="center">
-                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} paddingY={2} >
                     <EventCardSimple bodyTypo={BODY_TYPO} textColor={COLOR_SECONDARY} eventName="Lugar:" mainTypo="dm-serif-display-regular" locationName="Jardín Lucrecia" address="Av. Lucrecia Ruiz de Ayón 49-B, San Luis Rey, Hermosillo, Son." color={"#dfad87"} href={"https://maps.app.goo.gl/2peNHQFJ1jNvhSwB7"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
                 </Grid>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>

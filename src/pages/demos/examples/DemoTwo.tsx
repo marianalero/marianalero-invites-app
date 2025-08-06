@@ -132,6 +132,7 @@ const DemoOne  = () => {
                 className={MAIN_TYPO}
                 bgSize="cover"
                 ourWeddingStart={true}
+                overlay={true}
                 >
             </Cover>
             <Introduction
