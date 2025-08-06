@@ -9,4 +9,7 @@ export interface CoverProps{
     bgSize?:string
     textColor?:string;
     hideText?:boolean;
+    bgPosition?:string;
+    margin?:string;
+    ourWeddingStart:boolean
 }

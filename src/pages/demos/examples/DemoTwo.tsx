@@ -131,6 +131,7 @@ const DemoOne  = () => {
                 groomName={"Juan Carlos"} 
                 className={MAIN_TYPO}
                 bgSize="cover"
+                ourWeddingStart={true}
                 >
             </Cover>
             <Introduction

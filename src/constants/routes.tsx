@@ -39,10 +39,10 @@ const routes: RouteConfig[] = [
   { path: '/guests', element: <RegisterGuestPage />, protected: true },
   { path: '/admin', element: <AdminPage />, protected: true, adminOnly: true },
   { path: '/invitations', element: <InvitationsPage />, protected: true, adminOnly: true },
-  {path:'/prev-kd-2', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
+  {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
    {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
    {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
-    {path:'/prev-rm', element: <WeddingRocioMariana></WeddingRocioMariana>},
+    {path:'/prev-rm-2', element: <WeddingRocioMariana></WeddingRocioMariana>},
 ];
 
 

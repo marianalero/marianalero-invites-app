@@ -14,6 +14,10 @@ export interface IntroductionProps {
     groomMother?:string;
     color:string;
     adornment?:string;
+    amperson?:string;
+    firstQoute?:string;
+    secondQoute?:string;
+    thirdQoute?:string;
 }
 
 const Introduction  = (props:IntroductionProps) => {
@@ -22,7 +26,14 @@ const Introduction  = (props:IntroductionProps) => {
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={3} minHeight={"50vh"}>			
 						<Grid size={{xs:12,sm:12,md:12,lg:12}} >
                         <Fade direction="up" >
-                            <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >Deseamos compartir con ustedes la alegría de nuestra unión</Typography>
+                            {props.firstQoute ? 
+                            (
+                                 <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >{props.firstQoute}</Typography>
+                            )
+                            :(
+                                <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >Deseamos compartir con ustedes la alegría de nuestra unión</Typography>
+
+                            )}
                         </Fade>
                         </Grid>	
                         
@@ -39,7 +50,15 @@ const Introduction  = (props:IntroductionProps) => {
 
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" >
-                            <Typography  textAlign={"center"} className={`${props.bodyTypo}`}>Con la bendición de Dios y el apoyo incondicional de nuestros padres</Typography>
+                                {props.secondQoute ? 
+                            (
+                                 <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >{props.secondQoute}</Typography>
+                            )
+                            :(
+                             <Typography  textAlign={"center"} className={`${props.bodyTypo}`}>Con la bendición de Dios y el apoyo incondicional de nuestros padres</Typography>
+
+                            )}
+                           
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
@@ -50,7 +69,7 @@ const Introduction  = (props:IntroductionProps) => {
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:props.color}}  variant="h4" textAlign={"center"}className={`${props.mainTypo}`} >&</Typography>
+                                <Typography sx={{color:props.color}}  variant="h4" textAlign={"center"}className={`${props.mainTypo}`} >{props.amperson ? props.amperson :"&"}</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
@@ -62,7 +81,16 @@ const Introduction  = (props:IntroductionProps) => {
                         </Grid>	
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" >
+                                 {props.thirdQoute ? 
+                            (
+                                 <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >{props.thirdQoute}</Typography>
+                            )
+                            :(
                                 <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >Junto con nuestras familias te invitamos a ser parte de esta linda unión </Typography>
+
+                            )}
+                           
+                          
                             </Fade>
                         </Grid>		
                          {

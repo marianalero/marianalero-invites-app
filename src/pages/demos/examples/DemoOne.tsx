@@ -195,6 +195,7 @@ const DemoOne  = () => {
                 symbolr={"&"} 
                 groomName={"Jose Carlos"} 
                 className={MAIN_TYPO}
+                ourWeddingStart={true}
                 >
             </Cover>
             <Qoute 

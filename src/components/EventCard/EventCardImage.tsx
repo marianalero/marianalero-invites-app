@@ -33,15 +33,15 @@ const EventCardImage  = (props:EventCardProps) => {
                                 { isSmallScreen ? 
                                 (
                                     <Grid size={{xs:12,sm:5,md:5,lg:5}} display="flex"  justifyContent={"center"} alignItems={"center"}>
-                                    <FontAwesomeIcon fontSize={"24px"} color={props.color} icon={faCalendarRegular} />
-                                        <Typography marginLeft={2} variant='body1'  style={{color:props.color}} textAlign={"center"} className={props.bodyTypo} >{dayjs(props.date).format("dddd D MMMM YYYY").toLocaleUpperCase()}</Typography>
+                                        <FontAwesomeIcon fontSize={"20px"} color={props.color} icon={faCalendarRegular} />
+                                        <Typography marginLeft={1} variant='body1'  style={{color:props.color}} textAlign={"center"} className={props.bodyTypo} >{dayjs(props.date).format("dddd D MMMM YYYY").toLocaleUpperCase()}</Typography>
                                     </Grid>
                                 )
                                 :
                                 (
-                                    <Grid size={{xs:12,sm:5,md:5,lg:5}} display="column" justifyItems="center"  alignItems={"center"}>
-                                    <FontAwesomeIcon fontSize={"24px"} color={props.color} icon={faCalendarRegular} />
-                                        <Typography variant='body1' style={{color:props.color}} textAlign={"center"} className={props.bodyTypo} >{dayjs(props.date).format("dddd D MMMM YYYY").toLocaleUpperCase()}</Typography>
+                                    <Grid size={{xs:12,sm:5,md:5,lg:5}} display="flex"  justifyContent={"center"} alignItems={"center"}>
+                                    <FontAwesomeIcon fontSize={"20px"} color={props.color} icon={faCalendarRegular} />
+                                        <Typography  marginLeft={2} variant='body1' style={{color:props.color}} textAlign={"center"} className={props.bodyTypo} >{dayjs(props.date).format("dddd D MMMM YYYY").toLocaleUpperCase()}</Typography>
                                     </Grid>
                                 )
 
@@ -66,14 +66,14 @@ const EventCardImage  = (props:EventCardProps) => {
                                 (
                                 <Grid size={{xs:12,sm:5,md:5,lg:5}} display="flex" justifyContent={"center"}  alignItems={"center"}>
                                     <AccessTimeIcon style={{color:props.color}} ></AccessTimeIcon> 
-                                    <Typography marginLeft={2} variant='body1' style={{color:props.color}}  textAlign={"center"} className={props.bodyTypo}>  {dayjs(props.date).format("hh:mm A")}</Typography>
+                                    <Typography sx={{marginLeft:"2px"}} variant='body1' style={{color:props.color}}  textAlign={"center"} className={props.bodyTypo}>  {dayjs(props.date).format("hh:mm A")}</Typography>
                                 </Grid>
                                 )
                                 :
                                 (
-                                      <Grid size={{xs:12,sm:5,md:5,lg:5}} display="column" justifyItems="center"  alignItems={"center"}>
+                                      <Grid size={{xs:12,sm:5,md:5,lg:5}} display="flex"  justifyContent={"center"} alignItems={"center"}>
                                     <AccessTimeIcon style={{color:props.color}} ></AccessTimeIcon> 
-                                    <Typography  variant='body1' style={{color:props.color}}  textAlign={"center"} className={props.bodyTypo}>  {dayjs(props.date).format("hh:mm A")}</Typography>
+                                    <Typography  marginLeft={2} variant='body1' style={{color:props.color}}  textAlign={"center"} className={props.bodyTypo}>  {dayjs(props.date).format("hh:mm A")}</Typography>
                                 </Grid>
                                 )
 

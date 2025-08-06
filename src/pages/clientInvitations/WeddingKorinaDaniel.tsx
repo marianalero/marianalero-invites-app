@@ -21,6 +21,7 @@ import { Dialog, DialogContent, Box, Typography, DialogActions } from "@mui/mate
 import CustomButton from "../../components/CustomButton/CustomButton";
 import HashtagSection from "../../components/Instagram/Instagram";
 import Adornment from "../../components/Adornment/Adornment";
+import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 const WeddingKorinaDaniel  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -49,7 +50,7 @@ const WeddingKorinaDaniel  = () => {
     const COLOR_TREE = "#929292"
     const MAIN_TYPO = "alex-brush-regular ";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
-    const COLOR_BG ="rgb(247,242,233,.6)";
+    const COLOR_BG ="rgb(215,174,84,.05)";
     const URL_IMAGES = `${URL_REPO}boda-korina-daniel/`;
     const URL_SONG = `${URL_REPO}canciones/OneAndOnly-Adele.mp3`;
    
@@ -90,7 +91,6 @@ const WeddingKorinaDaniel  = () => {
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
         color: COLOR_TREE, 
-        bgColor: COLOR_BG, 
         showEnvelope:true,
         envelopePhrase:"Su presencia en este día tan especial es todo lo que deseamos. Quienes deseen honrarnos con un obsequio, les agradecemos de corazón su generosidad en un sobre.",
         bankIconEnd: `${URL_IMAGES}adornos.svg`
@@ -113,10 +113,47 @@ const WeddingKorinaDaniel  = () => {
             bodyTypo: BODY_TYPO,
             addormentEnd:`${URL_IMAGES}adornos.svg`
     }
+    const timelineData: CustomizedTimelineProps = {
+                mainTypo: MAIN_TYPO,
+                bodyTypo: BODY_TYPO,
+                colorPrimary: COLOR_PRIMARY,
+                colorTitle: COLOR_PRIMARY,
+                colorBody: COLOR_PRIMARY,
+                fontSize:"50px",
+                bgColor: "rgb(215,174,84,.05)", 
+                events: [
+                    {
+                        eventName: "Misa ",
+                        date: new Date(2025, 10, 16, 14, 0, 0),
+                        icon: `${URL_IMAGES}iconos/1.svg`,
+                    },
+                    {
+                        eventName: "Civil",
+                        date:new Date(2025, 10, 16, 13, 30, 0),
+                        icon: `${URL_IMAGES}iconos/2.svg`,
+                    },
+                    {
+                        eventName: "Cocktail ",
+                        date: new Date(2025, 10, 16, 16, 0, 0),
+                       icon: `${URL_IMAGES}iconos/3.svg`,
+                    },
+                    {
+                        eventName: "Cena",
+                        date: new Date(2025, 10, 16, 17, 30, 0),
+                        icon: `${URL_IMAGES}iconos/4.svg`,
+                    },
+                    {
+                        eventName: "Vals",
+                        date: new Date(2025, 10, 16, 18, 0, 0),
+                        icon: `${URL_IMAGES}iconos/5.svg`,
+                    },
+                ],
+    };
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
             <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_SECONDARY}/>
             <Cover 
+                ourWeddingStart={true}
                 weddingDate="11.10.25"
                 bgImage={`${URL_IMAGES}image6.jpeg`}
                 brideName="Korina" 
@@ -153,7 +190,7 @@ const WeddingKorinaDaniel  = () => {
                 ))
             }
             </Grid>
-
+            <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
             <GiftList {...giftListData} ></GiftList>
             <RSVPExcel excelURL="https://docs.google.com/forms/d/e/1FAIpQLSfOXS6266IS8IL6lwpHbGYDuZcjZ6-aheJRCIMSF96zyqiz8g/formResponse" qrActive={false} bgImage={`${URL_IMAGES}image5.jpeg`} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} textColor={""} bgColor={""} ></RSVPExcel>
             <DressCode {...dresscode}></DressCode>

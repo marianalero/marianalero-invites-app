@@ -220,6 +220,7 @@ const WeddingFerMario = () => {
                 className={MAIN_TYPO}
                 textColor={COLOR_PRIMARY}
                 hideText={true}
+                ourWeddingStart={true}
                 >
             </CoverSimple>
 

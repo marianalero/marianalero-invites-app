@@ -132,6 +132,7 @@ const DemoTree  = () => {
                 groomName={"Eduardo"} 
                 className={MAIN_TYPO}
                 textColor={COLOR_PRIMARY}
+                ourWeddingStart={true}
                 >
             </CoverSimple>
             <Qoute 

@@ -20,6 +20,7 @@ const BabyShower = () => {
                 className={MAIN_TYPO}
                 textColor={COLOR_PRIMARY}
                 hideText={true}
+                ourWeddingStart={true}
                 >
             </CoverSimple>
              <Grid container spacing={2} justifyContent="center" paddingTop={2}>

@@ -29,14 +29,14 @@ const WeddingRocioMariana  = () => {
     }, [searchParams]);
     const [open, setOpen] = useState(false);
     const [openConfirm, setOpenConfirm] = useState(false);
-        const musicRef = useRef<MusicFabPlayerHandle>(null);
+        // const musicRef = useRef<MusicFabPlayerHandle>(null);
         const handleClickOpen = () => {
             setOpen(true);
         };
     
         const handleClose = () => {
             setOpen(false);
-            musicRef.current?.play()
+            // musicRef.current?.play()
          };
     
         useEffect(() => {
@@ -67,7 +67,7 @@ const WeddingRocioMariana  = () => {
     const COLOR_PRIMARY = "#E07D44";
     const COLOR_SECONDARY = "#935D37";
     const COLOR_TREE = "#647A54"
-    const MAIN_TYPO = "great-vibes-regular";
+    const MAIN_TYPO = "pinyon-script-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const COLOR_BG ="rgb(254,243,223,.6)";
     const URL_IMAGES = `${URL_REPO}boda-mariana-rocio/`;
@@ -76,7 +76,7 @@ const WeddingRocioMariana  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Civil y Recepción ",
-                date: new Date(2025, 9, 31, 22, 30, 0),
+                date: new Date(2025, 9, 31, 20, 30, 0),
                 locationName: "Jardín Mayorca",
                 address: "Blvd. Musaro 1132, Cerro, Hermosillo, Son.",
                 size: 6,
@@ -132,12 +132,12 @@ const WeddingRocioMariana  = () => {
         `${URL_IMAGES}galeria3.jpg`,
         `${URL_IMAGES}galeria4.jpg`,
         `${URL_IMAGES}galeria5.jpg`,
-        `${URL_IMAGES}galeria6.jpg`,
+        `${URL_IMAGES}portada.jpg`,
     ];
     const qoute:QouteProps ={
             qoute: "Tú,mi amor,fuiste,eres y siempre serás mi mayor SERENDIPIA",
             bodyTypo: BODY_TYPO,
-            addormentEnd:`${URL_IMAGES}/iconos/adornos.svg`
+            addormentStart:`${URL_IMAGES}/iconos/adornos.svg`
     }
 
     const timelineData: CustomizedTimelineProps = {
@@ -178,36 +178,70 @@ const WeddingRocioMariana  = () => {
         };
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
-            <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_PRIMARY}/>
+            {/* <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_PRIMARY}/> */}
             <Cover 
                 weddingDate="31.10.25"
-                bgImage={`${URL_IMAGES}portada.jpg`}
+                bgImage={`${URL_IMAGES}galeria6.jpg`}
                 brideName="Rocio" 
-                symbolr={"&"} 
+                symbolr={"y"} 
                 groomName={"Mariana"} 
                 className={MAIN_TYPO}
                 bgSize="cover"
+                bgPosition="90%"
+                margin="120px"
+                ourWeddingStart={true}
                 >
             </Cover>
+             <Grid  marginTop={4}>
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                    <Typography
+                    align="center"
+                        variant="h3"
+                        className={MAIN_TYPO}
+                        sx={{color:COLOR_PRIMARY}}
+                        >
+                        Nuestra canción
+                    </Typography>
+                </Grid>
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} display="flex" justifyContent="center" >
+                       <audio id="audio" controls autoPlay playsInline>
+                            <source src={URL_SONG} type="audio/mpeg" />
+                        
+                        </audio>
+                </Grid>
+            </Grid>
              <Qoute 
                {...qoute}>
             </Qoute>
+           
             <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio.jpg`}></ImageMiddle>
-            <Introduction
-                brideFather="Samuel valenzuela Mendivil&#8224;"
+            <Grid sx={{backgroundColor:"rgb(215,174,84,.05)"}}>
+                <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                    <Introduction
+                brideFather="Samuel valenzuela Mendivil (&#8224;)"
                 brideMother="Regina Ibarra Arellanes"
                 groomFather="Mario Escobar Velázquez "
                 groomMother="Rosa Armida Silva Renteria"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
-                color={COLOR_PRIMARY}
+                color={COLOR_SECONDARY}
+                firstQoute="Con la Bendición de Dios y el amor de nuestros padres."
+                secondQoute="⁠uniremos nuestras vidas en matrimonio "
+                thirdQoute="Tenemos el gusto de invitarlos nuestra celebración"
+                amperson="y"
+                
+                
             >
             </Introduction>
+                </Grid>
+            </Grid>
+            
             <CountDown 
                 eventDate={new Date(2025,9,31)}
                 bgImage={`${URL_IMAGES}contador.jpg`}
                 typoHeader={MAIN_TYPO}
-                typoCountdown={BODY_TYPO} >  
+                typoCountdown={BODY_TYPO}
+                fontSize="40px" >  
             </CountDown>
             <Grid container spacing={2} padding={4} >
             {
