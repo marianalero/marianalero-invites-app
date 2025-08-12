@@ -65,7 +65,7 @@ const GenderReveal = () => {
                                 </Typography>
                             </Fade>
                     </Grid>
-                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" marginTop={2} paddingY={2}>
+                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" marginTop={"50px"} paddingY={2}>
                          <Fade direction="up"  triggerOnce={true}>
                         <Typography
                         sx={{
@@ -98,23 +98,23 @@ const GenderReveal = () => {
                         </Typography>
                         </Fade>
                     </Grid>
-                    <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2} >
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2} marginTop={"50px"} >
                           <Fade direction="up"  triggerOnce={true}>
                     <EventCardSimple bodyTypo={BODY_TYPO} textColor={COLOR_PRIMARY} eventName="Lugar:" mainTypo="dm-serif-display-regular" locationName="Eventos Nube Rosa" address="Blvd. De Los Puentes Manzana 5 L32, Haciendas Real del Catorce, El Real del Catorce, Son." color={"#dfad87"} href={"https://maps.app.goo.gl/ZBi8PQ5YT2g3x4hS6"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
                      </Fade>
                      </Grid>
                     
-                    <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
+                    
+                    </Grid>
+               </div>
+                <div  style={{backgroundImage:`url('${URL_IMAGES}2.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", }} >
+              <Grid container spacing={2} justifyContent="center">
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
                      <Fade direction="up"  triggerOnce={true}>
                         <Adornment image={`${URL_IMAGES}adornos.png`} width={"350"}/>
                      </Fade>
                         
                 </Grid>
-                    </Grid>
-               </div>
-                <div  style={{backgroundImage:`url('${URL_IMAGES}2.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", }} >
-              <Grid container spacing={2} justifyContent="center">
-                
                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                     <Grid container spacing={2} justifyContent="center">
                         
