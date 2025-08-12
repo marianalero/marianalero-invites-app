@@ -114,7 +114,7 @@ const GenderReveal = () => {
                </div>
                 <div  style={{backgroundImage:`url('${URL_IMAGES}2.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", }} >
               <Grid container spacing={2} justifyContent="center">
-                <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}  marginTop={"30px"}>
                      <Fade direction="up"  triggerOnce={true}>
                         <Adornment image={`${URL_IMAGES}adornos.png`} width={"350"}/>
                      </Fade>
