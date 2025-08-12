@@ -16,7 +16,7 @@ const GenderReveal = () => {
           <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
               <div  style={{backgroundImage:`url('${URL_IMAGES}4.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover",display:"grid" }} >
                 
-                <div style={{marginTop:"20vh" ,paddingLeft:"5vw", paddingRight:"5vw",marginBottom:"15vh"}}>
+                <div style={{marginTop:"15vh" ,paddingLeft:"5vw", paddingRight:"5vw",marginBottom:"15vh"}}>
                      <Fade direction="left" triggerOnce={true} >
                         <Typography  textAlign={"left"}  typography={"h1"} className={`${MAIN_TYPO}`} sx={{color:COLOR_PRIMARY}}>¿Boy</Typography>
 
@@ -30,7 +30,7 @@ const GenderReveal = () => {
                      <Fade direction="left" triggerOnce={true}>
                          <Typography  textAlign={"center"}  typography={"h2"} className={`great-vibes-regular`}  sx={{color:COLOR_PRIMARY}}>or</Typography>
                      </Fade>
-                    <div  style={{position:"absolute",top:"60%",left:"50%",transform:"translate(-50%, -50%)"}}>
+                    <div  style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="left" triggerOnce={true} >
                                <img src={`${URL_IMAGES}23.png`}  style={{width: "100vw"}} />
                          </Fade>
@@ -38,6 +38,10 @@ const GenderReveal = () => {
                      </div>
                      <Fade direction="left" triggerOnce={true} >
                         <Typography  textAlign={"right"}  typography={"h1"} className={`${MAIN_TYPO}`}  sx={{color:COLOR_PRIMARY}}>Girl?</Typography>
+
+                     </Fade>
+                      <Fade direction="up" triggerOnce={true} >
+                        <Typography style={{marginTop:"15vh"}}  textAlign={"center"}  typography={"h4"} sx={{color:COLOR_PRIMARY, fontFamily: `'DM Serif Display', serif`,}}>Baby Rodríguez Lerma</Typography>
 
                      </Fade>
                 </div>
@@ -65,6 +69,7 @@ const GenderReveal = () => {
                                 </Typography>
                             </Fade>
                     </Grid>
+                    
                      <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" marginTop={"50px"} paddingY={2}>
                          <Fade direction="up"  triggerOnce={true}>
                         <Typography
