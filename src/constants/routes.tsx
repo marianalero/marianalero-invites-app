@@ -1,4 +1,5 @@
 
+import GenderReveal from "../pages/clientInvitations/GenderReveal";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
@@ -40,10 +41,11 @@ const routes: RouteConfig[] = [
   { path: '/admin', element: <AdminPage />, protected: true, adminOnly: true },
   { path: '/invitations', element: <InvitationsPage />, protected: true, adminOnly: true },
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-   {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
-   {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
-    {path:'/prev-rm-2', element: <WeddingRocioMariana></WeddingRocioMariana>},
-     {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},
+  {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
+  {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
+  {path:'/prev-rm-2', element: <WeddingRocioMariana></WeddingRocioMariana>},
+  {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},
+  {path:'/gender-reveal', element: <GenderReveal></GenderReveal>},
 ];
 
 

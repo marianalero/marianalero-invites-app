@@ -138,6 +138,10 @@
   font-family: "Southland"!important;;
   font-style: normal!important;
 }
+.gistesy {
+  font-family: "Gistesy"!important;
+  font-style: normal!important;
+}
 .d-flex{
   display: flex!important;
 }
@@ -167,3 +171,21 @@
   height: 100vh;
 }
 
+.noto-serif-display-400{
+  font-family: "Noto Serif Display", serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+}
+
+.roboto-400 {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
