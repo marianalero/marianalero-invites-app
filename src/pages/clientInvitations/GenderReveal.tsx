@@ -14,35 +14,39 @@ const GenderReveal = () => {
     const URL_IMAGES = `${URL_REPO}gender-reveal/`;
     return(
           <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
-              <div  style={{backgroundImage:`url('${URL_IMAGES}4.png')`,backgroundPositionX: "50%",    height: "100vh",backgroundSize:"cover",display:"inline-block" }} >
+              <div  style={{backgroundImage:`url('${URL_IMAGES}4.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover",display:"grid" }} >
                 
-                <div style={{marginTop:"20vh" ,paddingLeft:"5vw", paddingRight:"5vw",marginBottom:"20vh"}}>
-                     <Fade direction="left"  >
+                <div style={{marginTop:"20vh" ,paddingLeft:"5vw", paddingRight:"5vw",marginBottom:"15vh"}}>
+                     <Fade direction="left" triggerOnce={true} >
                         <Typography  textAlign={"left"}  typography={"h1"} className={`${MAIN_TYPO}`} sx={{color:COLOR_PRIMARY}}>¿Boy</Typography>
 
                      </Fade>
-                     <div  style={{position:"absolute",top:"30%",left:"50%",transform:"translate(-50%, -50%)"}}>
-                         <Fade direction="right" >
-                               <img src={`${URL_IMAGES}22.png`}  />
+                     <div  style={{position:"absolute",top:"30%",left:"55%",transform:"translate(-50%, -50%)"}}>
+                         <Fade direction="right" triggerOnce={true}>
+                               <img src={`${URL_IMAGES}22.png`}  style={{width: "100vw"}}/>
                          </Fade>
                      
                      </div>
-                     <Fade direction="left" >
+                     <Fade direction="left" triggerOnce={true}>
                          <Typography  textAlign={"center"}  typography={"h2"} className={`great-vibes-regular`}  sx={{color:COLOR_PRIMARY}}>or</Typography>
                      </Fade>
-                    <div  style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%, -50%)"}}>
-                         <Fade direction="left" >
-                               <img src={`${URL_IMAGES}23.png`}  />
+                    <div  style={{position:"absolute",top:"60%",left:"50%",transform:"translate(-50%, -50%)"}}>
+                         <Fade direction="left" triggerOnce={true} >
+                               <img src={`${URL_IMAGES}23.png`}  style={{width: "100vw"}} />
                          </Fade>
                      
                      </div>
-                     <Fade direction="right" >
+                     <Fade direction="left" triggerOnce={true} >
                         <Typography  textAlign={"right"}  typography={"h1"} className={`${MAIN_TYPO}`}  sx={{color:COLOR_PRIMARY}}>Girl?</Typography>
 
                      </Fade>
                 </div>
-                <div>
-                    <Grid container spacing={2} justifyContent="center" padding={4} marginTop={4}>
+                
+               </div>
+               <div  style={{backgroundImage:`url('${URL_IMAGES}3.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", }} >
+                
+                     <Grid container spacing={2} justifyContent="center">
+                       
                       <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
                          <Fade direction="up"  triggerOnce={true} >
                              <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_PRIMARY  }}>
@@ -50,15 +54,10 @@ const GenderReveal = () => {
                             </Typography>
                          </Fade>
                        
-                    </Grid>
+              
 
                    
-                    </Grid>
-                </div>
-               </div>
-               <div  style={{backgroundImage:`url('${URL_IMAGES}3.png')`,backgroundPositionX: "50%",    height: "100vh",backgroundSize:"cover", }} >
-                
-                     <Grid container spacing={2} justifyContent="center" paddingY={4}>
+                        </Grid>
                          <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
                             <Fade direction="up"  triggerOnce={true}>
                                 <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem' ,color:COLOR_PRIMARY}}>
