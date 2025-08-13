@@ -159,7 +159,7 @@ const GenderReveal = () => {
                         </Typography>
                          </Fade>
                         
-                        </Grid>
+                    </Grid>
               </Grid>
               </div>
           </div>
