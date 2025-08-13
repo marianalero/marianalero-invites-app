@@ -4,7 +4,7 @@ import { EventCardSimple } from "../../components/EventCard/EventCardSimple";
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const GenderReveal = () => {
     const COLOR_THIRD = "#5771a2";
@@ -24,9 +24,9 @@ const GenderReveal = () => {
         `${URL_IMAGES}adornos.png`
     ];
     const [isLoading, setIsLoading] = useState(true);
-    const [loadedCount, setLoadedCount] = useState(0);
 
     useEffect(() => {
+        document.title = "Revelación de género";
     imageList.forEach((src) => {
       const img = new Image();
       img.src = src;
@@ -35,15 +35,14 @@ const GenderReveal = () => {
     });
     }, []);
 
-     const handleImageLoad = () => {
-    setLoadedCount((prev) => {
-      const newCount = prev + 1;
-      if (newCount === imageList.length) {
-        setIsLoading(false);
-      }
-      return newCount;
-    });
-  };
+     const loadedRef = useRef(0);
+
+    const handleImageLoad = () => {
+    loadedRef.current++;
+    if (loadedRef.current === imageList.length) {
+        setIsLoading(true);
+    }
+    };
     // Loader
     if (isLoading) {
         return (
