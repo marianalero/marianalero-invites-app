@@ -21,7 +21,7 @@ const GenderReveal = () => {
                         <Typography  textAlign={"left"}  typography={"h1"} className={`${MAIN_TYPO}`} sx={{color:COLOR_PRIMARY}}>¿Boy</Typography>
 
                      </Fade>
-                     <div  style={{position:"absolute",top:"30%",left:"55%",transform:"translate(-50%, -50%)"}}>
+                     <div  style={{position:"absolute",top:"30%",left:"50%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="right" triggerOnce={true}>
                                <img src={`${URL_IMAGES}22.png`}  style={{width: "100vw"}}/>
                          </Fade>
