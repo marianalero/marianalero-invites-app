@@ -70,7 +70,7 @@ const GenderReveal = () => {
                             </Fade>
                     </Grid>
                     
-                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" marginTop={"50px"} paddingY={2}>
+                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingY={2}>
                          <Fade direction="up"  triggerOnce={true}>
                         <Typography
                         sx={{
@@ -103,7 +103,7 @@ const GenderReveal = () => {
                         </Typography>
                         </Fade>
                     </Grid>
-                    <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2} marginTop={"20px"} >
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2}  >
                           <Fade direction="up"  triggerOnce={true}>
                     <EventCardSimple bodyTypo={BODY_TYPO} textColor={COLOR_PRIMARY} eventName="Lugar:" mainTypo="dm-serif-display-regular" locationName="Eventos Nube Rosa" address="Blvd. De Los Puentes Manzana 5 L32, Haciendas Real del Catorce, El Real del Catorce, Son." color={"#dfad87"} href={"https://maps.app.goo.gl/ZBi8PQ5YT2g3x4hS6"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
                      </Fade>
@@ -149,7 +149,7 @@ const GenderReveal = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2} marginTop={3}>
+                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
                          <Fade direction="up"  triggerOnce={true}>
                             <Typography
                             className={MAIN_TYPO}
