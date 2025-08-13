@@ -14,7 +14,7 @@ const GenderReveal = () => {
     const URL_IMAGES = `${URL_REPO}gender-reveal/`;
     return(
           <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
-              <div  style={{backgroundImage:`url('${URL_IMAGES}4.png')`,backgroundPositionX: "50%",    height: "70vh",backgroundSize:"cover",display:"grid" }} >
+              <div  style={{backgroundImage:`url('${URL_IMAGES}4.png')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
                 
                 <div style={{marginTop:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw"}}>
                      <Fade direction="left" triggerOnce={true} >
@@ -47,7 +47,7 @@ const GenderReveal = () => {
                 </div>
                 
                </div>
-               <div  style={{backgroundImage:`url('${URL_IMAGES}3.png')`,backgroundPositionX: "50%",    height: "70vh",backgroundSize:"cover", }} >
+               <div  style={{backgroundImage:`url('${URL_IMAGES}3.png')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover", }} >
                 
                      <Grid container spacing={2} justifyContent="center" padding={2}>
                        
@@ -112,7 +112,7 @@ const GenderReveal = () => {
                     
                     </Grid>
                </div>
-                <div  style={{backgroundImage:`url('${URL_IMAGES}2.png')`,backgroundPositionX: "50%",    height: "70vh",backgroundSize:"cover",}} >
+                <div  style={{backgroundImage:`url('${URL_IMAGES}2.png')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",}} >
               <Grid container spacing={2} justifyContent="center" padding={2}>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
                      <Fade direction="up"  triggerOnce={true}>
