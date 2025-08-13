@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import Adornment from "../../components/Adornment/Adornment";
 import { EventCardSimple } from "../../components/EventCard/EventCardSimple";
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
+import { useEffect, useState } from "react";
 
 const GenderReveal = () => {
     const COLOR_THIRD = "#5771a2";
@@ -12,16 +13,68 @@ const GenderReveal = () => {
     const MAIN_TYPO = "gistesy";
     const BODY_TYPO = "roboto-400";
     const URL_IMAGES = `${URL_REPO}gender-reveal/`;
+
+     // Lista de imágenes a precargar
+    const imageList = [
+        `${URL_IMAGES}4.png`,
+        `${URL_IMAGES}22.png`,
+        `${URL_IMAGES}23.png`,
+        `${URL_IMAGES}3.png`,
+        `${URL_IMAGES}2.png`,
+        `${URL_IMAGES}adornos.png`
+    ];
+    const [isLoading, setIsLoading] = useState(true);
+    const [loadedCount, setLoadedCount] = useState(0);
+
+    useEffect(() => {
+    imageList.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = handleImageLoad;
+      img.onerror = handleImageLoad; // Si falla igual continúa
+    });
+    }, []);
+
+     const handleImageLoad = () => {
+    setLoadedCount((prev) => {
+      const newCount = prev + 1;
+      if (newCount === imageList.length) {
+        setIsLoading(false);
+      }
+      return newCount;
+    });
+  };
+    // Loader
+    if (isLoading) {
+        return (
+        <Box
+            sx={{
+            minHeight: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "white",
+            flexDirection: "column"
+            }}
+        >
+            <CircularProgress sx={{ color: COLOR_PRIMARY }} />
+            <Box mt={2} sx={{ fontFamily: "Montserrat" }}>
+                Cargando invitación...
+            </Box>
+        </Box>
+        );
+    }
+
     return(
-          <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
+          <div style={{backgroundColor:"#fefef7",maxWidth: '100%',overflowY:"auto",}}>
               <div  style={{backgroundImage:`url('${URL_IMAGES}4.png')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
                 
-                <div style={{marginTop:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw"}}>
+                <div style={{marginTop:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative"}}>
                      <Fade direction="left" triggerOnce={true} >
-                        <Typography  textAlign={"left"}  typography={"h1"} className={`${MAIN_TYPO}`} sx={{color:COLOR_PRIMARY}}>¿Boy</Typography>
+                        <Typography  textAlign={"left"}  typography={"h1"} className={`${MAIN_TYPO}`} sx={{color:COLOR_PRIMARY,zIndex: 2,position: "relative"}}>¿Boy</Typography>
 
                      </Fade>
-                     <div  style={{position:"absolute",top:"20%",left:"50%",transform:"translate(-50%, -50%)"}}>
+                     <div  style={{position:"absolute",top:"20%",left:"50%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
                          <Fade direction="right" triggerOnce={true}>
                                <img src={`${URL_IMAGES}22.png`}  style={{width: "100vw"}}/>
                          </Fade>
