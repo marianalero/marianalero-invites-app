@@ -24,25 +24,24 @@ const GenderReveal = () => {
         `${URL_IMAGES}adornos.png`
     ];
     const [isLoading, setIsLoading] = useState(true);
+  const loadedCountRef = useRef(0); // contador que no dispara renders
 
-    useEffect(() => {
-        document.title = "Revelación de género";
+  useEffect(() => {
     imageList.forEach((src) => {
       const img = new Image();
       img.src = src;
       img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // Si falla igual continúa
+      img.onerror = handleImageLoad; // si falla, igual contamos
     });
-    }, []);
+  }, []);
 
-     const loadedRef = useRef(0);
-
-    const handleImageLoad = () => {
-    loadedRef.current++;
-    if (loadedRef.current === imageList.length) {
-        setIsLoading(true);
+  const handleImageLoad = () => {
+    loadedCountRef.current += 1;
+    if (loadedCountRef.current === imageList.length) {
+      setIsLoading(false); // cuando todas las imágenes han cargado
     }
-    };
+  };
+
     // Loader
     if (isLoading) {
         return (
