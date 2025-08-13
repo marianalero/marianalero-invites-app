@@ -41,13 +41,13 @@ const GenderReveal = () => {
 
                      </Fade>
                       <Fade direction="up" triggerOnce={true} >
-                        <Typography style={{marginTop:"15vh"}}  textAlign={"center"}  typography={"h4"} sx={{color:COLOR_PRIMARY, fontFamily: `'DM Serif Display', serif`,}}>Baby Rodríguez Lerma</Typography>
+                        <Typography style={{paddingTop:"10vh"}}  textAlign={"center"}  typography={"h4"} sx={{color:COLOR_PRIMARY, fontFamily: `'DM Serif Display', serif`,}}>Baby Rodríguez Lerma</Typography>
 
                      </Fade>
                 </div>
                 
                </div>
-               <div  style={{backgroundImage:`url('${URL_IMAGES}3.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", }} >
+               <div  style={{backgroundImage:`url('${URL_IMAGES}3.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover",paddingTop:3 }} >
                 
                      <Grid container spacing={2} justifyContent="center">
                        
@@ -112,7 +112,7 @@ const GenderReveal = () => {
                     
                     </Grid>
                </div>
-                <div  style={{backgroundImage:`url('${URL_IMAGES}2.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", }} >
+                <div  style={{backgroundImage:`url('${URL_IMAGES}2.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", paddingTop:3}} >
               <Grid container spacing={2} justifyContent="center">
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}  marginTop={"30px"}>
                      <Fade direction="up"  triggerOnce={true}>
