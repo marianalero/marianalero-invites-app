@@ -363,17 +363,7 @@ const GenderReveal = () => {
                     }}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
-                    >
-                    <DialogTitle>
-                        <Box display={"flex"} justifyContent={"end"}>
-                        <IconButton aria-label="delete" onClick={() => {
-                                               setOpenConfirm(false)
-                                           }}>
-                            <CloseIcon sx={{color:"lightgray"}} />
-                        </IconButton>
-                                        
-                    </Box>
-                    </DialogTitle>              
+                    >            
                     <DialogContent >
                     
                     <Box display={"flex"} justifyContent={"center"}>
