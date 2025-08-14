@@ -41,7 +41,7 @@ const packages = [
   //   level: 'Avanzado',
   //   features: [
   //     'Todo lo de Memorias',
-  //     'Sistema web de confirmaciones'
+  //     'Panel de confirmaciones'
   //   ],
   //   badge: 'Recomendado',
   //   color: 'info',

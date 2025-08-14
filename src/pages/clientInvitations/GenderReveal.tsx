@@ -1,10 +1,14 @@
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, CircularProgress, FormControl, FormControlLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from "@mui/material";
 import Adornment from "../../components/Adornment/Adornment";
 import { EventCardSimple } from "../../components/EventCard/EventCardSimple";
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
 import { useEffect, useRef, useState } from "react";
+import CustomButton from "../../components/CustomButton/CustomButton";
+import FooterInvites from "../../components/Footer/FooterInvites";
+import { CreateGuestParameters } from "../../models/parameters/createGuestParameters";
+import { CreateAndConfirm } from "../../services/guestApiClient";
 
 const GenderReveal = () => {
     const COLOR_THIRD = "#5771a2";
@@ -13,7 +17,7 @@ const GenderReveal = () => {
     const MAIN_TYPO = "gistesy";
     const BODY_TYPO = "roboto-400";
     const URL_IMAGES = `${URL_REPO}gender-reveal/`;
-
+    const numnerOfGuests = 6; // Número de invitados que se pueden seleccionar
      // Lista de imágenes a precargar
     const imageList = [
         `${URL_IMAGES}4.png`,
@@ -24,8 +28,21 @@ const GenderReveal = () => {
         `${URL_IMAGES}adornos.png`
     ];
     const [isLoading, setIsLoading] = useState(true);
-  const loadedCountRef = useRef(0); // contador que no dispara renders
+    const loadedCountRef = useRef(0); // contador que no dispara renders
+    const [name, setName] = useState("");
+    const [totalConfirmed, setTotalConfirmed] = useState(1);
 
+    const handleSend = async () => {
+            const createParam: CreateGuestParameters ={
+            fullName: name,
+            rsvpStatus: 2,
+            totalConfirmed: totalConfirmed,
+            totalAssigned: totalConfirmed,
+            invitationId: 2,
+            }
+            await CreateAndConfirm(createParam);
+           
+        };
   useEffect(() => {
     imageList.forEach((src) => {
       const img = new Image();
@@ -178,7 +195,7 @@ const GenderReveal = () => {
                              <Fade direction="up"  triggerOnce={true}>
                                 <Typography
                                     className={BODY_TYPO}
-                                    sx={{ fontSize: '14px', color:COLOR_SECONDARY }}
+                                    sx={{ fontSize: '1rem', color:COLOR_SECONDARY }}
                                     >
                                     Si crees que soy niña vestir de color rosa y traer toallitas 
                                 </Typography>
@@ -190,7 +207,7 @@ const GenderReveal = () => {
                             <Fade direction="up"  triggerOnce={true}>
                                 <Typography
                                     className={BODY_TYPO}
-                                    sx={{ fontSize: '14px', color:COLOR_THIRD }}
+                                    sx={{ fontSize: '1rem', color:COLOR_THIRD }}
                                     >
                                     Si crees que soy niño vestir de color azul y traer pañales(e3)
                                 </Typography>
@@ -200,7 +217,124 @@ const GenderReveal = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
+               
+                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                <Box
+                    component="form"
+                    sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+                    noValidate
+                    autoComplete="off"
+                    >
+                        <Grid container spacing={2} padding={4} >
+                             <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
+                    <Fade direction="up"  triggerOnce={true} >
+                             <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_PRIMARY  }}>
+                            Por favor ayúdanos confirmando tu asistencia.
+                            </Typography>
+                    </Fade>
+                       
+                        
+                </Grid>
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                       
+                                     <TextField
+                            required
+                            id="name"
+                            label="Nombre"
+                            sx={{
+                                minWidth:300,
+                                 '& label.Mui-focused': {
+                                color: COLOR_PRIMARY, // Borde en focus
+                                },
+                                '& .MuiOutlinedInput-root': {
+                                '&.Mui-focused fieldset': {
+                                    borderColor:COLOR_PRIMARY, // Borde en focus
+                                },
+                                },
+                                '& .MuiInputLabel-root': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                    padding: '0 4px',
+                                    borderRadius: '4px',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                },
+                            }}
+                            value={name}
+                            onChange={(e) => setName(
+                                 e.target.value
+                                )}
+                            
+                            />
+                        </Grid>
+         
+                           <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
+                            <FormControl >
+                              
+                                        <InputLabel sx={{color:"#757575",
+                                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                            padding: '0 4px',
+                                            borderRadius: '4px',
+                                        }} id="demo-simple-select-label">Número de asistentes</InputLabel>
+
+                                    
+                                
+                                    <Select<number>
+                                        label="Número de asistentes"
+                                        labelId="guests"
+                                        id="guests"
+                                        value={totalConfirmed}
+                                        onChange={(e) => setTotalConfirmed(
+                                            Number(e.target.value)
+                                        )}
+                                        sx={{
+                                            minWidth: 300,
+                                            color: COLOR_PRIMARY,
+                                            '& .MuiOutlinedInput-notchedOutline': {
+                                                borderColor: COLOR_PRIMARY, // borde normal
+                                            },
+                                            '&:hover .MuiOutlinedInput-notchedOutline': {
+                                                borderColor: COLOR_PRIMARY,
+                                            },
+                                            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                                borderColor:COLOR_PRIMARY,
+                                            },
+                                            '& .MuiSvgIcon-root': {
+                                                color: COLOR_PRIMARY,
+                                            },
+                                        }}
+                                    >
+                                        {Array.from({ length: numnerOfGuests ? 6 : 0}, (_, index) => (
+                                            <MenuItem key={index + 1} value={index + 1}
+                                                sx={{
+                                                    '&.Mui-selected': {
+                                                        color: '#fff',
+                                                        backgroundColor: `${COLOR_PRIMARY}!important`,
+                                                    },
+                                                    '&.Mui-selected:hover': {
+                                                        backgroundColor: COLOR_PRIMARY,
+                                                    },
+                                                    '&:hover': {
+                                                        backgroundColor: COLOR_PRIMARY,
+                                                        color: "white",
+                                                    },
+                                                }}
+                                            >
+                                                {index + 1}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                    </FormControl>
+                            </Grid>
+                            
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                            <CustomButton bgColor={COLOR_PRIMARY} color={'#FFFFFF'} label={'Confirmar'} onClick={handleSend}></CustomButton>
+                        </Grid>
+                        </Grid>
+                                          
+                </Box>
+            </Grid>
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true}>
                             <Typography
                             className={MAIN_TYPO}
@@ -210,9 +344,10 @@ const GenderReveal = () => {
                         </Typography>
                          </Fade>
                         
-                    </Grid>
+                </Grid>
               </Grid>
               </div>
+               <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
           </div>
     )
 }
