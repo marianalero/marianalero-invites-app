@@ -1,4 +1,4 @@
-import { Box, CircularProgress, FormControl, FormControlLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from "@mui/material";
+import { Box, CircularProgress, Dialog, DialogContent, DialogTitle, FormControl,  IconButton, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import Adornment from "../../components/Adornment/Adornment";
 import { EventCardSimple } from "../../components/EventCard/EventCardSimple";
 import { URL_REPO } from "../../config";
@@ -9,7 +9,7 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import { CreateGuestParameters } from "../../models/parameters/createGuestParameters";
 import { CreateAndConfirm } from "../../services/guestApiClient";
-
+import CloseIcon from '@mui/icons-material/Close';
 const GenderReveal = () => {
     const COLOR_THIRD = "#5771a2";
     const COLOR_SECONDARY = "#d7727a";
@@ -31,6 +31,7 @@ const GenderReveal = () => {
     const loadedCountRef = useRef(0); // contador que no dispara renders
     const [name, setName] = useState("");
     const [totalConfirmed, setTotalConfirmed] = useState(1);
+    const [openConfirm, setOpenConfirm] = useState(false);
 
     const handleSend = async () => {
             const createParam: CreateGuestParameters ={
@@ -40,8 +41,12 @@ const GenderReveal = () => {
             totalAssigned: totalConfirmed,
             invitationId: 2,
             }
-            await CreateAndConfirm(createParam);
-           
+            const response = await CreateAndConfirm(createParam);
+           if(response){
+            setName("");
+            setTotalConfirmed(1);
+                setOpenConfirm(true);
+            }
         };
   useEffect(() => {
     imageList.forEach((src) => {
@@ -348,6 +353,34 @@ const GenderReveal = () => {
               </Grid>
               </div>
                <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
+               <Dialog
+               sx={{
+                paddingTop:0
+               }}
+                    open={openConfirm}
+                    onClose={() => {
+                        setOpenConfirm(false)
+                    }}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                    >
+                    <DialogTitle>
+                        <Box display={"flex"} justifyContent={"end"}>
+                        <IconButton aria-label="delete" onClick={() => {
+                                               setOpenConfirm(false)
+                                           }}>
+                            <CloseIcon sx={{color:"lightgray"}} />
+                        </IconButton>
+                                        
+                    </Box>
+                    </DialogTitle>              
+                    <DialogContent >
+                    
+                    <Box display={"flex"} justifyContent={"center"}>
+                        <Typography variant="body1" className={BODY_TYPO}>Confirmación enviada</Typography>
+                    </Box>
+                    </DialogContent>        
+                </Dialog>
           </div>
     )
 }
