@@ -9,7 +9,6 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import { CreateGuestParameters } from "../../models/parameters/createGuestParameters";
 import { CreateAndConfirm } from "../../services/guestApiClient";
-import CloseIcon from '@mui/icons-material/Close';
 const GenderReveal = () => {
     const COLOR_THIRD = "#5771a2";
     const COLOR_SECONDARY = "#d7727a";
@@ -55,6 +54,7 @@ const GenderReveal = () => {
       img.onload = handleImageLoad;
       img.onerror = handleImageLoad; // si falla, igual contamos
     });
+    document.title = "Revelación de género";
   }, []);
 
   const handleImageLoad = () => {
