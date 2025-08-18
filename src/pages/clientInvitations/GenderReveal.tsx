@@ -31,8 +31,12 @@ const GenderReveal = () => {
     const [name, setName] = useState("");
     const [totalConfirmed, setTotalConfirmed] = useState(1);
     const [openConfirm, setOpenConfirm] = useState(false);
-
+    const [errorName, setErrorName] = useState(false);
     const handleSend = async () => {
+        if(name.trim() === ""){
+            setErrorName(true);
+        } else {
+            setErrorName(false);
             const createParam: CreateGuestParameters ={
             fullName: name,
             rsvpStatus: 2,
@@ -46,16 +50,21 @@ const GenderReveal = () => {
             setTotalConfirmed(1);
                 setOpenConfirm(true);
             }
-        };
-  useEffect(() => {
-    imageList.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // si falla, igual contamos
-    });
-    document.title = "Revelación de género";
-  }, []);
+        }
+
+      
+    };
+    useEffect(() => {
+        document.title = "Revelación de género";
+    }, []);
+    useEffect(() => {
+        imageList.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = handleImageLoad;
+        img.onerror = handleImageLoad; // si falla, igual contamos
+        });
+    }, []);
 
   const handleImageLoad = () => {
     loadedCountRef.current += 1;
@@ -242,7 +251,9 @@ const GenderReveal = () => {
                 </Grid>
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                        
-                                     <TextField
+                            <TextField
+                            error={errorName}
+                            helperText={errorName ? "El nombre es requerido" : ""}
                             required
                             id="name"
                             label="Nombre"
