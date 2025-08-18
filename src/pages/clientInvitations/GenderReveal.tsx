@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Dialog, DialogContent, DialogTitle, FormControl,  IconButton, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Box, CircularProgress, Dialog, DialogContent, FormControl,  InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import Adornment from "../../components/Adornment/Adornment";
 import { EventCardSimple } from "../../components/EventCard/EventCardSimple";
 import { URL_REPO } from "../../config";
@@ -139,10 +139,7 @@ const GenderReveal = () => {
                              Pronto habrá una nueva sonrisa iluminando nuestras vidas
                             </Typography>
                          </Fade>
-                       
-              
 
-                   
                         </Grid>
                          <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
                             <Fade direction="up"  triggerOnce={true}>
