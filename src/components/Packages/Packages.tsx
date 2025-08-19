@@ -36,28 +36,28 @@ const packages = [
     color: 'warning',
     price: '$850 MX'
   },
-  // {
-  //   name: 'Celebra+',
-  //   level: 'Avanzado',
-  //   features: [
-  //     'Todo lo de Memorias',
-  //     'Panel de confirmaciones'
-  //   ],
-  //   badge: 'Recomendado',
-  //   color: 'info',
-  //   price: '$1,100 MX'
-  // },
   {
     name: 'Celebra+',
     level: 'Avanzado',
     features: [
       'Todo lo de Memorias',
-      'Confirmación por Excel'
+      'Panel de confirmaciones'
     ],
     badge: 'Recomendado',
     color: 'info',
-    price: '$950 MX'
+    price: '$1,100 MX'
   },
+  // {
+  //   name: 'Celebra+',
+  //   level: 'Avanzado',
+  //   features: [
+  //     'Todo lo de Memorias',
+  //     'Confirmación por Excel'
+  //   ],
+  //   badge: 'Recomendado',
+  //   color: 'info',
+  //   price: '$950 MX'
+  // },
   // {
   //   name: 'Código QR',
   //   level: 'Premium',
