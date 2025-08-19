@@ -61,6 +61,10 @@ async function updateGuest(body: UpdateGuestParameters): Promise<Guest> {
   return response.data;
 }
 
+async function DeleteGuest(id:number): Promise<BaseStateResponse<void>> {
+  const response = await apiAuthClient.delete(`Guests/DeleteGuest?id=${id}`);
+  return response.data;
+}
 
 async function exportGuestsToExcel(invitationId: number, rsvpStatus?: number): Promise<void> {
     try {
@@ -114,4 +118,4 @@ async function ConfirmExcel(URL:string){
     }
 }
 
-export {getGuestById,CreateAndConfirm,Confirm,getGuestByToken,getGuests,uploadGuestExcel,createGuest,updateGuest,exportGuestsToExcel,ConfirmExcel}
+export {getGuestById,CreateAndConfirm,Confirm,getGuestByToken,getGuests,uploadGuestExcel,createGuest,updateGuest,exportGuestsToExcel,ConfirmExcel,DeleteGuest}

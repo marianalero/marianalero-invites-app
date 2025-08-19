@@ -22,7 +22,8 @@ const CreateGuestDialog =({ open, onClose, onCreated,id=0 }: Props) => {
       registeredAttendance: false
   };
     const [guest, setGuest] = useState<Guest>(emptyGuest);
-
+    const [errorName, setErrorName] = useState(false);
+    const [errorNumber, setErrorNumber] = useState(false);
     const fetchGuests = async () =>  {
 
     const res = await getGuestById(id,invitationId);
@@ -36,29 +37,48 @@ const CreateGuestDialog =({ open, onClose, onCreated,id=0 }: Props) => {
      
     }, []);
     const handleCreateSave = async () => {
-
-      if(id>0){
-      await updateGuest( {
-                guestId:id,
-                fullName: guest.fullName,
-                totalAssigned: guest.totalAssigned,
-                phoneNumber: guest.phoneNumber
-        });
+      if (!validateGuest()) {
+        return;
       }else{
-        await createGuest( {
-                fullName: guest.fullName,
-                rsvpStatus: 1,
-                totalConfirmed: 0,
-                totalAssigned: guest.totalAssigned,
-                invitationId: invitationId,
-                phoneNumber: guest.phoneNumber
-        });
+        if(id>0)
+          {
+          await updateGuest( {
+                    guestId:id,
+                    fullName: guest.fullName,
+                    totalAssigned: guest.totalAssigned,
+                    phoneNumber: guest.phoneNumber
+            });
+          }else{
+            await createGuest( {
+                    fullName: guest.fullName,
+                    rsvpStatus: 1,
+                    totalConfirmed: 0,
+                    totalAssigned: guest.totalAssigned,
+                    invitationId: invitationId,
+                    phoneNumber: guest.phoneNumber
+            });
+          }
+      
+        onCreated();
       }
       
-      onCreated();
 
     };
 
+    const validateGuest = () => {
+      setErrorName(false);
+      setErrorNumber(false);
+      if (!guest.fullName) {
+        setErrorName(true);
+        return false;
+      }
+
+      if (guest.totalAssigned <= 0) {
+        setErrorNumber(true);
+        return false;
+      }
+      return true;
+    }
   const updateData = (newData: Partial<Guest>) => {
     setGuest((prevData) => ({ ...prevData, ...newData }));
   };
@@ -67,20 +87,26 @@ const CreateGuestDialog =({ open, onClose, onCreated,id=0 }: Props) => {
         <DialogTitle> {id> 0 ? "Editar" : "Crear"} Invitado</DialogTitle>
         <DialogContent>
           <TextField
+          error={errorName}
             fullWidth
             label="Nombre"
             margin="dense"
             value={guest?.fullName}
            slotProps={{ inputLabel : {shrink: true} }}
             onChange={(e) => updateData({fullName: e.target.value})}
+            helperText={errorName ? "El nombre es requerido" : ""}
           />
         <TextField
+            error={errorNumber}
+            type="number"
             fullWidth
             label="Número de Invitados"
             margin="dense"
             value={guest?.totalAssigned}
            slotProps={{ inputLabel : {shrink: true} }}
             onChange={(e) => updateData({totalAssigned: Number.parseInt(e.target.value)})}
+            helperText={errorNumber ? "El número de invitados debe ser mayor a 0" : ""}
+            
           />
            <TextField
             fullWidth

@@ -5,9 +5,10 @@ import CreateGuestDialog from "./Dialog/CreateGuestDialog";
 import SystemSecurityUpdateGoodRoundedIcon from '@mui/icons-material/SystemSecurityUpdateGoodRounded';
 import ModeEditOutlineRoundedIcon from '@mui/icons-material/ModeEditOutlineRounded';
 import InsertLinkRoundedIcon from '@mui/icons-material/InsertLinkRounded';
-import { Confirm } from "../../../services/guestApiClient";
+import { Confirm, DeleteGuest } from "../../../services/guestApiClient";
 import { RSVPSTATUS } from "../../../constants/rsvpStatus";
 import { useSnackbar } from "../../../context/snackbarContext";
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 interface GuestActionsProps {
     guest:Guest;
     link:string;
@@ -32,6 +33,12 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
       invitationId:guest.invitationId
     });
     showSnackbar('Se confirmo la asistencia correctamente', 'success')
+    refresh();
+  }
+
+  const deleteGuest =async () =>{
+    await DeleteGuest(guest.id);
+    showSnackbar("Invitado eliminado correctamente", 'success')
     refresh();
   }
 
@@ -61,12 +68,12 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
             </span>
             
          </Tooltip>
-        {/* <Tooltip title="Eliminar">
-            <IconButton >
-                <DeleteRoundedIcon />
+        <Tooltip title="Eliminar">
+            <IconButton onClick={() => deleteGuest()} >
+                <DeleteOutlineRoundedIcon />
             </IconButton>
         </Tooltip>
-       */}
+      
        
       
       </Box>
