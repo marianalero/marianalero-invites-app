@@ -14,7 +14,7 @@ import { useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import CountDownSimple from "../../../components/CountDown/CountDownSimple/CountDownSimple";
 import CoverSimple from "../../../components/Cover/CoverSimple/CoverSimple";
-import RSVPDemo from "../../../components/RSVP/RSVPDemo";
+import RSVPForm from "../../../components/RSVP/RSVPForm";
 
 const DemoTree  = () => {
     const [searchParams] = useSearchParams();
@@ -22,6 +22,11 @@ const DemoTree  = () => {
         const num = Number(searchParams.get("number"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
+    const guestId: number | undefined = useMemo(() => {
+        const num = Number(searchParams.get("id"));
+        return isNaN(num) ? undefined : num;
+    }, [searchParams]);
+    const INVITATION_ID = 1;
     const COLOR_PRIMARY = "#c69f58";
     const COLOR_SECONDARY= "#d5b36f";
     const MAIN_TYPO = "great-vibes-regular";
@@ -170,7 +175,20 @@ const DemoTree  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
             <GiftList {...giftListData} ></GiftList>
-            <RSVPDemo qrActive={false} colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={COLOR_PRIMARY} invitationId={0} textColor={"black"} ></RSVPDemo>
+            <RSVPForm 
+            textColor="black"
+                colorButton={COLOR_PRIMARY} 
+                bgColor="rgb(215,174,84,.05)" 
+                mainTypo={MAIN_TYPO} 
+                bodyTypo={BODY_TYPO} 
+                count={invitedGuests}
+                dateLine={new Date(2025,8,20)}
+                color={COLOR_PRIMARY}
+                guestId={guestId}
+                invitationId={INVITATION_ID}
+                qrActive={false}
+            ></RSVPForm>
+            {/* <RSVPDemo qrActive={false} colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={COLOR_PRIMARY} invitationId={0} textColor={"black"} ></RSVPDemo> */}
             <DressCode {...dresscode}></DressCode>
             <Fade direction="up" >
             <Adornment image={"https://marianalero.github.io/invitacion-pricila-eduardo/images/adornos/adornos%20(4).svg"} width={"250px"} />
