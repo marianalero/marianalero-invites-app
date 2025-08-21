@@ -1,14 +1,13 @@
-import { Box, Card, CardContent, Dialog, DialogContent, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Box, Card, CardContent, Dialog, DialogContent, Typography } from "@mui/material";
 import { Fade } from "react-awesome-reveal";
 import { URL_REPO } from "../../config";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import Grid from '@mui/material/Grid2';
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 import EventCard from "../../components/EventCard/EventCard";
+import { useEffect, useRef, useState } from "react";
+import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import CustomButton from "../../components/CustomButton/CustomButton";
-import { useState } from "react";
-import { CreateGuestParameters } from "../../models/parameters/createGuestParameters";
-import { CreateAndConfirm } from "../../services/guestApiClient";
 const Showroom = () => {
     const COLOR_SECONDARY = "#1a3c48";
     const COLOR_PRIMARY = "black";
@@ -16,37 +15,24 @@ const Showroom = () => {
     const MAIN_TYPO_TWO = "noto-serif-display-400";
     const BODY_TYPO = "montserrat-400";
     const URL_IMAGES = `${URL_REPO}showroom/`;
-    const numnerOfGuests = 6; // Número de invitados que se pueden seleccionar
-    const [name, setName] = useState("");
-        const [totalConfirmed, setTotalConfirmed] = useState(1);
-        const [openConfirm, setOpenConfirm] = useState(false);
-        const [errorName, setErrorName] = useState(false);
-        const handleSend = async () => {
-            if(name.trim() === ""){
-                setErrorName(true);
-            } else {
-                setErrorName(false);
-                const createParam: CreateGuestParameters ={
-                fullName: name,
-                rsvpStatus: 2,
-                totalConfirmed: totalConfirmed,
-                totalAssigned: totalConfirmed,
-                invitationId: 3,
-                }
-                const response = await CreateAndConfirm(createParam);
-               if(response){
-                setName("");
-                setTotalConfirmed(1);
-                    setOpenConfirm(true);
-                }
-            }
+    const URL_SONG = `${URL_REPO}canciones/Unconditionally-KatyPerryPiano.mp3`;    
+    const [open, setOpen] = useState(false);
+    const musicRef = useRef<MusicFabPlayerHandle>(null);
+    const handleClickOpen = () => {
+            setOpen(true);
+    };
     
-          
-        };
-  
-
+    const handleClose = () => {
+            setOpen(false);
+            musicRef.current?.play()
+    };
+    
+    useEffect(() => {
+           handleClickOpen()
+    }, []);
      return(
         <div style={{backgroundColor:"#ffffff",maxWidth: '100%',overflowY:"auto",}}>
+            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_SECONDARY}/>
               <Fade direction="up"  triggerOnce={true}>
             <Box
       display="flex"
@@ -224,7 +210,7 @@ const Showroom = () => {
 
         <CardContent>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-            Homenaje 2do aniversario de luto dedicado con amor y agradecimiento a Mariza, fundadora de KYOKKO Floreria, cuya pasión sigue inspirando en cada pétalo.
+            Homenaje 2do aniversario de luto dedicado con amor y agradecimiento a Marica, fundadora de KYOKKO Floreria, cuya pasión sigue inspirando en cada pétalo.
           </Typography>
 
         </CardContent>
@@ -249,11 +235,12 @@ const Showroom = () => {
                 primaryColor={COLOR_PRIMARY} 
                 secondarColor={COLOR_SECONDARY}
                 circleBgColor="white" >  
-       </CountDownSimple>       
+       </CountDownSimple>     
+            <div  style={{backgroundImage:`url('${URL_IMAGES}flores.png')`,backgroundPositionX: "50%",    minHeight: "100vh",backgroundSize:"contain", }} >
        <Grid container spacing={2} justifyContent="center" paddingX={4} paddingY={4}>
           <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2}  >
               <Fade direction="up"  triggerOnce={true}>  
-            <Typography variant="body1"  sx={{ mb: 2 }} align="center">
+            <Typography variant="body1"  sx={{ mb: 2, fontSize:"18px"}} align="center">
            Descubre un showroom único con variedad de sets inspirados en las tendencias 2025–2026.
             Un espacio pensado para que todas las novias próximas a casarse encuentren inspiración para su boda.
 
@@ -273,154 +260,48 @@ const Showroom = () => {
                     <EventCard date={new Date(2025,8,2,10,0,0)} endDate={new Date(2025,8,2,19,0,0)} icon={`${URL_IMAGES}flores1.png`} bodyTypo={BODY_TYPO} textColor={COLOR_PRIMARY} eventName="Ubicación:" mainTypo={MAIN_TYPO_TWO}  address="Av. Dr. Paliza 123" color={COLOR_SECONDARY} href={"https://maps.app.goo.gl/Hc2VVRcX7qP4s5or5"} colorButton={COLOR_SECONDARY} ></EventCard>
                      </Fade>
           </Grid>
+            <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >  
+             
+               <Fade direction="up"  triggerOnce={true}>  
+            <Typography variant="h6" className={BODY_TYPO} sx={{ color: COLOR_PRIMARY, mb: 2, fontWeight: 500 }}>
+                            Invitación realizada por
+            </Typography>      
+            <Box
+                component="img"
+                src={`${URL_REPO}logos/logo_beige.png`}
+                alt="logo"
+                sx={{
+                    width: { xs: 300, md: 400 },
+                    height: { xs: 100, md: 150 },
+                    
+                }}
+            />      
+            </Fade> 
         </Grid>
-         <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-                        <Box
-                            component="form"
-                            sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' },backgroundColor:"rgb(147,176,184,.3)" }}
-                            noValidate
-                            autoComplete="off"
-                         
-                            >
-                                <Grid container spacing={2} padding={4}   >
-                                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center"  marginTop={4}>
-                                        <Fade direction="up"  triggerOnce={true}>
-                                            <Typography className={MAIN_TYPO} sx={{ fontSize: '3rem',color: COLOR_SECONDARY  }}>
-                                                Registro de asistencia
-                                            </Typography>
-                                        </Fade>
-                                     </Grid>
-                                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
-                                    <Fade direction="up"  triggerOnce={true} >
-                                            <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem', color: COLOR_SECONDARY }}  marginTop={2}>
-                                                ¡Queremos que vivas esta experiencia con nosotros! Por favor ayúdanos registrandote.
-                                            </Typography>
-                                    </Fade>
-                               
-                                
-                                    </Grid>
-                                    <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                               
-                                    <TextField
-                                    error={errorName}
-                                    helperText={errorName ? "El nombre es requerido" : ""}
-                                    required
-                                    id="name"
-                                    label="Nombre"
-                                    sx={{
-                                        minWidth:300,
-                                         '& label.Mui-focused': {
-                                        color: COLOR_PRIMARY, // Borde en focus
-                                        },
-                                        '& .MuiOutlinedInput-root': {
-                                        '&.Mui-focused fieldset': {
-                                            borderColor:COLOR_PRIMARY, // Borde en focus
-                                        },
-                                        },
-                                        '& .MuiInputLabel-root': {
-                                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                            padding: '0 4px',
-                                            borderRadius: '4px',
-                                        },
-                                        '& .MuiInputLabel-root.Mui-focused': {
-                                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                        },
-                                    }}
-                                    value={name}
-                                    onChange={(e) => setName(
-                                         e.target.value
-                                        )}
-                                    
-                                    />
-                                </Grid>
-                 
-                                   <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
-                                    <FormControl >
-                                      
-                                                <InputLabel sx={{color:"#757575",
-                                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                                    padding: '0 4px',
-                                                    borderRadius: '4px',
-                                                }} id="demo-simple-select-label">Número de asistentes</InputLabel>
-        
-                                            
-                                        
-                                            <Select<number>
-                                                label="Número de asistentes"
-                                                labelId="guests"
-                                                id="guests"
-                                                value={totalConfirmed}
-                                                onChange={(e) => setTotalConfirmed(
-                                                    Number(e.target.value)
-                                                )}
-                                                sx={{
-                                                    minWidth: 300,
-                                                    color: COLOR_PRIMARY,
-                                                    '& .MuiOutlinedInput-notchedOutline': {
-                                                        borderColor: COLOR_PRIMARY, // borde normal
-                                                    },
-                                                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                        borderColor: COLOR_PRIMARY,
-                                                    },
-                                                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                                        borderColor:COLOR_PRIMARY,
-                                                    },
-                                                    '& .MuiSvgIcon-root': {
-                                                        color: COLOR_PRIMARY,
-                                                    },
-                                                }}
-                                            >
-                                                {Array.from({ length: numnerOfGuests ? 6 : 0}, (_, index) => (
-                                                    <MenuItem key={index + 1} value={index + 1}
-                                                        sx={{
-                                                            '&.Mui-selected': {
-                                                                color: '#fff',
-                                                                backgroundColor: `${COLOR_PRIMARY}!important`,
-                                                            },
-                                                            '&.Mui-selected:hover': {
-                                                                backgroundColor: COLOR_PRIMARY,
-                                                            },
-                                                            '&:hover': {
-                                                                backgroundColor: COLOR_PRIMARY,
-                                                                color: "white",
-                                                            },
-                                                        }}
-                                                    >
-                                                        {index + 1}
-                                                    </MenuItem>
-                                                ))}
-                                            </Select>
-                                            </FormControl>
-                                    </Grid>
-                                    
-                                <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                                    <CustomButton bgColor={COLOR_SECONDARY} color={'#FFFFFF'} label={'Confirmar'} onClick={handleSend}></CustomButton>
-                                </Grid>
-                                </Grid>
-                                                  
-                        </Box>
         </Grid>
-     <div style={{height:200}}> </div>          
+    </div>  
     <FooterInvites bgColor="#ffffff" color={COLOR_SECONDARY}></FooterInvites>
     <Dialog
-                   sx={{
-                    paddingTop:0
-                   }}
-                        open={openConfirm}
-                        onClose={() => {
-                            setOpenConfirm(false)
-                        }}
-                        aria-labelledby="alert-dialog-title"
-                        aria-describedby="alert-dialog-description"
-                        >            
-                        <DialogContent >
-                        
-                        <Box display={"flex"} justifyContent={"center"}>
-                            <Typography variant="body1" className={BODY_TYPO}>Confirmación enviada</Typography>
-                        </Box>
-                        </DialogContent>        
-                    </Dialog>
-               </div>
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+        >
+           
+            <DialogContent >
+
+               <Box display={"flex"} justifyContent={"center"}>
+                <Typography variant="body1" sx={{fontSize:"25px"}} >Bienvenidos</Typography>
+               </Box>
+                <Box display={"flex"} justifyContent={"center"} marginTop={2}>
+                 <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"}  color={COLOR_SECONDARY} label={'Entrar'} onClick={handleClose}></CustomButton>
+               </Box>
+                
+               
+           
+            </DialogContent>
+        </Dialog>
+    </div>
      )
 }
 export default Showroom;
