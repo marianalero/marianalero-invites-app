@@ -1,5 +1,6 @@
 
 import GenderReveal from "../pages/clientInvitations/GenderReveal";
+import Showroom from "../pages/clientInvitations/Showroom";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
@@ -46,6 +47,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-rm-2', element: <WeddingRocioMariana></WeddingRocioMariana>},
   {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},
   {path:'/gender-reveal', element: <GenderReveal></GenderReveal>},
+  {path:'/showroom', element: <Showroom></Showroom>},
 ];
 
 

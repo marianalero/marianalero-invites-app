@@ -35,7 +35,7 @@ const EventCard  = (props:EventCardProps) => {
                                     <Typography  textAlign={"center"} className={props.bodyTypo} >{props.address}</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography  textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {dayjs(props.date).format("hh:mm A")}</Typography>
+                                    <Typography  textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {dayjs(props.date).format("hh:mm A")} { props.endDate ? `-${dayjs(props.endDate).format("hh:mm A")}` : "" }</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                     <CustomButton href={props.href} bgColor={props.colorButton} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />

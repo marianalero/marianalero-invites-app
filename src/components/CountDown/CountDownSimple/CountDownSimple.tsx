@@ -11,6 +11,8 @@ export interface CountDownSimpleProps{
     typoHeader?:string;
     typoCountdown?:string;
     circleBgColor?:string;
+    title?:string;
+    fontSize?:string;
 }
 const CountDownSimple = (props:CountDownSimpleProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
@@ -75,7 +77,7 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
 				<div className="container" >
 					<div className="row animate-box">
 						<div className="col-md-12 section-heading text-center svg-sm colored">							
-							<span style={{color:props.secondarColor}}  className={`datewed ${props.typoHeader}`}>{capitalizedDate}</span>
+							<span style={{fontSize: props.fontSize? props.fontSize : "50px",color:props.secondarColor}}  className={`datewed ${props.typoHeader}`}>{props.title ? props.title :capitalizedDate}</span>
 						</div>
 					</div>
 					<div className="row animate-box">

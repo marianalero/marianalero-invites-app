@@ -3,6 +3,7 @@ import CoverSimple from "../../../components/Cover/CoverSimple/CoverSimple";
 import Grid from '@mui/material/Grid2';
 import Adornment from "../../../components/Adornment/Adornment";
 import { EventCardSimple } from "../../../components/EventCard/EventCardSimple";
+import FooterInvites from "../../../components/Footer/FooterInvites";
 const BabyShower = () => {
      const COLOR_PRIMARY = "#e8797f";
     const COLOR_SECONDARY = "#6e4d46";
@@ -112,7 +113,8 @@ const BabyShower = () => {
                     </Grid>
                 </Grid>
               </Grid>
-              <div style={{height:"200px"}}></div>
+              <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
+            
           </div>
     )
 }

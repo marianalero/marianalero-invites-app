@@ -172,7 +172,7 @@
 }
 
 .noto-serif-display-400{
-  font-family: "Noto Serif Display", serif;
+  font-family: "Noto Serif Display", serif!important;
   font-optical-sizing: auto;
   font-weight:400;
   font-style: normal;

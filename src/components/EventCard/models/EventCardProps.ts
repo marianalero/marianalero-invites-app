@@ -13,10 +13,12 @@ export interface EventCardProps extends  Event{
     bgColor?:string;
     fontSize?:string;
     textColor?:string;
+    hiddenDate?:boolean;
 }
 export interface Event {
     eventName?:string;
     date?:Date;
+    endDate?:Date;
     icon?:string;
     image?:string;
 }
