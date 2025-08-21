@@ -29,7 +29,11 @@ const Showroom = () => {
     
     useEffect(() => {
            handleClickOpen()
+           
     }, []);
+     useEffect(() => {
+            document.title = "Showroom Anual Kyokko Floreria";
+        }, []);
      return(
         <div style={{backgroundColor:"#ffffff",maxWidth: '100%',overflowY:"auto",}}>
             <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_SECONDARY}/>
