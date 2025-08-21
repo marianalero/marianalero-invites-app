@@ -13,4 +13,5 @@ export interface CoverProps{
     margin?:string;
     ourWeddingStart:boolean;
     overlay:boolean;
+    fontSize?:string;
 }

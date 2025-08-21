@@ -18,6 +18,7 @@ export interface IntroductionProps {
     firstQoute?:string;
     secondQoute?:string;
     thirdQoute?:string;
+    fontSize?:string;
 }
 
 const Introduction  = (props:IntroductionProps) => {
@@ -63,20 +64,20 @@ const Introduction  = (props:IntroductionProps) => {
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:props.color}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.brideMother}</Typography>
-                                <Typography sx={{color:props.color}}  variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.brideFather}</Typography>
+                                <Typography sx={{color:props.color, fontSize: props.fontSize ? props.fontSize : "40px"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.brideMother}</Typography>
+                                <Typography sx={{color:props.color, fontSize: props.fontSize ? props.fontSize : "40px"}}  variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.brideFather}</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:props.color}}  variant="h4" textAlign={"center"}className={`${props.mainTypo}`} >{props.amperson ? props.amperson :"&"}</Typography>
+                                <Typography sx={{color:props.color, fontSize: props.fontSize ? props.fontSize : "40px"}}  variant="h4" textAlign={"center"}className={`${props.mainTypo}`} >{props.amperson ? props.amperson :"&"}</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
                             
-                            <Typography sx={{color:props.color}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >{props.groomMother}</Typography>
-                            <Typography sx={{color:props.color}}  variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.groomFather}</Typography>
+                            <Typography sx={{color:props.color, fontSize: props.fontSize ? props.fontSize : "40px"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >{props.groomMother}</Typography>
+                            <Typography sx={{color:props.color, fontSize: props.fontSize ? props.fontSize : "40px"}}  variant="h4" textAlign={"center"} className={`${props.mainTypo}`}>{props.groomFather}</Typography>
                             </Fade>
                         </Grid>	
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} >

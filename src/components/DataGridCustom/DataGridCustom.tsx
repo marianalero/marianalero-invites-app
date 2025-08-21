@@ -26,6 +26,10 @@ const DataGridCustom: React.FC<StyledTableProps> = ({ rows, columns, height = 40
         columns={columns}
         disableRowSelectionOnClick
         disableMultipleRowSelection
+        pageSizeOptions={[5, 10, 25, 50]} // 👈 aquí defines las opciones
+        initialState={{
+          pagination: { paginationModel: { pageSize: 10 } }, // 👈 valor inicial
+        }}
         localeText={{
           noRowsLabel:"No se encontraron registos",
           paginationRowsPerPage: 'Filas por página', 

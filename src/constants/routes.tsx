@@ -4,6 +4,7 @@ import Showroom from "../pages/clientInvitations/Showroom";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
+import WeddingStevenArely from "../pages/clientInvitations/WeddingStevenArely";
 // import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
 import DemosPage from "../pages/demos/DemosPage2";
@@ -48,6 +49,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},
   {path:'/gender-reveal', element: <GenderReveal></GenderReveal>},
   {path:'/showroom', element: <Showroom></Showroom>},
+  {path:'/prev-sa', element: <WeddingStevenArely></WeddingStevenArely>},
 ];
 
 

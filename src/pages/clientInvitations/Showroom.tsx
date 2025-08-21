@@ -26,6 +26,10 @@ const Showroom = () => {
             setOpen(false);
             musicRef.current?.play()
     };
+    const handleSend = () => {
+
+      window.open("https://wa.link/fhsnbh", "_blank", "noopener,noreferrer");
+    };
     
     useEffect(() => {
            handleClickOpen()
@@ -264,6 +268,39 @@ const Showroom = () => {
                     <EventCard date={new Date(2025,8,2,10,0,0)} endDate={new Date(2025,8,2,19,0,0)} icon={`${URL_IMAGES}flores1.png`} bodyTypo={BODY_TYPO} textColor={COLOR_PRIMARY} eventName="Ubicación:" mainTypo={MAIN_TYPO_TWO}  address="Av. Dr. Paliza 123" color={COLOR_SECONDARY} href={"https://maps.app.goo.gl/Hc2VVRcX7qP4s5or5"} colorButton={COLOR_SECONDARY} ></EventCard>
                      </Fade>
           </Grid>
+          <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                        <Box
+                            component="form"
+                            sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' },backgroundColor:"rgb(147,176,184,.3)" }}
+                            noValidate
+                            autoComplete="off"
+                         
+                            >
+                                <Grid container spacing={2} padding={4}   >
+                                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center"  marginTop={4}>
+                                        <Fade direction="up"  triggerOnce={true}>
+                                            <Typography className={MAIN_TYPO} sx={{ fontSize: '3rem',color: COLOR_SECONDARY, lineHeight:1  }}>
+                                               Pre-Registro
+                                            </Typography>
+                                        </Fade>
+                                     </Grid>
+                                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
+                                    <Fade direction="up"  triggerOnce={true} >
+                                            <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem', color: COLOR_SECONDARY }}  marginTop={2}>
+                                                ¡Queremos que vivas esta experiencia con nosotros! Por favor ayúdanos registrandote.
+                                            </Typography>
+                                    </Fade>
+                               
+                                
+                                    </Grid>
+                                    
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                                    <CustomButton bgColor={COLOR_SECONDARY} color={'#FFFFFF'} label={'Enviar Mensaje'} onClick={handleSend}></CustomButton>
+                                </Grid>
+                                </Grid>
+                                                  
+                        </Box>
+            </Grid>
             <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >  
              
                <Fade direction="up"  triggerOnce={true}>  

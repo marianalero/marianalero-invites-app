@@ -109,6 +109,7 @@ export default function RegisterGuest() {
   };
 const columns: GridColDef[] = !isMobile  ? [
   { field: 'fullName', headerName: 'Nombre', flex: 2 },
+   { field: 'companion', headerName: 'Acompañante(s)', flex: 2 },
   { field: 'phoneNumber', headerName: 'Teléfono', flex: 2 },
   { field: 'rsvpStatus', headerName: 'Confirmación', flex: 2 ,
     renderCell: (params) => (

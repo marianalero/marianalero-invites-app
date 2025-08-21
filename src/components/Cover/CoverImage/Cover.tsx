@@ -14,7 +14,7 @@ const Cover  = (props:CoverProps) => {
                 <h1 className="holder" style={{marginTop:props.margin ? props.margin : "16px",}}><span>Nuestra boda</span></h1>
             )}
     
-        <Typography  textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>{props.brideName}<br/> {props.symbolr} <br/> {props.groomName}</Typography>
+        <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px"}}  textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>{props.brideName}<br/> {props.symbolr} <br/> {props.groomName}</Typography>
          {!props.ourWeddingStart && (
                 <h1 className="holder" ><span>Nuestra boda</span></h1>
             )}
