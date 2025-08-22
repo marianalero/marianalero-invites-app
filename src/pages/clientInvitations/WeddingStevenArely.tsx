@@ -84,7 +84,7 @@ const WeddingStevenArely  = () => {
         bgColor: "#FFFFFF", 
         showEnvelope:true,
         envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
-        secondPhrase:"O bien, si deseas sumar a nuestra luna de miel:",
+        secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
         bankIconEnd: `${URL_IMAGES}iconos/5.svg`,
         bankDetails: [
             {
