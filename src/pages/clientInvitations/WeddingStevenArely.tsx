@@ -185,7 +185,7 @@ const WeddingStevenArely  = () => {
                 brideFather="Rigoberto Lugo Romero (&#8224;)"
                 brideMother="Maria Concepción Ibarra Corral"
                 groomFather="Rana Schweitzman"
-                groomMother="Harvey Schweitzman"
+                groomMother="Harvey Schweitzman (&#8224;)"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_PRIMARY}
@@ -195,7 +195,7 @@ const WeddingStevenArely  = () => {
             >
             </Introduction>
             <CountDown 
-                eventDate={new Date(2025,9,11)}
+                eventDate={new Date(2025,9,25)}
                 bgImage={`${URL_IMAGES}galeria2.jpg`}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} >  
