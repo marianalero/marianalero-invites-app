@@ -45,7 +45,7 @@ const LoginPage = () => {
         <form onSubmit={handleSubmit}>
           <TextField
             fullWidth
-            label="Correo electrónico"
+            label="Usuario"
             margin="normal"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
