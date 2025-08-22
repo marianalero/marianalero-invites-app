@@ -1,14 +1,16 @@
 import { Box, IconButton, Tooltip } from "@mui/material";
 import { Guest } from "../../../models/guest";
 import { useState } from "react";
-import CreateGuestDialog from "./Dialog/CreateGuestDialog";
-import SystemSecurityUpdateGoodRoundedIcon from '@mui/icons-material/SystemSecurityUpdateGoodRounded';
+import CreateGuestDialog from "./Dialog/CreateGuestDialog"
 import ModeEditOutlineRoundedIcon from '@mui/icons-material/ModeEditOutlineRounded';
 import InsertLinkRoundedIcon from '@mui/icons-material/InsertLinkRounded';
 import { Confirm, DeleteGuest } from "../../../services/guestApiClient";
 import { RSVPSTATUS } from "../../../constants/rsvpStatus";
 import { useSnackbar } from "../../../context/snackbarContext";
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
+import ConfirmModal from "../../ConfirmModal/ConfirmModal";
+import EventAvailableRoundedIcon from '@mui/icons-material/EventAvailableRounded';
+import EventBusyRoundedIcon from '@mui/icons-material/EventBusyRounded';
 interface GuestActionsProps {
     guest:Guest;
     link:string;
@@ -17,6 +19,9 @@ interface GuestActionsProps {
 
 const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
   const [openCreated, setOpenCreated] = useState(false);
+  const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
+  const [openConfirmStatus, setOpenConfirmStatus] = useState(false);
+  const [openRemove, setOpenRemove] = useState(false);
    const { showSnackbar } = useSnackbar();
   const handleCreated = () => {
     setOpenCreated(false);
@@ -24,21 +29,24 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
     refresh();
   };
 
-  const confirmGuest =async () =>{
+  const confirmGuest =async (status:RSVPSTATUS) =>{
     await Confirm({
       guestId: guest.id,
-      rsvpStatus: RSVPSTATUS.Confirmed,
+      rsvpStatus: status,
       totalConfirmed: guest.totalAssigned,
       totalAssigned: guest.totalAssigned,
       invitationId:guest.invitationId
     });
     showSnackbar('Se confirmo la asistencia correctamente', 'success')
+    setOpenConfirmStatus(false);
+    setOpenRemove(false);
     refresh();
   }
 
   const deleteGuest =async () =>{
     await DeleteGuest(guest.id);
     showSnackbar("Invitado eliminado correctamente", 'success')
+    setOpenConfirmDelete(false);
     refresh();
   }
 
@@ -60,16 +68,29 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
                 <ModeEditOutlineRoundedIcon />
             </IconButton>
         </Tooltip>
-        <Tooltip title="Confirmar">
-            <span>
-              <IconButton onClick={() => confirmGuest()} disabled={guest.rsvpStatus == RSVPSTATUS.Confirmed} >
-                <SystemSecurityUpdateGoodRoundedIcon />
-            </IconButton>
-            </span>
-            
-         </Tooltip>
-        <Tooltip title="Eliminar">
-            <IconButton onClick={() => deleteGuest()} >
+        {
+          guest.rsvpStatus !== RSVPSTATUS.Confirmed ? (
+            <Tooltip title="Confirmar asistencia">
+              <span>
+                <IconButton onClick={() => setOpenConfirmStatus(true)}  >
+                  <EventAvailableRoundedIcon />
+                </IconButton>
+              </span>
+            </Tooltip>
+          ) :(
+            <Tooltip title="Quitar asistencia">
+              <span>
+                <IconButton onClick={() => setOpenRemove(true)}  >
+                  <EventBusyRoundedIcon />
+                </IconButton>
+              </span>
+            </Tooltip>
+
+          )
+        }
+       
+        <Tooltip title="Eliminar Invitado">
+            <IconButton onClick={() => setOpenConfirmDelete(true)} >
                 <DeleteOutlineRoundedIcon />
             </IconButton>
         </Tooltip>
@@ -85,6 +106,37 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
           id={guest.id}
         />
       )}
+       <ConfirmModal
+        open={openConfirmDelete}
+        title="¿Estás seguro?"
+        description="Esta acción eliminará al invitado de manera permanente."
+        confirmText="Eliminar"
+        cancelText="Cancelar"
+        onClose={() => setOpenConfirmDelete(false)}
+        onConfirm={deleteGuest}
+      />
+
+        {/* Modal para marcar asistencia */}
+        <ConfirmModal
+          open={openConfirmStatus}
+          title="Confirmar asistencia"
+          description="¿Deseas marcar como asistente a este invitado?"
+          confirmText="Marcar asistencia"
+          cancelText="Cancelar"
+          onClose={() => setOpenConfirmStatus(false)}
+          onConfirm={ () => confirmGuest(RSVPSTATUS.Confirmed) }
+        />
+
+        {/* Modal para quitar asistencia */}
+        <ConfirmModal
+          open={openRemove}
+          title="Quitar asistencia"
+          description="¿Estás seguro de que deseas quitar la asistencia de este invitado?"
+          confirmText="Quitar asistencia"
+          cancelText="Cancelar"
+          onClose={() => setOpenRemove(false)}
+          onConfirm={ () => confirmGuest(RSVPSTATUS.NotConfirmed) }
+        />
       
     </>
   );
