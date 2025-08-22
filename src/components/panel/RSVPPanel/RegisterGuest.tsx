@@ -108,16 +108,16 @@ export default function RegisterGuest() {
 
   };
 const columns: GridColDef[] = !isMobile  ? [
-  { field: 'fullName', headerName: 'Nombre', flex: 2 },
-   { field: 'companion', headerName: 'Acompañante(s)', flex: 2 },
-  { field: 'phoneNumber', headerName: 'Teléfono', flex: 2 },
-  { field: 'rsvpStatus', headerName: 'Confirmación', flex: 2 ,
+  { field: 'fullName', headerName: 'Nombre', flex: 2, minWidth:250 },
+   { field: 'companion', headerName: 'Acompañante(s)', flex: 2 , minWidth:150 },
+  { field: 'phoneNumber', headerName: 'Teléfono', flex: 2 , minWidth:100 },
+  { field: 'rsvpStatus', headerName: 'Confirmación', flex: 2 , minWidth:150 ,
     renderCell: (params) => (
         <RsvpStatusChip statusId={params.row.rsvpStatus} />
     ),
     },
-    { field: 'totalAssigned', headerName: 'Asignados', flex: 2,  width:10,},
-    { field: 'totalConfirmed', headerName: 'Confirmados', flex: 2 ,  width:10, },
+    { field: 'totalAssigned', headerName: 'Asignados', flex: 2,  minWidth:100,},
+    { field: 'totalConfirmed', headerName: 'Confirmados', flex: 2 ,  minWidth:100, },
     {
       field: "actions",
       headerName: "",
