@@ -265,7 +265,7 @@ const Showroom = () => {
           </Grid>
         <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2}  >
                           <Fade direction="up"  triggerOnce={true}>
-                    <EventCard date={new Date(2025,8,2,10,0,0)} endDate={new Date(2025,8,2,19,0,0)} icon={`${URL_IMAGES}flores1.png`} bodyTypo={BODY_TYPO} textColor={COLOR_PRIMARY} eventName="Ubicación:" mainTypo={MAIN_TYPO_TWO}  address="Av. Dr. Paliza 123" color={COLOR_SECONDARY} href={"https://maps.app.goo.gl/Hc2VVRcX7qP4s5or5"} colorButton={COLOR_SECONDARY} ></EventCard>
+                    <EventCard locationName="KYOKKO" date={new Date(2025,8,2,10,0,0)} endDate={new Date(2025,8,2,19,0,0)} icon={`${URL_IMAGES}flores1.png`} bodyTypo={BODY_TYPO} textColor={COLOR_PRIMARY} eventName="Ubicación:" mainTypo={MAIN_TYPO_TWO}  address="Av. Dr. Paliza 123, El Centenario." color={COLOR_SECONDARY} href={"https://maps.app.goo.gl/cq6xrXwRtSyxvSeH7"} colorButton={COLOR_SECONDARY} ></EventCard>
                      </Fade>
           </Grid>
           <Grid size={{xs:12,sm:12,md:12,lg:12}}>

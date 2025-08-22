@@ -15,8 +15,8 @@ const StatsCards: React.FC<StatsCardsProps> = ({
 }) => {
     const cards = [
     { label: 'Invitados', value: totalAssigned },
-    { label: 'Confirmado', value: totalConfirmed },
-    { label: 'No confirmado', value: totalNotConfirmed },
+    { label: 'Si asistirán', value: totalConfirmed },
+    { label: 'No asistirán', value: totalNotConfirmed },
     { label: 'Sin Respuesta', value: totalWithoutResponse },
   ];
 return (
