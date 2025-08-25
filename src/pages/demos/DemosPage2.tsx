@@ -82,7 +82,7 @@ const DemosPage  = () => {
                     </Typography>
                     <Button
                     variant="contained"
-                    href={"/demos/1?number=2"}
+                    href={modelo.link}
                     sx={{
                         backgroundColor: '#a41423',
                         color: '#fff',
