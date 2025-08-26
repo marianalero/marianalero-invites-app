@@ -87,7 +87,14 @@ const BabyShower = () => {
                             ¡Te esperamos!
                         </Typography>
                         </Grid>
-
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
+                        <Typography
+                            className={MAIN_TYPO}
+                            sx={{ fontSize: '80px', fontWeight: 'bold', color:COLOR_SECONDARY }}
+                        >
+                           Regalo sugerido
+                        </Typography>
+                        </Grid>
                         <Grid size={{xs:6,sm:6,md:6,lg:6}} textAlign="center"  paddingTop={2}>
                         <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
                             <img src="https://marianalero.github.io/baby-shower-alondra//images/adornos/7.svg" height="35px" alt="Icono 1" />
