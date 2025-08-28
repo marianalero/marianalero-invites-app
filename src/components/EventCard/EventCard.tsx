@@ -6,6 +6,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { Card, CardContent, Typography } from '@mui/material';
 import { EventCardProps } from './models/EventCardProps';
 import { Fade } from 'react-awesome-reveal';
+import ProButton from '../CustomButton/GoldButton';
 
 
 const EventCard  = (props:EventCardProps) => {
@@ -38,7 +39,14 @@ const EventCard  = (props:EventCardProps) => {
                                     <Typography  textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {dayjs(props.date).format("hh:mm A")} { props.endDate ? `-${dayjs(props.endDate).format("hh:mm A")}` : "" }</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  display={"flex"} alignItems={"center"} justifyContent={"center"} >
-                                    <CustomButton href={props.href} bgColor={props.colorButton} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+                                    {
+                                        props.classButtonName ? (
+                                            <ProButton href={props.href} className={props.classButtonName} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+                                        ) : (
+                                            <CustomButton href={props.href} bgColor={props.colorButton} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+
+                                        )
+                                    }
                                 </Grid>
                             </Grid>
                         </CardContent>

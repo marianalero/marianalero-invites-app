@@ -13,6 +13,7 @@ export interface CountDownSimpleProps{
     circleBgColor?:string;
     title?:string;
     fontSize?:string;
+    bgImage?:string;
 }
 const CountDownSimple = (props:CountDownSimpleProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
@@ -72,7 +73,7 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
         );
       };
     return (
-        <div id="countdown" style={{backgroundColor:props.bgColor}}  >
+        <div id="countdown" style={{ backgroundImage:props.bgImage,backgroundSize:"cover", backgroundColor:props.bgColor}}  >
 			<div className="display-over">
 				<div className="container" >
 					<div className="row animate-box">

@@ -12,6 +12,8 @@ export interface QouteProps {
     bodyTypo:string;
     addormentStart?:string;
     addormentEnd?:string;
+    fontsize?:string;
+    lineheight?:string;
 }
 
 const Qoute  = (props:QouteProps) => {
@@ -50,7 +52,7 @@ const Qoute  = (props:QouteProps) => {
             }
 			<Grid size={{xs:12,sm:12,md:12,lg:12}}>
             <Fade direction="up" triggerOnce={true}>
-            <Typography className={props.bodyTypo}  textAlign={"center"} >{`"${props.qoute}"`}</Typography>
+            <Typography className={props.bodyTypo}  textAlign={"center"}  sx={{fontSize: props.fontsize ? props.fontsize : "1rem", lineHeight: props.lineheight ? props.lineheight : "1.5rem"}} >{`"${props.qoute}"`}</Typography>
             </Fade>		
             </Grid>
             {

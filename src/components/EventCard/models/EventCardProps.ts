@@ -14,6 +14,7 @@ export interface EventCardProps extends  Event{
     fontSize?:string;
     textColor?:string;
     hiddenDate?:boolean;
+    classButtonName?:string;
 }
 export interface Event {
     eventName?:string;
