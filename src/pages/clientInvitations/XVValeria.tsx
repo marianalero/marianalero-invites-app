@@ -72,17 +72,17 @@ const XVValeria  = () => {
         events: [
             {
                 eventName: "Recepción",
-                date: new Date(2025, 9, 18,17,0,0),
+                date: new Date(2025, 9, 18,21,0,0),
                 icon: `${URL_IMAGES}/iconos/2.png`,
             },
             {
                 eventName: "Vals",
-                date: new Date(2025, 9, 18,19,15,0),
+                date: new Date(2025, 9, 18,21,50,0),
                 icon: `${URL_IMAGES}/iconos/3.png`,
             },
             {
                 eventName: "Cena",
-                date: new Date(2025, 9, 18,20,0,0),
+                date: new Date(2025, 9, 18,22,15,0),
                 icon: `${URL_IMAGES}/iconos/4.png`,
             }
         ],
@@ -126,7 +126,7 @@ const XVValeria  = () => {
                 </div>
                 <div style={{marginTop:"20px"}}>
                    <Fade direction="up" >
-                    <Typography  textAlign={"center"} variant="h1" className={`${MAIN_TYPO} text-rose-gold`}>Valeria</Typography>
+                    <Typography  textAlign={"center"} variant="h1" className={`${MAIN_TYPO} text-rose-gold`}>Valentina</Typography>
                     <Typography  textAlign={"center"}  variant="h1"  className={`${MAIN_TYPO} text-rose-gold`}>Ruiz</Typography>
 
                 </Fade>
