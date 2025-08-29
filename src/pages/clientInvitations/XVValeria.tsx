@@ -14,7 +14,6 @@ import { URL_REPO } from "../../config";
 import RSVPExcel from "../../components/RSVP/RSVPExcel";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ConfirmExcel } from "../../services/guestApiClient";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import CloseIcon from '@mui/icons-material/Close';
@@ -62,7 +61,6 @@ const XVValeria  = () => {
           //   }
       }
     const COLOR_PRIMARY = "#F5A5B5";
-    const COLOR_SECONDARY= "#929292";
     const MAIN_TYPO = "alex-brush-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}xv-valeria-ruiz/`;
@@ -160,7 +158,7 @@ const XVValeria  = () => {
                <div>
                 <div style={{display:"flex",justifyContent:"center"}} >
                       <Fade direction="up" >
-                    <img style={{width:"80vw"}} src={`${URL_IMAGES}Logo.png`} alt="corona" />
+                    <img style={{width:"100vw"}} src={`${URL_IMAGES}Logo.png`} alt="corona" />
                     </Fade>
                 </div>
                 
