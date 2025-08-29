@@ -378,7 +378,7 @@ const XVValeria  = () => {
                         Comparte con nosotros todas tus fotografías del evento enviandolas al siguiente Whatsapp.
                     </Typography>
                     <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"}  color={COLOR_PRIMARY} label={'Enviar Whatsapp'} onClick={() => {
-                        window.open('https://wa.me/6623746779?text=Hola%2C%20quiero%20compartir%20mis%20fotograf%C3%ADas%20de%20tus%20XV%20años.', '_blank');
+                        window.open('https://wa.me/*+526623746779?text=Hola%2C%20quiero%20compartir%20mis%20fotograf%C3%ADas%20de%20tus%20XV%20años.', '_blank');
                     }}></CustomButton>
 
                  </Box>
