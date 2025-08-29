@@ -200,7 +200,7 @@ const XVValeria  = () => {
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
               <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
-                sx={{fontSize: 30 ,lineHeight:2, color:COLOR_PRIMARY}}
+                sx={{fontSize: 35 ,lineHeight:2, color:COLOR_PRIMARY}}
               >
                  Vielcka Azucena López Mendivil 
               </Typography>
@@ -210,7 +210,7 @@ const XVValeria  = () => {
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
               <Fade direction="up" >
               <Typography  variant="h1" className={`${MAIN_TYPO}`}
-                sx={{  fontSize: 30,lineHeight:2 , color:COLOR_PRIMARY}}
+                sx={{  fontSize: 35,lineHeight:2 , color:COLOR_PRIMARY}}
               >
                  Miguel Ángel Ruiz Saavedra 
 
