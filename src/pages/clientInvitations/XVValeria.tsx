@@ -9,21 +9,59 @@ import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Grid from '@mui/material/Grid2';
-import { Box, Typography } from "@mui/material";
+import { Box, Dialog, DialogContent, IconButton, Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
-
+import RSVPExcel from "../../components/RSVP/RSVPExcel";
+import { useSearchParams } from "react-router-dom";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ConfirmExcel } from "../../services/guestApiClient";
+import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
+import CustomButton from "../../components/CustomButton/CustomButton";
+import CloseIcon from '@mui/icons-material/Close';
+import WithoutKids from "../../components/WithOutKids/WithoutKids";
 const XVValeria  = () => {
-    // const [searchParams] = useSearchParams();
-    // const invitedGuests: number | undefined = useMemo(() => {
-    //     const num = Number(searchParams.get("number"));
-    //     return isNaN(num) ? undefined : num;
-    // }, [searchParams]);
-    // const guestId: number | undefined = useMemo(() => {
-    //     const num = Number(searchParams.get("id"));
-    //     return isNaN(num) ? undefined : num;
-    // }, [searchParams]);
-    // const INVITATION_ID = 1;
-    const COLOR_PRIMARY = "#b86b77";
+      const [searchParams] = useSearchParams();
+        const invitedGuests: number = useMemo(() => {
+            const num = Number(searchParams.get("number"));
+            return isNaN(num) ? 1 : num;
+        }, [searchParams]);
+        const [open, setOpen] = useState(false);
+        const [openConfirm, setOpenConfirm] = useState(false);
+        const musicRef = useRef<MusicFabPlayerHandle>(null);
+        const URL_SONG = `https://marianalero.github.io/invitacion-xv-susan/audio/cancion.mp3`;
+        const handleClickOpen = () => {
+            setOpen(true);
+        };
+    
+        const handleClose = () => {
+            setOpen(false);
+            musicRef.current?.play()
+         };
+    
+        useEffect(() => {
+           handleClickOpen()
+        }, []);
+    
+
+    const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
+        console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
+           //https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/viewform?usp=pp_url&entry.516140191=mar&entry.827025270=6621&entry.1599079301=yes&entry.465259973=5
+
+           const params = new URLSearchParams({
+            'entry.516140191': name,
+            'entry.827025270': phoneNumber,
+            'entry.1599079301': confirmText,
+            'entry.465259973': totalConfirmed.toString(),
+            submit: 'Submit',
+            });
+            const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/formResponse"
+            const url = `${excelURL}?${params.toString()}`;
+            const response = await ConfirmExcel(url);
+            if(response){
+                setOpenConfirm(true);
+            }
+      }
+    const COLOR_PRIMARY = "#F5A5B5";
     const COLOR_SECONDARY= "#929292";
     const MAIN_TYPO = "alex-brush-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
@@ -37,13 +75,13 @@ const XVValeria  = () => {
                 address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
                 size: 6,
                 color: COLOR_PRIMARY,
-                icon: `${URL_IMAGES}/iconos/6.png`,
-                mainTypo:`${MAIN_TYPO} text-rose-gold`,
+                icon: `https://marianalero.github.io/invitacion-xv-susan/images/Iglesia%20Oro%20rosa.svg`,
+                mainTypo:`${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/MmvoR1jSqPMuLgZE9",
                 fontSize:"45px",
                 colorButton: COLOR_PRIMARY,
-                classButtonName:"btn-silver"
+                
             },
             {
                 eventName: "Recepción",
@@ -53,13 +91,13 @@ const XVValeria  = () => {
                 address: "Arq. Gustavo F. Aguilar Beltrán 70 El Chanate",
                 size: 6,
                 color: COLOR_PRIMARY,
-                icon: `${URL_IMAGES}/iconos/7.png`,
-                mainTypo:  `${MAIN_TYPO} text-rose-gold`,
+                icon: `https://marianalero.github.io/invitacion-xv-susan/images/corona%202.svg`,
+                mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"45px",
                 href: "https://maps.app.goo.gl/V7a9PDtgkhth6AVe7",
                 colorButton: COLOR_PRIMARY,
-                classButtonName:"btn-silver"
+               
             },
     ];
     const timelineData: CustomizedTimelineProps = {
@@ -68,36 +106,36 @@ const XVValeria  = () => {
         colorPrimary: COLOR_PRIMARY,
         colorTitle: COLOR_PRIMARY,
         colorBody: COLOR_PRIMARY, 
-        bgColor: BG_COLOR, 
+        bgColor: "#FFFFFF", 
         events: [
             {
                 eventName: "Recepción",
                 date: new Date(2025, 9, 18,21,0,0),
-                icon: `${URL_IMAGES}/iconos/2.png`,
+                icon: `https://marianalero.github.io/invitacion-xv-susan/images/iconos-susan/2.svg`,
             },
             {
                 eventName: "Vals",
                 date: new Date(2025, 9, 18,21,50,0),
-                icon: `${URL_IMAGES}/iconos/3.png`,
+                icon: `https://marianalero.github.io/invitacion-xv-susan/images/iconos-susan/3.svg`,
             },
             {
                 eventName: "Cena",
                 date: new Date(2025, 9, 18,22,15,0),
-                icon: `${URL_IMAGES}/iconos/4.png`,
+                icon: `https://marianalero.github.io/invitacion-xv-susan/images/iconos-susan/6.svg`,
             }
         ],
     };
     const giftListData: GiftListProps = {
-        mainTypo: `${MAIN_TYPO} text-rose-gold`,
+        mainTypo: `${MAIN_TYPO}`,
         bodyTypo: BODY_TYPO,
         color: COLOR_PRIMARY, 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
-        bankIconEnd:`${URL_IMAGES}/iconos/5.png`,
+        bankIconEnd:`https://marianalero.github.io/invitacion-xv-susan/images/iconos-susan/10.svg`,
         envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacernos un obsequio, tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
     };
     const dresscode:DressCodeProps = {
-        mainTypo:`${MAIN_TYPO} text-rose-gold`,
+        mainTypo:`${MAIN_TYPO}`,
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
         type:1,
@@ -115,27 +153,17 @@ const XVValeria  = () => {
 
     
     return (
-        <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
-             <div  style={{backgroundImage:`url('${URL_IMAGES}portada.png')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", backgroundColor: BG_COLOR, display:"flex", justifyContent: "center", alignItems:"center" }} >
+        <div style={{backgroundColor:"#FFEAEF",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
+           <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
+             <div  style={{backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover", backgroundColor: "rgb(245, 165, 181)", display:"flex", justifyContent: "center", alignItems:"center" }} >
                
                <div>
                 <div style={{display:"flex",justifyContent:"center"}} >
                       <Fade direction="up" >
-                    <h6 className="holder pt-serif-caption-regular to-upper" style={{color:COLOR_SECONDARY}}><span>MIS XV AÑOS</span></h6>
+                    <img style={{width:"80vw"}} src={`${URL_IMAGES}Logo.png`} alt="corona" />
                     </Fade>
                 </div>
-                <div style={{marginTop:"20px"}}>
-                   <Fade direction="up" >
-                    <Typography  textAlign={"center"} variant="h1" className={`${MAIN_TYPO} text-rose-gold`}>Valentina</Typography>
-                    <Typography  textAlign={"center"}  variant="h1"  className={`${MAIN_TYPO} text-rose-gold`}>Ruiz</Typography>
-
-                </Fade>
-                </div>
-                <div style={{display:"flex",justifyContent:"center",}} >
-                   <Fade direction="up" >
-                    <h6 className="holder pt-serif-caption-regular to-upper" style={{color:COLOR_SECONDARY}}>13.09.25</h6>
-                    </Fade>
-                </div>
+                
                </div>
                 
                   
@@ -156,7 +184,7 @@ const XVValeria  = () => {
           <Grid container spacing={2} justifyContent="center" mb={3}>
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
-              <Typography variant="h1" className={`${MAIN_TYPO} text-silver`} sx={{ fontSize: 38 ,lineHeight:2}} >
+              <Typography variant="h1" className={`${MAIN_TYPO}`} sx={{ fontSize: 38 ,lineHeight:2}} >
                 Mis Personas Favoritas
               </Typography>
               <Typography className={BODY_TYPO}>¡Gracias por hacer eso posible!</Typography>
@@ -165,7 +193,7 @@ const XVValeria  = () => {
   
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" >
-              <Typography variant="h1" className={`${MAIN_TYPO} text-silver`}  sx={{ fontSize: 38,lineHeight:2 }}>
+              <Typography variant="h1" className={`${MAIN_TYPO}`}  sx={{ fontSize: 38,lineHeight:2 }}>
                 Mis Papás
               </Typography>
               </Fade>
@@ -173,7 +201,7 @@ const XVValeria  = () => {
 
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
-              <Typography variant="h1" className={`${MAIN_TYPO}`}
+              <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
                 sx={{fontSize: 30 ,lineHeight:2, color:COLOR_PRIMARY}}
               >
                  Vielcka Azucena López Mendivil 
@@ -211,15 +239,15 @@ const XVValeria  = () => {
     </Grid>
             <CountDownSimple 
                 eventDate={new Date(2025, 8, 13)}
-                bgColor={BG_COLOR}
-                typoHeader={`${MAIN_TYPO} text-rose-gold`}
+               
+                typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
-                primaryColor={COLOR_PRIMARY} 
-                secondarColor={COLOR_SECONDARY}
+                primaryColor={"black"} 
+                secondarColor={"black"}
                 circleBgColor="white"
-                bgImage={`url('${URL_IMAGES}contador.png')`} >  
+                bgImage={`url('https://marianalero.github.io/invitacion-xv-susan/images/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(12).png')`} >  
             </CountDownSimple>
-    <Grid container spacing={2} justifyContent="center" paddingX={2} sx={{bgcolor:"#fbfbfc"}} >
+    <Grid container spacing={2} justifyContent="center" paddingX={2}>
       {/* Texto inicial */}
       <Grid size={12} textAlign="center" sx={{ width: "100%", mt: 6 }}>
          <Fade direction="up" >
@@ -243,7 +271,7 @@ const XVValeria  = () => {
           <Box sx={{ mt: 6, mb: 6 }}>
             {/* Título */}
             <Typography
-              variant="h3" className={`${BODY_TYPO} text-silver`}
+              variant="h3" className={`${BODY_TYPO}`}
               sx={{ fontSize: "1.5rem", color: "black" }}
             >
               Mis Padrinos
@@ -276,7 +304,7 @@ const XVValeria  = () => {
               </Grid>
             </Grid>
             <Typography
-              variant="h3" className={`${BODY_TYPO} text-silver`}
+              variant="h3" className={`${BODY_TYPO}`}
               sx={{ fontSize: "1.5rem", color: "black" }}
             >
              Hermano chambelan
@@ -317,31 +345,82 @@ const XVValeria  = () => {
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
-            <GiftList {...giftListData} ></GiftList>
-            {/* <RSVPForm 
-            textColor="black"
-                colorButton={COLOR_PRIMARY} 
-                bgColor="rgb(215,174,84,.05)" 
-                mainTypo={MAIN_TYPO} 
-                bodyTypo={BODY_TYPO} 
-                count={invitedGuests}
-                dateLine={new Date(2025,8,20)}
-                color={COLOR_PRIMARY}
-                guestId={guestId}
-                invitationId={INVITATION_ID}
-                qrActive={false}
-            ></RSVPForm> */}
+             <Grid container spacing={2} justifyContent="center" padding={4}>
+              <Grid size={{ xs: 12 }}>
+                 <GiftList {...giftListData} ></GiftList>
+              </Grid>
+              
+             </Grid>
+           
+            <RSVPExcel
+              textColor={"black"}
+              qrActive={false}
+              mainTypo={MAIN_TYPO}
+              bodyTypo={BODY_TYPO}
+              count={invitedGuests}
+              dateLine={new Date(2025, 8, 7)}
+              color={COLOR_PRIMARY}
+              colorButton={COLOR_PRIMARY}
+              invitationId={0}
+              bgColor={"white"}
+              confirmed={handleConfirm}
+            />
             {/* <RSVPDemo qrActive={false} colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={COLOR_PRIMARY} invitationId={0} textColor={"black"} ></RSVPDemo> */}
             <DressCode {...dresscode}></DressCode>
             {/* <Fade direction="up" >
               <Adornment image={`${URL_IMAGES}adornos/27.png`} width={"150px"} />
 
             </Fade> */}
-           
+           <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
             <div style={{height:100}}></div>
 
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
+              <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+            >
+           
+            <DialogContent >
+
+               <Box display={"flex"} justifyContent={"center"}>
+                <Typography variant="body1" sx={{fontSize:"25px"}} >Bienvenidos</Typography>
+               </Box>
+                <Box display={"flex"} justifyContent={"center"} marginTop={2}>
+                 <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"}  color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>
+               </Box>
+                
+               
+           
+            </DialogContent>
+        </Dialog>
+        <Dialog
+                    open={openConfirm}
+                    onClose={() => {
+                        setOpenConfirm(false)
+                    }}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                   
+                    <DialogContent >
+                        <Box display={"flex"} justifyContent={"end"}>
+                            <IconButton aria-label="delete" onClick={() => {
+                                setOpenConfirm(false)
+                            }}>
+                                <CloseIcon sx={{color:"lightgray"}} />
+                            </IconButton>
+                         
+                       </Box>
+                       <Box display={"flex"} justifyContent={"center"}>
+                        <Typography variant="h3" className={MAIN_TYPO}>Confirmación enviada</Typography>
+                       </Box>
+                    </DialogContent>        
+                </Dialog>
         </div>
     )
 }
 export default XVValeria;
+
+

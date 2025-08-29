@@ -51,7 +51,7 @@ const routes: RouteConfig[] = [
   {path:'/gender-reveal', element: <GenderReveal></GenderReveal>},
   {path:'/showroom', element: <Showroom></Showroom>},
   {path:'/boda-steven-arely', element: <WeddingStevenArely></WeddingStevenArely>},
-  {path:'/pv-v', element: <XVValeria></XVValeria>},
+  {path:'/pv-v-2', element: <XVValeria></XVValeria>},
 ];
 
 
