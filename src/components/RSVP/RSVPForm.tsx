@@ -11,6 +11,7 @@ import { CreateGuestParameters } from '../../models/parameters/createGuestParame
 import ConfirmQR from './ConfirmQR';
 import './rsvp.css';
 import CloseIcon from '@mui/icons-material/Close';
+import ProButton from '../CustomButton/GoldButton';
 const RSVPForm  = (props:RSVPType) => {
     const [guest, setGuest] = useState<Guest>({
     id: 0,
@@ -187,7 +188,7 @@ const RSVPForm  = (props:RSVPType) => {
                     >
                         <Grid container spacing={2} padding={4} >
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo}>¿Asistiras?</Typography>
+                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo}  sx={{color:props.textColor}}> ¿Asistiras?</Typography>
                                 <RadioGroup 
                                 row
                                 aria-labelledby="demo-row-radio-buttons-group-label"
@@ -410,7 +411,14 @@ const RSVPForm  = (props:RSVPType) => {
                         
                         {!disabledRSVP && (
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                                <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
+                                {
+                                        props.classButtonName ? (
+                                            <ProButton  onClick={handleSend} className={props.classButtonName} label={'Ver Enviar'} />
+                                        ) : (
+                                            <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
+                                        )
+                                    }
+                             
                             </Grid>
                         )}
                         

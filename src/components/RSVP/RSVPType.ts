@@ -13,4 +13,5 @@ export interface RSVPType {
     confirmed?: (name: string,confirmText: string, phoneNumber: string,  totalConfirmed: string) => void;
     excelURL?:string;
     textColor:string;
+    classButtonName?:string;
 }

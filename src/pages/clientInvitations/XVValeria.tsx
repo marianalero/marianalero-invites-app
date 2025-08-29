@@ -18,6 +18,7 @@ import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabP
 import CustomButton from "../../components/CustomButton/CustomButton";
 import CloseIcon from '@mui/icons-material/Close';
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
+import { ConfirmExcel } from "../../services/guestApiClient";
 const XVValeria  = () => {
       const [searchParams] = useSearchParams();
         const invitedGuests: number = useMemo(() => {
@@ -44,21 +45,20 @@ const XVValeria  = () => {
 
     const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
         console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
-           //https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/viewform?usp=pp_url&entry.516140191=mar&entry.827025270=6621&entry.1599079301=yes&entry.465259973=5
-
-          //  const params = new URLSearchParams({
-          //   'entry.516140191': name,
-          //   'entry.827025270': phoneNumber,
-          //   'entry.1599079301': confirmText,
-          //   'entry.465259973': totalConfirmed.toString(),
-          //   submit: 'Submit',
-          //   });
-          //   const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/formResponse"
-          //   const url = `${excelURL}?${params.toString()}`;
-          //   const response = await ConfirmExcel(url);
-          //   if(response){
-          //       setOpenConfirm(true);
-          //   }
+           //https://docs.google.com/forms/d/e/1FAIpQLSeDkAx0v5Yb7caV0zSy-nURm1rCZ0bBFvTK0SPqogNvrJ55mg/viewform?usp=pp_url&entry.516140191=mariana&entry.827025270=662145561&entry.1599079301=si&entry.465259973=2
+           const params = new URLSearchParams({
+            'entry.516140191': name,
+            'entry.827025270': phoneNumber,
+            'entry.1599079301': confirmText,
+            'entry.465259973': totalConfirmed.toString(),
+            submit: 'Submit',
+            });
+            const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLSeDkAx0v5Yb7caV0zSy-nURm1rCZ0bBFvTK0SPqogNvrJ55mg/formResponse"
+            const url = `${excelURL}?${params.toString()}`;
+            const response = await ConfirmExcel(url);
+            if(response){
+                setOpenConfirm(true);
+            }
       }
     const COLOR_PRIMARY = "#F5A5B5";
     const MAIN_TYPO = "alex-brush-regular";
@@ -369,7 +369,22 @@ const XVValeria  = () => {
               <Adornment image={`${URL_IMAGES}adornos/27.png`} width={"150px"} />
 
             </Fade> */}
+             
            <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
+           <Grid container spacing={2} justifyContent="center" padding={4}>
+              <Grid size={{ xs: 12 }}>
+                 <Box textAlign={"center"} sx={{backgroundColor:"white", padding:4, borderRadius:"20px"}} >
+                    <Typography className={`${BODY_TYPO}`} sx={{ color:"black"}} marginBottom={2}> 
+                        Comparte con nosotros todas tus fotografías del evento enviandolas al siguiente Whatsapp.
+                    </Typography>
+                    <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"}  color={COLOR_PRIMARY} label={'Enviar Whatsapp'} onClick={() => {
+                        window.open('https://wa.me/6623746779?text=Hola%2C%20quiero%20compartir%20mis%20fotograf%C3%ADas%20de%20tus%20XV%20años.', '_blank');
+                    }}></CustomButton>
+
+                 </Box>
+              </Grid>
+              
+             </Grid>
             <div style={{height:100}}></div>
 
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
@@ -412,7 +427,7 @@ const XVValeria  = () => {
                          
                        </Box>
                        <Box display={"flex"} justifyContent={"center"}>
-                        <Typography variant="h3" className={MAIN_TYPO}>Confirmación enviada</Typography>
+                        <Typography variant="h4" className={MAIN_TYPO} sx={{color:COLOR_PRIMARY}}>Confirmación enviada</Typography>
                        </Box>
                     </DialogContent>        
                 </Dialog>

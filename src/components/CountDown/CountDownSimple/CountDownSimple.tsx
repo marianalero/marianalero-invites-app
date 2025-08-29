@@ -11,6 +11,7 @@ export interface CountDownSimpleProps{
     typoHeader?:string;
     typoCountdown?:string;
     circleBgColor?:string;
+    circleTextColor?:string;
     title?:string;
     fontSize?:string;
     bgImage?:string;
@@ -48,13 +49,13 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
         return (
             <div className={`countdown ${props.typoCountdown}`}>
-				<span   id="days"  > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.primaryColor}}>{days.toString().padStart(2, "0")}</div>   <span style={{ color:props.primaryColor}} className="labels">Días</span></span>
+				<span   id="days"  > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{days.toString().padStart(2, "0")}</div>   <span style={{ color:props.primaryColor}} className="labels">Días</span></span>
 				<span className="" id="">: <br/> <span></span></span>
-				<span  id="hours" > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.primaryColor}}>{hours.toString().padStart(2, "0")}</div>  <span style={{ color:props.primaryColor}} className="labels">Hrs</span></span>
+				<span  id="hours" > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{hours.toString().padStart(2, "0")}</div>  <span style={{ color:props.primaryColor}} className="labels">Hrs</span></span>
 				<span className="" id="">: <br/> <span ></span></span>
-				<span  id="minutes" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.primaryColor}}>{minutes.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">Mins</span></span>
+				<span  id="minutes" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{minutes.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">Mins</span></span>
 				<span className="" id="">: <br/> <span ></span></span>
-				<span  id="seconds" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.primaryColor}}>{seconds.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">Segs</span></span>
+				<span  id="seconds" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{seconds.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">Segs</span></span>
 			</div>
         //   <div className="countdown-display">
         //     <div className="countdown-value">

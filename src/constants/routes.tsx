@@ -1,6 +1,7 @@
 
 import GenderReveal from "../pages/clientInvitations/GenderReveal";
 import Showroom from "../pages/clientInvitations/Showroom";
+import WeddingAngelicaJose from "../pages/clientInvitations/WeddingAngelicaJose";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
@@ -51,7 +52,8 @@ const routes: RouteConfig[] = [
   {path:'/gender-reveal', element: <GenderReveal></GenderReveal>},
   {path:'/showroom', element: <Showroom></Showroom>},
   {path:'/boda-steven-arely', element: <WeddingStevenArely></WeddingStevenArely>},
-  {path:'/pv-v-2', element: <XVValeria></XVValeria>},
+  {path:'/pv-v-3', element: <XVValeria></XVValeria>},
+  {path:'/pv-aj', element: <WeddingAngelicaJose></WeddingAngelicaJose>},
 ];
 
 
