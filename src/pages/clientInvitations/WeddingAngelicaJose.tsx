@@ -7,7 +7,7 @@ import { EventCardProps } from "../../components/EventCard/models/EventCardProps
 import FooterInvites from "../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import Grid from '@mui/material/Grid2';
-import { Box, Dialog, DialogContent, Typography } from "@mui/material";
+import { Box, CircularProgress, Dialog, DialogContent, Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -47,12 +47,33 @@ const WeddingAngelicaJose  = () => {
     useEffect(() => {
         document.title = "Boda Angelica & Jose Alberto";
     }, []);
-
+    
     const COLOR_PRIMARY = "#898989";
     const MAIN_TYPO = "tangerine-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}boda-angelica-jose/`;
     const URL_SONG = `${URL_REPO}canciones/QueSuerteTenerte-Fonseca.mp3`;
+    const [isLoading, setIsLoading] = useState(true);
+    const loadedCountRef = useRef(0); // contador que no dispara renders
+    const imageList = [
+        `${URL_IMAGES}portada.png`,
+        `${URL_IMAGES}contador.png`,
+    ];
+     useEffect(() => {
+            imageList.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = handleImageLoad;
+            img.onerror = handleImageLoad; // si falla, igual contamos
+            });
+        }, []);
+    
+      const handleImageLoad = () => {
+        loadedCountRef.current += 1;
+        if (loadedCountRef.current === imageList.length) {
+          setIsLoading(false); // cuando todas las imágenes han cargado
+        }
+      };
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Parroquia San Pedro Apóstol",
@@ -145,7 +166,25 @@ const WeddingAngelicaJose  = () => {
                 sponsorOne: { name: "Sra. Monica Vindiola Y Sr. Pablo Ramos" },
             },
         ];
-    
+    if (isLoading) {
+            return (
+            <Box
+                sx={{
+                minHeight: "100vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "white",
+                flexDirection: "column"
+                }}
+            >
+                <CircularProgress sx={{ color: COLOR_PRIMARY }} />
+                <Box mt={2} sx={{ fontFamily: "Montserrat" }}>
+                    Cargando invitación...
+                </Box>
+            </Box>
+            );
+    }
     return (
         <div style={{backgroundColor:"#f8f8f8",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
