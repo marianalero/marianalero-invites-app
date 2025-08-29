@@ -28,7 +28,7 @@ const XVValeria  = () => {
         const [open, setOpen] = useState(false);
         const [openConfirm, setOpenConfirm] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
-        const URL_SONG = `https://marianalero.github.io/invitacion-xv-susan/audio/cancion.mp3`;
+       const URL_SONG = `${URL_REPO}canciones/Valentina-CarlaMorrison.mp3`;
         const handleClickOpen = () => {
             setOpen(true);
         };
@@ -47,19 +47,19 @@ const XVValeria  = () => {
         console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
            //https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/viewform?usp=pp_url&entry.516140191=mar&entry.827025270=6621&entry.1599079301=yes&entry.465259973=5
 
-           const params = new URLSearchParams({
-            'entry.516140191': name,
-            'entry.827025270': phoneNumber,
-            'entry.1599079301': confirmText,
-            'entry.465259973': totalConfirmed.toString(),
-            submit: 'Submit',
-            });
-            const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/formResponse"
-            const url = `${excelURL}?${params.toString()}`;
-            const response = await ConfirmExcel(url);
-            if(response){
-                setOpenConfirm(true);
-            }
+          //  const params = new URLSearchParams({
+          //   'entry.516140191': name,
+          //   'entry.827025270': phoneNumber,
+          //   'entry.1599079301': confirmText,
+          //   'entry.465259973': totalConfirmed.toString(),
+          //   submit: 'Submit',
+          //   });
+          //   const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLScaQvy8raY7qipxend2dAeyJwXw0SpLqSu5eL1Te8f22vG_Zg/formResponse"
+          //   const url = `${excelURL}?${params.toString()}`;
+          //   const response = await ConfirmExcel(url);
+          //   if(response){
+          //       setOpenConfirm(true);
+          //   }
       }
     const COLOR_PRIMARY = "#F5A5B5";
     const COLOR_SECONDARY= "#929292";
