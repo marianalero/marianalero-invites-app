@@ -23,24 +23,23 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
         .format("dddd DD MMMM YYYY");
     const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
     useEffect(() => {
-        
-        if (props.eventDate) {
-          const countdownInterval = setInterval(() => {
-            const currentTime = new Date().getTime();
-            const eventTime = props.eventDate.getTime();
-            let remainingTime = eventTime - currentTime;
-    
-            if (remainingTime <= 0) {
-              remainingTime = 0;
-              clearInterval(countdownInterval);
-            }
-    
-            setTimeRemaining(remainingTime);
-          }, 1000);
-    
-          return () => clearInterval(countdownInterval);
-        }
-      }, [props.eventDate, timeRemaining]);
+  if (props.eventDate) {
+    const countdownInterval = setInterval(() => {
+      const currentTime = new Date().getTime();
+      const eventTime = props.eventDate.getTime();
+      let remainingTime = eventTime - currentTime;
+
+      if (remainingTime <= 0) {
+        remainingTime = 0;
+        clearInterval(countdownInterval);
+      }
+
+      setTimeRemaining(remainingTime);
+    }, 1000);
+
+    return () => clearInterval(countdownInterval);
+  }
+}, [props.eventDate]);
     
     const formatTime = (time:number) => {
         const seconds = Math.floor((time / 1000) % 60);

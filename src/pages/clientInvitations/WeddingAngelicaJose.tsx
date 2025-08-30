@@ -50,7 +50,7 @@ const WeddingAngelicaJose  = () => {
     
     const COLOR_PRIMARY = "#898989";
     const MAIN_TYPO = "tangerine-regular";
-    const BODY_TYPO = "pt-serif-caption-regular to-upper";
+    const BODY_TYPO = "pt-serif-caption-regular";
     const URL_IMAGES = `${URL_REPO}boda-angelica-jose/`;
     const URL_SONG = `${URL_REPO}canciones/QueSuerteTenerte-Fonseca.mp3`;
     const [isLoading, setIsLoading] = useState(true);
@@ -76,9 +76,9 @@ const WeddingAngelicaJose  = () => {
       };
         const eventCards: EventCardProps[] = [
             {
-                eventName: "Parroquia San Pedro Apóstol",
+                eventName: "Misa",
                 date: new Date(2026, 9, 4, 17, 0, 0),
-                locationName: "Iglesia San Juan De Capistrano",
+                locationName: "Parroquia San Pedro Apóstol",
                 address: "Carretera a Ures No. 48, San Pedro El Saucito",
                 size: 6,
                 color: COLOR_PRIMARY,
@@ -157,13 +157,13 @@ const WeddingAngelicaJose  = () => {
   
     const sponsors:PairSponsors[] = [
             {
-                sponsorOne: { name: "Sra. Bianca De Paz Y Sr. Victor Paz" },
+                sponsorOne: { name: "Sra. Bianca De Paz y Sr. Victor Paz" },
             },
             {
-                sponsorOne: { name: "Sra. Margarita Aguirre Y Sr. Manuel Galaz" },
+                sponsorOne: { name: "Sra. Margarita Aguirre y Sr. Manuel Galaz" },
             },
             {
-                sponsorOne: { name: "Sra. Monica Vindiola Y Sr. Pablo Ramos" },
+                sponsorOne: { name: "Sra. Monica Vindiola y Sr. Pablo Ramos" },
             },
         ];
     if (isLoading) {
@@ -229,7 +229,13 @@ const WeddingAngelicaJose  = () => {
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" >
               <Typography variant="h1" className={`${MAIN_TYPO}`}  sx={{ fontSize: 55,lineHeight:2, color:COLOR_PRIMARY}}> 
-                Angelica & Jose Alberto
+                Angelica
+              </Typography>
+                <Typography variant="h1" className={`${MAIN_TYPO}`}  sx={{ fontSize: 55,lineHeight:2, color:COLOR_PRIMARY}}> 
+                &
+              </Typography>
+                <Typography variant="h1" className={`${MAIN_TYPO}`}  sx={{ fontSize: 55,lineHeight:2, color:COLOR_PRIMARY}}> 
+               Jose Alberto
               </Typography>
               </Fade>
             </Grid>
@@ -305,7 +311,7 @@ const WeddingAngelicaJose  = () => {
 
             </Fade>
            
-           <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
+           <WithoutKids   bodyTypo={BODY_TYPO} title="" subtitle="Respetuosamente NO niños"></WithoutKids>
             <div style={{height:100}}></div>
 
             <FooterInvites bgColor={"#f8f8f8"} color={COLOR_PRIMARY}></FooterInvites>

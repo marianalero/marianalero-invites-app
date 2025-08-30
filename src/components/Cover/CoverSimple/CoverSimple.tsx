@@ -18,7 +18,33 @@ const CoverSimple  = (props:CoverProps) => {
             )
           }
        
-        <Typography marginTop={2} sx={{color:props.textColor}}  textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>{props.brideName}<br/> {props.symbolr} <br/> {props.groomName}</Typography>
+        <Typography 
+          marginTop={2} 
+          sx={{color:props.textColor}}  
+          textAlign={"center"} 
+          color='white' 
+          typography={"h2"} 
+          className={`${props.className}`}>
+            {props.brideName}
+        </Typography>
+        <Typography 
+          marginTop={2} 
+          sx={{color:props.textColor}}  
+          textAlign={"center"} 
+          color='white' 
+          typography={"h2"} 
+          className={`${props.className}`}>
+            {props.symbolr}
+        </Typography>
+        <Typography 
+          marginTop={2} 
+          sx={{color:props.textColor}}  
+          textAlign={"center"} 
+          color='white' 
+          typography={"h2"} 
+          className={`${props.className}`}>
+          {props.groomName}
+        </Typography>
         <Typography textTransform={"uppercase"} marginTop={2}  sx={{color:props.textColor}} textAlign={"center"} color='white' typography={"h6"} className="pt-serif-caption-regular cover-date">{props.weddingDate}</Typography>
         </Fade>
         </div>
