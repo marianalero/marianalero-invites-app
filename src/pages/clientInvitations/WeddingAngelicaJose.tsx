@@ -19,6 +19,7 @@ import WeddingSponsor from "../../components/WeddingSponsor/WeddingSponsor";
 import { PairSponsors } from "../../components/WeddingSponsor/models/Sponsors";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import Adornment from "../../components/Adornment/Adornment";
+import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 const WeddingAngelicaJose  = () => {
       const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -76,13 +77,13 @@ const WeddingAngelicaJose  = () => {
       };
         const eventCards: EventCardProps[] = [
             {
-                eventName: "Misa",
+                eventName: "Ceremonia religiosa",
                 date: new Date(2026, 9, 4, 17, 0, 0),
                 locationName: "Parroquia San Pedro Apóstol",
                 address: "Carretera a Ures No. 48, San Pedro El Saucito",
                 size: 6,
                 color: COLOR_PRIMARY,
-                icon: `${URL_IMAGES}iconos/6.svg`,
+                icon: `${URL_IMAGES}iconos/7.svg`,
                 mainTypo:`${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/gvCi1WA8cRassK9JA",
@@ -98,7 +99,7 @@ const WeddingAngelicaJose  = () => {
                 address: "Zacatecas 3, San Pedro El Saucito, San Pedro el Saucito, Son.",
                 size: 6,
                 color: COLOR_PRIMARY,
-                icon: `${URL_IMAGES}iconos/7.svg`,
+                icon: `${URL_IMAGES}iconos/8.svg`,
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"45px",
@@ -108,31 +109,36 @@ const WeddingAngelicaJose  = () => {
                
             },
     ];
-    // const timelineData: CustomizedTimelineProps = {
-    //     mainTypo: MAIN_TYPO,
-    //     bodyTypo: BODY_TYPO,
-    //     colorPrimary: COLOR_PRIMARY,
-    //     colorTitle: COLOR_PRIMARY,
-    //     colorBody: COLOR_PRIMARY, 
-    //     bgColor: "#FFFFFF", 
-    //     events: [
-    //         {
-    //             eventName: "Recepción",
-    //             date: new Date(2025, 9, 18,21,0,0),
-    //             icon: `https://marianalero.github.io/invitacion-xv-susan/images/iconos-susan/2.svg`,
-    //         },
-    //         {
-    //             eventName: "Vals",
-    //             date: new Date(2025, 9, 18,21,50,0),
-    //             icon: `https://marianalero.github.io/invitacion-xv-susan/images/iconos-susan/3.svg`,
-    //         },
-    //         {
-    //             eventName: "Cena",
-    //             date: new Date(2025, 9, 18,22,15,0),
-    //             icon: `https://marianalero.github.io/invitacion-xv-susan/images/iconos-susan/6.svg`,
-    //         }
-    //     ],
-    // };
+    const timelineData: CustomizedTimelineProps = {
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        colorPrimary: COLOR_PRIMARY,
+        colorTitle: COLOR_PRIMARY,
+        colorBody: COLOR_PRIMARY, 
+        bgColor: "#FFFFFF", 
+        events: [
+            {
+                eventName: "Ceremonia religiosa",
+                date: new Date(2025, 9, 18,17,0,0),
+                icon: `${URL_IMAGES}iconos/2.svg`,
+            },
+            {
+                eventName: "Recepción ",
+                date: new Date(2025, 9, 18,20,0,0),
+                icon:  `${URL_IMAGES}iconos/3.svg`,
+            },
+            {
+                eventName: "Cena ",
+                date: new Date(2025, 9, 18,22,0,0),
+                icon: `${URL_IMAGES}iconos/4.svg`,
+            },
+            {
+                eventName: "Fin del evento",
+                date: new Date(2025, 9, 18,2,0,0),
+                icon: `${URL_IMAGES}iconos/6.svg`,
+            }
+        ],
+    };
     const giftListData: GiftListProps = {
         mainPhrase:"Tu presencia es nuestro mejor regalo, pero si lo deseas contamos con mesa de regalos en:",
         items: [
@@ -280,7 +286,7 @@ const WeddingAngelicaJose  = () => {
             </Grid>
         
 
-            {/* <CustomizedTimeline {...timelineData} ></CustomizedTimeline> */}
+            <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
              <Grid container spacing={2} justifyContent="center" padding={4}>
               <Grid size={{ xs: 12 }}>
