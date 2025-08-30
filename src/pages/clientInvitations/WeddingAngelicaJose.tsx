@@ -317,7 +317,7 @@ const WeddingAngelicaJose  = () => {
 
             </Fade>
            
-           <WithoutKids   bodyTypo={BODY_TYPO} title="" subtitle="Respetuosamente NO niños"></WithoutKids>
+           <WithoutKids hideTitle={true} bodyTypo={BODY_TYPO} title="" subtitle="Respetuosamente" subtitle2=" NO niños"></WithoutKids>
             <div style={{height:100}}></div>
 
             <FooterInvites bgColor={"#f8f8f8"} color={COLOR_PRIMARY}></FooterInvites>
