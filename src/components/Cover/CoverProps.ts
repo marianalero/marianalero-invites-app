@@ -14,4 +14,5 @@ export interface CoverProps{
     ourWeddingStart:boolean;
     overlay:boolean;
     fontSize?:string;
+    subtitle?:string;
 }

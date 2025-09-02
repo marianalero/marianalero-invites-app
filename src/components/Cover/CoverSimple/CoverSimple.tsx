@@ -14,7 +14,7 @@ const CoverSimple  = (props:CoverProps) => {
         <Fade direction="up" triggerOnce={true}>
           {
             !props.hideText && (
-              <h1 className="holder" style={{color:props.textColor}}  ><span>Nuestra boda</span></h1>
+              <h1 className="holder" style={{color:props.textColor}}  ><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>
             )
           }
        

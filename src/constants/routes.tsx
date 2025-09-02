@@ -6,6 +6,7 @@ import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
 import WeddingStevenArely from "../pages/clientInvitations/WeddingStevenArely";
+import XVKarla from "../pages/clientInvitations/XVKarla";
 import XVValeria from "../pages/clientInvitations/XVValeria";
 // import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
@@ -54,6 +55,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-steven-arely', element: <WeddingStevenArely></WeddingStevenArely>},
   {path:'/boda-angelica-jose', element: <WeddingAngelicaJose></WeddingAngelicaJose>},
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
+  {path:'/pv--kx-1', element: <XVKarla></XVKarla>},
 ];
 
 
