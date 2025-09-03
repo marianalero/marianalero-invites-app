@@ -176,7 +176,7 @@ const XVDaniela  = () => {
                   textColor={"white"}
                   hideText={false}
                   ourWeddingStart={true}
-                overlay={false}
+                overlay={true}
                 
                   >
             </CoverSimple>
@@ -271,7 +271,7 @@ const XVDaniela  = () => {
       </Grid>
     </Grid>
             <CountDownSimple 
-                eventDate={new Date(2025, 8, 13)}
+                eventDate={new Date(2025, 9, 18)}
                
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
