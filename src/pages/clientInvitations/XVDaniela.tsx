@@ -8,15 +8,13 @@ import FooterInvites from "../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Grid from '@mui/material/Grid2';
-import { Box, Dialog, DialogContent, IconButton, Typography } from "@mui/material";
+import { Box, Dialog, DialogContent,  Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
 import RSVPExcel from "../../components/RSVP/RSVPExcel";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import CustomButton from "../../components/CustomButton/CustomButton";
-import CloseIcon from '@mui/icons-material/Close';
-import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import Adornment from "../../components/Adornment/Adornment";
 import Gallery from "../../components/Gallery/Gallert";
@@ -28,7 +26,7 @@ const XVDaniela  = () => {
             return isNaN(num) ? 1 : num;
         }, [searchParams]);
         const [open, setOpen] = useState(false);
-        const [openConfirm, setOpenConfirm] = useState(false);
+
         const musicRef = useRef<MusicFabPlayerHandle>(null);
        const URL_SONG = `${URL_REPO}canciones/UnMundoIdeal-RicardoMontanerYMichelle.mp3`;
        
@@ -47,22 +45,15 @@ const XVDaniela  = () => {
     
 
     const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
-        console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
-        //    //https://docs.google.com/forms/d/e/1FAIpQLSeDkAx0v5Yb7caV0zSy-nURm1rCZ0bBFvTK0SPqogNvrJ55mg/viewform?usp=pp_url&entry.516140191=mariana&entry.827025270=662145561&entry.1599079301=si&entry.465259973=2
-        //    const params = new URLSearchParams({
-        //     'entry.516140191': name,
-        //     'entry.827025270': phoneNumber,
-        //     'entry.1599079301': confirmText,
-        //     'entry.465259973': totalConfirmed.toString(),
-        //     submit: 'Submit',
-        //     });
-        //     const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLSeDkAx0v5Yb7caV0zSy-nURm1rCZ0bBFvTK0SPqogNvrJ55mg/formResponse"
-        //     const url = `${excelURL}?${params.toString()}`;
-        //     const response = await ConfirmExcel(url);
-        //     if(response){
-        //         setOpenConfirm(true);
-        //     }
-      }
+        
+        if(confirmText == "Asistiré"){
+            window.open(`https://wa.me/+526622297646?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20quinceañera%20de%20Daniela para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+
+        }else{
+            window.open(`https://wa.me/+526622297646?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20quinceañera%20de%20Daniela.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+
+        }
+    }
     const COLOR_PRIMARY = "#F5A5B5";
     const MAIN_TYPO = "tangerine-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
@@ -71,11 +62,7 @@ const XVDaniela  = () => {
     const galleryPhotos = [
        `${URL_IMAGES}galeria1.jpg`,
        `${URL_IMAGES}galerai2.jpg`,
-       `${URL_IMAGES}galeria3.jpg`,
-       `${URL_IMAGES}galeria4.jpg`,
-        `${URL_IMAGES}galeria5.jpg`,
-         `${URL_IMAGES}galeria6.jpg`,
-          `${URL_IMAGES}galeria7.jpg`,
+       `${URL_IMAGES}portada.jpg`,
     ]
         const eventCards: EventCardProps[] = [
             {
@@ -374,14 +361,8 @@ const XVDaniela  = () => {
               confirmed={handleConfirm}
               
             />
-            {/* <RSVPDemo qrActive={false} colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={COLOR_PRIMARY} invitationId={0} textColor={"black"} ></RSVPDemo> */}
             <DressCode {...dresscode}></DressCode>
-            {/* <Fade direction="up" >
-              <Adornment image={`${URL_IMAGES}adornos/27.png`} width={"150px"} />
 
-            </Fade> */}
-             
-           <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
           
             <div style={{height:100}}></div>
                        <Gallery photos={galleryPhotos} ></Gallery>
@@ -406,29 +387,7 @@ const XVDaniela  = () => {
            
             </DialogContent>
         </Dialog>
-        <Dialog
-                    open={openConfirm}
-                    onClose={() => {
-                        setOpenConfirm(false)
-                    }}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                   
-                    <DialogContent >
-                        <Box display={"flex"} justifyContent={"end"}>
-                            <IconButton aria-label="delete" onClick={() => {
-                                setOpenConfirm(false)
-                            }}>
-                                <CloseIcon sx={{color:"lightgray"}} />
-                            </IconButton>
-                         
-                       </Box>
-                       <Box display={"flex"} justifyContent={"center"}>
-                        <Typography variant="h4" className={MAIN_TYPO} sx={{color:COLOR_PRIMARY}}>Confirmación enviada</Typography>
-                       </Box>
-                    </DialogContent>        
-                </Dialog>
+
         </div>
     )
 }

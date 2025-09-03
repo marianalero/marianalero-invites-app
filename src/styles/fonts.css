@@ -16,3 +16,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Eyesome";
+  src: local('Eyesome'), url('../assets/fonts/Eyesome Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

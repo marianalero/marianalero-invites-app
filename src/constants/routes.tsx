@@ -57,7 +57,8 @@ const routes: RouteConfig[] = [
   {path:'/boda-angelica-jose', element: <WeddingAngelicaJose></WeddingAngelicaJose>},
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/pv-kx-1', element: <XVKarla></XVKarla>},
-  {path:'/pv-dl-1', element: <XVDaniela></XVDaniela>},
+  {path:'/pv-dl-2', element: <XVDaniela></XVDaniela>},
+  {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
 ];
 
 
