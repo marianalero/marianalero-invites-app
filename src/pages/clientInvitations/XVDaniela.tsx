@@ -60,7 +60,7 @@ const XVDaniela  = () => {
     const URL_IMAGES = `${URL_REPO}xv-danilela-liz/`;
     const BG_COLOR ="rgb(243, 234, 217,.5)"
     const galleryPhotos = [
-       `${URL_IMAGES}galeria1.jpg`,
+       `${URL_IMAGES}galeria6.jpg`,
        `${URL_IMAGES}galerai2.jpg`,
        `${URL_IMAGES}portada.jpg`,
     ]
