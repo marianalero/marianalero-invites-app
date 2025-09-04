@@ -179,10 +179,10 @@ const BauMatias = () => {
                          <Fade direction="up"  triggerOnce={true} >
                              <Typography className={BODY_TYPO} sx={{ fontSize: '.80rem',color:COLOR_PRIMARY  }}>
                              
-                              Guíala con la luz de la fe, protégela bajo tu sombra y envuelvela con el  manto de tu amor<br></br>
-							Vela sus días y sus noches para que cada mañana obtengas para ella, el sol de la alegría y cada noche el sueño de la paz<br></br>
+                              Guíalo con la luz de la fe, protégelo bajo tu sombra y envuelvela con el  manto de tu amor<br></br>
+							Vela sus días y sus noches para que cada mañana obtengas para el, el sol de la alegría y cada noche el sueño de la paz<br></br>
 							Derrama señor tu infinita bondad en este sacramento del bautizmo<br></br>
-							Envía un ángel a su lado para que cierre el paso a toda enfermedad y a todo mal y la encamine por el sendero de la salud y el bienestar
+							Envía un ángel a su lado para que cierre el paso a toda enfermedad y a todo mal y lo encamine por el sendero de la salud y el bienestar
                             </Typography>
                          </Fade>
 
@@ -289,13 +289,7 @@ const BauMatias = () => {
                    <EventCard key={index} {...item}></EventCard>
                 ))
             }
-            <Grid size={{xs:12,sm:12,md:12,lg:12}} paddingTop={5}>
-                <Typography align={"center"}  className={`${MAIN_TYPO}`}
-                                    sx={{  fontSize: 45 ,lineHeight:1, color:COLOR_PRIMARY }}
-                                >
-                               Con tu presencia este día será aún más especial.
-                </Typography>
-            </Grid>
+            
             </Grid>
             <RSVPForm 
                 textColor={COLOR_PRIMARY}
