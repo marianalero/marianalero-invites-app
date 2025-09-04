@@ -18,8 +18,8 @@
 }
 
 @font-face {
-  font-family: "Eyesome";
-  src: local('Eyesome'), url('../assets/fonts/Eyesome Regular.ttf') format('opentype');
+  font-family: "EyesomeScript";
+  src: local('Eyesome Script'), url('../assets/fonts/Eyesome Script.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }

@@ -142,6 +142,10 @@
   font-family: "Gistesy"!important;
   font-style: normal!important;
 }
+.eyesome {
+  font-family: "EyesomeScript"!important;
+  font-style: normal!important;
+}
 .d-flex{
   display: flex!important;
 }
