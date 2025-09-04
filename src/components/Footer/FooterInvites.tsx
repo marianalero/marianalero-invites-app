@@ -21,7 +21,7 @@ const FooterInvites  = (props:FooterInvitesProps) => {
       }}
     >
       <Typography variant="caption" display="block" sx={{ color: '#777', mt: 1 }}>
-        Diseñado con amor desde México ♥
+        Diseñado con amor ♥
       </Typography>
       <Typography variant="caption" sx={{ color: '#999' }}>
         © {new Date().getFullYear()} <Link href="https://www.marianalero-invites.com/" color="inherit">Mariana Lero Invitaciones</Link>
