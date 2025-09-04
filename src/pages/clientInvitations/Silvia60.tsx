@@ -170,7 +170,7 @@ const Silvia60 = () => {
                   </Grid>
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2}  >
                           <Fade direction="up"  triggerOnce={true}>
-                    <EventCardSimple classButtonName="btn-gold" bodyTypo={BODY_TYPO} textColor={COLOR_PRIMARY} eventName="Lugar:" mainTypo="dm-serif-display-regular" locationName="" address="Ramón Valdez Ramírez,10041415, Col Ladrilleros" color={"#dfad87"} href={"https://maps.app.goo.gl/trrjeJ88gmCDtXeK8"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
+                    <EventCardSimple  classButtonName="btn-gold" bodyTypo={BODY_TYPO} textColor={COLOR_PRIMARY} eventName="Lugar:" mainTypo="dm-serif-display-regular" locationName="Eventos Amaría" address="Ramón Valdez Ramírez,1004-1415, Col Ladrilleros" color={"#dfad87"} href={"https://maps.app.goo.gl/trrjeJ88gmCDtXeK8"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
                      </Fade>
                      </Grid>
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >

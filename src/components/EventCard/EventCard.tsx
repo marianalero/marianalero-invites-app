@@ -26,9 +26,14 @@ const EventCard  = (props:EventCardProps) => {
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                                     <Typography variant='h4'  style={{color:props.color, fontSize:props.fontSize ? props.fontSize : "2rem"}} textAlign={"center"} className={props.mainTypo} >{props.eventName}</Typography>
                                 </Grid>
-                                <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent={"center"} >
-                                    <img src={props.icon} height="120" />
-                                </Grid>
+                                {
+                                    props.icon && (
+                                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent={"center"} >
+                                            <img src={props.icon} height="120" />
+                                        </Grid>
+                                    )
+                                }
+                               
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                                     <Typography   textAlign={"center"} className={props.bodyTypo} fontWeight={600}>{props.locationName}</Typography>
                                 </Grid>
