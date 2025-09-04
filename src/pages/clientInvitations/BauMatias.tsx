@@ -3,7 +3,7 @@ import { Box, CircularProgress, Typography, useMediaQuery } from "@mui/material"
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import Adornment from "../../components/Adornment/Adornment";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
@@ -11,6 +11,8 @@ import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDow
 import WeddingSponsor from "../../components/WeddingSponsor/WeddingSponsor";
 import EventCard from "../../components/EventCard/EventCard";
 import { PairSponsors } from "../../components/WeddingSponsor/models/Sponsors";
+import RSVPForm from "../../components/RSVP/RSVPForm";
+import { useSearchParams } from "react-router-dom";
 const BauMatias = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const COLOR_PRIMARY = "#875a33";
@@ -19,7 +21,16 @@ const BauMatias = () => {
     const MAIN_TYPO = "tangerine-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}bautizo-matias/`;
-   
+    const [searchParams] = useSearchParams();
+    const invitedGuests: number | undefined = useMemo(() => {
+        const num = Number(searchParams.get("number"));
+        return isNaN(num) ? undefined : num;
+    }, [searchParams]);
+    const guestId: number | undefined = useMemo(() => {
+        const num = Number(searchParams.get("id"));
+        return isNaN(num) ? undefined : num;
+    }, [searchParams]);
+    const INVITATION_ID = 6;
      // Lista de imágenes a precargar
     const imageList = [
         `${URL_IMAGES}fondo.png`,
@@ -285,6 +296,30 @@ const BauMatias = () => {
                                Con tu presencia este día será aún más especial.
                 </Typography>
             </Grid>
+            </Grid>
+            <RSVPForm 
+                textColor={COLOR_PRIMARY}
+                    colorButton={COLOR_PRIMARY} 
+                    bgColor={"rgb(164, 184, 88,.2)"} 
+                    mainTypo={MAIN_TYPO} 
+                    bodyTypo={BODY_TYPO} 
+                    count={invitedGuests}
+                    dateLine={new Date(2025,9,30)}
+                    color={COLOR_PRIMARY}
+                    guestId={guestId}
+                    invitationId={INVITATION_ID}
+                    qrActive={false}
+                    
+                   
+                >
+                
+            </RSVPForm>
+            <Grid size={{xs:12,sm:12,md:12,lg:12}} paddingTop={5}>
+                <Typography align={"center"}  className={`${MAIN_TYPO}`}
+                                    sx={{  fontSize: 45 ,lineHeight:1, color:COLOR_PRIMARY }}
+                                >
+                               Con tu presencia este día será aún más especial.
+                </Typography>
             </Grid>
              </div> 
                  <div style={{height:50}}></div>
