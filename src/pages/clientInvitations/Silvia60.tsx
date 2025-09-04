@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography, useMediaQuery } from "@mui/material";
 
 import { EventCardSimple } from "../../components/EventCard/EventCardSimple";
 import { URL_REPO } from "../../config";
@@ -7,7 +7,7 @@ import { Fade } from "react-awesome-reveal";
 import { useEffect, useRef, useState } from "react";
 import FooterInvites from "../../components/Footer/FooterInvites";
 const Silvia60 = () => {
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
     const COLOR_PRIMARY = "#f9f1d9";
     const MAIN_TYPO = "gistesy";
     const BODY_TYPO = "roboto-400";
@@ -64,13 +64,13 @@ const Silvia60 = () => {
 
     return(
           <div style={{backgroundColor:"#000000",maxWidth: '100%',overflowY:"auto",}}>
-              <div  style={{backgroundImage:`url('${URL_IMAGES}1.png')`,backgroundPositionX: "50%",    minHeight: "60vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
+              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}1.png` : `${URL_IMAGES}hor.png`}')`,backgroundPositionX: "50%",    minHeight: "60vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
                 
                 <div style={{marginTop:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative"}}>
                      
                      <div  style={{position:"absolute",top:"30%",left:"55%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
                          <Fade direction="right" triggerOnce={true}>
-                               <img src={`${URL_IMAGES}60.png`}  style={{width: "70vw"}}/>
+                               <img src={`${URL_IMAGES}60.png`}  style={{width: `${isSmallScreen ? "70vw" : "25vw"}`}}/>
                          </Fade>
                      
                      </div>
