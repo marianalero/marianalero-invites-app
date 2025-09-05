@@ -1,4 +1,5 @@
 
+import BauAlondra from "../pages/clientInvitations/BauAlondra";
 import BauMatias from "../pages/clientInvitations/BauMatias";
 import GenderReveal from "../pages/clientInvitations/GenderReveal";
 import Showroom from "../pages/clientInvitations/Showroom";
@@ -62,6 +63,7 @@ const routes: RouteConfig[] = [
     {path:'/60-silvia', element: <Silvia60></Silvia60>},
     {path:'/pv-kx-1', element: <XVKarla></XVKarla>},
      {path:'/pv-bau-1', element: <BauMatias></BauMatias>},
+       {path:'/pv-bau-a-1', element: <BauAlondra></BauAlondra>},
 ];
 
 
