@@ -136,7 +136,7 @@ const BauAlondra = () => {
                 
               >
             </Cover>
-               <div  style={{backgroundPositionX: "50%",    minHeight: "60vh",backgroundSize:"cover",paddingTop:"70px", backgroundImage:`url('${URL_IMAGES}fondo.png')`}} >
+               <div  style={{backgroundPositionX: "50%",    minHeight: "60vh",backgroundSize:"cover",paddingTop:"5vh",paddingBottom:"5vh", backgroundImage:`url('${URL_IMAGES}fondo.png')`, display:"flex",justifyContent:"center"}} >
                 
                      <Grid container spacing={2} justifyContent="center" padding={2} bgcolor={"rgb(255, 255, 255, .5);"}>
                       
