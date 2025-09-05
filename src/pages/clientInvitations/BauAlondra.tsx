@@ -301,7 +301,7 @@ const BauAlondra = () => {
                         variant="body1" className={BODY_TYPO}
                         
                         >
-                       Ana Medrano Guzman0 <br></br> Carlos Iván Mora Villa
+                       Ana Patricia Medrano Guzman <br></br> Carlos Iván Mora Villa
                         </Typography>
                         </Fade>
                     </Grid>
@@ -330,23 +330,7 @@ const BauAlondra = () => {
             </Grid>
 
              </div> 
-                         <RSVPForm 
-                textColor={COLOR_SECONDARY}
-                    colorButton={COLOR_SECONDARY} 
-                    bgColor={"rgb(247,238,231,.5)"} 
-                    mainTypo={MAIN_TYPO} 
-                    bodyTypo={BODY_TYPO} 
-                    count={invitedGuests}
-                    dateLine={new Date(2025,9,30)}
-                    color={COLOR_SECONDARY}
-                    guestId={guestId}
-                    invitationId={INVITATION_ID}
-                    qrActive={false}
-                    
-                   
-                >
-                
-            </RSVPForm>
+  
             <Grid size={{xs:12,sm:12,md:12,lg:12}} paddingTop={5} paddingX={2}>
                 <Typography align={"center"}  className={`${MAIN_TYPO}`}
                                     sx={{  fontSize: 45 ,lineHeight:1, color:COLOR_PRIMARY }}

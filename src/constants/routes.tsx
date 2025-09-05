@@ -63,7 +63,7 @@ const routes: RouteConfig[] = [
     {path:'/60-silvia', element: <Silvia60></Silvia60>},
     {path:'/pv-kx-1', element: <XVKarla></XVKarla>},
      {path:'/pv-bau-2', element: <BauMatias></BauMatias>},
-       {path:'/pv-bau-a-1', element: <BauAlondra></BauAlondra>},
+       {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
 ];
 
 
