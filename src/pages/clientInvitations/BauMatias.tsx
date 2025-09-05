@@ -18,8 +18,8 @@ const BauMatias = () => {
     const COLOR_PRIMARY = "#875a33";
     const COLOR_SECONDARY ="#afcbec";
     const COLOR_THIRD ="#a4b858";
-    const MAIN_TYPO = "tangerine-regular";
-    const BODY_TYPO = "pt-serif-caption-regular to-upper";
+    const MAIN_TYPO = "southland";
+    const BODY_TYPO = "roboto-400 to-upper";
     const URL_IMAGES = `${URL_REPO}bautizo-matias/`;
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -70,7 +70,7 @@ const BauMatias = () => {
                     mainTypo:`${MAIN_TYPO}`,
                     bodyTypo: BODY_TYPO,
                     href: "",
-                    fontSize:"45px",
+                    fontSize:"60px",
                     colorButton: COLOR_PRIMARY,
                     
                 },
@@ -85,7 +85,7 @@ const BauMatias = () => {
                     icon: ``,
                     mainTypo:  `${MAIN_TYPO}`,
                     bodyTypo: BODY_TYPO,
-                    fontSize:"45px",
+                    fontSize:"70px",
                     href: "https://maps.app.goo.gl/pWktgXhntUQDoJuv7",
                     colorButton: COLOR_PRIMARY,
                    
@@ -123,26 +123,16 @@ const BauMatias = () => {
 
     return(
           <div style={{backgroundColor:"#ffffff",maxWidth: '100%',overflowY:"auto",    overflowX: "hidden"}}>
-              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}fondo.png` : `${URL_IMAGES}horz.png`}')`,backgroundPositionX: "50%",    minHeight: "60vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
+              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}portada.png` : `${URL_IMAGES}horz.png`}')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
                 
-                <div style={{marginTop:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative"}}>
-                     <div  style={{position:"absolute",top:"20%",left:"50%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
+                <div style={{marginTop:"10vh" ,marginBottom:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative", backgroundColor:"rgb(175, 203, 236,.2)"}}>
+                  
+                   
+                     <div  style={{position:"absolute",top:"50%",left:`${isSmallScreen ? "50%" : "48%"}`,transform:"translate(-50%, -50%)",zIndex: 1,}}>
                             <Fade direction="left" triggerOnce={true}>
-                       
-                        <Typography  textAlign={"center"}  typography={"body1"} className={BODY_TYPO}  sx={{color:COLOR_PRIMARY}}>Mi Bautizo</Typography>
-                     </Fade>
-                     </div>
-                     <div  style={{position:"absolute",top:"35%",left:"50%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
-                         <Fade direction="right" triggerOnce={true}>
-                               <img src={`${URL_IMAGES}icono.svg`}  style={{width: `${isSmallScreen ? "25vw" : "5vw"}`}}/>
+                            <Typography  textAlign={"center"}  typography={"h1"} className={MAIN_TYPO}  sx={{color:COLOR_PRIMARY, fontSize:"10rem"}}>Matías</Typography>
+                            <Typography  textAlign={"center"}  typography={"body1"} className={BODY_TYPO}  sx={{color:COLOR_PRIMARY, fontSize:"2rem"}}>Mi Bautizo</Typography>
                          </Fade>
-                     
-                     </div>
-                     <div  style={{position:"absolute",top:"60%",left:`${isSmallScreen ? "45%" : "48%"}`,transform:"translate(-50%, -50%)",zIndex: 1,}}>
-                            <Fade direction="left" triggerOnce={true}>
-                         <Typography  textAlign={"center"}  typography={"h1"} className={MAIN_TYPO}  sx={{color:COLOR_PRIMARY}}>Matías</Typography>
-                       
-                     </Fade>
                      </div>
                   
                     
@@ -150,7 +140,7 @@ const BauMatias = () => {
                 </div>
                 
                </div>
-               <div  style={{backgroundPositionX: "50%",    minHeight: "60vh",backgroundSize:"cover",paddingTop:"70px", backgroundColor:"rgb(164, 184, 88,.2)" }} >
+               <div  style={{backgroundPositionX: "50%",    minHeight: "50vh",backgroundSize:"cover",paddingTop:"70px", backgroundColor:"rgb(164, 184, 88,.2)" }} >
                 
                      <Grid container spacing={2} justifyContent="center" padding={2}>
                        
@@ -158,7 +148,8 @@ const BauMatias = () => {
                          <Fade direction="up"  triggerOnce={true} >
                              <Typography className={BODY_TYPO} sx={{ fontSize: '.80rem',color:COLOR_PRIMARY  }}>
                              
-                              Señor, tú que eres la luz del mundo, ilumina a
+                              Con tu bendición, Señor, recibimos el regalo de la vida.
+Ilumina y guía siempre a
                             </Typography>
                          </Fade>
 
@@ -179,10 +170,7 @@ const BauMatias = () => {
                          <Fade direction="up"  triggerOnce={true} >
                              <Typography className={BODY_TYPO} sx={{ fontSize: '.80rem',color:COLOR_PRIMARY  }}>
                              
-                              Guíalo con la luz de la fe, protégelo bajo tu sombra y envuelvela con el  manto de tu amor<br></br>
-							Vela sus días y sus noches para que cada mañana obtengas para el, el sol de la alegría y cada noche el sueño de la paz<br></br>
-							Derrama señor tu infinita bondad en este sacramento del bautizmo<br></br>
-							Envía un ángel a su lado para que cierre el paso a toda enfermedad y a todo mal y lo encamine por el sendero de la salud y el bienestar
+                             en este nuevo caminar en tu gracia.
                             </Typography>
                          </Fade>
 
@@ -211,10 +199,10 @@ const BauMatias = () => {
                             
                                 <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                                 <Fade direction="up" >
-                                <Typography variant="h6" className={`${BODY_TYPO} tex-`}
+                                <Typography className={`${BODY_TYPO} tex-`}
                                     sx={{lineHeight:2}}
                                 >
-                                   A nombre de mis padres
+                                  Con inmensa alegría y a nombre de mis papás,
                                 </Typography>
                                 </Fade>
                                 </Grid>
@@ -222,7 +210,7 @@ const BauMatias = () => {
                                 <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                                 <Fade direction="up" >
                                 <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
-                                    sx={{fontSize: 45 ,lineHeight:2 , color:COLOR_PRIMARY }}
+                                    sx={{fontSize: 60 ,lineHeight:2 , color:COLOR_PRIMARY }}
                                 >
                                    Paola Guzmán Anaya
 
@@ -233,9 +221,9 @@ const BauMatias = () => {
                                 <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                                 <Fade direction="up" >
                                 <Typography  variant="h1" className={`${MAIN_TYPO}`}
-                                    sx={{  fontSize: 45,lineHeight:2 , color:COLOR_PRIMARY }}
+                                    sx={{  fontSize: 60,lineHeight:2 , color:COLOR_PRIMARY }}
                                 >
-                                Yazmin Irasema Avila Pacheco
+                                Erick Flores Alcaraz 
 
 
                                 </Typography>
@@ -271,16 +259,17 @@ const BauMatias = () => {
                   </div>
                   <CountDownSimple 
                 eventDate={new Date(2025, 10, 15)}
-               
+               format="dddd DD MMMM"
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
                 primaryColor={COLOR_SECONDARY} 
                 secondarColor={COLOR_SECONDARY}
                 circleBgColor="white"
                 bgColor="rgb(175, 203, 236,.3)"
+                fontSize="70px"
                 bgImage={``} >  
             </CountDownSimple>
-              <WeddingSponsor bgColor="rgb(246,237,219,.5)" headerFontSize="60px" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} sponsors={sponsors} height={"60vh"} color={COLOR_PRIMARY} addormentEnd={`${URL_IMAGES}adornos/3.svg`}></WeddingSponsor>
+              <WeddingSponsor bgColor="rgb(246,237,219,.5)" headerFontSize="70px" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} sponsors={sponsors} height={"60vh"} color={COLOR_PRIMARY} addormentEnd={`${URL_IMAGES}adornos/3.svg`}></WeddingSponsor>
           
            <div  style={{backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",paddingTop:"70px", backgroundImage: `url('${URL_IMAGES}fondo3.png')` }} > 
            <Grid container spacing={2} padding={4} justifyContent={"center"} >
@@ -308,9 +297,9 @@ const BauMatias = () => {
                 >
                 
             </RSVPForm>
-            <Grid size={{xs:12,sm:12,md:12,lg:12}} paddingTop={5}>
+            <Grid size={{xs:12,sm:12,md:12,lg:12}} paddingTop={5} paddingX={2}>
                 <Typography align={"center"}  className={`${MAIN_TYPO}`}
-                                    sx={{  fontSize: 45 ,lineHeight:1, color:COLOR_PRIMARY }}
+                                    sx={{  fontSize: 50 ,lineHeight:1, color:COLOR_PRIMARY }}
                                 >
                                Con tu presencia este día será aún más especial.
                 </Typography>

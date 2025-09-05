@@ -8,7 +8,7 @@ import { Fade } from "react-awesome-reveal";
 const WeddingSponsor  = (props:WeddingSponsorProps) => {
 
     return(
-        <Grid container spacing={1} display={"flex"} alignItems={"center"} paddingTop={4} paddingBottom={4} sx={{bgcolor:props.bgColor}} paddingX={2} >			
+        <Grid container spacing={1} display={"flex"} alignItems={"center"} paddingTop={8} paddingBottom={8} sx={{bgcolor:props.bgColor}} paddingX={2} >			
 						<Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" triggerOnce={true}>
                                 <Typography  sx={{color:props.color, fontSize: props.headerFontSize ? props.headerFontSize : "2rem"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >Padrinos</Typography>
