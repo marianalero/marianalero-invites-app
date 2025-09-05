@@ -251,7 +251,7 @@ const BauAlondra = () => {
                   </div>
                   <CountDownSimple 
                 eventDate={new Date(2025, 9, 4)}
-               
+               format="dddd DD MMMM"
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
                 primaryColor={COLOR_SECONDARY} 

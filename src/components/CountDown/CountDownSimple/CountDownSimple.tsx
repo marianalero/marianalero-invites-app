@@ -15,12 +15,13 @@ export interface CountDownSimpleProps{
     title?:string;
     fontSize?:string;
     bgImage?:string;
+     format?:string;
 }
 const CountDownSimple = (props:CountDownSimpleProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
     dayjs.locale('es');
     const formattedDate = dayjs(props.eventDate)
-        .format("dddd DD MMMM YYYY");
+       .format(props.format ? props.format : "dddd DD MMMM YYYY");
     const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
     useEffect(() => {
   if (props.eventDate) {
