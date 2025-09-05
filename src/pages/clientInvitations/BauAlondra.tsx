@@ -3,18 +3,14 @@ import { Box, CircularProgress, Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import Adornment from "../../components/Adornment/Adornment";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
-
-import EventCard from "../../components/EventCard/EventCard";
-
-import RSVPForm from "../../components/RSVP/RSVPForm";
-import { useSearchParams } from "react-router-dom";
 import Cover from "../../components/Cover/CoverImage/Cover";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
+import EventCard from "../../components/EventCard/EventCard";
 const BauAlondra = () => {
 
     const COLOR_PRIMARY = "#f4bfbb";
@@ -22,17 +18,6 @@ const BauAlondra = () => {
     const MAIN_TYPO = "alex-brush-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}bautizo-alondra/`;
-
-    const [searchParams] = useSearchParams();
-    const invitedGuests: number | undefined = useMemo(() => {
-        const num = Number(searchParams.get("number"));
-        return isNaN(num) ? undefined : num;
-    }, [searchParams]);
-    const guestId: number | undefined = useMemo(() => {
-        const num = Number(searchParams.get("id"));
-        return isNaN(num) ? undefined : num;
-    }, [searchParams]);
-    const INVITATION_ID = 7;
      // Lista de imágenes a precargar
     const imageList = [
         `${URL_IMAGES}Portada.jpg`,
