@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Typography, useMediaQuery } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
@@ -13,17 +13,16 @@ import EventCard from "../../components/EventCard/EventCard";
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import { useSearchParams } from "react-router-dom";
-import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import Cover from "../../components/Cover/CoverImage/Cover";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 const BauAlondra = () => {
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
+
     const COLOR_PRIMARY = "#f4bfbb";
     const COLOR_SECONDARY ="#c8ad78";
     const MAIN_TYPO = "alex-brush-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}bautizo-alondra/`;
-    const BG_COLOR ="rgb(247,238,231)"
+
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
         const num = Number(searchParams.get("number"));
@@ -38,7 +37,10 @@ const BauAlondra = () => {
     const imageList = [
         `${URL_IMAGES}Portada.jpg`,
         `${URL_IMAGES}fondo.png`,
-        `${URL_IMAGES}fondo3.png`,
+        `${URL_IMAGES}fondo2.png`,
+        `${URL_IMAGES}enmedio.jpg`,
+        `${URL_IMAGES}enmedio2.jpg`,
+          `${URL_IMAGES}contador.jpg`,
     ];
     const [isLoading, setIsLoading] = useState(true);
     const loadedCountRef = useRef(0); // contador que no dispara renders
