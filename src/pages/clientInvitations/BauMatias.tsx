@@ -131,7 +131,7 @@ const BauMatias = () => {
                      <div  style={{position:"absolute",top:"50%",left:`${isSmallScreen ? "50%" : "48%"}`,transform:"translate(-50%, -50%)",zIndex: 1,}}>
                             <Fade direction="left" triggerOnce={true}>
                             <Typography  textAlign={"center"}  typography={"h1"} className={MAIN_TYPO}  sx={{color:COLOR_PRIMARY, fontSize:"10rem"}}>Matías</Typography>
-                            <Typography  textAlign={"center"}  typography={"body1"} className={BODY_TYPO}  sx={{color:COLOR_PRIMARY, fontSize:"2rem"}}>Mi Bautizo</Typography>
+                            <Typography  textAlign={"center"}  typography={"body1"} className={BODY_TYPO}  sx={{color:COLOR_PRIMARY, fontSize:"1.5rem"}}>Mi Bautizo</Typography>
                          </Fade>
                      </div>
                   
