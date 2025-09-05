@@ -123,7 +123,7 @@ const BauMatias = () => {
 
     return(
           <div style={{backgroundColor:"#ffffff",maxWidth: '100%',overflowY:"auto",    overflowX: "hidden"}}>
-              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}portada.png` : `${URL_IMAGES}horz.png`}')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
+              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}portada.png` : `${URL_IMAGES}horz2.png`}')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
                 
                 <div style={{marginTop:"10vh" ,marginBottom:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative", backgroundColor:"rgb(175, 203, 236,.2)"}}>
                   
