@@ -93,10 +93,10 @@ const BauMatias = () => {
         ];
           const sponsors:PairSponsors[] = [
                     {
-                        sponsorOne: { name: "Jhoanna Guzmán Anaya y Jorge Luis Campa" },
+                        sponsorOne: { name: "Jhoanna Guzmán y Jorge Luis Campa" },
                     },
                     {
-                        sponsorOne: { name: "Fernando Rubio y María José Valenzuela Flores " },
+                        sponsorOne: { name: "Fernando Rubio y María José Valenzuela" },
                     },
                     
                 ];
@@ -130,6 +130,10 @@ const BauMatias = () => {
                    
                      <div  style={{position:"absolute",top:"50%",left:`${isSmallScreen ? "50%" : "48%"}`,transform:"translate(-50%, -50%)",zIndex: 1,}}>
                             <Fade direction="left" triggerOnce={true}>
+                                <div style={{display:"flex",justifyContent:"center"}}>
+                                      <img src={`${URL_IMAGES}9.png`}  style={{height: "85px"}}></img>
+                                </div>
+                          
                             <Typography  textAlign={"center"}  typography={"h1"} className={MAIN_TYPO}  sx={{color:COLOR_PRIMARY, fontSize:"10rem"}}>Matías</Typography>
                             <Typography  textAlign={"center"}  typography={"body1"} className={BODY_TYPO}  sx={{color:COLOR_PRIMARY, fontSize:"1.5rem"}}>Mi Bautizo</Typography>
                          </Fade>
@@ -146,7 +150,7 @@ const BauMatias = () => {
                        
                       <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true} >
-                             <Typography className={BODY_TYPO} sx={{ fontSize: '.80rem',color:COLOR_PRIMARY  }}>
+                             <Typography className={BODY_TYPO} sx={{ color:COLOR_PRIMARY  }}>
                              
                               Con tu bendición, Señor, recibimos el regalo de la vida.
 Ilumina y guía siempre a
@@ -168,7 +172,7 @@ Ilumina y guía siempre a
                          
                            <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true} >
-                             <Typography className={BODY_TYPO} sx={{ fontSize: '.80rem',color:COLOR_PRIMARY  }}>
+                             <Typography className={BODY_TYPO} sx={{ color:COLOR_PRIMARY  }}>
                              
                              en este nuevo caminar en tu gracia.
                             </Typography>
