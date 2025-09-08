@@ -69,7 +69,7 @@ const BauAlondra = () => {
                     date: new Date(2025, 9, 4, 17, 0, 0),
                    
                     locationName: "Eventos El Palmar",
-                    address: "Calle Simón Bley esq. Progreso #223, Hermosillo, Mexico",
+                    address: "Calle Simón Bley esq. Progreso #223, Hermosillo.",
                     size: 6,
                     color: COLOR_SECONDARY,
                     icon: ``,
