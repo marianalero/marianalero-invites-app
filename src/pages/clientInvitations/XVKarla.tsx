@@ -161,9 +161,8 @@ const XVKarla  = () => {
   const galleryPhotos = [
         `${URL_IMAGES}galeria(1).jpg`,
         `${URL_IMAGES}galeria(3).jpg`,
-        `${URL_IMAGES}galeria(5).jpg`,
+        `${URL_IMAGES}galeria(7).jpg`,
         `${URL_IMAGES}galeria(6).jpg`,
-       `${URL_IMAGES}galeria(8).jpg`,
     ];
     
     return (
@@ -188,7 +187,7 @@ const XVKarla  = () => {
             <Qoute 
                {...qoute}>
             </Qoute>
-             <ImageMiddle bgImage={`${URL_IMAGES}galeria(7).jpg`} bgSize="contain"></ImageMiddle>
+             <ImageMiddle bgImage={`${URL_IMAGES}galeria(5).jpg`} bgSize="contain"></ImageMiddle>
                         <Grid container justifyContent="center" padding={2}>
       <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
         <Box
