@@ -406,7 +406,7 @@ const XVKarla  = () => {
               mainTypo={MAIN_TYPO}
               bodyTypo={BODY_TYPO}
               count={invitedGuests}
-              dateLine={new Date(2025, 8, 10)}
+              dateLine={new Date(2025, 8, 16)}
               color={COLOR_PRIMARY}
               colorButton={COLOR_PRIMARY}
               invitationId={0}
