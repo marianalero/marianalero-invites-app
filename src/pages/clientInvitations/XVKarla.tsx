@@ -22,6 +22,7 @@ import Adornment from "../../components/Adornment/Adornment";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import Gallery from "../../components/Gallery/Gallert";
+import { ConfirmExcel } from "../../services/guestApiClient";
 
 const XVKarla  = () => {
       const [searchParams] = useSearchParams();
@@ -49,20 +50,20 @@ const XVKarla  = () => {
 
     const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
         console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
-        //    //https://docs.google.com/forms/d/e/1FAIpQLSeDkAx0v5Yb7caV0zSy-nURm1rCZ0bBFvTK0SPqogNvrJ55mg/viewform?usp=pp_url&entry.516140191=mariana&entry.827025270=662145561&entry.1599079301=si&entry.465259973=2
-        //    const params = new URLSearchParams({
-        //     'entry.516140191': name,
-        //     'entry.827025270': phoneNumber,
-        //     'entry.1599079301': confirmText,
-        //     'entry.465259973': totalConfirmed.toString(),
-        //     submit: 'Submit',
-        //     });
-        //     const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLSeDkAx0v5Yb7caV0zSy-nURm1rCZ0bBFvTK0SPqogNvrJ55mg/formResponse"
-        //     const url = `${excelURL}?${params.toString()}`;
-        //     const response = await ConfirmExcel(url);
-        //     if(response){
-        //         setOpenConfirm(true);
-        //     }
+        //    https://docs.google.com/forms/d/e/1FAIpQLSeG1_3rXwcGoL0yDzhVTaCU_09jJahIiAIH59PrQh0ZHxZYig/viewform?usp=pp_url&entry.516140191=MARIAN&entry.827025270=666&entry.1599079301=SI&entry.465259973=2
+           const params = new URLSearchParams({
+            'entry.516140191': name,
+            'entry.827025270': phoneNumber,
+            'entry.1599079301': confirmText,
+            'entry.465259973': totalConfirmed.toString(),
+            submit: 'Submit',
+            });
+            const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLSeG1_3rXwcGoL0yDzhVTaCU_09jJahIiAIH59PrQh0ZHxZYig/formResponse"
+            const url = `${excelURL}?${params.toString()}`;
+            const response = await ConfirmExcel(url);
+            if(response){
+                setOpenConfirm(true);
+            }
       }
     const COLOR_PRIMARY = "#F5A5B5";
     const MAIN_TYPO = "great-vibes-regular";
