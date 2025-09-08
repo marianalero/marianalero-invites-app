@@ -20,6 +20,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import Adornment from "../../components/Adornment/Adornment";
+import CountDown from "../../components/CountDown/CountDownImage/CountDown";
+import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
+import Gallery from "../../components/Gallery/Gallert";
 
 const XVKarla  = () => {
       const [searchParams] = useSearchParams();
@@ -30,7 +33,7 @@ const XVKarla  = () => {
         const [open, setOpen] = useState(false);
         const [openConfirm, setOpenConfirm] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
-       const URL_SONG = `${URL_REPO}canciones/Valentina-CarlaMorrison.mp3`;
+       const URL_SONG = `${URL_REPO}canciones/AThousandYears-ChristinaPerri.mp3`;
         const handleClickOpen = () => {
             setOpen(true);
         };
@@ -70,7 +73,7 @@ const XVKarla  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Misa Religiosa",
-                date: new Date(2025, 8, 19, 17, 0, 0),
+                date: new Date(2025, 8, 19, 18, 30, 0),
                 locationName: "Parroquia San Francisco de Asís",
                 address: "Calle Guadalupe Victoria S/N, Balderrama, Hermosillo, Son.",
                 size: 6,
@@ -110,7 +113,7 @@ const XVKarla  = () => {
         events: [
             {
                 eventName: "Misa",
-                date: new Date(2025, 8, 19,21,0,0),
+                date: new Date(2025, 8, 19,18,30,0),
                 icon:`${URL_IMAGES}iconos/1.svg`,
             },
             {
@@ -120,12 +123,12 @@ const XVKarla  = () => {
             },
             {
                 eventName: "Vals",
-                date: new Date(2025,  8, 19,21,50,0),
+                date: new Date(2025,  8, 19,22,0,0),
                 icon:`${URL_IMAGES}iconos/3.svg`,
             },
             {
                 eventName: "Cena",
-                date: new Date(2025, 8, 19,22,15,0),
+                date: new Date(2025, 8, 19,22,30,0),
                 icon: `${URL_IMAGES}iconos/4.svg`,
             }
         ],
@@ -156,27 +159,37 @@ const XVKarla  = () => {
         qoute : "Hay momentos inolvidables que se guardan en el corazón para siempre por esa razón quiero que compartas conmigo este día tan especial, Gracias a Dios y a mis Padres",
     }
 
+  const galleryPhotos = [
+        `${URL_IMAGES}galeria(1).jpg`,
+        `${URL_IMAGES}galeria(3).jpg`,
+        `${URL_IMAGES}galeria(5).jpg`,
+        `${URL_IMAGES}galeria(6).jpg`,
+       `${URL_IMAGES}galeria(8).jpg`,
+    ];
     
     return (
         <div style={{backgroundColor:"#FFFFFF",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
             <CoverSimple 
+            bgImage={`${URL_IMAGES}portada.jpg`}
+            bgImage2={`${URL_IMAGES}portada.jpg`}
                   weddingDate="19.09.2025"
                  subtitle="Mis XV años"
                   brideName="Karla Ximena"
                   symbolr={""}
                   groomName={""}
                   className={MAIN_TYPO}
-                  textColor={COLOR_PRIMARY}
+                  textColor={"#FFFFFF"}
                   hideText={false}
                   ourWeddingStart={true}
-                overlay={false}
+                overlay={true}
                 
                   >
             </CoverSimple>
             <Qoute 
                {...qoute}>
             </Qoute>
+             <ImageMiddle bgImage={`${URL_IMAGES}galeria(7).jpg`} bgSize="contain"></ImageMiddle>
                         <Grid container justifyContent="center" padding={2}>
       <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
         <Box
@@ -252,17 +265,13 @@ const XVKarla  = () => {
         </Box>
       </Grid>
     </Grid>
-            <CountDownSimple 
+            <CountDown 
                 eventDate={new Date(2025, 8, 19)}
-               
+                
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
-                primaryColor={"black"} 
-                secondarColor={"black"}
-                circleBgColor="white"
-                bgColor="lightgray"
-                bgImage={``} >  
-            </CountDownSimple>
+                bgImage={`${URL_IMAGES}contador.jpg`} >  
+            </CountDown>
     <Grid container spacing={2} justifyContent="center" paddingX={2} bgcolor={BG_COLOR}>
       {/* Texto inicial */}
       <Grid size={12} textAlign="center" sx={{ width: "100%", mt: 6 }}>
@@ -336,7 +345,7 @@ const XVKarla  = () => {
                 
                 >
                
-                 Alejandra Onuma <br></br> Javier Cariaga
+                 Kathya Onuma <br></br> Pedro Rocha
 
                 </Typography>
                 </Fade>
@@ -381,7 +390,7 @@ const XVKarla  = () => {
                 ))
             }
             </Grid>
-        
+          <ImageMiddle bgImage={`${URL_IMAGES}galeria(4).jpg`} bgSize="contain"></ImageMiddle>
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
@@ -402,7 +411,7 @@ const XVKarla  = () => {
               color={COLOR_PRIMARY}
               colorButton={COLOR_PRIMARY}
               invitationId={0}
-              bgColor={"white"}
+              bgColor={"rgb(243, 234, 217,.5)"}
               confirmed={handleConfirm}
             />
             {/* <RSVPDemo qrActive={false} colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={COLOR_PRIMARY} invitationId={0} textColor={"black"} ></RSVPDemo> */}
@@ -415,7 +424,7 @@ const XVKarla  = () => {
            <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
            
             <div style={{height:100}}></div>
-
+          <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
               <Dialog
             open={open}
