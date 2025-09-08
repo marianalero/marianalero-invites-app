@@ -1,6 +1,5 @@
 
 import { Fade } from "react-awesome-reveal";
-import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import EventCard from "../../components/EventCard/EventCard";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
