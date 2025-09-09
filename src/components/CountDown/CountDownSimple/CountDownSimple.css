@@ -7,6 +7,9 @@
     /* background-position-x: 50% !important; */
     padding: 7em 0;
     background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @media screen and (max-width: 768px) {

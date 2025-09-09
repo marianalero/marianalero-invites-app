@@ -61,22 +61,22 @@ const BauMatias = () => {
     const eventCards: EventCardProps[] = [
                 {
                     eventName: "Misa Religiosa",
-                    date: new Date(2025, 10, 15, 17, 0, 0),
-                    locationName: "PENDIENTE",
-                    address: "PENDIENTE",
+                    date: new Date(2025, 10, 15, 14, 0, 0),
+                    locationName: "Parroquia Espíritu Santo",
+                    address: "Ave. José Rafael Campoy 605, Pitic, 83150 Hermosillo, Son.",
                     size: 6,
                     color: COLOR_PRIMARY,
                     icon: ``,
                     mainTypo:`${MAIN_TYPO}`,
                     bodyTypo: BODY_TYPO,
-                    href: "",
+                    href: "https://maps.app.goo.gl/7T5EghGFCXXH2V9s9",
                     fontSize:"60px",
                     colorButton: COLOR_PRIMARY,
                     
                 },
                 {
                     eventName: "Recepción",
-                    date: new Date(2025, 10, 15, 21, 0, 0),
+                    date: new Date(2025, 10, 15, 16, 0, 0),
                    
                     locationName: "Terraza La Mirada",
                     address: "Los Lagos Club Campestre",
@@ -264,13 +264,13 @@ Ilumina y guía siempre a
                   <CountDownSimple 
                 eventDate={new Date(2025, 10, 15)}
                format="dddd DD MMMM"
-                typoHeader={`${MAIN_TYPO}`}
+                typoHeader={`dm-serif-display-regular`}
                 typoCountdown={BODY_TYPO} 
                 primaryColor={COLOR_SECONDARY} 
                 secondarColor={COLOR_SECONDARY}
                 circleBgColor="white"
                 bgColor="rgb(175, 203, 236,.3)"
-                fontSize="70px"
+                fontSize="2rem"
                 bgImage={``} >  
             </CountDownSimple>
               <WeddingSponsor bgColor="rgb(246,237,219,.5)" headerFontSize="70px" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} sponsors={sponsors} height={"60vh"} color={COLOR_PRIMARY} addormentEnd={`${URL_IMAGES}adornos/3.svg`}></WeddingSponsor>

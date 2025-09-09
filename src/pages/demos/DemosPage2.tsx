@@ -30,7 +30,7 @@ const DemosPage  = () => {
         id: 4,
         titulo: 'Modelo Básico',
         nombres: 'Baby Shower Alondra',
-        imagen: 'images/Demo3.png',
+        imagen: 'images/Demo4.png',
         link: '/demos/baby-shower'
     },
     // puedes agregar más modelos aquí
