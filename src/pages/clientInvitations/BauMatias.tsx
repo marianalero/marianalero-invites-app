@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Typography, useMediaQuery } from "@mui/material";
+import { Box, CircularProgress, Dialog, DialogContent, Typography, useMediaQuery } from "@mui/material";
 
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
@@ -13,6 +13,8 @@ import EventCard from "../../components/EventCard/EventCard";
 import { PairSponsors } from "../../components/WeddingSponsor/models/Sponsors";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import { useSearchParams } from "react-router-dom";
+import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
+import CustomButton from "../../components/CustomButton/CustomButton";
 const BauMatias = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const COLOR_PRIMARY = "#875a33";
@@ -39,9 +41,24 @@ const BauMatias = () => {
     ];
     const [isLoading, setIsLoading] = useState(true);
     const loadedCountRef = useRef(0); // contador que no dispara renders
-
+    const [open, setOpen] = useState(false);
+    const musicRef = useRef<MusicFabPlayerHandle>(null);
+    const URL_SONG = `${URL_REPO}canciones/SomewhereOverRainbow-IsraelKamakawiwo.mp3`;
+    const handleClickOpen = () => {
+                setOpen(true);
+    };
+        
+    const handleClose = () => {
+        setOpen(false);
+        musicRef.current?.play()
+    };
+        
+    useEffect(() => {
+       
+    }, []);
     useEffect(() => {
         document.title = "Bautizo Matías";
+         handleClickOpen()
     }, []);
     useEffect(() => {
         imageList.forEach((src) => {
@@ -123,6 +140,7 @@ const BauMatias = () => {
 
     return(
           <div style={{backgroundColor:"#ffffff",maxWidth: '100%',overflowY:"auto",    overflowX: "hidden"}}>
+               <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
               <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}portada.png` : `${URL_IMAGES}horz2.png`}')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",display:"grid",position: "relative" }} >
                 
                 <div style={{marginTop:"10vh" ,marginBottom:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative", backgroundColor:"rgb(175, 203, 236,.2)"}}>
@@ -311,7 +329,26 @@ Ilumina y guía siempre a
              </div> 
                  <div style={{height:50}}></div>
             <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
+               <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+            >
+           
+            <DialogContent >
+
+               <Box display={"flex"} justifyContent={"center"}>
+                <Typography variant="body1" sx={{fontSize:"25px"}} >Bienvenidos</Typography>
+               </Box>
+                <Box display={"flex"} justifyContent={"center"} marginTop={2}>
+                 <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"}  color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>
+               </Box>
+                
                
+           
+            </DialogContent>
+        </Dialog>
           </div>
     )
 }
