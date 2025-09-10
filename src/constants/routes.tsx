@@ -36,35 +36,43 @@ interface RouteConfig {
 }
 
 const routes: RouteConfig[] = [
+  // pagina
     { path: '/', element: <HomePage /> },
     { path: '/demos', element: <DemosPage /> },
     {path:'/demos/1', element: <DemoOne></DemoOne>},
     {path:'/demos/2', element: <DemoTwo></DemoTwo>},
     {path:'/demos/3', element: <DemoTree></DemoTree>},
+    {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
     {path:'/terminos', element: <TermsConditions></TermsConditions>},
     {path:'/privacidad', element: <PrivacyPolicy></PrivacyPolicy>},
     {path:'/faq', element: <FaqPage></FaqPage>},
+    //panel
      {path:'/login', element: <LoginPage></LoginPage>},
   { path: '/panel', element: <Dashboard />, protected: true },
   { path: '/guests', element: <RegisterGuestPage />, protected: true },
   { path: '/admin', element: <AdminPage />, protected: true, adminOnly: true },
   { path: '/invitations', element: <InvitationsPage />, protected: true, adminOnly: true },
-  {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
-  {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
-  {path:'/prev-rm-2', element: <WeddingRocioMariana></WeddingRocioMariana>},
-  {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},
-  {path:'/gender-reveal', element: <GenderReveal></GenderReveal>},
-  {path:'/showroom', element: <Showroom></Showroom>},
+  //Bodas
+   {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
+   {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},
   {path:'/boda-steven-arely', element: <WeddingStevenArely></WeddingStevenArely>},
   {path:'/boda-angelica-jose', element: <WeddingAngelicaJose></WeddingAngelicaJose>},
+  //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
-    {path:'/60-silvia', element: <Silvia60></Silvia60>},
-    {path:'/xv-karla-ximena', element: <XVKarla></XVKarla>},
-     {path:'/pv-bau-4', element: <BauMatias></BauMatias>},
-       {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
-       {path:'/pv-kx-2', element: <XVKarla></XVKarla>},
+  {path:'/xv-karla-ximena', element: <XVKarla></XVKarla>},
+  //Bautizo
+  {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
+  {path:'/bau-matias', element: <BauMatias></BauMatias>},
+  //OTROS
+  {path:'/gender-reveal', element: <GenderReveal></GenderReveal>},
+  {path:'/showroom', element: <Showroom></Showroom>},
+  {path:'/60-silvia', element: <Silvia60></Silvia60>},
+  //Borradores
+  {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
+  {path:'/pv-bau-4', element: <BauMatias></BauMatias>},
+      
+   
 ];
 
 
