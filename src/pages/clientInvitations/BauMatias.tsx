@@ -110,7 +110,7 @@ const BauMatias = () => {
         ];
           const sponsors:PairSponsors[] = [
                     {
-                        sponsorOne: { name: "Jhoanna Guzmán y Jorge Luis Campa" },
+                        sponsorOne: { name: "Jorge Luis Campa y Jhoanna Guzmán" },
                     },
                     {
                         sponsorOne: { name: "Fernando Rubio y María José Valenzuela" },
