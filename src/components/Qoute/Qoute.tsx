@@ -14,6 +14,7 @@ export interface QouteProps {
     addormentEnd?:string;
     fontsize?:string;
     lineheight?:string;
+    addormentSize?:string;
 }
 
 const Qoute  = (props:QouteProps) => {
@@ -44,7 +45,7 @@ const Qoute  = (props:QouteProps) => {
                 
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} justifyContent={"center"} display={"flex"}>
                         <Fade direction="up" >
-                            <Adornment image={props.addormentStart} width={"250px"} />
+                            <Adornment image={props.addormentStart} width={props.addormentSize  ? props.addormentSize : "250px"} />
                         </Fade>
                     </Grid>
                 
@@ -60,7 +61,7 @@ const Qoute  = (props:QouteProps) => {
                 
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} justifyContent={"center"} display={"flex"}>
                         <Fade direction="up" >
-                            <Adornment image={props.addormentEnd} width={"250px"} />
+                            <Adornment image={props.addormentEnd} width={props.addormentSize  ? props.addormentSize : "250px"} />
                         </Fade>
                     </Grid>
 
