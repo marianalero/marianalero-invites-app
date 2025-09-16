@@ -164,7 +164,7 @@ const XVMelanie  = () => {
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
              <CoverSimple 
             bgImage={`${URL_IMAGES}portada.png`}
-            bgImage2={`${URL_IMAGES}portada.jpg`}
+            bgImage2={`${URL_IMAGES}horz.png`}
                   weddingDate="10.10.2025"
                  subtitle="Mis XV años"
                   brideName="Melanie Samadhi"
