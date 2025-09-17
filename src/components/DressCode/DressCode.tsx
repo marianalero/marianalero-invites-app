@@ -14,6 +14,7 @@ export interface DressCodeProps
     image?:string;
     omitColors?:string[];
     omitColorsLabel?:string;
+    omitColorsText?:string;
     fontWeight?:string;
 }
 
@@ -64,8 +65,25 @@ const DressCode  = (props:DressCodeProps) =>
       >
         {props.omitColorsLabel}
       </Typography>
+        
+         
     </Grid>
-
+    
+  {props.omitColorsText && (
+    <Grid 
+      container 
+      size={{xs:12,sm:12,md:12,lg:12}}
+      display="flex" 
+      alignItems="center" 
+      justifyContent="center"
+    >
+            <Typography variant='body2'
+              className={props.bodyTypo}  
+              >
+              {props.omitColorsText}
+            </Typography>
+            </Grid>
+          )}
     <Grid
   container
    size={{xs:12,sm:12,md:12,lg:12}}

@@ -62,6 +62,7 @@ const routes: RouteConfig[] = [
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
   {path:'/xv-karla-ximena', element: <XVKarla></XVKarla>},
+  {path:'/xv-melani-samadhi', element: <XVMelanie></XVMelanie>},   
   //Bautizo
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
@@ -72,7 +73,7 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/pv-bau-4', element: <BauMatias></BauMatias>},
-  {path:'/pv-m-1', element: <XVMelanie></XVMelanie>},   
+  {path:'/pv-m-2', element: <XVMelanie></XVMelanie>},   
    
 ];
 

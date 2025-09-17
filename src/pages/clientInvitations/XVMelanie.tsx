@@ -46,20 +46,13 @@ const XVMelanie  = () => {
 
     const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
         console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
-           //https://docs.google.com/forms/d/e/1FAIpQLSeDkAx0v5Yb7caV0zSy-nURm1rCZ0bBFvTK0SPqogNvrJ55mg/viewform?usp=pp_url&entry.516140191=mariana&entry.827025270=662145561&entry.1599079301=si&entry.465259973=2
-        //    const params = new URLSearchParams({
-        //     'entry.516140191': name,
-        //     'entry.827025270': phoneNumber,
-        //     'entry.1599079301': confirmText,
-        //     'entry.465259973': totalConfirmed.toString(),
-        //     submit: 'Submit',
-        //     });
-        //     const excelURL = "https://docs.google.com/forms/d/e/1FAIpQLSeDkAx0v5Yb7caV0zSy-nURm1rCZ0bBFvTK0SPqogNvrJ55mg/formResponse"
-        //     const url = `${excelURL}?${params.toString()}`;
-        //     const response = await ConfirmExcel(url);
-        //     if(response){
-        //         setOpenConfirm(true);
-        //     }
+         if(confirmText == "Asistiré"){
+            window.open(`https://wa.me/+526623377802?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20quinceañera%20de%Melanie Samadhi para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+
+        }else{
+            window.open(`https://wa.me/+526623377802?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20quinceañera%20de%20Melanie Samadhi.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+
+        }
       }
     const COLOR_PRIMARY = "#8bac67";
     const COLOR_SECONDARY = "#769a8c";
@@ -145,7 +138,9 @@ const XVMelanie  = () => {
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
         type:1,
-        title:"Formal"
+        title:"Formal",
+        omitColorsLabel: "COLORES RESERVADOS",
+        omitColorsText:"Verde en todos sus tonos"
     }
     const qoute:QouteProps ={
         bodyTypo: MAIN_TYPO,
@@ -408,7 +403,7 @@ const XVMelanie  = () => {
               mainTypo={MAIN_TYPO}
               bodyTypo={BODY_TYPO}
               count={invitedGuests}
-              dateLine={new Date(2025, 8, 7)}
+              dateLine={new Date(2025, 8, 25)}
               color={COLOR_SECONDARY}
               colorButton={COLOR_SECONDARY}
               invitationId={0}
