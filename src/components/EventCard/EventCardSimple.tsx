@@ -19,9 +19,10 @@ export const EventCardSimple = (props:EventCardProps) => {
           <Typography
             sx={{
               fontSize: '30px',
-              fontFamily: props.mainTypo,
+            
               color: props.color,
             }}
+            className={props.mainTypo}
           >
             {props.locationName}
           </Typography>

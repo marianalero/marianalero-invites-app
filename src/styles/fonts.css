@@ -23,3 +23,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "The Seasons";
+  src: local('FSP DEMO - The Seasons'), url('../assets/fonts/The-Seasons.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

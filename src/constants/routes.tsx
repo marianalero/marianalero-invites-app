@@ -1,6 +1,7 @@
 
 import BauAlondra from "../pages/clientInvitations/BauAlondra";
 import BauMatias from "../pages/clientInvitations/BauMatias";
+import BSSophia from "../pages/clientInvitations/BSSophia";
 import GenderReveal from "../pages/clientInvitations/GenderReveal";
 import Showroom from "../pages/clientInvitations/Showroom";
 import Silvia60 from "../pages/clientInvitations/Silvia60";
@@ -72,8 +73,8 @@ const routes: RouteConfig[] = [
   {path:'/60-silvia', element: <Silvia60></Silvia60>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/pv-bau-4', element: <BauMatias></BauMatias>},
-  {path:'/pv-m-2', element: <XVMelanie></XVMelanie>},   
+  {path:'/pv-bs-s', element: <BSSophia></BSSophia>},
+ 
    
 ];
 
