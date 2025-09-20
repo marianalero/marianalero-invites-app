@@ -70,7 +70,7 @@ const BSSophia = () => {
 
     return(
           <div style={{backgroundColor:"#FFFF",maxWidth: '100%',overflowY:"auto",}}>
-              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}portada.png` : `${URL_IMAGES}hor.png`}')`,backgroundPositionX: "50%",    minHeight: isSmallScreen?"60vh":"100vh",backgroundSize: isSmallScreen ?"cover": "contain",display:"grid",position: "relative" }} >
+              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}portada.png` : `${URL_IMAGES}hor.png`}')`,backgroundPositionX: "50%",    minHeight: isSmallScreen?"70vh":"100vh",backgroundSize: isSmallScreen ?"cover": "contain",display:"grid",position: "relative" }} >
                 
                 <div style={{margin:"5vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative", backgroundColor:"#fff4de"}}>
                      <div  style={{position:"absolute",top:"5%",left: isSmallScreen?"90%": "95%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
