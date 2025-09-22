@@ -117,6 +117,7 @@ const RSVPForm  = (props:RSVPType) => {
         
         
         }
+        setOpen(true);
        } catch (error) {
             console.error(error);
     }

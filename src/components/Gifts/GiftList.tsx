@@ -95,7 +95,8 @@ const GiftList = (props:GiftListProps) =>{
             { props.showEnvelope &&
             (
                
-                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} >
+                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}  >
+                  
                      <Fade direction="up" triggerOnce={true} >
                         <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`}>Lluvia de sobres</Typography>
                         <div style={{display:"block", justifyItems:"center"}}>
@@ -122,6 +123,7 @@ const GiftList = (props:GiftListProps) =>{
                         )}
                           </div>
                         </Fade>
+                       
                 </Grid>
            
             )}
