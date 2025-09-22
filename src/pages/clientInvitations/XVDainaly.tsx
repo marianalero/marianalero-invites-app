@@ -110,7 +110,7 @@ const XVDainaly  = () => {
         color: COLOR_PRIMARY, 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
-        bankIconEnd:`${URL_IMAGES}iconos/1.svg`,
+        bankIconEnd:`${URL_IMAGES}iconos/1.png`,
         envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacernos un obsequio, tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
     };
     const dresscode:DressCodeProps = {
