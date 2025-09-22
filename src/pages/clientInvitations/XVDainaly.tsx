@@ -90,7 +90,7 @@ const XVDainaly  = () => {
             {
                 eventName: "Recepción",
                 date: new Date(2025, 8, 19,21,0,0),
-                icon:`${URL_IMAGES}iconos/11.svg`,
+                icon:`${URL_IMAGES}iconos/14.svg`,
             },
             {
                 eventName: "Vals",
