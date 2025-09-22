@@ -217,21 +217,37 @@ const BSSophia = () => {
                         >
                             Regalo Sugerido
                         </Typography>
-                         <Typography
+                         
+                         </Fade>
+                        
+                    </Grid>
+                    <Grid size={{xs:5,sm:5,md:5,lg:5}} textAlign={"left"}  >
+                     <Typography
                          variant="body1"
                             className={BODY_TYPO}
                         align="center"
                         sx={{fontSize: '1.25rem' }}
 
                         >
-                            <img src={`${URL_IMAGES}sobre.svg`}  style={{height: "45px", marginRight:2}}/>
-                            $350
+                            
+                            $350 <br></br> Invitadas
                         </Typography>
-                         </Fade>
-                        
                     </Grid>
-                    
-                    
+                    <Grid size={{xs:2,sm:2,md:2,lg:2}} textAlign={"center"}  >
+                        <img src={`${URL_IMAGES}sobre.svg`}  style={{height: "45px"}}/>
+                    </Grid>
+                    <Grid size={{xs:5,sm:5,md:5,lg:5}} textAlign={"right"}  >
+                          <Typography
+                         variant="body1"
+                            className={BODY_TYPO}
+                        align="center"
+                        sx={{fontSize: '1.25rem' }}
+
+                        >
+                            
+                            $500 <br></br> Organizadoras
+                        </Typography>
+                    </Grid>
                     </Grid>
                </div>
    
