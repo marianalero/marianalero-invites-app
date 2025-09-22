@@ -263,7 +263,7 @@ const BSSophia = () => {
                                 count={6}
                                 dateLine={new Date(2025, 8, 30)}
                                 color={"white"}
-                                invitationId={100}
+                                invitationId={7}
                                 qrActive={false} 
                                 textColor={""}                           
                                 >
