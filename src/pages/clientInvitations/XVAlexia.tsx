@@ -156,7 +156,7 @@ const XVAlexia  = () => {
         `${URL_IMAGES}alexia casual-9.jpg`,
        `${URL_IMAGES}alexia casual-17.jpg`,
         `${URL_IMAGES}alexia casual-25.jpg`,
-         `${URL_IMAGES}alexia casual-33.jpg`,
+         `${URL_IMAGES}enmedio.jpg`,
       
     ];
     const [isLoading, setIsLoading] = useState(true);
@@ -236,7 +236,7 @@ const XVAlexia  = () => {
                 </Fade>
               </Grid>
             </Grid>
-             <ImageMiddle bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize="cover" bgPosition=""></ImageMiddle>
+             <ImageMiddle bgImage={`${URL_IMAGES}alexia casual-33.jpg`} bgSize="cover" bgPosition=""></ImageMiddle>
                         <Grid container justifyContent="center" padding={2}>
       <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
         <Box
