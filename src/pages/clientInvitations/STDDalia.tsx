@@ -5,10 +5,11 @@ import { Fade } from "react-awesome-reveal";
 import { useEffect, useRef, useState } from "react";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
+import Adornment from "../../components/Adornment/Adornment";
 const STDDalia = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const COLOR_PRIMARY = "#f4d8d5";
-    const COLOR_SECONDARY = "#d2a7a0";
+    const COLOR_SECONDARY = "#E86975";
     const MAIN_TYPO = "alex-brush-regular";
     const SECOND_TYPO = "the-seasons";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
@@ -83,17 +84,20 @@ const STDDalia = () => {
                 }}
             >
                 <div>
+                     <Fade direction="up"  triggerOnce={true}>
                     <Typography
                         align="center"
                         variant="h6"
                         className="the-seasons"
                         sx={{
                             fontSize: isSmallScreen ? "40px" : "50px",
-                        color: COLOR_SECONDARY, // color similar al ejemplo
+                        color: "white", // color similar al ejemplo
+                        marginBottom: 2,
                         }}
                     >
-                        SAVE <span className={MAIN_TYPO} style={{ fontStyle: "normal" }}>the</span> DATE
+                        SAVE <span className={MAIN_TYPO} style={{ fontStyle: "normal", fontSize:"60px" }}>the</span> DATE
                     </Typography>
+                    </Fade>
                     <Box 
                     sx={{
                         padding:2,
@@ -104,6 +108,7 @@ const STDDalia = () => {
                     }}
                     >   
                         {/* Imagen con borde tipo arco */}
+                          <Fade direction="up"  triggerOnce={true}>
                         <Box
                             sx={{
                             borderTopLeftRadius: "50% 30%",
@@ -116,21 +121,22 @@ const STDDalia = () => {
                             <img
                             src={`${URL_IMAGES}portada.jpg`} // reemplaza con tu imagen
                             alt="Save the date"
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition:"25% 80%" }}
                             />
                         </Box>
+                        </Fade>
                     </Box>
-                    <Box>
+                    <Box mb={2} mt={2}>
 
                          <Fade direction="up"  triggerOnce={true} >
-                             <Typography variant="h2" className={MAIN_TYPO} sx={{  color:COLOR_SECONDARY }}>
+                             <Typography variant="h2" className={MAIN_TYPO} sx={{  color: "white", }}>
                              
                                 Dalia Elizabeth
                             </Typography>
                          </Fade>
 
                          <Fade direction="up"  triggerOnce={true} >
-                             <Typography variant="h5" className={SECOND_TYPO} sx={{ color:COLOR_SECONDARY}}>
+                             <Typography variant="h5" className={SECOND_TYPO} sx={{ color: "white",}}>
                              
                                 MIS XV AÑOS
                             </Typography>
@@ -143,83 +149,69 @@ const STDDalia = () => {
             </Box>
             
             
-               <div  style={{backgroundColor:BG_COLOR,  minHeight: "50vh",backgroundSize:"cover"}} >
+               <div  style={{backgroundColor:BG_COLOR, backgroundSize:"cover", }} >
                 
-                     
-                    <Grid container spacing={2} sx={{pt:4, pb:4}} >
-                                <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-                     <Box
-                        sx={{
-                         
-                            color: "white",
+                     <Box sx={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column", paddingTop:8, paddingBottom:8}}>
+                        
+                                <Box
+                                    sx={{
+                                    
+                                        color: "white",
 
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                        }}
-                        >
-                        <Grid container direction="column" alignItems="center" spacing={1}>
-                            {/* Mes */}
-                            <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-                            <Typography align="center" variant="h5" sx={{ letterSpacing: 2,color:"black" }} className={BODY_TYPO}>
-                                Febrero
-                            </Typography>
-                            </Grid>
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                    >
+                                    <Grid container direction="column" alignItems="center" spacing={1}>
+                                        <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingY={2}>
+                                        <Fade direction="up"  triggerOnce={true}>
+                                        <Typography
+                                        className={SECOND_TYPO}
+                                        sx={{
+                        
+                                            color: COLOR_SECONDARY,
+                                            fontSize: '50px',
+                                        }}
+                                        >
+                                        28 <Box component="span" className={MAIN_TYPO} sx={{  color: COLOR_SECONDARY }}>de</Box> Febrero
+                                        </Typography>
+                                        </Fade>
+                                        <Fade direction="up"  triggerOnce={true} >
+                                        <Typography
+                                        marginTop={1}
+                                        className={SECOND_TYPO}
+                                        sx={{
+                                
+                                            color: COLOR_SECONDARY,
+                                            fontSize: '50px',
+                                        }}
+                                        >
+                                        <Box component="span" className={MAIN_TYPO} sx={{ fontFamily: MAIN_TYPO, color: COLOR_SECONDARY }}>del</Box> 2026
+                                        </Typography>
+                                        </Fade>
+                                        </Grid>
+                                        <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                                            <Fade direction="up" >
+                                                <Typography align="center" variant="body1" sx={{ letterSpacing: 2, color:"black",marginTop:2}} className={BODY_TYPO}>Invitación formal próximamente</Typography>
 
-                            {/* Día con separadores */}
-                            <Grid
-                            size={{xs:12,sm:12,md:12,lg:12}}
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                gap: 2,
-                            }}
-                            >
-                            <Typography variant="h5" sx={{ letterSpacing: 2, color:"black" }} className={BODY_TYPO}>
-                                Sábado
-                            </Typography>
-
-                            <Box
-                                sx={{
-                                borderLeft: "1px solid #d2a7a0",
-                                height: "30px",
-                                color:COLOR_PRIMARY
-                                }}
-                            />
-
-                            <Typography
-                                variant="h3"
-                                sx={{ fontWeight: "bold", mx: 1 , color:"black"}}
-                                className={SECOND_TYPO}
-                            >
-                                28 
-                            </Typography>
-
-                            <Box
-                                sx={{
-                                borderLeft: "1px solid #d2a7a0",
-                                height: "30px",
-                                }}
-                            />
-
-                            <Typography variant="h5" sx={{ letterSpacing: 2, color:"black", minWidth: isSmallScreen ? "60px" : "60px" }} className={BODY_TYPO}>
-                            2026
-                            </Typography>
-                            </Grid>
-
-                            {/* Año */}
-                            <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-                            <Typography align="center" variant="h5" sx={{ letterSpacing: 2, color:"black" }} className={BODY_TYPO}>Tijuana , BC</Typography>
-                            </Grid>
-                        </Grid>
-                        </Box>
-                  </Grid>
-                    </Grid>
+                                            </Fade>
+                                        </Grid>
+                                        <Grid size={{xs:12,sm:12,md:12,lg:12}} justifyContent={"center"} display={"flex"}>
+                                            <Fade direction="up" >
+                                                <Adornment image={`${URL_IMAGES}adornos2.svg`} width={"250px"} />
+                                            </Fade>
+                                        </Grid>
+                                    </Grid>
+                                    </Box>
+                              
+                    </Box>
+                  
               
 
                </div>
-               <ImageMiddle bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize="contain"></ImageMiddle>
-                <div style={{height:100}}></div>                
+               <ImageMiddle bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize="cover" bgPositionY="top" height="70vh"></ImageMiddle>
+              
              
              
                 
