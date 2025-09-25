@@ -5,11 +5,13 @@ import BSSophia from "../pages/clientInvitations/BSSophia";
 import GenderReveal from "../pages/clientInvitations/GenderReveal";
 import Showroom from "../pages/clientInvitations/Showroom";
 import Silvia60 from "../pages/clientInvitations/Silvia60";
+import STDDalia from "../pages/clientInvitations/STDDalia";
 import WeddingAngelicaJose from "../pages/clientInvitations/WeddingAngelicaJose";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
 import WeddingStevenArely from "../pages/clientInvitations/WeddingStevenArely";
+import XVAlexia from "../pages/clientInvitations/XVAlexia";
 import XVDainaly from "../pages/clientInvitations/XVDainaly";
 import XVDaniela from "../pages/clientInvitations/XVDaniela";
 import XVKarla from "../pages/clientInvitations/XVKarla";
@@ -77,8 +79,8 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/pv-d-1', element: <XVDainaly></XVDainaly>},
- 
-   
+ {path:'/pv-std-d', element: <STDDalia></STDDalia>},
+    {path:'/pv-a-1', element: <XVAlexia></XVAlexia>},
 ];
 
 

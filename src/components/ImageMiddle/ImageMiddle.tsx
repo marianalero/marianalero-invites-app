@@ -9,7 +9,13 @@ export interface ImageMiddleProps {
 const ImageMiddle  = (props:ImageMiddleProps) => {
 
     return(
-        <div className="middle-image" style={{backgroundImage:`url('${props.bgImage}')`,backgroundPositionX:props.bgPosition ? props.bgPosition : "50%!important", backgroundSize: props.bgSize ?  props.bgSize : "cover", height: props.height ? props.height : "50vh"}}>
+        <div 
+            className="middle-image" 
+            style={{
+                backgroundImage:`url('${props.bgImage}')`,
+                backgroundPositionX:props.bgPosition ? props.bgPosition : "50%!important",
+                backgroundSize: props.bgSize ?  props.bgSize : "cover",
+                height: props.height ? props.height : "50vh"}}>
         </div>
     )
 }
