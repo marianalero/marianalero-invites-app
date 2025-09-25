@@ -18,10 +18,7 @@ const STDDalia = () => {
     const imageList = [
         `${URL_IMAGES}fondo.png`,
         `${URL_IMAGES}portada.png`,
-        `${URL_IMAGES}14.png`,
-        `${URL_IMAGES}15.png`,
-        `${URL_IMAGES}16.png`,
-        `${URL_IMAGES}17.png`,
+        
     ];
     const [isLoading, setIsLoading] = useState(true);
     const loadedCountRef = useRef(0); // contador que no dispara renders
