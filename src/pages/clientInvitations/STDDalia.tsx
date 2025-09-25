@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
 import { useEffect, useRef, useState } from "react";
 import FooterInvites from "../../components/Footer/FooterInvites";
-import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import Adornment from "../../components/Adornment/Adornment";
 const STDDalia = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
