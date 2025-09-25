@@ -193,6 +193,12 @@ const STDDalia = () => {
                                         </Grid>
                                         <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                                             <Fade direction="up" >
+                                                <Typography align="center" variant="body1" sx={{ letterSpacing: 2, color:"black",marginTop:2}} className={BODY_TYPO}>Tijuana , BC</Typography>
+
+                                            </Fade>
+                                        </Grid>
+                                        <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                                            <Fade direction="up" >
                                                 <Typography align="center" variant="body1" sx={{ letterSpacing: 2, color:"black",marginTop:2}} className={BODY_TYPO}>Invitación formal próximamente</Typography>
 
                                             </Fade>
