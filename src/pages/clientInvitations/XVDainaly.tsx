@@ -162,7 +162,7 @@ const XVDainaly  = () => {
             <Qoute 
                {...qoute}>
             </Qoute>
-             <ImageMiddle bgImage={`${URL_IMAGES}05.jpg`} bgSize="contain"></ImageMiddle>
+             <ImageMiddle bgImage={`${URL_IMAGES}04.jpg`} bgSize="contain" bgPositionY="bottom"></ImageMiddle>
                         <Grid container justifyContent="center" padding={2}>
       <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
         <Box
@@ -258,7 +258,7 @@ const XVDainaly  = () => {
                 format="dddd DD MMMM"
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
-                bgImage={`${URL_IMAGES}contador.jpg`} >  
+                bgImage={`${URL_IMAGES}05.jpg`} >  
             </CountDown>
     <Grid container spacing={2} justifyContent="center" paddingX={2} bgcolor={BG_COLOR}>
       {/* Texto inicial */}
@@ -425,7 +425,7 @@ const XVDainaly  = () => {
              </Grid>
    </div>
             
-            <ImageMiddle bgImage={`${URL_IMAGES}04.jpg`} bgSize="contain"></ImageMiddle>
+            {/* <ImageMiddle bgImage={`${URL_IMAGES}04.jpg`} bgSize="contain"></ImageMiddle> */}
              <RSVPForm 
                 textColor={COLOR_SECONDARY}
                     colorButton={COLOR_SECONDARY} 

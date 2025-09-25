@@ -5,6 +5,7 @@ export interface ImageMiddleProps {
     height?:string;
     bgSize?:string;
     bgPosition?:string;
+    bgPositionY?:string;
 }
 const ImageMiddle  = (props:ImageMiddleProps) => {
 
@@ -14,6 +15,7 @@ const ImageMiddle  = (props:ImageMiddleProps) => {
             style={{
                 backgroundImage:`url('${props.bgImage}')`,
                 backgroundPositionX:props.bgPosition ? props.bgPosition : "50%!important",
+                backgroundPositionY:props.bgPositionY ? props.bgPositionY : "center",
                 backgroundSize: props.bgSize ?  props.bgSize : "cover",
                 height: props.height ? props.height : "50vh"}}>
         </div>
