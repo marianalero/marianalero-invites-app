@@ -1,7 +1,7 @@
 
 import { Fade } from "react-awesome-reveal";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
-import EventCard from "../../components/EventCard/EventCard";
+
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
