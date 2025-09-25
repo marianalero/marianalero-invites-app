@@ -14,7 +14,7 @@ const STDDalia = () => {
     const SECOND_TYPO = "the-seasons";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}save-the-dates/xv-dalia/`;
-    const BG_COLOR ="#f2eadd";
+    const BG_COLOR ="rgb(251,243,220,0.5)";
      // Lista de imágenes a precargar
     const imageList = [
         `${URL_IMAGES}fondo.png`,
@@ -104,7 +104,7 @@ const STDDalia = () => {
                         backgroundColor:"#f2d0cc",
                         borderTopLeftRadius: "50% 30%",
                     borderTopRightRadius: "50% 30%",
-                                  width: "80vw",
+                                  width: isSmallScreen ? "80vw" : "30vw",
                     }}
                     >   
                         {/* Imagen con borde tipo arco */}
@@ -216,7 +216,7 @@ const STDDalia = () => {
               
 
                </div>
-               <ImageMiddle bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize="cover" bgPositionY="top" height="70vh"></ImageMiddle>
+               <ImageMiddle bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize={isSmallScreen ?"cover": "contain"} bgPositionY="top" height={ isSmallScreen ?"70vh":"100vh"}></ImageMiddle>
               
              
              
