@@ -22,6 +22,7 @@ import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
+import EventCardImage from "../../components/EventCard/EventCardImage";
 
 
 const XVDainaly  = () => {
@@ -64,12 +65,12 @@ const XVDainaly  = () => {
             {
                 eventName: "Recepción",
                 date: new Date(2025, 9, 25 , 21, 0, 0),
-               
+                image: `${URL_IMAGES}recepcion.PNG`,
                 locationName: "Eventos El Marqués",
                 address: "Ramón Valdez Ramírez 1004, Unión de Ladrilleros, Hermosillo, Son.",
                 size: 6,
                 color: COLOR_SECONDARY,
-                icon: `${URL_IMAGES}iconos/2.svg`,
+                // icon: `${URL_IMAGES}iconos/2.svg`,
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"55px",
@@ -381,7 +382,7 @@ const XVDainaly  = () => {
                   
                 >
                
-                Longino Galavis
+                Longino Galaviz
 
                 </Typography>
                 </Fade>
@@ -409,7 +410,7 @@ const XVDainaly  = () => {
           <Grid container spacing={2} padding={4} justifyContent={"center"} >
             {
                 eventCards.map((item,index) => (          
-                   <EventCard key={index} {...item}></EventCard>
+                   <EventCardImage key={index} {...item}></EventCardImage>
                 ))
             }
             </Grid>
