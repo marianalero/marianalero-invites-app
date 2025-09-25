@@ -216,7 +216,6 @@ const STDDalia = () => {
               
 
                </div>
-               <ImageMiddle bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize={isSmallScreen ?"cover": "contain"} bgPositionY="top" height={ isSmallScreen ?"70vh":"100vh"}></ImageMiddle>
               
              
              

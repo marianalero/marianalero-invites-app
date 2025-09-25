@@ -75,7 +75,7 @@ const routes: RouteConfig[] = [
   {path:'/showroom', element: <Showroom></Showroom>},
   {path:'/60-silvia', element: <Silvia60></Silvia60>},
   {path:'/bridalshower-sophia', element: <BSSophia></BSSophia>},
- 
+  {path:'/save-date-xv-dalia', element: <STDDalia></STDDalia>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/pv-d-1', element: <XVDainaly></XVDainaly>},
