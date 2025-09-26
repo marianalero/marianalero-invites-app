@@ -7,7 +7,7 @@ const DemosPage  = () => {
     const modelos = [
     {
         id: 1,
-        titulo: 'Memorias',
+        titulo: 'Celebra+',
         nombres: 'Elena Marai y Jose Carlos',
         imagen: 'images/Demo1.png',
         link: '/demos/1?number=2'
@@ -21,14 +21,14 @@ const DemosPage  = () => {
     },
     {
         id: 3,
-        titulo: 'Memorias',
+        titulo: 'Celebra+',
         nombres: 'Sin fotografías',
         imagen: 'images/Demo3.png',
         link: '/demos/3?number=2'
     },
     {
         id: 4,
-        titulo: 'Básico',
+        titulo: 'Esencia',
         nombres: 'Baby Shower Alondra',
         imagen: 'images/Demo4.png',
         link: '/demos/baby-shower'

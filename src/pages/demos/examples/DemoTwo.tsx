@@ -5,7 +5,6 @@ import { EventCardProps } from "../../../components/EventCard/models/EventCardPr
 import FooterInvites from "../../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../../components/Gifts/GiftList";
 import Introduction from "../../../components/Introduction/Introduction";
-import CustomizedTimeline, { CustomizedTimelineProps } from "../../../components/TimeLine/Timeline";
 import Grid from '@mui/material/Grid2';
 import WithoutKids, { WithoutKidsProps } from "../../../components/WithOutKids/WithoutKids";
 import { useSearchParams } from "react-router-dom";
@@ -54,41 +53,6 @@ const DemoOne  = () => {
                 bgColor:"#f2f1e9"
             },
     ];
-    const timelineData: CustomizedTimelineProps = {
-        mainTypo: MAIN_TYPO,
-        bodyTypo: BODY_TYPO,
-        colorPrimary:"#000000", 
-        colorTitle: COLOR_PRIMARY,
-        colorBody: COLOR_PRIMARY, 
-        bgColor: "rgb(249, 249, 249)", 
-        events: [
-            {
-                eventName: "Sesión de fotos",
-                date: new Date(2025, 9, 18,14,0,0),
-                icon: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/camara.svg"
-            },
-            {
-                eventName: "Ceremonia Religiosa",
-                date: new Date(2025, 9, 18,17,15,0),
-                icon: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/iglesia-s2.svg",
-            },
-            {
-                eventName: "Recepción",
-                date: new Date(2025, 9, 18,20,30,0),
-                icon: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/cheers-s2.svg",
-            },
-            {
-                eventName: "Vals novios",
-                date: new Date(2025, 9, 18,21,30,0),
-                icon: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/vals-s2.svg",
-            },
-            {
-                eventName: "Cena",
-                date: new Date(2025, 9, 18,21,45,0),
-                icon: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/dinner-s3.svg",
-            },
-        ],
-    };
     const giftListData: GiftListProps = {
         mainPhrase: "¡Gracias por formar parte de nuestro inicio como familia!",
         mainTypo: MAIN_TYPO,
@@ -159,7 +123,7 @@ const DemoOne  = () => {
             }
             </Grid>
 
-            <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
+         
 
             <GiftList {...giftListData} ></GiftList>
             <RSVPDemo qrActive={false} bgImage="https://marianalero.github.io/invitacion-selene-juan-carlos/images/UNI04765.jpg" bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} textColor={"white"} ></RSVPDemo>

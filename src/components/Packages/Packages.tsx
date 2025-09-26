@@ -12,7 +12,6 @@ const packages = [
       'Información del evento (fecha, lugar, horario)',
       'Link de ubicación (Google Maps)',
       'Confirmación por WhatsApp',
-      // 'Canción favorita'
     ],
     badge: 'Ideal para comenzar',
     color: 'success',
@@ -26,10 +25,10 @@ const packages = [
       'Nombres de padres y padrinos',
       'Código de vestimenta',
       'Cuenta regresiva',
-      'Itinerario del evento',
+
       'Mesa de regalos',
       'Frase personalizada',
-      'Galería de fotos (hasta 10)',
+      'Galería de fotos (hasta 5)',
       'Confirmación por WhatsApp'
     ],
     badge: 'Más vendido',
@@ -41,6 +40,9 @@ const packages = [
     level: 'Avanzado',
     features: [
       'Todo lo de Memorias',
+      'Galería de fotos (hasta 10)',
+      'Itinerario del evento',
+      "Música",
       'Panel de confirmaciones'
     ],
     badge: 'Recomendado',
