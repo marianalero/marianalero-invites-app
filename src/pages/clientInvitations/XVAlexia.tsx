@@ -145,7 +145,7 @@ const XVAlexia  = () => {
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
         type:1,
-        title:"Formal",
+        title:"Formal-Formal Vaquero",
         omitColorsLabel:"Color reservado para la quinceañera:",
         omitColorsText:"Verde esmeralda"
     }

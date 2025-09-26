@@ -68,6 +68,7 @@ const routes: RouteConfig[] = [
   {path:'/xv-karla-ximena', element: <XVKarla></XVKarla>},
   {path:'/xv-melani-samadhi', element: <XVMelanie></XVMelanie>},   
   {path:'/xv-dainaly', element: <XVDainaly></XVDainaly>},
+   {path:'/xv-alexia', element: <XVAlexia></XVAlexia>},
   //Bautizo
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
