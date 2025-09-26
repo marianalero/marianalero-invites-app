@@ -132,7 +132,7 @@ const RSVPDemo  = (props:RSVPType) => {
                                      <TextField
                             required
                             id="name"
-                            label="Nombre"
+                            label="Nombres"
                             sx={{
                                 minWidth:300,
                                  '& label.Mui-focused': {
