@@ -423,7 +423,7 @@ const XVAlexia  = () => {
                   
                 >
                
-                 Ana Elsa Galaz y Aron Fimbres
+                 Ana Elsa Galaz y Aaron Fimbres
 
                 </Typography>
                 </Fade>
