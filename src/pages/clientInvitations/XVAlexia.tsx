@@ -64,7 +64,7 @@ const XVAlexia  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Misa",
-                date: new Date(2025, 8, 19, 8, 0, 0),
+                date: new Date(2025, 8, 19, 20, 0, 0),
                 locationName: "Parroquia Santa Edwviges",
                 address: "C. Israel González S/N, Modelo, 83190 Hermosillo, Son.",
                 size: 6,
@@ -116,12 +116,12 @@ const XVAlexia  = () => {
             {
                 eventName: "Cena",
                 date: new Date(2025,  8, 19,22,0,0),
-                icon:`${URL_IMAGES}iconos/13.svg`,
+                icon:`${URL_IMAGES}iconos/14.svg`,
             },
             {
                 eventName: "Vals",
                 date: new Date(2025, 8, 19,22,30,0),
-                icon: `${URL_IMAGES}iconos/14.svg`,
+                icon: `${URL_IMAGES}iconos/13.svg`,
             }
             ,
             {
