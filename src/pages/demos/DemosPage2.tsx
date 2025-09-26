@@ -7,28 +7,28 @@ const DemosPage  = () => {
     const modelos = [
     {
         id: 1,
-        titulo: 'Modelo Memorias',
+        titulo: 'Memorias',
         nombres: 'Elena Marai y Jose Carlos',
         imagen: 'images/Demo1.png',
         link: '/demos/1?number=2'
     },
     {
         id: 2,
-        titulo: 'Modelo Memorias',
+        titulo: 'Memorias',
         nombres: 'Selene y Juan Carlos',
         imagen: 'images/Demo2.png',
         link: '/demos/2?number=2'
     },
     {
         id: 3,
-        titulo: 'Modelo Memorias',
+        titulo: 'Memorias',
         nombres: 'Sin fotografías',
         imagen: 'images/Demo3.png',
         link: '/demos/3?number=2'
     },
     {
         id: 4,
-        titulo: 'Modelo Básico',
+        titulo: 'Básico',
         nombres: 'Baby Shower Alondra',
         imagen: 'images/Demo4.png',
         link: '/demos/baby-shower'
@@ -75,6 +75,7 @@ const DemosPage  = () => {
                         mt: 2
                     }}
                     >
+                        Modelo<br></br>
                   {modelo.titulo}
                     </Typography>
                     <Typography

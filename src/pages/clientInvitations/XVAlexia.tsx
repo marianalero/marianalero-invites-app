@@ -49,10 +49,10 @@ const XVAlexia  = () => {
     const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
         console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
          if(confirmText == "Asistiré"){
-            window.open(`https://wa.me/+52?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20quinceañera%20de%20Alexia para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+            window.open(`https://wa.me/+526621157641?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20quinceañera%20de%20Alexia para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
 
         }else{
-            window.open(`https://wa.me/+52?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20quinceañera%20de%20Alexia.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+            window.open(`https://wa.me/+526621157641?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20quinceañera%20de%20Alexia.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
 
         }
       }
@@ -114,12 +114,12 @@ const XVAlexia  = () => {
                 icon:`${URL_IMAGES}iconos/12.svg`,
             },
             {
-                eventName: "Vals",
+                eventName: "Cena",
                 date: new Date(2025,  8, 19,22,0,0),
                 icon:`${URL_IMAGES}iconos/13.svg`,
             },
             {
-                eventName: "Cena",
+                eventName: "Vals",
                 date: new Date(2025, 8, 19,22,30,0),
                 icon: `${URL_IMAGES}iconos/14.svg`,
             }
@@ -358,7 +358,7 @@ const XVAlexia  = () => {
             </Typography>
             </Fade>
             {/* Imagen superior */}
-            <Grid container justifyContent="center" sx={{ mt: 4 }}>
+            <Grid container justifyContent="center">
                 
               <Grid>
                 <Fade direction="up" >
@@ -433,6 +433,43 @@ const XVAlexia  = () => {
 
            
           </Box>
+          <Box sx={{ mt: 6, mb: 6 }}>
+            {/* Título */}
+            <Fade direction="up" >
+            <Typography
+              variant="h3" className={`${MAIN_TYPO}`}
+              sx={{ fontSize: "2rem", color: COLOR_PRIMARY }}
+            >
+              Chambelan
+            </Typography>
+            </Fade>
+              <Grid container justifyContent="center">
+                
+              <Grid>
+                <Fade direction="up" >
+                    <Adornment image={`${URL_IMAGES}adornos2.svg`} width={"250px"} />
+              
+                </Fade>
+              </Grid>
+            </Grid>
+
+            {/* Primera fila de nombres */}
+            <Grid container spacing={2} justifyContent="center" sx={{ mb: 2, mt: 3 }}>
+              <Grid size={{ xs: 12,md:12,lg:12}} >
+                 <Fade direction="up" >
+                <Typography
+                  variant="body1" className={BODY_TYPO}
+                 
+                >
+                 Paul Galaz
+                </Typography>
+                </Fade>
+              </Grid>
+        
+            </Grid>
+
+           
+          </Box>
         </Box>
      
       </Grid>
@@ -454,7 +491,7 @@ const XVAlexia  = () => {
               </Grid>
               
              </Grid>
-           
+           <DressCode {...dresscode}></DressCode>
             <RSVPExcel
               textColor={"black"}
               qrActive={false}
@@ -469,14 +506,14 @@ const XVAlexia  = () => {
               confirmed={handleConfirm}
             />
             {/* <RSVPDemo qrActive={false} colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={COLOR_PRIMARY} invitationId={0} textColor={"black"} ></RSVPDemo> */}
-            <DressCode {...dresscode}></DressCode>
-            <Fade direction="up" >
-              <Adornment image={`${URL_IMAGES}adornos2.svg`} width={"150px"} />
+            
+            
+           <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
+           <Fade direction="up" >
+              <Adornment image={`${URL_IMAGES}adornos2.svg`} width={"250px"} />
 
             </Fade>
              
-           <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
-           
             <div style={{height:100}}></div>
           <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
