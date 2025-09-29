@@ -78,15 +78,15 @@ const BauMatias = () => {
     const eventCards: EventCardProps[] = [
                 {
                     eventName: "Misa Religiosa",
-                    date: new Date(2025, 10, 15, 14, 0, 0),
-                    locationName: "Parroquia Espíritu Santo",
-                    address: "Ave. José Rafael Campoy 605, Pitic, 83150 Hermosillo, Son.",
+                    date: new Date(2025, 10, 15, 12, 0, 0),
+                    locationName: "Capilla del Señor de la Misericordia",
+                    address: "Jazmín de La Montaña 33, Lomas Pitic, Hermosillo, Son.",
                     size: 6,
                     color: COLOR_PRIMARY,
                     icon: ``,
                     mainTypo:`${MAIN_TYPO}`,
                     bodyTypo: BODY_TYPO,
-                    href: "https://maps.app.goo.gl/7T5EghGFCXXH2V9s9",
+                    href: "https://maps.app.goo.gl/Zdiky6UXvMZMr6TJA",
                     fontSize:"60px",
                     colorButton: COLOR_PRIMARY,
                     

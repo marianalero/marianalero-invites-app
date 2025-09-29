@@ -80,9 +80,7 @@ const routes: RouteConfig[] = [
   {path:'/save-date-xv-dalia', element: <STDDalia></STDDalia>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/pv-d-2', element: <XVDainaly></XVDainaly>},
  {path:'/pv-std-d', element: <STDDalia></STDDalia>},
-    {path:'/pv-a-2', element: <XVAlexia></XVAlexia>},
 ];
 
 
