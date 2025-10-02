@@ -7,6 +7,7 @@ import { RSVPType } from './RSVPType';
 import { Fade } from 'react-awesome-reveal';
 
 import './rsvp.css';
+import ProButton from '../CustomButton/GoldButton';
 const RSVPDemo  = (props:RSVPType) => {
     const [radioValue, setRadioValue] = React.useState('yes');
     const [name, setName] =  useState<string>('');
@@ -254,7 +255,15 @@ const RSVPDemo  = (props:RSVPType) => {
                             </Grid>
                             
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                            <CustomButton bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
+                            {
+                                        props.classButtonName ? (
+                                            <ProButton onClick={handleSend}  className={props.classButtonName} label={'Ver ubicación'} />
+                                        ) : (
+                                             <CustomButton bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
+
+                                        )
+                                    }
+                          
                         </Grid>
                         </Grid>
                                           

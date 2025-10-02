@@ -20,7 +20,7 @@ const CoverSimple  = (props:CoverProps) => {
        
         <Typography 
           marginTop={2} 
-          sx={{color:props.textColor}}  
+          sx={{color:props.textColor, fontSize : props.fontSize ? props.fontSize : "3.5rem"}}  
           textAlign={"center"} 
           color='white' 
           typography={"h2"} 
@@ -29,7 +29,7 @@ const CoverSimple  = (props:CoverProps) => {
         </Typography>
         <Typography 
           marginTop={2} 
-          sx={{color:props.textColor}}  
+          sx={{color:props.textColor, fontSize : props.fontSize ? props.fontSize : "3.5rem"}}  
           textAlign={"center"} 
           color='white' 
           typography={"h2"} 
@@ -38,7 +38,7 @@ const CoverSimple  = (props:CoverProps) => {
         </Typography>
         <Typography 
           marginTop={2} 
-          sx={{color:props.textColor}}  
+          sx={{color:props.textColor, fontSize : props.fontSize ? props.fontSize : "3.5rem"}}  
           textAlign={"center"} 
           color='white' 
           typography={"h2"} 
