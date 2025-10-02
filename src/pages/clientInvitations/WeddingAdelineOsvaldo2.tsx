@@ -8,20 +8,17 @@ import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import Grid from '@mui/material/Grid2';
 import { Box, CircularProgress, Dialog, DialogContent, Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
-import { useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect,useRef, useState } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import CustomButton from "../../components/CustomButton/CustomButton";
+
 import WeddingSponsor from "../../components/WeddingSponsor/WeddingSponsor";
 import { PairSponsors } from "../../components/WeddingSponsor/models/Sponsors";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import RSVPSimpleTwo from "../../components/RSVP/RSVPSimpleTwo";
-const WeddingAdelineOsvaldo  = () => {
-      const [searchParams] = useSearchParams();
-    const invitedGuests: number | undefined = useMemo(() => {
-        const num = Number(searchParams.get("number"));
-        return isNaN(num) ? undefined : num;
-    }, [searchParams]);
+const WeddingAdelineOsvaldoTwo  = () => {
+      
+    const invitedGuests: number = 6;
     const [open, setOpen] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
         const handleClickOpen = () => {
@@ -40,12 +37,12 @@ const WeddingAdelineOsvaldo  = () => {
         document.title = "Boda Adilene & Osvaldo ";
     }, []);
     
-    const COLOR_PRIMARY = "#c69f58";
+    const COLOR_PRIMARY = "#a41423";
     const MAIN_TYPO = "tangerine-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}boda-adeline-osvaldo/`;
     const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
-    const BG_COLOR ="rgba(244, 240, 215, 0.5)"
+    const BG_COLOR ="rgb(230,214,180,.3)"
     const [isLoading, setIsLoading] = useState(true);
     const loadedCountRef = useRef(0); // contador que no dispara renders
     const imageList = [
@@ -159,8 +156,8 @@ const WeddingAdelineOsvaldo  = () => {
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
              <CoverSimple 
                   weddingDate="06.12.2025"
-                  bgImage={`${URL_IMAGES}portada.png`}
-                  bgImage2={`${URL_IMAGES}portada.png`}
+                  bgImage={`${URL_IMAGES}portada3.png`}
+                  bgImage2={`${URL_IMAGES}portada3.png`}
                   brideName="Adilene"
                   symbolr={"&"}
                   groomName={"Osvaldo"}
@@ -170,6 +167,8 @@ const WeddingAdelineOsvaldo  = () => {
                   ourWeddingStart={true}
                 overlay={false}
                   fontSize="80px"
+                  bgPosition="60%"
+                
                   >
             </CoverSimple>
          
@@ -188,12 +187,12 @@ const WeddingAdelineOsvaldo  = () => {
                <Fade direction="up" >
               <Typography className={`${BODY_TYPO}`} sx={{ lineHeight:2, fontStyle:"italic!important"}} >
                 Por el amor que nos une, con la presencia de Dios entre nosotros,la compañia de nuestros amados hijos:
+               
                 
               </Typography>
-               <Typography variant="h5" className={`${MAIN_TYPO}`}  sx={{ fontSize: 40,lineHeight:2, color:COLOR_PRIMARY, textTransform:'none'}}> 
+                <Typography component={"span"} variant="h5" className={`${MAIN_TYPO}`}  sx={{ fontSize: 40,lineHeight:2, color:COLOR_PRIMARY, textTransform:'none'}}> 
               Osvaldo y Stephanie 
               </Typography>
-                
               </Fade>
             </Grid>
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
@@ -251,7 +250,7 @@ const WeddingAdelineOsvaldo  = () => {
     </Grid>
             <CountDownSimple 
                 eventDate={new Date(2025, 11, 6)}
-                bgImage={`url('${URL_IMAGES}horz.png')`}
+                bgImage={`url('${URL_IMAGES}horz3.png')`}
                 typoHeader={`${MAIN_TYPO} `}
                 typoCountdown={BODY_TYPO} 
                 primaryColor={"black"} 
@@ -279,7 +278,7 @@ const WeddingAdelineOsvaldo  = () => {
               
              </Grid>
            
-               <RSVPSimpleTwo 
+            <RSVPSimpleTwo 
               textColor={"black"}
               qrActive={false}
               mainTypo={MAIN_TYPO}
@@ -296,9 +295,7 @@ const WeddingAdelineOsvaldo  = () => {
                                 
                             </RSVPSimpleTwo>
           
-            
-           
-          
+        
             <div style={{height:100}}></div>
 
             <FooterInvites bgColor={"#f8f8f8"} color={COLOR_PRIMARY}></FooterInvites>
@@ -325,6 +322,6 @@ const WeddingAdelineOsvaldo  = () => {
         </div>
     )
 }
-export default WeddingAdelineOsvaldo;
+export default WeddingAdelineOsvaldoTwo;
 
 

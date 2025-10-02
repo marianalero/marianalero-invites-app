@@ -7,55 +7,34 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Dialog,
-  DialogContent,
 } from "@mui/material";
 import { Fade } from "react-awesome-reveal";
 import { RSVPType } from "./RSVPType";
-import { CreateGuestParameters } from "../../models/parameters/createGuestParameters";
-import { CreateAndConfirm } from "../../services/guestApiClient";
 import CustomButton from "../CustomButton/CustomButton";
 import Grid from '@mui/material/Grid2';
+import dayjs from "dayjs";
 
-const RSVPSimple = (props:RSVPType) => {
+const RSVPSimpleTwo = (props:RSVPType) => {
   const numberOfGuests = 6;
 
   const [name, setName] = useState("");
   const [totalConfirmed, setTotalConfirmed] = useState(1);
-  const [openConfirm, setOpenConfirm] = useState(false);
+
   const [errorName, setErrorName] = useState(false);
 
-  const resetForm = () => {
-    setName("");
-    setTotalConfirmed(1);
-    setErrorName(false);
-  };
-
   const handleSend = async () => {
-    if (name.trim() === "") {
+    let confirmText = '';
+     if (name.trim() === "") {
       setErrorName(true);
     } else {
       setErrorName(false);
-      const createParam: CreateGuestParameters = {
-        fullName: name,
-        rsvpStatus: 2,
-        totalConfirmed,
-        totalAssigned: totalConfirmed,
-        invitationId: props.invitationId,
-      };
-
-      const response = await CreateAndConfirm(createParam);
-      if (response) {
-        resetForm();
-        setOpenConfirm(true);
+       if (props.confirmed) {
+         props.confirmed(name,confirmText,"",totalConfirmed.toString())
       }
     }
+   
   };
 
-  const handleCloseDialog = () => {
-    setOpenConfirm(false);
-    resetForm(); // 👈 limpia todo al cerrar el modal
-  };
 
   return (
     <>
@@ -68,13 +47,12 @@ const RSVPSimple = (props:RSVPType) => {
         <Grid container spacing={2} padding={4}>
           <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
             <Fade direction="up" triggerOnce>
-                <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >Confirma tu asistencia!</Typography>
-              <Typography
-                className={props.bodyTypo}
-                sx={{ fontSize: "1.25rem", color: props.textColor }}
-              >
-                Por favor ayúdanos confirmando tu asistencia.
-              </Typography>
+              <Typography textAlign="center" variant="h3" className={props.mainTypo} sx={{color:props.color}}>
+                              Confirma tu asistencia!
+                          </Typography>
+              <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
+                              Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
+                          </Typography>
             </Fade>
           </Grid>
 
@@ -174,22 +152,9 @@ const RSVPSimple = (props:RSVPType) => {
         </Grid>
       </Box>
 
-      {/* Diálogo de confirmación */}
-      <Dialog
-        sx={{ paddingTop: 0 }}
-        open={openConfirm}
-        onClose={handleCloseDialog}
-      >
-        <DialogContent>
-          <Box display="flex" justifyContent="center">
-            <Typography variant="body1" className={props.bodyTypo}>
-              Confirmación enviada
-            </Typography>
-          </Box>
-        </DialogContent>
-      </Dialog>
+     
     </>
   );
 };
 
-export default RSVPSimple;
+export default RSVPSimpleTwo;
