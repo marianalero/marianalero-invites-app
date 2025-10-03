@@ -138,7 +138,7 @@ const WeddingAdelineOsvaldoTree  = () => {
                 sponsorTwo :{ name:"Luz Berenice Navarro Cardenas"}
             },
            {
-                sponsorOne: { name: "José Fina Jiménez " },
+                sponsorOne: { name: "Joséfina Jiménez " },
                 sponsorTwo :{ name:"Justo Trujillo carrillo"}
             },
         ];
