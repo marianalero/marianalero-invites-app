@@ -1,4 +1,4 @@
-import { Button, FormControl, InputLabel, Menu, MenuItem,  Select,  SelectChangeEvent,  TextField, Typography, useMediaQuery, useTheme,
+import { Box, Button, FormControl, InputLabel, Menu, MenuItem,  Select,  SelectChangeEvent,  TextField, Typography, useMediaQuery, useTheme,
 } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
 import { GridColDef } from '@mui/x-data-grid';
@@ -128,14 +128,22 @@ const columns: GridColDef[] = !isMobile  ? [
       ),
     },
 ] : [
-   { field: 'fullName', headerName: 'Nombre', flex: 2 },
-   { field: 'rsvpStatus', headerName: 'Confirmación', flex: 2 ,
+   { field: 'fullName', headerName: 'Nombre', flex: 2, minWidth:150 },
+   { field: 'rsvpStatus', headerName: 'Confirmación', flex: 2 , minWidth:100 ,
     renderCell: (params) => (
         <RsvpStatusChip statusId={params.row.rsvpStatus} />
     ),
    },
-    { field: 'totalConfirmed', headerName: 'N° Confirmados', flex: 2 },
-   
+    { field: 'totalConfirmed', headerName: 'N° Confirmados', flex: 2, minWidth:100 , },
+   {
+      field: "actions",
+      headerName: "",
+      type: "actions",
+      width:250,
+      renderCell: (params) => (
+        <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } />
+      ),
+    },
 ];
 
   return (
@@ -197,6 +205,7 @@ const columns: GridColDef[] = !isMobile  ? [
             </Grid>
        
              <Grid size={{xs:12,sm:12,md:12,lg:12}} mb={2}>
+
               <DataGridCustom rows={filteredRows} columns={columns}  height={"calc(100vh - 180px)"} loading={loading}></DataGridCustom>
              </Grid>
         {open && (
