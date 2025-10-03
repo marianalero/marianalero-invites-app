@@ -71,13 +71,9 @@ const WeddingAdelineOsvaldoTree  = () => {
 
       const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
         console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
-         if(confirmText == "Asistiré"){
-            // window.open(`https://wa.me/+526621157641?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20quinceañera%20de%20Alexia para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
 
-        }else{
-            // window.open(`https://wa.me/+526621157641?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20quinceañera%20de%20Alexia.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
-
-        }
+             window.open(`https://wa.me/+526624503716?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20boda%20de%20Adilene y Osvaldo para ${totalConfirmed} personas. Mi nombre es: ${name}`, '_blank');
+     
       }
         const eventCards: EventCardProps[] = [
             {

@@ -6,8 +6,6 @@ import GenderReveal from "../pages/clientInvitations/GenderReveal";
 import Showroom from "../pages/clientInvitations/Showroom";
 import Silvia60 from "../pages/clientInvitations/Silvia60";
 import STDDalia from "../pages/clientInvitations/STDDalia";
-import WeddingAdelineOsvaldo from "../pages/clientInvitations/WeddingAdelineOsvaldo";
-import WeddingAdelineOsvaldoTwo from "../pages/clientInvitations/WeddingAdelineOsvaldo2";
 import WeddingAdelineOsvaldoTree from "../pages/clientInvitations/WeddingAdelineOsvaldo3";
 import WeddingAngelicaJose from "../pages/clientInvitations/WeddingAngelicaJose";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
@@ -84,9 +82,6 @@ const routes: RouteConfig[] = [
   {path:'/save-date-xv-dalia', element: <STDDalia></STDDalia>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/pv-ao-g', element: <WeddingAdelineOsvaldo></WeddingAdelineOsvaldo>},
-  {path:'/pv-ao-r', element: <WeddingAdelineOsvaldoTwo></WeddingAdelineOsvaldoTwo>},
-  {path:'/pv-ao-s', element: <WeddingAdelineOsvaldoTree></WeddingAdelineOsvaldoTree>},
 ];
 
 
