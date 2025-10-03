@@ -86,7 +86,7 @@ const WeddingAdelineOsvaldoTree  = () => {
                 icon: `${URL_IMAGES}iconos2/7.svg`,
                 mainTypo:`${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/LFvRJkhvYa99WwSy9",
+                href: "https://maps.app.goo.gl/Pjq5KwmrGEXNAf2V7",
                 fontSize:"45px",
                 colorButton: COLOR_PRIMARY,
                 classButtonName: `btn-silver`
