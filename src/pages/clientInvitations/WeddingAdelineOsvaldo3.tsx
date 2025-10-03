@@ -16,6 +16,7 @@ import WeddingSponsor from "../../components/WeddingSponsor/WeddingSponsor";
 import { PairSponsors } from "../../components/WeddingSponsor/models/Sponsors";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import RSVPSimpleTwo from "../../components/RSVP/RSVPSimpleTwo";
+import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 const WeddingAdelineOsvaldoTree  = () => {
       const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -122,17 +123,24 @@ const WeddingAdelineOsvaldoTree  = () => {
         bgColor: "#FFFFFF", 
         showEnvelope: true,
     };
+  const qoute:QouteProps ={
+        qoute: "Hay historias que merecen un capitulo especial, este es el nuestro",
+        bodyTypo: MAIN_TYPO,
+        addormentEnd:`${URL_IMAGES}5.svg`,
+        bgColor:BG_COLOR,
+        fontsize:"40px",
+        lineheight:"1.5"
 
+    }
   
     const sponsors:PairSponsors[] = [
             {
-                sponsorOne: { name: "" },
+                sponsorOne: { name: "Juan Carlos Quezada Valdez" },
+                sponsorTwo :{ name:"Luz Berenice Navarro Cardenas"}
             },
-            {
-                sponsorOne: { name: "" },
-            },
-            {
-                sponsorOne: { name: "" },
+           {
+                sponsorOne: { name: "José Fina Jiménez " },
+                sponsorTwo :{ name:"Justo Trujillo carrillo"}
             },
         ];
     if (isLoading) {
@@ -172,7 +180,9 @@ const WeddingAdelineOsvaldoTree  = () => {
                   fontSize="80px"
                   >
             </CoverSimple>
-         
+         <Qoute 
+               {...qoute}>
+            </Qoute>
                         <Grid container justifyContent="center" padding={2}>
       <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
         <Box
@@ -260,7 +270,7 @@ const WeddingAdelineOsvaldoTree  = () => {
                 circleTextColor="white"
                  >  
             </CountDownSimple>
-            <WeddingSponsor bgColor={BG_COLOR} headerFontSize="60px" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} sponsors={sponsors} height={"60vh"} color={COLOR_PRIMARY} ></WeddingSponsor>
+            <WeddingSponsor bgColor={BG_COLOR} headerFontSize="60px" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} sponsors={sponsors} height={"60vh"} color={COLOR_PRIMARY} addormentEnd={`${URL_IMAGES}5.svg`}></WeddingSponsor>
             <Grid container spacing={2} padding={4} justifyContent={"center"} >
             {
                 eventCards.map((item,index) => (          
