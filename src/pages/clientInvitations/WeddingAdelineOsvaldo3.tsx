@@ -17,6 +17,7 @@ import { PairSponsors } from "../../components/WeddingSponsor/models/Sponsors";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import RSVPSimpleTwo from "../../components/RSVP/RSVPSimpleTwo";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
+import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/WithoutKids";
 const WeddingAdelineOsvaldoTree  = () => {
       const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -128,6 +129,9 @@ const WeddingAdelineOsvaldoTree  = () => {
 
     }
   
+    const withOutKids:WithoutKidsProps = {
+            bodyTypo:BODY_TYPO,
+        }
     const sponsors:PairSponsors[] = [
             {
                 sponsorOne: { name: "Juan Carlos Quezada Valdez" },
@@ -302,7 +306,7 @@ const WeddingAdelineOsvaldoTree  = () => {
                             </RSVPSimpleTwo>
           
             
-           
+                 <WithoutKids {...withOutKids} /> 
           
             <div style={{height:100}}></div>
 
