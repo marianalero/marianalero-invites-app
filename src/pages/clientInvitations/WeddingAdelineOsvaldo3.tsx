@@ -126,7 +126,6 @@ const WeddingAdelineOsvaldoTree  = () => {
   const qoute:QouteProps ={
         qoute: "Hay historias que merecen un capitulo especial, este es el nuestro",
         bodyTypo: MAIN_TYPO,
-        addormentEnd:`${URL_IMAGES}5.svg`,
         bgColor:BG_COLOR,
         fontsize:"40px",
         lineheight:"1.5"
@@ -270,7 +269,7 @@ const WeddingAdelineOsvaldoTree  = () => {
                 circleTextColor="white"
                  >  
             </CountDownSimple>
-            <WeddingSponsor bgColor={BG_COLOR} headerFontSize="60px" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} sponsors={sponsors} height={"60vh"} color={COLOR_PRIMARY} addormentEnd={`${URL_IMAGES}5.svg`}></WeddingSponsor>
+            <WeddingSponsor bgColor={BG_COLOR} headerFontSize="60px" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} sponsors={sponsors} height={"60vh"} color={COLOR_PRIMARY} ></WeddingSponsor>
             <Grid container spacing={2} padding={4} justifyContent={"center"} >
             {
                 eventCards.map((item,index) => (          
