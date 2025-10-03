@@ -13,6 +13,7 @@ import { RSVPType } from "./RSVPType";
 import CustomButton from "../CustomButton/CustomButton";
 import Grid from '@mui/material/Grid2';
 import dayjs from "dayjs";
+import ProButton from "../CustomButton/GoldButton";
 
 const RSVPSimpleTwo = (props:RSVPType) => {
   const numberOfGuests = 6;
@@ -142,12 +143,19 @@ const RSVPSimpleTwo = (props:RSVPType) => {
 
           {/* Botón confirmar */}
           <Grid size={{xs:12,sm:12,md:12,lg:12}} display="flex" justifyContent="center">
-            <CustomButton
-              bgColor={props.colorButton}
-              color="#FFFFFF"
-              label="Confirmar"
-              onClick={handleSend}
-            />
+            {
+                                        props.classButtonName ? (
+                                            <ProButton  onClick={handleSend} className={props.classButtonName} label={'Confirmar'} />
+                                        ) : (
+                                             <CustomButton
+                                          bgColor={props.colorButton}
+                                          color="#FFFFFF"
+                                          label="Confirmar"
+                                          onClick={handleSend}
+                                        />
+                                        )
+                                    }
+           
           </Grid>
         </Grid>
       </Box>
