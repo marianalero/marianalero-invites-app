@@ -70,7 +70,15 @@ const RSVPDemo  = (props:RSVPType) => {
                
                     <div>
                     <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>Hemos reservado {(props.count && props.count === 1) ? '1 lugar' : `${props.count} lugares`} para ti. </Typography>
-                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography></div>
+                    {
+                        props.dateLine ? (
+                            <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography>
+
+                        ):(
+                            <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>Por favor ayúdanos confirmando tu asistencia.</Typography>
+                        )
+                    }
+                   </div>
               
                 </Fade>
             </Grid>

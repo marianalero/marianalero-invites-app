@@ -276,7 +276,7 @@ const WeddingFerMario = () => {
 
             <ImageMiddle bgImage={`${URL_IMAGES}galeria9.jpg`}></ImageMiddle>
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-            <RSVPExcel textColor="white" bgImage={`${URL_IMAGES}galeria6.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} 
+            <RSVPExcel textColor="white" bgImage={`${URL_IMAGES}galeria6.jpg`} qrActive={false} mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} color={"white"} colorButton={COLOR_PRIMARY} invitationId={0} bgColor={""} 
              confirmed={handleConfirm}
             >
 
