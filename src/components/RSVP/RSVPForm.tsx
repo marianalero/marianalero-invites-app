@@ -26,7 +26,7 @@ const RSVPForm  = (props:RSVPType) => {
     companion:''
     });
     useEffect(() => {
-       if (props.dateLine < new Date()) {
+       if (props.dateLine && props.dateLine < new Date()) {
        setDisabledRSVP(true);
       
     } else {
