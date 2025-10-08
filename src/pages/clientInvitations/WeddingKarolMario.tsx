@@ -220,6 +220,7 @@ const WeddingKarolMario  = () => {
             </CountDown>
            
             <WeddingSponsor 
+            headerFontSize="60px"
                 sponsors={sponsors}
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
@@ -227,6 +228,7 @@ const WeddingKarolMario  = () => {
                 color={COLOR_PRIMARY}
                 addorment={`${URL_IMAGES}adornos.svg`}
                 bgColor="rgb(215,174,84,.05)"
+                
             >
             </WeddingSponsor>
 
