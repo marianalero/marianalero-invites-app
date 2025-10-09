@@ -39,23 +39,23 @@ const WeddingKarolMario  = () => {
     }
     const COLOR_PRIMARY = "#08979D";
     const BG_COLOR = "rgb(203, 235, 236,.5)";
-    const MAIN_TYPO = "boheme-floral";
+    const MAIN_TYPO = "great-vibes-regular";
     const BODY_TYPO = "montserrat-400";
     const URL_IMAGES = `${URL_REPO}boda/boda-karol-mario/`;
     const sponsors:PairSponsors[] = [
             {
-                sponsorOne: { name: "Aurora Amelia Martinez Vasquez y German Lopez" },
+                sponsorOne: { name: "Aurora Amelia Martinez Vasquez y German Lopez Salcido" },
               
             },
             {
-                sponsorOne: { name: "Lolita Amelia Ramirez Vasquez" },
-                sponsorTwo: { name: "Ramses Acosta Ramirez" },
+                sponsorOne: { name: "Lolita Amelia Ramirez Vasquez y Ramses Acosta Ramirez" },
+   
             }
         ];
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Ceremonia Religiosa",
-                date: new Date(2025, 10, 15, 12, 0, 0),
+                date: new Date(2025, 10, 15, 19, 0, 0),
                 locationName: "Catedral Metropolitana de Hermosillo",
                 address: "Blvd. Miguel Hidalgo s/n, Centro Norte.",
                 size: 6,
@@ -65,11 +65,11 @@ const WeddingKarolMario  = () => {
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/omtKnLUWVrzrTYQp7",
                 colorButton: COLOR_PRIMARY,
-                fontSize:"45px"
+                fontSize:"40px"
             },
             {
                 eventName: "Recepción",
-                date: new Date(2025, 9, 18, 17, 0, 0),
+                date: new Date(2025, 9, 18, 21, 0, 0),
                 locationName: "Casa Arias",
                 address: "Av Aquiles Serdán 17, Centro, Hermosillo, Son.",
                 size: 6,
@@ -79,7 +79,7 @@ const WeddingKarolMario  = () => {
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/EmrX3WzGsrD8xaDa9",
                 colorButton: COLOR_PRIMARY,
-                fontSize:"60px"
+                fontSize:"40px"
             },
     ];
     const timelineData: CustomizedTimelineProps = {
@@ -89,27 +89,27 @@ const WeddingKarolMario  = () => {
         colorTitle: COLOR_PRIMARY,
         colorBody: COLOR_PRIMARY, 
         bgColor: BG_COLOR, 
-        fontSize:"50px",
+        fontSize:"40px",
         events: [
             {
                 eventName: "Ceremonia religiosa",
-                date: new Date(2025, 9, 18,17,0,0),
+                date: new Date(2025, 9, 18,19,0,0),
                 icon:  `${URL_IMAGES}/iconos/11.svg`,
             },
             {
                 eventName: "Recepción",
-                date: new Date(2025, 9, 18,20,0,0),
+                date: new Date(2025, 9, 18,21,0,0),
                 icon: `${URL_IMAGES}/iconos/13.svg`,
             },
             {
-                eventName: "Vals",
-                date: new Date(2025, 9, 18,20,15,0),
-                icon:  `${URL_IMAGES}/iconos/14.svg`,
+                eventName: "Cena",
+                date: new Date(2025, 9, 18,21,30,0),
+                icon:  `${URL_IMAGES}/iconos/15.svg`,
             },
             {
-                eventName: "Cena",
-                date: new Date(2025, 9, 18,21,0,0),
-                icon:  `${URL_IMAGES}/iconos/15.svg`,
+                eventName: "Vals",
+                date: new Date(2025, 9, 18,22,0,0),
+                icon:  `${URL_IMAGES}/iconos/14.svg`,
             },
             
             {
@@ -127,28 +127,24 @@ const WeddingKarolMario  = () => {
         bgColor: "#FFFFFF", 
         showEnvelope:true,
         envelopePhrase:"Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo o si lo prefieres puedes hacer transferencia bancaria a la siguiente cuenta:",
-        bankIconStart: "https://marianalero.github.io/Invitacion/images/Icons/sobre.svg",
+        // bankIconStart: `${URL_IMAGES}/iconos/iconos17.svg`,
         items: [
             {
-                link: "https://www.amazon.com/example-item1",
-                icon: "https://marianalero.github.io/invitacion-andrea-david/images/adornos/4.svg", 
-            },
-            {
-                link: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/liverpool.png",
-                icon: "https://marianalero.github.io/invitacion-selene-juan-carlos/images/Icons/liverpool.png",
-            },
+                link: "https://www.amazon.com.mx/wedding/share/karolyanwar",
+                icon: `${URL_IMAGES}amazon.svg`,
+            }
         ],
         bankDetails: [
             {
                 numbers: [
                     {
-                        numberType: "CLABE",
-                        number: "123456789012",
+                        numberType: "Tarjeta",
+                        number: "4152 3142 7791 3334",
                     }
                 ],
                 
                 bank: "BBVA",
-                name: "Nombre",
+                name: "Karol Denisse Melendrez Vasquez",
                 color: '#FFFFFF',
                 bodyTypo: BODY_TYPO,
                 bgColor: COLOR_PRIMARY,
@@ -166,9 +162,9 @@ const WeddingKarolMario  = () => {
         omitColorsLabel:"Evitar color blanco o similares."
     }
     const qoute:QouteProps ={
-        qoute: "pendiente",
+        qoute: "El amor verdadero no se busca, se encuentra. Y nosotros nos encontramos para nunca separarnos.",
         bodyTypo: BODY_TYPO,
-        addormentStart:`${URL_IMAGES}adornos.svg`
+        addormentEnd:`${URL_IMAGES}adornos.svg`
     }
 
 
@@ -210,6 +206,7 @@ const WeddingKarolMario  = () => {
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_PRIMARY}
+                fontSize="30px"
             >
             </Introduction>
             <CountDown 
@@ -220,7 +217,7 @@ const WeddingKarolMario  = () => {
             </CountDown>
            
             <WeddingSponsor 
-            headerFontSize="60px"
+            headerFontSize="45px"
                 sponsors={sponsors}
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
