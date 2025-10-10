@@ -30,10 +30,10 @@ const WeddingKarolMario  = () => {
     const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
         console.log(name,phoneNumber,confirmText,totalConfirmed)
         if(confirmText == "Asistiré"){
-            // window.open(`https://wa.me/+526622297646?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20quinceañera%20de%20Daniela para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+            window.open(`https://wa.me/+526622816125?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20boda%20de%20Karol Denisse & Mario Anwar para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
 
         }else{
-        //window.open(`https://wa.me/+526622297646?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20quinceañera%20de%20Daniela.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+            window.open(`https://wa.me/+526622816125?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20boda%20de%20Karol Denisse & Mario Anwar.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
 
         }
     }
