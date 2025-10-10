@@ -246,7 +246,7 @@ const WeddingKarolMario  = () => {
               mainTypo={MAIN_TYPO}
               bodyTypo={BODY_TYPO}
               count={invitedGuests}
-              dateLine={new Date(2025, 9, 4)}
+              dateLine={new Date(2025, 9, 25)}
               color={COLOR_PRIMARY}
               colorButton={COLOR_PRIMARY}
               invitationId={0}
