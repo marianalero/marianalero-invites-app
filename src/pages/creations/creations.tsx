@@ -144,6 +144,7 @@ const CreacionesPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    console.log("Tab changed to:", event);
     setActiveTab(newValue);
   };
 
