@@ -19,6 +19,7 @@ import XVDaniela from "../pages/clientInvitations/XVDaniela";
 import XVKarla from "../pages/clientInvitations/XVKarla";
 import XVMelanie from "../pages/clientInvitations/XVMelanie";
 import XVValeria from "../pages/clientInvitations/XVValeria";
+import CreacionesPage from "../pages/creations/creations";
 // import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
 import DemosPage from "../pages/demos/DemosPage2";
@@ -53,6 +54,7 @@ const routes: RouteConfig[] = [
     {path:'/terminos', element: <TermsConditions></TermsConditions>},
     {path:'/privacidad', element: <PrivacyPolicy></PrivacyPolicy>},
     {path:'/faq', element: <FaqPage></FaqPage>},
+    {path:'/creaciones', element: <CreacionesPage></CreacionesPage>},
     //panel
      {path:'/login', element: <LoginPage></LoginPage>},
   { path: '/panel', element: <Dashboard />, protected: true },
