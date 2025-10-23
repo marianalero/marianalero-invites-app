@@ -41,7 +41,7 @@ const CivilWeddingKarolMario  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Ceremonia Civil",
-                date: new Date(2025, 10, 15, 19, 0, 0),
+                date: new Date(2025, 10, 15, 16, 0, 0),
                 locationName: "Ubicación:",
                 address: "Blvd. Real de catorce, entre Real de Asis y Real de Ures, Manzana 06, Lote 28.",
                 size: 6,
