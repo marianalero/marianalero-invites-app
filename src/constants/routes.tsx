@@ -2,6 +2,7 @@
 import BauAlondra from "../pages/clientInvitations/BauAlondra";
 import BauMatias from "../pages/clientInvitations/BauMatias";
 import BSSophia from "../pages/clientInvitations/BSSophia";
+import CivilWeddingKarolMario from "../pages/clientInvitations/CivilWeddingKarolMario";
 import GenderReveal from "../pages/clientInvitations/GenderReveal";
 import Showroom from "../pages/clientInvitations/Showroom";
 import Silvia60 from "../pages/clientInvitations/Silvia60";
@@ -87,6 +88,7 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/pv-ko-2', element: <WeddingKarolMario></WeddingKarolMario>},
+  {path:'/pv-ko', element: <CivilWeddingKarolMario></CivilWeddingKarolMario>},
 ];
 
 

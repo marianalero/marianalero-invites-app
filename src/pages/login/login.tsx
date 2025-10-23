@@ -30,7 +30,7 @@ const LoginPage = () => {
       }
 
     } catch (err) {
-      
+      console.log(err)
       setError("Email o contraseña incorrectos");
     }
     finally{

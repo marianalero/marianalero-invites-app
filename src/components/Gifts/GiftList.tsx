@@ -20,6 +20,7 @@ export interface GiftListProps {
     envelopePhrase?:string;
     secondPhrase?:string;
     iconSize?:string;
+    fontSize?:string;
 }
 
 
@@ -31,7 +32,7 @@ const GiftList = (props:GiftListProps) =>{
                 props.mainPhrase && (
                      <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                         <Fade direction="up" triggerOnce={true}>
-                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`}>Mesa de regalos</Typography>
+                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>Mesa de regalos</Typography>
                         </Fade>
                     </Grid>	
                 )
@@ -98,7 +99,7 @@ const GiftList = (props:GiftListProps) =>{
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}  >
                   
                      <Fade direction="up" triggerOnce={true} >
-                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`}>Lluvia de sobres</Typography>
+                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>Lluvia de sobres</Typography>
                         <div style={{display:"block", justifyItems:"center"}}>
                          { props.bankIconStart &&
                         (

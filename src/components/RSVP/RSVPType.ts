@@ -14,4 +14,5 @@ export interface RSVPType {
     excelURL?:string;
     textColor:string;
     classButtonName?:string;
+    fontSize?:string;
 }
