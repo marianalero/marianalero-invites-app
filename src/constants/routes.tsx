@@ -67,8 +67,9 @@ const routes: RouteConfig[] = [
    {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},
   {path:'/boda-steven-arely', element: <WeddingStevenArely></WeddingStevenArely>},
   {path:'/boda-angelica-jose', element: <WeddingAngelicaJose></WeddingAngelicaJose>},
-   {path:'/boda-adilene-osvaldo', element: <WeddingAdelineOsvaldoTree></WeddingAdelineOsvaldoTree>},
-    {path:'/boda-karol-mario', element: <WeddingKarolMario></WeddingKarolMario>},
+  {path:'/boda-adilene-osvaldo', element: <WeddingAdelineOsvaldoTree></WeddingAdelineOsvaldoTree>},
+  {path:'/boda-karol-mario', element: <WeddingKarolMario></WeddingKarolMario>},
+  {path:'/boda-civil-karol-mario', element: <CivilWeddingKarolMario></CivilWeddingKarolMario>},
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
@@ -89,6 +90,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/pv-ko-2', element: <WeddingKarolMario></WeddingKarolMario>},
   {path:'/pv-ko', element: <CivilWeddingKarolMario></CivilWeddingKarolMario>},
+  
 ];
 
 
