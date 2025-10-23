@@ -35,7 +35,7 @@ const CivilWeddingKarolMario  = () => {
     const COLOR_PRIMARY = "#899c35";
     const MAIN_TYPO = "great-vibes-regular";
     // const MAIN_TYPO_TWO = "noto-serif-display-400";
-    const BODY_TYPO = "montserrat-400 to-upper";
+    const BODY_TYPO = "montserrat-400";
     const URL_IMAGES = `${URL_REPO}boda/boda-karol-mario/`;
   
         const eventCards: EventCardProps[] = [
@@ -46,7 +46,7 @@ const CivilWeddingKarolMario  = () => {
                 address: "Blvd. Real de catorce, entre Real de Asis y Real de Ures, Manzana 06, Lote 28.",
                 size: 6,
                 color: COLOR_PRIMARY,
-                icon: `${URL_IMAGES}/iconos/7.svg`,
+                icon: `${URL_IMAGES}/iconos-civil/13.svg`,
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/TQifhqQFJZQAtfuR8?g_st=ipc",
@@ -67,28 +67,28 @@ const CivilWeddingKarolMario  = () => {
             {
                 eventName: "Boda civil",
                 date: new Date(2025, 9, 18,16,0,0),
-                icon:  `${URL_IMAGES}/iconos/11.svg`,
+                icon:  `${URL_IMAGES}/iconos-civil/14.svg`,
             },
             {
                 eventName: "Recepción",
                 date: new Date(2025, 9, 18,17,0,0),
-                icon: `${URL_IMAGES}/iconos/13.svg`,
+                icon: `${URL_IMAGES}/iconos-civil/15.svg`,
             },
             {
                 eventName: "Cena",
                 date: new Date(2025, 9, 18,19,0,0),
-                icon:  `${URL_IMAGES}/iconos/15.svg`,
+                icon:  `${URL_IMAGES}/iconos-civil/17.svg`,
             },
             {
                 eventName: "After",
                 date: new Date(2025, 9, 18,22,0,0),
-                icon:  `${URL_IMAGES}/iconos/14.svg`,
+                icon:  `${URL_IMAGES}/iconos-civil/18.svg`,
             },
             
             {
                 eventName: "Fin del evento",
                 date: new Date(2025, 9, 18,3,0,0),
-                icon:  `${URL_IMAGES}/iconos/16.svg`,
+                icon:  `${URL_IMAGES}/iconos-civil/19.svg`,
             },
         ],
     };
@@ -101,7 +101,7 @@ const CivilWeddingKarolMario  = () => {
         bgColor: "#FFFFFF", 
         showEnvelope:true,
         envelopePhrase:"Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo o si lo prefieres puedes hacer transferencia bancaria a la siguiente cuenta:",
-        // bankIconStart: `${URL_IMAGES}/iconos/iconos17.svg`,
+        // bankIconStart: `${URL_IMAGES}/iconos-civil/iconos-civil17.svg`,
         items: [
             {
                 link: "https://www.amazon.com.mx/wedding/share/karolyanwar",
@@ -132,8 +132,9 @@ const CivilWeddingKarolMario  = () => {
         mainTypo: MAIN_TYPO,
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
-        type:2,
+        type:3,
         title:"Vestimenta vaquera",
+        image:`${URL_IMAGES}/iconos-civil/Dress-code-forma.png`,
     
     }
 
