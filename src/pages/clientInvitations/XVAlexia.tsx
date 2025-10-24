@@ -498,7 +498,7 @@ const XVAlexia  = () => {
               mainTypo={MAIN_TYPO}
               bodyTypo={BODY_TYPO}
               count={invitedGuests}
-              dateLine={new Date(2025, 9, 18)}
+              dateLine={new Date(2025, 10, 3)}
               color={COLOR_PRIMARY}
               colorButton={COLOR_PRIMARY}
               invitationId={0}
