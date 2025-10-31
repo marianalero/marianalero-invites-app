@@ -1,5 +1,6 @@
 
 import BauAlondra from "../pages/clientInvitations/BauAlondra";
+import BauIvanna from "../pages/clientInvitations/BauIvanna";
 import BauMatias from "../pages/clientInvitations/BauMatias";
 import BSSophia from "../pages/clientInvitations/BSSophia";
 import CivilWeddingKarolMario from "../pages/clientInvitations/CivilWeddingKarolMario";
@@ -80,6 +81,7 @@ const routes: RouteConfig[] = [
   //Bautizo
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
+   {path:'/bautizo-ivanna', element: <BauIvanna></BauIvanna>},
   //OTROS
   {path:'/gender-reveal', element: <GenderReveal></GenderReveal>},
   {path:'/showroom', element: <Showroom></Showroom>},
@@ -88,8 +90,6 @@ const routes: RouteConfig[] = [
   {path:'/save-date-xv-dalia', element: <STDDalia></STDDalia>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/pv-ko-2', element: <WeddingKarolMario></WeddingKarolMario>},
-  {path:'/pv-ko', element: <CivilWeddingKarolMario></CivilWeddingKarolMario>},
   
 ];
 
