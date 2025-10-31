@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -22,7 +22,7 @@ const RSVPSimpleTwo = (props:RSVPType) => {
   const [totalConfirmed, setTotalConfirmed] = useState(1);
 
   const [errorName, setErrorName] = useState(false);
-
+  const [disabledRSVP, setDisabledRSVP] = useState(false)
   const handleSend = async () => {
     let confirmText = '';
      if (name.trim() === "") {
@@ -36,6 +36,15 @@ const RSVPSimpleTwo = (props:RSVPType) => {
    
   };
 
+   useEffect(() => {
+           if (props.dateLine && props.dateLine < new Date()) {
+           setDisabledRSVP(true);
+          
+        } else {
+            setDisabledRSVP(false);
+          
+        }  
+      }, [props]);
 
   return (
     <>
@@ -51,15 +60,23 @@ const RSVPSimpleTwo = (props:RSVPType) => {
               <Typography textAlign="center" variant="h3" className={props.mainTypo} sx={{color:props.color}}>
                               Confirma tu asistencia!
                           </Typography>
-              <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
+                      {disabledRSVP ? (
+                          <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
+                            Lo sentimos, el plazo para confirmar asistencia ya terminó.
+                          </Typography>
+                      ) : (    
+
+                          <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
                               Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
                           </Typography>
+                      )}        
             </Fade>
           </Grid>
 
           {/* Nombre */}
           <Grid size={{xs:12,sm:12,md:12,lg:12}} display="flex" justifyContent="center">
             <TextField
+              disabled={disabledRSVP}
               error={errorName}
               helperText={errorName ? "El nombre es requerido" : ""}
               required
@@ -100,6 +117,7 @@ const RSVPSimpleTwo = (props:RSVPType) => {
                 Número de asistentes
               </InputLabel>
               <Select<number>
+                disabled={disabledRSVP}
                 labelId="guests-label"
                 id="guests"
                 value={totalConfirmed}
@@ -142,6 +160,7 @@ const RSVPSimpleTwo = (props:RSVPType) => {
           </Grid>
 
           {/* Botón confirmar */}
+          {!disabledRSVP && (
           <Grid size={{xs:12,sm:12,md:12,lg:12}} display="flex" justifyContent="center">
             {
                                         props.classButtonName ? (
@@ -157,6 +176,7 @@ const RSVPSimpleTwo = (props:RSVPType) => {
                                     }
            
           </Grid>
+          )}
         </Grid>
       </Box>
 
