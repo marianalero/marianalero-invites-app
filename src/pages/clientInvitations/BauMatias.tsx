@@ -309,7 +309,7 @@ Ilumina y guía siempre a
                     mainTypo={MAIN_TYPO} 
                     bodyTypo={BODY_TYPO} 
                     count={invitedGuests}
-                    dateLine={new Date(2025,9,30)}
+                    dateLine={new Date(2025,10,7)}
                     color={COLOR_PRIMARY}
                     guestId={guestId}
                     invitationId={INVITATION_ID}
