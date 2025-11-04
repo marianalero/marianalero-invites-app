@@ -68,7 +68,7 @@ const RSVPSimple = (props:RSVPType) => {
         <Grid container spacing={2} padding={4}>
           <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
             <Fade direction="up" triggerOnce>
-                <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color, fontSize: props.fontSize ? props.fontSize :"3rem"}} >Confirma tu asistencia!</Typography>
+                <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color, fontSize: props.fontSize ? props.fontSize :"3rem"}} >¡Confirma tu asistencia!</Typography>
               <Typography
                 className={props.bodyTypo}
                 sx={{ fontSize: "1.25rem", color: props.textColor }}

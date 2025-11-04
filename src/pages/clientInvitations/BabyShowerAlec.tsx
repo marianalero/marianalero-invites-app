@@ -265,7 +265,7 @@ const BabyShowerAlec = () => {
                                 invitationId={100}
                                 qrActive={false} 
                                 textColor={COLOR_THIRD} 
-                                fontSize="35px"                          
+                                fontSize="30px"                          
                                 >
                                 
                             </RSVPSimple>
