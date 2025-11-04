@@ -1,4 +1,5 @@
 
+import BabyShowerAlec from "../pages/clientInvitations/BabyShowerAlec";
 import BauAlondra from "../pages/clientInvitations/BauAlondra";
 import BauIvanna from "../pages/clientInvitations/BauIvanna";
 import BauMatias from "../pages/clientInvitations/BauMatias";
@@ -88,6 +89,7 @@ const routes: RouteConfig[] = [
   {path:'/60-silvia', element: <Silvia60></Silvia60>},
   {path:'/bridalshower-sophia', element: <BSSophia></BSSophia>},
   {path:'/save-date-xv-dalia', element: <STDDalia></STDDalia>},
+   {path:'/baby-shower-alec', element: <BabyShowerAlec></BabyShowerAlec>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   
