@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Dialog, DialogContent,Typography } from "@mui/material";
+import { Box, CircularProgress, Dialog, DialogContent,Typography, useMediaQuery } from "@mui/material";
 import { EventCardSimple } from "../../components/EventCard/EventCardSimple";
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
@@ -28,7 +28,7 @@ const BabyShowerAlec = () => {
     ];
     const [isLoading, setIsLoading] = useState(true);
     const loadedCountRef = useRef(0); // contador que no dispara renders
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
    
 
     useEffect(() => {
@@ -86,7 +86,7 @@ const BabyShowerAlec = () => {
 
     return(
           <div style={{backgroundColor:"#fefef7",maxWidth: '100%',overflowY:"auto",}}>
-              <div  style={{backgroundImage:`url('${URL_IMAGES}portada2.png')`,backgroundPositionX: "50%", minHeight:"50vh", width:"100vw", backgroundSize:"cover",display:"grid",position: "relative", backgroundRepeat:"no-repeat" }} >
+              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}portada2.png` : `${URL_IMAGES}horz.png`}')`,backgroundPositionX: "50%", minHeight:isSmallScreen ? "50vh" : "100vh", width:"100vw", backgroundSize:"cover",display:"grid",position: "relative", backgroundRepeat:"no-repeat" }} >
                   <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
                 <div style={{marginTop:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative"}}>
                      <div  style={{position:"absolute",top:"95%",left:"50%",transform:"translate(-50%, -50%)"}}>
