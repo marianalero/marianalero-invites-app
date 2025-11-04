@@ -111,7 +111,7 @@ const BabyShowerAlec = () => {
                     
                     <div  style={{position:"absolute",top:"90%",left:"80%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="left" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}3.png`}  style={{width: "50px"}} />
+                               <img src={`${URL_IMAGES}3.1.png`}  style={{width: "50px"}} />
                          </Fade>
                      
                      </div>
@@ -127,7 +127,7 @@ const BabyShowerAlec = () => {
                      </div>
                      <div  style={{position:"absolute",top:"50%",right:"10%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
                          <Fade direction="right" triggerOnce={true}>
-                               <img src={`${URL_IMAGES}4.png`}  style={{width: "50px"}}/>
+                               <img src={`${URL_IMAGES}4.1.png`}  style={{width: "50px"}}/>
                          </Fade>
                      
                      </div>
