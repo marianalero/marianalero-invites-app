@@ -262,7 +262,7 @@ const BabyShowerAlec = () => {
                                 count={6}
                                 dateLine={new Date(2025, 8, 30)}
                                 color={COLOR_SECONDARY}
-                                invitationId={100}
+                                invitationId={9}
                                 qrActive={false} 
                                 textColor={COLOR_THIRD} 
                                 fontSize="30px"                          
