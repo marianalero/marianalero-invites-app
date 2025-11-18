@@ -11,6 +11,7 @@ import Silvia60 from "../pages/clientInvitations/Silvia60";
 import STDDalia from "../pages/clientInvitations/STDDalia";
 import WeddingAdelineOsvaldoTree from "../pages/clientInvitations/WeddingAdelineOsvaldo3";
 import WeddingAngelicaJose from "../pages/clientInvitations/WeddingAngelicaJose";
+import WeddingCendyAdrian from "../pages/clientInvitations/WeddingCendyAdrian";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKarolMario from "../pages/clientInvitations/WeddingKarolMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
@@ -92,6 +93,7 @@ const routes: RouteConfig[] = [
    {path:'/baby-shower-alec', element: <BabyShowerAlec></BabyShowerAlec>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
+  {path:'/prev-ca-1', element: <WeddingCendyAdrian></WeddingCendyAdrian>},
   
 ];
 

@@ -32,7 +32,7 @@ const DataGridCustom: React.FC<StyledTableProps> = ({ rows, columns, height = 40
           pagination: { paginationModel: { pageSize: 10 } }, // 👈 valor inicial
         }}
         localeText={{
-          noRowsLabel:"No se encontraron registos",
+          noRowsLabel:"No se encontraron registros",
           paginationRowsPerPage: 'Filas por página', 
           paginationDisplayedRows:({ from, to, count }) => `${from} - ${to} de ${
             count === -1 ? `más de ${to}` : count

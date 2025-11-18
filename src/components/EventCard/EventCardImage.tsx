@@ -21,10 +21,15 @@ const EventCardImage  = (props:EventCardProps) => {
                             border:"1px solid rgb(215, 174, 84, .2)",
                             boxShadow:2
                         }}>	
-                          <CardMedia
+                        {
+                            props.image &&(
+                                 <CardMedia
                             sx={{ height: 350 }}
                             image={props.image}
-                            />	
+                            />	    
+                            )
+                        }
+                         
                         <CardContent>
                             <Grid container spacing={2} display={"flex"}  alignItems={"center"} padding={2} bgcolor={props.bgColor} sx={{borderRadius:1}}>	
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  >

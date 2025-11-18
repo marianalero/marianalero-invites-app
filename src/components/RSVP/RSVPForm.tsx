@@ -130,7 +130,7 @@ const RSVPForm  = (props:RSVPType) => {
      };
     const RenderForm = () =>{
         return(
-        <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgColor}} >
+        <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgImage ? "transparent" : props.bgColor}} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" triggerOnce={true}>
                 {!props.guestId ? (
