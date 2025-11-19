@@ -14,8 +14,8 @@ const DataGridCustom: React.FC<StyledTableProps> = ({ rows, columns, height = 40
   return (
     <Box
       sx={{
-        height,
-        overflowX:"auto",
+       height: height,
+        
       }}
     >
       <DataGrid

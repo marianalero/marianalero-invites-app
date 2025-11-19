@@ -9,4 +9,5 @@ export interface CreateInvitationParameters {
   qrActive?: boolean;
   statusId:number;
   link?:string;
+  name:string;
 }

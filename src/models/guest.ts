@@ -1,3 +1,5 @@
+import { Answer } from "./question";
+
 export interface Guest {
   id: number;
   fullName: string;
@@ -9,4 +11,5 @@ export interface Guest {
   qrCodeToken?: string;
   registeredAttendance: boolean;
   companion?: string;
+  answers?: Answer[];
 }

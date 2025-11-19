@@ -41,8 +41,8 @@ export default function InvitationsList() {
 
 const invitationColumns: GridColDef[] = [
   { field: 'id', headerName: 'ID', flex: 1 },
-  { field: 'brideName', headerName: 'Novia', flex: 2 },
-  { field: 'groomName', headerName: 'Novio', flex: 2 },
+  { field: 'name', headerName: 'Nombre', flex: 2 },
+  
   { field: 'eventDate', headerName: 'Fecha Evento', flex: 2,
     valueFormatter:(value) =>(
       dayjs(value).format("DD MMMM YYYY")

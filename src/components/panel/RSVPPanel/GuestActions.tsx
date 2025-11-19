@@ -1,4 +1,4 @@
-import { Box, IconButton, Tooltip } from "@mui/material";
+import { Box, Button, IconButton, Tooltip } from "@mui/material";
 import { Guest } from "../../../models/guest";
 import { useState } from "react";
 import CreateGuestDialog from "./Dialog/CreateGuestDialog"
@@ -11,10 +11,12 @@ import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 import ConfirmModal from "../../ConfirmModal/ConfirmModal";
 import EventAvailableRoundedIcon from '@mui/icons-material/EventAvailableRounded';
 import EventBusyRoundedIcon from '@mui/icons-material/EventBusyRounded';
+import GuestAnswersModal from "./Dialog/GuestAnswersModal";
 interface GuestActionsProps {
     guest:Guest;
     link:string;
     refresh: () => void;
+    questions:boolean;
 }
 
 const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
@@ -22,6 +24,7 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
   const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
   const [openConfirmStatus, setOpenConfirmStatus] = useState(false);
   const [openRemove, setOpenRemove] = useState(false);
+  const [openAnswers, setOpenAnswers] = useState(false);
    const { showSnackbar } = useSnackbar();
   const handleCreated = () => {
     setOpenCreated(false);
@@ -49,7 +52,9 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
     setOpenConfirmDelete(false);
     refresh();
   }
-
+  const handleOpenAnswers = () => {
+    setOpenAnswers(true);
+  };
   return (
     <>
       <Box display="flex" gap={2}>
@@ -94,7 +99,9 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
                 <DeleteOutlineRoundedIcon />
             </IconButton>
         </Tooltip>
-      
+      <Button variant="outlined" onClick={() => handleOpenAnswers()}>
+        Ver respuestas
+      </Button>
        
       
       </Box>
@@ -137,6 +144,14 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
           onClose={() => setOpenRemove(false)}
           onConfirm={ () => confirmGuest(RSVPSTATUS.NotConfirmed) }
         />
+
+        {openAnswers && (
+          <GuestAnswersModal
+            open={openAnswers}
+            onClose={() => setOpenAnswers(false)}
+            guestId={guest.id}
+          />
+        )}
       
     </>
   );
