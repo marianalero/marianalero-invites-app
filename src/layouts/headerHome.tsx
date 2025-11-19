@@ -13,31 +13,31 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import logo from './../assets/logos/logo header.svg';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import { useLocation } from "react-router-dom";
 import { useAuth } from '../context/authContext';
 import { isAuthenticated } from '../services/authService';
-import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import logo from './../assets/logos/logo header.svg';
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { logout } = useAuth();
+  const { pathname } = useLocation();
 
   const menuItems = [
     { label: 'Modelos', href: '/demos', icon: <AppsRoundedIcon sx={{ color: '#a41423' }} /> },
     { label: 'Preguntas', href: '/faq', icon: <HelpOutlineIcon sx={{ color: '#a41423' }} /> },
-    { label: 'Términos y Condiciones', href: '/terminos' , hidden:true},
-    { label: 'Política de Privacidad', href: '/privacidad' , hidden:true},
+    { label: 'Términos y Condiciones', href: '/terminos', hidden: true },
+    { label: 'Política de Privacidad', href: '/privacidad', hidden: true },
   ];
-  const item = menuItems.find(x=>x.href == location.pathname);
-    useEffect(() => {
-        if (item) {
-          document.title = item.label;
-        } else {
-          document.title = "Mariana Lerma | Invitaciones Digitales"; // o déjalo en blanco si prefieres
-        }
-      }, [location.pathname]);
+
+  const item = menuItems.find(x => x.href === pathname);
+
+  useEffect(() => {
+    document.title = item ? item.label : "Mariana Lerma | Invitaciones Digitales";
+  }, [pathname]);
+
   return (
- 
     <>
       <AppBar
         position="static"
@@ -46,23 +46,32 @@ const Header = () => {
           fontFamily: 'Montserrat, sans-serif',
           boxShadow: 'none',
           px: 2,
+          width: "100%",
+          maxWidth: "100vw",
+          overflowX: "hidden"
         }}
       >
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Toolbar
+          sx={{
+            justifyContent: 'space-between',
+            flexWrap: "wrap",
+            gap: { xs: 1, md: 0 }
+          }}
+        >
           {/* Logo */}
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-             <Link
-                href="/"
-              >
-                 <img src={logo} alt="Logo" style={{ height: "50px", marginRight: 8 }} />
-              </Link>
-          
-          </Box>
+          <Link href="/" sx={{ display: "flex", alignItems: "center" }}>
+            <img
+              src={logo}
+              alt="Logo"
+              style={{ height: "40px", maxWidth: "140px" }}
+            />
+          </Link>
 
           {/* Menú desktop */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 3 }}>
-            {menuItems.map((item) => (
-              !item.hidden && (
+            {menuItems
+              .filter(x => !x.hidden)
+              .map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
@@ -73,58 +82,19 @@ const Header = () => {
                   {item.icon}
                   {item.label}
                 </Link>
-              )
-              
-            ))}
-            {/* <Button
-             href="https://wa.me/+526621942534/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
-              variant="contained"
-              sx={{
-                bgcolor: '#f2eadd',
-                color: '#a41423',
-                fontWeight: 'bold',
-                textTransform: 'none',
-                '&:hover': {
-                  bgcolor: '#f2eadd',
-                  color:"#a41423",
-                  border:"1px solid #a41423"
-                },
-              }}
-            >
-              Empieza tu invitacion
-            </Button> */}
-             { isAuthenticated() ? (
-               <Link
-                key="guests"
-                href="/guests"
-                underline="hover"
-                color="#fff"
-                sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-              >
-                Ir al Panel
-              </Link>
-            ):(
-              <Link
-                key="login"
-                href="/login"
-                underline="hover"
-                color="#fff"
-                sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-              >
-                Iniciar Sesión
-              </Link>
-            )
-          }
-            { isAuthenticated() && (
-               <IconButton 
-                onClick={() => logout()}
-                >
-                <LogoutRoundedIcon sx={{color: '#f2eadd'}} />
-              </IconButton>
-            )
+              ))}
 
-            }
-            
+            {isAuthenticated() ? (
+              <Link href="/guests" color="#fff">Ir al Panel</Link>
+            ) : (
+              <Link href="/login" color="#fff">Iniciar Sesión</Link>
+            )}
+
+            {isAuthenticated() && (
+              <IconButton onClick={logout}>
+                <LogoutRoundedIcon sx={{ color: '#f2eadd' }} />
+              </IconButton>
+            )}
           </Box>
 
           {/* Menú hamburguesa */}
@@ -139,7 +109,7 @@ const Header = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Drawer lateral */}
+      {/* Drawer */}
       <Drawer
         anchor="right"
         open={drawerOpen}
@@ -155,63 +125,29 @@ const Header = () => {
         }}
       >
         <List>
-          {menuItems.map((item) => (
-            <ListItem
-              
-              component="a"
-              href={item.href}
-              key={item.label}
-              onClick={() => setDrawerOpen(false)}
-            >
-              <ListItemText
-                primary={item.label}
-                sx={{ color: '#a41423' }}
-              />
-            </ListItem>
-          ))}
-          <ListItem
-            
-            component="a"
-            href="https://wa.me/+526621942534/?text=Hola,%20quiero%20información%20de%20las%20invitaciones%20digitales."
-            onClick={() => setDrawerOpen(false)}
-          >
-            <ListItemText
-              primary="Crear mi invitación"
-              sx={{
-                fontWeight: 'bold',
-                color: '#a41423',
-              }}
-            />
-          </ListItem>
-          { isAuthenticated() && (
+          {menuItems
+            .filter(x => !x.hidden)
+            .map((item) => (
               <ListItem
-            
-            component="a"
-            href="/guests"
-            onClick={() => setDrawerOpen(false)}
-          >
-            <ListItemText
-              primary="Ir al Panel"
-              sx={{
-                fontWeight: 'bold',
-                color: '#a41423',
-              }}
-            />
-          </ListItem>
-            )
-          }
-          { isAuthenticated() && (
-            <ListItem
-            onClick={() => logout()}
-          >
-            <ListItemText
-              primary="Cerrar sesion"
-              sx={{
-                fontWeight: 'bold',
-                color: '#a41423',
-              }}
-            />
-          </ListItem>
+                component="a"
+                href={item.href}
+                key={item.label}
+                onClick={() => setDrawerOpen(false)}
+              >
+                <ListItemText primary={item.label} sx={{ color: '#a41423' }} />
+              </ListItem>
+            ))}
+
+          {isAuthenticated() && (
+            <ListItem component="a" href="/guests" onClick={() => setDrawerOpen(false)}>
+              <ListItemText primary="Ir al Panel" sx={{ color: '#a41423' }} />
+            </ListItem>
+          )}
+
+          {isAuthenticated() && (
+            <ListItem onClick={logout}>
+              <ListItemText primary="Cerrar sesión" sx={{ color: '#a41423' }} />
+            </ListItem>
           )}
         </List>
       </Drawer>

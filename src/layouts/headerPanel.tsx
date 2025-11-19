@@ -52,8 +52,8 @@ const filteredMenu:MenuItem[] = user
 
   const title = routeTitles[location.pathname];
   useEffect(() => {
-    document.title = title;
-  }, []);
+  document.title = title;
+}, [title]);
   const drawer = (
     <div>
       <Toolbar>
@@ -82,12 +82,12 @@ const filteredMenu:MenuItem[] = user
       <CssBaseline />
       {/* AppBar */}
       <AppBar
-      elevation={1}
+        elevation={1}
         position="fixed"
         sx={{
-          backgroundColor:"white!important",
-          width: { md: `calc(100% - ${drawerWidth}px)` },
-          ml: { md: `${drawerWidth}px` },
+          backgroundColor: "white!important",
+          width: { xs: "100%", md: `calc(100% - ${drawerWidth}px)` },
+          ml: { xs: 0, md: `${drawerWidth}px` },
         }}
       >
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -127,9 +127,11 @@ const filteredMenu:MenuItem[] = user
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
           sx={{
-            backgroundColor:"white!important",
             display: { xs: 'block', md: 'none' },
-            '& .MuiDrawer-paper': { width: drawerWidth },
+            '& .MuiDrawer-paper': {
+              width: drawerWidth,
+              backgroundColor: "white",
+            }
           }}
         >
           {drawer}
@@ -152,10 +154,10 @@ const filteredMenu:MenuItem[] = user
       <Box
         component="main"
         sx={{
-          backgroundColor:"#f1e9dd",
+          backgroundColor: "#f1e9dd",
           flexGrow: 1,
           p: 3,
-          width: { md: `calc(100% - ${drawerWidth}px)` },
+          width: { xs: "100%", md: `calc(100% - ${drawerWidth}px)` },
         }}
       >
         <Toolbar />
