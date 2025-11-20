@@ -50,8 +50,8 @@ const WeddingCendyAdrian  = () => {
     }, []);
     const COLOR_PRIMARY = "#192338";
     const COLOR_SECONDARY = "#1e2e4f";
-    const MAIN_TYPO = "boheme-floral";
-    const BODY_TYPO = "noto-serif-display-400 to-upper";
+    const MAIN_TYPO = "southland";
+    const BODY_TYPO = "roboto-400 to-upper";
     const COLOR_BG ="rgb(240, 243, 250)";
     const URL_IMAGES = `${URL_REPO}boda/boda-cendy-adrian/`;
     const URL_SONG = `${URL_REPO}canciones/CalumScott-Biblical.mp3`;
@@ -133,17 +133,17 @@ const WeddingCendyAdrian  = () => {
         mainTypo: MAIN_TYPO,
         bodyTypo:BODY_TYPO,
         color:COLOR_SECONDARY,
-        type:1,
+        type:2,
         title:"Formal",
-        omitColorsLabel:"Omitir color blanco o beige",
+        omitColorsLabel:"Omitir colores de los novios",
+        omitColors:["#dcccb3","#dcccb3"]   
 
     }
      const withOutKids:WithoutKidsProps = {
         bodyTypo:BODY_TYPO,
     }
     const galleryPhotos = [
-        `${URL_IMAGES}galeria1.jpeg`,
-        `${URL_IMAGES}galeria2.jpeg`,
+        `${URL_IMAGES}enmedio.jpeg`,
         `${URL_IMAGES}galeria3.jpeg`,
         `${URL_IMAGES}galeria4.jpeg`,
        `${URL_IMAGES}galeria5.jpeg`,
@@ -190,7 +190,7 @@ const WeddingCendyAdrian  = () => {
                 ],
     };
     return (
-        <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
+        <div style={{backgroundColor:"#f0f0f0",maxWidth: '100%',overflowY:"auto",}}>
             <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_SECONDARY}/>
             <Cover 
                 ourWeddingStart={true}
@@ -208,7 +208,7 @@ const WeddingCendyAdrian  = () => {
              <Qoute 
                {...qoute}>
             </Qoute>
-            <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio.jpeg`}></ImageMiddle>
+            <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}galeria1.jpeg`}></ImageMiddle>
          
             <Introduction
                 brideFather="Estela Aguilar Lozano"

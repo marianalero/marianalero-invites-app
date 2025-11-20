@@ -33,7 +33,7 @@ const EventCardImage  = (props:EventCardProps) => {
                         <CardContent>
                             <Grid container spacing={2} display={"flex"}  alignItems={"center"} padding={2} bgcolor={props.bgColor} sx={{borderRadius:1}}>	
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  >
-                                    <Typography variant='h3'  style={{color:props.color}} textAlign={"center"} className={props.mainTypo} >{props.eventName}</Typography>
+                                    <Typography variant='h3'  style={{color:props.color,fontSize:props.fontSize ? props.fontSize : "2rem"}} textAlign={"center"} className={props.mainTypo} >{props.eventName}</Typography>
                                 </Grid>		
                                 { isSmallScreen ? 
                                 (
