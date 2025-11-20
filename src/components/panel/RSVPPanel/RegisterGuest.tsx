@@ -122,7 +122,7 @@ const columns: GridColDef[] = !isMobile  ? [
       field: "actions",
       headerName: "",
       type: "actions",
-      width:250,
+      width:500,
       renderCell: (params) => (
         <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } questions={invitation?.hasQuestions ?? false} />
       ),
@@ -139,7 +139,7 @@ const columns: GridColDef[] = !isMobile  ? [
       field: "actions",
       headerName: "",
       type: "actions",
-      width:250,
+      width:500,
       renderCell: (params) => (
         <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } questions={invitation?.hasQuestions ?? false} />
       ),

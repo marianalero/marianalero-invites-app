@@ -19,7 +19,7 @@ interface GuestActionsProps {
     questions:boolean;
 }
 
-const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
+const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh,questions }) => {
   const [openCreated, setOpenCreated] = useState(false);
   const [openConfirmDelete, setOpenConfirmDelete] = useState(false);
   const [openConfirmStatus, setOpenConfirmStatus] = useState(false);
@@ -99,9 +99,12 @@ const GuestActions: React.FC<GuestActionsProps> = ({ guest, link,refresh }) => {
                 <DeleteOutlineRoundedIcon />
             </IconButton>
         </Tooltip>
-      <Button variant="outlined" onClick={() => handleOpenAnswers()}>
-        Ver respuestas
-      </Button>
+        { questions &&(
+          <Button variant="outlined" onClick={() => handleOpenAnswers()}>
+            Ver respuestas
+          </Button>
+        )}
+      
        
       
       </Box>
