@@ -53,7 +53,8 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
     expirationDate: undefined,
     qrActive: false,
     statusId:1,
-    link:undefined
+    link:undefined,
+    name:''
   });
 
   const [users, setUsers] = useState<User[]>([]);
@@ -75,6 +76,7 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
           qrActive: data.qrActive ?? false,
           statusId: data.statusId ?? 1,
           link: data.link ?? undefined,
+          name: data.name
         });
       } catch (err) {
         console.error('Error al cargar la invitación', err);
@@ -98,8 +100,7 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
-    if (!formData.brideName) newErrors.brideName = 'Requerido';
-    if (!formData.groomName) newErrors.groomName = 'Requerido';
+    if (!formData.name) newErrors.name = 'Requerido';
     if (!formData.deadlineDate) newErrors.deadlineDate = 'Requerido';
     if (!formData.eventDate) newErrors.eventDate = 'Requerido';
     if(!id || id ==0){
@@ -128,7 +129,8 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
           groomName: formData.groomName,
           brideName: formData.brideName,
           link: formData.link,
-          id: id
+          id: id,
+          name: formData.name
         }); 
       } else {
         await createInvitation( {
@@ -139,7 +141,8 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
           brideName: formData.brideName,
           link: formData.link,
           userId: formData.userId,
-          statusId: 1
+          statusId: 1,
+          name: formData.name
         });
       }
       handleCreate();
@@ -160,7 +163,8 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
       expirationDate: undefined,
       qrActive: false,
       statusId: 1,
-      link:undefined
+      link:undefined,
+      name:''
     });
     setErrors({});
     onClose();
@@ -195,15 +199,15 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
 
         <TextField
           fullWidth
-          label="Nombre del Novio"
-          value={formData.groomName}
-          onChange={(e) => handleChange('groomName', e.target.value)}
+          label="Nombre"
+          value={formData.name}
+          onChange={(e) => handleChange('name', e.target.value)}
           margin="normal"
-          error={!!errors.groomName}
-          helperText={errors.groomName}
+          error={!!errors.name}
+          helperText={errors.name}
         />
 
-        <TextField
+        {/* <TextField
           fullWidth
           label="Nombre de la Novia"
           value={formData.brideName}
@@ -211,7 +215,7 @@ const CreateInvitationModal: React.FC<CreateInvitationModalProps> = ({ open, onC
           margin="normal"
           error={!!errors.brideName}
           helperText={errors.brideName}
-        />
+        /> */}
 
         <DatePicker
         sx={{width:"100%", marginY:2}}

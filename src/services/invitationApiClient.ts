@@ -4,6 +4,7 @@ import { createApiAuthClient } from "./api";
 import { Invitation } from "../models/invitation";
 import { CreateInvitationParameters } from "../models/parameters/createInvitationParameters";
 import { UpdateInvitationParameters } from "../models/parameters/updateInvitationParameters";
+import { Question } from "../models/question";
 const apiClient: AxiosInstance = createApiAuthClient();
 
 async function getInvitations(): Promise<Invitation[]> {
@@ -34,4 +35,9 @@ async function changeStatus(id:number,statusId:number): Promise<Invitation> {
   return response.data; 
 }
 
-export {getInvitations,getInvitationById,createInvitation,updateInvitation,changeStatus}
+async function getQuestionsByInvitationId  (id: number): Promise<Question[]> {
+  const response = await apiClient.get<Question[]>(`questions?invitationId=${id}`);
+  return response.data;
+}
+
+export {getInvitations,getInvitationById,createInvitation,updateInvitation,changeStatus,getQuestionsByInvitationId}

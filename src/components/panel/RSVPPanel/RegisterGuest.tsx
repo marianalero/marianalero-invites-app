@@ -64,6 +64,7 @@ export default function RegisterGuest() {
 
   const fetchInvitation = async () =>  {
     const res = await getInvitationById(Number.parseInt(invitationId));
+    console.log(res);
     setInvitation(res);
   };
 
@@ -116,15 +117,14 @@ const columns: GridColDef[] = !isMobile  ? [
         <RsvpStatusChip statusId={params.row.rsvpStatus} />
     ),
     },
-    { field: 'totalAssigned', headerName: 'Asignados', flex: 2,  minWidth:100,},
-    { field: 'totalConfirmed', headerName: 'Confirmados', flex: 2 ,  minWidth:100, },
+    { field: 'totalConfirmed', headerName: 'Confirmados', flex: 2 ,  minWidth:100, valueGetter: (_,row) => `${row.totalConfirmed}/${row.totalAssigned}` },
     {
       field: "actions",
       headerName: "",
       type: "actions",
       width:250,
       renderCell: (params) => (
-        <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } />
+        <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } questions={invitation?.hasQuestions ?? false} />
       ),
     },
 ] : [
@@ -134,14 +134,14 @@ const columns: GridColDef[] = !isMobile  ? [
         <RsvpStatusChip statusId={params.row.rsvpStatus} />
     ),
    },
-    { field: 'totalConfirmed', headerName: 'N° Confirmados', flex: 2, minWidth:100 , },
+   { field: 'totalConfirmed', headerName: 'Confirmados', flex: 2 ,  minWidth:100, valueGetter: (_,row) => `${row.totalConfirmed}/${row.totalAssigned}` },
    {
       field: "actions",
       headerName: "",
       type: "actions",
       width:250,
       renderCell: (params) => (
-        <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } />
+        <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } questions={invitation?.hasQuestions ?? false} />
       ),
     },
 ];

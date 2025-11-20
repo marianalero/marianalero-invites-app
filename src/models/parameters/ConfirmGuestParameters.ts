@@ -1,3 +1,5 @@
+import { Answer } from "../question";
+
 export interface ConfirmGuestParameters {
   guestId: number;
   rsvpStatus: number;
@@ -6,4 +8,5 @@ export interface ConfirmGuestParameters {
   companion?:string;
   phoneNumber?: string;
   invitationId: number;
+  answers?: Answer[];
 }

@@ -9,4 +9,5 @@ export interface InvitationFormData {
   qrActive?: boolean;
   statusId:number;
   link?:string;
+  name:string;
 }

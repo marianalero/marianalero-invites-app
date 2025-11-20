@@ -8,4 +8,5 @@ export interface UpdateInvitationParameters {
   expirationDate?: Date;
   qrActive?: boolean;
   link?:string;
+  name:string;
 }

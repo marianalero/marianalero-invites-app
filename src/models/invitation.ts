@@ -16,4 +16,6 @@ export interface Invitation {
   guests: Guest[];
   link:string;
   statusId:number;
+  hasQuestions:boolean;
+  name:string;
 }

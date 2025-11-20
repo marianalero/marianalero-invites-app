@@ -1,3 +1,5 @@
+import { Answer } from "../question";
+
 export interface CreateGuestParameters {
   fullName: string;
   rsvpStatus: number;
@@ -6,4 +8,5 @@ export interface CreateGuestParameters {
   totalAssigned: number;
   invitationId: number;
   companion?:string;
+  answers?: Answer[];
 }

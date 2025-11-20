@@ -6,6 +6,7 @@ import { createApiAuthClient } from "./api";
 import { GuestsResult } from "../models/guestsResult";
 import { UpdateGuestParameters } from "../models/parameters/updateGuestParameters";
 import { BaseStateResponse } from "../models/BaseStateResponse";
+import { GuestAnswer } from "../models/question";
 const apiAuthClient: AxiosInstance = createApiAuthClient();
 const apiClient: AxiosInstance = createApiAuthClient();
 async function getGuestById(id: number,invitacionId:number): Promise<Guest> {
@@ -54,6 +55,13 @@ async function uploadGuestExcel(file: File): Promise<{ message: string; total: n
   });
 
   return response.data;
+}
+
+async function getAnswers(id: number): Promise<GuestAnswer[]> {
+  const { data } = await apiAuthClient.get<GuestAnswer[]>(
+    `questions/answers?guestId=${id}`,
+  );
+  return data;
 }
 
 async function updateGuest(body: UpdateGuestParameters): Promise<Guest> {
@@ -118,4 +126,4 @@ async function ConfirmExcel(URL:string){
     }
 }
 
-export {getGuestById,CreateAndConfirm,Confirm,getGuestByToken,getGuests,uploadGuestExcel,createGuest,updateGuest,exportGuestsToExcel,ConfirmExcel,DeleteGuest}
+export {getGuestById,CreateAndConfirm,Confirm,getGuestByToken,getGuests,uploadGuestExcel,createGuest,updateGuest,exportGuestsToExcel,ConfirmExcel,DeleteGuest,getAnswers}
