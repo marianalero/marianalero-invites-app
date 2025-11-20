@@ -15,7 +15,7 @@ import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Dialog, DialogContent, Box, Typography, DialogActions } from "@mui/material";
+import { Dialog, DialogContent, Box, Typography, DialogActions, Paper, Button } from "@mui/material";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Adornment from "../../components/Adornment/Adornment";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
@@ -356,6 +356,7 @@ const WeddingStephaniaIsamael  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
             <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio3.jpg`}></ImageMiddle>
             <GiftList {...giftListData} ></GiftList>
+            
             <RSVPForm 
             textColor={COLOR_SECONDARY}
                 colorButton={COLOR_PRIMARY}     
@@ -372,13 +373,77 @@ const WeddingStephaniaIsamael  = () => {
             >
                 
             </RSVPForm>
+            <Grid container spacing={2} padding={2}>
+                <Box sx={{ pt: 4, pb: 2, backgroundColor: "#f7f7f7", mb: 4 }}>
+        {/* Título */}
+        <Grid container justifyContent="center" textAlign="center" mb={2}>
+          <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+            <Typography variant="h4" sx={{ color: "#2f3e55", fontSize: 35 }}>
+              Hospedaje
+            </Typography>
+            <Typography sx={{ fontSize: 16, mt: 1 }}>
+              Queremos que disfruten este día sin preocupaciones. Si necesitan
+              hospedaje, les sugerimos:
+            </Typography>
+          </Grid>
+        </Grid>
+
+        {/* Tarjeta */}
+        <Grid container justifyContent="center">
+          <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+            <Paper elevation={1} sx={{ p: 3, backgroundColor: "white" }}>
+              <Typography fontWeight="bold" sx={{ mb: 1 }}>
+                Comfort Inn Hermosillo Aeropuerto.
+              </Typography>
+
+              <Typography>Reservaciones:</Typography>
+
+              <Typography>Teléfonos: +52 (662) 500 56 00</Typography>
+
+              <Typography>Servicio 24 horas</Typography>
+
+              <Typography sx={{ mt: 1 }}>
+                Correo:
+                <br />
+                Reservaciones@cihermosillo.com
+                <br />
+                america.valenzuela@cihermosillo.com
+              </Typography>
+
+              <Button
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 2,
+                  backgroundColor: "#e91e63",
+                  "&:hover": { backgroundColor: "#c2185b" },
+                }}
+                onClick={() => {
+                  window.open(
+                    "https://maps.app.goo.gl/4mZsWV2PZZgwyUr77",
+                    "_blank"
+                  );
+                }}
+              >
+                Ver ubicación
+              </Button>
+            </Paper>
+          </Grid>
+        </Grid>
+
+        {/* Nota final */}
+        <Grid container justifyContent="center" textAlign="center" mt={3}>
+          <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+            <Typography sx={{ fontSize: 15 }}>
+              Mencionando que tienen tarifa preferencial por la boda de María
+              Antonieta y Bruno
+            </Typography>
+          </Grid>
+        </Grid>
+    </Box>
+            </Grid>
             <DressCode {...dresscode}></DressCode>
             
-
-             {/* <HashtagSection
-                  imageSrc={`${URL_IMAGES}instagram.png`}
-                  bgColor="#ffffff" 
-                  hashtags={["#TeamSchweitzmanLugo"]}     bodyTypo={BODY_TYPO}           /> */}
                    <Adornment image={`${URL_IMAGES}1.svg`} width={"250px"} />
                               <WithoutKids {...withOutKids} /> 
             <div style={{height:100}}></div>
