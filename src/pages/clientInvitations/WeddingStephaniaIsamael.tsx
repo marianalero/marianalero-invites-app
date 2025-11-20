@@ -373,26 +373,26 @@ const WeddingStephaniaIsamael  = () => {
             >
                 
             </RSVPForm>
-            <Grid container spacing={2} padding={2}>
-                <Box sx={{ pt: 4, pb: 2, backgroundColor: "#f7f7f7", mb: 4 }}>
-        {/* Título */}
-        <Grid container justifyContent="center" textAlign="center" mb={2}>
-          <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-            <Typography variant="h4" sx={{ color: "#2f3e55", fontSize: 35 }}>
-              Hospedaje
-            </Typography>
-            <Typography sx={{ fontSize: 16, mt: 1 }}>
-              Queremos que disfruten este día sin preocupaciones. Si necesitan
-              hospedaje, les sugerimos:
-            </Typography>
-          </Grid>
-        </Grid>
+            <Grid container spacing={2} padding={2} display="flex" justifyContent="center">
+                <Paper sx={{ padding:2, backgroundColor: "#f7f7f7", mb: 4 }}>
+                {/* Título */}
+                <Grid container justifyContent="center" textAlign="center" mb={2}>
+                <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                    <Typography variant="h4" sx={{ color: COLOR_PRIMARY, fontSize: 40 }} className={MAIN_TYPO}>
+                    Hospedaje
+                    </Typography>
+                    <Typography sx={{ fontSize: 14, mt: 1 }} className={BODY_TYPO}>
+                    Queremos que disfruten este día sin preocupaciones. Si necesitan
+                    hospedaje, les sugerimos:
+                    </Typography>
+                </Grid>
+                </Grid>
 
         {/* Tarjeta */}
         <Grid container justifyContent="center">
-          <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-            <Paper elevation={1} sx={{ p: 3, backgroundColor: "white" }}>
-              <Typography fontWeight="bold" sx={{ mb: 1 }}>
+          <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+            <Box sx={{ p: 3, backgroundColor: COLOR_BG, borderRadius:1 }}>
+              <Typography variant="h6" className={SECON_MAIN_TYPO} sx={{ mb: 1, color:COLOR_PRIMARY }}>
                 Comfort Inn Hermosillo Aeropuerto.
               </Typography>
 
@@ -427,7 +427,7 @@ const WeddingStephaniaIsamael  = () => {
               >
                 Ver ubicación
               </Button>
-            </Paper>
+            </Box>
           </Grid>
         </Grid>
 
@@ -440,7 +440,7 @@ const WeddingStephaniaIsamael  = () => {
             </Typography>
           </Grid>
         </Grid>
-    </Box>
+    </Paper>
             </Grid>
             <DressCode {...dresscode}></DressCode>
             
