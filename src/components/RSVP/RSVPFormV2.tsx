@@ -400,6 +400,7 @@ const RSVPFormV2  = (props:RSVPType) => {
                                                 '&.Mui-focused fieldset': {
                                                     borderColor: props.colorButton, // Borde en focus
                                                 },
+                                                },
                                                 '& .MuiInputLabel-root': {
                                                     backgroundColor: 'rgba(255, 255, 255, 0.8)',
                                                     padding: '0 4px',
@@ -407,7 +408,6 @@ const RSVPFormV2  = (props:RSVPType) => {
                                                 },
                                                 '& .MuiInputLabel-root.Mui-focused': {
                                                     backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                                },
                                                 },
                                             }}
                                             value={guest.companion ?? ''}
