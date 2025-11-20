@@ -140,7 +140,7 @@ const GiftList = (props:GiftListProps) =>{
                 
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                       
-                        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={2} >
+                        <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={2} >
                         {props.bankDetails?.map((item, index) => (
                            <BankCard key={index} numbers={item.numbers} bank={item.bank} name={item.name} color={item.color} bodyTypo={props.bodyTypo} bgColor={item.bgColor}></BankCard>
                         ))}

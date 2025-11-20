@@ -5,7 +5,7 @@ import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/WithoutKids";
 import Cover from "../../components/Cover/CoverImage/Cover";
-
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
 import EventCardImage from "../../components/EventCard/EventCardImage";
@@ -373,8 +373,15 @@ const WeddingStephaniaIsamael  = () => {
             >
                 
             </RSVPForm>
-            <Grid container spacing={2} padding={2} display="flex" justifyContent="center">
-                <Paper sx={{ padding:2, backgroundColor: "#f7f7f7", mb: 4 }}>
+          
+            <DressCode {...dresscode}></DressCode>
+            
+                   <Adornment image={`${URL_IMAGES}1.svg`} width={"250px"} />
+                              <WithoutKids {...withOutKids} /> 
+                                <Grid container spacing={2} padding={2} display="flex" justifyContent="center">
+                <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                    <Fade direction="up"  triggerOnce={true}>
+                <Paper sx={{ padding:2, backgroundColor: COLOR_BG, mb: 4 }}>
                 {/* Título */}
                 <Grid container justifyContent="center" textAlign="center" mb={2}>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>
@@ -388,64 +395,55 @@ const WeddingStephaniaIsamael  = () => {
                 </Grid>
                 </Grid>
 
-        {/* Tarjeta */}
-        <Grid container justifyContent="center">
-          <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-            <Box sx={{ p: 3, backgroundColor: COLOR_BG, borderRadius:1 }}>
-              <Typography variant="h6" className={SECON_MAIN_TYPO} sx={{ mb: 1, color:COLOR_PRIMARY }}>
-                Comfort Inn Hermosillo Aeropuerto.
-              </Typography>
+                {/* Tarjeta */}
+                <Grid container justifyContent="center">
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                    <Box sx={{ p: 3, backgroundColor: "white", borderRadius:1 }} gap={1}>
+                        
+                    <Typography variant="h6" align="center" className={SECON_MAIN_TYPO} sx={{ mb: 1, color:COLOR_PRIMARY }}>
+                        Hotel Fiesta Americana
+                    </Typography>
+                        <img src={`${URL_IMAGES}hotel.jpg`} style={{width: "100%", borderRadius:2}} />
+                    <Typography sx={{ mt: 1 }} className={BODY_TYPO} align="center">Reservaciones:</Typography>
 
-              <Typography>Reservaciones:</Typography>
+                    <Typography sx={{ mt: 1 }}  className={BODY_TYPO}>Teléfono: <br /> 800 504 5000</Typography>
 
-              <Typography>Teléfonos: +52 (662) 500 56 00</Typography>
+                    <Typography  sx={{ mt: 1 }} className={BODY_TYPO}>Contacto:  <br />Jesus Quijada</Typography>
 
-              <Typography>Servicio 24 horas</Typography>
-
-              <Typography sx={{ mt: 1 }}>
-                Correo:
-                <br />
-                Reservaciones@cihermosillo.com
-                <br />
-                america.valenzuela@cihermosillo.com
-              </Typography>
-
-              <Button
-                fullWidth
-                variant="contained"
-                sx={{
-                  mt: 2,
-                  backgroundColor: "#e91e63",
-                  "&:hover": { backgroundColor: "#c2185b" },
-                }}
-                onClick={() => {
-                  window.open(
-                    "https://maps.app.goo.gl/4mZsWV2PZZgwyUr77",
-                    "_blank"
-                  );
-                }}
-              >
-                Ver ubicación
-              </Button>
-            </Box>
-          </Grid>
-        </Grid>
-
-        {/* Nota final */}
-        <Grid container justifyContent="center" textAlign="center" mt={3}>
-          <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-            <Typography sx={{ fontSize: 15 }}>
-              Mencionando que tienen tarifa preferencial por la boda de María
-              Antonieta y Bruno
-            </Typography>
-          </Grid>
-        </Grid>
-    </Paper>
-            </Grid>
-            <DressCode {...dresscode}></DressCode>
+                    <Typography sx={{ mt: 1 }} className={BODY_TYPO}>
+                        Correo:
+                        <br />
+                       ventas2fahe@posadas.com
+        
+                    </Typography>
+                     <Typography sx={{ mb: 1 ,mt: 1}} className={BODY_TYPO}>
+                        Celular:
+                        <br />
+                      6622004751
             
-                   <Adornment image={`${URL_IMAGES}1.svg`} width={"250px"} />
-                              <WithoutKids {...withOutKids} /> 
+                    </Typography>
+
+                    <Box display="flex" justifyContent="center">
+                    <CustomButton href={""} bgColor={COLOR_SECONDARY} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+
+                    </Box>
+
+                    </Box>
+                </Grid>
+                </Grid>
+
+                {/* Nota final */}
+                <Grid container justifyContent="center" textAlign="center" mt={3}>
+                <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                    <Typography sx={{ fontSize: 15 }} className={BODY_TYPO}>
+                    Mencionando que tienen tarifa preferencial por la boda de Stephania e Ismael
+                    </Typography>
+                </Grid>
+                </Grid>
+            </Paper>
+            </Fade>
+            </Grid>
+            </Grid>
             <div style={{height:100}}></div>
             <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites bgColor="rgb(249, 249, 249)" color={COLOR_PRIMARY}></FooterInvites>
