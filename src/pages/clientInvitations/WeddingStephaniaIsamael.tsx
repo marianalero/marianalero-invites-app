@@ -15,7 +15,7 @@ import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Dialog, DialogContent, Box, Typography, DialogActions, Paper, Button } from "@mui/material";
+import { Dialog, DialogContent, Box, Typography, DialogActions, Paper } from "@mui/material";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Adornment from "../../components/Adornment/Adornment";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
@@ -109,7 +109,7 @@ const WeddingStephaniaIsamael  = () => {
         color: COLOR_SECONDARY, 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
-        envelopePhrase:"Tendremos una caja de sobres  si desean hacer un regalo en efectivo o depósito bancario.",
+        envelopePhrase:"Tendremos una caja de sobres  si desean hacer un regalo en efectivo.",
         
         bankIconEnd: `${URL_IMAGES}iconos/10.svg`,
         bankDetails: [
@@ -124,7 +124,7 @@ const WeddingStephaniaIsamael  = () => {
                     number: "118 014 6129",
                     },
                     {
-                    numberType: "Cuenta",
+                    numberType: "CLABE",
                     number: " 012 760 01180146129 1",
                     },
                 ],
@@ -150,6 +150,7 @@ const WeddingStephaniaIsamael  = () => {
 
     }
      const withOutKids:WithoutKidsProps = {
+        hideTitle:true,
         bodyTypo:BODY_TYPO,
     }
     const galleryPhotos = [
@@ -181,12 +182,12 @@ const WeddingStephaniaIsamael  = () => {
                     },
                     {
                         eventName: "Cena",
-                        date: new Date(2025, 10, 16, 18, 20, 0),
+                        date: new Date(2025, 10, 16, 20, 0, 0),
                         icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
                         eventName: "Fiesta",
-                        date: new Date(2025, 10, 16, 18, 21, 0),
+                        date: new Date(2025, 10, 16, 21, 0, 0),
                         icon: `${URL_IMAGES}iconos/7.svg`,
                     },
                     {
