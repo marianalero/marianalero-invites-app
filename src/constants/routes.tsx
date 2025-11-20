@@ -94,7 +94,7 @@ const routes: RouteConfig[] = [
    {path:'/baby-shower-alec', element: <BabyShowerAlec></BabyShowerAlec>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/prev-ca-1', element: <WeddingCendyAdrian></WeddingCendyAdrian>},
+  {path:'/prev-ca-2', element: <WeddingCendyAdrian></WeddingCendyAdrian>},
   {path:'/prev-ws-1', element: <WeddingStephaniaIsamael></WeddingStephaniaIsamael>},
   
 ];

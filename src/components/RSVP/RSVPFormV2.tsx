@@ -40,6 +40,7 @@ const RSVPFormV2  = (props:RSVPType) => {
     const fetchGuest = async () => {
 
         const responseQuestions = await getQuestionsByInvitationId(props.invitationId);
+        console.log(responseQuestions);
         setQuestions(responseQuestions);
         if( props.guestId && props.guestId > 0 ){
            
@@ -427,6 +428,7 @@ const RSVPFormV2  = (props:RSVPType) => {
                             {q.type === 'text' && (
                             <TextField
                                 disabled={disabledRSVP}
+                                placeholder='Escribre tu respuesta'
                                 sx={{
                                     minWidth:300,
                                     '& label.Mui-focused': {

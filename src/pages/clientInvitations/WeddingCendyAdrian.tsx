@@ -20,6 +20,7 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import Adornment from "../../components/Adornment/Adornment";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import RSVPForm from "../../components/RSVP/RSVPForm";
+import RSVPFormV2 from "../../components/RSVP/RSVPFormV2";
 const WeddingCendyAdrian  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -30,7 +31,7 @@ const WeddingCendyAdrian  = () => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
-    const INVITATION_ID = 100;
+    const INVITATION_ID = 11;
     const [open, setOpen] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
         const handleClickOpen = () => {
@@ -238,7 +239,7 @@ const WeddingCendyAdrian  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
             <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio3.jpeg`}></ImageMiddle>
             <GiftList {...giftListData} ></GiftList>
-            <RSVPForm 
+            <RSVPFormV2 
             textColor="white"
                 colorButton={COLOR_PRIMARY}     
                 mainTypo={MAIN_TYPO} 
@@ -253,7 +254,7 @@ const WeddingCendyAdrian  = () => {
                 bgColor=""
             >
                 
-            </RSVPForm>
+            </RSVPFormV2>
             <DressCode {...dresscode}></DressCode>
             
 
