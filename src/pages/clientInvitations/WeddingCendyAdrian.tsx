@@ -59,7 +59,7 @@ const WeddingCendyAdrian  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Ceremonia Religiosa",
-                date: new Date(2025, 9, 25, 17, 0, 0),
+                date: new Date(2025, 2, 7, 17, 0, 0),
                 locationName: "Catedral Metropolitana de Hermosillo",
                 address: "Blvr. Miguel Hidalgo S/N, Centro Norte, Hermosillo, Son.",
                 size: 6,
@@ -73,7 +73,7 @@ const WeddingCendyAdrian  = () => {
             },
             {
                 eventName: "Recepción",
-                date: new Date(2025, 9, 25, 20, 0, 0),
+                date: new Date(2025, 2, 7, 20, 0, 0),
                 locationName: "Antigua Hacienda las Palmas",
                 address: "Fabrica de Los Ángeles #15, Tronconal, El Alamito Buenavista, Son.",
                 size: 6,
@@ -174,12 +174,12 @@ const WeddingCendyAdrian  = () => {
                     },
                     {
                         eventName: "Cena",
-                        date: new Date(2025, 10, 16, 18, 21, 0),
+                        date: new Date(2025, 10, 16, 21, 0, 0),
                         icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
                         eventName: "Vals",
-                        date: new Date(2025, 10, 16, 18, 22, 0),
+                        date: new Date(2025, 10, 16, 22, 0, 0),
                         icon: `${URL_IMAGES}iconos/6.svg`,
                     },
                     {
