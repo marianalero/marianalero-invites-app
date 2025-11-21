@@ -425,7 +425,7 @@ const WeddingStephaniaIsamael  = () => {
                     </Typography>
 
                     <Box display="flex" justifyContent="center">
-                    <CustomButton href={""} bgColor={COLOR_SECONDARY} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+                    <CustomButton href={"https://maps.app.goo.gl/4W88jfAWB4FqK6387"} bgColor={COLOR_SECONDARY} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
 
                     </Box>
 
