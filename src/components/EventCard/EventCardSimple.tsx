@@ -27,7 +27,7 @@ export const EventCardSimple = (props:EventCardProps) => {
             {props.locationName}
           </Typography>
 
-          <Typography className={props.bodyTypo} sx={{ fontSize: '1.1rem',color:props.textColor }}>
+          <Typography className={props.bodyTypo} sx={{ fontSize: '1.1rem',color:props.textColor, marginTop: '8px' }}>
            {props.address}
           </Typography>
         </Grid>

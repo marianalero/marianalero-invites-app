@@ -6,6 +6,7 @@ import BauMatias from "../pages/clientInvitations/BauMatias";
 import BSSophia from "../pages/clientInvitations/BSSophia";
 import CivilWeddingKarolMario from "../pages/clientInvitations/CivilWeddingKarolMario";
 import GenderReveal from "../pages/clientInvitations/GenderReveal";
+import PosataTDR from "../pages/clientInvitations/PosataTDR";
 import Showroom from "../pages/clientInvitations/Showroom";
 import Silvia60 from "../pages/clientInvitations/Silvia60";
 import STDDalia from "../pages/clientInvitations/STDDalia";
@@ -94,6 +95,7 @@ const routes: RouteConfig[] = [
   {path:'/bridalshower-sophia', element: <BSSophia></BSSophia>},
   {path:'/save-date-xv-dalia', element: <STDDalia></STDDalia>},
    {path:'/baby-shower-alec', element: <BabyShowerAlec></BabyShowerAlec>},
+   {path:'/prev-ptdr', element: <PosataTDR></PosataTDR>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   

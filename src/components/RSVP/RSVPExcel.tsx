@@ -29,34 +29,8 @@ const RSVPDemo  = (props:RSVPType) => {
          props.confirmed( name,confirmText, phoneNumber,totalConfirmed.toString())
     }
 
-   
-
- 
-    // try {
-    //   await fetch(url, {
-    //     method: 'GET',
-    //     mode: 'no-cors',
-    //     redirect: 'follow',
-    //     referrer: 'no-referrer',
-    //     headers: {
-    //       'Content-Type': 'application/x-www-form-urlencoded',
-    //     },
-    //   });
-    //   setOpen(true);
-
-    // } catch (err) {
-    //   console.error(err);
-    // }
-
     }
 
-    // const handleClose = () => {
-    //     setOpen(false);
-    //     setName("");
-    //     setPhoneNumber("");
-    //     setTotalConfirmed(0)
-
-    //  };
      const RenderForm = () =>{
         return(
         <Grid container spacing={1} padding={2} sx={{bgcolor: props.bgColor,
@@ -69,7 +43,10 @@ const RSVPDemo  = (props:RSVPType) => {
 
                
                     <div>
-                    <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>Hemos reservado {(props.count && props.count === 1) ? '1 lugar' : `${props.count} lugares`} para ti. </Typography>
+                       {!props.hideLabelAssignedPeople && (
+                            <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>Hemos reservado {(props.count && props.count === 1) ? '1 lugar' : `${props.count} lugares`} para ti. </Typography>
+
+                       )}
                     {
                         props.dateLine ? (
                             <Typography textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD MMMM")}.</Typography>
@@ -169,8 +146,9 @@ const RSVPDemo  = (props:RSVPType) => {
                             />
                         </Grid>
          
-                    
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                    {
+                        !props.hidePhoneNumberInput && (
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <TextField
                             id="name"
                             label="Teléfono"
@@ -203,6 +181,9 @@ const RSVPDemo  = (props:RSVPType) => {
                      
                         </Grid>
 
+                        )
+                    }
+                       
                            <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
                             <FormControl >
                               

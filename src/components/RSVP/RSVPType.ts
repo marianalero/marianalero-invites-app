@@ -15,4 +15,6 @@ export interface RSVPType {
     textColor:string;
     classButtonName?:string;
     fontSize?:string;
+    hideLabelAssignedPeople?:boolean;
+    hidePhoneNumberInput?:boolean;
 }

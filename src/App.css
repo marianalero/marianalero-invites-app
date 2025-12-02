@@ -204,6 +204,13 @@
   font-style: normal;
 }
 
+.berkshire-swash-regular {
+  font-family: "Berkshire Swash", serif!important;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 .text-rose-gold{
   background-image: linear-gradient(
  to right,
