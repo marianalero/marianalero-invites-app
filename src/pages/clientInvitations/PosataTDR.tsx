@@ -123,7 +123,7 @@ const Silvia60 = () => {
                          <Fade direction="up"  triggerOnce={true} >
                              <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem' }}>
                              
-                                Nos complace invitarle a nuestra posada anual de la empresa. Acompáñenos a celebrar juntos un año de logros.
+                                Nos complace invitarle a nuestra posada de la empresa. Acompáñenos a celebrar juntos un año de logros.
                             </Typography>
                          </Fade>
 
@@ -174,7 +174,7 @@ const Silvia60 = () => {
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true}>
                         <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_THIRD }} >
-                        <b>4 PM</b> a <b>8 PM</b>
+                        <b>8 PM</b> a <b>1 AM</b>
                         </Typography>
                         </Fade>
                     </Grid>
