@@ -96,6 +96,7 @@ const routes: RouteConfig[] = [
   {path:'/save-date-xv-dalia', element: <STDDalia></STDDalia>},
    {path:'/baby-shower-alec', element: <BabyShowerAlec></BabyShowerAlec>},
    {path:'/prev-ptdr', element: <PosataTDR></PosataTDR>},
+   {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   
