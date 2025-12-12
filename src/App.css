@@ -328,4 +328,37 @@
     background: #dcdcdc;
     box-shadow: none;
 }
+.rose-gold-btn {
+  background: linear-gradient(135deg, #b76e79, #f7d9d7, #e8c1c5, #b76e79);
+  background-size: 300% 300%;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(183, 110, 121, 0.4);
+  transition: all 0.3s ease;
+  animation: shine 4s ease infinite;
+}
+
+/* Efecto hover */
+.rose-gold-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(183, 110, 121, 0.5);
+}
+
+/* Efecto active */
+.rose-gold-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(183, 110, 121, 0.3);
+}
+
+/* Animación de brillo suave */
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
