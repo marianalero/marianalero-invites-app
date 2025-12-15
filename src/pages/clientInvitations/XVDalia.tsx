@@ -16,7 +16,6 @@ import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabP
 import CustomButton from "../../components/CustomButton/CustomButton";
 
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
-import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import Adornment from "../../components/Adornment/Adornment";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import RSVPForm from "../../components/RSVP/RSVPForm";
@@ -35,7 +34,7 @@ const XVDaliaElizabeth  = () => {
                 const num = Number(searchParams.get("id"));
                 return isNaN(num) ? undefined : num;
             }, [searchParams]);
-        const INVITATION_ID = 100;
+        const INVITATION_ID = 13;
         const [open, setOpen] = useState(false);
      
         const musicRef = useRef<MusicFabPlayerHandle>(null);
@@ -156,32 +155,31 @@ const XVDaliaElizabeth  = () => {
   const galleryPhotos = [
         `${URL_IMAGES}galeria1.jpg`,
         `${URL_IMAGES}galeria2.jpg`,
-        `${URL_IMAGES}galeria3.jpg`,  
         `${URL_IMAGES}galeria4.jpg`,
         `${URL_IMAGES}galeria5.jpg`,
         `${URL_IMAGES}galeria7.jpg`,
-        `${URL_IMAGES}galeria6.jpg`,
     ];
     
     return (
         <div style={{backgroundColor:"#FFFFFF",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_SECONDARY}/>
-            <CoverSimple 
-            bgImage={`${URL_IMAGES}portada.jpg`}
-            bgImage2={`${URL_IMAGES}portada.jpg`}
-                  weddingDate="28.02.2026"
-                 subtitle="Mis XV años"
-                  brideName="Dalia Elizabeth"
-                  symbolr={""}
-                  groomName={""}
-                  className={MAIN_TYPO}
-                  textColor={"#FFFFFF"}
-                  hideText={false}
-                  ourWeddingStart={true}
-                overlay={true}
+            <div  style={{backgroundImage:`url('${URL_IMAGES}portada.jpg')`,backgroundPositionX: "50%",    height: "80vh",backgroundSize:"cover",boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.2)", display: "flex", alignItems: "center" , justifyContent: "center"  }} >
+              <div style={{marginTop:"15vh"}}>
+               
+                <div >
+                    <Typography  textAlign={"center"} color='white' typography={"h2"} className={`${MAIN_TYPO}`}>Dalia Elizabeth</Typography>
+                 
+
+                </div>
+                 <div style={{display:"flex",justifyContent:"center", alignItems:"center"}} >
+                    <h2 className="holder pt-serif-caption-regular to-upper" style={{color:"white"}}><span>MIS XV AÑOS</span></h2>
+                </div>
+                <div style={{display:"flex",justifyContent:"center",paddingTop:"10vh"}} >
+                    <h3 className="holder pt-serif-caption-regular to-upper" style={{color:"white"}}><span>28.02.26</span></h3>
+                </div>
+              </div>
                 
-                  >
-            </CoverSimple>
+               </div>
             <Qoute 
                {...qoute}>
             </Qoute>
@@ -201,53 +199,26 @@ const XVDaliaElizabeth  = () => {
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
               <Typography variant="h1" className={`${MAIN_TYPO}`} sx={{ fontSize: 38 ,lineHeight:2, color: COLOR_PRIMARY}} >
-                Mis Personas Favoritas
+                Mi Persona Favorita
               </Typography>
-              <Typography className={BODY_TYPO}>¡Gracias por hacer eso posible!</Typography>
+              <Typography className={BODY_TYPO}>¡Gracias por hacer esto posible!</Typography>
               </Fade>
             </Grid>
   
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" >
-              <Typography variant="h1" className={`${MAIN_TYPO}`}  sx={{ fontSize: 38,lineHeight:2 , color:COLOR_PRIMARY}}>
-                Mis Papás
+              <Typography variant="h1" className={`${MAIN_TYPO}`}  sx={{ fontSize: 30,lineHeight:2,color: COLOR_PRIMARY}} >
+                Mi Madre
               </Typography>
               </Fade>
             </Grid>
-            <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
-              <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos.png`} width={"250px"} />
-              
-                </Fade>
-            </Grid>
+           
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
               <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
                 sx={{fontSize: 40 ,lineHeight:2, color: COLOR_PRIMARY}}
               >
                 ⁠Daniela E. Flores
-              </Typography>
-              </Fade>
-            </Grid>
-            <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
-              <Fade direction="up" >
-              <Typography  variant="h1" className={`${MAIN_TYPO}`}
-                sx={{  fontSize: 40,lineHeight:2 , color: COLOR_PRIMARY}}
-              >
-                &
-
-
-              </Typography>
-              </Fade>
-            </Grid>
-            <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
-              <Fade direction="up" >
-              <Typography  variant="h1" className={`${MAIN_TYPO}`}
-                sx={{  fontSize: 40,lineHeight:2 , color: COLOR_PRIMARY }}
-              >
-              Erick Ciprian
-
-
               </Typography>
               </Fade>
             </Grid>
@@ -268,7 +239,7 @@ const XVDaliaElizabeth  = () => {
                 className={BODY_TYPO}
                 sx={{ mt: 2 }}
               >
-                Tenemos el honor de invitarlos a la Celebración de mis XV años.
+                Tenemos el honor de invitarte a la Celebración de mis XV años.
               </Typography>
               </Fade>
             </Grid>
@@ -299,15 +270,51 @@ const XVDaliaElizabeth  = () => {
         </Typography>
         </Fade>
       </Grid>
+          <Grid size={12}>
+         
+        <Box
+          textAlign="center"
+          sx={{ width: "100%", mt: 2 }}
+        >
+          <Box sx={{ mt: 2, mb: 2 }}>
+            {/* Título */}
+            <Fade direction="up" >
+            <Typography
+              variant="h3" className={`${MAIN_TYPO}`}
+              sx={{ fontSize: "3rem", color: COLOR_PRIMARY }}
+            >
+              Mi Padre
+            </Typography>
+            </Fade>
+            
 
+
+            <Grid container spacing={2} justifyContent="center" sx={{ mb: 2, mt: 3 }}>
+              <Grid size={{ xs: 12,md:12,lg:12}} >
+                 <Fade direction="up" >
+                <Typography
+                  variant="body1" className={BODY_TYPO}
+                 
+                >
+                Erick Ciprian
+                </Typography>
+                </Fade>
+              </Grid>
+
+            </Grid>
+
+          </Box>
+        </Box>
+     
+      </Grid>
       {/* Bloque principal */}
       <Grid size={12}>
          
         <Box
           textAlign="center"
-          sx={{ width: "100%", mt: 6 }}
+          sx={{ width: "100%", }}
         >
-          <Box sx={{ mt: 6, mb: 6 }}>
+          <Box sx={{ mt: 2, mb: 2 }}>
             {/* Título */}
             <Fade direction="up" >
             <Typography
@@ -317,18 +324,9 @@ const XVDaliaElizabeth  = () => {
               Mis Padrinos
             </Typography>
             </Fade>
-            {/* Imagen superior */}
-            <Grid container justifyContent="center" sx={{ mt: 4 }}>
-                
-              <Grid>
-                <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos.png`} width={"250px"} />
-              
-                </Fade>
-              </Grid>
-            </Grid>
+            
 
-            {/* Primera fila de nombres */}
+
             <Grid container spacing={2} justifyContent="center" sx={{ mb: 2, mt: 3 }}>
               <Grid size={{ xs: 12,md:12,lg:12}} >
                  <Fade direction="up" >
@@ -342,13 +340,22 @@ const XVDaliaElizabeth  = () => {
               </Grid>
 
             </Grid>
-
+            <Grid container justifyContent="center" sx={{ mt: 4 }}>
+                
+              <Grid>
+                <Fade direction="up" >
+                    <Adornment image={`${URL_IMAGES}adornos.png`} width={"250px"} />
+              
+                </Fade>
+              </Grid>
+            </Grid>
            
           </Box>
         </Box>
      
       </Grid>
     </Grid>
+    <ImageMiddle bgImage={`${URL_IMAGES}galeria3.jpg`} bgSize="contain"></ImageMiddle>
    <div style={{backgroundImage:`url('${URL_IMAGES}fondo2.jpg')`,backgroundPositionX: "50%",    minHeight: "100vh",backgroundSize:"cover",paddingTop:"70px" }}>
           <Grid container spacing={2} padding={4} justifyContent={"center"} >
             {

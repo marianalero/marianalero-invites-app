@@ -13,6 +13,7 @@ import './rsvp.css';
 import CloseIcon from '@mui/icons-material/Close';
 import ProButton from '../CustomButton/GoldButton';
 const RSVPForm  = (props:RSVPType) => {
+    const [errorName, setErrorName] = useState(false);
     const [guest, setGuest] = useState<Guest>({
     id: 0,
     fullName: '',
@@ -72,7 +73,10 @@ const RSVPForm  = (props:RSVPType) => {
         setRadioValue(value);
     };
     const handleSend =async ()=> {
-
+        if(guest.fullName.trim() === "") {
+            setErrorName(true);
+        } else {
+            setErrorName(false);
           try {
         if (!guest || !guest.id) {
     
@@ -118,8 +122,10 @@ const RSVPForm  = (props:RSVPType) => {
         
         }
         setOpen(true);
-       } catch (error) {
+        } catch (error) {
             console.error(error);
+
+        }
     }
     }
     const updateGuest = (newData: Partial<Guest>) => {
@@ -250,6 +256,7 @@ const RSVPForm  = (props:RSVPType) => {
                                 '&.Mui-focused fieldset': {
                                     borderColor: props.colorButton, // Borde en focus
                                 },
+                                },
                                 '& .MuiInputLabel-root': {
                                     backgroundColor: 'rgba(255, 255, 255, 0.8)',
                                     padding: '0 4px',
@@ -258,13 +265,13 @@ const RSVPForm  = (props:RSVPType) => {
                                 '& .MuiInputLabel-root.Mui-focused': {
                                     backgroundColor: 'rgba(255, 255, 255, 0.8)',
                                 },
-                                },
                             }}
                             value={guest.fullName}
                             onChange={(e) => updateGuest({
                                     fullName: e.target.value
                                 })}
                             disabled={disabledRSVP}
+                             slotProps={{ inputLabel: { shrink: true } }} 
                             />
                         </Grid>
                         )
@@ -380,23 +387,23 @@ const RSVPForm  = (props:RSVPType) => {
                                             label="Nombre(s) de acompañante(s)"
                                             fullWidth={true}
                                             sx={{
-                                                minWidth:300,
-                                                '& label.Mui-focused': {
-                                                color: props.colorButton, // Borde en focus
-                                                },
-                                                '& .MuiOutlinedInput-root': {
-                                                '&.Mui-focused fieldset': {
-                                                    borderColor: props.colorButton, // Borde en focus
-                                                },
-                                                '& .MuiInputLabel-root': {
-                                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                                    padding: '0 4px',
-                                                    borderRadius: '4px',
-                                                },
-                                                '& .MuiInputLabel-root.Mui-focused': {
-                                                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                                },
-                                                },
+                                            minWidth:300,
+                                            '& label.Mui-focused': {
+                                            color: props.colorButton, // Borde en focus
+                                            },
+                                            '& .MuiOutlinedInput-root': {
+                                            '&.Mui-focused fieldset': {
+                                                borderColor: props.colorButton, // Borde en focus
+                                            },
+                                            },
+                                            '& .MuiInputLabel-root': {
+                                                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                                padding: '0 4px',
+                                                borderRadius: '4px',
+                                            },
+                                            '& .MuiInputLabel-root.Mui-focused': {
+                                                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                            },
                                             }}
                                             value={guest.companion ?? ''}
                                             onChange={(e) => updateGuest({
