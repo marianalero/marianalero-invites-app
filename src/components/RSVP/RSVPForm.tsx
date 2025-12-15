@@ -244,6 +244,8 @@ const RSVPForm  = (props:RSVPType) => {
                      {!props.guestId && (
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <TextField
+                            error={errorName}
+                            helperText={errorName ? "El nombre es requerido" : ""}
                             required
                             id="name"
                             label="Nombre"
