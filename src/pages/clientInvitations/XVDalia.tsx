@@ -45,7 +45,7 @@ const XVDaliaElizabeth  = () => {
         const SECOND_TYPO = "the-seasons";
         const BODY_TYPO = "pt-serif-caption-regular to-upper";
         const URL_IMAGES = `${URL_REPO}xv/xv-dalia/`;
-        const URL_SONG = `${URL_IMAGES}.mp3`;
+        const URL_SONG = `${URL_IMAGES}UnMundoIdeal-Piano.mp3`;
         const BG_COLOR ="rgb(251,243,220,0.5)";
             const handleClickOpen = () => {
             setOpen(true);
@@ -76,7 +76,10 @@ const XVDaliaElizabeth  = () => {
                 fontSize:"45px",
                 colorButton: COLOR_PRIMARY,
                 classButtonName:"rose-gold-btn",
-            },
+            },      
+    ];
+
+    const eventCards2: EventCardProps[] = [
             {
                 eventName: "Recepcion",
                 date: new Date(2025, 9, 25 , 19, 0, 0),
@@ -95,6 +98,9 @@ const XVDaliaElizabeth  = () => {
 
             },
     ];
+
+
+
     const timelineData: CustomizedTimelineProps = {
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
@@ -149,14 +155,11 @@ const XVDaliaElizabeth  = () => {
         fontsize:"2rem",
         lineheight:"2rem",
         addormentEnd:`${URL_IMAGES}adornos.png`,
-        qoute:"pendiente de texto",
+        qoute:"La vida es mas bella si podemos cumplir lo que soñamos y mi sueño es que compartas conmigo este dia tan especial  de mis 15 años, ya que hay momentos que se guardan en el corazon para siempre, le doy gracias a Dios por cumplir este sueño",
     }
 
   const galleryPhotos = [
         `${URL_IMAGES}galeria1.jpg`,
-        `${URL_IMAGES}galeria2.jpg`,
-        `${URL_IMAGES}galeria4.jpg`,
-        `${URL_IMAGES}galeria5.jpg`,
         `${URL_IMAGES}galeria7.jpg`,
     ];
     
@@ -356,18 +359,31 @@ const XVDaliaElizabeth  = () => {
       </Grid>
     </Grid>
     <ImageMiddle bgImage={`${URL_IMAGES}galeria3.jpg`} bgSize="contain"></ImageMiddle>
-   <div style={{backgroundImage:`url('${URL_IMAGES}fondo2.jpg')`,backgroundPositionX: "50%",    minHeight: "100vh",backgroundSize:"cover",paddingTop:"70px" }}>
-          <Grid container spacing={2} padding={4} justifyContent={"center"} >
+   <div style={{backgroundImage:`url('${URL_IMAGES}fondo2.jpg')`,backgroundPositionX: "50%",    minHeight: "100vh",backgroundSize:"cover",paddingTop:"70px", paddingBottom:"70px"  }} >
+          
+          <Box display={"flex"} justifyContent={"center"} padding={4}>
             {
                 eventCards.map((item,index) => (          
                    <EventCard key={index} {...item}></EventCard>
                 ))
             }
-            </Grid>
-              <ImageMiddle bgImage={`${URL_IMAGES}enmedio2.jpg`} bgSize="contain"></ImageMiddle>
+          </Box>
+            
+             <ImageMiddle bgImage={`${URL_IMAGES}galeria5.jpg`} bgSize="contain"></ImageMiddle>
+
+              <Box display={"flex"} justifyContent={"center"} padding={4}>
+             {
+                eventCards2.map((item,index) => (          
+                   <EventCard key={index} {...item}></EventCard>
+                ))
+            } 
+              </Box>
+           
+          
+              <ImageMiddle bgImage={`${URL_IMAGES}galeria4.jpg`} bgSize="contain"></ImageMiddle>
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-
+             <ImageMiddle bgImage={`${URL_IMAGES}enmedio2.jpg`} bgSize="contain"></ImageMiddle>
              <Grid container spacing={2} justifyContent="center" padding={4}>
               <Grid size={{ xs: 12 }}>
                  <GiftList {...giftListData} ></GiftList>

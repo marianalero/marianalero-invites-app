@@ -16,6 +16,7 @@ import WeddingCendyAdrian from "../pages/clientInvitations/WeddingCendyAdrian";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingKarolMario from "../pages/clientInvitations/WeddingKarolMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
+import WeddingMariluMichel from "../pages/clientInvitations/WeddingMaríaLourdes";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
 import WeddingStephaniaIsamael from "../pages/clientInvitations/WeddingStephaniaIsamael";
 import WeddingStevenArely from "../pages/clientInvitations/WeddingStevenArely";
@@ -100,8 +101,8 @@ const routes: RouteConfig[] = [
    {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/prev-d2', element: <XVDalia></XVDalia>},
-  
+  {path:'/prev-d3', element: <XVDalia></XVDalia>},
+  {path:'/prev-mm-1', element: <WeddingMariluMichel></WeddingMariluMichel>},
 ];
 
 

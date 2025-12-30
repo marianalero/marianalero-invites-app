@@ -24,21 +24,21 @@ const invitations: InvitationItem[] = [
       category: "Bodas",
       imageUrl: "/images/boda1.jpg",
       link: "https://marianalero-invites.com/boda-fernanda-mario",
-      hide: true
+      hide: false
   },
   {
       title: "Rocio & Mariana",
       category: "Bodas",
       imageUrl: "/images/boda1.jpg",
       link: "https://marianalero-invites.com/boda-rocio-mariana",
-      hide: true
+      hide: false
   },
   {
       title: "Steven & Arely",
       category: "Bodas",
       imageUrl: "/images/boda1.jpg",
       link: "https://marianalero-invites.com/boda-steven-arely",
-      hide: true
+      hide: false
   },
   {
       title: "Angelica & Jose",
@@ -52,14 +52,14 @@ const invitations: InvitationItem[] = [
       category: "Bodas",
       imageUrl: "/images/boda1.jpg",
       link: "https://marianalero-invites.com/boda-adilene-osvaldo",
-      hide: true
+      hide: false
   },
   {
       title: "Karol & Mario",
       category: "Bodas",
       imageUrl: "/images/boda1.jpg",
       link: "https://marianalero-invites.com/boda-karol-mario",
-      hide: true
+      hide: false
   },
   {
       title: "Quinceañera Valentina",
@@ -87,14 +87,14 @@ const invitations: InvitationItem[] = [
       category: "XV Años",
       imageUrl: "/images/xv1.jpg",
       link: "https://marianalero-invites.com/xv-dainaly",
-      hide: true
+      hide: false
   },
    {
        title: "Quinceañera Alexia",
        category: "XV Años",
        imageUrl: "/images/xv1.jpg",
        link: "https://marianalero-invites.com/xv-alexia",
-       hide: true
+       hide: false
    },
   {
       title: "Bautizo Alondra",
@@ -108,7 +108,7 @@ const invitations: InvitationItem[] = [
        category: "Otros",
        imageUrl: "/images/otros1.jpg",
        link: "https://marianalero-invites.com/bau-matias",
-       hide: true
+       hide: false
    },
    {
        title: "Revelación de Género",
@@ -129,7 +129,7 @@ const invitations: InvitationItem[] = [
       category: "Otros",
       imageUrl: "/images/otros1.jpg",
       link: "https://marianalero-invites.com/bridalshower-sophia",
-      hide: true
+      hide: false
   },
   {
       title: "Save the Date Dalia",

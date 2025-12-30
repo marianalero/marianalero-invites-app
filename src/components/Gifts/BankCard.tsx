@@ -54,7 +54,7 @@ const BankCard  = (item:BankAccount) => {
             variant="outlined"
             sx={{
                 borderColor:item.color,
-                padding:2,
+                padding:1,
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
                 marginY:"10px"
                 }} >
