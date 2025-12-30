@@ -8,8 +8,6 @@ import Cover from "../../components/Cover/CoverImage/Cover";
 import Introduction from "../../components/Introduction/Introduction";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
-import EventCardImage from "../../components/EventCard/EventCardImage";
-
 import FooterInvites from "../../components/Footer/FooterInvites";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
