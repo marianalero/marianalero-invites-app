@@ -45,7 +45,7 @@ const XVDaliaElizabeth  = () => {
         const SECOND_TYPO = "the-seasons";
         const BODY_TYPO = "pt-serif-caption-regular to-upper";
         const URL_IMAGES = `${URL_REPO}xv/xv-dalia/`;
-        const URL_SONG = `${URL_IMAGES}UnMundoIdeal-Piano.mp3`;
+        const URL_SONG = `${URL_REPO}canciones/UnMundoIdeal-Piano.mp3`;
         const BG_COLOR ="rgb(251,243,220,0.5)";
             const handleClickOpen = () => {
             setOpen(true);
