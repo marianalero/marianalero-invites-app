@@ -192,7 +192,7 @@ const WeddingMariluMichel  = () => {
                 brideFather="Juan Carlos Ramírez Ramírez"
                 brideMother="Silvana Elizabeth Lugo Palafox"
                 groomFather="Luz alicia López García"
-                groomMother=""
+                groomMother="Francisco Javier Gómez Rodríguez (&#8224;)"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_PRIMARY}
