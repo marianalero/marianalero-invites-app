@@ -147,7 +147,7 @@ const XVDaliaElizabeth  = () => {
         type:1,
         title:"Formal",
         omitColorsLabel:"Colores reservados para la quinceañera",
-        omitColorsText:" ⁠Beige y Rosa",
+        omitColorsText:"Dorado y Champagne",
     }
     const qoute:QouteProps ={
         bodyTypo: MAIN_TYPO,
