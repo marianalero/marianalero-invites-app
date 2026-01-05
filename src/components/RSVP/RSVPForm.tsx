@@ -13,6 +13,7 @@ import './rsvp.css';
 import CloseIcon from '@mui/icons-material/Close';
 import ProButton from '../CustomButton/GoldButton';
 const RSVPForm  = (props:RSVPType) => {
+    console.log("RSVP FORM RENDERED", props.dateLine);
     const [errorName, setErrorName] = useState(false);
     const [guest, setGuest] = useState<Guest>({
     id: 0,
@@ -24,7 +25,7 @@ const RSVPForm  = (props:RSVPType) => {
     invitationId: props.invitationId,
     qrCodeToken: '',
     registeredAttendance: false,
-    companion:''
+    companion:'',
     });
     useEffect(() => {
        if (props.dateLine && props.dateLine < new Date()) {
@@ -175,9 +176,13 @@ const RSVPForm  = (props:RSVPType) => {
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
                 Hemos reservado {guest.totalAssigned === 1 ? '1 lugar' : `${guest.totalAssigned} lugares`} para ti.
             </Typography>
-            <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
+            {props.dateLine && (
+                 <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
                 Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
             </Typography>
+            )
+            }
+           
             </div>
         )
         )}
@@ -279,8 +284,9 @@ const RSVPForm  = (props:RSVPType) => {
                         )
 
                      }
-                    
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                    {
+                        !props.hidePhoneNumberInput &&(
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <TextField
                             id="name"
                             label="Teléfono"
@@ -313,6 +319,9 @@ const RSVPForm  = (props:RSVPType) => {
                             />
                      
                         </Grid>
+                        )
+                    }
+                        
                         { !disabledForm && (
                             <>
                             {

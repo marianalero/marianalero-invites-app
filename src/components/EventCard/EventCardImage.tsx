@@ -85,7 +85,7 @@ const EventCardImage  = (props:EventCardProps) => {
                                 }
                              
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography  variant='body1'  textAlign={"center"} className={props.bodyTypo} fontWeight={700}><b>{props.locationName}</b></Typography>
+                                    <Typography  variant='body1'  textAlign={"center"} className={props.bodyTypo} fontWeight={700}>{props.locationName}</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                                     <Typography   variant='body1' textAlign={"center"} className={props.bodyTypo} >{props.address}</Typography>

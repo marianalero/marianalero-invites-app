@@ -18,6 +18,7 @@ import WeddingKarolMario from "../pages/clientInvitations/WeddingKarolMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingMariluMichel from "../pages/clientInvitations/WeddingMaríaLourdes";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
+import WeddingSphiaLuis from "../pages/clientInvitations/WeddingSphiaLuis";
 import WeddingStephaniaIsamael from "../pages/clientInvitations/WeddingStephaniaIsamael";
 import WeddingStevenArely from "../pages/clientInvitations/WeddingStevenArely";
 import XVAlexia from "../pages/clientInvitations/XVAlexia";
@@ -103,6 +104,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/prev-d3', element: <XVDalia></XVDalia>},
   {path:'/prev-mm-1', element: <WeddingMariluMichel></WeddingMariluMichel>},
+  {path:'/prev-sl', element: <WeddingSphiaLuis></WeddingSphiaLuis>},
 ];
 
 
