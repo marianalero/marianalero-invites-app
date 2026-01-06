@@ -152,12 +152,12 @@ const WeddingSphiaLuis  = () => {
                     {
                         eventName: "Cocktel de bienvenida",
                         date: new Date(2025, 10, 16, 19, 0, 0),
-                        icon: `${URL_IMAGES}iconos/3.svg`,
+                        icon: `${URL_IMAGES}iconos/4.svg`,
                     },
                     {
                         eventName: "Recepción",
                         date: new Date(2025, 10, 16, 20, 0, 0),
-                        icon: `${URL_IMAGES}iconos/4.svg`,
+                        icon: `${URL_IMAGES}iconos/3.svg`,
                     },
                     
                 ],
