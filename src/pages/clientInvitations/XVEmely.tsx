@@ -8,9 +8,8 @@ import FooterInvites from "../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Grid from '@mui/material/Grid2';
-import { Box, Dialog, DialogContent,  Typography } from "@mui/material";
+import { Box, Card, CardContent, Dialog, DialogContent,  Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
-import RSVPExcel from "../../components/RSVP/RSVPExcel";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
@@ -18,17 +17,24 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import Adornment from "../../components/Adornment/Adornment";
 import Gallery from "../../components/Gallery/Gallert";
+import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
+import RSVPForm from "../../components/RSVP/RSVPForm";
 
-const XVDaniela  = () => {
+const XVEmely  = () => {
       const [searchParams] = useSearchParams();
         const invitedGuests: number = useMemo(() => {
             const num = Number(searchParams.get("number"));
             return isNaN(num) ? 1 : num;
         }, [searchParams]);
+        const guestId: number | undefined = useMemo(() => {
+                const num = Number(searchParams.get("id"));
+                return isNaN(num) ? undefined : num;
+            }, [searchParams]);
+        const INVITATION_ID = 1008;
         const [open, setOpen] = useState(false);
 
         const musicRef = useRef<MusicFabPlayerHandle>(null);
-       const URL_SONG = `${URL_REPO}canciones/UnMundoIdeal-RicardoMontanerYMichelle.mp3`;
+       const URL_SONG = `${URL_REPO}canciones/MaBelleEvangeline.mp3`;
        
         const handleClickOpen = () => {
             setOpen(true);
@@ -44,57 +50,46 @@ const XVDaniela  = () => {
         }, []);
     
 
-    const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
-        
-        if(confirmText == "Asistiré"){
-            window.open(`https://wa.me/+526622297646?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20quinceañera%20de%20Daniela para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
-
-        }else{
-            window.open(`https://wa.me/+526622297646?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20quinceañera%20de%20Daniela.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
-
-        }
-    }
+  
     const COLOR_PRIMARY = "#F5A5B5";
-    const MAIN_TYPO = "tangerine-regular";
+    const MAIN_TYPO = "great-vibes-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
-    const URL_IMAGES = `${URL_REPO}xv-danilela-liz/`;
+    const URL_IMAGES = `${URL_REPO}xv/xv-emely/`;
     const BG_COLOR ="rgb(243, 234, 217,.5)"
     const galleryPhotos = [
-       `${URL_IMAGES}galeria6.jpg`,
-       `${URL_IMAGES}galerai2.jpg`,
-       `${URL_IMAGES}portada.jpg`,
+       `${URL_IMAGES}galeria4.jpeg`,
     ]
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Misa Religiosa",
-                date: new Date(2025, 9, 18, 19, 0, 0),
-                locationName: "Parroquia Santa Eduwiges",
-                address: "C. Israel González S/N, Modelo, Hermosillo, Son.",
+                date: new Date(2026, 0, 31, 17, 0, 0),
+                locationName: "Parroquia de la Resurrección",
+                address: "Av. Colonizadores 72, Las Quintas, Hermosillo, Son.",
                 size: 6,
                 color: COLOR_PRIMARY,
-                icon: `${URL_IMAGES}iconos/8.svg`,
+                icon: `${URL_IMAGES}iconos/7.svg`,
                 mainTypo:`${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/AfWnpx8PekJyPDzV7",
+                href: "https://maps.app.goo.gl/m5aguydPdyEVxibk8",
                 fontSize:"45px",
                 colorButton: COLOR_PRIMARY,
-                
+                classButtonName:"btn-gold"
             },
             {
                 eventName: "Recepción",
-                date: new Date(2025, 8, 19, 21, 0, 0),
+                date: new Date(2026, 0, 31, 20, 0, 0),
                
-                locationName: "Salon de eventos Antigua Hermosillo",
-                address: "Calle Jesús García 64, Centro, Hermosillo, Son.",
+                locationName: "SNTE 28",
+                address: "Zona Administrativa Federal, Hermosillo, Son.",
                 size: 6,
                 color: COLOR_PRIMARY,
-                icon:`${URL_IMAGES}iconos/9.svg`,
+                icon:`${URL_IMAGES}iconos/8.svg`,
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"45px",
-                href: "https://maps.app.goo.gl/LnPQAiWhdTmrhdtT7",
+                href: "https://maps.app.goo.gl/dQA28vhdwEuSnEW28",
                 colorButton: COLOR_PRIMARY,
-               
+                classButtonName:"btn-gold"
             },
     ];
     const timelineData: CustomizedTimelineProps = {
@@ -108,24 +103,29 @@ const XVDaniela  = () => {
         events: [
             {
                 eventName: "Misa",
-                date: new Date(2025, 8, 19,19,0,0),
-                icon:`${URL_IMAGES}iconos/1.svg`,
+                date: new Date(2026, 0, 31, 17, 0, 0),
+                icon:`${URL_IMAGES}iconos/12.svg`,
             },
             {
                 eventName: "Recepción",
-                date: new Date(2025, 8, 19,21,0,0),
-                icon:`${URL_IMAGES}iconos/2.svg`,
+                date: new Date(2026, 0, 31, 20, 0, 0),
+                icon:`${URL_IMAGES}iconos/13.svg`,
             },
             {
                 eventName: "Vals",
-                date: new Date(2025,  8, 19,22,30,0),
-                icon:`${URL_IMAGES}iconos/3.svg`,
+                date: new Date(2026,  0, 31,21,0,0),
+                icon:`${URL_IMAGES}iconos/17.svg`,
             },
             {
-                eventName: "Fin del evento",
-                date: new Date(2025,  8, 19,2,0,0),
-                icon:`${URL_IMAGES}iconos/6.svg`,
+                eventName: "Cena",
+                date: new Date(2026,  0, 31,21,30,0),
+                icon:`${URL_IMAGES}iconos/18.svg`,
             },
+            // {
+            //     eventName: "Fin del evento",
+            //     date: new Date(2026,  1, 1,2,0,0),
+            //     icon:`${URL_IMAGES}iconos/6.svg`,
+            // },
         ],
     };
     const giftListData: GiftListProps = {
@@ -135,7 +135,7 @@ const XVDaniela  = () => {
         color: COLOR_PRIMARY, 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
-        bankIconEnd:`${URL_IMAGES}iconos/7.svg`,
+        bankIconEnd:`${URL_IMAGES}iconos/11.svg`,
         envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacernos un obsequio, tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
     };
     const dresscode:DressCodeProps = {
@@ -143,7 +143,8 @@ const XVDaniela  = () => {
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
         type:1,
-        title:"Formal"
+        title:"Formal",
+        omitColorsLabel:"Color rosa reservado para la quinceañera",
     }
    
 
@@ -152,11 +153,11 @@ const XVDaniela  = () => {
         <div style={{backgroundColor:"#FFFFFF",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
             <CoverSimple 
-                bgImage={`${URL_IMAGES}portada.jpg`}
-                bgImage2={`${URL_IMAGES}portada.jpg`}
-                  weddingDate="18.10.2025"
+                bgImage={`${URL_IMAGES}portada.jpeg`}
+                bgImage2={`${URL_IMAGES}portada.jpeg`}
+                  weddingDate="31.01.2026"
                  subtitle="Mis XV años"
-                  brideName="Daniela Lizbeth"
+                  brideName="Emely Solano "
                   symbolr={""}
                   groomName={""}
                   className={MAIN_TYPO}
@@ -167,25 +168,25 @@ const XVDaniela  = () => {
                 
                   >
             </CoverSimple>
-            <Grid container spacing={2} justifyContent="center" mb={3}  bgcolor={BG_COLOR}>
+            <Grid container spacing={2} justifyContent="center"  bgcolor={BG_COLOR}>
             <Grid  size={{xs:12,sm:12,md:12,lg:12}} paddingY={2} paddingX={3}>
                <Fade direction="up" >
-              <Typography align="center" variant="body1" className={`${MAIN_TYPO}`} sx={{ fontSize: 38 ,lineHeight:"3rem"}} >
-               Hace 15 años nació una niña hermosa y llena de alegría enviada por Dios para ser criada y formada como el más grande tesoro <br></br>
-                Hay momento en la vida que soñamos y esperamos,uno de esos momento ah llegado <br></br>
-                Acompáñame a celebrar este capituló de mi vida con amor y recuerdos inolvidables. <br></br>
-                Agradezco a mis papas por todo el amor que me han dado por apoyarme y aconsejarme.<br></br>
+              <Typography align="center" variant="body1" className={`${MAIN_TYPO}`} sx={{ fontSize: 30 ,lineHeight:"3rem"}} >
+               "Hay momentos inolvidables que se guardan en el corazón para siempre por esa razón quiero que compartas conmigo este día tan especial.<br></br>
+              Con la bendición de Dios y el amor de mi familia,<br></br>
+              te invito a celebrar uno de los días más importantes de mi vida."
               </Typography>
           
               </Fade>
             </Grid>
-            <Grid paddingBottom={2}>
+            <Grid paddingBottom={3}>
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos.svg`} width={"250px"} />
+                    <Adornment image={`${URL_IMAGES}adornos2.svg`} width={"250px"} />
               
                 </Fade>
               </Grid>
             </Grid>
+              <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.jpeg`}></ImageMiddle>
                         <Grid container justifyContent="center" padding={2}>
       <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
         <Box
@@ -198,7 +199,14 @@ const XVDaniela  = () => {
         >
 
           <Grid container spacing={2} justifyContent="center" mb={3}>
-           
+            <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
+               <Fade direction="up" >
+              <Typography variant="h1" className={`${MAIN_TYPO}`} sx={{ fontSize: 38 ,lineHeight:2, color: COLOR_PRIMARY}} >
+                Mis Personas Favoritas
+              </Typography>
+              <Typography className={BODY_TYPO}>¡Gracias por hacer eso posible!</Typography>
+              </Fade>
+            </Grid>
              <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
               <Typography variant="h6" className={`${BODY_TYPO} tex-`}
@@ -214,7 +222,7 @@ const XVDaniela  = () => {
               <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
                 sx={{fontSize: 35 ,lineHeight:2 , color:COLOR_PRIMARY }}
               >
-                Daniel Robles lara 
+               Fernanda Ochoa
               </Typography>
               </Fade>
             </Grid>
@@ -224,7 +232,7 @@ const XVDaniela  = () => {
               <Typography  variant="h1" className={`${MAIN_TYPO}`}
                 sx={{  fontSize: 35,lineHeight:2 , color:COLOR_PRIMARY }}
               >
-             Yazmin Irasema Avila Pacheco
+             Erick Solano(&#8224;)
 
 
               </Typography>
@@ -249,86 +257,115 @@ const XVDaniela  = () => {
                 
               <Grid>
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos.svg`} width={"250px"} />
+                    <Adornment image={`${URL_IMAGES}adornos2.svg`} width={"250px"} />
               
                 </Fade>
               </Grid>
             </Grid>
         </Box>
       </Grid>
+       <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >     
+              <Fade direction="up"  triggerOnce={true}>  
+                 <Box display="flex" flexDirection="column" alignItems="center" mt={4} mb={4}>
+      {/* Sobre (solo mitad superior) */}
+      <Box
+        sx={{
+          width: "100%",
+          maxWidth: 400,
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        
+      </Box>
+
+      {/* Tarjeta */}
+      <Card
+        sx={{
+          width: "90%",
+          maxWidth: 350,
+          p: 3,
+          pt: 6,
+          textAlign: "center",
+          boxShadow: 3,
+          position: "relative",
+          overflow: "visible",
+          mt: -6, // sube un poco la tarjeta para que se una con el sobre
+          backgroundColor: "white",
+        }}
+      >
+        {/* Sello */}
+        <Box
+          component="img"
+           src={`${URL_IMAGES}2.png`}
+          alt="Sello"
+          sx={{
+            width: 80,
+            height: 80,
+            position: "absolute",
+            top: -40,
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+        />
+
+        <CardContent>
+          <Box
+          component="img"
+          src={`${URL_IMAGES}padre.jpeg`} 
+          alt="Sobre"
+          sx={{
+            width: "100%",
+            height: "auto",
+            borderRadius: "8px",
+          }}
+        />
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2, mt:2 }}>
+            Hija mía, aunque no pueda tomarte de la mano, desde el cielo cuido cada uno de tus pasos.
+            Estoy orgulloso de ti y viviré por siempre en tu corazón.
+          </Typography>
+
+        </CardContent>
+      </Card>
+    </Box>  
+    </Fade>   
+        </Grid>
     </Grid>
             <CountDownSimple 
-                eventDate={new Date(2025, 9, 18)}
+                eventDate={new Date(2026, 0, 31)}
                
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
-                primaryColor={"black"} 
-                secondarColor={"black"}
+                primaryColor={COLOR_PRIMARY} 
+                secondarColor={COLOR_PRIMARY}
                 circleBgColor="white"
-                bgImage={`url('https://marianalero.github.io/invitacion-xv-susan/images/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(12).png')`} >  
+                bgImage={`url('${URL_IMAGES}contador.png')`} >  
             </CountDownSimple>
-    <Grid container spacing={2} justifyContent="center" paddingX={2} bgcolor={BG_COLOR}>
-      {/* Texto inicial */}
-      <Grid size={12} textAlign="center" sx={{ width: "100%", mt: 6 }}>
-         <Fade direction="up" >
-        <Typography
-          className={BODY_TYPO}
-          sx={{ fontSize: "1rem" }}
-        >
-          Por qué me han acompañado en mi camino y deseo que sigan siendo parte
-          de mi historia.
-        </Typography>
-        </Fade>
-      </Grid>
-
-      {/* Bloque principal */}
-      <Grid size={12}>
-         
-        <Box
-          textAlign="center"
-          sx={{ width: "100%", mt: 6 }}
-        >
-          <Box sx={{ mt: 6, mb: 6 }}>
-            {/* Título */}
-            <Fade direction="up" >
-            <Typography
-              variant="h3" className={`${MAIN_TYPO}`}
-              sx={{ fontSize: "3rem", color: COLOR_PRIMARY }}
-            >
-              Mis Padrinos
-            </Typography>
-            </Fade>
-            {/* Imagen superior */}
-            <Grid container justifyContent="center" sx={{ }}>
-                
-              <Grid>
+            <Grid container spacing={2} justifyContent="center" paddingX={2} bgcolor={BG_COLOR}>
+              {/* Texto inicial */}
+              <Grid size={12} textAlign="center" sx={{ width: "100%", mt: 6 }}>
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos.svg`} width={"250px"} />
-              
-                </Fade>
-              </Grid>
-            </Grid>
-
-            {/* Primera fila de nombres */}
-            <Grid container spacing={2} justifyContent="center" sx={{ mb: 2, mt: 3 }}>
-              <Grid size={{ xs: 12,md:12,lg:12}} >
-                 <Fade direction="up" >
                 <Typography
-                  variant="body1" className={BODY_TYPO}
-                 
+                  className={BODY_TYPO}
+                  sx={{ fontSize: "1rem", fontStyle: "italic!important" }}
                 >
-                José Luis  Robles lara  <br></br> Virginia María Columba Pozos Mejia
+                  Queridos padrinos y madrinas, gracias por ser parte de este momento tan especial en mi vida.
+                    Han sido fundamentales para que este sueño se hiciera realidad.
+                  Los llevaré siempre en mi corazón.
+
                 </Typography>
                 </Fade>
               </Grid>
+              <Grid paddingBottom={2} >
+                <Fade direction="up" >
+                    <Adornment image={`${URL_IMAGES}adornos2.svg`} width={"250px"} />
+              
+                </Fade>
+              </Grid>
+              
             </Grid>
-
-           
-          </Box>
-        </Box>
-     
-      </Grid>
-    </Grid>
+            <div style={{backgroundImage:`url('${URL_IMAGES}fondo.jpg')`,backgroundPositionX: "50%",    minHeight: "100vh",backgroundSize:"cover",paddingTop:"70px" }}>
             <Grid container spacing={2} padding={4} justifyContent={"center"} >
             {
                 eventCards.map((item,index) => (          
@@ -336,7 +373,8 @@ const XVDaniela  = () => {
                 ))
             }
             </Grid>
-        
+             </div>
+            <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`}></ImageMiddle>
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
@@ -347,22 +385,29 @@ const XVDaniela  = () => {
               
              </Grid>
            
-            <RSVPExcel
-              textColor={"black"}
-              qrActive={false}
-              mainTypo={MAIN_TYPO}
-              bodyTypo={BODY_TYPO}
-              count={invitedGuests}
-              dateLine={new Date(2025, 9, 4)}
-              color={COLOR_PRIMARY}
-              colorButton={COLOR_PRIMARY}
-              invitationId={0}
-              bgColor={BG_COLOR}
-              confirmed={handleConfirm}
-              
-            />
+            <RSVPForm 
+                textColor={COLOR_PRIMARY}
+                    colorButton={COLOR_PRIMARY} 
+                    bgColor={BG_COLOR} 
+                    mainTypo={MAIN_TYPO} 
+                    bodyTypo={BODY_TYPO} 
+                    count={invitedGuests}
+                    dateLine={new Date(2026,0,20)}
+                    color={COLOR_PRIMARY}
+                    guestId={guestId}
+                    invitationId={INVITATION_ID}
+                    qrActive={false}
+                   classButtonName="btn-gold"
+                >
+                
+            </RSVPForm>
             <DressCode {...dresscode}></DressCode>
-
+            <Grid paddingBottom={2} >
+                <Fade direction="up" >
+                    <Adornment image={`${URL_IMAGES}adornos2.svg`} width={"250px"} />
+              
+                </Fade>
+              </Grid>
           
             <div style={{height:100}}></div>
                        <Gallery photos={galleryPhotos} ></Gallery>
@@ -391,6 +436,6 @@ const XVDaniela  = () => {
         </div>
     )
 }
-export default XVDaniela;
+export default XVEmely;
 
 

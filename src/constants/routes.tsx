@@ -25,6 +25,7 @@ import XVAlexia from "../pages/clientInvitations/XVAlexia";
 import XVDainaly from "../pages/clientInvitations/XVDainaly";
 import XVDalia from "../pages/clientInvitations/XVDalia";
 import XVDaniela from "../pages/clientInvitations/XVDaniela";
+import XVEmely from "../pages/clientInvitations/XVEmely";
 import XVKarla from "../pages/clientInvitations/XVKarla";
 import XVMelanie from "../pages/clientInvitations/XVMelanie";
 import XVValeria from "../pages/clientInvitations/XVValeria";
@@ -105,6 +106,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-d3', element: <XVDalia></XVDalia>},
   {path:'/prev-mm-1', element: <WeddingMariluMichel></WeddingMariluMichel>},
   {path:'/prev-sl-2', element: <WeddingSphiaLuis></WeddingSphiaLuis>},
+  {path:'/prev-e-1', element: <XVEmely></XVEmely>},
 ];
 
 
