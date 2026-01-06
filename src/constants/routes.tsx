@@ -14,6 +14,7 @@ import WeddingAdelineOsvaldoTree from "../pages/clientInvitations/WeddingAdeline
 import WeddingAngelicaJose from "../pages/clientInvitations/WeddingAngelicaJose";
 import WeddingCendyAdrian from "../pages/clientInvitations/WeddingCendyAdrian";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
+import WeddingGlendaJose from "../pages/clientInvitations/WeddingGlendaJose";
 import WeddingKarolMario from "../pages/clientInvitations/WeddingKarolMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingMariluMichel from "../pages/clientInvitations/WeddingMaríaLourdes";
@@ -107,6 +108,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-mm-1', element: <WeddingMariluMichel></WeddingMariluMichel>},
   {path:'/prev-sl-2', element: <WeddingSphiaLuis></WeddingSphiaLuis>},
   {path:'/prev-e-1', element: <XVEmely></XVEmely>},
+  {path:'/prev-gj-1', element: <WeddingGlendaJose></WeddingGlendaJose>},
 ];
 
 
