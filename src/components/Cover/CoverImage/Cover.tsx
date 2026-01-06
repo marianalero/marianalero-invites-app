@@ -14,7 +14,7 @@ const Cover  = (props:CoverProps) => {
                 <h1 className="holder" style={{marginTop:props.margin ? props.margin : "16px",}}><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>
             )}
     
-        <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px"}}  textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
+        <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px"}} paddingX={1} textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
             {props.brideName}
         </Typography>
         <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px"}}  textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
@@ -22,7 +22,7 @@ const Cover  = (props:CoverProps) => {
             {props.symbolr} 
 
         </Typography>
-         <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px"}}  textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
+         <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px"}} paddingX={1} textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
             {props.groomName}
         </Typography>
          {!props.ourWeddingStart && (
