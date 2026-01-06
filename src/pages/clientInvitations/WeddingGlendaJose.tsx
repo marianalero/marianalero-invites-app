@@ -111,7 +111,7 @@ const WeddingGlendaJose  = () => {
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
         color: COLOR_PRIMARY, 
-        bgColor: COLOR_BG, 
+        bgColor: "white", 
         showEnvelope:true,
         envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",     
         bankIconEnd: `${URL_IMAGES}sobre2.svg`,
