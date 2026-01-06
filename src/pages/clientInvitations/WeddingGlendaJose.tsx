@@ -213,7 +213,7 @@ const WeddingGlendaJose  = () => {
                 className={MAIN_TYPO}
                 bgSize="cover"
                 overlay={true}
-                fontSize="60px"
+                fontSize="50px"
                 >
             </Cover>
              <Qoute 

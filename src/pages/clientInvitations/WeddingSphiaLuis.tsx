@@ -198,7 +198,7 @@ const WeddingSphiaLuis  = () => {
             <Introduction
                 brideMother="Teodora Meneses Mendoza"
                 groomFather="Luis Enrique Padilla Rivera "
-                groomMother="Guadalupe Alejandra Cooper Delgado"
+                groomMother="Gpe. Alejandra Cooper Delgado"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_PRIMARY}
