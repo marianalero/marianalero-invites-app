@@ -8,12 +8,13 @@ import { Fade } from 'react-awesome-reveal';
 
 import './rsvp.css';
 import ProButton from '../CustomButton/GoldButton';
+import TextInput from '../TextInput/TextInput';
 const RSVPDemo  = (props:RSVPType) => {
     const [radioValue, setRadioValue] = React.useState('yes');
     const [name, setName] =  useState<string>('');
     const [totalConfirmed, setTotalConfirmed] = useState<number>(1);
     const [phoneNumber, setPhoneNumber] =  useState<string>('');
-    
+    const [companionNames, setCompanionNames] = useState<string>('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRadioValue((event.target as HTMLInputElement).value);
     };
@@ -26,7 +27,7 @@ const RSVPDemo  = (props:RSVPType) => {
       confirmText = 'No Asistiré';
     }
     if (props.confirmed) {
-         props.confirmed( name,confirmText, phoneNumber,totalConfirmed.toString())
+         props.confirmed( name,confirmText, phoneNumber,totalConfirmed.toString(),companionNames)
     }
 
     }
@@ -242,6 +243,16 @@ const RSVPDemo  = (props:RSVPType) => {
                                     </Select>
                                     </FormControl>
                             </Grid>
+                            {totalConfirmed > 1 && (
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                                    <TextInput 
+                                    label='Nombre(s) de acompañantes'
+                                    color={props.colorButton}
+                                    value={(companionNames).toString()}
+                                    onChange={(v) => setCompanionNames(v)}
+                                    ></TextInput>
+                                </Grid>
+                            )}
                             
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             {

@@ -10,7 +10,7 @@ export interface RSVPType {
     guestId?:number;
     invitationId:number;
     qrActive:boolean;
-    confirmed?: (name: string,confirmText: string, phoneNumber: string,  totalConfirmed: string) => void;
+    confirmed?: (name: string,confirmText: string, phoneNumber: string,  totalConfirmed: string, companionNames?: string) => void;
     excelURL?:string;
     textColor:string;
     classButtonName?:string;

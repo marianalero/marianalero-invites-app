@@ -17,11 +17,12 @@ import { Dialog, DialogContent, Box, Typography, DialogActions } from "@mui/mate
 import CustomButton from "../../components/CustomButton/CustomButton";
 
 import Adornment from "../../components/Adornment/Adornment";
-import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCardImage from "../../components/EventCard/EventCardImage";
 import WeddingSponsor from "../../components/WeddingSponsor/WeddingSponsor";
 import { PairSponsors } from "../../components/WeddingSponsor/models/Sponsors";
 import Gallery from "../../components/Gallery/Gallert";
+import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
+import RSVPExcel from "../../components/RSVP/RSVPExcel";
 const WeddingSphiaLuis  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -111,30 +112,8 @@ const WeddingSphiaLuis  = () => {
         color: COLOR_TREE, 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
-        envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
-        // secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
+        envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",     
         bankIconEnd: `${URL_IMAGES}sobre.svg`,
-        // bankDetails: [
-        //     {
-        //         numbers :[ 
-        //             {
-        //             numberType: "Tarjeta",
-        //             number: "4213166181487061",
-        //             },
-        //         {
-        //             numberType: "Cuenta",
-        //             number: "6515238058",
-        //         }
-        //         ],
-        //         bank: "HSBC",
-        //         name: "María Lourdes Ramirez Lugo",
-        //         color: '#FFFFFF',
-        //         bodyTypo: BODY_TYPO,
-        //         bgColor: COLOR_TREE,
-                
-        //     }
-            
-        // ],
     };
     const dresscode:DressCodeProps = {
         mainTypo: MAIN_TYPO,
@@ -150,53 +129,51 @@ const WeddingSphiaLuis  = () => {
     
     const sponsors:PairSponsors[] = [
         {
-            sponsorOne: {name:"Gastón Padilla"},
-            sponsorTwo: {name:"Angelica Félix"},
+            sponsorOne: {name:"Gastón Antonio Padilla Rivera"},
+            sponsorTwo: {name:"Angélica Félix Barrón"},
         },
     ];
     
-    // const qoute:QouteProps ={
-    //         qoute: "El amor nos unió en un solo camino, y queremos recorrerlo junto a ti en este día especial.",
-    //         bodyTypo: BODY_TYPO,
-    //         addormentEnd:`${URL_IMAGES}adornos/1.svg`,
-    //         italic:true,
-    // }
-    // const timelineData: CustomizedTimelineProps = {
-    //             mainTypo: MAIN_TYPO,
-    //             bodyTypo: BODY_TYPO,
-    //             colorPrimary: COLOR_TREE,
-    //             colorTitle: COLOR_TREE,
-    //             colorBody: COLOR_TREE,
-    //             fontSize:"50px",
-    //             bgColor: "rgb(215,174,84,.05)", 
-    //             events: [
-    //                 {
-    //                     eventName: "Ceremonia Civil",
-    //                     date: new Date(2025, 10, 16, 19, 0, 0),
-    //                     icon: `${URL_IMAGES}iconos/3.svg`,
-    //                 },
-    //                 {
-    //                     eventName: "Cocktel de bienvenida",
-    //                     date: new Date(2025, 10, 16, 20, 0, 0),
-    //                     icon: `${URL_IMAGES}iconos/4.svg`,
-    //                 },
-    //                 {
-    //                     eventName: "Primer baile",
-    //                     date: new Date(2025, 10, 16, 21, 20, 0),
-    //                     icon: `${URL_IMAGES}iconos/5.svg`,
-    //                 },
-    //                 {
-    //                     eventName: "Cena",
-    //                     date: new Date(2025, 10, 16, 21, 40, 0),
-    //                     icon: `${URL_IMAGES}iconos/6.svg`,
-    //                 },
-    //                 {
-    //                     eventName: "Fin del evento",
-    //                     date: new Date(2025, 10, 16, 2, 0, 0),
-    //                     icon: `${URL_IMAGES}iconos/9.svg`,
-    //                 },
-    //             ],
-    // };
+    
+    const timelineData: CustomizedTimelineProps = {
+                mainTypo: MAIN_TYPO,
+                bodyTypo: BODY_TYPO,
+                colorPrimary: COLOR_TREE,
+                colorTitle: COLOR_TREE,
+                colorBody: COLOR_TREE,
+                fontSize:"50px",
+                bgColor: "rgb(215,174,84,.05)", 
+                events: [
+                    {
+                        eventName: "Ceremonia Religiosa",
+                        date: new Date(2025, 10, 16, 17, 30, 0),
+                        icon: `${URL_IMAGES}iconos/2.svg`,
+                    },
+                    {
+                        eventName: "Cocktel de bienvenida",
+                        date: new Date(2025, 10, 16, 19, 0, 0),
+                        icon: `${URL_IMAGES}iconos/3.svg`,
+                    },
+                    {
+                        eventName: "Recepción",
+                        date: new Date(2025, 10, 16, 20, 0, 0),
+                        icon: `${URL_IMAGES}iconos/4.svg`,
+                    },
+                    
+                ],
+    };
+
+    const handleConfirmed = (name: string, confirmText: string, phoneNumber: string, totalConfirmed: string, companionNames?: string) => {
+        console.log("Confirmado:", name, confirmText, phoneNumber, totalConfirmed, companionNames);
+        if(confirmText == "Asistiré"){
+            window.open(`https://wa.me/+526623945085?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20boda%20%20de%20Sophia y Luis Enrique. Mi nombre es: ${name};Número de invitados:${totalConfirmed};Nombres de acompañantes: ${companionNames}`, '_blank');
+
+        }else{
+            window.open(`https://wa.me/+526623945085?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20boda%20de%20Sophia y Luis Enrique.Mi nombre es: ${name}`, '_blank');
+
+        }
+    };
+
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
             <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_SECONDARY}/>
@@ -219,9 +196,9 @@ const WeddingSphiaLuis  = () => {
            
          
             <Introduction
-                brideMother="Teodora Meneses"
-                groomFather="Alejandra Cooper"
-                groomMother="Luis Enrique Padilla"
+                brideMother="Teodora Meneses Mendoza"
+                groomFather="Luis Enrique Padilla Rivera "
+                groomMother="Guadalupe Alejandra Cooper Delgado"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_PRIMARY}
@@ -262,10 +239,10 @@ const WeddingSphiaLuis  = () => {
                 ))
             }
             </Grid>
-            {/* <CustomizedTimeline {...timelineData} ></CustomizedTimeline> */}
+            <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
             <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio2.jpg`}></ImageMiddle>
             <GiftList {...giftListData} ></GiftList>
-            <RSVPForm 
+            <RSVPExcel
             textColor="black"
                 colorButton={COLOR_PRIMARY} 
                 bgColor={COLOR_BG} 
@@ -278,9 +255,10 @@ const WeddingSphiaLuis  = () => {
                 invitationId={INVITATION_ID}
                 qrActive={false}
                 hidePhoneNumberInput={true}
+                    confirmed={handleConfirmed}
             >
                 
-            </RSVPForm>
+            </RSVPExcel>
             <DressCode {...dresscode}></DressCode>
 
                    <Adornment image={`${URL_IMAGES}adornos/1.svg`} width={"250px"} />
