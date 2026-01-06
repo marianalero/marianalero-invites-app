@@ -57,7 +57,8 @@ const XVEmely  = () => {
     const URL_IMAGES = `${URL_REPO}xv/xv-emely/`;
     const BG_COLOR ="rgb(243, 234, 217,.5)"
     const galleryPhotos = [
-       `${URL_IMAGES}galeria4.jpeg`,
+       `${URL_IMAGES}galeria65.jpeg`,
+       `${URL_IMAGES}enmedio.jpeg`,
     ]
         const eventCards: EventCardProps[] = [
             {
@@ -137,6 +138,24 @@ const XVEmely  = () => {
         showEnvelope:true,
         bankIconEnd:`${URL_IMAGES}iconos/11.svg`,
         envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacernos un obsequio, tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
+        secondPhrase:"O bien puedes realizar transferencia o depósito a la siguiente cuenta:",
+        bankDetails: [
+            {
+                bank: "BBVA",
+                name: "María Fernanda Ochoa Hernández",
+                numbers : [
+                    {
+                        numberType: "Tarjeta",
+                        number: "4152313942041596"
+
+                    },
+                ],
+                color: "white",
+                bodyTypo: BODY_TYPO,
+                bgColor: COLOR_PRIMARY,
+            },
+        ],
+              
     };
     const dresscode:DressCodeProps = {
         mainTypo:`${MAIN_TYPO}`,
@@ -186,7 +205,7 @@ const XVEmely  = () => {
                 </Fade>
               </Grid>
             </Grid>
-              <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.jpeg`}></ImageMiddle>
+              <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`}></ImageMiddle>
                         <Grid container justifyContent="center" padding={2}>
       <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
         <Box
@@ -374,7 +393,7 @@ const XVEmely  = () => {
             }
             </Grid>
              </div>
-            <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`}></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}galeria4.jpeg`}></ImageMiddle>
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
