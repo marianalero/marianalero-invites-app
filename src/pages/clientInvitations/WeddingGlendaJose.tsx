@@ -114,7 +114,7 @@ const WeddingGlendaJose  = () => {
         bgColor: COLOR_BG, 
         showEnvelope:true,
         envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",     
-        bankIconEnd: `${URL_IMAGES}sobre.svg`,
+        bankIconEnd: `${URL_IMAGES}sobre2.svg`,
         bankDetails: [
             {
                 bank: "Banamex",
