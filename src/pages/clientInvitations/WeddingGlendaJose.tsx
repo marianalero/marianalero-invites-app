@@ -70,7 +70,7 @@ const WeddingGlendaJose  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Ceremonia Religiosa",
-                date: new Date(2026, 1, 28, 17, 0, 0),
+                date: new Date(2026, 2, 15, 17, 0, 0),
                 locationName: "Parroquia Santísima Trinidad", 
                 address: "Bv. Justo Sierra, Periodista, Hermosillo, Son.",
                 size: 6,
@@ -86,7 +86,7 @@ const WeddingGlendaJose  = () => {
             },
             {
                 eventName: "Ceremonia Civil y Recepción",
-                date: new Date(2026, 1, 28, 20, 0, 0),
+                date: new Date(2026, 2, 15, 20, 0, 0),
                 locationName: "Eventos Santa Clara - Jardín del Lago",
                 address: "Pvda. Deserti 20, Santa Clara, Hermosillo, Son.",
                 size: 6,
