@@ -15,4 +15,5 @@ export interface CoverProps{
     overlay:boolean;
     fontSize?:string;
     subtitle?:string;
+    dateClass?:string;
 }

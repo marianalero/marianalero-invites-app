@@ -11,7 +11,7 @@ const Cover  = (props:CoverProps) => {
      <div style={{backgroundImage:`url('${props.bgImage}')`,backgroundPositionX: props.bgPosition ? props.bgPosition : "50%" , boxShadow: props.overlay ? " inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" :""}} className='cover-container'>
         <Fade direction="up" triggerOnce={true}>
             {props.ourWeddingStart && (
-                <h1 className="holder" style={{marginTop:props.margin ? props.margin : "16px",}}><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>
+                <h1  className={ props.dateClass ? `${props.dateClass} holder` : "holder"} style={{marginTop:props.margin ? props.margin : "16px",}}><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>
             )}
     
         <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px"}} paddingX={1} textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
@@ -26,9 +26,9 @@ const Cover  = (props:CoverProps) => {
             {props.groomName}
         </Typography>
          {!props.ourWeddingStart && (
-                <h1 className="holder" ><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>
+                <h1 className={ props.dateClass ? `${props.dateClass} holder` : "holder"}><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>
             )}
-        <Typography textTransform={"uppercase"} marginTop={2} textAlign={"center"} color='white' typography={"h6"} className="pt-serif-caption-regular cover-date">{props.weddingDate}</Typography>
+        <Typography textTransform={"uppercase"} marginTop={2} textAlign={"center"} color='white' typography={"h6"} className={props.dateClass ? props.dateClass : "pt-serif-caption-regular cover-date"} sx={{fontWeight:400}}>{props.weddingDate}</Typography>
         </Fade>
         </div>
     )

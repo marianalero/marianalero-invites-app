@@ -57,7 +57,7 @@ const WeddingGlendaJose  = () => {
     const COLOR_TREE = "#dbbf97"
     const MAIN_TYPO = "parisienne-regular";
     const BODY_TYPO = "montserrat-400";
-    // const SECOND_TYPO = "the-seasons";
+    const SECOND_TYPO = "the-seasons";
     const COLOR_BG ="rgb(215,174,84,.05)";
     const URL_IMAGES = `${URL_REPO}boda/boda-glenda-jose/`;
     const URL_SONG = `${URL_REPO}canciones/FortheFirstTime.mp3`;
@@ -65,7 +65,6 @@ const WeddingGlendaJose  = () => {
        `${URL_IMAGES}galeria1.jpg`,
        `${URL_IMAGES}galeria2.jpg`,
        `${URL_IMAGES}galeria4.jpg`,
-        `${URL_IMAGES}galeria5.jpg`,
     ]
         const eventCards: EventCardProps[] = [
             {
@@ -96,7 +95,7 @@ const WeddingGlendaJose  = () => {
                 href: "https://maps.app.goo.gl/oZ53uBLQn9Gd6RJg6",
                 colorButton: COLOR_PRIMARY,
                 bgColor:COLOR_BG,
-                colorIcon: COLOR_TREE,fontSize:"50px",
+                colorIcon: COLOR_TREE,fontSize:"40px",
                 // image:`${URL_IMAGES}recepcion.jpeg`
             },
     ];
@@ -119,7 +118,7 @@ const WeddingGlendaJose  = () => {
         bankDetails: [
             {
                 bank: "Banamex",
-                name: "Glenda Francisca Rascón González",
+                name: "Glenda Francisca Rascón Rodríguez",
                 numbers : [
                     {
                         numberType: "Tarjeta",
@@ -225,6 +224,7 @@ const WeddingGlendaJose  = () => {
                 bgSize="cover"
                 overlay={true}
                 fontSize="50px"
+                dateClass={BODY_TYPO}
                 >
             </Cover>
              <Qoute 
@@ -249,9 +249,9 @@ const WeddingGlendaJose  = () => {
             <CountDown 
                 eventDate={new Date(2026,2,15)}
                 bgImage={`${URL_IMAGES}contador.jpg`}
-                typoHeader={MAIN_TYPO}
+                typoHeader={BODY_TYPO}
                 typoCountdown={BODY_TYPO} 
-                fontSize="45px"
+                fontSize="30px"
                 >  
             </CountDown>
              <WeddingSponsor 
