@@ -70,7 +70,7 @@ const RSVPDemo  = (props:RSVPType) => {
                     >
                         <Grid container spacing={2} padding={4} >
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>¿Asistiras?</Typography>
+                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo} sx={{color:props.textColor ? props.textColor : props.color}}>¿Asistirás?</Typography>
                                 <RadioGroup 
                                 row
                                 aria-labelledby="demo-row-radio-buttons-group-label"

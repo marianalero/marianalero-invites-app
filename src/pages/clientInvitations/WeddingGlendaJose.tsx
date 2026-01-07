@@ -190,6 +190,11 @@ const WeddingGlendaJose  = () => {
                         date: new Date(2025, 10, 16, 22, 0, 0),
                         icon: `${URL_IMAGES}iconos/6.svg`,
                     },
+                    {
+                        eventName: "Fin del Evento",
+                        date: new Date(2025, 10, 16, 2, 0, 0),
+                        icon: `${URL_IMAGES}iconos/7.svg`,
+                    },
                     
                 ],
     };
