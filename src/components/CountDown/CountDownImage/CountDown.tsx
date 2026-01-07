@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import "./CountDown.css"
-import dayjs from 'dayjs';
-import 'dayjs/locale/es'; // Importa el idioma español
+import { useTranslation } from "react-i18next";
+import dayjs from "dayjs";
+import "dayjs/locale/es";
+import "dayjs/locale/en";
 export interface CountDownProps{
     eventDate:Date;
     bgImage?:string;
@@ -13,7 +15,11 @@ export interface CountDownProps{
 }
 const CountDown = (props:CountDownProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
-    dayjs.locale('es');
+   const { t, i18n } = useTranslation();
+
+    useEffect(() => {
+      dayjs.locale(i18n.language);
+    }, [i18n.language]);
     const formattedDate = dayjs(props.eventDate)
     .format(props.format ? props.format : "dddd DD MMMM YYYY");
 
@@ -45,13 +51,13 @@ const CountDown = (props:CountDownProps) => {
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
         return (
             <p className={`countdown ${props.typoCountdown}`}>
-				<span className="" id="days">  {days.toString().padStart(2, "0")} <br/> <span className="labels">Días</span></span>
+				<span className="" id="days">  {days.toString().padStart(2, "0")} <br/> <span className="labels">{t('countdown.days')}</span></span>
 				<span className="" id="">: <br/> <span></span></span>
-				<span className="" id="hours">{hours.toString().padStart(2, "0")} <br/> <span className="labels">Hrs</span></span>
+				<span className="" id="hours">{hours.toString().padStart(2, "0")} <br/> <span className="labels">{t('countdown.hours')}</span></span>
 				<span className="" id="">: <br/> <span ></span></span>
-				<span className="" id="minutes">{minutes.toString().padStart(2, "0")}<br/> <span className="labels">Mins</span></span>
+				<span className="" id="minutes">{minutes.toString().padStart(2, "0")}<br/> <span className="labels">{t('countdown.minutes')}  </span></span>
 				<span className="" id="">: <br/> <span ></span></span>
-				<span className="" id="seconds">{seconds.toString().padStart(2, "0")}<br/> <span className="labels">Segs</span></span>
+				<span className="" id="seconds">{seconds.toString().padStart(2, "0")}<br/> <span className="labels">{t('countdown.seconds')}</span></span>
 			</p>
         );
       };

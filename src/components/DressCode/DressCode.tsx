@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid2';
 import formal from './../../assets/iconos/dresscode/formal.svg';
 import etiqueta from './../../assets/iconos/dresscode/etiqueta.svg';
 import { Fade } from 'react-awesome-reveal';
+import { t } from 'i18next';
 export interface DressCodeProps
 {
     mainTypo?:string;
@@ -25,7 +26,7 @@ const DressCode  = (props:DressCodeProps) =>
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                 <Fade direction="up" triggerOnce={true}>
-                <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>Código de vestimenta</Typography>
+                <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>{t("dresscode.title")}</Typography>
                 <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={props.fontWeight ? props.fontWeight:400}>{props.title}</Typography>
                 <Typography className={props.bodyTypo} variant='body1' textAlign={"center"}>{props.description}</Typography>
                 </Fade>

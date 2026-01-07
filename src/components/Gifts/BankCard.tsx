@@ -3,6 +3,7 @@ import { BankAccount } from "./models/bankAccount"
 import ReactCardFlip from "react-card-flip";
 import { useState } from 'react';
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { t } from "i18next";
 
 const BankCard  = (item:BankAccount) => {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -29,7 +30,7 @@ const BankCard  = (item:BankAccount) => {
           color:item.color,
         }}
       >
-        <h6 style={{textAlign:"center"}}  className={`${item.bodyTypo}`}>Clic para ver datos bancarios<br/> {item.name}</h6>
+        <h6 style={{textAlign:"center"}}  className={`${item.bodyTypo}`}>{t("gifts.seeBankInfo")}<br/> {item.name}</h6>
       </div>
 
       {/* Reverso de la tarjeta */}
@@ -72,8 +73,8 @@ const BankCard  = (item:BankAccount) => {
                     </Typography>
                   ))}
                 
-                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>Banco: {item.bank}  </Typography>
-                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>Beneficiario: {item.name}</Typography>
+                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{t("gifts.bank")}: {item.bank}  </Typography>
+                <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{t("gifts.bankBeneficiary")}: {item.name}</Typography>
          </Paper>
       </div>
     </ReactCardFlip>

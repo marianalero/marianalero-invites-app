@@ -36,6 +36,7 @@ import Dashboard from "../pages/dashboard/dashboard";
 import DemosPage from "../pages/demos/DemosPage2";
 import BabyShower from "../pages/demos/examples/BabyShower";
 import DemoOne from "../pages/demos/examples/DemoOne";
+import DemoOneBI from "../pages/demos/examples/DemoOneBI";
 import DemoTree from "../pages/demos/examples/DemoTree";
 import DemoTwo from "../pages/demos/examples/DemoTwo";
 import FaqPage from "../pages/faq/faq";
@@ -109,6 +110,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-sl-2', element: <WeddingSphiaLuis></WeddingSphiaLuis>},
   {path:'/prev-e-1', element: <XVEmely></XVEmely>},
   {path:'/prev-gj-1', element: <WeddingGlendaJose></WeddingGlendaJose>},
+  {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
 ];
 
 

@@ -1,0 +1,86 @@
+{
+  "welcome": "Bienvenidos",
+  "enter": "Entrar",
+    "english": "Inglés",
+    "spanish": "Español",
+    "ourWedding": "Nuestra Boda",
+    "events": {
+        "ceremony": "Ceremonia Religiosa",
+        "reception": "Recepción",
+        "location": "Ver Ubicación"
+    },
+        "timeline": {
+        "title":"El Gran Día",
+        "subtitle":"No te pierdas ningún momento",
+        "reception": "Recepción",
+        "waltz": "Vals",
+        "dinner": "Cena",
+        "party": "Todos a bailar",
+        "end": "Fin del evento"
+    },
+    "dresscode": {
+    "title":"Código de vestimenta",
+    "formal-attire": "Etiqueta Rigurosa",
+    "formal": "Formal"
+    
+  },
+  "quote": {
+    "main": "No fuiste ni antes ni después, fuiste a tiempo. A tiempo para que me enamorara de ti."
+  },
+  "gifts": {
+    "giftTable": "Mesa de Regalos",
+    "rainEnvelopes": "Lluvia de sobres",
+    "mainPhrase": "Agradecemos mucho todo su amor y apoyo al iniciar esta etapa de formar nuestro hogar.",
+    "envelope": "Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo o si lo prefieres puedes hacer transferencia bancaria a la siguiente cuenta:",
+    "seeBankInfo": "Clic para ver datos bancarios",
+    "bank":"Banco",
+    "bankBeneficiary": "Beneficiario",
+    "card":"Tarjeta",
+    "accountNumber":"Número de Cuenta",
+    "clabe":"CLABE",
+    "clickHereText": "Clic <1>aquí</1> para ir a nuestra mesa de regalos"
+},
+  "introduction":{
+    "line1":"Deseamos compartir con ustedes la alegría de nuestra unión",
+    "line2":"Con la bendición de Dios y el apoyo incondicional de nuestros padres",
+    "line3":"Junto con nuestras familias te invitamos a ser parte de esta linda unión"
+  },
+  "RSVP":{
+    "title":"!Confirma tu asistencia!",
+    "subtitle":"Nos encantaría contar con tu presencia en nuestro día especial",
+    "namePlaceholder":"Nombre",
+    "guestsPlaceholder":"Número de invitados",
+    "phonePlaceholder":"Teléfono",
+    "companionPlaceholder":"Nombre(s) de acompañante(s)",
+    "attendingLabel":"Asistiré",
+    "notAttendingLabel":"No podré asistir",
+    "commentsPlaceholder":"Comentarios adicionales",
+    "submitButton":"Enviar",
+    "successMessage":"¡Gracias por confirmar tu asistencia! Si necesitas hacer algún cambio, aún estás a tiempo de modificar tu respuesta.",
+    "rsvpConfirmedMessage":"Has confirmado tu asistencia para {{count}} personas.",
+    "dateLineEnd" :"Lo sentimos, el plazo para confirmar asistencia ya terminó.",
+    "dateLineStart":"Por favor ayúdanos confirmando tu asistencia antes del ",
+    "willYouAttend":"¿Asistiras?",
+    "Yes":"Sí",
+    "No":"No",
+    "placesReserved":"Hemos reservado 1 lugar para ti.",
+    "placesReserved_plural":"Hemos reservado {{count}} lugares para ti.",
+    "send":"Enviar",
+    "errorMessage":"Hubo un error al enviar tu confirmación. Por favor, inténtalo de nuevo más tarde.",
+    "successSend":"¡Confirmación enviada!"
+    ,"notAttendingMessage":"Lamentamos que no puedas acompañarnos en esta ocasión tan especial.",
+    "updateResponseMessage":"Gracias por tomarte el tiempo de confirmar. Puedes actualizar tu respuesta si surge algún cambio antes del {{date}}."
+    },
+    "NoKidsMessageTitle":"¡Mamá y papá merecen un día libre!",
+    "NoKidsMessageBody":"Respetuosamente,",
+    "NoKidsMessageBodyDesc":"sin niños",
+    "footer":{
+        "message":"Hecho con ❤️ por Mariana & Lero"
+    },
+    "countdown": {
+  "days": "Días",
+  "hours": "Hrs",
+  "minutes": "Mins",
+  "seconds": "Segs"
+}
+}

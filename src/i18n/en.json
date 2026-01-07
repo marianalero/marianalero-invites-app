@@ -1,0 +1,93 @@
+{
+  "welcome": "Welcome",
+  "enter": "Enter",
+  "english": "English",
+  "spanish": "Spanish",
+
+  "ourWedding": "Our Wedding",
+
+  "events": {
+    "ceremony": "Religious Ceremony",
+    "reception": "Reception",
+    "location": "View Location"
+  },
+
+  "timeline": {
+    "title": "The Big Day",
+    "subtitle": "Don’t miss a single moment",
+    "reception": "Reception",
+    "waltz": "Waltz",
+    "dinner": "Dinner",
+    "party": "Let’s Dance",
+    "end": "End of the Event"
+  },
+
+  "dresscode": {
+    "title": "Dress Code",
+    "formal-attire": "Black Tie",
+    "formal": "Formal"
+  },
+
+  "quote": {
+    "main": "You didn’t come before or after, you came right on time. Right on time for me to fall in love with you."
+  },
+
+  "gifts": {
+    "giftTable": "Gift Table",
+    "rainEnvelopes": "Envelope Shower",
+    "mainPhrase": "We deeply appreciate all your love and support as we begin this new chapter of building our home together.",
+    "envelope": "There will be a box for envelopes at the event if you wish to give a cash gift, or if you prefer, you may make a bank transfer to the following account:",
+    "seeBankInfo": "Click to view bank details",
+    "bank": "Bank",
+    "bankBeneficiary": "Beneficiary",
+    "card": "Card",
+    "accountNumber": "Account Number",
+    "clabe": "CLABE",
+    "clickHereText": "Click <1>here</1> to visit our gift table"
+  },
+
+  "introduction": {
+    "line1": "We wish to share with you the joy of our union",
+    "line2": "With God’s blessing and the unconditional support of our parents",
+    "line3": "Together with our families, we invite you to be part of this beautiful union"
+  },
+
+  "RSVP": {
+    "title": "Confirm Your Attendance!",
+    "subtitle": "We would love to have you with us on our special day",
+    "namePlaceholder": "Your name",
+    "guestsPlaceholder": "Number of guests",
+    "phonePlaceholder": "Phone number",
+    "companionPlaceholder": "Companion name(s)",
+    "attendingLabel": "I will attend",
+    "notAttendingLabel": "I will not be able to attend",
+    "commentsPlaceholder": "Additional comments",
+    "submitButton": "Submit",
+    "successMessage": "Thank you for confirming your attendance! If you need to make any changes, you are still able to update your response.",
+    "rsvpConfirmedMessage": "You have confirmed your attendance for {{count}} people.",
+    "dateLineEnd": "We’re sorry, the RSVP deadline has passed.",
+    "dateLineStart": "Please help us by confirming your attendance before",
+    "willYouAttend": "Will you attend?",
+    "Yes": "Yes",
+    "No": "No",
+    "placesReserved": "We have reserved 1 seat for you.",
+    "placesReserved_plural": "We have reserved {{count}} seats for you.",
+    "send": "Send",
+    "errorMessage": "There was an error sending your confirmation. Please try again later.",
+    "successSend": "Confirmation sent!"
+  },
+
+  "NoKidsMessageTitle": "Mom and Dad Deserve a Day Off!",
+  "NoKidsMessageBody": "Respectfully,",
+  "NoKidsMessageBodyDesc": "adults only",
+
+  "footer": {
+    "message": "Made with ❤️ by MarianaLero"
+  },
+  "countdown": {
+  "days": "Days",
+  "hours": "Hrs",
+  "minutes": "Mins",
+  "seconds": "Segs"
+}
+}

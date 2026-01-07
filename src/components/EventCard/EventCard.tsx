@@ -7,6 +7,7 @@ import { Card, CardContent, Typography } from '@mui/material';
 import { EventCardProps } from './models/EventCardProps';
 import { Fade } from 'react-awesome-reveal';
 import ProButton from '../CustomButton/GoldButton';
+import { t } from 'i18next';
 
 
 const EventCard  = (props:EventCardProps) => {
@@ -46,9 +47,9 @@ const EventCard  = (props:EventCardProps) => {
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                     {
                                         props.classButtonName ? (
-                                            <ProButton href={props.href} className={props.classButtonName} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+                                            <ProButton href={props.href} className={props.classButtonName} label={t("events.location")} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
                                         ) : (
-                                            <CustomButton href={props.href} bgColor={props.colorButton} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+                                            <CustomButton href={props.href} bgColor={props.colorButton} color={'white'} label={t("events.location")} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
 
                                         )
                                     }

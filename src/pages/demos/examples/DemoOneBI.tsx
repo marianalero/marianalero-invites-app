@@ -21,10 +21,22 @@ import RSVPForm from "../../../components/RSVP/RSVPForm";
 // import RSVPDemo from "../../../components/RSVP/RSVPDemo";
 import { IMAGES_URl } from "../../../config";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../../components/MusicFabPlayer/MusicFabPlayer";
-import { Box, Dialog, DialogContent,  Typography } from "@mui/material";
-import CustomButton from "../../../components/CustomButton/CustomButton";
 import Adornment from "../../../components/Adornment/Adornment";
-const DemoOne  = () => {
+import { useTranslation } from "react-i18next";
+import { useInvitationLanguage } from "../../../hooks/invitationLanguage";
+import { invitationConfig } from "../../../constants/invitationConfigs";
+import i18n from "../../../i18n";
+import InvitationWelcomeModal from "../../../components/InvitationWelcomeModal/InvitationWelcomeModal";
+const LANGUAGE_KEY = "invitation-language";
+const DemoOneBI  = () => {
+// 🔹 1. Controla el idioma de ESTA invitación
+  useInvitationLanguage({
+    isMultilanguage: invitationConfig.isMultilanguage,
+    defaultLanguage: invitationConfig.defaultLanguage
+  });
+
+  // 🔹 2. Traducciones normales
+  const { t } = useTranslation();
     const [searchParams] = useSearchParams();
     const invitedGuests: number = useMemo(() => {
         const num = Number(searchParams.get("number"));
@@ -34,20 +46,30 @@ const DemoOne  = () => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
+    const storedLanguage = localStorage.getItem(LANGUAGE_KEY);
+const hasLanguageSelected = Boolean(storedLanguage);
+
     const musicRef = useRef<MusicFabPlayerHandle>(null);
     const handleClickOpen = () => {
         setOpen(true);
     };
 
-    const handleClose = () => {
-        setOpen(false);
-        musicRef.current?.play()
-     };
 
+    const handleEnter = () => {
+        setOpen(false);
+        musicRef.current?.play(); // 🎵 AQUÍ
+        };
     useEffect(() => {
        handleClickOpen()
     }, []);
+
+
+const handleSelectLanguage = (lang: "es" | "en") => {
+  localStorage.setItem("invitation-language", lang);
+  i18n.changeLanguage(lang);
+  handleEnter();
+};
     const COLOR_PRIMARY = "#0E6655";
     const INVITATION_ID = 1;
     const MAIN_TYPO = "great-vibes-regular";
@@ -60,7 +82,7 @@ const DemoOne  = () => {
         ];
         const eventCards: EventCardProps[] = [
             {
-                eventName: "Ceremonia Religiosa",
+                eventName: t("events.ceremony"),
                 date: new Date(2025, 9, 18, 11, 0, 0),
                 locationName: "Parroquia Nuestra Señora del Rosario de Fátima",
                 address: "Calle Guadalupe Victoria, San Benito, 83190 Hermosillo, Son.",
@@ -73,7 +95,7 @@ const DemoOne  = () => {
                 colorButton: COLOR_PRIMARY,
             },
             {
-                eventName: "Recepción",
+                eventName: t("events.reception"),
                 date: new Date(2025, 9, 18, 17, 0, 0),
                 locationName: "Parroquia Nuestra Señora del Rosario de Fátima",
                 address: "Calle Guadalupe Victoria, San Benito, 83190 Hermosillo, Son.",
@@ -95,40 +117,40 @@ const DemoOne  = () => {
         bgColor: "rgb(215,174,84,.05)", 
         events: [
             {
-                eventName: "Recepción",
+                eventName: t("timeline.reception"),
                 date: new Date(2025, 9, 18,17,0,0),
                 icon: "https://marianalero.github.io/Invitacion/images/Icons/bebida.svg",
             },
             {
-                eventName: "Vals",
+                eventName: t("timeline.waltz"),
                 date: new Date(2025, 9, 18,19,15,0),
                 icon: "https://marianalero.github.io/Invitacion/images/Icons/vals4.svg",
             },
             {
-                eventName: "Cena",
+                eventName: t("timeline.dinner"),
                 date: new Date(2025, 9, 18,20,0,0),
                 icon: "https://marianalero.github.io/Invitacion/images/Icons/comida.svg",
             },
             {
-                eventName: "Todos a bailar",
+                eventName: t("timeline.party"),
                 date: new Date(2025, 9, 18,21,0,0),
                 icon: "https://marianalero.github.io/Invitacion/images/Icons/bailar.svg",
             },
             {
-                eventName: "Fin del evento",
+                eventName: t("timeline.end"),
                 date: new Date(2025, 9, 18,2,0,0),
                 icon: "https://marianalero.github.io/Invitacion/images/finevento.svg",
             },
         ],
     };
     const giftListData: GiftListProps = {
-        mainPhrase: "Agradecemos mucho todo su amor y apoyo al iniciar esta etapa de formar nuestro hogar.",
+        mainPhrase: t("gifts.mainPhrase"),
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
         color: "#0E6655", 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
-        envelopePhrase:"Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo o si lo prefieres puedes hacer transferencia bancaria a la siguiente cuenta:",
+        envelopePhrase: t("gifts.envelope"),
         bankIconStart: "https://marianalero.github.io/Invitacion/images/Icons/sobre.svg",
         items: [
             {
@@ -164,10 +186,10 @@ const DemoOne  = () => {
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
         type:2,
-        title:"Etiqueta Rigurosa"
+        title: t("dresscode.formal")
     }
     const qoute:QouteProps ={
-        qoute: "No fuiste ni antes ni después , fuiste a tiempo. A tiempo para que me enamorara de ti.",
+        qoute: t("quote.main"),
         images: [
             "https://marianalero.github.io/Invitacion/images/DSC_9995.jpg",
             "https://marianalero.github.io/Invitacion/images/285460514_10160042584270789_1637739613758679016_n.jpg",
@@ -280,27 +302,18 @@ const DemoOne  = () => {
             <div style={{height:100}}></div>
             <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
-        <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-        >
-           
-            <DialogContent >
+      <InvitationWelcomeModal
+  open={open}
+  isMultilanguage={invitationConfig.isMultilanguage}
+  hasLanguageSelected={hasLanguageSelected}
+  primaryColor={COLOR_PRIMARY}
+  secondaryColor={"#FFFFFF"}
+  textColor="#000"
+  onEnter={handleEnter}
+  onSelectLanguage={handleSelectLanguage}
+/>
 
-               <Box display={"flex"} justifyContent={"center"}>
-                <Typography variant="body1" sx={{fontSize:"25px"}} >Bienvenidos</Typography>
-               </Box>
-                <Box display={"flex"} justifyContent={"center"} marginTop={2}>
-                 <CustomButton borderColor="#d7ae54" bgColor={"#ffffff"} color={'#d7ae54'} label={'Entrar'} onClick={handleClose}></CustomButton>
-               </Box>
-                
-               
-           
-            </DialogContent>
-        </Dialog>
         </div>
     )
 }
-export default DemoOne;
+export default DemoOneBI;

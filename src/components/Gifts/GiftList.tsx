@@ -6,6 +6,8 @@ import { GiftItem } from './models/gifItem';
 import { BankAccount } from './models/bankAccount';
 import { Fade } from 'react-awesome-reveal';
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 export interface GiftListProps {
     mainPhrase?:string;
     items?:GiftItem[]
@@ -32,7 +34,7 @@ const GiftList = (props:GiftListProps) =>{
                 props.mainPhrase && (
                      <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                         <Fade direction="up" triggerOnce={true}>
-                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>Mesa de regalos</Typography>
+                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>{t("gifts.giftTable")}</Typography>
                         </Fade>
                     </Grid>	
                 )
@@ -52,11 +54,30 @@ const GiftList = (props:GiftListProps) =>{
                                 </Grid>
                             
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`}>
+                                <Typography
+                                    variant="body1"
+                                    textAlign="center"
+                                    className={props.bodyTypo}
+                                    >
+                                    <Trans
+                                        i18nKey="gifts.clickHereText"
+                                        components={{
+                                        1: (
+                                            <a
+                                            href={props.items[0].link}
+                                            style={{ color: props.color }}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            />
+                                        ),
+                                        }}
+                                    />
+                                    </Typography>
+                                {/* <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`}>
                                     Clic <a style={{color:props.color}} href={props.items[0].link}>aquí</a> para ir a
                                     nuestra mesa de regalos
                                 
-                                </Typography>
+                                </Typography> */}
                             </Grid>
                        </Grid>
                       
@@ -99,7 +120,7 @@ const GiftList = (props:GiftListProps) =>{
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}  >
                   
                      <Fade direction="up" triggerOnce={true} >
-                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>Lluvia de sobres</Typography>
+                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>{t("gifts.rainEnvelopes")}</Typography>
                         <div style={{display:"block", justifyItems:"center"}}>
                          { props.bankIconStart &&
                         (

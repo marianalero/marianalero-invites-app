@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
 import Adornment from "../Adornment/Adornment";
+import { t } from "i18next";
 
 export interface IntroductionProps {
     mainPhrase?:string;
@@ -32,7 +33,7 @@ const Introduction  = (props:IntroductionProps) => {
                                  <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >{props.firstQoute}</Typography>
                             )
                             :(
-                                <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >Deseamos compartir con ustedes la alegría de nuestra unión</Typography>
+                                <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >{t("introduction.line1")}</Typography>
 
                             )}
                         </Fade>
@@ -56,7 +57,7 @@ const Introduction  = (props:IntroductionProps) => {
                                  <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >{props.secondQoute}</Typography>
                             )
                             :(
-                             <Typography  textAlign={"center"} className={`${props.bodyTypo}`}>Con la bendición de Dios y el apoyo incondicional de nuestros padres</Typography>
+                             <Typography  textAlign={"center"} className={`${props.bodyTypo}`}>{t("introduction.line2")}</Typography>
 
                             )}
                            
@@ -87,7 +88,7 @@ const Introduction  = (props:IntroductionProps) => {
                                  <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >{props.thirdQoute}</Typography>
                             )
                             :(
-                                <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >Junto con nuestras familias te invitamos a ser parte de esta linda unión </Typography>
+                                <Typography  textAlign={"center"} className={`${props.bodyTypo}`} >{t("introduction.line3")}</Typography>
 
                             )}
                            

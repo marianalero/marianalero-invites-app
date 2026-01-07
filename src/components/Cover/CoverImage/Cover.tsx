@@ -3,6 +3,7 @@ import { Typography } from '@mui/material';
 import './Cover.css';
 import { Fade } from 'react-awesome-reveal';
 import { CoverProps } from '../CoverProps';
+import { t } from 'i18next';
 
 const Cover  = (props:CoverProps) => {
 
@@ -11,7 +12,7 @@ const Cover  = (props:CoverProps) => {
      <div style={{backgroundImage:`url('${props.bgImage}')`,backgroundPositionX: props.bgPosition ? props.bgPosition : "50%" , boxShadow: props.overlay ? " inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" :""}} className='cover-container'>
         <Fade direction="up" triggerOnce={true}>
             {props.ourWeddingStart && (
-                <h1 className="holder" style={{marginTop:props.margin ? props.margin : "16px",}}><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>
+                <h1 className="holder" style={{marginTop:props.margin ? props.margin : "16px",}}><span>{props.subtitle ?  props.subtitle : t("ourWedding")}</span></h1>
             )}
     
         <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px"}} paddingX={1} textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
