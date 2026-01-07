@@ -30,7 +30,7 @@ const XVEmely  = () => {
                 const num = Number(searchParams.get("id"));
                 return isNaN(num) ? undefined : num;
             }, [searchParams]);
-        const INVITATION_ID = 1008;
+        const INVITATION_ID = 14;
         const [open, setOpen] = useState(false);
 
         const musicRef = useRef<MusicFabPlayerHandle>(null);
