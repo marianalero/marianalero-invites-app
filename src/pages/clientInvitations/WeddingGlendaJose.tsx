@@ -23,6 +23,7 @@ import { PairSponsors } from "../../components/WeddingSponsor/models/Sponsors";
 import Gallery from "../../components/Gallery/Gallert";
 import RSVPExcel from "../../components/RSVP/RSVPExcel";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
+import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 const WeddingGlendaJose  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -69,7 +70,7 @@ const WeddingGlendaJose  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Ceremonia Religiosa",
-                date: new Date(2026, 1, 28, 17, 30, 0),
+                date: new Date(2026, 1, 28, 17, 0, 0),
                 locationName: "Parroquia Santísima Trinidad", 
                 address: "Bv. Justo Sierra, Periodista, Hermosillo, Son.",
                 size: 6,
@@ -84,8 +85,8 @@ const WeddingGlendaJose  = () => {
 
             },
             {
-                eventName: "Recepción",
-                date: new Date(2026, 1, 28, 19, 0, 0),
+                eventName: "Ceremonia Civil y Recepción",
+                date: new Date(2026, 1, 28, 20, 0, 0),
                 locationName: "Eventos Santa Clara - Jardín del Lago",
                 address: "Pvda. Deserti 20, Santa Clara, Hermosillo, Son.",
                 size: 6,
@@ -156,33 +157,43 @@ const WeddingGlendaJose  = () => {
     ];
     
     
-    // const timelineData: CustomizedTimelineProps = {
-    //             mainTypo: MAIN_TYPO,
-    //             bodyTypo: BODY_TYPO,
-    //             colorPrimary: COLOR_TREE,
-    //             colorTitle: COLOR_TREE,
-    //             colorBody: COLOR_TREE,
-    //             fontSize:"50px",
-    //             bgColor: "rgb(215,174,84,.05)", 
-    //             events: [
-    //                 {
-    //                     eventName: "Ceremonia Religiosa",
-    //                     date: new Date(2025, 10, 16, 17, 30, 0),
-    //                     icon: `${URL_IMAGES}iconos/2.svg`,
-    //                 },
-    //                 {
-    //                     eventName: "Cocktel de bienvenida",
-    //                     date: new Date(2025, 10, 16, 19, 0, 0),
-    //                     icon: `${URL_IMAGES}iconos/4.svg`,
-    //                 },
-    //                 {
-    //                     eventName: "Recepción",
-    //                     date: new Date(2025, 10, 16, 20, 0, 0),
-    //                     icon: `${URL_IMAGES}iconos/3.svg`,
-    //                 },
+    const timelineData: CustomizedTimelineProps = {
+                mainTypo: MAIN_TYPO,
+                bodyTypo: BODY_TYPO,
+                colorPrimary: COLOR_TREE,
+                colorTitle: COLOR_TREE,
+                colorBody: COLOR_TREE,
+                fontSize:"50px",
+                bgColor: "rgb(215,174,84,.05)", 
+                events: [
+                    {
+                        eventName: "Ceremonia Religiosa",
+                        date: new Date(2025, 10, 16, 17, 0, 0),
+                        icon: `${URL_IMAGES}iconos/2.svg`,
+                    },
+                    {
+                        eventName: "Cocktel de bienvenida",
+                        date: new Date(2025, 10, 16, 20, 0, 0),
+                        icon: `${URL_IMAGES}iconos/3.svg`,
+                    },
+                    {
+                        eventName: "Ceremonia Civil",
+                        date: new Date(2025, 10, 16, 20, 30, 0),
+                        icon: `${URL_IMAGES}iconos/4.svg`,
+                    },
+                    {
+                        eventName: "Cena",
+                        date: new Date(2025, 10, 16, 21, 30, 0),
+                        icon: `${URL_IMAGES}iconos/5.svg`,
+                    },
+                    {
+                        eventName: "Primera Baile",
+                        date: new Date(2025, 10, 16, 22, 0, 0),
+                        icon: `${URL_IMAGES}iconos/6.svg`,
+                    },
                     
-    //             ],
-    // };
+                ],
+    };
     const qoute: QouteProps = {
         bodyTypo: BODY_TYPO,
         qoute: "Love made us one",
@@ -236,7 +247,7 @@ const WeddingGlendaJose  = () => {
             >
             </Introduction>
             <CountDown 
-                eventDate={new Date(2026,1,28)}
+                eventDate={new Date(2026,2,15)}
                 bgImage={`${URL_IMAGES}contador.jpg`}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} 
@@ -267,7 +278,7 @@ const WeddingGlendaJose  = () => {
                 ))
             }
             </Grid>
-            {/* <CustomizedTimeline {...timelineData} ></CustomizedTimeline> */}
+            <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
             <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio2.jpg`}></ImageMiddle>
             <GiftList {...giftListData} ></GiftList>
             <RSVPExcel
