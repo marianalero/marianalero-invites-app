@@ -86,6 +86,7 @@ const WeddingGlendaJose  = () => {
             {
                 eventName: "Ceremonia Civil y Recepción",
                 date: new Date(2026, 2, 15, 20, 0, 0),
+                endDate: new Date(2026, 2, 16, 2, 0, 0),
                 locationName: "Eventos Santa Clara - Jardín del Lago",
                 address: "Pvda. Deserti 20, Santa Clara, Hermosillo, Son.",
                 size: 6,
