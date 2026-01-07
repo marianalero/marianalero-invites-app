@@ -187,7 +187,7 @@ const WeddingGlendaJose  = () => {
                         icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
-                        eventName: "Primera Baile",
+                        eventName: "Primer Baile",
                         date: new Date(2025, 10, 16, 22, 0, 0),
                         icon: `${URL_IMAGES}iconos/6.svg`,
                     },
