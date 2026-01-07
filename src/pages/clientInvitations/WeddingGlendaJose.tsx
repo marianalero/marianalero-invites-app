@@ -57,7 +57,6 @@ const WeddingGlendaJose  = () => {
     const COLOR_TREE = "#dbbf97"
     const MAIN_TYPO = "parisienne-regular";
     const BODY_TYPO = "montserrat-400";
-    const SECOND_TYPO = "the-seasons";
     const COLOR_BG ="rgb(215,174,84,.05)";
     const URL_IMAGES = `${URL_REPO}boda/boda-glenda-jose/`;
     const URL_SONG = `${URL_REPO}canciones/FortheFirstTime.mp3`;
