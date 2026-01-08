@@ -1,4 +1,5 @@
 
+import { useMediaQuery } from '@mui/material';
 import './ImgMiddle.css';
 export interface ImageMiddleProps {
     bgImage:string;
@@ -8,16 +9,16 @@ export interface ImageMiddleProps {
     bgPositionY?:string;
 }
 const ImageMiddle  = (props:ImageMiddleProps) => {
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
     return(
         <div 
             className="middle-image" 
             style={{
                 backgroundImage:`url('${props.bgImage}')`,
                 backgroundPositionX:props.bgPosition ? props.bgPosition : "50%!important",
-                backgroundPositionY:props.bgPositionY ? props.bgPositionY : "center",
+                backgroundPositionY:props.bgPositionY ? !isSmallScreen ? props.bgPositionY : "50%" : "50%",
                 backgroundSize: props.bgSize ?  props.bgSize : "cover",
-                height: props.height ? props.height : "50vh"}}>
+                height: props.height ? isSmallScreen ? props.height : "100vh" : "50vh"}}>
         </div>
     )
 }

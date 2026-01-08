@@ -1,14 +1,14 @@
 
-import { Typography } from '@mui/material';
+import { Typography, useMediaQuery } from '@mui/material';
 import './Cover.css';
 import { Fade } from 'react-awesome-reveal';
 import { CoverProps } from '../CoverProps';
 
 const Cover  = (props:CoverProps) => {
-
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
     return(
      
-     <div style={{backgroundImage:`url('${props.bgImage}')`,backgroundPositionX: props.bgPosition ? props.bgPosition : "50%" , boxShadow: props.overlay ? " inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" :""}} className='cover-container'>
+     <div style={{backgroundImage:`url('${props.bgImage}')`,backgroundPositionX: props.bgPosition ? props.bgPosition : "50%" ,backgroundPositionY : props.bgPositionY ? !isSmallScreen ? props.bgPositionY : "50%" : "50%", boxShadow: props.overlay ? " inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" :""}} className='cover-container'>
         <Fade direction="up" triggerOnce={true}>
             {props.ourWeddingStart && (
                 <h1  className={ props.dateClass ? `${props.dateClass} holder` : "holder"} style={{marginTop:props.margin ? props.margin : "16px",}}><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>

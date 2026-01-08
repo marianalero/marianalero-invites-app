@@ -10,6 +10,7 @@ export interface CountDownProps{
     format?:string;
     fontSize?:string;
     title?:string;
+    marginTop?:string;
 }
 const CountDown = (props:CountDownProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
@@ -58,7 +59,7 @@ const CountDown = (props:CountDownProps) => {
     return (
         <div id="countdown" style={{backgroundImage:`url('${props.bgImage}')`}}  >
 			<div className="overlay"></div>
-			<div className="display-over">
+			<div className="display-over" style={{marginTop: props.marginTop ? props.marginTop : "0"}}>
 				<div className="container" >
 					<div className="row animate-box">
 						<div className="col-md-12 section-heading text-center svg-sm colored">							

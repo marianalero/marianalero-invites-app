@@ -61,9 +61,10 @@ const WeddingGlendaJose  = () => {
     const URL_IMAGES = `${URL_REPO}boda/boda-glenda-jose/`;
     const URL_SONG = `${URL_REPO}canciones/FortheFirstTime.mp3`;
     const galleryPhotos = [
+        `${URL_IMAGES}galeria4.jpg`,
        `${URL_IMAGES}galeria1.jpg`,
        `${URL_IMAGES}galeria2.jpg`,
-       `${URL_IMAGES}galeria4.jpg`,
+     
     ]
         const eventCards: EventCardProps[] = [
             {
@@ -150,7 +151,7 @@ const WeddingGlendaJose  = () => {
             sponsorTwo: {name:"Claudia De Yanira Moroyoqui Delgado"},
         },
         {
-            sponsorOne: {name:"Lina Griselda Félix Ruiz"},
+            sponsorOne: {name:"Lina Griselda Félix Ruíz"},
             sponsorTwo: {name:"José Guadalupe Canales Gaxiola"},
         }
     ];
@@ -171,7 +172,7 @@ const WeddingGlendaJose  = () => {
                         icon: `${URL_IMAGES}iconos/2.svg`,
                     },
                     {
-                        eventName: "Cocktel de bienvenida",
+                        eventName: "Cóctel  de bienvenida",
                         date: new Date(2025, 10, 16, 20, 0, 0),
                         icon: `${URL_IMAGES}iconos/3.svg`,
                     },
@@ -230,18 +231,19 @@ const WeddingGlendaJose  = () => {
                 overlay={true}
                 fontSize="50px"
                 dateClass={BODY_TYPO}
+                bgPositionY="30%"
                 >
             </Cover>
              <Qoute 
              {...qoute}>
             </Qoute>
             
-            <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.jpg`}></ImageMiddle>
+            <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgPositionY="20%"></ImageMiddle>
          
             <Introduction
                 brideMother="Elba María Rodríguez Romero"
                 brideFather="Javier Rascón González"
-                groomFather="Gabriela Félix Ruiz"
+                groomFather="Gabriela Félix Ruíz"
                 groomMother="Juan Gabriel Urías Vázquez"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
@@ -257,6 +259,7 @@ const WeddingGlendaJose  = () => {
                 typoHeader={BODY_TYPO}
                 typoCountdown={BODY_TYPO} 
                 fontSize="30px"
+                marginTop="50px"
                 >  
             </CountDown>
              <WeddingSponsor 

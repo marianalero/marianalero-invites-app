@@ -16,4 +16,6 @@ export interface CoverProps{
     fontSize?:string;
     subtitle?:string;
     dateClass?:string;
+    bgPositionY?:string; // Nueva propiedad para la posición vertical del fondo en patantalla completa
+
 }
