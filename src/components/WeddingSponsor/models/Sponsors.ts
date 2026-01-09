@@ -23,6 +23,7 @@ export interface Sponsor {
 }
 
 export interface PairSponsors {
+    title?:string;
     sponsorOne?:Sponsor;
     sponsorTwo?:Sponsor;
 }

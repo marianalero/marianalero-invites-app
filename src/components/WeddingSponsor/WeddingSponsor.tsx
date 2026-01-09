@@ -26,12 +26,23 @@ const WeddingSponsor  = (props:WeddingSponsorProps) => {
                        
                         {
                             props.sponsors?.map((item,index) => (
-                                <Grid key={index} size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Fade direction="up" triggerOnce={true} >
-                                        <Typography textAlign={"center"} className={`${props.bodyTypo}`}>{item.sponsorOne?.name}</Typography>
-                                        <Typography  textAlign={"center"} className={`${props.bodyTypo}`}>{item.sponsorTwo?.name}</Typography>
-                                    </Fade>
-                                </Grid>	
+                                <Grid key={index} container size={{xs:12,sm:12,md:12,lg:12}} >
+                                    <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                                        {
+                                            item.title && (
+                                                <Fade direction="up" triggerOnce={true} >
+                                                    <Typography  sx={{ fontSize: "1rem",fontWeight:600, marginTop:4,fontStyle:"italic!important"}} variant="body1" textAlign={"center"} className={`${props.bodyTypo}`} >{item.title}</Typography>
+                                                </Fade>
+                                            )
+                                        }
+                                    </Grid>
+                                    <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                                        <Fade direction="up" triggerOnce={true} >
+                                            <Typography textAlign={"center"} className={`${props.bodyTypo}`}>{item.sponsorOne?.name}</Typography>
+                                            <Typography  textAlign={"center"} className={`${props.bodyTypo}`}>{item.sponsorTwo?.name}</Typography>
+                                        </Fade>
+                                    </Grid>
+                                </Grid>
                             ))
                         }	
                         {

@@ -147,13 +147,25 @@ const WeddingGlendaJose  = () => {
     
     const sponsors:PairSponsors[] = [
         {
+            title:"Velación y Lazo",
             sponsorOne: {name:"Jesús Omar Rascón González"},
             sponsorTwo: {name:"Claudia De Yanira Moroyoqui Delgado"},
         },
         {
+            title:"Velación y Argollas",
             sponsorOne: {name:"Lina Griselda Félix Ruíz"},
             sponsorTwo: {name:"José Guadalupe Canales Gaxiola"},
-        }
+        },
+        {
+            title:"Arras",
+            sponsorOne: {name:"Agustín Rodríguez Romero"},
+            sponsorTwo: {name:"Otilia Oviedo Méndez  "},
+        },
+        {
+            title:"Biblia y Rosario",
+            sponsorOne: {name:"Fabián Robles Contreras"},
+            sponsorTwo: {name:"Ligia Consuelo Rodríguez Romero"},
+        },
     ];
     
     
