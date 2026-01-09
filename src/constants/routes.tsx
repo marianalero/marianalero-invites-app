@@ -83,6 +83,8 @@ const routes: RouteConfig[] = [
   {path:'/boda-cendy-adrian', element: <WeddingCendyAdrian></WeddingCendyAdrian>},
   {path:'/boda-stephania-ismael', element: <WeddingStephaniaIsamael></WeddingStephaniaIsamael>},
   {path:'/boda-sophia-luis-enrique', element: <WeddingSphiaLuis></WeddingSphiaLuis>}, 
+  // {path:'/boda-maria-lourdes-michel', element: <WeddingMariluMichel></WeddingMariluMichel>},
+  {path:'/boda-glenda-jose', element: <WeddingGlendaJose></WeddingGlendaJose>},
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
@@ -106,11 +108,7 @@ const routes: RouteConfig[] = [
    {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/prev-d3', element: <XVDalia></XVDalia>},
   {path:'/prev-mm-1', element: <WeddingMariluMichel></WeddingMariluMichel>},
-  {path:'/prev-sl-2', element: <WeddingSphiaLuis></WeddingSphiaLuis>},
-  {path:'/prev-e-1', element: <XVEmely></XVEmely>},
-  {path:'/prev-gj-4', element: <WeddingGlendaJose></WeddingGlendaJose>},
 ];
 
 
