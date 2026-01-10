@@ -17,4 +17,5 @@ export interface RSVPType {
     fontSize?:string;
     hideLabelAssignedPeople?:boolean;
     hidePhoneNumberInput?:boolean;
+    bgPosition?:string;
 }

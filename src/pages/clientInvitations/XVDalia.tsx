@@ -417,6 +417,7 @@ const XVDaliaElizabeth  = () => {
                     qrActive={false}
                    bgImage={`${URL_IMAGES}galeria1.jpg`}
                    classButtonName="rose-gold-btn"
+                   bgPosition="75%"
                 >
                 
             </RSVPForm>

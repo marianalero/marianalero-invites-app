@@ -452,7 +452,7 @@ const RSVPForm  = (props:RSVPType) => {
     return ( 
         <div>
          { props.bgImage !== undefined ? (     
-          <div style={{backgroundImage:`url('${props.bgImage}')`}} className="fondo-con-overlay" >
+          <div style={{backgroundImage:`url('${props.bgImage}')`, backgroundPositionX: props.bgPosition ? props.bgPosition : 'center'}} className="fondo-con-overlay" >
             {
                (guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 3 )) || !props.qrActive? (
                       RenderForm()
