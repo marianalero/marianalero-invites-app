@@ -166,11 +166,10 @@ const XVDaliaElizabeth  = () => {
         fontsize:"2rem",
         lineheight:"2rem",
         addormentEnd:`${URL_IMAGES}adornos.png`,
-        qoute:"La vida es mas bella si podemos cumplir lo que soñamos y mi sueño es que compartas conmigo este dia tan especial  de mis 15 años, ya que hay momentos que se guardan en el corazon para siempre, le doy gracias a Dios por cumplir este sueño",
+        qoute:"La vida es mas bella si podemos cumplir lo que soñamos y mi sueño es que compartas conmigo este dia tan especial  de mis XV años, ya que hay momentos que se guardan en el corazon para siempre, le doy gracias a Dios por cumplir este sueño",
     }
 
   const galleryPhotos = [
-        `${URL_IMAGES}galeria1.jpg`,
         `${URL_IMAGES}galeria7.jpg`,
     ];
     
@@ -416,7 +415,7 @@ const XVDaliaElizabeth  = () => {
                     guestId={guestId}
                     invitationId={INVITATION_ID}
                     qrActive={false}
-                   bgImage={`${URL_IMAGES}confirmacion.jpg`}
+                   bgImage={`${URL_IMAGES}galeria1.jpg`}
                    classButtonName="rose-gold-btn"
                 >
                 
