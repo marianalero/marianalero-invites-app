@@ -82,7 +82,7 @@ const XVDaliaElizabeth  = () => {
     const eventCards2: EventCardProps[] = [
             {
                 eventName: "Recepcion",
-                date: new Date(2025, 9, 25 , 19, 0, 0),
+                date: new Date(2025, 9, 25 , 18, 0, 0),
                
                 locationName: "Aqua-Rio Salones",
                 address: "Paseo de los héroes 9547. Zona urbana rio tijuana 22100, Tijuana , BC",
@@ -116,19 +116,30 @@ const XVDaliaElizabeth  = () => {
             },
             {
                 eventName: "Recepción",
-                date: new Date(2025, 8, 19,19,0,0),
+                date: new Date(2025, 8, 19,18,0,0),
                 icon:`${URL_IMAGES}iconos/2.png`,
             },
-            // {
-            //     eventName: "Vals",
-            //     date: new Date(2025,  8, 19,22,30,0),
-            //     icon:`${URL_IMAGES}iconos/12.svg`,
-            // },
-            // {
-            //     eventName: "Cena",
-            //     date: new Date(2025, 8, 19,22,30,0),
-            //     icon: `${URL_IMAGES}iconos/13.svg`,
-            // }
+            {
+                eventName: "Entrada Quinceañera",
+                date: new Date(2025,  8, 19,19,0,0),
+                icon:`${URL_IMAGES}iconos/3.png`,
+            },
+            {
+                eventName: "Cena",
+                date: new Date(2025, 8, 19,19,30,0),
+                icon: `${URL_IMAGES}iconos/4.png`,
+            },
+            {
+                eventName: "Vals , brindis , corte de  pastel ",
+                date: new Date(2025, 8, 19,21,0,0),
+                icon: `${URL_IMAGES}iconos/5.png`,
+            }
+            ,
+            {
+                eventName: "Fin del evento",
+                date: new Date(2025, 8, 19,2,0,0),
+                icon: `${URL_IMAGES}iconos/6.png`,
+            }
         ],
     };
     const giftListData: GiftListProps = {
@@ -400,7 +411,7 @@ const XVDaliaElizabeth  = () => {
                     mainTypo={MAIN_TYPO} 
                     bodyTypo={BODY_TYPO} 
                     count={invitedGuests}
-                    dateLine={new Date(2026,1,16)}
+                    dateLine={new Date(2026,1,12)}
                     color={"white"}
                     guestId={guestId}
                     invitationId={INVITATION_ID}
