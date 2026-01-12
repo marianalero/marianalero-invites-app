@@ -10,7 +10,7 @@ import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import Grid from '@mui/material/Grid2';
 import { Box, Dialog, DialogContent, Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import CustomButton from "../../components/CustomButton/CustomButton";
 
@@ -20,10 +20,16 @@ import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import Gallery from "../../components/Gallery/Gallert";
+import { useSearchParams } from "react-router-dom";
 
 
 const XVDaliaSimple  = () => {
-        const invitedGuests: number = 1;
+        const [searchParams] = useSearchParams();
+        const invitedGuests: number = useMemo(() => {
+            const num = Number(searchParams.get("number"));
+            return isNaN(num) ? 1 : num;
+        }, [searchParams]);
+        
         const INVITATION_ID = 13;
         const [open, setOpen] = useState(false);
      
