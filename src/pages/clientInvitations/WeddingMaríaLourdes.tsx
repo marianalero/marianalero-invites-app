@@ -214,7 +214,8 @@ const WeddingMariluMichel  = () => {
                 bgImage={`${URL_IMAGES}contador.jpeg`}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} 
-                fontSize="45px"
+                fontSize="42px"
+                marginTop="30px"
                 >  
             </CountDown>
             <Grid container spacing={2} padding={4} >
