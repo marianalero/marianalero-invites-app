@@ -25,6 +25,7 @@ import WeddingStevenArely from "../pages/clientInvitations/WeddingStevenArely";
 import XVAlexia from "../pages/clientInvitations/XVAlexia";
 import XVDainaly from "../pages/clientInvitations/XVDainaly";
 import XVDalia from "../pages/clientInvitations/XVDalia";
+import XVDaliaSimple from "../pages/clientInvitations/XVDaliaSimple";
 import XVDaniela from "../pages/clientInvitations/XVDaniela";
 import XVEmely from "../pages/clientInvitations/XVEmely";
 import XVKarla from "../pages/clientInvitations/XVKarla";
@@ -108,8 +109,8 @@ const routes: RouteConfig[] = [
    {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/prev-mm-1', element: <WeddingMariluMichel></WeddingMariluMichel>},
-  {path:'/prev-d-5', element: <XVDalia></XVDalia>},
+  {path:'/prev-mm-2', element: <WeddingMariluMichel></WeddingMariluMichel>},
+  {path:'/prev-d', element: <XVDaliaSimple></XVDaliaSimple>},
 ];
 
 

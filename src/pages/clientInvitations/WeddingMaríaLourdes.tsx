@@ -20,6 +20,7 @@ import Adornment from "../../components/Adornment/Adornment";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCard from "../../components/EventCard/EventCard";
+import Gallery from "../../components/Gallery/Gallert";
 const WeddingMariluMichel  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -146,7 +147,7 @@ const WeddingMariluMichel  = () => {
                         icon: `${URL_IMAGES}iconos/3.svg`,
                     },
                     {
-                        eventName: "Cocktel de bienvenida",
+                        eventName: "Cóctel  de bienvenida",
                         date: new Date(2025, 10, 16, 20, 0, 0),
                         icon: `${URL_IMAGES}iconos/4.svg`,
                     },
@@ -167,13 +168,19 @@ const WeddingMariluMichel  = () => {
                     },
                 ],
     };
+
+    const galleryPhotos = [
+        `${URL_IMAGES}galeria6.jpeg`,
+        `${URL_IMAGES}galeria9.jpeg`,
+    ];
+
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
             <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_SECONDARY}/>
             <Cover 
                 ourWeddingStart={true}
                 weddingDate="13.03.26"
-                bgImage={`${URL_IMAGES}portada.jpeg`}
+                bgImage={`${URL_IMAGES}galeria2.jpeg`}
                 brideName="María Lourdes" 
                 symbolr={"&"} 
                 groomName={"Francisco Michel"} 
@@ -181,18 +188,19 @@ const WeddingMariluMichel  = () => {
                 bgSize="cover"
                 overlay={true}
                 fontSize="60px"
+                bgPositionY="35%"
                 >
             </Cover>
              <Qoute 
                {...qoute}>
             </Qoute>
-            <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio.jpeg`}></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria4.jpeg`} bgPositionY="30%"></ImageMiddle>
          
             <Introduction
                 brideFather="Juan Carlos Ramírez Ramírez"
                 brideMother="Silvana Elizabeth Lugo Palafox"
                 groomFather="Francisco Javier Gómez Rodríguez (&#8224;)"
-                groomMother="Luz alicia López García"
+                groomMother="Luz Alicia López García"
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_PRIMARY}
@@ -216,18 +224,21 @@ const WeddingMariluMichel  = () => {
                 ))
             }
             </Grid>
+              <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria5.jpeg`} bgPositionY="40%"></ImageMiddle>
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-            <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`}></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria1.jpeg`}></ImageMiddle>
             <GiftList {...giftListData} ></GiftList>
+           
             <RSVPForm 
-            textColor="black"
+            bgImage={`${URL_IMAGES}galeria8.jpeg`}
+            textColor="white"
                 colorButton={COLOR_PRIMARY} 
                 bgColor={COLOR_BG} 
                 mainTypo={MAIN_TYPO} 
                 bodyTypo={BODY_TYPO} 
                 count={invitedGuests}
                 dateLine={new Date(2026,1,14)}
-                color={COLOR_PRIMARY}
+                color={"white"}
                 guestId={guestId}
                 invitationId={INVITATION_ID}
                 qrActive={false}
@@ -239,7 +250,7 @@ const WeddingMariluMichel  = () => {
                    <Adornment image={`${URL_IMAGES}adornos/1.svg`} width={"250px"} />
                               <WithoutKids {...withOutKids} /> 
             <div style={{height:100}}></div>
-            
+            <Gallery photos={galleryPhotos}></Gallery>
             <FooterInvites bgColor="rgb(249, 249, 249)" color={COLOR_PRIMARY}></FooterInvites>
              <Dialog
                          open={open}
