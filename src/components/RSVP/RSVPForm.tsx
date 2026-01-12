@@ -368,7 +368,7 @@ const RSVPForm  = (props:RSVPType) => {
                                             <MenuItem key={index + 1} value={index + 1}
                                                 sx={{
                                                     '&.Mui-selected': {
-                                                        color: '#fff',
+                                                        color: `black`,
                                                         backgroundColor: `${props.colorButton}!important`,
                                                     },
                                                     '&.Mui-selected:hover': {

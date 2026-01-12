@@ -405,7 +405,7 @@ const XVDaliaElizabeth  = () => {
 
              <RSVPForm 
                 textColor={"white"}
-                    colorButton={"white"} 
+                    colorButton={COLOR_PRIMARY} 
                     bgColor={BG_COLOR} 
                     mainTypo={MAIN_TYPO} 
                     bodyTypo={BODY_TYPO} 
