@@ -1,12 +1,16 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useState
+} from "react";
 import { Fab } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 
 interface MusicFabPlayerProps {
   src: string;
-  backgroundColor:string;
-  autoPlay?: boolean;
+  backgroundColor: string;
 }
 
 export interface MusicFabPlayerHandle {
@@ -15,65 +19,76 @@ export interface MusicFabPlayerHandle {
 }
 
 const MusicFabPlayer = forwardRef<MusicFabPlayerHandle, MusicFabPlayerProps>(
-  ({ src, autoPlay = false ,backgroundColor}, ref) => {
-    const audioRef = useRef<HTMLAudioElement>(null);
+  ({ src, backgroundColor }, ref) => {
+    const audioRef = useRef<HTMLAudioElement | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    const play = () => {
+    const initAudio = () => {
+      if (!audioRef.current) {
+        audioRef.current = new Audio(src);
+        audioRef.current.loop = true;
+        audioRef.current.preload = "none";
+        
+      }
+    };
+
+    const play = async () => {
+      initAudio();
       const audio = audioRef.current;
       if (!audio) return;
-      audio.play().then(() => setIsPlaying(true));
+
+      try {
+        audio.volume = 0;
+        await audio.play();
+        setIsPlaying(true);
+
+        const fadeInterval = setInterval(() => {
+          if (!audio) return;
+
+          audio.volume = Math.min(audio.volume + 0.05, 1);
+
+          if (audio.volume >= 1) {
+            clearInterval(fadeInterval);
+          }
+        }, 100);
+      } catch {
+        // autoplay bloqueado → requiere interacción
+      }
     };
 
     const pause = () => {
-      const audio = audioRef.current;
-      if (!audio) return;
-      audio.pause();
-      setIsPlaying(false);
-    };
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.pause();
+    audio.volume = 1; // reset
+    setIsPlaying(false);
+};
 
     const togglePlay = () => {
-      if (isPlaying) {
-        pause();
-      } else {
-        play();
-       }
+      isPlaying ? pause() : play();
     };
 
-    useEffect(() => {
-      if (autoPlay) {
-        play();
-      }
-    }, [autoPlay]);
-
-    // Exponer funciones al componente padre
     useImperativeHandle(ref, () => ({
       play,
       pause,
     }));
 
     return (
-      <>
-        <audio ref={audioRef} src={src} preload="auto" />
-        
-        <Fab
-          color="primary"
-          onClick={togglePlay}
-          sx={{
-            position: "fixed",
-            bottom: 24,
-            right: 24,
-            zIndex: 1000,
-            backgroundColor: {backgroundColor},
-            color: "#fff",
-            "&:hover": {
-              backgroundColor: {backgroundColor},
-            },
-          }}
-        >
-          {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
-        </Fab>
-      </>
+      <Fab
+        onClick={togglePlay}
+        sx={{
+          position: "fixed",
+          bottom: 24,
+          right: 24,
+          zIndex: 1000,
+          backgroundColor,
+          color: "#fff",
+          "&:hover": { backgroundColor },
+        }}
+      >
+        {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
+      </Fab>
     );
   }
 );

@@ -110,7 +110,7 @@ const routes: RouteConfig[] = [
    {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/prev-mm-2', element: <WeddingMariluMichel></WeddingMariluMichel>},
+  {path:'/prev-mm-3', element: <WeddingMariluMichel></WeddingMariluMichel>},
   {path:'/prev-d', element: <XVDaliaSimple></XVDaliaSimple>},
 ];
 
