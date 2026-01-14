@@ -47,7 +47,7 @@ const WeddingMariluMichel  = () => {
            handleClickOpen()
         }, []);
     useEffect(() => {
-        document.title = "Boda María Lourdes & Francisco Michel ";
+        document.title = "Boda María Lourdes & Francisco Michel";
     }, []);
     const COLOR_PRIMARY = "#738b71";
     const COLOR_SECONDARY = "#d7ae54";
@@ -171,7 +171,7 @@ const WeddingMariluMichel  = () => {
 
     const galleryPhotos = [
         `${URL_IMAGES}galeria6.jpeg`,
-        `${URL_IMAGES}galeria9.jpeg`,
+        `${URL_IMAGES}galeria10.jpeg`,
     ];
 
     return (
@@ -194,7 +194,7 @@ const WeddingMariluMichel  = () => {
              <Qoute 
                {...qoute}>
             </Qoute>
-            <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria4.jpeg`} bgPositionY="30%"></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria9.jpeg`} bgPositionY="30%"></ImageMiddle>
          
             <Introduction
                 brideFather="Juan Carlos Ramírez Ramírez"
