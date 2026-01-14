@@ -171,7 +171,7 @@ const WeddingMariluMichel  = () => {
 
     const galleryPhotos = [
         `${URL_IMAGES}galeria6.jpeg`,
-        `${URL_IMAGES}galeria10.jpeg`,
+        `${URL_IMAGES}galeria10.jpg`,
     ];
 
     return (
