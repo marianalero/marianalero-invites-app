@@ -180,9 +180,12 @@ const RSVPFormV2  = (props:RSVPType) => {
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
                 Hemos reservado {guest.totalAssigned === 1 ? '1 lugar' : `${guest.totalAssigned} lugares`} para ti.
             </Typography>
+            {props.dateLine && (
             <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
                 Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
             </Typography>
+            )}
+           
             </div>
         )
         )}
