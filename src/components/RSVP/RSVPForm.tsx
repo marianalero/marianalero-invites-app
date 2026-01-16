@@ -12,6 +12,7 @@ import ConfirmQR from './ConfirmQR';
 import './rsvp.css';
 import CloseIcon from '@mui/icons-material/Close';
 import ProButton from '../CustomButton/GoldButton';
+import { t } from 'i18next';
 const RSVPForm  = (props:RSVPType) => {
     console.log("RSVP FORM RENDERED", props.dateLine);
     const [errorName, setErrorName] = useState(false);
@@ -141,7 +142,7 @@ const RSVPForm  = (props:RSVPType) => {
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" triggerOnce={true}>
                 {!props.guestId ? (
-                <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >Confirma tu asistencia!</Typography>
+                <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >{t("RSVP.title")}</Typography>
                 ):(
                     <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color}} >Hola, {guest.fullName}</Typography>
 
@@ -150,35 +151,35 @@ const RSVPForm  = (props:RSVPType) => {
 
        {disabledRSVP ? (
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
-              Lo sentimos, el plazo para confirmar asistencia ya terminó.
+              {t("RSVP.dateLineEnd")}
             </Typography>
         ) : (
         guest && guest.rsvpStatus === 2 ? (
             <div>
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
-                Gracias por confirmar tu asistencia. Si necesitas hacer algún cambio, aún estás a tiempo de modificar tu respuesta.
+                {t("RSVP.successMessage")}
             </Typography>
             <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
-                Has confirmado tu asistencia para {guest.totalConfirmed === 1 ? '1 persona' : `${guest.totalConfirmed} personas`}.
+                {t("RSVP.rsvpConfirmedMessage", { count: guest.totalConfirmed })}
             </Typography>
             </div>
         ) : guest && guest.rsvpStatus === 3 ? (
             <div>
                 <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
-                 Lamentamos que no puedas acompañarnos en esta ocasión tan especial.
+                 {t("RSVP.notAttendingMessage")}
                 </Typography>
                 <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
-                   Gracias por tomarte el tiempo de confirmar. Puedes actualizar tu respuesta si surge algún cambio antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
+                   {t("RSVP.updateResponseMessage", { date: dayjs(props.dateLine).format("DD [de] MMMM") })}
                 </Typography>
             </div>
         ) : (
             <div>
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
-                Hemos reservado {guest.totalAssigned === 1 ? '1 lugar' : `${guest.totalAssigned} lugares`} para ti.
+                {guest.totalAssigned === 1 ? t("RSVP.placesReserved") : t("RSVP.placesReserved_plural", { count: guest.totalAssigned })}
             </Typography>
             {props.dateLine && (
                  <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
-                Por favor ayúdanos confirmando tu asistencia antes del {dayjs(props.dateLine).format("DD [de] MMMM")}.
+               {t("RSVP.dateLineStart")} {dayjs(props.dateLine).format("DD [de] MMMM")}.
             </Typography>
             )
             }
@@ -200,7 +201,7 @@ const RSVPForm  = (props:RSVPType) => {
                     >
                         <Grid container spacing={2} padding={4} >
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo}  sx={{color:props.textColor}}> ¿Asistirás?</Typography>
+                                <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo}  sx={{color:props.textColor}}> {t("RSVP.willYouAttend")}</Typography>
                                 <RadioGroup 
                                 row
                                 aria-labelledby="demo-row-radio-buttons-group-label"
@@ -223,7 +224,7 @@ const RSVPForm  = (props:RSVPType) => {
                                     }} />
 
                                     }
-                                    label="Sí" 
+                                    label={t("RSVP.Yes")} 
                                     disabled={disabledRSVP}
                                 />
                                 <FormControlLabel 
@@ -240,7 +241,7 @@ const RSVPForm  = (props:RSVPType) => {
                                     }} />
 
                                     }
-                                    label="No" 
+                                    label={t("RSVP.No")}
                                     disabled={disabledRSVP}
                                 />
 
@@ -253,7 +254,7 @@ const RSVPForm  = (props:RSVPType) => {
                             helperText={errorName ? "El nombre es requerido" : ""}
                             required
                             id="name"
-                            label="Nombre"
+                            label={t("RSVP.namePlaceholder")}
                             sx={{
                                 minWidth:300,
                                  '& label.Mui-focused': {
@@ -289,7 +290,7 @@ const RSVPForm  = (props:RSVPType) => {
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <TextField
                             id="name"
-                            label="Teléfono"
+                            label={t("RSVP.phonePlaceholder")}
                             fullWidth={true}
                             sx={{
                                 minWidth:300,
@@ -335,11 +336,11 @@ const RSVPForm  = (props:RSVPType) => {
                                             padding: '0 4px',
                                             borderRadius: '4px',
                                             }} 
-                                            id="demo-simple-select-label">Número de asistentes</InputLabel>
+                                            id="demo-simple-select-label">{t("RSVP.placesReserved")}</InputLabel>
                                   
                                                                
                                     <Select<number>
-                                        label="Número de asistentes"
+                                        label={t("RSVP.placesReserved")}
                                         labelId="guests"
                                         id="guests"
                                         value={guest.totalConfirmed}
@@ -395,7 +396,7 @@ const RSVPForm  = (props:RSVPType) => {
                                         <TextField
                                             disabled={disabledRSVP}
                                             id="companion"
-                                            label="Nombre(s) de acompañante(s)"
+                                            label={t("RSVP.companionPlaceholder")}
                                             fullWidth={true}
                                             sx={{
                                             minWidth:300,
@@ -432,9 +433,9 @@ const RSVPForm  = (props:RSVPType) => {
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                                 {
                                         props.classButtonName ? (
-                                            <ProButton  onClick={handleSend} className={props.classButtonName} label={'Enviar'} />
+                                            <ProButton  onClick={handleSend} className={props.classButtonName} label={t("send")} />
                                         ) : (
-                                            <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
+                                            <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={t("send")} onClick={handleSend}></CustomButton>
                                         )
                                     }
                              
@@ -484,7 +485,7 @@ const RSVPForm  = (props:RSVPType) => {
                          
                        </Box>
                        <Box display={"flex"} justifyContent={"center"}>
-                        <Typography variant="h3" className={props.mainTypo}>Confirmación enviada</Typography>
+                        <Typography variant="h3" className={props.mainTypo}>{t("RSVP.successSend")}</Typography>
                        </Box>
                    
                         

@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
+import { t } from 'i18next';
 import { Fade } from 'react-awesome-reveal';
 export interface WithoutKidsProps
 {
@@ -17,9 +18,9 @@ const WithoutKids  = (props:WithoutKidsProps) =>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                      <Fade direction="up" triggerOnce={true} >
                         {!props.hideTitle && (
-                        <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={400}> {props.title ? props.title : "¡Mamá y papá merecen un día libre!"} </Typography>
+                        <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={400}> {props.title ? props.title : t("NoKidsMessageTitle")} </Typography>
                         )}
-                    <Typography  className={props.bodyTypo} textAlign={"center"} variant='body1'> {props.subtitle ? props.subtitle : "Respetuosamente"} <b>{props.subtitle2 ? props.subtitle2 : "sin niños"}</b></Typography>
+                    <Typography  className={props.bodyTypo} textAlign={"center"} variant='body1'> {props.subtitle ? props.subtitle : t("NoKidsMessageBody")} <b>{props.subtitle2 ? props.subtitle2 : t("NoKidsMessageBodyDesc")}</b></Typography>
                       </Fade>
                 </Grid>
             </Grid>
