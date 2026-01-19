@@ -47,7 +47,7 @@ const XVVictoria  = () => {
         const MAIN_TYPO = "great-vibes-regular";
         const BODY_TYPO = "pt-serif-caption-regular to-upper";
         const URL_IMAGES = `${URL_REPO}xv/xv-victoria/`;
-        const URL_SONG = `${URL_IMAGES}canciones/WhoKnowsWhatLoveIs.mp3`;
+        const URL_SONG = `${URL_REPO}canciones/WhoKnowsWhatLoveIs.mp3`;
         const BG_COLOR ="rgb(251,246,240,.5)";
             const handleClickOpen = () => {
             setOpen(true);
