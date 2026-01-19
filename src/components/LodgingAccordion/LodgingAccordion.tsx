@@ -106,7 +106,10 @@ export const LodgingAccordion = ({
                     </Typography>
                   </Box>
 
-                  <Link
+                 
+                </Box>
+                <Box display={"flex"} justifyContent="flex-end" mb={2}>
+                    <Link
                     href={option.mapUrl}
                     target="_blank"
                     
