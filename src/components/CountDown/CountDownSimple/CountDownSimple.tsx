@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import "./CountDownSimple.css"
 import dayjs from 'dayjs';
 import 'dayjs/locale/es'; // Importa el idioma español
+import 'dayjs/locale/en';
 import { useMediaQuery } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export interface CountDownSimpleProps{
     eventDate:Date;
@@ -22,7 +24,12 @@ export interface CountDownSimpleProps{
 const CountDownSimple = (props:CountDownSimpleProps) => {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [timeRemaining, setTimeRemaining] = useState(0);
-    dayjs.locale('es');
+    const { t, i18n } = useTranslation();
+
+    useEffect(() => {
+      dayjs.locale(i18n.language);
+    }, [i18n.language]);
+
     const formattedDate = dayjs(props.eventDate)
        .format(props.format ? props.format : "dddd DD MMMM YYYY");
     const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
@@ -52,13 +59,13 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
         return (
             <div className={`countdown ${props.typoCountdown}`}>
-				<span   id="days"  > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{days.toString().padStart(2, "0")}</div>   <span style={{ color:props.primaryColor}} className="labels">Días</span></span>
+				<span   id="days"  > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{days.toString().padStart(2, "0")}</div>   <span style={{ color:props.primaryColor}} className="labels">{t('countdown.days')}</span></span>
 				<span className="" id="">: <br/> <span></span></span>
-				<span  id="hours" > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{hours.toString().padStart(2, "0")}</div>  <span style={{ color:props.primaryColor}} className="labels">Hrs</span></span>
+				<span  id="hours" > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{hours.toString().padStart(2, "0")}</div>  <span style={{ color:props.primaryColor}} className="labels">{t('countdown.hours')}</span></span>
 				<span className="" id="">: <br/> <span ></span></span>
-				<span  id="minutes" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{minutes.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">Mins</span></span>
+				<span  id="minutes" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{minutes.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">{t('countdown.minutes')}</span></span>
 				<span className="" id="">: <br/> <span ></span></span>
-				<span  id="seconds" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{seconds.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">Segs</span></span>
+				<span  id="seconds" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{seconds.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">{t('countdown.seconds')}</span></span>
 			</div>
         //   <div className="countdown-display">
         //     <div className="countdown-value">
