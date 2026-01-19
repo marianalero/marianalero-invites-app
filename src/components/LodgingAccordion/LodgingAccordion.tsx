@@ -45,7 +45,7 @@ export const LodgingAccordion = ({
   return (
     <Grid container spacing={2} padding={4} >
        <Grid size={{ xs: 12 }} marginBottom={2}  justifyContent={"center"} display={"flex"}>
-    <Box maxWidth={720} mx="auto" padding={2} margin={4} sx={{boxShadow:2, borderRadius:1, backgroundColor: "white"}} >
+    <Box maxWidth={720} mx="auto" padding={2} sx={{boxShadow:2, borderRadius:1, backgroundColor: "white"}} >
       <Accordion
         elevation={0}
         disableGutters
@@ -60,7 +60,7 @@ export const LodgingAccordion = ({
           <Typography
             className={fontFamilyTitle}
             fontWeight={500}
-            fontSize="2rem"
+            fontSize="3rem"
             color={primaryColor}
           >
             {title}
