@@ -23,18 +23,13 @@ import { IMAGES_URl } from "../../../config";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../../components/MusicFabPlayer/MusicFabPlayer";
 import Adornment from "../../../components/Adornment/Adornment";
 import { useTranslation } from "react-i18next";
-import { useInvitationLanguage } from "../../../hooks/invitationLanguage";
-import { invitationConfig } from "../../../constants/invitationConfigs";
-import i18n from "../../../i18n";
 import InvitationWelcomeModal from "../../../components/InvitationWelcomeModal/InvitationWelcomeModal";
-const LANGUAGE_KEY = "invitation-language";
 const DemoOneBI  = () => {
-// 🔹 1. Controla el idioma de ESTA invitación
-  useInvitationLanguage({
-    isMultilanguage: invitationConfig.isMultilanguage,
-    defaultLanguage: invitationConfig.defaultLanguage
-  });
 
+const invitationConfig = {
+  isMultilanguage: true, // o false
+  language: "es" as "es" | "en" // idioma base
+};
   // 🔹 2. Traducciones normales
   const { t } = useTranslation();
     const [searchParams] = useSearchParams();
@@ -47,8 +42,6 @@ const DemoOneBI  = () => {
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
     const [open, setOpen] = useState(true);
-    const storedLanguage = localStorage.getItem(LANGUAGE_KEY);
-const hasLanguageSelected = Boolean(storedLanguage);
 
     const musicRef = useRef<MusicFabPlayerHandle>(null);
     const handleClickOpen = () => {
@@ -64,12 +57,6 @@ const hasLanguageSelected = Boolean(storedLanguage);
        handleClickOpen()
     }, []);
 
-
-const handleSelectLanguage = (lang: "es" | "en") => {
-  localStorage.setItem("invitation-language", lang);
-  i18n.changeLanguage(lang);
-  handleEnter();
-};
     const COLOR_PRIMARY = "#0E6655";
     const INVITATION_ID = 1;
     const MAIN_TYPO = "great-vibes-regular";
@@ -302,15 +289,13 @@ const handleSelectLanguage = (lang: "es" | "en") => {
             <div style={{height:100}}></div>
             <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_PRIMARY}></FooterInvites>
-      <InvitationWelcomeModal
-  open={open}
-  isMultilanguage={invitationConfig.isMultilanguage}
-  hasLanguageSelected={hasLanguageSelected}
-  primaryColor={COLOR_PRIMARY}
-  secondaryColor={"#FFFFFF"}
-  textColor="#000"
-  onEnter={handleEnter}
-  onSelectLanguage={handleSelectLanguage}
+            <InvitationWelcomeModal
+            open={open}
+            onEnter={handleEnter}
+            isMultilanguage={invitationConfig.isMultilanguage}
+            language={invitationConfig.language}
+            color={COLOR_PRIMARY}
+           
 />
 
         </div>

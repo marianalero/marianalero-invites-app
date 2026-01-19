@@ -31,6 +31,7 @@ import XVEmely from "../pages/clientInvitations/XVEmely";
 import XVKarla from "../pages/clientInvitations/XVKarla";
 import XVMelanie from "../pages/clientInvitations/XVMelanie";
 import XVValeria from "../pages/clientInvitations/XVValeria";
+import XVVictoria from "../pages/clientInvitations/XVVictoria";
 import CreacionesPage from "../pages/creations/creations";
 // import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
@@ -111,14 +112,8 @@ const routes: RouteConfig[] = [
    {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/prev-mm-3', element: <WeddingMariluMichel></WeddingMariluMichel>},
-  {path:'/prev-d', element: <XVDaliaSimple></XVDaliaSimple>},
-  {path:'/prev-d3', element: <XVDalia></XVDalia>},
-  {path:'/prev-mm-1', element: <WeddingMariluMichel></WeddingMariluMichel>},
-  {path:'/prev-sl-2', element: <WeddingSphiaLuis></WeddingSphiaLuis>},
-  {path:'/prev-e-1', element: <XVEmely></XVEmely>},
-  {path:'/prev-gj-1', element: <WeddingGlendaJose></WeddingGlendaJose>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
+  {path:'/prev-v', element: <XVVictoria></XVVictoria>},
 ];
 
 

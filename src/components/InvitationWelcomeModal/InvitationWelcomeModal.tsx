@@ -1,75 +1,84 @@
-import { Box, Dialog, DialogContent, Typography } from "@mui/material";
-import CustomButton from "../CustomButton/CustomButton";
+// src/components/InvitationWelcomeModal.tsx
+import { Dialog, DialogContent, Box, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+import CustomButton from "../CustomButton/CustomButton";
 
-type Language = "es" | "en";
-
-interface InvitationWelcomeModalProps {
+type InvitationWelcomeModalProps = {
   open: boolean;
-  isMultilanguage: boolean;
-  hasLanguageSelected: boolean;
-
-  // 🎨 colores personalizables
-  primaryColor: string;
-  secondaryColor: string;
-  textColor?: string;
-
   onEnter: () => void;
-  onSelectLanguage: (lang: Language) => void;
-}
+  isMultilanguage: boolean;
+  language: "es" | "en";
+  color: string;
+};
 
-const InvitationWelcomeModal = ({
+ const InvitationWelcomeModal = ({
   open,
-  isMultilanguage,
-  hasLanguageSelected,
-  primaryColor,
-  secondaryColor,
-  textColor = "#000",
   onEnter,
-  onSelectLanguage,
+  isMultilanguage,
+  language,
+  color,
 }: InvitationWelcomeModalProps) => {
   const { t } = useTranslation();
+  const [languageSelected, setLanguageSelected] = useState(false);
+
+  useEffect(() => {
+    if (!isMultilanguage) {
+      i18n.changeLanguage(language);
+      setLanguageSelected(true);
+    }
+  }, [isMultilanguage, language]);
+
+  const handleSelectLanguage = (lang: "es" | "en") => {
+    i18n.changeLanguage(lang);
+    setLanguageSelected(true);
+  };
 
   return (
     <Dialog open={open}>
       <DialogContent>
         <Box textAlign="center">
-          <Typography sx={{ fontSize: 25, color: textColor }}>
+          <Typography sx={{ fontSize: 25 }}>
             {t("welcome")}
           </Typography>
 
-          {isMultilanguage && !hasLanguageSelected ? (
+          {/* Selector de idioma */}
+          {isMultilanguage && !languageSelected && (
             <Box
               display="flex"
-              justifyContent="center"
               gap={2}
               mt={3}
               flexDirection={{ xs: "column", sm: "row" }}
               alignItems="center"
+              justifyContent="center"
             >
               <CustomButton
-                label={t("spanish")}
-                borderColor={primaryColor}
+                label="Español"
+                borderColor={color}
                 bgColor="#ffffff"
-                color={primaryColor}
-                onClick={() => onSelectLanguage("es")}
+                color={color}
+                onClick={() => handleSelectLanguage("es")}
               />
 
               <CustomButton
-                label={t("english")}
-                borderColor={primaryColor}
+                label="Inglés"
+                borderColor={color}
                 bgColor="#ffffff"
-                color={primaryColor}
-                onClick={() => onSelectLanguage("en")}
+                color={color}
+                onClick={() => handleSelectLanguage("en")}
               />
             </Box>
-          ) : (
+          )}
+
+          {/* Botón Entrar */}
+          {(languageSelected || !isMultilanguage) && (
             <Box mt={3}>
               <CustomButton
                 label={t("enter")}
-                borderColor={primaryColor}
-                bgColor={primaryColor}
-                color={secondaryColor}
+                borderColor={color}
+                bgColor={color}
+                color="#ffffff"
                 onClick={onEnter}
               />
             </Box>
@@ -79,6 +88,4 @@ const InvitationWelcomeModal = ({
     </Dialog>
   );
 };
-
-
 export default InvitationWelcomeModal;

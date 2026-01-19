@@ -5,7 +5,7 @@
   "spanish": "Spanish",
 
   "ourWedding": "Our Wedding",
-
+  "weddingSponsors": "Sponsors",
   "events": {
     "ceremony": "Religious Ceremony",
     "reception": "Reception",
@@ -66,7 +66,7 @@
     "successMessage": "Thank you for confirming your attendance! If you need to make any changes, you are still able to update your response.",
     "rsvpConfirmedMessage": "You have confirmed your attendance for {{count}} people.",
     "dateLineEnd": "We’re sorry, the RSVP deadline has passed.",
-    "dateLineStart": "Please help us by confirming your attendance before",
+    "dateLineStart": "Please help us by confirming your attendance before s",
     "willYouAttend": "Will you attend?",
     "Yes": "Yes",
     "No": "No",
@@ -89,5 +89,10 @@
   "hours": "Hrs",
   "minutes": "Mins",
   "seconds": "Segs"
-}
+},
+"lodging": {
+    "title": "Lodging",
+    "subtitle": "Nearby options to the event location",
+    "reservation": "Reservations"
+  }
 }

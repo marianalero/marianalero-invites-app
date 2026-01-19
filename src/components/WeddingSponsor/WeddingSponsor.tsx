@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid2';
 import { WeddingSponsorProps } from "./models/Sponsors";
 import Adornment from "../Adornment/Adornment";
 import { Fade } from "react-awesome-reveal";
+import { t } from "i18next";
 
 
 const WeddingSponsor  = (props:WeddingSponsorProps) => {
@@ -11,7 +12,7 @@ const WeddingSponsor  = (props:WeddingSponsorProps) => {
         <Grid container spacing={1} display={"flex"} alignItems={"center"} paddingTop={8} paddingBottom={8} sx={{bgcolor:props.bgColor}} paddingX={2} >			
 						<Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" triggerOnce={true}>
-                                <Typography  sx={{color:props.color, fontSize: props.headerFontSize ? props.headerFontSize : "2rem"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >Padrinos</Typography>
+                                <Typography  sx={{color:props.color, fontSize: props.headerFontSize ? props.headerFontSize : "2rem"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >{t("weddingSponsors")}</Typography>
                             </Fade>
                        </Grid>	
                        {

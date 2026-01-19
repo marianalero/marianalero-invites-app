@@ -4,6 +4,7 @@
     "english": "Inglés",
     "spanish": "Español",
     "ourWedding": "Nuestra Boda",
+    "weddingSponsors": "Padrinos",
     "events": {
         "ceremony": "Ceremonia Religiosa",
         "reception": "Recepción",
@@ -82,5 +83,10 @@
   "hours": "Hrs",
   "minutes": "Mins",
   "seconds": "Segs"
-}
+},
+"lodging":{
+    "title":"Alojamiento",
+    "subtitle":"Opciones cercanas al lugar del evento",
+    "reservation":"Reservaciones"
+  }
 }

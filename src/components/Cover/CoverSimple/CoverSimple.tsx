@@ -3,6 +3,7 @@ import { Typography, useMediaQuery } from '@mui/material';
 import './CoverSimple.css';
 import { Fade } from 'react-awesome-reveal';
 import { CoverProps } from '../CoverProps';
+import { t } from 'i18next';
 
 const CoverSimple  = (props:CoverProps) => {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
@@ -14,7 +15,7 @@ const CoverSimple  = (props:CoverProps) => {
         <Fade direction="up" triggerOnce={true}>
           {
             !props.hideText && (
-              <h1 className="holder" style={{color:props.textColor}}  ><span>{props.subtitle ?  props.subtitle : "Nuestra Boda"}</span></h1>
+              <h1 className="holder" style={{color:props.textColor}}  ><span>{props.subtitle ?  props.subtitle : t("ourWedding")}</span></h1>
             )
           }
        

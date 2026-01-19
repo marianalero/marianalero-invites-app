@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./CountDownSimple.css"
 import dayjs from 'dayjs';
 import 'dayjs/locale/es'; // Importa el idioma español
+import { useMediaQuery } from "@mui/material";
 
 export interface CountDownSimpleProps{
     eventDate:Date;
@@ -15,9 +16,11 @@ export interface CountDownSimpleProps{
     title?:string;
     fontSize?:string;
     bgImage?:string;
+    bgVertical?:string;
      format?:string;
 }
 const CountDownSimple = (props:CountDownSimpleProps) => {
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [timeRemaining, setTimeRemaining] = useState(0);
     dayjs.locale('es');
     const formattedDate = dayjs(props.eventDate)
@@ -74,7 +77,7 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
         );
       };
     return (
-        <div id="countdown" style={{ backgroundImage:props.bgImage,backgroundSize:"cover", backgroundColor:props.bgColor}}  >
+        <div id="countdown" style={{ backgroundImage: isSmallScreen ? props.bgVertical ? props.bgVertical : props.bgImage  : props.bgImage,backgroundSize:"cover", backgroundColor:props.bgColor}}  >
 			<div className="display-over">
 				<div className="container" >
 					<div className="row animate-box">

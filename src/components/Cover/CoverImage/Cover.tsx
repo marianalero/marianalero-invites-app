@@ -4,6 +4,7 @@ import './Cover.css';
 import { Fade } from 'react-awesome-reveal';
 import { CoverProps } from '../CoverProps';
 import { t } from 'i18next';
+import { useEffect, useState } from 'react';
 
 const Cover  = (props:CoverProps) => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
