@@ -8,6 +8,7 @@ import CustomButton from "../CustomButton/CustomButton";
 type InvitationWelcomeModalProps = {
   open: boolean;
   onEnter: () => void;
+  onClose?: () => void;
   isMultilanguage: boolean;
   language: "es" | "en";
   color: string;
@@ -16,6 +17,7 @@ type InvitationWelcomeModalProps = {
  const InvitationWelcomeModal = ({
   open,
   onEnter,
+  onClose,
   isMultilanguage,
   language,
   color,
@@ -33,6 +35,10 @@ type InvitationWelcomeModalProps = {
   const handleSelectLanguage = (lang: "es" | "en") => {
     i18n.changeLanguage(lang);
     setLanguageSelected(true);
+    // Cerrar modal automáticamente después de seleccionar idioma si es multilanguage
+    if (isMultilanguage && onClose) {
+      setTimeout(() => onClose(), 300);
+    }
   };
 
   return (

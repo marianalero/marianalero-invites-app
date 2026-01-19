@@ -340,6 +340,7 @@ const XVVictoria  = () => {
   <InvitationWelcomeModal
             open={open}
             onEnter={handleEnter}
+            onClose={handleEnter}
             isMultilanguage={invitationConfig.isMultilanguage}
             language={invitationConfig.language}
             color={COLOR_PRIMARY}
