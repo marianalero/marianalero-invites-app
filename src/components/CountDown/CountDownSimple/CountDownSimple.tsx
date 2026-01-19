@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import "./CountDownSimple.css"
 import dayjs from 'dayjs';
 import 'dayjs/locale/es'; // Importa el idioma español
@@ -30,9 +30,13 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
       dayjs.locale(i18n.language);
     }, [i18n.language]);
 
-    const formattedDate = dayjs(props.eventDate)
-       .format(props.format ? props.format : "dddd DD MMMM YYYY");
-    const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+    const capitalizedDate = useMemo(() => {
+      dayjs.locale(i18n.language);
+      const formattedDate = dayjs(props.eventDate)
+        .format(props.format ? props.format : "dddd DD MMMM YYYY");
+      return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+    }, [i18n.language, props.eventDate, props.format]);
+
     useEffect(() => {
   if (props.eventDate) {
     const countdownInterval = setInterval(() => {
