@@ -6,7 +6,7 @@ import { EventCardProps } from "../../components/EventCard/models/EventCardProps
 import FooterInvites from "../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import Grid from '@mui/material/Grid2';
-import { Box,Typography } from "@mui/material";
+import { Box,colors,Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -21,6 +21,7 @@ import { t } from "i18next";
 import EventCard from "../../components/EventCard/EventCard";
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 import { LodgingAccordion } from "../../components/LodgingAccordion/LodgingAccordion";
+import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 
 
 const XVVictoria  = () => {
@@ -36,6 +37,13 @@ const XVVictoria  = () => {
         const guestId: number | undefined = useMemo(() => {
                 const num = Number(searchParams.get("id"));
                 return isNaN(num) ? undefined : num;
+            }, [searchParams]);
+            //t=1 = after dinner guest
+        const afterGuest: number = useMemo(() => {
+                const param = searchParams.get("t");
+                if (!param) return 1;
+                const num = Number(param);
+                return isNaN(num) ? 1 : num;
             }, [searchParams]);
         const INVITATION_ID = 100;
         const [open, setOpen] = useState(false);
@@ -67,47 +75,58 @@ const XVVictoria  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: t("events.reception"),
-                date: new Date(2025, 9, 25 , 21, 0, 0),
+                date: afterGuest == 1 ? new Date(2025, 9, 25 , 18, 30, 0) : new Date(2025, 9, 25 , 20, 0, 0),
                 icon: `${URL_IMAGES}recepcion.svg`,
-                locationName: "The Venue",
-                address: "871 District Pl Chula Vista, CA 91914",
+                locationName: "The Venue at Eastlake",
+                address: "871 District Pl Office Lobby, Chula Vista, CA, Estados Unidos",
                 size: 6,
                 color: COLOR_PRIMARY,
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"55px",
-                href: "https://maps.app.goo.gl/ngyAxdPa2kYWBkz48",
+                href: "https://maps.app.goo.gl/6DwyjUcbejV7S6eH9",
                 colorButton: COLOR_PRIMARY,
                 classButtonName:"btn-gold",
 
             },
     ];
-    // const timelineData: CustomizedTimelineProps = {
-    //     mainTypo: MAIN_TYPO,
-    //     bodyTypo: BODY_TYPO,
-    //     colorPrimary: "white",
-    //     colorTitle:"white",
-    //     colorBody: "white",
-    //     bgColor: COLOR_PRIMARY, 
-    //     events: [
+    const timelineData: CustomizedTimelineProps = {
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        colorPrimary: "white",
+        colorTitle:"white",
+        colorBody: "white",
+        bgColor: COLOR_PRIMARY, 
+        events: [
            
-    //         {
-    //             eventName: "Recepción",
-    //             date: new Date(2025, 8, 19,21,0,0),
-    //             icon:`${URL_IMAGES}iconos/14.svg`,
-    //         },
-    //         {
-    //             eventName: "Vals",
-    //             date: new Date(2025,  8, 19,22,30,0),
-    //             icon:`${URL_IMAGES}iconos/12.svg`,
-    //         },
-    //         {
-    //             eventName: "Cena",
-    //             date: new Date(2025, 8, 19,22,30,0),
-    //             icon: `${URL_IMAGES}iconos/13.svg`,
-    //         }
-    //     ],
-    // };
+            ...(afterGuest === 1 ? [{
+                eventName: t("timeline.reception"),
+                date: new Date(2025, 8, 19,18,30,0),
+                icon:`${URL_IMAGES}iconos/15.svg`,
+            }] : []),
+            ...(afterGuest === 1 ? [{
+                eventName: t("timeline.dinner"),
+                date: new Date(2025, 8, 19,19,30,0),
+                icon: `${URL_IMAGES}iconos/20.svg`,
+            }] : []),
+            ...(afterGuest === 2 ? [{
+                eventName: t("timeline.reception"),
+                date: new Date(2025, 8, 19,20,0,0),
+                icon:`${URL_IMAGES}iconos/15.svg`,
+            }] : []),
+            {
+                eventName: t("timeline.waltz"),
+                date: new Date(2025,  8, 19,20,30,0),
+                icon:`${URL_IMAGES}iconos/19.svg`,
+            },
+            
+            {
+                eventName: t("timeline.end"),
+                date: new Date(2025, 8, 20,0,30,0),
+                icon:`${URL_IMAGES}iconos/22.svg`,
+            }
+        ],
+    };
     const giftListData: GiftListProps = {
         mainTypo: `${MAIN_TYPO}`,
         bodyTypo: BODY_TYPO,
@@ -151,7 +170,7 @@ const XVVictoria  = () => {
             bgImage={`${URL_IMAGES}portada.png`}
             bgImage2={`${URL_IMAGES}portada.png`}
             subtitle=""
-                  weddingDate="16.05.2026"
+                  weddingDate="May 16th 2026"
                   brideName="Victoria de la Vega"
                   symbolr={""}
                   groomName={""}
@@ -235,7 +254,7 @@ const XVVictoria  = () => {
             {/* </div> */}
             <CountDownSimple 
                 eventDate={new Date(2026, 4, 16)}
-               format="dddd DD MMMM"
+               format="dddd MMMM Do"
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
                 primaryColor={COLOR_PRIMARY} 
@@ -246,8 +265,66 @@ const XVVictoria  = () => {
                 bgVertical={`url('${URL_IMAGES}contador-ver.png')`}
                 >  
             </CountDownSimple>
+            <Grid container spacing={2} justifyContent="center" paddingX={2} sx={{backgroundColor:BG_COLOR}}>
+              <Grid size={12}>
+                <Fade direction="up" >
+                <Box
+                  textAlign="center"
+                  sx={{ width: "100%", mt: 6 }}
+                >
+                  <Box sx={{ mt: 6, mb: 6 }}>
+                    {/* Título */}
+                    <Typography
+                      variant="h4" className={`${MAIN_TYPO}`}
+                      sx={{  color: COLOR_PRIMARY }}
+                    >
+                      Court of Honor
+                    </Typography>
+
+                   
+
+                    {/* Primera fila de nombres */}
+                    <Grid container spacing={2} justifyContent="center" sx={{ mb: 2, mt: 3 }}>
+                      <Grid size={{ xs: 12,md:12,lg:12}} >
+                        <Typography
+                          variant="body1" className={BODY_TYPO}
+                         
+                        >
+                         Chambelan of Honor - Name
+                        </Typography>
+                      </Grid>
+                    
+                    </Grid>
+                    <Typography
+                      variant="h4" className={`${MAIN_TYPO}`}
+                      sx={{  color: COLOR_SECONDARY}}
+                    >
+                    Damas & Chambelanes
+                    </Typography>
+
+                    {/* Segunda fila de nombres */}
+                    <Grid container spacing={2} justifyContent="center">
+                      <Grid size={{ xs: 12 }}>
+                        <Typography
+                          variant="body1" className={BODY_TYPO}
+                   
+                        >
+                        Dama Name & Chambelan Name
+                        </Typography>
+                      </Grid>
+                      
+                    </Grid>
+
+                    {/* Imagen inferior */}
+                    <Grid container justifyContent="center" sx={{ mt: 4 }}>
+                      <Adornment image={`${URL_IMAGES}adornos/8.svg`} width={"250px"} />
+                    </Grid>
+                  </Box>
+                </Box>
+                </Fade>
+              </Grid>
+            </Grid>        
   
-   <div style={{backgroundImage:`url('${URL_IMAGES}fondo.jpeg')`,backgroundPositionX: "50%",    minHeight: "100vh",backgroundSize:"cover",paddingTop:"70px" }}>
           <Grid container spacing={2} padding={4} justifyContent={"center"} >
             {
                 eventCards.map((item,index) => (          
@@ -255,9 +332,9 @@ const XVVictoria  = () => {
                 ))
             }
             </Grid>
-         
+               <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
              <Grid size={{ xs: 12 }} padding={4}>
-            {/* <CustomizedTimeline {...timelineData} ></CustomizedTimeline> */}
+         
             <Box sx={{boxShadow: 3,borderRadius: 1, backgroundColor: "white"}} >
               <Grid container spacing={2} justifyContent="center" >
               <Grid size={{ xs: 12 }}>
@@ -270,8 +347,7 @@ const XVVictoria  = () => {
 
             </Box>
             </Grid>
-             
-   </div>
+ 
             
             {/* <div style={{backgroundImage:`url('${URL_IMAGES}fondo.png')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover", paddingTop:"70px" }}> */}
                <RSVPForm 
@@ -302,6 +378,7 @@ const XVVictoria  = () => {
             secondaryColor={"black"}
             dividerColor="rgba(20, 164, 109, 0.15)"
             buttonColor={COLOR_SECONDARY}
+            bgColor={COLOR_PRIMARY}
             options={[
               {
                 name: "Hampton Inn Chula Vista Eastlake",
@@ -333,7 +410,7 @@ const XVVictoria  = () => {
 
             </Fade>
              
-           <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
+           <WithoutKids  title="This is a teen celebration and special night for Mom and Dad to relax- no kids, please"  bodyTypo={BODY_TYPO}></WithoutKids>
            
             <div style={{height:100}}></div>
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>

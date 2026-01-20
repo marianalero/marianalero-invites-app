@@ -13,8 +13,12 @@ import './rsvp.css';
 import CloseIcon from '@mui/icons-material/Close';
 import ProButton from '../CustomButton/GoldButton';
 import { t } from 'i18next';
+import 'dayjs/locale/es'; 
+import 'dayjs/locale/en';
+import advancedFormat from "dayjs/plugin/advancedFormat";
+import i18n from '../../i18n';
+
 const RSVPForm  = (props:RSVPType) => {
-    console.log("RSVP FORM RENDERED", props.dateLine);
     const [errorName, setErrorName] = useState(false);
     const [guest, setGuest] = useState<Guest>({
     id: 0,
@@ -59,6 +63,10 @@ const RSVPForm  = (props:RSVPType) => {
     };
     fetchGuest();
   }, [props]);
+  useEffect(() => {
+        dayjs.extend(advancedFormat);
+        dayjs.locale(i18n.language);
+      }, [i18n.language]);
     const [disabledForm, setDisabledForm] = React.useState(false)
     const [disabledRSVP, setDisabledRSVP] = React.useState(false)
     const [radioValue, setRadioValue] = React.useState('yes');
@@ -136,6 +144,14 @@ const RSVPForm  = (props:RSVPType) => {
     const handleClose = () => {
         setOpen(false);
      };
+
+    const getFormattedDate = (date: Date) => {
+    if (i18n.language === 'es') {
+        return dayjs(date).format("DD [de] MMMM [de] YYYY");
+    } else if (i18n.language === 'en') {
+        return dayjs(date).format("DD Do MMMM");
+    }
+}
     const RenderForm = () =>{
         return(
         <Grid container spacing={1} padding={4} sx={{bgcolor: props.bgImage ? "transparent" : props.bgColor}} >
@@ -169,7 +185,7 @@ const RSVPForm  = (props:RSVPType) => {
                  {t("RSVP.notAttendingMessage")}
                 </Typography>
                 <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
-                   {t("RSVP.updateResponseMessage", { date: dayjs(props.dateLine).format("DD [de] MMMM") })}
+                   {t("RSVP.updateResponseMessage", { date: getFormattedDate(props.dateLine!) })}
                 </Typography>
             </div>
         ) : (
@@ -179,7 +195,7 @@ const RSVPForm  = (props:RSVPType) => {
             </Typography>
             {props.dateLine && (
                  <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
-               {t("RSVP.dateLineStart")} {dayjs(props.dateLine).format("DD [de] MMMM")}.
+               {t("RSVP.dateLineStart")} {getFormattedDate(props.dateLine!)}.
             </Typography>
             )
             }
