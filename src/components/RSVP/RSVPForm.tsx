@@ -149,7 +149,7 @@ const RSVPForm  = (props:RSVPType) => {
     if (i18n.language === 'es') {
         return dayjs(date).format("DD [de] MMMM [de] YYYY");
     } else if (i18n.language === 'en') {
-        return dayjs(date).format("DD Do MMMM");
+        return dayjs(date).format("Do MMMM");
     }
 }
     const RenderForm = () =>{
