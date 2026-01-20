@@ -45,7 +45,7 @@ const XVVictoria  = () => {
                 const num = Number(param);
                 return isNaN(num) ? 1 : num;
             }, [searchParams]);
-        const INVITATION_ID = 100;
+        const INVITATION_ID = 16;
         const [open, setOpen] = useState(false);
      
         const musicRef = useRef<MusicFabPlayerHandle>(null);
