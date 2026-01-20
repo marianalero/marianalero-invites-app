@@ -6,7 +6,7 @@ import { EventCardProps } from "../../components/EventCard/models/EventCardProps
 import FooterInvites from "../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import Grid from '@mui/material/Grid2';
-import { Box,colors,Typography } from "@mui/material";
+import { Box,Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
