@@ -324,12 +324,12 @@ const XVVictoria  = () => {
                           variant="body1" className={BODY_TYPO}
                    
                         >
-                       Amar
-                      Chloe
-                      Claudia
-                      Katija
-                      Mady
-                      Nora
+                       Amar<br></br>
+                      Chloe<br></br>
+                      Claudia<br></br>
+                      Katija<br></br>
+                      Mady<br></br>
+                      Nora<br></br>
                       Paloma
                         </Typography>
                       </Grid>
