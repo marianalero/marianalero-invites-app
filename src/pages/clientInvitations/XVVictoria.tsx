@@ -104,11 +104,11 @@ const XVVictoria  = () => {
             {
                 eventName: t("timeline.dinner"),
                 date: new Date(2025, 8, 19,20,0,0),
-                icon: `${URL_IMAGES}iconos/19.svg`,
+                icon: `${URL_IMAGES}iconos/20.svg`,
             },{
                 eventName:"Court intro and waltz ",
                 date: new Date(2025, 8, 19,21,0,0),
-                icon:`${URL_IMAGES}iconos/20.svg`,
+                icon:`${URL_IMAGES}iconos/19.svg`,
             },
             {
                 eventName: "Ends",
@@ -120,7 +120,7 @@ const XVVictoria  = () => {
             {
                 eventName: "Court intro and waltz ",
                 date: new Date(2025, 8, 19,21,0,0),
-                icon:`${URL_IMAGES}iconos/20.svg`,
+                icon:`${URL_IMAGES}iconos/19.svg`,
             },
             {
                 eventName: "Open dance",
