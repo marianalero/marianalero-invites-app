@@ -45,7 +45,7 @@ const XVVictoria  = () => {
                 const num = Number(param);
                 return isNaN(num) ? 1 : num;
             }, [searchParams]);
-        const INVITATION_ID = 16;
+        const INVITATION_ID = afterGuest ===1 ? 16 : 17;
         const [open, setOpen] = useState(false);
      
         const musicRef = useRef<MusicFabPlayerHandle>(null);
@@ -75,7 +75,7 @@ const XVVictoria  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: t("events.reception"),
-                date: afterGuest == 1 ? new Date(2025, 9, 25 , 18, 30, 0) : new Date(2025, 9, 25 , 20, 0, 0),
+                date: afterGuest == 1 ? new Date(2025, 9, 25 , 18, 30, 0) : new Date(2025, 9, 25 , 21, 0, 0),
                 icon: `${URL_IMAGES}recepcion.svg`,
                 locationName: "The Venue at Eastlake",
                 address: "871 District Pl Office Lobby, Chula Vista, CA, Estados Unidos",
@@ -90,6 +90,49 @@ const XVVictoria  = () => {
 
             },
     ];
+
+    const events = afterGuest === 1 ? [{
+                eventName: t("timeline.reception"),
+                date: new Date(2025, 8, 19,18,30,0),
+                icon:`${URL_IMAGES}iconos/14.svg`,
+            },
+            {
+                eventName: "Grand entrance",
+                date: new Date(2025, 8, 19,19,30,0),
+                icon:`${URL_IMAGES}iconos/15.svg`,
+            },
+            {
+                eventName: t("timeline.dinner"),
+                date: new Date(2025, 8, 19,20,0,0),
+                icon: `${URL_IMAGES}iconos/19.svg`,
+            },{
+                eventName:"Court intro and waltz ",
+                date: new Date(2025, 8, 19,21,0,0),
+                icon:`${URL_IMAGES}iconos/20.svg`,
+            },
+            {
+                eventName: "Ends",
+                date: new Date(2025,  8, 19,0,30,0),
+                icon:`${URL_IMAGES}iconos/22.svg`,
+            },
+            
+          ] : [
+            {
+                eventName: "Court intro and waltz ",
+                date: new Date(2025, 8, 19,21,0,0),
+                icon:`${URL_IMAGES}iconos/20.svg`,
+            },
+            {
+                eventName: "Open dance",
+                date: new Date(2025,  8, 19,22,0,0),
+                icon:`${URL_IMAGES}iconos/dance.svg`,
+            },
+            {
+                eventName: "Ends",
+                date: new Date(2025, 8, 20,0,30,0),
+                icon:`${URL_IMAGES}iconos/22.svg`,
+            }
+          ];
     const timelineData: CustomizedTimelineProps = {
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
@@ -97,35 +140,7 @@ const XVVictoria  = () => {
         colorTitle:"white",
         colorBody: "white",
         bgColor: COLOR_PRIMARY, 
-        events: [
-           
-            ...(afterGuest === 1 ? [{
-                eventName: t("timeline.reception"),
-                date: new Date(2025, 8, 19,18,30,0),
-                icon:`${URL_IMAGES}iconos/15.svg`,
-            }] : []),
-            ...(afterGuest === 1 ? [{
-                eventName: t("timeline.dinner"),
-                date: new Date(2025, 8, 19,19,30,0),
-                icon: `${URL_IMAGES}iconos/20.svg`,
-            }] : []),
-            ...(afterGuest === 2 ? [{
-                eventName: t("timeline.reception"),
-                date: new Date(2025, 8, 19,20,0,0),
-                icon:`${URL_IMAGES}iconos/15.svg`,
-            }] : []),
-            {
-                eventName: t("timeline.waltz"),
-                date: new Date(2025,  8, 19,20,30,0),
-                icon:`${URL_IMAGES}iconos/19.svg`,
-            },
-            
-            {
-                eventName: t("timeline.end"),
-                date: new Date(2025, 8, 20,0,30,0),
-                icon:`${URL_IMAGES}iconos/22.svg`,
-            }
-        ],
+        events: events,
     };
     const giftListData: GiftListProps = {
         mainTypo: `${MAIN_TYPO}`,
@@ -290,7 +305,7 @@ const XVVictoria  = () => {
                           variant="body1" className={BODY_TYPO}
                          
                         >
-                         Chambelan of Honor - Name
+                         Chambelan of Honor - Diego De La Vega
                         </Typography>
                       </Grid>
                     
@@ -299,7 +314,7 @@ const XVVictoria  = () => {
                       variant="h4" className={`${MAIN_TYPO}`}
                       sx={{  color: COLOR_SECONDARY}}
                     >
-                    Damas & Chambelanes
+                    Damas 
                     </Typography>
 
                     {/* Segunda fila de nombres */}
@@ -309,7 +324,13 @@ const XVVictoria  = () => {
                           variant="body1" className={BODY_TYPO}
                    
                         >
-                        Dama Name & Chambelan Name
+                       Amar
+                      Chloe
+                      Claudia
+                      Katija
+                      Mady
+                      Nora
+                      Paloma
                         </Typography>
                       </Grid>
                       
@@ -332,6 +353,16 @@ const XVVictoria  = () => {
                 ))
             }
             </Grid>
+            {
+              afterGuest === 2 && (
+                 <Grid size={{ xs: 12 }} padding={4}>
+                <Typography variant="body1" className={`${BODY_TYPO}`} sx={{ textAlign: 'center', fontSize: "1rem", }}>
+                  Please wear your wrist band for entrance after 8 pm.
+                </Typography>
+              </Grid>
+            )
+          }
+            
                <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
              <Grid size={{ xs: 12 }} padding={4}>
          
@@ -348,10 +379,10 @@ const XVVictoria  = () => {
             </Box>
             </Grid>
  
-            
-            {/* <div style={{backgroundImage:`url('${URL_IMAGES}fondo.png')`,backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover", paddingTop:"70px" }}> */}
-               <RSVPForm 
-                textColor={COLOR_PRIMARY}
+               
+              
+                    <RSVPForm 
+                    textColor={COLOR_PRIMARY}
                     colorButton={COLOR_PRIMARY} 
                     bgColor={BG_COLOR} 
                     mainTypo={MAIN_TYPO} 
@@ -367,6 +398,8 @@ const XVVictoria  = () => {
                 >
                 
             </RSVPForm>
+               
+               
             {/* </div> */}
             
             <LodgingAccordion
