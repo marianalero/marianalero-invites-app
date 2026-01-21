@@ -411,7 +411,6 @@ const XVEmely  = () => {
                     mainTypo={MAIN_TYPO} 
                     bodyTypo={BODY_TYPO} 
                     count={invitedGuests}
-                    dateLine={new Date(2026,0,20)}
                     color={COLOR_PRIMARY}
                     guestId={guestId}
                     invitationId={INVITATION_ID}
