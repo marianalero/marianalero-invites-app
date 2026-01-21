@@ -157,7 +157,7 @@ const XVVictoria  = () => {
         color:COLOR_PRIMARY,
         type:1,
         title:"Semi Formal",
-        description:"Dress nicely as if you’re going to a wedding reception or fancy dinner. Avoid jeans, sneakers and very casual clothes, but you don’t need a full length gown or tux.",
+        description:"Join us in celebrating in style! Please dress elegantly, as you would for a wedding reception or a fancy dinner. We encourage festive, polished looks. Kindly avoid jeans, sneakers, and overly casual attire. Full-length gowns and tuxedos are not required.",
         omitColorsLabel:"Reserved colors: Hunter Green",
 
     }
@@ -443,7 +443,7 @@ const XVVictoria  = () => {
 
             </Fade>
              
-           <WithoutKids  title="This is a teen celebration and special night for Mom and Dad to relax- no kids, please"  bodyTypo={BODY_TYPO}></WithoutKids>
+           <WithoutKids  title="This celebration is centered on our teen and is also a special evening for parents to relax and enjoy. Teen guests are welcome; however, we kindly ask that no young children attend. Thank you for your understanding."  bodyTypo={BODY_TYPO}></WithoutKids>
            
             <div style={{height:100}}></div>
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
