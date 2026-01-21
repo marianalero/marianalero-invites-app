@@ -235,7 +235,7 @@ const XVVictoria  = () => {
                         <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
                           sx={{fontSize: 40 ,lineHeight:2, color: COLOR_SECONDARY}}
                         >
-                          Raul & Monica De La Vega
+                          Raul & Monica<br></br> De La Vega
 
                         </Typography>
                         </Fade>
@@ -255,7 +255,7 @@ const XVVictoria  = () => {
                                       <Fade direction="up" >
                         <Typography
                           className={BODY_TYPO}
-                          sx={{ mt: 2 }}
+                          sx={{ mt: 2 , fontSize:"1.3rem"}}
                         >
                           We are honored to invite you to the celebration of my 15th birthday.
                         </Typography>
