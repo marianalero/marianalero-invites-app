@@ -9,6 +9,7 @@ export interface WithoutKidsProps
     subtitle?:string;
     subtitle2?:string;
         hideTitle?:boolean;
+        hideSubtitle?:boolean;
 }
 
 const WithoutKids  = (props:WithoutKidsProps) => 
@@ -20,7 +21,9 @@ const WithoutKids  = (props:WithoutKidsProps) =>
                         {!props.hideTitle && (
                         <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={400}> {props.title ? props.title : t("NoKidsMessageTitle")} </Typography>
                         )}
+                        {!props.hideSubtitle && (
                     <Typography  className={props.bodyTypo} textAlign={"center"} variant='body1'> {props.subtitle ? props.subtitle : t("NoKidsMessageBody")} <b>{props.subtitle2 ? props.subtitle2 : t("NoKidsMessageBodyDesc")}</b></Typography>
+                        )}
                       </Fade>
                 </Grid>
             </Grid>
