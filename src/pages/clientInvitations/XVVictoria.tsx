@@ -78,7 +78,7 @@ const XVVictoria  = () => {
                 date: afterGuest == 1 ? new Date(2025, 9, 25 , 18, 30, 0) : new Date(2025, 9, 25 , 21, 0, 0),
                 icon: `${URL_IMAGES}recepcion.svg`,
                 locationName: "The Venue at Eastlake",
-                address: "871 District Pl Office Lobby, Chula Vista, CA, United States",
+                address: "871 District Pl, Chula Vista, CA, United States",
                 size: 6,
                 color: COLOR_PRIMARY,
                 mainTypo:  `${MAIN_TYPO}`,
