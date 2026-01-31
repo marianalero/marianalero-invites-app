@@ -415,22 +415,22 @@ const XVVictoria  = () => {
             options={[
               {
                 name: "Hampton Inn Chula Vista Eastlake",
-                distance: "2424 Fenton St, Chula Vista, CA, Estados Unidos",
+                distance: "2424 Fenton St, Chula Vista, CA, United States",
                 mapUrl: "https://www.hilton.com/en/hotels/sanhxhx-hampton-chula-vista-eastlake/?SEO_id=GMB-AMER-HX-SANHXHX&y_source=1_MTQ2MTg5MjEtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D"
               },
               {
                 name: "SpringHill Suites Chula Vista Eastlake",
-                distance: "870 District Pl, Chula Vista, CA, Estados Unidos",
+                distance: "870 District Pl, Chula Vista, CA, United States",
                 mapUrl: "https://www.marriott.com/en-us/hotels/sansu-springhill-suites-chula-vista-eastlake/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0"
               },
               {
                 name: "Homewood Suites by Hilton Chula Vista Eastlake",
-                distance: "2424 Fenton St, Chula Vista, CA, Estados Unidos",
+                distance: "2424 Fenton St, Chula Vista, CA, United States",
                 mapUrl: "https://www.hilton.com/en/hotels/sanethw-homewood-suites-chula-vista-eastlake/?SEO_id=GMB-AMER-HG-SANETHW&y_source=1_MTQ2MTg5ODYtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D"
               },
               {
                 name: "Ayres Hotel San Diego South - Chula Vista",
-                distance: "1710 Millenia Ave, Chula Vista, CA 91915, Estados Unidos",
+                distance: "1710 Millenia Ave, Chula Vista, CA 91915, United States",
                 mapUrl: "https://www.ayreshotels.com/ayres-hotel-san-diego-south-chula-vista"
               }
             ]}
@@ -443,7 +443,7 @@ const XVVictoria  = () => {
 
             </Fade>
              
-           <WithoutKids  title="This celebration is centered on our teen and is also a special evening for parents to relax and enjoy. Teen guests are welcome; however, we kindly ask that no young children attend. Thank you for your understanding."  bodyTypo={BODY_TYPO}></WithoutKids>
+           <WithoutKids hideSubtitle={true} title="This celebration is centered on our teen and is also a special evening for parents to relax and enjoy. Teen guests are welcome; however, we kindly ask that no young children attend. Thank you for your understanding."  bodyTypo={BODY_TYPO}></WithoutKids>
            
             <div style={{height:100}}></div>
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
