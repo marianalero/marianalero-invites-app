@@ -20,7 +20,6 @@ import Adornment from "../../components/Adornment/Adornment";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import Gallery from "../../components/Gallery/Gallert";
-import { ConfirmExcel } from "../../services/guestApiClient";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 
 const XVRenataIsabela  = () => {
