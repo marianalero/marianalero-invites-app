@@ -74,7 +74,7 @@ const XVRenataIsabela  = () => {
             },
             {
                 eventName: "Recepción",
-                date: new Date(2025, 8, 19, 21, 0, 0),
+                date: new Date(2026, 2, 13, 21, 0, 0),
                
                 locationName: "Salón 1 de la Unidad Social Sección 54",
                 address: "Gabriela Mistral s/n esquina Román Yocupicio ",
@@ -162,7 +162,7 @@ const XVRenataIsabela  = () => {
             <CoverSimple 
             bgImage={`${URL_IMAGES}portada.jpeg`}
             bgImage2={`${URL_IMAGES}portada.jpeg`}
-                  weddingDate="15.03.2026"
+                  weddingDate="13.03.2026"
                  subtitle="Mis XV años"
                   brideName="Renata Isabela"
                   symbolr={""}
@@ -257,7 +257,7 @@ const XVRenataIsabela  = () => {
       </Grid>
     </Grid>
             <CountDown 
-                eventDate={new Date(2026, 2, 15)}
+                eventDate={new Date(2026, 2, 13)}
                 fontSize="2rem"
                 typoHeader={`${BODY_TYPO} to-upper`}
                 typoCountdown={BODY_TYPO} 
