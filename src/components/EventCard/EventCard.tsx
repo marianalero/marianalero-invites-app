@@ -19,6 +19,7 @@ const EventCard  = (props:EventCardProps) => {
                     <Card 
                         elevation={0} 
                         sx={{ 
+                            bgcolor : props.bgColor ? props.bgColor : "transparent",
                             border:"1px solid rgb(215, 174, 84, .2)",
                             boxShadow:"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
                         }}>		
@@ -36,13 +37,13 @@ const EventCard  = (props:EventCardProps) => {
                                 }
                                
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography   textAlign={"center"} className={props.bodyTypo} fontWeight={600}>{props.locationName}</Typography>
+                                    <Typography sx={{color: props.textColor ? props.textColor : "black"}}  textAlign={"center"} className={props.bodyTypo} fontWeight={600}>{props.locationName}</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography  textAlign={"center"} className={props.bodyTypo} >{props.address}</Typography>
+                                    <Typography sx={{color: props.textColor ? props.textColor : "black"}}   textAlign={"center"} className={props.bodyTypo} >{props.address}</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography  textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {dayjs(props.date).format("hh:mm A")} { props.endDate ? `- ${dayjs(props.endDate).format("hh:mm A")}` : "" }</Typography>
+                                    <Typography sx={{color: props.textColor ? props.textColor : "black"}}     textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {dayjs(props.date).format("hh:mm A")} { props.endDate ? `- ${dayjs(props.endDate).format("hh:mm A")}` : "" }</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                     {

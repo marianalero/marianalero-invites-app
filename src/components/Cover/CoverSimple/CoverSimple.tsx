@@ -4,13 +4,43 @@ import './CoverSimple.css';
 import { Fade } from 'react-awesome-reveal';
 import { CoverProps } from '../CoverProps';
 import { t } from 'i18next';
+import { useEffect, useState } from 'react';
 
 const CoverSimple  = (props:CoverProps) => {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
+  const [loaded, setLoaded] = useState(false);
+  const GENERIC_BLUR =
+    "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBUQEA8PEA8PDw8PDw8PDw8PDw8PFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFy0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAAEAAQMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAABAgAD/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIQAxAAAAH6A//EABgQAQEBAQEAAAAAAAAAAAAAAAERAhIh/9oACAEBAAEFAk8d4o//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8BSP/EAAURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/ASf/xAAbEAADAQEBAQEAAAAAAAAAAAABERAhMUFRcf/aAAgBAQAGPwKzK0kAq0p1k//EABsQAQEAAwEBAQAAAAAAAAAAAAERACExQVFh/9oACAEBAAE/IVFZfE2PqC5nSlQ2RZ5WqX//2gAMAwEAAgADAAAAEB//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QEf/EAAURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/ECL/xAAbEAEBAQEAAwEAAAAAAAAAAAABEQAhMVFhcf/aAAgBAQABPxDkXIpT+R9xKk4a5QZ2h+V5J7VZ//Z";
+
+  const bgImageToUse = isSmallScreen ? props.bgImage : props.bgImage2;
+
+  useEffect(() => {
+    if (!bgImageToUse) return;
+    
+    const img = new Image();
+    img.src = bgImageToUse;
+
+    img.onload = () => setLoaded(true);
+  }, [bgImageToUse]);
 
     return(
      
-     <div style={{backgroundImage:`url('${isSmallScreen ? props.bgImage : props.bgImage2}')`,backgroundSize: props.bgSize? props.bgSize : "cover", boxShadow: props.overlay ? " inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" :"",backgroundPositionX: props.bgPosition ? props.bgPosition : "50%" ,}} className='cover-container'>
+     <div className='cover-container'>
+      <img
+        src={loaded ? bgImageToUse : GENERIC_BLUR}
+        alt="Cover"
+        loading="eager"
+        decoding="async"
+        className={`cover-bg ${loaded ? "loaded" : ""}`}
+        style={{
+            objectFit: props.bgSize ? "cover" : "cover",
+            filter: loaded ? "blur(0)" : "blur(24px)",
+            opacity: loaded ? 1 : 0.85,
+            objectPosition: props.bgPosition ? props.bgPosition : "50% 50%",
+            boxShadow: props.overlay ? " inset 0 0 0 1000px rgba(0, 0, 0, 0.2)" : "",
+        }}
+        {...({ fetchpriority: "high" } as any)}
+        />
     
         <Fade direction="up" triggerOnce={true}>
           {

@@ -94,7 +94,7 @@
 }
 
 .to-upper {
-  text-transform: uppercase;
+  text-transform: uppercase!important;
 }
 
 
@@ -149,6 +149,10 @@
 .the-seasons {
   font-family: "The Seasons"!important;
   font-style: normal!important;
+}
+.lora {
+  font-family: 'Lora', serif!important;
+  font-style: normal;
 }
 .d-flex{
   display: flex!important;

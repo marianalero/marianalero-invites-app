@@ -30,6 +30,7 @@ import XVDaniela from "../pages/clientInvitations/XVDaniela";
 import XVEmely from "../pages/clientInvitations/XVEmely";
 import XVKarla from "../pages/clientInvitations/XVKarla";
 import XVMelanie from "../pages/clientInvitations/XVMelanie";
+import XVRenataIsabela from "../pages/clientInvitations/XVRenataIsabela";
 import XVValeria from "../pages/clientInvitations/XVValeria";
 import XVVictoria from "../pages/clientInvitations/XVVictoria";
 import CreacionesPage from "../pages/creations/creations";
@@ -114,6 +115,7 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
+  {path:'/prev-r', element: <XVRenataIsabela></XVRenataIsabela>}
 ];
 
 

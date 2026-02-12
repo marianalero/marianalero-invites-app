@@ -449,7 +449,7 @@ const RSVPForm  = (props:RSVPType) => {
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                                 {
                                         props.classButtonName ? (
-                                            <ProButton  onClick={handleSend} className={props.classButtonName} label={t("send")} />
+                                            <ProButton  onClick={handleSend} className={props.classButtonName} label={t("RSVP.send")} />
                                         ) : (
                                             <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={t("send")} onClick={handleSend}></CustomButton>
                                         )
@@ -501,7 +501,7 @@ const RSVPForm  = (props:RSVPType) => {
                          
                        </Box>
                        <Box display={"flex"} justifyContent={"center"}>
-                        <Typography variant="h3" className={props.mainTypo}>{t("RSVP.successSend")}</Typography>
+                        <Typography variant="body1" className={props.mainTypo}>{t("RSVP.successSend")}</Typography>
                        </Box>
                    
                         

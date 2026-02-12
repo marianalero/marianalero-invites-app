@@ -62,7 +62,6 @@ const XVVictoria  = () => {
         };
     
         const handleEnter  = () => {
-          console.log("handleEnter");
             setOpen(false);
             musicRef.current?.play()
          };
