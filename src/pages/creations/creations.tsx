@@ -4,7 +4,6 @@ import {
   Tabs,
   Tab,
   Card,
-  CardMedia,
   CardContent,
   Chip,
   Typography,
