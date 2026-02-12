@@ -352,11 +352,11 @@ const RSVPForm  = (props:RSVPType) => {
                                             padding: '0 4px',
                                             borderRadius: '4px',
                                             }} 
-                                            id="demo-simple-select-label">{t("RSVP.placesReserved")}</InputLabel>
+                                            id="demo-simple-select-label">{t("RSVP.guestsPlaceholder")}</InputLabel>
                                   
                                                                
                                     <Select<number>
-                                        label={t("RSVP.placesReserved")}
+                                        label={t("RSVP.guestsPlaceholder")}
                                         labelId="guests"
                                         id="guests"
                                         value={guest.totalConfirmed}

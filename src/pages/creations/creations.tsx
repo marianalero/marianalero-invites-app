@@ -62,6 +62,49 @@ const invitations: InvitationItem[] = [
       hide: false
   },
   {
+    title:"Civil Karol & Mario",
+    category:"Bodas",
+    imageUrl:"/images/boda1.jpg",
+    link:"https://marianalero-invites.com/boda-civil-karol-mario",
+    hide:false
+  },
+  {
+    title:"Cendy & Adrian",
+    category:"Bodas",
+    imageUrl:"/images/boda1.jpg",
+    link:"https://marianalero-invites.com/boda-cendy-adrian",
+    hide:false
+  },
+  {
+    title:"Stephania & Ismael",
+    category:"Bodas",
+    imageUrl:"/images/boda1.jpg",
+    link:"https://marianalero-invites.com/boda-stephania-ismael",
+    hide:false
+  },
+  {
+    title:"Sophia & Luis Enrique",
+    category:"Bodas",
+    imageUrl:"/images/boda1.jpg",
+    link:"https://marianalero-invites.com/boda-sophia-luis-enrique",
+    hide:false
+  },
+  {
+    title:"Maria Lourdes & Francisco Michel",
+    category:"Bodas",
+    imageUrl:"/images/boda1.jpg",
+    link:"https://marianalero-invites.com/boda-maria-lourdes-francisco-michel",
+    hide:false
+  },
+  {
+      title:"Glenda & Jose",
+      category:"Bodas",
+      imageUrl:"/images/boda1.jpg",
+      link:"https://marianalero-invites.com/boda-glenda-jose",
+      hide:false
+  }
+  ,
+  {
       title: "Quinceañera Valentina",
       category: "XV Años",
       imageUrl: "/images/xv1.jpg",
@@ -96,6 +139,27 @@ const invitations: InvitationItem[] = [
        link: "https://marianalero-invites.com/xv-alexia",
        hide: false
    },
+   {
+      title:"Quinceañera Dalia",
+      category:"XV Años",
+      imageUrl:"/images/xv1.jpg",
+      link:"https://marianalero-invites.com/xv-daniela",
+      hide:false
+   }
+    ,{
+      title:"Quinceañera Emely",
+      category:"XV Años",
+      imageUrl:"/images/xv1.jpg",
+      link:"https://marianalero-invites.com/xv-emely",
+      hide:false
+    },
+    {
+      title:"Quinceañera Victoria",
+      category:"XV Años",
+      imageUrl:"/images/xv1.jpg",
+      link:"https://marianalero-invites.com/xv-victoria",
+      hide:false
+    },
   {
       title: "Bautizo Alondra",
       category: "Otros",
@@ -138,6 +202,27 @@ const invitations: InvitationItem[] = [
       link: "https://marianalero-invites.com/save-date-xv-dalia",
       hide: false
   },
+  {
+      title: "Showroom",
+      category: "Otros",
+      imageUrl: "/images/otros1.jpg",
+      link: "https://marianalero-invites.com/showroom",
+      hide: false
+  },
+  {
+     title:"Baby Shower Alec",
+     category: "Otros",
+     imageUrl: "/images/otros1.jpg",
+     link: "https://marianalero-invites.com/baby-shower-alec",
+     hide: false
+  },
+  {
+    title:"Posada TDR",
+    category: "Otros",
+    imageUrl: "/images/otros1.jpg",
+    link: "https://marianalero-invites.com/posada-tdr",
+    hide: false
+  }
 ];
 
 const CreacionesPage: React.FC = () => {
@@ -237,12 +322,12 @@ const CreacionesPage: React.FC = () => {
                 },
               }}
             >
-              <CardMedia
+              {/* <CardMedia
                 component="img"
                 height="220"
                 image={item.imageUrl}
                 alt={item.title}
-              />
+              /> */}
               <CardContent>
                 <Typography
                   variant="h6"
