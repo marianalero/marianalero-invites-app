@@ -394,6 +394,7 @@ const XVRenataIsabela  = () => {
               colorButton={COLOR_PRIMARY}
               invitationId={0}
               bgColor={"rgb(243, 234, 217,.5)"}
+              guestId={guestId}
             />
             {/* <RSVPDemo qrActive={false} colorButton={COLOR_PRIMARY} bgColor="rgb(215,174,84,.05)" mainTypo={MAIN_TYPO} bodyTypo={BODY_TYPO} count={invitedGuests} dateLine={new Date(2025, 9, 1)} color={COLOR_PRIMARY} invitationId={0} textColor={"black"} ></RSVPDemo> */}
             <DressCode {...dresscode}></DressCode>
