@@ -221,8 +221,8 @@ const XVRenataIsabela  = () => {
 
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
               <Fade direction="up" >
-              <Typography  variant="h1" className={`${MAIN_TYPO}`}
-                sx={{  fontSize: "2.5rem",lineHeight:2 , color: COLOR_PRIMARY }}
+              <Typography  variant="h1" className={`${MAIN_TYPO}`} translate="no" 
+                sx={{  fontSize: "2.5rem",lineHeight:2 , color: COLOR_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
               >
                 Oscar Francisco Miranda Moreno
               </Typography>
