@@ -130,7 +130,7 @@ const XVRenataIsabela  = () => {
         bgColor: "#FFFFFF", 
         showEnvelope:true,
         bankIconEnd:`${URL_IMAGES}iconos/7.svg`,
-        envelopePhrase:"Tu presencia es el mejor regalo para nosotros. Si deseas tener un detalle adicional, el día del evento habrá una caja para sobres.",
+        envelopePhrase:"Tu presencia es el mejor regalo para nosotros. Si deseas tener un detalle adicional, que sea en efectivo.",
     };
     const dresscode:DressCodeProps = {
         mainTypo:`${MAIN_TYPO}`,
@@ -224,7 +224,7 @@ const XVRenataIsabela  = () => {
               <Typography  variant="h1" className={`${MAIN_TYPO}`} translate="no" 
                 sx={{  fontSize: "2.5rem",lineHeight:2 , color: COLOR_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
               >
-                Oscar Francisco Miranda Moreno
+                {"O\u0073car"} Francisco Miranda Moreno
               </Typography>
               </Fade>
             </Grid>

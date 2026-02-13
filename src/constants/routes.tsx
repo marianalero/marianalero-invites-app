@@ -115,7 +115,7 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
-  {path:'/prev-r', element: <XVRenataIsabela></XVRenataIsabela>}
+  {path:'/prev-r-2', element: <XVRenataIsabela></XVRenataIsabela>}
 ];
 
 
