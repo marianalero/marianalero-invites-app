@@ -224,9 +224,7 @@ const XVRenataIsabela  = () => {
               <Typography  variant="h1" className={`${MAIN_TYPO}`}
                 sx={{  fontSize: "2.5rem",lineHeight:2 , color: COLOR_PRIMARY }}
               >
-               Oscar Francisco Miranda Moreno
-
-
+                Oscar Francisco Miranda Moreno
               </Typography>
               </Fade>
             </Grid>
