@@ -410,7 +410,7 @@ const XVDaliaElizabeth  = () => {
                     mainTypo={MAIN_TYPO} 
                     bodyTypo={BODY_TYPO} 
                     count={invitedGuests}
-                    dateLine={new Date(2026,1,12)}
+                    dateLine={new Date(2026,1,17)}
                     color={"white"}
                     guestId={guestId}
                     invitationId={INVITATION_ID}
