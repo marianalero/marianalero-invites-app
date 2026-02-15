@@ -238,7 +238,6 @@ const WeddingMariluMichel  = () => {
                 mainTypo={MAIN_TYPO} 
                 bodyTypo={BODY_TYPO} 
                 count={invitedGuests}
-                dateLine={new Date(2026,1,14)}
                 color={"white"}
                 guestId={guestId}
                 invitationId={INVITATION_ID}
