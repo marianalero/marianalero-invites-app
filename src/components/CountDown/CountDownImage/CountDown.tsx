@@ -51,14 +51,14 @@ const CountDown = (props:CountDownProps) => {
         const hours = Math.floor((time / (1000 * 60 * 60)) % 24);
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
         return (
-            <p className={`countdown ${props.typoCountdown}`}>
-				<span className="" id="days">  {days.toString().padStart(2, "0")} <br/> <span className="labels">{t('countdown.days')}</span></span>
-				<span className="" id="">: <br/> <span></span></span>
-				<span className="" id="hours">{hours.toString().padStart(2, "0")} <br/> <span className="labels">{t('countdown.hours')}</span></span>
-				<span className="" id="">: <br/> <span ></span></span>
-				<span className="" id="minutes">{minutes.toString().padStart(2, "0")}<br/> <span className="labels">{t('countdown.minutes')}  </span></span>
-				<span className="" id="">: <br/> <span ></span></span>
-				<span className="" id="seconds">{seconds.toString().padStart(2, "0")}<br/> <span className="labels">{t('countdown.seconds')}</span></span>
+            <p className={`countdown ${props.typoCountdown}`} translate="no">
+				<span className="" id="days" translate="no">  {days.toString().padStart(2, "0")} <br/> <span className="labels">{t('countdown.days')}</span></span>
+				<span className="" id="" translate="no">: <br/> <span></span></span>
+				<span className="" id="hours" translate="no">{hours.toString().padStart(2, "0")} <br/> <span className="labels">{t('countdown.hours')}</span></span>
+				<span className="" id="" translate="no">: <br/> <span ></span></span>
+				<span className="" id="minutes" translate="no">{minutes.toString().padStart(2, "0")}<br/> <span className="labels">{t('countdown.minutes')}  </span></span>
+				<span className="" id="" translate="no">: <br/> <span ></span></span>
+				<span className="" id="seconds" translate="no">{seconds.toString().padStart(2, "0")}<br/> <span className="labels">{t('countdown.seconds')}</span></span>
 			</p>
         );
       };
