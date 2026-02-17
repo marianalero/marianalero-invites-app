@@ -149,7 +149,7 @@ const XVRenataIsabela  = () => {
         addormentStart:`${URL_IMAGES}adornos/31.png`,
         addormentSize:"180px",
         italic:true,
-        qoute : "Al caer la noche en el cielo millones de estrellas podrás contar… cada una de ellas era un deseo que en mi corazón voy a guardar… Dicen que la vida es más bella si podemos cumplir lo que soñamos y mi sueño es que compartas conmigo la noche de mis 15 años.",
+        qoute : "Al caer la noche en el cielo millones de estrellas podrás contar… cada una de ellas será un deseo que en mi corazón voy a guardar… Dicen que la vida es más bella si podemos cumplir lo que soñamos y mi sueño es que compartas conmigo la noche de mis 15 años.",
     }
 
   const galleryPhotos = [
@@ -438,7 +438,7 @@ const XVRenataIsabela  = () => {
               dateLine={new Date(2026, 1, 28)}
               color={"white"}
               colorButton={"white"}
-              invitationId={0}
+              invitationId={16}
               bgColor={"rgb(243, 234, 217,.5)"}
               guestId={guestId}
               classButtonName="btn-silver"
