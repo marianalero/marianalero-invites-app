@@ -501,7 +501,7 @@ const RSVPForm  = (props:RSVPType) => {
                          
                        </Box>
                        <Box display={"flex"} justifyContent={"center"}>
-                        <Typography variant="body1" className={props.mainTypo}>{t("RSVP.successSend")}</Typography>
+                        <Typography variant="h4" className={props.bodyTypo}>{t("RSVP.successSend")}</Typography>
                        </Box>
                    
                         
