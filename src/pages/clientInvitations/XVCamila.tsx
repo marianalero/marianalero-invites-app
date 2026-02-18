@@ -97,7 +97,7 @@ const XVCamila  = () => {
         color: COLOR_PRIMARY, 
         bgColor: "transparent", 
         showEnvelope:true,
-        bankIconEnd:`${URL_IMAGES}iconos/7.svg`,
+        bankIconEnd:`${URL_IMAGES}iconos/7.png`,
         envelopePhrase:"Tu presencia es el mejor regalo; cualquier detalle adicional será recibido con mucho cariño.",
     };
     const dresscode:DressCodeProps = {
