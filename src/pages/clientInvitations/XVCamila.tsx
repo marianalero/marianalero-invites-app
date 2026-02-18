@@ -50,7 +50,7 @@ const XVCamila  = () => {
     const MAIN_TYPO = "great-vibes-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}xv/xv-camila/`;
-    const BG_COLOR ="#fcebf1";
+    const BG_COLOR ="#FAEEF2";
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Misa Religiosa",
@@ -388,7 +388,7 @@ pendiente                      </Typography>
             <DressCode {...dresscode}></DressCode>
          
            </div>
-            
+        
         
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
         <InvitationWelcomeModal

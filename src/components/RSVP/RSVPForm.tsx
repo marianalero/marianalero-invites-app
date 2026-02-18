@@ -365,7 +365,7 @@ const RSVPForm  = (props:RSVPType) => {
                                         })}
                                         sx={{
                                             minWidth: 300,
-                                            color: props.colorButton,
+                                            color: "black",
                                             '& .MuiOutlinedInput-notchedOutline': {
                                                 borderColor: props.colorButton, // borde normal
                                             },
@@ -373,7 +373,7 @@ const RSVPForm  = (props:RSVPType) => {
                                                 borderColor: props.colorButton,
                                             },
                                             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                                borderColor: props.colorButton,
+                                                borderColor: "black",
                                             },
                                             '& .MuiSvgIcon-root': {
                                                 color: props.colorButton,
