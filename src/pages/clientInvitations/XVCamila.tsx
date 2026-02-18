@@ -388,7 +388,7 @@ pendiente                      </Typography>
             <DressCode {...dresscode}></DressCode>
          
            </div>
-            <div style={{height:100}}></div>
+            
         
             <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
         <InvitationWelcomeModal
