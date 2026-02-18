@@ -41,7 +41,7 @@ const CoverSimple  = (props:CoverProps) => {
         }}
         {...({ fetchpriority: "high" } as any)}
         />
-    
+     {props.overlay && <div className="cover-overlay" />}
         <Fade direction="up" triggerOnce={true}>
           {
             !props.hideText && (

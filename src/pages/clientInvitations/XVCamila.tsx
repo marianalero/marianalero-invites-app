@@ -6,21 +6,18 @@ import { EventCardProps } from "../../components/EventCard/models/EventCardProps
 import FooterInvites from "../../components/Footer/FooterInvites";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
-import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Grid from '@mui/material/Grid2';
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Card, CardContent } from "@mui/material";
 import { URL_REPO } from "../../config";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
-import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
-import Adornment from "../../components/Adornment/Adornment";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
-
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import InvitationWelcomeModal from "../../components/InvitationWelcomeModal/InvitationWelcomeModal";
+import Adornment from "../../components/Adornment/Adornment";
 
 const XVCamila  = () => {
       const [searchParams] = useSearchParams();
@@ -34,7 +31,7 @@ const XVCamila  = () => {
             }, [searchParams]);
         const [open, setOpen] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
-       const URL_SONG = `${URL_REPO}canciones/Espejito-Espejito.mp3`;
+       const URL_SONG = `${URL_REPO}canciones/Photograph-Ed Sheeran.mp3`;
         const handleClickOpen = () => {
             setOpen(true);
         };
@@ -48,89 +45,60 @@ const XVCamila  = () => {
            handleClickOpen()
         }, []);
     
-    const COLOR_PRIMARY = "#C48A9A";
+    const COLOR_PRIMARY = "#e698ae";
     const COLOR_SECONDARY = "#9E9E9E";
-    const MAIN_TYPO = "southland";
-    const BODY_TYPO = "lora";
+    const MAIN_TYPO = "great-vibes-regular";
+    const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}xv/xv-camila/`;
-    const BG_COLOR ="rgb(249, 238, 241)"
+    const BG_COLOR ="#fcebf1";
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Misa Religiosa",
-                date: new Date(2026, 2, 20, 19, 0, 0),
+                date: new Date(2026, 2, 20, 18, 0, 0),
                 locationName: "Parroquia Santa Eduwiges",
                 address: "C. Israel González S/N, Modelo, Hermosillo, Son.",
                 size: 6,
-                color: "white",
+                color: COLOR_SECONDARY,
                 icon: `${URL_IMAGES}iconos/9.svg`,
                 mainTypo:`${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/CxGg2yXusDTtTeze7",
-                fontSize:"3.5rem",
-                colorButton: "white",
+                fontSize:"2.5rem",
+                colorButton: COLOR_SECONDARY,
                 classButtonName:"btn-silver",
-                
+                bgColor: "white",
                 textColor:COLOR_SECONDARY
                 
             },
             {
                 eventName: "Recepción",
-                date: new Date(2026, 2, 20, 21, 0, 0),
+                date: new Date(2026, 2, 20, 20, 0, 0),
                
                 locationName: "Salon Las Cascadas",
                 address: "Los Molinos 97, Las Minitas, Hermosillo, Son.",
                 size: 6,
-                color: "white",
+                color: COLOR_SECONDARY,
                 icon: `${URL_IMAGES}iconos/10.svg`,
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
-                fontSize:"4rem",
+                fontSize:"3rem",
                 href: "https://maps.app.goo.gl/Y6TfuqLdCVQ8VnA39",
                 colorButton: COLOR_PRIMARY,
                 classButtonName:"btn-silver",
-                textColor:COLOR_SECONDARY
+                textColor:COLOR_SECONDARY,
+                bgColor: "white"
             },
     ];
-    const timelineData: CustomizedTimelineProps = {
-        mainTypo: MAIN_TYPO,
-        bodyTypo: BODY_TYPO,
-        colorPrimary: COLOR_SECONDARY,
-        colorTitle: COLOR_SECONDARY,
-        colorBody: COLOR_SECONDARY,
-        bgColor: "#F3DCE1", 
-        fontSize: "3.5rem",
-        events: [
-            {
-                eventName: "Misa",
-                date: new Date(2026, 2, 20,19,0,0),
-                icon:`${URL_IMAGES}iconos/15.svg`,
-            },
-            {
-                eventName: "Recepción",
-                date: new Date(2026, 2, 20,21,0,0),
-                icon:`${URL_IMAGES}iconos/16.svg`,
-            },
-            {
-                eventName: "Vals",
-                date: new Date(2026, 2, 20,22,20,0),
-                icon:`${URL_IMAGES}iconos/21.svg`,
-            },
-            {
-                eventName: "Fin del evento",
-                date: new Date(2026, 2, 21,2,0,0),
-                icon: `${URL_IMAGES}iconos/24.svg`,
-            }
-        ],
-    };
+    
     const giftListData: GiftListProps = {
-      fontSize: "3.5rem",
+      fontSize: "3rem",
         mainTypo: `${MAIN_TYPO}`,
         bodyTypo: BODY_TYPO,
         color: COLOR_PRIMARY, 
-        bgColor: "#FFFFFF", 
+        bgColor: "transparent", 
         showEnvelope:true,
         bankIconEnd:`${URL_IMAGES}iconos/7.svg`,
-        envelopePhrase:"Tu presencia es el mejor regalo para nosotros. Si deseas tener un detalle adicional, que sea en efectivo.",
+        envelopePhrase:"Tu presencia es el mejor regalo; cualquier detalle adicional será recibido con mucho cariño.",
     };
     const dresscode:DressCodeProps = {
         mainTypo:`${MAIN_TYPO}`,
@@ -139,29 +107,29 @@ const XVCamila  = () => {
         type:1,
         title:"Formal",
         
-        fontSize:"3.5rem",
+        fontSize:"3rem",
     }
     const qoute:QouteProps ={
-        bodyTypo: BODY_TYPO,
+        bodyTypo: MAIN_TYPO,
         bgColor:BG_COLOR,
-        fontsize:"1.5rem",
+        fontsize:"2rem",
         lineheight:"2rem",
-        addormentStart:`${URL_IMAGES}adornos/31.png`,
-        addormentSize:"180px",
+        addormentStart:`${URL_IMAGES}adornos/34.png`,
+        addormentSize:"80px",
         italic:true,
-        qoute : "pendiente de frase",
+        qoute : "El camino que conduce a un mundo nuevo de ilusiones y esperanzas, un mundo de sueños realizados y afectos compartidos; ese es el camino que comienzo a transitar en esta noche que marcará un momento inolvidable. Espero que me acompañes para compartirlo",
     }
 
     
     return (
-        <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
+        <div style={{backgroundColor:"#FDFBFC",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
             <CoverSimple 
             bgImage={`${URL_IMAGES}portada.jpeg`}
             bgImage2={`${URL_IMAGES}portada.jpeg`}
                   weddingDate="20.03.2026"
                  subtitle="Mis XV años"
-                  brideName="Camila"
+                  brideName="Laura Camila"
                   symbolr={""}
                   groomName={""}
                   className={MAIN_TYPO}
@@ -169,13 +137,15 @@ const XVCamila  = () => {
                   hideText={false}
                   ourWeddingStart={true}
                 overlay={true}
-                fontSize="6rem"
+                fontSize="3rem"
                   >
             </CoverSimple>
             <Qoute 
                {...qoute}>
             </Qoute>
              <ImageMiddle bgImage={`${URL_IMAGES}enmedio.jpeg`} bgSize="contain"></ImageMiddle>
+                         <div style={{backgroundImage: `url("${URL_IMAGES}fondo4.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+
                         <Grid container justifyContent="center" padding={2}>
       <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
         <Box
@@ -196,7 +166,7 @@ const XVCamila  = () => {
                 
               <Grid>
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos/33.png`} width={"150px"} />
+                <Adornment image={`${URL_IMAGES}adornos/35.png`} width={"300px"} />
               
                 </Fade>
               </Grid>
@@ -211,7 +181,7 @@ const XVCamila  = () => {
               <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
                 sx={{fontSize: "2.5rem" ,lineHeight:2, color: COLOR_PRIMARY }}
               >
-                  Gladys del Carmen Aguirre López 
+                  Israel Navarro
               </Typography>
               </Fade>
             </Grid>
@@ -221,20 +191,12 @@ const XVCamila  = () => {
               <Typography  variant="h1" className={`${MAIN_TYPO}`} translate="no" 
                 sx={{  fontSize: "2.5rem",lineHeight:2 , color: COLOR_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
               >
-                {"O\u0073car"} Francisco Miranda Moreno
+                Janeth González
               </Typography>
               </Fade>
             </Grid>
           </Grid>
-            <Grid container justifyContent="center" sx={{ mt: 4 }}>
-                
-              <Grid>
-                <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos/32.png`} width={"150px"} />
-              
-                </Fade>
-              </Grid>
-            </Grid>
+           
           <Grid container justifyContent="center">
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                             <Fade direction="up" >
@@ -248,15 +210,27 @@ const XVCamila  = () => {
             </Grid>
         
           </Grid>
+           <Grid container justifyContent="center" sx={{ mt: 4 }}>
+                
+              <Grid>
+                <Fade direction="up" >
+                    <Adornment image={`${URL_IMAGES}adornos/36.png`} width={"300px"} />
+              
+                </Fade>
+              </Grid>
+            </Grid>
         </Box>
       </Grid>
     </Grid>
+    </div>
             <CountDown 
-                eventDate={new Date(2026, 2, 13)}
-                fontSize="2rem"
-                typoHeader={`${BODY_TYPO} to-upper`}
+                eventDate={new Date(2026, 2, 20)}
+                fontSize="2.5rem"
+                typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
-                bgImage={`${URL_IMAGES}contador.jpeg`} >  
+                bgImage={`${URL_IMAGES}contador.jpeg`} 
+                marginTop="10px"
+                >  
             </CountDown>
     <Grid container spacing={2} justifyContent="center" padding={2} bgcolor={BG_COLOR}>
       {/* Texto inicial */}
@@ -284,116 +258,41 @@ const XVCamila  = () => {
             <Fade direction="up" >
             <Typography
               variant="h3" className={`${MAIN_TYPO}`}
-              sx={{ fontSize: "3.5rem", color: COLOR_PRIMARY }}
+              sx={{ fontSize: "2.5rem", color: COLOR_PRIMARY }}
             >
               Mis Padrinos
             </Typography>
             </Fade>
 
-            <Grid container justifyContent="center" sx={{ mt: 2 }}>  
-              <Grid>
-                <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos/32.png`} width={"150px"} />
-                </Fade>
-              </Grid>
-            </Grid>
+      
+            <Grid container spacing={2} justifyContent="center" sx={{ mb: 2,}}>
 
-            <Grid container spacing={2} justifyContent="center" sx={{ mb: 2, mt: 3 }}>
-              <Grid size={{ xs: 12,md:12,lg:12}} >
-                 <Fade direction="up" >
-                <Typography
-                  variant="body1" className={BODY_TYPO}
-                 
-                >
-                Mariana López Mendívil
-                </Typography>
-                </Fade>
-              </Grid>
               <Grid size={{ xs: 12,md:12,lg:12}}>
-                <Fade direction="up" >
-                <Typography
-                  variant="body1" className={BODY_TYPO}
-                  
-                >
-               
-             Cosme Enrique Aguirre Ayala (&#8224;)
-
-                </Typography>
-                </Fade>
-              </Grid>
-              <Grid size={{ xs: 12,md:12,lg:12}}>
-                 <Fade direction="up" >
-                <Typography
-                  variant="body1" className={BODY_TYPO}
-                
-                >
-               
-              Zaira Mariana Aguirre López 
-                </Typography>
-                </Fade>
-              </Grid>
-              <Grid size={{ xs: 12,md:12,lg:12}}>
-                <Fade direction="up" >
-                <Typography
-                  variant="body1" className={BODY_TYPO}
-                  
-                >
-               
-               Alan López López 
-
-
-                </Typography>
-                </Fade>
-              </Grid>
-
-                <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
-                        Ernestina Lorena García Bueras  
+                        pendiente
                       </Typography>
                     </Fade>
               </Grid>
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
-                        Francisco Rogelio Moreno Bueras
-                      </Typography>
+pendiente                      </Typography>
                     </Fade>
               </Grid>
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
-                        Marlenn Jackelinn Hernández Duarte
-                      </Typography>
-                    </Fade>
-              </Grid>
-              <Grid size={{ xs: 12,md:12,lg:12}}>
-                    <Fade direction="up" >
-                      <Typography variant="body1" className={BODY_TYPO}>
-                       Marco Antonio Navarro Urquidez
+                       pendiente
                       </Typography>
                     </Fade>
               </Grid>
             </Grid>
-            <Grid container justifyContent="center" sx={{ mt: 4 }}>
-              <Grid size={{ xs: 12,md:12,lg:12}} >
-                <Typography variant="body1" className={MAIN_TYPO} sx={{ fontSize: "3.5rem", color: COLOR_PRIMARY }}>
-                    Chambelan
-                </Typography>
-              </Grid>
-              <Grid size={{ xs: 12,md:12,lg:12}} >
-                 <Fade direction="up" >
-                <Typography
-                  variant="body1" className={BODY_TYPO}>
-                    Juan Daniel Fuentes Moreno
-                    </Typography>
-                </Fade>
-                </Grid>
-            </Grid>
+
             <Grid container justifyContent="center" sx={{ mt: 4 }}>  
               <Grid>
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos/33.png`} width={"150px"} />
+                    {/* <SilverOrnament width={"150px"} /> */}
                 </Fade>
               </Grid>
             </Grid>
@@ -402,8 +301,8 @@ const XVCamila  = () => {
      
       </Grid>
     </Grid>
-            <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 0" }}>
-            <Grid container spacing={2} padding={4} justifyContent={"center"} >
+            <div style={{backgroundImage: `url("${URL_IMAGES}fondo3.png")`, backgroundSize: "contain", backgroundPosition: "center", padding: "50px 0", position: "relative" }}>
+            <Grid container spacing={2} padding={4} justifyContent={"center"} sx={{ position: "relative", zIndex: 1 }} >
             {
                 eventCards.map((item,index) => (          
                    <EventCard key={index} {...item}></EventCard>
@@ -413,43 +312,81 @@ const XVCamila  = () => {
             </div>
           <ImageMiddle bgImage={`${URL_IMAGES}enmedio2.jpeg`} bgSize="contain"></ImageMiddle>
 
-            <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
+           
 
-            <div style={{backgroundImage: `url("${URL_IMAGES}1-horz.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+            <div style={{backgroundImage: `url("${URL_IMAGES}fondo4.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
              <Grid container spacing={2} justifyContent="center" padding={4}>
               <Grid size={{ xs: 12 }}>
-                 <GiftList {...giftListData} ></GiftList>
+                <Box textAlign="center"
+                  sx={{ width: "100%", mb: 4,borderRadius: 1, backgroundColor: BG_COLOR, boxShadow: 3 }}
+                >
+                    <GiftList {...giftListData} ></GiftList>
+                </Box>
+               
               </Grid>
               
              </Grid>
-           </div>
-            <RSVPForm
-            fontSize="4rem"
-            bgImage={`${URL_IMAGES}confirmacion.jpeg`}
-              textColor={"white"}
-              qrActive={false}
-              mainTypo={MAIN_TYPO}
-              bodyTypo={BODY_TYPO}
-              count={invitedGuests}
-              dateLine={new Date(2026, 1, 28)}
-              color={"white"}
-              colorButton={"white"}
-              invitationId={0}
-              bgColor={"rgb(243, 234, 217,.5)"}
-              guestId={guestId}
-              classButtonName="btn-silver"
-            />
-              <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 0" }}>
+           
+
+            <Box 
+              display="flex" 
+              flexDirection="column" 
+              alignItems="center"
+              mt={4} 
+              mb={4}> 
+                <Box sx={{
+                  width: "100%",
+                  maxWidth: 400,
+                  overflow: "hidden",
+                  display: "flex",
+                  justifyContent: "center",
+                }}>
+                </Box>  
+                <Card sx={{
+                  width: "90%",
+                  maxWidth: 350,
+                
+                  textAlign: "center",
+                  boxShadow: 3,
+                  position: "relative",
+                  overflow: "visible",
+                  mt: -6, // sube un poco la tarjeta para que se una con el sobre
+                  backgroundImage: `url("${URL_IMAGES}confirmacion.jpg")`,
+                  backgroundSize: "cover",
+                }}> 
+                  <Box component="img" src={`${URL_IMAGES}sello3.png`} alt="Sello" sx={{
+                          width: 100,
+                          height: 100,
+                          position: "absolute",
+                          top: -40,
+                          left: "50%",
+                          transform: "translateX(-50%)",
+                  }} />
+                <CardContent sx={{padding:0, paddingTop:4}}>
+                     <RSVPForm
+                      fontSize="2.5rem"
+                      textColor={COLOR_SECONDARY}
+                      qrActive={false}
+                      mainTypo={MAIN_TYPO}
+                      bodyTypo={BODY_TYPO}
+                      count={invitedGuests}
+                      color={COLOR_SECONDARY}
+                      colorButton={COLOR_SECONDARY}
+                      invitationId={0}
+                      bgColor={"transparent"}
+                      guestId={guestId}
+                      classButtonName="btn-silver"
+                      
+                    />
+              
+                </CardContent>
+              </Card>
+            </Box>
+
+            
             <DressCode {...dresscode}></DressCode>
-          <Grid container justifyContent="center">  
-              <Grid>
-                <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos/32.png`} width={"150px"} />
-                </Fade>
-              </Grid>
-            </Grid>
-           <WithoutKids   bodyTypo={BODY_TYPO}></WithoutKids>
+         
            </div>
             <div style={{height:100}}></div>
         
@@ -470,22 +407,3 @@ const XVCamila  = () => {
 export default XVCamila;
 
 
-export const FloralDivider = ({ color = "#CFCFD1", width = 300 }) => (
-  <svg
-    width={width}
-    height="50"
-    viewBox="0 0 300 50"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M10 25 C40 5, 80 5, 110 25 
-         C140 45, 160 45, 190 25 
-         C220 5, 260 5, 290 25"
-      stroke={color}
-      strokeWidth="1.4"
-      strokeLinecap="round"
-    />
-    <circle cx="150" cy="25" r="3" fill={color} />
-  </svg>
-);
