@@ -270,20 +270,43 @@ const XVCamila  = () => {
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
-                        pendiente
+                        Javier Flores & María Elena Grajeda
                       </Typography>
                     </Fade>
               </Grid>
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
-pendiente                      </Typography>
+                        Edissa Navarro & Adrian Cano
+                        </Typography>
                     </Fade>
               </Grid>
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
-                       pendiente
+                       Luis Antonio Gonzáles & Iveth Peñaloza
+                      </Typography>
+                    </Fade>
+              </Grid>
+              <Grid size={{ xs: 12,md:12,lg:12}}>
+                    <Fade direction="up" >
+                      <Typography variant="body1" className={BODY_TYPO}>
+                     Alejandra González
+                      </Typography>
+                    </Fade>
+              </Grid>
+
+               <Grid size={{ xs: 12,md:12,lg:12}}>
+                    <Fade direction="up" >
+                      <Typography variant="body1" className={BODY_TYPO}>
+                    Gabriela Flores & Héctor Serrato
+                      </Typography>
+                    </Fade>
+              </Grid>
+              <Grid size={{ xs: 12,md:12,lg:12}}>
+                    <Fade direction="up" >
+                      <Typography variant="body1" className={BODY_TYPO}>
+                    Luis Alonso González & María López
                       </Typography>
                     </Fade>
               </Grid>
@@ -373,7 +396,7 @@ pendiente                      </Typography>
                       count={invitedGuests}
                       color={COLOR_SECONDARY}
                       colorButton={COLOR_SECONDARY}
-                      invitationId={0}
+                      invitationId={19}
                       bgColor={"transparent"}
                       guestId={guestId}
                       classButtonName="btn-silver"
