@@ -345,19 +345,25 @@ const RSVPForm  = (props:RSVPType) => {
                                 guest.totalAssigned > 1 &&
                                 (
                                        <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
-                                  <FormControl >
+                                  <FormControl 
+                                    fullWidth
+                                    sx={{ minWidth: 300, maxWidth: 300 }}
+                                  >
                                                                 
-                                        <InputLabel sx={{color:"#757575",
+                                        <InputLabel 
+                                         id="guests-label"
+                                            sx={{color:"#757575",
+                                       
                                             backgroundColor: 'rgba(255, 255, 255, 0.8)',
                                             padding: '0 4px',
                                             borderRadius: '4px',
                                             }} 
-                                            id="demo-simple-select-label">{t("RSVP.guestsPlaceholder")}</InputLabel>
+                                            >{t("RSVP.guestsPlaceholder")}</InputLabel>
                                   
                                                                
                                     <Select<number>
                                         label={t("RSVP.guestsPlaceholder")}
-                                        labelId="guests"
+                                        labelId="guests-label"
                                         id="guests"
                                         value={guest.totalConfirmed}
                                         onChange={(e) => updateGuest({
@@ -366,6 +372,9 @@ const RSVPForm  = (props:RSVPType) => {
                                         sx={{
                                             minWidth: 300,
                                             color: "black",
+                                            '& .MuiSelect-select': {
+                                                textAlign: 'left',
+                                            },
                                             '& .MuiOutlinedInput-notchedOutline': {
                                                 borderColor: props.colorButton, // borde normal
                                             },
