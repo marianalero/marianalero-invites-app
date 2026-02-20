@@ -284,7 +284,7 @@ const XVCamila  = () => {
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
-                       Luis Antonio Gonzáles & Iveth Peñaloza
+                       Luis Antonio González & Iveth Peñaloza
                       </Typography>
                     </Fade>
               </Grid>
