@@ -106,7 +106,7 @@ const XVCamila  = () => {
         color:COLOR_PRIMARY,
         type:1,
         title:"Formal",
-        
+        omitColorsLabel: "Color rosa reservado para la quinceañera",
         fontSize:"3rem",
     }
     const qoute:QouteProps ={
