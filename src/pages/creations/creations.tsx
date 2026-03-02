@@ -159,6 +159,20 @@ const invitations: InvitationItem[] = [
       link:"https://marianalero-invites.com/xv-victoria",
       hide:false
     },
+    {
+      title:"Quinceañera Renata Isabela"
+      ,category:"XV Años"
+      ,imageUrl:"/images/xv1.jpg"
+      ,link:"https://marianalero-invites.com/xv-renata-isabela"
+      ,hide:false
+    },
+    {
+      title:"Quinceañera Camila",
+      category:"XV Años",
+      imageUrl:"/images/xv1.jpg",
+      link:"https://marianalero-invites.com/xv-camila",
+      hide:false
+   },
   {
       title: "Bautizo Alondra",
       category: "Otros",
