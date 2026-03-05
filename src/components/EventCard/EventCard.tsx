@@ -21,7 +21,8 @@ const EventCard  = (props:EventCardProps) => {
                         sx={{ 
                             bgcolor : props.bgColor ? props.bgColor : "transparent",
                             border:"1px solid rgb(215, 174, 84, .2)",
-                            boxShadow:"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;"
+                            boxShadow:"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
+                            borderRadius: props.borderSquare ? "0px" : "16px",
                         }}>		
                         <CardContent>
                             <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={3}>			

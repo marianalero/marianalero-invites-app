@@ -154,6 +154,10 @@
   font-family: 'Lora', serif!important;
   font-style: normal;
 }
+.libre-baskerville {
+  font-family: 'Libre Baskerville', serif!important;
+  font-style: normal;
+}
 .d-flex{
   display: flex!important;
 }

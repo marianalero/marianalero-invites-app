@@ -14,6 +14,7 @@ import WeddingAdelineOsvaldoTree from "../pages/clientInvitations/WeddingAdeline
 import WeddingAngelicaJose from "../pages/clientInvitations/WeddingAngelicaJose";
 import WeddingCendyAdrian from "../pages/clientInvitations/WeddingCendyAdrian";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
+import WeddingFredaJuan from "../pages/clientInvitations/WeddingFredaJuan";
 import WeddingGlendaJose from "../pages/clientInvitations/WeddingGlendaJose";
 import WeddingKarolMario from "../pages/clientInvitations/WeddingKarolMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
@@ -90,6 +91,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-sophia-luis-enrique', element: <WeddingSphiaLuis></WeddingSphiaLuis>}, 
   {path:'/boda-maria-lourdes-francisco-michel', element: <WeddingMariluMichel></WeddingMariluMichel>},
   {path:'/boda-glenda-jose', element: <WeddingGlendaJose></WeddingGlendaJose>},
+  {path:'/boda-freda-juan', element: <WeddingFredaJuan></WeddingFredaJuan>},
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
@@ -118,6 +120,7 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
+  {path:'/prev-fj', element: <WeddingFredaJuan></WeddingFredaJuan>},
 
 ];
 

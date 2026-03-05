@@ -460,7 +460,7 @@ const RSVPForm  = (props:RSVPType) => {
                                         props.classButtonName ? (
                                             <ProButton  onClick={handleSend} className={props.classButtonName} label={t("RSVP.send")} />
                                         ) : (
-                                            <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={t("send")} onClick={handleSend}></CustomButton>
+                                            <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={t("RSVP.send")} onClick={handleSend}></CustomButton>
                                         )
                                     }
                              
