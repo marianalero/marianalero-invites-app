@@ -147,6 +147,7 @@ const WeddingFredaJuan  = () => {
             bodyTypo: BODY_TYPO,
             bgColor: COLOR_BG,
             italic:true,
+            fontsize:"1.5rem",
     }
     // const timelineData: CustomizedTimelineProps = {
     //             mainTypo: MAIN_TYPO,
