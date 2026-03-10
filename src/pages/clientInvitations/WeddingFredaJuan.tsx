@@ -62,7 +62,6 @@ const WeddingFredaJuan  = () => {
         document.title = "Boda Fedra Edlyn & Juan Pablo";
     }, []);
     const COLOR_PRIMARY = "#1A1A1A";
-    const COLOR_SECONDARY = "#D8CBB3";
     const MAIN_TYPO = "playfair-display-400 to-upper";
     const SECONDARY_TYPO = "the-seasons";
     const BODY_TYPO = "lora";
