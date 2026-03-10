@@ -18,6 +18,38 @@ import 'dayjs/locale/en';
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import i18n from '../../i18n';
 
+// Helper function to convert numbers to words
+const numberToWords = (num: number, language: string): string => {
+    const wordsEs: { [key: number]: string } = {
+        1: 'un',
+        2: 'dos',
+        3: 'tres',
+        4: 'cuatro',
+        5: 'cinco',
+        6: 'seis',
+        7: 'siete',
+        8: 'ocho',
+        9: 'nueve',
+        10: 'diez'
+    };
+    
+    const wordsEn: { [key: number]: string } = {
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        4: 'four',
+        5: 'five',
+        6: 'six',
+        7: 'seven',
+        8: 'eight',
+        9: 'nine',
+        10: 'ten'
+    };
+    
+    const words = language === 'es' ? wordsEs : wordsEn;
+    return words[num] || num.toString();
+};
+
 const RSVPForm  = (props:RSVPType) => {
     const [errorName, setErrorName] = useState(false);
     const [guest, setGuest] = useState<Guest>({
@@ -176,7 +208,10 @@ const RSVPForm  = (props:RSVPType) => {
                 {t("RSVP.successMessage")}
             </Typography>
             <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
-                {t("RSVP.rsvpConfirmedMessage", { count: guest.totalConfirmed })}
+                {props.numberInWords 
+                    ? t("RSVP.rsvpConfirmedMessage", { count: guest.totalConfirmed }).replace(guest.totalConfirmed.toString(), numberToWords(guest.totalConfirmed, i18n.language))
+                    : t("RSVP.rsvpConfirmedMessage", { count: guest.totalConfirmed })
+                }
             </Typography>
             </div>
         ) : guest && guest.rsvpStatus === 3 ? (
@@ -191,7 +226,12 @@ const RSVPForm  = (props:RSVPType) => {
         ) : (
             <div>
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
-                {guest.totalAssigned === 1 ? t("RSVP.placesReserved") : t("RSVP.placesReserved_plural", { count: guest.totalAssigned })}
+                {guest.totalAssigned === 1 
+                    ? t("RSVP.placesReserved") 
+                    : props.numberInWords
+                        ? t("RSVP.placesReserved_plural", { count: guest.totalAssigned }).replace(guest.totalAssigned.toString(), numberToWords(guest.totalAssigned, i18n.language))
+                        : t("RSVP.placesReserved_plural", { count: guest.totalAssigned })
+                }
             </Typography>
             {props.dateLine && (
                  <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
@@ -460,7 +500,13 @@ const RSVPForm  = (props:RSVPType) => {
                                         props.classButtonName ? (
                                             <ProButton  onClick={handleSend} className={props.classButtonName} label={t("RSVP.send")} />
                                         ) : (
+
+                                            props.transparencyButton ? (
+                                                <CustomButton  bgColor={"transparent"} color={props.colorButton} borderColor={props.colorButton} label={t("RSVP.send")} onClick={handleSend}></CustomButton>
+                                            ) : (   
+
                                             <CustomButton  bgColor={props.colorButton} color={'#FFFFFF'} label={t("RSVP.send")} onClick={handleSend}></CustomButton>
+                                            )
                                         )
                                     }
                              

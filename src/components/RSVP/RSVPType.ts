@@ -18,4 +18,6 @@ export interface RSVPType {
     hideLabelAssignedPeople?:boolean;
     hidePhoneNumberInput?:boolean;
     bgPosition?:string;
+    numberInWords?:boolean;
+    transparencyButton?:boolean;
 }

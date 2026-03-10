@@ -64,7 +64,7 @@
     "willYouAttend":"¿Asistiras?",
     "Yes":"Sí",
     "No":"No",
-    "placesReserved":"Hemos reservado 1 lugar para ti.",
+    "placesReserved":"Hemos reservado un lugar para ti.",
     "placesReserved_plural":"Hemos reservado {{count}} lugares para ti.",
     "send":"Enviar",
     "errorMessage":"Hubo un error al enviar tu confirmación. Por favor, inténtalo de nuevo más tarde.",

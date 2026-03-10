@@ -33,7 +33,7 @@ import Timeline from "@mui/lab/Timeline";
 import dayjs from "dayjs";
 import { t } from "i18next";
 
-const WeddingFredaJuan  = () => {
+const WeddingFredaJuanColor  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
         const num = Number(searchParams.get("number"));
@@ -61,14 +61,14 @@ const WeddingFredaJuan  = () => {
     useEffect(() => {
         document.title = "Boda Fedra Edlyn & Juan Pablo";
     }, []);
-    const COLOR_PRIMARY = "#1A1A1A";
-    const COLOR_SECONDARY = "#D8CBB3";
+    const COLOR_PRIMARY = "#CFC1A7";
+    const COLOR_SECONDARY = "#1A1A1A";
     const MAIN_TYPO = "playfair-display-400 to-upper";
     const SECONDARY_TYPO = "the-seasons";
     const BODY_TYPO = "lora";
     const COLOR_BG ="#F7F3EB";
     
-    const URL_IMAGES = `${URL_REPO}boda/boda-fedra-edlyn-juan-pablo/`;
+    const URL_IMAGES = `${URL_REPO}boda/boda-fedra-edlyn-juan-pablo/color/`;
     const URL_SONG = `${URL_REPO}canciones/Everyday-AcousticInstrumental.mp3`;
    
         const eventCards: EventCardProps[] = [
@@ -156,7 +156,7 @@ const WeddingFredaJuan  = () => {
         color:COLOR_PRIMARY,
         type:2,
         title:"Formal",
-        fontSize:"2rem",
+        fontSize:"1.6rem",
 
     }
      const withOutKids:WithoutKidsProps = {
@@ -180,12 +180,12 @@ const WeddingFredaJuan  = () => {
                 bgColor: COLOR_PRIMARY, 
                 events: [
                     {
-                        eventName: "Ceremonia Civil",
-                        date: new Date(2025, 10, 16, 19, 0, 0),
+                        eventName: "Ceremonia Religiosa",
+                        date: new Date(2025, 10, 16, 18, 0, 0),
                         icon: `${URL_IMAGES}iconos/3.svg`,
                     },
                     {
-                        eventName: "Cóctel  de bienvenida",
+                        eventName: "Recepción",
                         date: new Date(2025, 10, 16, 20, 0, 0),
                         icon: `${URL_IMAGES}iconos/4.svg`,
                     },
@@ -196,7 +196,7 @@ const WeddingFredaJuan  = () => {
                     },
                     {
                         eventName: "Cena",
-                        date: new Date(2025, 10, 16, 21, 40, 0),
+                        date: new Date(2025, 10, 16, 21, 30, 0),
                         icon: `${URL_IMAGES}iconos/6.svg`,
                     },
                     {
@@ -207,10 +207,10 @@ const WeddingFredaJuan  = () => {
                 ],
     };
 
-    const galleryPhotos = [
-        `${URL_IMAGES}galeria4.jpg`,
-        `${URL_IMAGES}enmedio2.jpg`,
-    ];
+    // const galleryPhotos = [
+    //     `${URL_IMAGES}galeria4.jpg`,
+    //     `${URL_IMAGES}enmedio2.jpg`,
+    // ];
 
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
@@ -218,7 +218,7 @@ const WeddingFredaJuan  = () => {
             <CoverInline 
                 ourWeddingStart={true}
                 weddingDate="05.12.26"
-                bgImage={`${URL_IMAGES}galeria2.jpg`}
+                bgImage={`${URL_IMAGES}portada.jpg`}
                 brideName="Fedra Edlyn" 
                 symbolr={"&"} 
                 groomName={"Juan Pablo"} 
@@ -230,7 +230,7 @@ const WeddingFredaJuan  = () => {
                ampersonClassName={MAIN_TYPO}
                 >
             </CoverInline>
-              <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "50px 20px" }}>
+              <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "50px 20px" }}>
                 <Box padding={2} bgcolor={"rgb(250,250,250,.8)"}   display={"flex"}  justifyContent={"center"}>
            
                  <Qoute 
@@ -239,8 +239,8 @@ const WeddingFredaJuan  = () => {
            
             </Box>
             </div>
-            <ImageMiddle bgPosition="30%" height="50vh" bgImage={`${URL_IMAGES}galeria1.jpg`} bgPositionY="30%"></ImageMiddle>
-              <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+            <ImageMiddle bgPosition="30%" height="60vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgPositionY="30%"></ImageMiddle>
+              <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             
             <Grid container spacing={2} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -255,20 +255,20 @@ const WeddingFredaJuan  = () => {
                             </Grid>
                            <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"}>Fedra Isela López Ruiz</Typography>
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Jorge Humberto Aguilar Veloz</Typography>
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"}>Fedra Isela López Ruiz</Typography>
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Jorge Humberto Aguilar Veloz</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"}className={"playfair-display-400"} >&</Typography>
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"}className={"playfair-display-400"} >&</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
                             
-                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"} >Elba Elizabeth Jara Molina</Typography>
-                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Martín Preciado García</Typography>
+                            <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"} >Elba Elizabeth Jara Molina</Typography>
+                            <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Martín Preciado García</Typography>
                             </Fade>
                         </Grid>	
                             
@@ -282,7 +282,7 @@ const WeddingFredaJuan  = () => {
             </div>
             <CountDown 
                 eventDate={new Date(2026,11,5)}
-                bgImage={`${URL_IMAGES}contador-bn.jpg`}
+                bgImage={`${URL_IMAGES}contador.jpg`}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} 
                 fontSize="1.8rem"
@@ -300,10 +300,10 @@ const WeddingFredaJuan  = () => {
             }
             </Grid>
             </div>
-              <ImageMiddle bgPosition="50%" height="30vh" bgImage={`${URL_IMAGES}galeria6.jpg`} bgSize="contain"></ImageMiddle>
-                          <div style={{backgroundImage: `url("${URL_IMAGES}galeria5.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+              {/* <ImageMiddle bgPosition="50%" height="30vh" bgImage={`${URL_IMAGES}galeria6.jpg`} bgSize="contain"></ImageMiddle> */}
+                          <div style={{backgroundImage: `url("${URL_IMAGES}galeria2.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
-             <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(0,0,0,.5)"}}>
+             <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(207,193,167,.8)"}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
               <Typography variant='h4' style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>{t("timeline.title")}</Typography>
@@ -355,7 +355,7 @@ const WeddingFredaJuan  = () => {
             </Grid>	
       </Grid>
         </div>
-            <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
+            <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
             <Grid container spacing={2} padding={2} paddingBottom={0} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                     <Box display={"flex"} justifyContent={"center"} marginBottom={4}>
@@ -364,18 +364,7 @@ const WeddingFredaJuan  = () => {
                     
                 </Grid>
                </Grid>
-                <MiniGallery
-                    images={[
-                        `${URL_IMAGES}portada.jpg`,
-                        `${URL_IMAGES}enmedio.jpg`,
-                        `${URL_IMAGES}galeria3.jpg`,
-                    ]}
-                     backgroundColor="rgb(250,250,250,.8)"
-                    spacing={8}
-                    gap={6}
-                    imageHeightDesktop={580}
-                    imageHeightMobile={260}
-                    />
+                
                     </div>
             <RSVPForm 
             bgImage={`${URL_IMAGES}confirmacion.jpg`}
@@ -397,7 +386,7 @@ const WeddingFredaJuan  = () => {
                 
             </RSVPForm>
                         <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "right", padding: "50px 20px" }}>
-
+              <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} >        
             <DressCode {...dresscode}></DressCode>
 
                  <Grid container spacing={2} padding={4} >
@@ -408,8 +397,21 @@ const WeddingFredaJuan  = () => {
                     </Grid>
                </Grid>
                               <WithoutKids {...withOutKids} /> 
+                              </Box>   
             <div style={{height:100}}></div>
-                     <Gallery photos={galleryPhotos}></Gallery>
+            <MiniGallery
+                    images={[
+                        `${URL_IMAGES}galeria1.jpg`,
+                        `${URL_IMAGES}galeria2.jpg`,
+                        `${URL_IMAGES}enmedio2.jpg`,
+                    ]}
+                     backgroundColor="rgb(250,250,250,.8)"
+                    spacing={8}
+                    gap={6}
+                    imageHeightDesktop={580}
+                    imageHeightMobile={260}
+                    />
+                     {/* <Gallery photos={galleryPhotos}></Gallery> */}
          </div>
             <FooterInvites bgColor={COLOR_BG} color={COLOR_PRIMARY}></FooterInvites>
              <Dialog
@@ -439,4 +441,4 @@ const WeddingFredaJuan  = () => {
         </div>
     )
 }
-export default WeddingFredaJuan;
+export default WeddingFredaJuanColor;

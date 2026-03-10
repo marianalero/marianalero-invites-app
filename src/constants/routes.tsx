@@ -15,6 +15,7 @@ import WeddingAngelicaJose from "../pages/clientInvitations/WeddingAngelicaJose"
 import WeddingCendyAdrian from "../pages/clientInvitations/WeddingCendyAdrian";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingFredaJuan from "../pages/clientInvitations/WeddingFredaJuan";
+import WeddingFredaJuanColor from "../pages/clientInvitations/WeddingFredaJuanColor";
 import WeddingGlendaJose from "../pages/clientInvitations/WeddingGlendaJose";
 import WeddingKarolMario from "../pages/clientInvitations/WeddingKarolMario";
 import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
@@ -120,8 +121,8 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
-  {path:'/prev-fj', element: <WeddingFredaJuan></WeddingFredaJuan>},
-
+  {path:'/prev-fj-bn', element: <WeddingFredaJuan></WeddingFredaJuan>},
+{path:'/prev-fj-color', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
 ];
 
 

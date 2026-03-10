@@ -6,6 +6,7 @@ export interface BankAccount{
     bodyTypo:string
     bgColor:string;
     numbers: BankNumber[]
+    outlineColor?:boolean;
 }
 
 export interface BankNumber {

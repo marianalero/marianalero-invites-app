@@ -20,7 +20,7 @@ const BankCard  = (item:BankAccount) => {
         style={{
           height: '200px',
           width: '300px',
-          backgroundColor: item.bgColor,
+          backgroundColor:  item.bgColor,
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -28,6 +28,7 @@ const BankCard  = (item:BankAccount) => {
           borderRadius: '12px',
           boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
           color:item.color,
+          border: item.outlineColor ? `2px solid ${item.color}` : 'none',
         }}
       >
         <h6 style={{textAlign:"center"}}  className={`${item.bodyTypo}`}>{t("gifts.seeBankInfo")}<br/> {item.name}</h6>
@@ -68,7 +69,7 @@ const BankCard  = (item:BankAccount) => {
                       
                         }}
                       >
-                      <ContentCopyIcon sx={{color:item.bgColor}} />
+                      <ContentCopyIcon sx={{color:  item.outlineColor ? item.color : item.bgColor}} />
                     </IconButton>
                     </Typography>
                   ))}

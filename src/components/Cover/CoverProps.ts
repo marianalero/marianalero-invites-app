@@ -17,5 +17,6 @@ export interface CoverProps{
     subtitle?:string;
     dateClass?:string;
     bgPositionY?:string; // Nueva propiedad para la posición vertical del fondo en patantalla completa
-
+    ampersonClassName?:string; // Clase opcional para la tipografía del ampersand
+    verticalPosition?: 'top' | 'center' | 'bottom'; // Posición vertical del contenido
 }

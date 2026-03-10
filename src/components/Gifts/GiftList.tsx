@@ -23,6 +23,11 @@ export interface GiftListProps {
     secondPhrase?:string;
     iconSize?:string;
     fontSize?:string;
+    envelopeMainTypo?:string;
+    envelopeFontSize?:string;
+    envelopeTitleColor?:string;
+    title?:string;
+    giftIcon?:string;
 }
 
 
@@ -34,15 +39,23 @@ const GiftList = (props:GiftListProps) =>{
                 props.mainPhrase && (
                      <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                         <Fade direction="up" triggerOnce={true}>
-                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>{t("gifts.giftTable")}</Typography>
+                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>{ props.title ? props.title : t("gifts.giftTable")}</Typography>
                         </Fade>
                     </Grid>	
+                    
                 )
+               
             }
-            
+             {props.giftIcon && (
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
+                        <img height={props.iconSize? props.iconSize : "60px"}  src={props.giftIcon}/>	    
+                    </Grid>
+    )
+            }
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                 <Typography variant='body1'  textAlign={"center"} className={`${props.bodyTypo}`}>{props.mainPhrase}</Typography>
             </Grid>	
+            
             { props.items && props.items?.length === 1 &&
             (
                 
@@ -120,7 +133,7 @@ const GiftList = (props:GiftListProps) =>{
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}  >
                   
                      <Fade direction="up" triggerOnce={true} >
-                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>{t("gifts.rainEnvelopes")}</Typography>
+                        <Typography variant='h3' color={props.envelopeTitleColor ? props.envelopeTitleColor : props.color} textAlign={"center"} className={`${ props.envelopeMainTypo ? props.envelopeMainTypo : props.mainTypo}`} sx={{fontSize: props.envelopeFontSize ? props.envelopeFontSize : "3rem"}}>{t("gifts.rainEnvelopes")}</Typography>
                         <div style={{display:"block", justifyItems:"center"}}>
                          { props.bankIconStart &&
                         (
@@ -163,7 +176,7 @@ const GiftList = (props:GiftListProps) =>{
                       
                         <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={2} >
                         {props.bankDetails?.map((item, index) => (
-                           <BankCard key={index} numbers={item.numbers} bank={item.bank} name={item.name} color={item.color} bodyTypo={props.bodyTypo} bgColor={item.bgColor}></BankCard>
+                           <BankCard key={index} numbers={item.numbers} bank={item.bank} name={item.name} color={item.color} bodyTypo={props.bodyTypo} bgColor={item.bgColor} outlineColor={item.outlineColor}></BankCard>
                         ))}
                         </Grid>
                     </Grid>
