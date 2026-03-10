@@ -410,7 +410,7 @@ const WeddingFredaJuan  = () => {
             <div style={{height:100}}></div>
                      <Gallery photos={galleryPhotos}></Gallery>
          </div>
-            <FooterInvites bgColor={COLOR_BG} color={COLOR_PRIMARY}></FooterInvites>
+            <FooterInvites bgColor={"white"} color={COLOR_PRIMARY}></FooterInvites>
              <Dialog
                          open={open}
                          onClose={handleClose}
