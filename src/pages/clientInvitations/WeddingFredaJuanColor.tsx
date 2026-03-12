@@ -240,7 +240,7 @@ const WeddingFredaJuanColor  = () => {
                         </Grid>	
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1.5rem" }} >Celebra con nosotros nuestro matrimonio</Typography>
+                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem" }} >Celebra con nosotros nuestro matrimonio</Typography>
                             </Fade>		
                         </Grid>	
                       
