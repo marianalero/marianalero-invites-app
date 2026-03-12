@@ -8,7 +8,6 @@ import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/With
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
 import FooterInvites from "../../components/Footer/FooterInvites";
-import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
@@ -42,7 +41,7 @@ const WeddingFredaJuanColor  = () => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
-    const INVITATION_ID = 0;
+    const INVITATION_ID = 20;
     const [open, setOpen] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
         const handleClickOpen = () => {
@@ -163,12 +162,7 @@ const WeddingFredaJuanColor  = () => {
         subtitle2:"no niños"
     }
     
-    const qoute:QouteProps ={
-            qoute: "Dos corazones, un solo amor. Celebra con nosotros nuestro matrimonio.",
-            bodyTypo: BODY_TYPO,
-            italic:true,
-            fontsize:"1.5rem",
-    }
+    
     const timelineData: CustomizedTimelineProps = {
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
@@ -184,13 +178,13 @@ const WeddingFredaJuanColor  = () => {
                         icon: `${URL_IMAGES}iconos/3.svg`,
                     },
                     {
-                        eventName: "Recepción",
+                        eventName: "Cóctel",
                         date: new Date(2025, 10, 16, 20, 0, 0),
                         icon: `${URL_IMAGES}iconos/4.svg`,
                     },
                     {
-                        eventName: "Primer baile",
-                        date: new Date(2025, 10, 16, 21, 20, 0),
+                        eventName: "Recepción",
+                        date: new Date(2025, 10, 16, 21, 0, 0),
                         icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
@@ -232,13 +226,30 @@ const WeddingFredaJuanColor  = () => {
               <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "50px 20px" }}>
                 <Box padding={2} bgcolor={"rgb(250,250,250,.8)"}   display={"flex"}  justifyContent={"center"}>
            
-                 <Qoute 
-               {...qoute}>
-            </Qoute>
-           
+                 <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={4} sx={{backgroundColor:"rgb(255,255,255)"}}> 
+                        
+                          <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                            <Fade direction="up" triggerOnce={true}>
+                            <img src={`${URL_IMAGES}logo.jpeg`} height="120"/>
+                            </Fade>		
+                        </Grid>
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                            <Fade direction="up" triggerOnce={true}>
+                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1.5rem", fontStyle: "italic!important" }} >"Dos corazones, un solo amor"</Typography>
+                            </Fade>		
+                        </Grid>	
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                            <Fade direction="up" triggerOnce={true}>
+                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1.5rem" }} >Celebra con nosotros nuestro matrimonio</Typography>
+                            </Fade>		
+                        </Grid>	
+                      
+                           	
+                     
+                 </Grid>
             </Box>
             </div>
-            <ImageMiddle bgPosition="30%" height="60vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgPositionY="30%"></ImageMiddle>
+            <ImageMiddle bgPosition="30%" height="60vh" bgImage={`${URL_IMAGES}galeria3.jpg`} bgPositionY="30%"></ImageMiddle>
               <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             
             <Grid container spacing={2} >
@@ -401,7 +412,7 @@ const WeddingFredaJuanColor  = () => {
             <MiniGallery
                     images={[
                         `${URL_IMAGES}galeria1.jpg`,
-                        `${URL_IMAGES}galeria2.jpg`,
+                        `${URL_IMAGES}enmedio.jpg`,
                         `${URL_IMAGES}enmedio2.jpg`,
                     ]}
                      backgroundColor="rgb(250,250,250,.8)"

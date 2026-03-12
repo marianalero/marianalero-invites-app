@@ -93,6 +93,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-maria-lourdes-francisco-michel', element: <WeddingMariluMichel></WeddingMariluMichel>},
   {path:'/boda-glenda-jose', element: <WeddingGlendaJose></WeddingGlendaJose>},
   {path:'/boda-freda-juan', element: <WeddingFredaJuan></WeddingFredaJuan>},
+  {path:'/boda-freda-edlyn-juan-pablo', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
@@ -122,7 +123,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
   {path:'/prev-fj-bn', element: <WeddingFredaJuan></WeddingFredaJuan>},
-  {path:'/prev-fj-color', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
+  {path:'/prev-fj-color-2', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
 ];
 
 
