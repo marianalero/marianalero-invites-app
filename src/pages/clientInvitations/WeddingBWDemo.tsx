@@ -33,7 +33,7 @@ import Timeline from "@mui/lab/Timeline";
 import dayjs from "dayjs";
 import { t } from "i18next";
 
-const WeddingFredaJuan  = () => {
+const WeddingBWDemo  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
         const num = Number(searchParams.get("number"));
@@ -59,7 +59,7 @@ const WeddingFredaJuan  = () => {
            handleClickOpen()
         }, []);
     useEffect(() => {
-        document.title = "Boda Fedra Edlyn & Juan Pablo";
+        document.title = "Invitacion de Boda";
     }, []);
     const COLOR_PRIMARY = "#1A1A1A";
     const MAIN_TYPO = "playfair-display-400 to-upper";
@@ -67,7 +67,7 @@ const WeddingFredaJuan  = () => {
     const BODY_TYPO = "lora";
     const COLOR_BG ="#F7F3EB";
     
-    const URL_IMAGES = `${URL_REPO}boda/boda-fedra-edlyn-juan-pablo/`;
+    const URL_IMAGES = `${URL_REPO}demos/`;
     const URL_SONG = `${URL_REPO}canciones/Everyday-AcousticInstrumental.mp3`;
    
         const eventCards: EventCardProps[] = [
@@ -113,8 +113,8 @@ const WeddingFredaJuan  = () => {
         mainPhrase: "Si su deseo es hacernos algún obsequio compartimos las opciones",
         items: [
             {
-                link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/51938530",
-                icon: `${URL_IMAGES}liverpool.svg`,
+                link: "https://ejemplo.com/mesa-de-regalos",
+                icon: `${URL_IMAGES}regalo.svg`,
             }
         ],
         giftIcon: `${URL_IMAGES}regalo.svg`,
@@ -125,7 +125,7 @@ const WeddingFredaJuan  = () => {
         showEnvelope:true,
         envelopeMainTypo: "playfair-display-400",
         envelopeFontSize:"1.5rem",
-        envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
+        envelopePhrase:"Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
         secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
         envelopeTitleColor:COLOR_PRIMARY,
         bankIconStart: `${URL_IMAGES}sobre.svg`,
@@ -134,12 +134,12 @@ const WeddingFredaJuan  = () => {
                 numbers :[ 
                     {
                     numberType: "Tarjeta",
-                    number: "5264246831634521",
+                    number: "0000 0000 0000 0000",
                     },
                 
                 ],
-                bank: "BANORTE",
-                name: "Fedra Edlyn Aguilar López",
+                bank: "BANCO",
+                name: "Nombre de los Novios",
                 color: COLOR_PRIMARY,
                 bodyTypo: BODY_TYPO,
                 bgColor:"white",
@@ -164,7 +164,7 @@ const WeddingFredaJuan  = () => {
     }
     
     const qoute:QouteProps ={
-            qoute: "Dos corazones, un solo amor. Celebra con nosotros nuestro matrimonio.",
+            qoute: "Dos corazones, un solo amor. Celebra con nosotros este dia especial.",
             bodyTypo: BODY_TYPO,
             italic:true,
             fontsize:"1.5rem",
@@ -207,8 +207,8 @@ const WeddingFredaJuan  = () => {
     };
 
     const galleryPhotos = [
-        `${URL_IMAGES}galeria4.jpg`,
-        `${URL_IMAGES}enmedio2.jpg`,
+        `${URL_IMAGES}demoBW2.jpg`,
+        `${URL_IMAGES}demoBW3.jpg`,
     ];
 
     return (
@@ -217,10 +217,10 @@ const WeddingFredaJuan  = () => {
             <CoverInline 
                 ourWeddingStart={true}
                 weddingDate="05.12.26"
-                bgImage={`${URL_IMAGES}galeria2.jpg`}
-                brideName="Fedra Edlyn" 
+                bgImage={`${URL_IMAGES}demoBW1.jpg`}
+                brideName="Nombre Novia" 
                 symbolr={"&"} 
-                groomName={"Juan Pablo"} 
+                groomName={"Nombre Novio"} 
                 className={SECONDARY_TYPO}
                 bgSize="cover"
                 overlay={true}
@@ -238,7 +238,7 @@ const WeddingFredaJuan  = () => {
            
             </Box>
             </div>
-            <ImageMiddle bgPosition="30%" height="50vh" bgImage={`${URL_IMAGES}galeria1.jpg`} bgPositionY="30%"></ImageMiddle>
+            <ImageMiddle bgPosition="30%" height="50vh" bgImage={`${URL_IMAGES}demoBW2.jpg`} bgPositionY="30%"></ImageMiddle>
               <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             
             <Grid container spacing={2} >
@@ -249,13 +249,13 @@ const WeddingFredaJuan  = () => {
                        <Grid container spacing={2} padding={2} justifyContent={"center"} >
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" >
-                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Deseamos compartir con ustedes la alegría de nuestra unión, con la bendición de Dios y nuestros padres:</Typography>
+                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Deseamos compartir con ustedes la alegria de nuestra union, con la bendicion de Dios y nuestros padres:</Typography>
                             </Fade>
                             </Grid>
                            <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"}>Fedra Isela López Ruiz</Typography>
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Jorge Humberto Aguilar Veloz</Typography>
+                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"}>Nombre del Padre de la Novia</Typography>
+                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Nombre de la Madre de la Novia</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
@@ -266,8 +266,8 @@ const WeddingFredaJuan  = () => {
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
                             
-                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"} >Elba Elizabeth Jara Molina</Typography>
-                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Martín Preciado García</Typography>
+                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"} >Nombre del Padre del Novio</Typography>
+                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Nombre de la Madre del Novio</Typography>
                             </Fade>
                         </Grid>	
                             
@@ -299,8 +299,7 @@ const WeddingFredaJuan  = () => {
             }
             </Grid>
             </div>
-              <ImageMiddle bgPosition="50%" height="30vh" bgImage={`${URL_IMAGES}galeria6.jpg`} bgSize="contain"></ImageMiddle>
-                          <div style={{backgroundImage: `url("${URL_IMAGES}galeria5.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+                          <div style={{backgroundImage: `url("${URL_IMAGES}demoBW3.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(0,0,0,.5)"}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -438,4 +437,4 @@ const WeddingFredaJuan  = () => {
         </div>
     )
 }
-export default WeddingFredaJuan;
+export default WeddingBWDemo;

@@ -12,9 +12,9 @@ import Silvia60 from "../pages/clientInvitations/Silvia60";
 import STDDalia from "../pages/clientInvitations/STDDalia";
 import WeddingAdelineOsvaldoTree from "../pages/clientInvitations/WeddingAdelineOsvaldo3";
 import WeddingAngelicaJose from "../pages/clientInvitations/WeddingAngelicaJose";
+import WeddingBWDemo from "../pages/clientInvitations/WeddingBWDemo";
 import WeddingCendyAdrian from "../pages/clientInvitations/WeddingCendyAdrian";
 import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
-import WeddingFredaJuan from "../pages/clientInvitations/WeddingFredaJuan";
 import WeddingFredaJuanColor from "../pages/clientInvitations/WeddingFredaJuanColor";
 import WeddingGlendaJose from "../pages/clientInvitations/WeddingGlendaJose";
 import WeddingKarolMario from "../pages/clientInvitations/WeddingKarolMario";
@@ -69,6 +69,7 @@ const routes: RouteConfig[] = [
     {path:'/demos/2', element: <DemoTwo></DemoTwo>},
     {path:'/demos/3', element: <DemoTree></DemoTree>},
     {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
+    {path:"/demos/bw-demo", element: <WeddingBWDemo></WeddingBWDemo>},
     {path:'/terminos', element: <TermsConditions></TermsConditions>},
     {path:'/privacidad', element: <PrivacyPolicy></PrivacyPolicy>},
     {path:'/faq', element: <FaqPage></FaqPage>},
@@ -92,7 +93,6 @@ const routes: RouteConfig[] = [
   {path:'/boda-sophia-luis-enrique', element: <WeddingSphiaLuis></WeddingSphiaLuis>}, 
   {path:'/boda-maria-lourdes-francisco-michel', element: <WeddingMariluMichel></WeddingMariluMichel>},
   {path:'/boda-glenda-jose', element: <WeddingGlendaJose></WeddingGlendaJose>},
-  {path:'/boda-freda-juan', element: <WeddingFredaJuan></WeddingFredaJuan>},
   {path:'/boda-freda-edlyn-juan-pablo', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
@@ -122,7 +122,7 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
-  {path:'/prev-fj-bn', element: <WeddingFredaJuan></WeddingFredaJuan>},
+
   {path:'/prev-fj-color-2', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
 ];
 

@@ -175,27 +175,27 @@ const WeddingFredaJuanColor  = () => {
                     {
                         eventName: "Ceremonia Religiosa",
                         date: new Date(2025, 10, 16, 18, 0, 0),
-                        icon: `${URL_IMAGES}iconos/3.svg`,
+                        icon: `${URL_IMAGES}icons/2.svg`,
                     },
                     {
                         eventName: "Cóctel",
                         date: new Date(2025, 10, 16, 20, 0, 0),
-                        icon: `${URL_IMAGES}iconos/4.svg`,
+                        icon: `${URL_IMAGES}icons/3.svg`,
                     },
                     {
                         eventName: "Recepción",
                         date: new Date(2025, 10, 16, 21, 0, 0),
-                        icon: `${URL_IMAGES}iconos/5.svg`,
+                        icon: `${URL_IMAGES}icons/4.svg`,
                     },
                     {
                         eventName: "Cena",
                         date: new Date(2025, 10, 16, 21, 30, 0),
-                        icon: `${URL_IMAGES}iconos/6.svg`,
+                        icon: `${URL_IMAGES}icons/5.svg`,
                     },
                     {
                         eventName: "Fin del evento",
                         date: new Date(2025, 10, 16, 2, 0, 0),
-                        icon: `${URL_IMAGES}iconos/9.svg`,
+                        icon: `${URL_IMAGES}icons/9.svg`,
                     },
                 ],
     };
@@ -337,7 +337,9 @@ const WeddingFredaJuanColor  = () => {
                             sx={{ m: 'auto 0' }}
                             align="right"
                             >
-                            
+                            <Fade direction="up" triggerOnce={true} >
+                              <img className="intinerario-icon" src={item.icon} height="60"/>
+                            </Fade>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
                         <TimelineConnector  sx={{backgroundColor:timelineData.colorPrimary}} />
