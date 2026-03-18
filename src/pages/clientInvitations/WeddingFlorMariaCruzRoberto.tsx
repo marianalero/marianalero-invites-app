@@ -189,9 +189,7 @@ const WeddingFlorMariaCruzRoberto  = () => {
                          <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Con la bendición de Dios, y de nuestros padres</Typography>
                   </Fade>
                   </Grid>
-                   <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                        <Box display={"flex"} justifyContent={"center"} marginBottom={2} width={"50%"} height={".5px"} bgcolor={COLOR_PRIMARY}></Box>
-                    </Grid>
+                  
                  <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
                                 <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Emperatriz Galaz Valencia</Typography>
@@ -211,9 +209,7 @@ const WeddingFlorMariaCruzRoberto  = () => {
                             <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Cruz Montaño Durazo</Typography>
                             </Fade>
                         </Grid>	
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                        <Box display={"flex"} justifyContent={"center"} marginBottom={2} width={"50%"} height={".5px"} bgcolor={COLOR_PRIMARY}></Box>
-                    </Grid>
+                        
                 </Grid>
                 </Grid>	
             </Grid>
