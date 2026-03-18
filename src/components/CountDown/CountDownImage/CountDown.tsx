@@ -65,7 +65,7 @@ const CountDown = (props:CountDownProps) => {
         );
       };
     return (
-        <div id="countdown" style={{backgroundImage:`url('${props.bgImage}')`, padding: props.padding ? props.padding : "7em", alignItems: props.alignItems ? props.alignItems : "center"}}  >
+        <div id="countdown" style={{backgroundImage:`url('${props.bgImage}')`, padding: props.padding ? props.padding : "7em 0", alignItems: props.alignItems ? props.alignItems : "center"}}  >
 			<div className="overlay"></div>
 			<div className="display-over" style={{marginTop: props.marginTop ? props.marginTop : "0"}}>
 				<div className="container" >

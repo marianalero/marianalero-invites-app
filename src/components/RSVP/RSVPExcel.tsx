@@ -186,7 +186,9 @@ const RSVPDemo  = (props:RSVPType) => {
                     }
                        
                            <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
-                            <FormControl >
+                            <FormControl 
+                            fullWidth
+                                    sx={{ minWidth: 300, maxWidth: 300 }}>
                               
                                         <InputLabel sx={{color:"#757575",
                                             backgroundColor: 'rgba(255, 255, 255, 0.8)',

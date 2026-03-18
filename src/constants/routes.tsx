@@ -24,6 +24,7 @@ import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana"
 import WeddingSphiaLuis from "../pages/clientInvitations/WeddingSphiaLuis";
 import WeddingStephaniaIsamael from "../pages/clientInvitations/WeddingStephaniaIsamael";
 import WeddingStevenArely from "../pages/clientInvitations/WeddingStevenArely";
+import WeddingFlorMariaCruzRoberto from "../pages/clientInvitations/WeddingFlorMariaCruzRoberto";
 import XVAlexia from "../pages/clientInvitations/XVAlexia";
 import XVCamila from "../pages/clientInvitations/XVCamila";
 import XVDainaly from "../pages/clientInvitations/XVDainaly";
@@ -124,6 +125,7 @@ const routes: RouteConfig[] = [
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
 
   {path:'/prev-fj-color-2', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
+  {path:'/prev-fc', element: <WeddingFlorMariaCruzRoberto></WeddingFlorMariaCruzRoberto>},
 ];
 
 

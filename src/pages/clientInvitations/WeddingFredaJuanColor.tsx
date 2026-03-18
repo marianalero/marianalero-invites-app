@@ -401,13 +401,11 @@ const WeddingFredaJuanColor  = () => {
               <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} >        
             <DressCode {...dresscode}></DressCode>
 
-                 <Grid container spacing={2} padding={4} >
+                <Grid container spacing={2} padding={4} >
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                    <Box display={"flex"} justifyContent={"center"} marginBottom={4} width={"50%"} height={"1.5px"} bgcolor={COLOR_PRIMARY}></Box>
-                        
-                 
+                        <Box display={"flex"} justifyContent={"center"} marginBottom={4} width={"50%"} height={"1.5px"} bgcolor={COLOR_PRIMARY}></Box>
                     </Grid>
-               </Grid>
+                </Grid>
                               <WithoutKids {...withOutKids} /> 
                               </Box>   
             <div style={{height:100}}></div>

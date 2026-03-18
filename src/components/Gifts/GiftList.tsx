@@ -86,11 +86,7 @@ const GiftList = (props:GiftListProps) =>{
                                         }}
                                     />
                                     </Typography>
-                                {/* <Typography variant='body1' textAlign={"center"} className={`${props.bodyTypo}`}>
-                                    Clic <a style={{color:props.color}} href={props.items[0].link}>aquí</a> para ir a
-                                    nuestra mesa de regalos
-                                
-                                </Typography> */}
+                              
                             </Grid>
                        </Grid>
                       

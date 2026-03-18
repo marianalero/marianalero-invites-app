@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
 import Adornment from "../Adornment/Adornment";
@@ -20,6 +20,7 @@ export interface IntroductionProps {
     secondQoute?:string;
     thirdQoute?:string;
     fontSize?:string;
+    addormentLine?:boolean;
 }
 
 const Introduction  = (props:IntroductionProps) => {
@@ -48,6 +49,16 @@ const Introduction  = (props:IntroductionProps) => {
                                 </Grid>	
                                 )
                             }
+
+                            {props.addormentLine && (
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent="center"  >
+                                
+                    
+                                    <Box display={"flex"} justifyContent={"center"} marginBottom={2} width={"50%"} height={".5px"} bgcolor={props.color}></Box>
+                    
+                 
+                                </Grid>	
+                            )}
 
 
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -97,13 +108,23 @@ const Introduction  = (props:IntroductionProps) => {
                         </Grid>		
                          {
                                 props.adornment && (
-                                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent="center" >
                                 <Fade direction="up" >
                                     <Adornment image={props.adornment} width={"250px"} />                                                            
                                 </Fade>
                                 </Grid>	
                                 )
                             }	
+                              {props.addormentLine && (
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent="center"  >
+                                
+                    
+                                    <Box display={"flex"} justifyContent={"center"} marginBottom={2} width={"50%"} height={".5px"} bgcolor={props.color}></Box>
+                    
+                 
+                                </Grid>	
+                            )}
+
 		</Grid>
     )
 }

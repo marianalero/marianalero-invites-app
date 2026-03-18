@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import ImageCircle from "../ImgCircle/ImgCircle";
 import { Fade } from "react-awesome-reveal";
@@ -16,6 +16,8 @@ export interface QouteProps {
     lineheight?:string;
     addormentSize?:string;
     italic?:boolean;
+    addoormentLine?:boolean;
+    color?:string;
 }
 
 const Qoute  = (props:QouteProps) => {
@@ -44,12 +46,20 @@ const Qoute  = (props:QouteProps) => {
             {
                 props.addormentStart &&(
                 
+                    props.addoormentLine ? (
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                            <Box display={"flex"} justifyContent={"center"} marginBottom={2} width={"50%"} height={".5px"} bgcolor={props.color ? props.color : "black"}></Box>
+                        </Grid>
+                    )
+                    :
+                     (
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} justifyContent={"center"} display={"flex"}>
                         <Fade direction="up" >
                             <Adornment image={props.addormentStart} width={props.addormentSize  ? props.addormentSize : "250px"} />
                         </Fade>
                     </Grid>
                 
+                )
                 )
             }
 			<Grid size={{xs:12,sm:12,md:12,lg:12}}>
@@ -60,12 +70,20 @@ const Qoute  = (props:QouteProps) => {
             {
                 props.addormentEnd &&(
                 
+                    props.addoormentLine ? (
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                            <Box display={"flex"} justifyContent={"center"} marginBottom={2} width={"50%"} height={".5px"} bgcolor={props.color ? props.color : "black"}></Box>
+                        </Grid>
+                    )
+                    :
+                     (
+
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} justifyContent={"center"} display={"flex"}>
                         <Fade direction="up" >
                             <Adornment image={props.addormentEnd} width={props.addormentSize  ? props.addormentSize : "250px"} />
                         </Fade>
                     </Grid>
-
+                     )
                 )
             }
           
