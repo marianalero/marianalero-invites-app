@@ -5,7 +5,6 @@ import GiftList2 from "../../components/Gifts/GiftList2";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/WithoutKids";
 import Cover from "../../components/Cover/CoverImage/Cover";
-import Introduction from "../../components/Introduction/Introduction";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
 import FooterInvites from "../../components/Footer/FooterInvites";
