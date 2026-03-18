@@ -17,6 +17,7 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import RSVPExcel from "../../components/RSVP/RSVPExcel";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import { GiftListProps } from "../../models/component/giftList";
+import { Fade } from "react-awesome-reveal";
 const WeddingFlorMariaCruzRoberto  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -182,22 +183,42 @@ const WeddingFlorMariaCruzRoberto  = () => {
          
             <Grid container spacing={2}  bgcolor={"#F2EADD"} display={"flex"} alignItems={"center"} justifyContent="center" >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent="center" >
-                    <Introduction
-                        brideFather="Jaime Barceló Durazo"
-                        brideMother="Emperatriz Galaz Valencia "
-                        groomFather="Cruz Montaño Durazo"
-                        groomMother="María Azucena Barceló Durazo"
-                        mainTypo={SECOND_TYPO}
-                        bodyTypo={BODY_TYPO}
-                        color={COLOR_SECONDARY}
-                       
-                        amperson="&"
-                        fontSize="1.5rem"
-                        addormentLine={true}
-                    >
-                    </Introduction>
+                    <Grid container spacing={2} padding={4} justifyContent={"center"} >
+ <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                <Fade direction="up" >
+                         <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Con la bendición de Dios, y de nuestros padres</Typography>
+                  </Fade>
+                  </Grid>
+                 <Grid size={{xs:12,sm:4,md:4,lg:4}} >
+                            <Fade direction="up" >
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Emperatriz Galaz Valencia</Typography>
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Jaime Barceló Durazo</Typography>
+                            </Fade >
+                        </Grid>	
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                        <Box display={"flex"} justifyContent={"center"} marginBottom={2} width={"50%"} height={".5px"} bgcolor={COLOR_PRIMARY}></Box>
+                    </Grid>
+                        <Grid size={{xs:12,sm:4,md:4,lg:4}} >
+                            <Fade direction="up" >
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"}className={SECOND_TYPO} >&</Typography>
+                            </Fade >
+                        </Grid>	
+                        <Grid size={{xs:12,sm:4,md:4,lg:4}} >
+                            <Fade direction="up" >
+                            
+                            <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO} >María Azucena Barceló Durazo</Typography>
+                            <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Cruz Montaño Durazo</Typography>
+                            </Fade>
+                        </Grid>	
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                        <Box display={"flex"} justifyContent={"center"} marginBottom={2} width={"50%"} height={".5px"} bgcolor={COLOR_PRIMARY}></Box>
+                    </Grid>
                 </Grid>
+                </Grid>	
             </Grid>
+                    
+                
+         
             
             <CountDown 
                 eventDate={new Date(2026,9,2)}
