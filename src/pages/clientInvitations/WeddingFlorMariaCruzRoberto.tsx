@@ -145,6 +145,7 @@ const WeddingFlorMariaCruzRoberto  = () => {
             italic:true,
             color: COLOR_SECONDARY,
             addoormentLine:true,
+            bgColor: "rgb(242, 237, 221,.5)",
     }
   
     const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
@@ -171,13 +172,13 @@ const WeddingFlorMariaCruzRoberto  = () => {
                 bgSize="cover"
                 overlay={true}
                 fontSize="5rem"
-                bgPositionY="35%"
+                bgPositionY="55%"
                 >
             </Cover>
              <Qoute 
                {...qoute}>
             </Qoute>
-            <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}enmedio1.png`} bgPositionY="50%"></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}enmedio1.png`} bgPositionY="20%"></ImageMiddle>
          
             <Grid container spacing={2}  bgcolor={"#F2EADD"} display={"flex"} alignItems={"center"} justifyContent="center" >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent="center" >
@@ -301,7 +302,7 @@ const WeddingFlorMariaCruzRoberto  = () => {
             </Grid>
              
 
-            <ImageMiddle bgPosition="40%" height="100vh" bgImage={`${URL_IMAGES}enmedio2.png`} bgPositionY="50%"></ImageMiddle>
+            <ImageMiddle bgPosition="40%" height="100vh" bgImage={`${URL_IMAGES}enmedio2.png`} bgPositionY="25%"></ImageMiddle>
             <GiftList2 {...giftListData} ></GiftList2>
            
            <Grid container spacing={2} padding={2} display={"flex"} alignItems={"center"} justifyContent="center" bgcolor={"rgb(214, 199, 176)"} >
@@ -364,7 +365,7 @@ const WeddingFlorMariaCruzRoberto  = () => {
                          <DialogContent >
              
                             <Box display={"flex"} justifyContent={"center"}>
-                             <Typography variant="h2" className={MAIN_TYPO} sx={{color:COLOR_TREE}}>Bienvenidos</Typography>
+                             <Typography variant="h5" className={SECOND_TYPO} sx={{color:COLOR_TREE}}>Bienvenidos</Typography>
                             </Box>
                              <Box display={"flex"} justifyContent={"center"}>
                             <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"} color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>

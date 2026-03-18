@@ -13,7 +13,7 @@ const ImageMiddle = (props: ImageMiddleProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
   const isSmallScreen = useMediaQuery("(max-width:600px)");
-
+console.log(props.bgPositionY);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -41,7 +41,7 @@ const ImageMiddle = (props: ImageMiddleProps) => {
         backgroundImage: loaded ? `url(${props.bgImage})` : "none",
         backgroundSize: props.bgSize ?? "cover",
         backgroundPosition: props.bgPosition ?? "50%",
-        backgroundPositionY: isSmallScreen ? "50%" : props.bgPositionY ?? "50%",
+        backgroundPositionY: isSmallScreen ? "50%" : `${props.bgPositionY ?? "50%"}`,
         height: isSmallScreen ? props.height ?? "50vh" : "100vh",
 
         /* 🎨 placeholder */
