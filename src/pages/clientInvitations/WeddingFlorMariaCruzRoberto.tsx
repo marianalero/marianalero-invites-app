@@ -173,6 +173,7 @@ const WeddingFlorMariaCruzRoberto  = () => {
                 overlay={true}
                 fontSize="5rem"
                 bgPositionY="55%"
+                verticalPosition="top"
                 >
             </Cover>
              <Qoute 
@@ -191,21 +192,21 @@ const WeddingFlorMariaCruzRoberto  = () => {
                   
                  <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Emperatriz Galaz Valencia</Typography>
-                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Jaime Barceló Durazo</Typography>
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.2rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Emperatriz Galaz Valencia</Typography>
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.2rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Jaime Barceló Durazo</Typography>
                             </Fade >
                         </Grid>	
                        
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"}className={SECOND_TYPO} >&</Typography>
+                                <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.2rem"}} fontWeight={400} variant="h4" textAlign={"center"}className={SECOND_TYPO} >&</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
                             
-                            <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO} >María Azucena Barceló Durazo</Typography>
-                            <Typography sx={{color:COLOR_SECONDARY, fontSize: "1rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Cruz Montaño Durazo</Typography>
+                            <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.2rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO} >María Azucena Barceló Durazo</Typography>
+                            <Typography sx={{color:COLOR_SECONDARY, fontSize: "1.2rem"}} fontWeight={400} variant="h4" textAlign={"center"} className={SECOND_TYPO}>Cruz Montaño Durazo</Typography>
                             </Fade>
                         </Grid>	
                         
@@ -222,7 +223,8 @@ const WeddingFlorMariaCruzRoberto  = () => {
                 typoHeader={SECOND_TYPO}
                 typoCountdown={BODY_TYPO} 
                 fontSize="2rem"
-
+                padding="8em 0 0 0"
+                alignItems="end"
                 >  
             </CountDown>
             <Grid container spacing={2} padding={4} bgcolor={"rgb(198, 180, 156,.5)"} >

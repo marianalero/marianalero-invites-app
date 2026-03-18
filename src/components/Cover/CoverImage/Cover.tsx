@@ -7,7 +7,7 @@ import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 
 const Cover  = (props:CoverProps) => {
-    console.log("Cover props:", props.overlay);
+
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [loaded, setLoaded] = useState(false);
     const GENERIC_BLUR =
@@ -25,9 +25,22 @@ const Cover  = (props:CoverProps) => {
 
     img.onload = () => setLoaded(true);
     }, [props.bgImage]);
+
+    const getJustifyContent = () => {
+        switch (props.verticalPosition) {
+            case 'top':
+                return 'start';
+            case 'bottom':
+                return 'end';
+            case 'center':
+            default:
+                return 'center';
+        }
+    };
+
     return(
      
-     <div className="cover-container">
+     <div className="cover-container" style={{justifyContent: getJustifyContent()}}>
       <img
         src={loaded ? props.bgImage : GENERIC_BLUR}
         alt="Cover"

@@ -6,7 +6,6 @@ import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 
 const CoverInline = (props: CoverProps) => {
-    console.log("CoverInline props:", props.overlay);
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [loaded, setLoaded] = useState(false);
     const GENERIC_BLUR =
