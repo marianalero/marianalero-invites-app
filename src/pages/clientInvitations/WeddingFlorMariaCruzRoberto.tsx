@@ -359,6 +359,7 @@ const WeddingFlorMariaCruzRoberto  = () => {
                         bgColor={"#FAF7F2"}
                         confirmed={handleConfirm}
                         fontSize="1.5rem"
+                        hidePhoneNumberInput={true}
                         />
                 </Box>
                 </Grid>
