@@ -151,10 +151,10 @@ const WeddingFlorMariaCruzRoberto  = () => {
     const handleConfirm =async ( name:string,confirmText:string, phoneNumber:string, totalConfirmed:string)=> {
         console.log('Confirmación recibida:', confirmText, phoneNumber, name, totalConfirmed);
          if(confirmText == "Asistiré"){
-            window.open(`https://wa.me/+5200000?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20boda%20de%20Flor%20de%20María%20y%20Cruz%20Roberto%20para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+            window.open(`https://wa.me/+526626729660?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20boda%20de%20Flor%20de%20María%20y%20Cruz%20Roberto%20para ${totalConfirmed} personas. Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
 
         }else{
-            window.open(`https://wa.me/+520000?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20boda%20de%20Flor%20de%20María%20y%20Cruz%20Roberto.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
+            window.open(`https://wa.me/+526626729660?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20boda%20de%20Flor%20de%20María%20y%20Cruz%20Roberto.Mi nombre es: ${name},teléfono:${phoneNumber}`, '_blank');
 
         }
       }
