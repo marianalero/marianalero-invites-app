@@ -15,7 +15,7 @@ import { Dialog, DialogContent, Box, Typography, DialogActions } from "@mui/mate
 import CustomButton from "../../components/CustomButton/CustomButton";
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
-import EventCard from "../../components/EventCard/EventCard";
+
 import { Fade } from "react-awesome-reveal";
 import  { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import CoverInline from "../../components/Cover/CoverImage/CoverInline";
@@ -30,6 +30,7 @@ import Timeline from "@mui/lab/Timeline";
 import dayjs from "dayjs";
 import { t } from "i18next";
 import Gallery from "../../components/Gallery/Gallert";
+import EventCardImage from "../../components/EventCard/EventCardImage";
 
 const WeddingMariaIsabelChristianDuran  = () => {
     const [searchParams] = useSearchParams();
@@ -148,11 +149,13 @@ const WeddingMariaIsabelChristianDuran  = () => {
         type:2,
         title:"Formal",
         fontSize:"1.6rem",
+        description:"Mujeres: vestido largo, no usar blanco, no beige, no crema, no plateado,no dorado. Hombres: traje formal, pantalón, camisa formal, zapatos formales",
 
     }
      const withOutKids:WithoutKidsProps = {
         bodyTypo:BODY_TYPO,
-        subtitle2:"no niños"
+        hideSubtitle:true,
+        title:"Amamos a tus hijos, pero creemos que esta noche se merecen disfrutar solos como pareja, por eso en esta ocasión los niños se quedan en casa",
     }
     
     
@@ -217,7 +220,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                ampersonClassName={MAIN_TYPO}
                 >
             </CoverInline>
-              <div style={{backgroundColor:"#D98C8C", backgroundPosition: "bottom", padding: "50px 20px" }}>
+              <div style={{backgroundColor:"#fae9e9", backgroundPosition: "bottom", padding: "50px 20px" }}>
                 <Box padding={2} bgcolor={"rgb(250,250,250,.8)"}   display={"flex"}  justifyContent={"center"}>
            
                  <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={4} sx={{backgroundColor:"rgb(255,255,255)"}}> 
@@ -260,20 +263,20 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                             </Grid>
                            <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={MAIN_TYPO}>Maria Isabel Nevarez Reta</Typography>
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={MAIN_TYPO}>Gamaliel Ramos Alcantar</Typography>
+                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.8rem"}} variant="h4" textAlign={"center"} className={MAIN_TYPO}>Maria Isabel Nevarez Reta</Typography>
+                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.8rem"}}  variant="h4" textAlign={"center"} className={MAIN_TYPO}>Gamaliel Ramos Alcantar</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"}className={MAIN_TYPO} >&</Typography>
+                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.8rem"}}  variant="h4" textAlign={"center"}className={MAIN_TYPO} >y</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
                             
-                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={MAIN_TYPO} >Maria Estela Duran Maury</Typography>
-                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={MAIN_TYPO}>Stefan Eckstein</Typography>
+                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.8rem"}} variant="h4" textAlign={"center"} className={MAIN_TYPO} >Maria Estela Duran Maury</Typography>
+                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.8rem"}}  variant="h4" textAlign={"center"} className={MAIN_TYPO}>Stefan Eckstein</Typography>
                             </Fade>
                         </Grid>	
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -295,7 +298,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
                 primaryColor={COLOR_SECONDARY} 
-                secondarColor={COLOR_SECONDARY}
+                secondarColor="white"
                 circleBgColor="white"
                 bgColor={COLOR_PRIMARY}
                 >  
@@ -306,7 +309,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             <Grid container spacing={2} padding={4} >
             {eventCards
                 .map((item,index) => (          
-                   <EventCard key={index} {...item}></EventCard>
+                   <EventCardImage key={index} {...item}></EventCardImage>
                 ))
             }
             </Grid>
