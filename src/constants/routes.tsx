@@ -54,6 +54,7 @@ import LoginPage from "../pages/login/login";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsConditions from "../pages/termsConditions/TermsConditions";
 import AdminPage from "../pages/users/users";
+import WeddingMariaIsabelChristianDuran from "../pages/clientInvitations/WeddingMariaIsabelChristianDuran";
 
 interface RouteConfig {
   path: string;
@@ -95,6 +96,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-maria-lourdes-francisco-michel', element: <WeddingMariluMichel></WeddingMariluMichel>},
   {path:'/boda-glenda-jose', element: <WeddingGlendaJose></WeddingGlendaJose>},
   {path:'/boda-freda-edlyn-juan-pablo', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
+  {path:'/boda-flor-maria-cruz-roberto', element: <WeddingFlorMariaCruzRoberto></WeddingFlorMariaCruzRoberto>},
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
@@ -124,8 +126,8 @@ const routes: RouteConfig[] = [
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
 
-  {path:'/prev-fj-color-2', element: <WeddingFredaJuanColor></WeddingFredaJuanColor>},
-  {path:'/prev-fc', element: <WeddingFlorMariaCruzRoberto></WeddingFlorMariaCruzRoberto>},
+  {path:'/prev-fc-2', element: <WeddingFlorMariaCruzRoberto></WeddingFlorMariaCruzRoberto>},
+  {path:'prev-ic', element: <WeddingMariaIsabelChristianDuran></WeddingMariaIsabelChristianDuran>},
 ];
 
 
