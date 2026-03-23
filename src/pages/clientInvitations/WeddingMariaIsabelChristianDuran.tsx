@@ -30,6 +30,7 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import Timeline from "@mui/lab/Timeline";
 import dayjs from "dayjs";
 import { t } from "i18next";
+import Gallery from "../../components/Gallery/Gallert";
 
 const WeddingMariaIsabelChristianDuran  = () => {
     const [searchParams] = useSearchParams();
@@ -64,7 +65,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
     // const COLOR_THIRD = "#8C1C2B";
     // const COLOR_FOURTH = "#6E7F3F";
     const COLOR_TEXT = "#1A1A1A";
-    const MAIN_TYPO = "playfair-display-400 to-upper";
+    const MAIN_TYPO = "pinyon-script-regular";
     const SECONDARY_TYPO = "the-seasons";
     const BODY_TYPO = "lora";
     const COLOR_BG ="#F7F3EB";
@@ -74,9 +75,10 @@ const WeddingMariaIsabelChristianDuran  = () => {
    
         const eventCards: EventCardProps[] = [
             {
-                eventName: "Ceremonia Religiosa",
-                date: new Date(2025, 11, 5, 18, 0, 0),
-                locationName: "Iglesia San Juan De Capistrano",
+                image : `${URL_IMAGES}recepcion.jpg`,
+                eventName: "Ceremonia Religiosa y Recepción",
+                date: new Date(2025, 10, 14, 18, 0, 0),
+                locationName: "Casa Arias",
                 address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
                 size: 12,
                 color: COLOR_PRIMARY,
@@ -89,43 +91,17 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 bgColor:"white",
                 borderSquare:true,
             
-            },
-            {
-                bgColor:"white",
-                eventName: "Recepción",
-                date: new Date(2026, 11, 5, 20, 0, 0),
-                locationName: "El Jito Eventos",
-                address: "Cjon. Rosales S/N, El Jito, Hermosillo, Son.",
-                size: 12,
-                color: COLOR_PRIMARY,     
-                mainTypo: MAIN_TYPO,
-                bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/GAw8VVfjyR5yCkfP8",
-                colorButton: COLOR_PRIMARY,
-                
-                colorIcon: COLOR_PRIMARY,fontSize:"2rem",
-                borderSquare:true,
-            },
+            }
     ];
     
-    const giftListData: GiftListProps = {
-        title:"Sugerencias de regalos",
-        
+    const giftListData: GiftListProps = { 
         fontSize:"1.5rem",
-        mainPhrase: "Si su deseo es hacernos algún obsequio compartimos las opciones",
-        items: [
-            {
-                link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/51938530",
-                icon: `${URL_IMAGES}liverpool.svg`,
-            }
-        ],
-        giftIcon: `${URL_IMAGES}regalo.svg`,
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
         color: COLOR_PRIMARY, 
         bgColor: "#FFFFFF", 
         showEnvelope:true,
-        envelopeMainTypo: "playfair-display-400",
+        envelopeMainTypo: SECONDARY_TYPO,
         envelopeFontSize:"1.5rem",
         envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
         secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
@@ -140,14 +116,29 @@ const WeddingMariaIsabelChristianDuran  = () => {
                     },
                 
                 ],
-                bank: "BANORTE",
-                name: "Fedra Edlyn Aguilar López",
+                bank: "BBVA débito (México)",
+                name: "Maria Isabel Ramos Nevarez",
                 color: COLOR_PRIMARY,
                 bodyTypo: BODY_TYPO,
                 bgColor:"white",
                 outlineColor:true,
                 
+            },
+            {
+                numbers :[ 
+                    {
+                    numberType: "",
+                    number: "DE24 7539 0000 0001 2175 42",
+                    },
+                ],
+                bank: "Volksbank (Alemana)",
+                name: "Christian Duran Maury",
+                color: COLOR_PRIMARY,
+                bodyTypo: BODY_TYPO,
+                bgColor:"white",
+                outlineColor:true,
             }
+
             
         ],
     };
@@ -203,10 +194,11 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 ],
     };
 
-    // const galleryPhotos = [
-    //     `${URL_IMAGES}galeria4.jpg`,
-    //     `${URL_IMAGES}enmedio2.jpg`,
-    // ];
+    const galleryPhotos = [
+        `${URL_IMAGES}galeria1.jpg`,
+        `${URL_IMAGES}galeria2.jpg`,
+        `${URL_IMAGES}galeria3.jpg`,
+    ];
 
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto", color: COLOR_TEXT}}>
@@ -253,9 +245,9 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                  </Grid>
             </Box>
             </div>
-            <ImageMiddle bgPosition="30%" height="60vh" bgImage={`${URL_IMAGES}galeria3.jpg`} bgPositionY="30%"></ImageMiddle>
+            <ImageMiddle bgPosition="30%" height="60vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgPositionY="30%"></ImageMiddle>
               <div style={{backgroundColor:"#F5EFE6", padding: "50px 20px" }}>
-            
+         
             <Grid container spacing={2} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                     {/* <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} > */}
@@ -309,6 +301,8 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                 bgColor={COLOR_PRIMARY}
                 >  
             </CountDownSimple>
+           <ImageMiddle bgPosition="50%" height="30vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize="contain"></ImageMiddle>
+
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             <Grid container spacing={2} padding={4} >
             {eventCards
@@ -318,8 +312,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             }
             </Grid>
             </div>
-              {/* <ImageMiddle bgPosition="50%" height="30vh" bgImage={`${URL_IMAGES}galeria6.jpg`} bgSize="contain"></ImageMiddle> */}
-                          <div style={{backgroundImage: `url("${URL_IMAGES}galeria2.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+                          <div style={{backgroundImage: `url("${URL_IMAGES}contador.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(207,193,167,.8)"}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -417,19 +410,8 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                               <WithoutKids {...withOutKids} /> 
                               </Box>   
             <div style={{height:100}}></div>
-            <MiniGallery
-                    images={[
-                        `${URL_IMAGES}galeria1.jpg`,
-                        `${URL_IMAGES}enmedio.jpg`,
-                        `${URL_IMAGES}enmedio2.jpg`,
-                    ]}
-                     backgroundColor="rgb(250,250,250,.8)"
-                    spacing={8}
-                    gap={6}
-                    imageHeightDesktop={580}
-                    imageHeightMobile={260}
-                    />
-                     {/* <Gallery photos={galleryPhotos}></Gallery> */}
+
+                     <Gallery photos={galleryPhotos}></Gallery>
          </div>
             <FooterInvites bgColor={COLOR_BG} color={COLOR_PRIMARY}></FooterInvites>
              <Dialog
