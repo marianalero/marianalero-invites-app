@@ -61,8 +61,8 @@ const WeddingMariaIsabelChristianDuran  = () => {
     }, []);
     const COLOR_PRIMARY = "#C65A2E";
     const COLOR_SECONDARY = "#D88A2D";
-    const COLOR_THIRD = "#8C1C2B";
-    const COLOR_FOURTH = "#6E7F3F";
+    // const COLOR_THIRD = "#8C1C2B";
+    // const COLOR_FOURTH = "#6E7F3F";
     const COLOR_TEXT = "#1A1A1A";
     const MAIN_TYPO = "playfair-display-400 to-upper";
     const SECONDARY_TYPO = "the-seasons";

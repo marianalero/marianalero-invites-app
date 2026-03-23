@@ -127,7 +127,7 @@ const routes: RouteConfig[] = [
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
 
   {path:'/prev-fc-2', element: <WeddingFlorMariaCruzRoberto></WeddingFlorMariaCruzRoberto>},
-  {path:'prev-ic', element: <WeddingMariaIsabelChristianDuran></WeddingMariaIsabelChristianDuran>},
+  {path:'/prev-ic', element: <WeddingMariaIsabelChristianDuran></WeddingMariaIsabelChristianDuran>},
 ];
 
 
