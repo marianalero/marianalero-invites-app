@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
-import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/WithoutKids";
 
@@ -31,6 +30,9 @@ import dayjs from "dayjs";
 import { t } from "i18next";
 import Gallery from "../../components/Gallery/Gallert";
 import EventCardImage from "../../components/EventCard/EventCardImage";
+import GiftList2 from "../../components/Gifts/GiftList2";
+import { GiftListProps } from "../../models/component/giftList";
+
 
 const WeddingMariaIsabelChristianDuran  = () => {
     const [searchParams] = useSearchParams();
@@ -62,7 +64,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
     }, []);
     const COLOR_PRIMARY = "#C65A2E";
     const COLOR_SECONDARY = "#D88A2D";
-    // const COLOR_THIRD = "#8C1C2B";
+    const COLOR_THIRD = "#8C1C2B";
     // const COLOR_FOURTH = "#6E7F3F";
     const COLOR_TEXT = "#1A1A1A";
     const MAIN_TYPO = "pinyon-script-regular";
@@ -70,13 +72,13 @@ const WeddingMariaIsabelChristianDuran  = () => {
     const BODY_TYPO = "lora";
     const COLOR_BG ="#F7F3EB";
     
-    const URL_IMAGES = `${URL_REPO}boda/boda-maria-isabel-christian-duran/color/`;
-    const URL_SONG = `${URL_REPO}canciones/Everyday-AcousticInstrumental.mp3`;
+    const URL_IMAGES = `${URL_REPO}boda/boda-maria-isabel-christian/`;
+    const URL_SONG = `${URL_REPO}canciones/ZhannaStelmakh-BeautifulThings-InstrumentalViolinVersion.mp3`;
    
         const eventCards: EventCardProps[] = [
             {
-                image : `${URL_IMAGES}recepcion.jpg`,
-                eventName: "Ceremonia Religiosa y Recepción",
+                image : `${URL_IMAGES}recepcion.jpeg`,
+                eventName: "Ceremonia y Recepción",
                 date: new Date(2025, 10, 14, 18, 0, 0),
                 locationName: "Casa Arias",
                 address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
@@ -85,72 +87,76 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/rutM2huWpbQgHH7y7",
-                colorButton: COLOR_PRIMARY,
+                colorButton: COLOR_THIRD,
                 colorIcon: COLOR_PRIMARY,
-                fontSize:"2rem",
+                fontSize:"1.8rem",
                 bgColor:"white",
                 borderSquare:true,
+
             
             }
     ];
     
-    const giftListData: GiftListProps = { 
-        fontSize:"1.5rem",
-        mainTypo: MAIN_TYPO,
-        bodyTypo: BODY_TYPO,
-        color: COLOR_PRIMARY, 
-        bgColor: "#FFFFFF", 
-        showEnvelope:true,
-        envelopeMainTypo: SECONDARY_TYPO,
-        envelopeFontSize:"1.5rem",
-        envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
-        secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
-        envelopeTitleColor:COLOR_PRIMARY,
-        bankIconStart: `${URL_IMAGES}sobre.svg`,
-        bankDetails: [
-            {
-                numbers :[ 
+
+    const giftListData: GiftListProps = {
+            
+            mainTypo: MAIN_TYPO,
+            bodyTypo: BODY_TYPO,
+            textColor: "white", 
+            fontSize: "2rem",
+            envelopeFontSize: "2rem",
+            bgColor: "#FAF7F2", 
+            cardColor: COLOR_PRIMARY,
+            showEnvelope:true,
+            envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
+            secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
+            bankIconEnd: `${URL_IMAGES}10.svg`,
+            bankDetails: [
+                {
+                    numbers: [
                     {
-                    numberType: "Tarjeta",
-                    number: "5264246831634521",
+                        numberType: "Tarjeta",
+                        number: "5264246831634521",
                     },
-                
                 ],
                 bank: "BBVA débito (México)",
                 name: "Maria Isabel Ramos Nevarez",
-                color: COLOR_PRIMARY,
-                bodyTypo: BODY_TYPO,
-                bgColor:"white",
-                outlineColor:true,
-                
-            },
-            {
-                numbers :[ 
+                    textColor: COLOR_PRIMARY,
+                    bodyTypo: BODY_TYPO,
+                    bgColor: "#FAF7F2",
+                    mainTypo: SECONDARY_TYPO,
+                    fontSize: "1.5rem",
+                },
+                {
+                    numbers: [
                     {
-                    numberType: "",
-                    number: "DE24 7539 0000 0001 2175 42",
+                        numberType: "",
+                        number: "DE24 7539 0000 0001 2175 42",
                     },
                 ],
                 bank: "Volksbank (Alemana)",
                 name: "Christian Duran Maury",
-                color: COLOR_PRIMARY,
-                bodyTypo: BODY_TYPO,
-                bgColor:"white",
-                outlineColor:true,
-            }
-
-            
-        ],
-    };
+                    textColor: COLOR_PRIMARY,
+                    bodyTypo: BODY_TYPO,
+                    bgColor: "#FAF7F2",
+                    mainTypo: SECONDARY_TYPO,
+                    fontSize: "1.5rem",
+                }
+                ,
+                
+            ],
+        };
+  
     const dresscode:DressCodeProps = {
         mainTypo: MAIN_TYPO,
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
         type:2,
         title:"Formal",
-        fontSize:"1.6rem",
-        description:"Mujeres: vestido largo, no usar blanco, no beige, no crema, no plateado,no dorado. Hombres: traje formal, pantalón, camisa formal, zapatos formales",
-
+        fontSize:"2rem",
+        description:"Mujeres: vestido largo. Hombres: traje formal, pantalón, camisa formal, zapatos formales.",
+        omitColorsLabel:"Omitir:",
+        omitColorsText :"Colores: blanco,beige, crema, plateado, dorado.  Tenis, playeras, gorra, pantalón de mezclilla ",
     }
      const withOutKids:WithoutKidsProps = {
         bodyTypo:BODY_TYPO,
@@ -169,29 +175,29 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 bgColor: COLOR_PRIMARY, 
                 events: [
                     {
-                        eventName: "Ceremonia Religiosa",
+                        eventName: "Ceremonia",
                         date: new Date(2025, 10, 16, 18, 0, 0),
-                        icon: `${URL_IMAGES}icons/2.svg`,
+                        icon: `${URL_IMAGES}iconos/2.svg`,
                     },
                     {
                         eventName: "Cóctel",
                         date: new Date(2025, 10, 16, 20, 0, 0),
-                        icon: `${URL_IMAGES}icons/3.svg`,
+                        icon: `${URL_IMAGES}iconos/3.svg`,
                     },
                     {
                         eventName: "Recepción",
                         date: new Date(2025, 10, 16, 21, 0, 0),
-                        icon: `${URL_IMAGES}icons/4.svg`,
+                        icon: `${URL_IMAGES}iconos/4.svg`,
                     },
                     {
                         eventName: "Cena",
                         date: new Date(2025, 10, 16, 21, 30, 0),
-                        icon: `${URL_IMAGES}icons/5.svg`,
+                        icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
                         eventName: "Fin del evento",
                         date: new Date(2025, 10, 16, 2, 0, 0),
-                        icon: `${URL_IMAGES}icons/9.svg`,
+                        icon: `${URL_IMAGES}iconos/9.svg`,
                     },
                 ],
     };
@@ -305,7 +311,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             </CountDownSimple>
            <ImageMiddle bgPosition="50%" height="30vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize="contain"></ImageMiddle>
 
-            <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+            <div style={{backgroundColor:"#F5EFE6" }}>
             <Grid container spacing={2} padding={4} >
             {eventCards
                 .map((item,index) => (          
@@ -316,7 +322,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             </div>
                           <div style={{backgroundImage: `url("${URL_IMAGES}contador.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
-             <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(207,193,167,.8)"}}>
+             <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(198, 90, 46,.8)"}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
               <Typography variant='h4' style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>{t("timeline.title")}</Typography>
@@ -370,15 +376,10 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             </Grid>	
       </Grid>
         </div>
-            <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
-            <Grid container spacing={2} padding={2} paddingBottom={0} >
-                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                    <Box display={"flex"} justifyContent={"center"} marginBottom={4}>
-                        <GiftList {...giftListData}></GiftList>
-                    </Box>
-                    
-                </Grid>
-               </Grid>
+            <div style={{backgroundColor:COLOR_PRIMARY }}>
+           
+                        <GiftList2 {...giftListData}></GiftList2>
+          
                 
                     </div>
             <RSVPForm 
