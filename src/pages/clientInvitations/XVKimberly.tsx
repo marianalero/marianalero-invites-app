@@ -68,24 +68,24 @@ const XVKimberly  = () => {
     ]
    
         const eventCards: EventCardProps[] = [
-            // {
-            //     eventName: "Misa Religiosa",
-            //     date: new Date(2026, 3, 11, 17, 0, 0),
-            //     locationName: "Parroquia de la Resurrección",
-            //     address: "Av. Colonizadores 72, Las Quintas, Hermosillo, Son.",
-            //     size: 6,
-            //     color: COLOR_PRIMARY,
-            //     icon: `${URL_IMAGES}iconos/7.svg`,
-            //     mainTypo:`${MAIN_TYPO}`,
-            //     bodyTypo: BODY_TYPO,
-            //     href: "https://maps.app.goo.gl/m5aguydPdyEVxibk8",
-            //     fontSize:"45px",
-            //     colorButton: COLOR_PRIMARY,
-            //     classButtonName:"btn-gold"
-            // },
+            {
+                eventName: "Misa Religiosa",
+                date: new Date(2026, 3, 11, 17, 0, 0),
+                locationName: "Iglesia San Juan De Capistrano",
+                address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
+                size: 6,
+                color: COLOR_PRIMARY,
+                icon: `${URL_IMAGES}iconos/9.svg`,
+                mainTypo:`${MAIN_TYPO}`,
+                bodyTypo: BODY_TYPO,
+                href: "https://maps.app.goo.gl/UEy9AtE6UmnMZVVe6",
+                fontSize:"45px",
+                colorButton: COLOR_PRIMARY,
+                classButtonName:"btn-gold"
+            },
             {
                 eventName: "Recepción",
-                date: new Date(2026, 3, 11, 20, 30, 0),
+                date: new Date(2026, 3, 11, 20, 0, 0),
                
                 locationName: "Salon Las Cascadas",
                 address: "Los Molinos 97, Las Minitas, 83285 Hermosillo, Son.",
@@ -109,24 +109,24 @@ const XVKimberly  = () => {
         bgColor: BG_COLOR, 
         fontSize:"38px",
         events: [
-            // {
-            //     eventName: "Misa",
-            //     date: new Date(2026, 0, 31, 17, 0, 0),
-            //     icon:`${URL_IMAGES}iconos/12.svg`,
-            // },
+            {
+                eventName: "Misa",
+                date: new Date(2026, 0, 31, 17, 0, 0),
+                icon:`${URL_IMAGES}iconos/15.svg`,
+            },
             {
                 eventName: "Recepción",
-                date: new Date(2026, 3, 11, 20, 30, 0),
+                date: new Date(2026, 3, 11, 20, 0, 0),
                 icon:`${URL_IMAGES}iconos/16.svg`,
             },
             {
                 eventName: "Fotografías",
-                date: new Date(2026,  3, 11 ,21,0,0),
+                date: new Date(2026,  3, 11 ,20,30,0),
                 icon:`${URL_IMAGES}iconos/17.svg`,
             },
             {
                 eventName: "Vals",
-                date: new Date(2026,  3, 11 ,21,40,0),
+                date: new Date(2026,  3, 11 ,21,0,0),
                 icon:`${URL_IMAGES}iconos/22.svg`,
             },
             {
@@ -141,7 +141,7 @@ const XVKimberly  = () => {
             },
             {
                 eventName: "Fin del evento",
-                date: new Date(2026,  1, 1,2,0,0),
+                date: new Date(2026,  3, 12,1,0,0),
                 icon:`${URL_IMAGES}iconos/25.svg`,
             },
         ],
@@ -394,7 +394,7 @@ const XVKimberly  = () => {
              </Grid>
            
             <RSVPForm 
-
+                dateLine={new Date(2026,3,1)}
                 textColor={COLOR_PRIMARY}
                     colorButton={COLOR_SECONDARY} 
                     bgColor={BG_COLOR} 

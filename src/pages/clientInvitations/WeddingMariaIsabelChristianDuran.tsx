@@ -63,7 +63,6 @@ const WeddingMariaIsabelChristianDuran  = () => {
         document.title = "Boda Maria Isabel & Christian Duran";
     }, []);
     const COLOR_PRIMARY = "#C65A2E";
-    const COLOR_SECONDARY = "#D88A2D";
     const COLOR_THIRD = "#8C1C2B";
     const COLOR_FOURTH = "#6E7F3F";
     const COLOR_TEXT = "#1A1A1A";
@@ -89,7 +88,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 href: "https://maps.app.goo.gl/rutM2huWpbQgHH7y7",
                 colorButton: COLOR_THIRD,
                 colorIcon: COLOR_PRIMARY,
-                fontSize:"1.8rem",
+                fontSize:"1.9rem",
                 bgColor:"white",
                 borderSquare:true,
 
@@ -110,7 +109,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
             showEnvelope:true,
             envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
             secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
-            bankIconEnd: `${URL_IMAGES}10.svg`,
+            bankIconEnd: `${URL_IMAGES}iconos/11.svg`,
             bankDetails: [
                 {
                     numbers: [
@@ -125,12 +124,13 @@ const WeddingMariaIsabelChristianDuran  = () => {
                     bodyTypo: BODY_TYPO,
                     bgColor: "#FAF7F2",
                     mainTypo: SECONDARY_TYPO,
-                    fontSize: "1.5rem",
+                    fontSize: "1.5rem", 
+                    outlineColor: true,  
                 },
                 {
                     numbers: [
                     {
-                        numberType: "",
+                        numberType: "Número",
                         number: "DE24 7539 0000 0001 2175 42",
                     },
                 ],
@@ -141,6 +141,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                     bgColor: "#FAF7F2",
                     mainTypo: SECONDARY_TYPO,
                     fontSize: "1.5rem",
+                    outlineColor: true,  
                 }
                 ,
                 
@@ -153,7 +154,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
         color:COLOR_PRIMARY,
         type:2,
         title:"Formal",
-        fontSize:"2rem",
+        fontSize:"2.3rem",
         description:"Mujeres: vestido largo. Hombres: traje formal, pantalón, camisa formal, zapatos formales.",
         omitColorsLabel:"Omitir:",
         omitColorsText :"Colores: blanco,beige, crema, plateado, dorado.  Tenis, playeras, gorra, pantalón de mezclilla ",
@@ -175,29 +176,29 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 bgColor: COLOR_PRIMARY, 
                 events: [
                     {
-                        eventName: "Ceremonia",
-                        date: new Date(2025, 10, 16, 18, 0, 0),
+                        eventName: "Ceremonia Religiosa",
+                        date: new Date(2025, 10, 16, 17, 0, 0),
                         icon: `${URL_IMAGES}iconos/2.svg`,
                     },
                     {
                         eventName: "Cóctel",
-                        date: new Date(2025, 10, 16, 20, 0, 0),
+                        date: new Date(2025, 10, 16, 18, 0, 0),
                         icon: `${URL_IMAGES}iconos/3.svg`,
                     },
-                    {
-                        eventName: "Recepción",
-                        date: new Date(2025, 10, 16, 21, 0, 0),
-                        icon: `${URL_IMAGES}iconos/4.svg`,
-                    },
+                    // {
+                    //     eventName: "Recepción",
+                    //     date: new Date(2025, 10, 16, 21, 0, 0),
+                    //     icon: `${URL_IMAGES}iconos/4.svg`,
+                    // },
                     {
                         eventName: "Cena",
-                        date: new Date(2025, 10, 16, 21, 30, 0),
+                        date: new Date(2025, 10, 16, 19, 0, 0),
                         icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
                         eventName: "Fin del evento",
-                        date: new Date(2025, 10, 16, 2, 0, 0),
-                        icon: `${URL_IMAGES}iconos/9.svg`,
+                        date: new Date(2025, 10, 16, 23, 0, 0),
+                        icon: `${URL_IMAGES}iconos/12.svg`,
                     },
                 ],
     };
@@ -216,9 +217,9 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 weddingDate="14.11.26"
                 bgImage={`${URL_IMAGES}portada.jpg`}
                 brideName="Maria Isabel" 
-                symbolr={"&"} 
+                symbolr={"y"} 
                 groomName={"Christian Duran"} 
-                className={SECONDARY_TYPO}
+                className={MAIN_TYPO}
                 bgSize="cover"
                 overlay={true}
                 fontSize="2rem"
@@ -231,14 +232,10 @@ const WeddingMariaIsabelChristianDuran  = () => {
            
                  <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={4} sx={{backgroundColor:"rgb(255,255,255)"}}> 
                         
-                          <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                            <Fade direction="up" triggerOnce={true}>
-                            <img src={`${URL_IMAGES}logo.jpeg`} height="120"/>
-                            </Fade>		
-                        </Grid>
+                          
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1.5rem", fontStyle: "italic!important" }} >"Entre tantos caminos, Dios guió los nuestros hasta cruzarse y, de la
+                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem", fontStyle: "italic!important" }} >"Entre tantos caminos, Dios guió los nuestros hasta cruzarse y, de la
 manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                             </Fade>		
                         </Grid>	
@@ -247,13 +244,17 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                             
                             </Fade>		
                         </Grid>	
-                      
+                      <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                            <Fade direction="up" triggerOnce={true}>
+                            <img src={`${URL_IMAGES}adorno.svg`} width="250"/>
+                            </Fade>		
+                        </Grid>
                            	
                      
                  </Grid>
             </Box>
             </div>
-            <ImageMiddle bgPosition="30%" height="60vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgPositionY="30%"></ImageMiddle>
+            <ImageMiddle bgPosition="30%" height="60vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgPositionY="80%"></ImageMiddle>
               <div style={{backgroundColor:"#F5EFE6", padding: "50px 20px" }}>
          
             <Grid container spacing={2} >
@@ -299,17 +300,19 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             </Grid>
             </div>
             <CountDownSimple 
+            bgImage={`url(${URL_IMAGES}fondo-horz.png)`}
+            bgVertical={`url(${URL_IMAGES}fondo-horz.png)`}
                 eventDate={new Date(2026, 10, 14)}
                format="dddd DD MMMM"
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
-                primaryColor={COLOR_SECONDARY} 
-                secondarColor="white"
-                circleBgColor="white"
-                bgColor={COLOR_PRIMARY}
+                primaryColor={COLOR_PRIMARY} 
+                secondarColor={COLOR_PRIMARY}
+                circleBgColor={"#F5EFE6"}
+                
                 >  
             </CountDownSimple>
-           <ImageMiddle bgPosition="50%" height="30vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgSize="contain"></ImageMiddle>
+           <ImageMiddle bgPosition="50%" height="80vh" bgImage={`${URL_IMAGES}enmedio2.jpg`} bgSize="contain"></ImageMiddle>
 
             <div style={{backgroundColor:"#F5EFE6" }}>
             <Grid container spacing={2} padding={4} >
@@ -383,8 +386,8 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                 
                     </div>
             <RSVPForm 
-            bgImage={`${URL_IMAGES}confirmacion.jpg`}
-            dateLine={new Date(2026,10,5)}
+                bgImage={`${URL_IMAGES}confirmacion.jpg`}
+                dateLine={new Date(2026,3,30)}
                 textColor={"white"}
                 colorButton={"white"} 
                 bgColor={COLOR_BG} 
@@ -396,7 +399,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                 invitationId={INVITATION_ID}
                 qrActive={false}
                 numberInWords={true}
-                fontSize="2rem"
+                fontSize="2.5rem"
                 transparencyButton={true}
             >
                 
@@ -407,8 +410,10 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
 
                 <Grid container spacing={2} padding={4} >
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                        <Box display={"flex"} justifyContent={"center"} marginBottom={4} width={"50%"} height={"1.5px"} bgcolor={COLOR_PRIMARY}></Box>
-                    </Grid>
+                            <Fade direction="up" triggerOnce={true}>
+                                <img src={`${URL_IMAGES}adorno.svg`} width="250"/>
+                            </Fade>		
+                        </Grid>
                 </Grid>
                               <WithoutKids {...withOutKids} /> 
                               </Box>   

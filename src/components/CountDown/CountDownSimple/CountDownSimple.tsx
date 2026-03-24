@@ -89,6 +89,9 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
         //   </div>
         );
       };
+      console.log("imgage", props.bgImage);
+      console.log("imgage vertical", props.bgVertical);
+      console.log("is small screen", isSmallScreen);
     return (
         <div id="countdown" style={{ backgroundImage: isSmallScreen ? props.bgVertical ? props.bgVertical : props.bgImage  : props.bgImage,backgroundSize:"cover", backgroundColor:props.bgColor}}  >
 			<div className="display-over">

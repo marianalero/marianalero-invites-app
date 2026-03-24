@@ -15,6 +15,7 @@ const GiftList2 = (props:GiftListProps) =>{
     return (
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:props.bgColor}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                {props.items && props.items?.length > 0 && (
                 <Paper elevation={2} sx={{padding:3, backgroundColor: props.cardColor}}>
                     <Grid container spacing={2}>
                         {
@@ -99,6 +100,7 @@ const GiftList2 = (props:GiftListProps) =>{
                         )}
                     </Grid>
                 </Paper>
+                )}
             </Grid>
 
             {hasEnvelopeCard && (
