@@ -85,7 +85,7 @@ const XVKimberly  = () => {
             // },
             {
                 eventName: "Recepción",
-                date: new Date(2026, 3, 11, 20, 0, 0),
+                date: new Date(2026, 3, 11, 20, 30, 0),
                
                 locationName: "Salon Las Cascadas",
                 address: "Los Molinos 97, Las Minitas, 83285 Hermosillo, Son.",
