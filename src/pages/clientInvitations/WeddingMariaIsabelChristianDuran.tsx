@@ -65,7 +65,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
     const COLOR_PRIMARY = "#C65A2E";
     const COLOR_SECONDARY = "#D88A2D";
     const COLOR_THIRD = "#8C1C2B";
-    // const COLOR_FOURTH = "#6E7F3F";
+    const COLOR_FOURTH = "#6E7F3F";
     const COLOR_TEXT = "#1A1A1A";
     const MAIN_TYPO = "pinyon-script-regular";
     const SECONDARY_TYPO = "the-seasons";
@@ -79,7 +79,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
             {
                 image : `${URL_IMAGES}recepcion.jpeg`,
                 eventName: "Ceremonia y Recepción",
-                date: new Date(2025, 10, 14, 18, 0, 0),
+                date: new Date(2026, 10, 14, 18, 0, 0),
                 locationName: "Casa Arias",
                 address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
                 size: 12,
@@ -121,7 +121,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 ],
                 bank: "BBVA débito (México)",
                 name: "Maria Isabel Ramos Nevarez",
-                    textColor: COLOR_PRIMARY,
+                    textColor: COLOR_FOURTH,
                     bodyTypo: BODY_TYPO,
                     bgColor: "#FAF7F2",
                     mainTypo: SECONDARY_TYPO,
@@ -136,7 +136,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 ],
                 bank: "Volksbank (Alemana)",
                 name: "Christian Duran Maury",
-                    textColor: COLOR_PRIMARY,
+                    textColor: COLOR_FOURTH,
                     bodyTypo: BODY_TYPO,
                     bgColor: "#FAF7F2",
                     mainTypo: SECONDARY_TYPO,
@@ -299,7 +299,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             </Grid>
             </div>
             <CountDownSimple 
-                eventDate={new Date(2025, 10, 14)}
+                eventDate={new Date(2026, 10, 14)}
                format="dddd DD MMMM"
                 typoHeader={`${MAIN_TYPO}`}
                 typoCountdown={BODY_TYPO} 
@@ -401,7 +401,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             >
                 
             </RSVPForm>
-                        <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "right", padding: "50px 20px" }}>
+                        <div style={{backgroundColor:"#F5EFE6"}}>
               <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} >        
             <DressCode {...dresscode}></DressCode>
 

@@ -80,6 +80,7 @@ const DressCode  = (props:DressCodeProps) =>
       justifyContent="center"
     >
             <Typography variant='body2'
+            align='center'
               className={props.bodyTypo}  
               >
               {props.omitColorsText}

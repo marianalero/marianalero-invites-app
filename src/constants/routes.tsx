@@ -55,6 +55,7 @@ import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsConditions from "../pages/termsConditions/TermsConditions";
 import AdminPage from "../pages/users/users";
 import WeddingMariaIsabelChristianDuran from "../pages/clientInvitations/WeddingMariaIsabelChristianDuran";
+import XVKimberly from "../pages/clientInvitations/XVKimberly";
 
 interface RouteConfig {
   path: string;
@@ -128,6 +129,7 @@ const routes: RouteConfig[] = [
 
   {path:'/prev-fc-2', element: <WeddingFlorMariaCruzRoberto></WeddingFlorMariaCruzRoberto>},
   {path:'/prev-ic', element: <WeddingMariaIsabelChristianDuran></WeddingMariaIsabelChristianDuran>},
+  {path:'/prev-k', element: <XVKimberly></XVKimberly>},
 ];
 
 
