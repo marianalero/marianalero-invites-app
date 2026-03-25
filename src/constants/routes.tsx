@@ -130,7 +130,7 @@ const routes: RouteConfig[] = [
 
   {path:'/prev-fc-3', element: <WeddingFlorMariaCruzRoberto></WeddingFlorMariaCruzRoberto>},
   {path:'/prev-ic', element: <WeddingMariaIsabelChristianDuran></WeddingMariaIsabelChristianDuran>},
-  {path:'/prev-k-2', element: <XVKimberly></XVKimberly>},
+  {path:'/prev-k-3', element: <XVKimberly></XVKimberly>},
 ];
 
 
