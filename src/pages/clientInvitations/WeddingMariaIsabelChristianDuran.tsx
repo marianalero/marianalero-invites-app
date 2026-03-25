@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/WithoutKids";
@@ -10,8 +10,9 @@ import FooterInvites from "../../components/Footer/FooterInvites";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Dialog, DialogContent, Box, Typography, DialogActions } from "@mui/material";
+import { Dialog, DialogContent, Box, Typography, DialogActions, Paper } from "@mui/material";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
 
@@ -216,7 +217,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 ourWeddingStart={true}
                 weddingDate="14.11.26"
                 bgImage={`${URL_IMAGES}portada.jpg`}
-                brideName="Maria Isabel" 
+                brideName="Ma. Isabel" 
                 symbolr={"y"} 
                 groomName={"Christian Duran"} 
                 className={MAIN_TYPO}
@@ -232,7 +233,12 @@ const WeddingMariaIsabelChristianDuran  = () => {
            
                  <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={4} sx={{backgroundColor:"rgb(255,255,255)"}}> 
                         
-                          
+                           <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                            <Fade direction="up" triggerOnce={true}>
+                            <img src={`${URL_IMAGES}icono-avion.svg`} width="80"/>
+                            </Fade>		
+                        </Grid>
+                           	
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
                             <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem", fontStyle: "italic!important" }} >"Entre tantos caminos, Dios guió los nuestros hasta cruzarse y, de la
@@ -244,12 +250,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                             
                             </Fade>		
                         </Grid>	
-                      <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                            <Fade direction="up" triggerOnce={true}>
-                            <img src={`${URL_IMAGES}adorno.svg`} width="250"/>
-                            </Fade>		
-                        </Grid>
-                           	
+                     
                      
                  </Grid>
             </Box>
@@ -300,8 +301,8 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             </Grid>
             </div>
             <CountDownSimple 
-            bgImage={`url(${URL_IMAGES}fondo-horz.png)`}
-            bgVertical={`url(${URL_IMAGES}fondo-horz.png)`}
+            bgImage={`url(${URL_IMAGES}fondo2.png)`}
+            bgVertical={`url(${URL_IMAGES}fondo2.png)`}
                 eventDate={new Date(2026, 10, 14)}
                format="dddd DD MMMM"
                 typoHeader={`${MAIN_TYPO}`}
@@ -380,10 +381,10 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
       </Grid>
         </div>
             <div style={{backgroundColor:COLOR_PRIMARY }}>
-           
+           {/* <img src={`${URL_IMAGES}1.png`} style={{width: "100%", borderRadius:2, position: "absolute", left:"100px"}} /> */}
                         <GiftList2 {...giftListData}></GiftList2>
           
-                
+                {/* <img src={`${URL_IMAGES}2.png`} style={{width: "100%", borderRadius:2, position: "absolute", left:"100px"}} /> */}
                     </div>
             <RSVPForm 
                 bgImage={`${URL_IMAGES}confirmacion.jpg`}
@@ -404,23 +405,70 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
             >
                 
             </RSVPForm>
-                        <div style={{backgroundColor:"#F5EFE6"}}>
+                        
               <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} >        
-            <DressCode {...dresscode}></DressCode>
-
+                <DressCode {...dresscode}></DressCode>
+                  {/* <img src={`${URL_IMAGES}3.png`} style={{width: "100%", borderRadius:2, position: "absolute", left:"100px"}} /> */}
                 <Grid container spacing={2} padding={4} >
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                                <img src={`${URL_IMAGES}adorno.svg`} width="250"/>
+                                <img src={`${URL_IMAGES}adorno2.svg`} width="300"/>
                             </Fade>		
                         </Grid>
                 </Grid>
                               <WithoutKids {...withOutKids} /> 
-                              </Box>   
+                            
+                        <Grid container spacing={2} padding={2} display="flex" justifyContent="center">
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                                <Fade direction="up"  triggerOnce={true}>
+                                    <Paper sx={{ padding:2, backgroundColor: COLOR_BG, mb: 4 }}>
+                                    {/* Título */}
+                                    <Grid container justifyContent="center" textAlign="center" mb={2}>
+                                        <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                                            <Typography variant="h4" sx={{ color: COLOR_PRIMARY, fontSize: 40 }} className={MAIN_TYPO}>
+                                            Hospedaje
+                                            </Typography>
+                                            <Typography sx={{ fontSize: 14, mt: 1 }} className={BODY_TYPO}>
+                                            Queremos que disfruten este día sin preocupaciones. Si necesitan
+                                            hospedaje, les sugerimos:
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+
+                                    {/* Tarjeta */}
+                                    <Grid container justifyContent="center">
+                                        <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                                            <Box sx={{ p: 3, backgroundColor: "white", borderRadius:1 }} gap={1}>
+                                            
+                                            <Typography variant="h4" align="center" className={MAIN_TYPO} sx={{ mb: 1, color:COLOR_PRIMARY }}>
+                                              Hotel Royal Palace
+                                            </Typography>
+                                            <img src={`${URL_IMAGES}home-royale.png`} style={{width: "100%", borderRadius:2}} />
+                                            <Typography sx={{ mt: 1 }} className={BODY_TYPO} align="center">Reservaciones en :</Typography>
+
+                                            <Typography sx={{ mt: 1, mb: 1 }} align="center" className={BODY_TYPO}> <Link style={{color:COLOR_THIRD}} color={COLOR_THIRD} to="https://royalpalace.com.mx/our-rooms/" target="_blank" rel="noopener noreferrer">https://royalpalace.com.mx/our-rooms/</Link></Typography>
+
+                                   
+
+                                            
+                                        <Box display="flex" justifyContent="center">
+                                        <   CustomButton href={"https://maps.app.goo.gl/qsW7QbV2Yk4HAwaD6"} bgColor={COLOR_FOURTH} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+
+                                        </Box>
+
+                                    </Box>
+                                 </Grid>
+                            </Grid>
+                        </Paper>
+                     </Fade>
+                    </Grid>
+               </Grid>
+                </Box>   
+                        
             <div style={{height:100}}></div>
 
                      <Gallery photos={galleryPhotos}></Gallery>
-         </div>
+         
             <FooterInvites bgColor={COLOR_BG} color={COLOR_PRIMARY}></FooterInvites>
              <Dialog
                          open={open}
