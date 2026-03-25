@@ -66,7 +66,7 @@ const CoverInline = (props: CoverProps) => {
             <Fade direction="up" triggerOnce={true}>
                 {props.ourWeddingStart && (
                     <h1 className="holder" style={{ marginTop: props.margin ? props.margin : "16px", }}>
-                        <span>{props.subtitle ? props.subtitle : t("ourWedding")}</span>
+                        <span style={{fontSize:"1rem"}} >{props.subtitle ? props.subtitle : t("ourWedding")}</span>
                     </h1>
                 )}
 
@@ -87,7 +87,7 @@ const CoverInline = (props: CoverProps) => {
 
                 {!props.ourWeddingStart && (
                     <h1 className={props.dateClass ? `${props.dateClass} holder` : "holder"}>
-                        <span>{props.subtitle ? props.subtitle : "Nuestra Boda"}</span>
+                        <span style={{fontSize:"1rem"}}>{props.subtitle ? props.subtitle : "Nuestra Boda"}</span>
                     </h1>
                 )}
 

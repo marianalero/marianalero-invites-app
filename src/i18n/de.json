@@ -1,0 +1,91 @@
+{
+  "welcome": "Willkommen",
+  "enter": "Eintreten",
+  "english": "Englisch",
+  "spanish": "Spanisch",
+  "ourWedding": "Unsere Hochzeit",
+  "weddingSponsors": "Trauzeugen",
+  "events": {
+    "ceremony": "Kirchliche Trauung",
+    "reception": "Empfang",
+    "location": "Standort ansehen"
+  },
+  "timeline": {
+    "title": "Der große Tag",
+    "subtitle": "Verpassen Sie keinen Moment",
+    "reception": "Empfang",
+    "waltz": "Walzer",
+    "dinner": "Abendessen",
+    "party": "Alle tanzen",
+    "end": "Ende der Veranstaltung"
+  },
+  "dresscode": {
+    "title": "Dresscode",
+    "formal-attire": "Strenge Abendgarderobe",
+    "formal": "Formell"
+  },
+  "quote": {
+    "main": "Du kamst weder zu früh noch zu spät, du kamst genau zur richtigen Zeit – zur richtigen Zeit, damit ich mich in dich verlieben konnte."
+  },
+  "gifts": {
+    "giftTable": "Geschenketisch",
+    "rainEnvelopes": "Umschlaggeschenke",
+    "mainPhrase": "Wir danken Ihnen herzlich für all Ihre Liebe und Unterstützung zu Beginn dieses neuen Kapitels unseres gemeinsamen Lebens.",
+    "envelope": "Am Tag der Veranstaltung wird es eine Box für Umschläge geben, falls Sie uns ein Geldgeschenk machen möchten. Alternativ können Sie auch eine Banküberweisung auf folgendes Konto tätigen:",
+    "seeBankInfo": "Klicken Sie hier, um die Bankdaten zu sehen",
+    "bank": "Bank",
+    "bankBeneficiary": "Begünstigter",
+    "card": "Karte",
+    "accountNumber": "Kontonummer",
+    "clabe": "CLABE",
+    "clickHereText": "Klicken Sie <1>hier</1>, um zu unserer Geschenkeliste zu gelangen"
+  },
+  "introduction": {
+    "line1": "Wir möchten die Freude unserer Verbindung mit Ihnen teilen",
+    "line2": "Mit dem Segen Gottes und der bedingungslosen Unterstützung unserer Eltern",
+    "line3": "Gemeinsam mit unseren Familien laden wir Sie ein, Teil dieser wunderschönen Verbindung zu sein"
+  },
+  "RSVP": {
+    "title": "Bestätigen Sie Ihre Teilnahme!",
+    "subtitle": "Wir würden uns freuen, Sie an unserem besonderen Tag dabei zu haben",
+    "namePlaceholder": "Name",
+    "guestsPlaceholder": "Anzahl der Gäste",
+    "phonePlaceholder": "Telefon",
+    "companionPlaceholder": "Name(n) der Begleitperson(en)",
+    "attendingLabel": "Ich werde teilnehmen",
+    "notAttendingLabel": "Ich kann nicht teilnehmen",
+    "commentsPlaceholder": "Zusätzliche Kommentare",
+    "submitButton": "Senden",
+    "successMessage": "Vielen Dank für Ihre Bestätigung! Falls Sie Änderungen vornehmen müssen, können Sie Ihre Antwort noch anpassen.",
+    "rsvpConfirmedMessage": "Sie haben Ihre Teilnahme für {{count}} Personen bestätigt.",
+    "dateLineEnd": "Leider ist die Frist zur Bestätigung bereits abgelaufen.",
+    "dateLineStart": "Bitte helfen Sie uns, indem Sie Ihre Teilnahme bis zum ",
+    "willYouAttend": "Werden Sie teilnehmen?",
+    "Yes": "Ja",
+    "No": "Nein",
+    "placesReserved": "Wir haben einen Platz für Sie reserviert.",
+    "placesReserved_plural": "Wir haben {{count}} Plätze für Sie reserviert.",
+    "send": "Senden",
+    "errorMessage": "Beim Senden Ihrer Bestätigung ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+    "successSend": "Bestätigung gesendet!",
+    "notAttendingMessage": "Wir bedauern, dass Sie uns bei diesem besonderen Anlass nicht begleiten können.",
+    "updateResponseMessage": "Vielen Dank, dass Sie sich die Zeit genommen haben zu bestätigen. Sie können Ihre Antwort bis zum {{date}} aktualisieren."
+  },
+  "NoKidsMessageTitle": "Mama und Papa verdienen einen freien Tag!",
+  "NoKidsMessageBody": "Respektvoll,",
+  "NoKidsMessageBodyDesc": "ohne Kinder",
+  "footer": {
+    "message": "Mit ❤️ erstellt von Mariana & Lero"
+  },
+  "countdown": {
+    "days": "Tage",
+    "hours": "Std",
+    "minutes": "Min",
+    "seconds": "Sek"
+  },
+  "lodging": {
+    "title": "Unterkunft",
+    "subtitle": "Optionen in der Nähe des Veranstaltungsortes",
+    "reservation": "Reservierungen"
+  }
+}
