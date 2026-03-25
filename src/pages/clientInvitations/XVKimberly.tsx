@@ -409,7 +409,7 @@ const XVKimberly  = () => {
              </Grid>
            
             <RSVPForm 
-                dateLine={new Date(2026,3,1)}
+                dateLine={new Date(2026,3,8)}
                 textColor={COLOR_PRIMARY}
                     colorButton={COLOR_SECONDARY} 
                     bgColor={BG_COLOR} 

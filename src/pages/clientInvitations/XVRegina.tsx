@@ -14,7 +14,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Adornment from "../../components/Adornment/Adornment";
-import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
@@ -54,7 +53,7 @@ const XVRegina  = () => {
     // 🎨 BACKGROUNDS
     const BG_MAIN = "#F5F3EF";        // Fondo principal (blanco cálido)
     const BG_SECTION = "#A9C1BA";     // Secciones suaves (verde claro)
-    const BG_ACCENT = "#E6DAD4";      // Secciones especiales (nude)
+    const BG_ACCENT = "#8FA39C";      // Secciones especiales (nude)
 
     // 🖋 TEXTOS
     const TEXT_PRIMARY = "#4F6B64";   // Texto principal
@@ -73,7 +72,7 @@ const XVRegina  = () => {
     const MAIN_TYPO = "parisienne-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
     const URL_IMAGES = `${URL_REPO}xv/xv-regina/`;
-    const BG_COLOR ="rgb(252,236,223,0.6)"
+
     // const galleryPhotos = [
     //    `${URL_IMAGES}galeria1.jpeg`,
     //    `${URL_IMAGES}galeria2.jpeg`,
@@ -211,21 +210,21 @@ const XVRegina  = () => {
     return (
         <div style={{backgroundColor:BG_MAIN ,maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={BUTTON_PRIMARY }/>
-           <Grid container justifyContent="center" bgcolor={BG_SECTION}>
-            <Grid size={12}>
-                <Box display={"flex"} justifyContent={"center"} paddingY={4}>
-                  <Typography variant="h1" className={`${BODY_TYPO}`} translate="no" 
-                        sx={{  fontSize: "1rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+           <Grid container justifyContent="center" bgcolor={BG_SECTION} height={"80vh"}>
+            <Grid size={12} display={"flex"} alignItems={"center"} justifyContent={"center"}>
+                <Box  paddingY={4}>
+                  <Typography variant="h1" className={`${BODY_TYPO}`} translate="no"  align="center"
+                        sx={{  fontSize: "1.5rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
                     >
                     Mis XV años
                     </Typography>
-                    <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no" 
-                        sx={{  fontSize: "2rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                    <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no"  align="center"
+                        sx={{  fontSize: "3rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
                     >
-                    Regina
+                    Regina Alvarez Perez
                     </Typography>
-                     <Typography variant="h1" className={`${BODY_TYPO}`} translate="no" 
-                        sx={{  fontSize: "1rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                     <Typography variant="h1" className={`${BODY_TYPO}`} translate="no"  align="center"
+                        sx={{  fontSize: "1.5rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
                     >
                     20.06.2026
                     </Typography>
@@ -251,7 +250,8 @@ const XVRegina  = () => {
            <Qoute 
                {...qoute}>
             </Qoute>
-              <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.jpeg`}></ImageMiddle>
+            <Box height="70vh" bgcolor={"lightgrey"}></Box>
+              {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.jpeg`}></ImageMiddle> */}
      <div style={{backgroundImage: `url("${URL_IMAGES}fondo4.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
                         <Grid container justifyContent="center" padding={2}>
@@ -332,16 +332,16 @@ const XVRegina  = () => {
     </Grid>
     </div>
             <CountDown 
-                eventDate={new Date(2026,3,11)}
+                eventDate={new Date(2026, 5, 20)}
                 bgImage={`${URL_IMAGES}contador.jpeg`}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} 
                 fontSize="2rem"
                 padding="0 0 0 0"
-                alignItems="start"
+                alignItems="center"
                 >  
             </CountDown>
-            <Grid container spacing={2} justifyContent="center" paddingX={"20px"} paddingY={"50px"} bgcolor={BG_COLOR}>
+            <Grid container spacing={2} justifyContent="center" paddingX={"20px"} paddingY={"50px"} bgcolor={BG_SECTION}>
       {/* Texto inicial */}
       <Grid size={12} textAlign="center" sx={{ width: "100%" }}>
          <Fade direction="up" >
@@ -415,17 +415,60 @@ const XVRegina  = () => {
                 ))
             }
             </Grid>
-           
-            <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`}></ImageMiddle>
+           <Box height="70vh" bgcolor={"lightgrey"}></Box>
+            {/* <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`}></ImageMiddle> */}
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
-             <Grid container spacing={2} justifyContent="center" padding={4}>
-              <Grid size={{ xs: 12 }}>
-                 <GiftList {...giftListData} ></GiftList>
-              </Grid>
-              
-             </Grid>
+            <Box
+              sx={{
+                position: "relative",
+                backgroundColor: BG_ACCENT,
+                py: 10,
+                overflow: "visible", // 👈 clave para que se salgan
+              }}
+            >
+              {/* 🌸 Flor esquina superior izquierda */}
+              <Box
+                component="img"
+                src={`${URL_IMAGES}flores.png`}
+                sx={{
+                  position: "absolute",
+                  top: "-60px",
+                  left: "-60px",
+                  width: { xs: "140px", md: "200px" },
+                  zIndex: 3,
+                  pointerEvents: "none",
+                }}
+              />
+
+              {/* 🌸 Flor esquina inferior derecha */}
+              <Box
+                component="img"
+                src={`${URL_IMAGES}flores.png`}
+                sx={{
+                  position: "absolute",
+                  bottom: "-60px",
+                  right: "-60px",
+                  width: { xs: "140px", md: "200px" },
+                  transform: "scaleX(-1)",
+                  zIndex: 3,
+                  pointerEvents: "none",
+                }}
+              />
+
+              {/* 📦 Contenido */}
+              <Box
+                sx={{
+                  position: "relative",
+                  zIndex: 2,
+                  px: 2,
+                }}
+              >
+                <GiftList {...giftListData} />
+              </Box>
+            </Box>
+             
            
             <RSVPForm 
                 dateLine={new Date(2026,3,1)}
