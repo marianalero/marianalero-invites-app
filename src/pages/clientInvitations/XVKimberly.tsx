@@ -80,8 +80,8 @@ const XVKimberly  = () => {
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/UEy9AtE6UmnMZVVe6",
                 fontSize:"45px",
-                colorButton: COLOR_PRIMARY,
-                classButtonName:"btn-gold"
+                colorButton: COLOR_SECONDARY,
+         
             },
             {
                 eventName: "Recepción",
@@ -199,8 +199,8 @@ const XVKimberly  = () => {
         <div style={{backgroundColor:"#FFFFFF",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
             <CoverSimple 
-                bgImage={`${URL_IMAGES}enmedio2.jpeg`}
-                bgImage2={`${URL_IMAGES}enmedio2.jpeg`}
+                bgImage={`${URL_IMAGES}portada.jpeg`}
+                bgImage2={`${URL_IMAGES}portada.jpeg`}
                   weddingDate="11.04.2026"
                  subtitle="Mis XV años"
                   brideName="Kimberly Mayrin"
@@ -382,7 +382,7 @@ const XVKimberly  = () => {
             }
             </Grid>
            
-            <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}portada.jpeg`}></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`}></ImageMiddle>
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
