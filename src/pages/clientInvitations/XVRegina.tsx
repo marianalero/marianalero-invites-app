@@ -13,17 +13,14 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import CustomButton from "../../components/CustomButton/CustomButton";
-import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
 import Adornment from "../../components/Adornment/Adornment";
-import Gallery from "../../components/Gallery/Gallert";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
-import MiniGallery from "../../components/MiniGallery/MiniGallery";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 
 
-const XVKimberly  = () => {
+const XVRegina  = () => {
       const [searchParams] = useSearchParams();
         const invitedGuests: number = useMemo(() => {
             const num = Number(searchParams.get("number"));
@@ -33,7 +30,7 @@ const XVKimberly  = () => {
                 const num = Number(searchParams.get("id"));
                 return isNaN(num) ? undefined : num;
             }, [searchParams]);
-        const INVITATION_ID = 21;
+        const INVITATION_ID = 0;
         const [open, setOpen] = useState(false);
 
         const musicRef = useRef<MusicFabPlayerHandle>(null);
@@ -54,18 +51,34 @@ const XVKimberly  = () => {
     
 
   
-    const COLOR_PRIMARY = "#ec959d";
-    const COLOR_SECONDARY = "#f7c1b5";
-    const COLOR_THREE = "#f3bfc3";
+    // 🎨 BACKGROUNDS
+    const BG_MAIN = "#F5F3EF";        // Fondo principal (blanco cálido)
+    const BG_SECTION = "#A9C1BA";     // Secciones suaves (verde claro)
+    const BG_ACCENT = "#E6DAD4";      // Secciones especiales (nude)
+
+    // 🖋 TEXTOS
+    const TEXT_PRIMARY = "#4F6B64";   // Texto principal
+    const TEXT_SECONDARY = "#6F8F87"; // Texto secundario
+    // const TEXT_LIGHT = "#F5F3EF";     // Texto sobre fondos oscuros
+
+    // 🎯 BOTONES
+    const BUTTON_PRIMARY = "#4F6B64"; 
+    // const BUTTON_HOVER = "#6F8F87";
+    // const BUTTON_TEXT = "#F5F3EF";
+
+    // ✨ DETALLES
+    // const BORDER_COLOR = "#8FA39C";   // Bordes / inputs
+    // const DECORATION = "#D9D9D6";    // Líneas, iconos sutiles
+    // const SHADOW_COLOR = "rgba(79, 107, 100, 0.15)";
     const MAIN_TYPO = "parisienne-regular";
     const BODY_TYPO = "pt-serif-caption-regular to-upper";
-    const URL_IMAGES = `${URL_REPO}xv/xv-kimberly/`;
+    const URL_IMAGES = `${URL_REPO}xv/xv-regina/`;
     const BG_COLOR ="rgb(252,236,223,0.6)"
-    const galleryPhotos = [
-       `${URL_IMAGES}galeria1.jpeg`,
-       `${URL_IMAGES}galeria2.jpeg`,
-        `${URL_IMAGES}galeria3.jpeg`,
-    ]
+    // const galleryPhotos = [
+    //    `${URL_IMAGES}galeria1.jpeg`,
+    //    `${URL_IMAGES}galeria2.jpeg`,
+    //     `${URL_IMAGES}galeria3.jpeg`,
+    // ]
    
         const eventCards: EventCardProps[] = [
             {
@@ -74,13 +87,13 @@ const XVKimberly  = () => {
                 locationName: "Iglesia San Juan De Capistrano",
                 address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
                 size: 6,
-                color: COLOR_PRIMARY,
+                color: TEXT_PRIMARY,
                 icon: `${URL_IMAGES}iconos/9.svg`,
                 mainTypo:`${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/UEy9AtE6UmnMZVVe6",
                 fontSize:"45px",
-                colorButton: COLOR_SECONDARY,
+                colorButton: BUTTON_PRIMARY ,
          
             },
             {
@@ -90,23 +103,23 @@ const XVKimberly  = () => {
                 locationName: "Salon Las Cascadas",
                 address: "Los Molinos 97, Las Minitas, 83285 Hermosillo, Son.",
                 size: 6,
-                color: COLOR_PRIMARY,
+                color: TEXT_PRIMARY ,
                 icon:`${URL_IMAGES}iconos/10.svg`,
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"45px",
                 href: "https://maps.app.goo.gl/rpiFrF3X8ohWPrpD9",
-                colorButton: COLOR_SECONDARY,
+                colorButton: BUTTON_PRIMARY,
                 
             },
     ];
     const timelineData: CustomizedTimelineProps = {
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
-        colorPrimary: COLOR_THREE,
-        colorTitle: COLOR_THREE,
-        colorBody: COLOR_THREE, 
-        bgColor: BG_COLOR, 
+        colorPrimary: TEXT_PRIMARY,
+        colorTitle: TEXT_PRIMARY,
+        colorBody: TEXT_PRIMARY, 
+        bgColor: BG_SECTION, 
         fontSize:"38px",
         events: [
             {
@@ -150,8 +163,8 @@ const XVKimberly  = () => {
         
         mainTypo: `${MAIN_TYPO}`,
         bodyTypo: BODY_TYPO,
-        color: COLOR_PRIMARY, 
-        bgColor: "#FFFFFF", 
+        color: TEXT_PRIMARY, 
+        bgColor: BG_ACCENT , 
         showEnvelope:true,
         bankIconEnd:`${URL_IMAGES}iconos/26.svg`,
         envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacernos un obsequio, tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
@@ -177,16 +190,15 @@ const XVKimberly  = () => {
     const dresscode:DressCodeProps = {
         mainTypo:`${MAIN_TYPO}`,
         bodyTypo:BODY_TYPO,
-        color:COLOR_PRIMARY,
+        color:TEXT_PRIMARY,
         type:1,
         title:"Formal",
         fontSize:"2rem",
-        omitColorsLabel:"Color rosa reservado para la Quinceañera"
     }
    
      const qoute:QouteProps ={
             bodyTypo: MAIN_TYPO,
-            bgColor:BG_COLOR,
+            bgColor:BG_ACCENT ,
             fontsize:"1.5rem",
             lineheight:"1.5rem",
             addormentStart:``,
@@ -197,11 +209,32 @@ const XVKimberly  = () => {
 
     
     return (
-        <div style={{backgroundColor:"#FFFFFF",maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
-           <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
-            <CoverSimple 
-                bgImage={`${URL_IMAGES}portada.jpeg`}
-                bgImage2={`${URL_IMAGES}portada.jpeg`}
+        <div style={{backgroundColor:BG_MAIN ,maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
+           <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={BUTTON_PRIMARY }/>
+           <Grid container justifyContent="center" bgcolor={BG_SECTION}>
+            <Grid size={12}>
+                <Box display={"flex"} justifyContent={"center"} paddingY={4}>
+                  <Typography variant="h1" className={`${BODY_TYPO}`} translate="no" 
+                        sx={{  fontSize: "1rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                    >
+                    Mis XV años
+                    </Typography>
+                    <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no" 
+                        sx={{  fontSize: "2rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                    >
+                    Regina
+                    </Typography>
+                     <Typography variant="h1" className={`${BODY_TYPO}`} translate="no" 
+                        sx={{  fontSize: "1rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                    >
+                    20.06.2026
+                    </Typography>
+                </Box>
+            </Grid>
+            </Grid>
+            {/* <CoverSimple 
+                // bgImage={`${URL_IMAGES}portada.jpeg`}
+                // bgImage2={`${URL_IMAGES}portada.jpeg`}
                   weddingDate="11.04.2026"
                  subtitle="Mis XV años"
                   brideName="Kimberly Mayrin"
@@ -214,7 +247,7 @@ const XVKimberly  = () => {
                 overlay={true}
                 
                   >
-            </CoverSimple>
+            </CoverSimple> */}
            <Qoute 
                {...qoute}>
             </Qoute>
@@ -254,7 +287,7 @@ const XVKimberly  = () => {
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
               <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
-                sx={{fontSize: "2rem" ,lineHeight:2, color: COLOR_PRIMARY }}
+                sx={{fontSize: "2rem" ,lineHeight:2, color: TEXT_PRIMARY }}
               >
                   Marina Perez Bracamontes
               </Typography>
@@ -264,7 +297,7 @@ const XVKimberly  = () => {
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
               <Fade direction="up" >
               <Typography  variant="h1" className={`${MAIN_TYPO}`} translate="no" 
-                sx={{  fontSize: "2rem",lineHeight:2 , color: COLOR_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                sx={{  fontSize: "2rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
               >
                Martin Alvarez Delgadillo 
               </Typography>
@@ -332,7 +365,7 @@ const XVKimberly  = () => {
             <Fade direction="up" >
             <Typography
               variant="h3" className={`${MAIN_TYPO}`}
-              sx={{ fontSize: "2.5rem", color: COLOR_SECONDARY }}
+              sx={{ fontSize: "2.5rem", color: TEXT_SECONDARY }}
             >
               Mis Padrinos
             </Typography>
@@ -346,20 +379,6 @@ const XVKimberly  = () => {
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
                         Manuela de Jesús Perez Bracamontes & Francisco Javier Sámano Herrera
-                      </Typography>
-                    </Fade>
-              </Grid>
-              <Grid size={{ xs: 12,md:12,lg:12}}>
-                    <Fade direction="up" >
-                      <Typography variant="body1" className={BODY_TYPO}>
-                        María Yésica Pérez Bracamontes 
-                      </Typography>
-                    </Fade>
-              </Grid>
-              <Grid size={{ xs: 12,md:12,lg:12}}>
-                    <Fade direction="up" >
-                      <Typography variant="body1" className={BODY_TYPO}>
-                        María Guadalupe Meza Castro
                       </Typography>
                     </Fade>
               </Grid>
@@ -377,7 +396,7 @@ const XVKimberly  = () => {
      
             </Grid>
             </Grid>
-            <MiniGallery
+            {/* <MiniGallery
                     images={[
                         `${URL_IMAGES}mini1.jpeg`,
                         `${URL_IMAGES}mini2.jpeg`,
@@ -388,7 +407,7 @@ const XVKimberly  = () => {
                     gap={6}
                     imageHeightDesktop={580}
                     imageHeightMobile={260}
-                    />
+                    /> */}
             <Grid container spacing={2} padding={4} justifyContent={"center"} >
             {
                 eventCards.map((item,index) => (          
@@ -410,13 +429,13 @@ const XVKimberly  = () => {
            
             <RSVPForm 
                 dateLine={new Date(2026,3,1)}
-                textColor={COLOR_PRIMARY}
-                    colorButton={COLOR_SECONDARY} 
-                    bgColor={BG_COLOR} 
+                textColor={TEXT_SECONDARY}
+                    colorButton={TEXT_SECONDARY } 
+                    bgColor={BG_SECTION } 
                     mainTypo={MAIN_TYPO} 
                     bodyTypo={BODY_TYPO} 
                     count={invitedGuests}
-                    color={COLOR_PRIMARY}
+                    color={TEXT_PRIMARY }
                     guestId={guestId}
                     invitationId={INVITATION_ID}
                     qrActive={false}
@@ -434,8 +453,8 @@ const XVKimberly  = () => {
               </Grid>
           
             <div style={{height:100}}></div>
-                       <Gallery photos={galleryPhotos} ></Gallery>
-            <FooterInvites bgColor={BG_COLOR} color={COLOR_PRIMARY}></FooterInvites>
+                       {/* <Gallery photos={galleryPhotos} ></Gallery> */}
+            <FooterInvites bgColor={BG_SECTION} color={TEXT_PRIMARY}></FooterInvites>
               <Dialog
             open={open}
             onClose={handleClose}
@@ -449,7 +468,7 @@ const XVKimberly  = () => {
                 <Typography variant="body1" sx={{fontSize:"25px"}} >Bienvenidos</Typography>
                </Box>
                 <Box display={"flex"} justifyContent={"center"} marginTop={2}>
-                 <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"}  color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>
+                 <CustomButton borderColor={TEXT_PRIMARY} bgColor={"#ffffff"}  color={TEXT_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>
                </Box>
                 
                
@@ -460,6 +479,6 @@ const XVKimberly  = () => {
         </div>
     )
 }
-export default XVKimberly;
+export default XVRegina;
 
 
