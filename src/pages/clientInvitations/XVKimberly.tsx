@@ -21,6 +21,7 @@ import RSVPForm from "../../components/RSVP/RSVPForm";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import MiniGallery from "../../components/MiniGallery/MiniGallery";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
+import WithoutKids from "../../components/WithOutKids/WithoutKids";
 
 
 const XVKimberly  = () => {
@@ -432,6 +433,7 @@ const XVKimberly  = () => {
               
                 </Fade>
               </Grid>
+              <WithoutKids/>
           
             <div style={{height:100}}></div>
                        <Gallery photos={galleryPhotos} ></Gallery>

@@ -87,7 +87,8 @@ const XVRegina  = () => {
                 address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
                 size: 6,
                 color: TEXT_PRIMARY,
-                icon: `${URL_IMAGES}iconos/9.svg`,
+                icon: `${URL_IMAGES}iglesia.png`,
+                iconSize:"180px",
                 mainTypo:`${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/UEy9AtE6UmnMZVVe6",
@@ -103,7 +104,8 @@ const XVRegina  = () => {
                 address: "Los Molinos 97, Las Minitas, 83285 Hermosillo, Son.",
                 size: 6,
                 color: TEXT_PRIMARY ,
-                icon:`${URL_IMAGES}iconos/10.svg`,
+                icon:`${URL_IMAGES}recepcion.png`,
+                iconSize:"180px",
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"45px",
@@ -121,36 +123,27 @@ const XVRegina  = () => {
         bgColor: BG_SECTION, 
         fontSize:"38px",
         events: [
-            {
-                eventName: "Misa",
-                date: new Date(2026, 0, 31, 17, 0, 0),
-                icon:`${URL_IMAGES}iconos/15.svg`,
-            },
+            // {
+            //     eventName: "Misa",
+            //     date: new Date(2026, 0, 31, 17, 0, 0),
+            //     icon:`${URL_IMAGES}iconos/15.svg`,
+            // },
             {
                 eventName: "Recepción",
                 date: new Date(2026, 3, 11, 20, 0, 0),
                 icon:`${URL_IMAGES}iconos/16.svg`,
             },
             {
-                eventName: "Fotografías",
-                date: new Date(2026,  3, 11 ,20,30,0),
-                icon:`${URL_IMAGES}iconos/17.svg`,
-            },
-            {
                 eventName: "Vals",
-                date: new Date(2026,  3, 11 ,21,0,0),
+                date: new Date(2026,  3, 11 ,20,30,0),
                 icon:`${URL_IMAGES}iconos/22.svg`,
             },
             {
                 eventName: "Cena",
-                date: new Date(2026,  3, 11 ,22,0,0),
+                date: new Date(2026,  3, 11 ,21,0,0),
                 icon:`${URL_IMAGES}iconos/23.svg`,
             },
-            {
-                eventName: "Baile y fiesta",
-                date: new Date(2026,  3, 11 ,22,30,0),
-                icon:`${URL_IMAGES}iconos/24.svg`,
-            },
+      
             {
                 eventName: "Fin del evento",
                 date: new Date(2026,  3, 12,1,0,0),
@@ -201,7 +194,7 @@ const XVRegina  = () => {
             fontsize:"1.5rem",
             lineheight:"1.5rem",
             addormentStart:``,
-            addormentEnd:`${URL_IMAGES}adorno.png`,
+            addormentEnd:`${URL_IMAGES}adornos2.png`,
             addormentSize:"250px",
             qoute : "Al caer la noche en el cielo millones de estrellas podrás contar… cada una de ellas era un deseo que en mi corazón voy a guardar… Dicen que la vida es mas bella si podemos cumplir lo que soñamos y mi sueño es que compartas conmigo la noche de mis 15 años.",
         }
@@ -274,7 +267,7 @@ const XVRegina  = () => {
                 
               <Grid>
                 <Fade direction="up" >
-                <Adornment image={`${URL_IMAGES}adorno.png`} width={"250px"} />
+                <Adornment image={`${URL_IMAGES}adornos2.png`} width={"250px"} />
               
                 </Fade>
               </Grid>
@@ -322,7 +315,7 @@ const XVRegina  = () => {
                 
               <Grid>
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adorno.png`} width={"250px"} />
+                    <Adornment image={`${URL_IMAGES}adornos2.png`} width={"250px"} />
               
                 </Fade>
               </Grid>
@@ -387,7 +380,7 @@ const XVRegina  = () => {
             <Grid container justifyContent="center" sx={{ mt: 4 }}>  
               <Grid>
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adorno.png`} width={"250px"} />
+                    <Adornment image={`${URL_IMAGES}adornos2.png`} width={"250px"} />
                 </Fade>
               </Grid>
             </Grid>
@@ -423,7 +416,7 @@ const XVRegina  = () => {
             <Box
               sx={{
                 position: "relative",
-                backgroundColor: BG_ACCENT,
+                backgroundColor: BG_MAIN,
                 py: 10,
                 overflow: "visible", // 👈 clave para que se salgan
               }}
@@ -431,12 +424,12 @@ const XVRegina  = () => {
               {/* 🌸 Flor esquina superior izquierda */}
               <Box
                 component="img"
-                src={`${URL_IMAGES}flores.png`}
+                src={`${URL_IMAGES}4.png`}
                 sx={{
                   position: "absolute",
                   top: "-60px",
                   left: "-60px",
-                  width: { xs: "140px", md: "200px" },
+                  width: { xs: "30vh", md: "200px" },
                   zIndex: 3,
                   pointerEvents: "none",
                 }}
@@ -445,12 +438,12 @@ const XVRegina  = () => {
               {/* 🌸 Flor esquina inferior derecha */}
               <Box
                 component="img"
-                src={`${URL_IMAGES}flores.png`}
+                src={`${URL_IMAGES}4.png`}
                 sx={{
                   position: "absolute",
                   bottom: "-60px",
                   right: "-60px",
-                  width: { xs: "140px", md: "200px" },
+                  width: { xs: "30vh", md: "200px" },
                   transform: "scaleX(-1)",
                   zIndex: 3,
                   pointerEvents: "none",

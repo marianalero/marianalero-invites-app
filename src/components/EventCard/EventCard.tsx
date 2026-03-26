@@ -32,7 +32,7 @@ const EventCard  = (props:EventCardProps) => {
                                 {
                                     props.icon && (
                                          <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent={"center"} >
-                                            <img src={props.icon} height="120" />
+                                            <img src={props.icon} height={props.iconSize ? props.iconSize : "120"} />
                                         </Grid>
                                     )
                                 }

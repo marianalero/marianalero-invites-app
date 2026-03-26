@@ -22,5 +22,6 @@ export interface Event {
     date?:Date;
     endDate?:Date;
     icon?:string;
+    iconSize?:string;
     image?:string;
 }
