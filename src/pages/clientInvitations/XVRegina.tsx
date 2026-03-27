@@ -33,7 +33,7 @@ const XVRegina  = () => {
         const [open, setOpen] = useState(false);
 
         const musicRef = useRef<MusicFabPlayerHandle>(null);
-       const URL_SONG = `${URL_REPO}canciones/Yellow-ColdPlay.mp3`;
+       const URL_SONG = `${URL_REPO}canciones/NoCrezcasMasPista-Tercer Cielo.mp3`;
        
         const handleClickOpen = () => {
             setOpen(true);
@@ -82,16 +82,16 @@ const XVRegina  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Misa Religiosa",
-                date: new Date(2026, 3, 11, 17, 0, 0),
-                locationName: "Iglesia San Juan De Capistrano",
-                address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
+                date: new Date(2026, 3, 11, 18, 0, 0),
+                locationName: "Parroquia Santa Eduwiges",
+                address: "C. Israel González S/N, Modelo, 83190 Hermosillo, Son.",
                 size: 6,
                 color: TEXT_PRIMARY,
                 icon: `${URL_IMAGES}iglesia.png`,
                 iconSize:"180px",
                 mainTypo:`${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/UEy9AtE6UmnMZVVe6",
+                href: "https://maps.app.goo.gl/zzzeXucMCxJ7MUAp7",
                 fontSize:"45px",
                 colorButton: BUTTON_PRIMARY ,
          
@@ -100,8 +100,8 @@ const XVRegina  = () => {
                 eventName: "Recepción",
                 date: new Date(2026, 3, 11, 20, 0, 0),
                
-                locationName: "Salon Las Cascadas",
-                address: "Los Molinos 97, Las Minitas, 83285 Hermosillo, Son.",
+                locationName: "La Cascada Eventos",
+                address: "Blvd. Jesús García Morales 335, San Isidro, Hermosillo, Son.",
                 size: 6,
                 color: TEXT_PRIMARY ,
                 icon:`${URL_IMAGES}recepcion.png`,
@@ -109,7 +109,7 @@ const XVRegina  = () => {
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"45px",
-                href: "https://maps.app.goo.gl/rpiFrF3X8ohWPrpD9",
+                href: "https://maps.app.goo.gl/YbuLDso9EFq8zJMo8",
                 colorButton: BUTTON_PRIMARY,
                 
             },
@@ -282,7 +282,7 @@ const XVRegina  = () => {
               <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
                 sx={{fontSize: "2rem" ,lineHeight:2, color: TEXT_PRIMARY }}
               >
-                  Marina Perez Bracamontes
+                  Marco Antonio Favela Espinoza
               </Typography>
               </Fade>
             </Grid>
@@ -292,7 +292,7 @@ const XVRegina  = () => {
               <Typography  variant="h1" className={`${MAIN_TYPO}`} translate="no" 
                 sx={{  fontSize: "2rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
               >
-               Martin Alvarez Delgadillo 
+               Sara Beatriz Esquer Bay
               </Typography>
               </Fade>
             </Grid>
@@ -371,7 +371,14 @@ const XVRegina  = () => {
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
                       <Typography variant="body1" className={BODY_TYPO}>
-                        Manuela de Jesús Perez Bracamontes & Francisco Javier Sámano Herrera
+                        Ana María Vélez Navarro
+                      </Typography>
+                    </Fade>
+              </Grid>
+               <Grid size={{ xs: 12,md:12,lg:12}}>
+                    <Fade direction="up" >
+                      <Typography variant="body1" className={BODY_TYPO}>
+                        Eleazar Navarro Jiménez
                       </Typography>
                     </Fade>
               </Grid>
@@ -464,7 +471,7 @@ const XVRegina  = () => {
              
            
             <RSVPForm 
-                dateLine={new Date(2026,3,1)}
+                dateLine={new Date(2026,4,20)}
                 textColor={TEXT_SECONDARY}
                     colorButton={TEXT_SECONDARY } 
                     bgColor={BG_SECTION } 
@@ -483,7 +490,7 @@ const XVRegina  = () => {
             <DressCode {...dresscode}></DressCode>
             <Grid paddingBottom={2} >
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adorno.png`} width={"250px"} />
+                    <Adornment image={`${URL_IMAGES}adornos2.png`} width={"250px"} />
               
                 </Fade>
               </Grid>
