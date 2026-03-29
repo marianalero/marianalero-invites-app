@@ -194,7 +194,7 @@ const WeddingFredaJuanColor  = () => {
                     },
                     {
                         eventName: "Fin del evento",
-                        date: new Date(2025, 10, 16, 2, 0, 0),
+                        date: new Date(2025, 10, 16, 1, 30, 0),
                         icon: `${URL_IMAGES}icons/9.svg`,
                     },
                 ],
