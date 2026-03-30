@@ -108,8 +108,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
             bgColor: "#FAF7F2", 
             cardColor: COLOR_PRIMARY,
             showEnvelope:true,
-            envelopePhrase:"Tendremos un buzón de sobres el día del evento, por si deseas hacernos un regalo en efectivo.",
-            secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
+            envelopePhrase:"Su presencia es el mayor regalo. Cualquier muestra adicional de cariño será bienvenida.",
             bankIconEnd: `${URL_IMAGES}iconos/11.svg`,
             bankDetails: [
                 {
@@ -217,7 +216,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 ourWeddingStart={true}
                 weddingDate="14.11.26"
                 bgImage={`${URL_IMAGES}portada.jpg`}
-                brideName="Ma. Isabel" 
+                brideName="Isabel Ramos" 
                 symbolr={"y"} 
                 groomName={"Christian Duran"} 
                 className={MAIN_TYPO}
@@ -235,7 +234,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                         
                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <img src={`${URL_IMAGES}icono-avion.svg`} width="80"/>
+                            <img src={`${URL_IMAGES}adorno2.svg`} width="250"/>
                             </Fade>		
                         </Grid>
                            	
