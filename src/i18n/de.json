@@ -3,26 +3,31 @@
   "enter": "Eintreten",
   "english": "Englisch",
   "spanish": "Spanisch",
+  "deutsch": "Deutsch",
   "ourWedding": "Unsere Hochzeit",
   "weddingSponsors": "Trauzeugen",
   "events": {
     "ceremony": "Kirchliche Trauung",
     "reception": "Empfang",
-    "location": "Standort ansehen"
+    "location": "Standort ansehen",
+    "ceremonyReception": "Zeremonie und Empfang"
   },
   "timeline": {
     "title": "Der große Tag",
     "subtitle": "Verpassen Sie keinen Moment",
+    "religiousCeremony": "Kirchliche Trauung",
     "reception": "Empfang",
     "waltz": "Walzer",
     "dinner": "Abendessen",
     "party": "Alle tanzen",
+    "cocktail": "Cocktail",
     "end": "Ende der Veranstaltung"
   },
   "dresscode": {
     "title": "Dresscode",
     "formal-attire": "Strenge Abendgarderobe",
-    "formal": "Formell"
+    "formal": "Formell",
+    "omit": "Auslassen"
   },
   "quote": {
     "main": "Du kamst weder zu früh noch zu spät, du kamst genau zur richtigen Zeit – zur richtigen Zeit, damit ich mich in dich verlieben konnte."
@@ -37,8 +42,10 @@
     "bankBeneficiary": "Begünstigter",
     "card": "Karte",
     "accountNumber": "Kontonummer",
+    "number": "Nummer",
     "clabe": "CLABE",
-    "clickHereText": "Klicken Sie <1>hier</1>, um zu unserer Geschenkeliste zu gelangen"
+    "clickHereText": "Klicken Sie <1>hier</1>, um zu unserer Geschenkeliste zu gelangen",
+    "giftMessage": "Ihre Anwesenheit ist das größte Geschenk. Jede zusätzliche Geste der Zuneigung ist herzlich willkommen."
   },
   "introduction": {
     "line1": "Wir möchten die Freude unserer Verbindung mit Ihnen teilen",
@@ -86,6 +93,20 @@
   "lodging": {
     "title": "Unterkunft",
     "subtitle": "Optionen in der Nähe des Veranstaltungsortes",
-    "reservation": "Reservierungen"
+    "reservation": "Reservierungen",
+    "reservationsAt": "Reservierungen bei:",
+    "lodgingMessage": "Wir möchten, dass Sie diesen Tag unbeschwert genießen. Falls Sie eine Unterkunft benötigen, empfehlen wir:"
+  },"banks" :{
+    "bbvaDebitMexico": "BBVA Debitkarte (Mexiko)",
+    "volksbankGerman": "Volksbank (Deutschland)"
+  },"isabel&christian": {
+    "dresscodeDetail": "Frauen: langes Kleid. Männer: formeller Anzug, Hose, formelles Hemd, formelle Schuhe.",
+    "dresscodeColors": "Farben: Weiß, Beige, Creme, Silber, Gold. Keine Turnschuhe, T-Shirts, Kappen oder Jeans.",
+    "noKidsMessage": "Wir lieben eure Kinder, aber wir glauben, dass ihr diesen Abend als Paar genießen solltet. Daher bleiben die Kinder bei dieser Gelegenheit zu Hause.",
+    "quote": "Unter so vielen Wegen hat Gott unsere Wege geführt, bis sie sich kreuzten, und auf die schönste Weise werden wir gemeinsam unseren Weg weitergehen.",
+    "introductionLine": "Wir möchten die Freude unserer Verbindung mit Ihnen teilen, mit dem Segen Gottes und unserer Eltern.",
+    "and": "und",
+    "inviteCelebrate": "Wir laden Sie ein, mit uns zu feiern"
   }
+  
 }

@@ -8,7 +8,8 @@
     "events": {
         "ceremony": "Ceremonia Religiosa",
         "reception": "Recepción",
-        "location": "Ver Ubicación"
+        "location": "Ver Ubicación",
+        "ceremonyReception": "Ceremonia y Recepción"
     },
         "timeline": {
         "title":"El Gran Día",
@@ -17,12 +18,15 @@
         "waltz": "Vals",
         "dinner": "Cena",
         "party": "Todos a bailar",
-        "end": "Fin del evento"
+        "end": "Fin del evento",
+          "cocktail": "Cóctel",
+           "religiousCeremony": "Ceremonia Religiosa"
     },
     "dresscode": {
     "title":"Código de vestimenta",
     "formal-attire": "Etiqueta Rigurosa",
-    "formal": "Formal"
+    "formal": "Formal",
+     "omit": "Omitir"
     
   },
   "quote": {
@@ -39,7 +43,8 @@
     "card":"Tarjeta",
     "accountNumber":"Número de Cuenta",
     "clabe":"CLABE",
-    "clickHereText": "Clic <1>aquí</1> para ir a nuestra mesa de regalos"
+    "clickHereText": "Clic <1>aquí</1> para ir a nuestra mesa de regalos",
+    "giftMessage": "Su presencia es el mayor regalo. Cualquier muestra adicional de cariño será bienvenida."
 },
   "introduction":{
     "line1":"Deseamos compartir con ustedes la alegría de nuestra unión",
@@ -87,6 +92,21 @@
 "lodging":{
     "title":"Alojamiento",
     "subtitle":"Opciones cercanas al lugar del evento",
-    "reservation":"Reservaciones"
+    "reservation":"Reservaciones",
+      "lodgingMessage": "Queremos que disfruten este día sin preocupaciones. Si necesitan hospedaje, les sugerimos:",
+  "reservationsAt": "Reservaciones en :"
+  },
+  "banks" :{
+    "bbvaDebitMexico": "Tarjeta de débito BBVA (México)",
+    "volksbankGerman": "Volksbank (Alemania)"
+  },
+  "isabel&christian": {
+ "dresscodeDetail": "Mujeres: vestido largo. Hombres: traje formal, pantalón, camisa formal, zapatos formales.",
+  "dresscodeColors": "Colores: blanco, beige, crema, plateado, dorado. Tenis, playeras, gorra, pantalón de mezclilla",
+  "noKidsMessage": "Amamos a tus hijos, pero creemos que esta noche se merecen disfrutar solos como pareja, por eso en esta ocasión los niños se quedan en casa",
+    "quote": "Entre tantos caminos, Dios guió los nuestros hasta cruzarse y, de la manera más hermosa, juntos seguiremos nuestro destino.",
+     "introductionLine": "Deseamos compartir con ustedes la alegría de nuestra unión, con la bendición de Dios y nuestros padres",
+  "and": "y",
+  "inviteCelebrate": "Te invitamos a celebrar con nosotros"
   }
 }

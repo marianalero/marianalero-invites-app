@@ -28,7 +28,11 @@ const DemoOneBI  = () => {
 
 const invitationConfig = {
   isMultilanguage: true, // o false
-  language: "es" as "es" | "en" // idioma base
+    language: "es", // idioma base
+    selectableLanguages: [
+        { code: "es", label: "Español" },
+        { code: "en", label: "English" },
+    ],
 };
   // 🔹 2. Traducciones normales
   const { t } = useTranslation();
@@ -295,6 +299,7 @@ const invitationConfig = {
             onClose={handleEnter}
             isMultilanguage={invitationConfig.isMultilanguage}
             language={invitationConfig.language}
+            selectableLanguages={invitationConfig.selectableLanguages}
             color={COLOR_PRIMARY}
            
 />

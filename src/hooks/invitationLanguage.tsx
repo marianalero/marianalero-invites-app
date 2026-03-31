@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import i18n from "../i18n";
 
-type Language = "es" | "en";
+type Language = string;
 
 type Props = {
   isMultilanguage: boolean;

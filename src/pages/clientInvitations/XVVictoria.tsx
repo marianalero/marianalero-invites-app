@@ -27,7 +27,7 @@ import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/Ti
 const XVVictoria  = () => {
   const invitationConfig = {
   isMultilanguage: false, // o false
-  language: "en" as "es" | "en" // idioma base
+  language: "en" // idioma base
 };
       const [searchParams] = useSearchParams();
         const invitedGuests: number = useMemo(() => {

@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 
 import es from "./es.json";
 import en from "./en.json";
+import de from "./de.json";
 
 i18n
   .use(initReactI18next)
@@ -10,10 +11,12 @@ i18n
     resources: {
       es: { translation: es },
       en: { translation: en },
+      de: { translation: de },
     },
-    lng: "es",              // 👈 FORZADO
+    lng: "es",
     fallbackLng: "es",
     debug: false,
+    supportedLngs: ["es", "en", "de"],
     interpolation: {
       escapeValue: false,
     },
@@ -22,23 +25,5 @@ i18n
     },
   });
 
-export default i18n;i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      es: { translation: es },
-      en: { translation: en },
-    },
-    lng: "es",
-    fallbackLng: "es",
-
-    // 🔴 CLAVE DEL FIX
-    detection: {
-      order: [],
-    },
-
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+export default i18n;
 

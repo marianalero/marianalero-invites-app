@@ -10,7 +10,7 @@ import FooterInvites from "../../components/Footer/FooterInvites";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Dialog, DialogContent, Box, Typography, DialogActions, Paper } from "@mui/material";
+import { Box, Typography,  Paper } from "@mui/material";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
@@ -33,9 +33,18 @@ import Gallery from "../../components/Gallery/Gallert";
 import EventCardImage from "../../components/EventCard/EventCardImage";
 import GiftList2 from "../../components/Gifts/GiftList2";
 import { GiftListProps } from "../../models/component/giftList";
+import InvitationWelcomeModal from "../../components/InvitationWelcomeModal/InvitationWelcomeModal";
 
 
 const WeddingMariaIsabelChristianDuran  = () => {
+    const invitationConfig = {
+    isMultilanguage: true, // o false
+        language: "es", // idioma base
+        selectableLanguages: [
+            { code: "es", label: "Español" },
+            { code: "de", label: "Deutsch" },
+        ],
+    };
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
         const num = Number(searchParams.get("number"));
@@ -52,7 +61,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
             setOpen(true);
         };
     
-        const handleClose = () => {
+        const handleEnter = () => {
             setOpen(false);
             musicRef.current?.play()
          };
@@ -78,7 +87,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
         const eventCards: EventCardProps[] = [
             {
                 image : `${URL_IMAGES}recepcion.jpeg`,
-                eventName: "Ceremonia y Recepción",
+                eventName: t("events.ceremonyReception"),
                 date: new Date(2026, 10, 14, 18, 0, 0),
                 locationName: "Casa Arias",
                 address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
@@ -108,17 +117,17 @@ const WeddingMariaIsabelChristianDuran  = () => {
             bgColor: "#FAF7F2", 
             cardColor: COLOR_PRIMARY,
             showEnvelope:true,
-            envelopePhrase:"Su presencia es el mayor regalo. Cualquier muestra adicional de cariño será bienvenida.",
+            envelopePhrase:t("gifts.giftMessage"),
             bankIconEnd: `${URL_IMAGES}iconos/11.svg`,
             bankDetails: [
                 {
                     numbers: [
                     {
-                        numberType: "Tarjeta",
+                        numberType: t("gifts.card"),
                         number: "5264246831634521",
                     },
                 ],
-                bank: "BBVA débito (México)",
+                bank: t("banks.bbvaDebitMexico"),
                 name: "Maria Isabel Ramos Nevarez",
                     textColor: COLOR_FOURTH,
                     bodyTypo: BODY_TYPO,
@@ -130,11 +139,11 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 {
                     numbers: [
                     {
-                        numberType: "Número",
+                        numberType: t("gifts.number"),
                         number: "DE24 7539 0000 0001 2175 42",
                     },
                 ],
-                bank: "Volksbank (Alemana)",
+                bank: t("banks.volksbankGerman"),
                 name: "Christian Duran Maury",
                     textColor: COLOR_FOURTH,
                     bodyTypo: BODY_TYPO,
@@ -153,16 +162,16 @@ const WeddingMariaIsabelChristianDuran  = () => {
         bodyTypo:BODY_TYPO,
         color:COLOR_PRIMARY,
         type:2,
-        title:"Formal",
+        title:t("dresscode.formal"),
         fontSize:"2.3rem",
-        description:"Mujeres: vestido largo. Hombres: traje formal, pantalón, camisa formal, zapatos formales.",
-        omitColorsLabel:"Omitir:",
-        omitColorsText :"Colores: blanco,beige, crema, plateado, dorado.  Tenis, playeras, gorra, pantalón de mezclilla ",
+        description:t("isabel&christian.dresscodeDetail"),
+        omitColorsLabel:t("dresscode.omit"),
+        omitColorsText :t("isabel&christian.dresscodeColors"),
     }
      const withOutKids:WithoutKidsProps = {
         bodyTypo:BODY_TYPO,
         hideSubtitle:true,
-        title:"Amamos a tus hijos, pero creemos que esta noche se merecen disfrutar solos como pareja, por eso en esta ocasión los niños se quedan en casa",
+        title:t("isabel&christian.noKidsMessage"),
     }
     
     
@@ -176,12 +185,12 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 bgColor: COLOR_PRIMARY, 
                 events: [
                     {
-                        eventName: "Ceremonia Religiosa",
+                        eventName: t("timeline.religiousCeremony"),
                         date: new Date(2025, 10, 16, 17, 0, 0),
                         icon: `${URL_IMAGES}iconos/2.svg`,
                     },
                     {
-                        eventName: "Cóctel",
+                        eventName: t("timeline.cocktail"),
                         date: new Date(2025, 10, 16, 18, 0, 0),
                         icon: `${URL_IMAGES}iconos/3.svg`,
                     },
@@ -191,12 +200,12 @@ const WeddingMariaIsabelChristianDuran  = () => {
                     //     icon: `${URL_IMAGES}iconos/4.svg`,
                     // },
                     {
-                        eventName: "Cena",
+                        eventName: t("timeline.dinner"),
                         date: new Date(2025, 10, 16, 19, 0, 0),
                         icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
-                        eventName: "Fin del evento",
+                        eventName: t("timeline.end"),
                         date: new Date(2025, 10, 16, 23, 0, 0),
                         icon: `${URL_IMAGES}iconos/12.svg`,
                     },
@@ -240,8 +249,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                            	
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem", fontStyle: "italic!important" }} >"Entre tantos caminos, Dios guió los nuestros hasta cruzarse y, de la
-manera más hermosa, juntos seguiremos nuestro destino."</Typography>
+                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem", fontStyle: "italic!important" }} >{ `"${t("isabel&christian.quote")}"`}</Typography>
                             </Fade>		
                         </Grid>	
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
@@ -265,7 +273,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                        <Grid container spacing={2} padding={2} justifyContent={"center"} >
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" >
-                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Deseamos compartir con ustedes la alegría de nuestra unión, con la bendición de Dios y nuestros padres</Typography>
+                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >{t("isabel&christian.introductionLine")}</Typography>
                             </Fade>
                             </Grid>
                            <Grid size={{xs:12,sm:4,md:4,lg:4}} >
@@ -276,7 +284,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.8rem"}}  variant="h4" textAlign={"center"}className={MAIN_TYPO} >y</Typography>
+                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.8rem"}}  variant="h4" textAlign={"center"}className={MAIN_TYPO} >{t("isabel&christian.and")}</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
@@ -288,7 +296,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                         </Grid>	
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" >
-                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Te invitamos a celebrar con nosotros</Typography>
+                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >{t("isabel&christian.inviteCelebrate")}</Typography>
                             </Fade>
                             </Grid>
                         </Grid>
@@ -425,11 +433,10 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                                     <Grid container justifyContent="center" textAlign="center" mb={2}>
                                         <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                                             <Typography variant="h4" sx={{ color: COLOR_PRIMARY, fontSize: 40 }} className={MAIN_TYPO}>
-                                            Hospedaje
+                                            {t("lodging.title")}
                                             </Typography>
                                             <Typography sx={{ fontSize: 14, mt: 1 }} className={BODY_TYPO}>
-                                            Queremos que disfruten este día sin preocupaciones. Si necesitan
-                                            hospedaje, les sugerimos:
+                                            {t("lodging.lodgingMessage")}
                                             </Typography>
                                         </Grid>
                                     </Grid>
@@ -443,7 +450,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                                               Hotel Royal Palace
                                             </Typography>
                                             <img src={`${URL_IMAGES}home-royale.png`} style={{width: "100%", borderRadius:2}} />
-                                            <Typography sx={{ mt: 1 }} className={BODY_TYPO} align="center">Reservaciones en :</Typography>
+                                            <Typography sx={{ mt: 1 }} className={BODY_TYPO} align="center">{t("lodging.reservationsAt")}</Typography>
 
                                             <Typography sx={{ mt: 1, mb: 1 }} align="center" className={BODY_TYPO}> <Link style={{color:COLOR_THIRD}} color={COLOR_THIRD} to="https://royalpalace.com.mx/our-rooms/" target="_blank" rel="noopener noreferrer">https://royalpalace.com.mx/our-rooms/</Link></Typography>
 
@@ -451,7 +458,7 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
 
                                             
                                         <Box display="flex" justifyContent="center">
-                                        <   CustomButton href={"https://maps.app.goo.gl/qsW7QbV2Yk4HAwaD6"} bgColor={COLOR_FOURTH} color={'white'} label={'Ver ubicación'} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+                                        <   CustomButton href={"https://maps.app.goo.gl/qsW7QbV2Yk4HAwaD6"} bgColor={COLOR_FOURTH} color={'white'} label={t("events.location")} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
 
                                         </Box>
 
@@ -469,30 +476,16 @@ manera más hermosa, juntos seguiremos nuestro destino."</Typography>
                      <Gallery photos={galleryPhotos}></Gallery>
          
             <FooterInvites bgColor={COLOR_BG} color={COLOR_PRIMARY}></FooterInvites>
-             <Dialog
-                         open={open}
-                         onClose={handleClose}
-                         aria-labelledby="alert-dialog-title"
-                         aria-describedby="alert-dialog-description"
-                     >
-                        
-                         <DialogContent >
-             
-                            <Box display={"flex"} justifyContent={"center"} marginBottom={4}>
-                             <Typography variant="h4" className={MAIN_TYPO} sx={{color:COLOR_PRIMARY}}>Bienvenidos</Typography>
-                            </Box>
-                             <Box display={"flex"} justifyContent={"center"}>
-                            <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"} color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>
-                            </Box>
-                             
-                            
-                        
-                         </DialogContent>
-                         <DialogActions>
-                         
-                        
-                         </DialogActions>
-                     </Dialog>   
+            <InvitationWelcomeModal
+            open={open}
+            onEnter={handleEnter}
+            onClose={handleEnter}
+            isMultilanguage={invitationConfig.isMultilanguage}
+            language={invitationConfig.language}
+            selectableLanguages={invitationConfig.selectableLanguages}
+            color={COLOR_PRIMARY}
+           
+/>
         </div>
     )
 }

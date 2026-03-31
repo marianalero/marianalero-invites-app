@@ -5,14 +5,25 @@ import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import CustomButton from "../CustomButton/CustomButton";
 
+type SelectableLanguage = {
+  code: string;
+  label: string;
+};
+
 type InvitationWelcomeModalProps = {
   open: boolean;
   onEnter: () => void;
   onClose?: () => void;
   isMultilanguage: boolean;
-  language: "es" | "en";
+  language: string;
+  selectableLanguages?: SelectableLanguage[];
   color: string;
 };
+
+const DEFAULT_SELECTABLE_LANGUAGES: SelectableLanguage[] = [
+  { code: "es", label: "Español" },
+  { code: "en", label: "English" },
+];
 
  const InvitationWelcomeModal = ({
   open,
@@ -20,10 +31,14 @@ type InvitationWelcomeModalProps = {
   onClose,
   isMultilanguage,
   language,
+  selectableLanguages,
   color,
 }: InvitationWelcomeModalProps) => {
   const { t } = useTranslation();
   const [languageSelected, setLanguageSelected] = useState(false);
+  const languages = selectableLanguages?.length
+    ? selectableLanguages
+    : DEFAULT_SELECTABLE_LANGUAGES;
 
   useEffect(() => {
     if (!isMultilanguage) {
@@ -32,7 +47,7 @@ type InvitationWelcomeModalProps = {
     }
   }, [isMultilanguage, language]);
 
-  const handleSelectLanguage = (lang: "es" | "en") => {
+  const handleSelectLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
     setLanguageSelected(true);
     // Cerrar modal automáticamente después de seleccionar idioma si es multilanguage
@@ -59,21 +74,16 @@ type InvitationWelcomeModalProps = {
               alignItems="center"
               justifyContent="center"
             >
-              <CustomButton
-                label="Español"
-                borderColor={color}
-                bgColor="#ffffff"
-                color={color}
-                onClick={() => handleSelectLanguage("es")}
-              />
-
-              <CustomButton
-                label="Inglés"
-                borderColor={color}
-                bgColor="#ffffff"
-                color={color}
-                onClick={() => handleSelectLanguage("en")}
-              />
+              {languages.map((lang) => (
+                <CustomButton
+                  key={lang.code}
+                  label={lang.label}
+                  borderColor={color}
+                  bgColor="#ffffff"
+                  color={color}
+                  onClick={() => handleSelectLanguage(lang.code)}
+                />
+              ))}
             </Box>
           )}
 

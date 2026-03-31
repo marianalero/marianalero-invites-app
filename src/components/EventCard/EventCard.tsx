@@ -1,5 +1,8 @@
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
+import 'dayjs/locale/es';
+import 'dayjs/locale/en';
+import 'dayjs/locale/de';
 import CustomButton from '../CustomButton/CustomButton';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -7,10 +10,13 @@ import { Card, CardContent, Typography } from '@mui/material';
 import { EventCardProps } from './models/EventCardProps';
 import { Fade } from 'react-awesome-reveal';
 import ProButton from '../CustomButton/GoldButton';
-import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 
 const EventCard  = (props:EventCardProps) => {
+    const { t, i18n } = useTranslation();
+    const localizedDate = dayjs(props.date).locale(i18n.language);
+    const localizedEndDate = props.endDate ? dayjs(props.endDate).locale(i18n.language) : null;
 
     return( 
    
@@ -44,7 +50,7 @@ const EventCard  = (props:EventCardProps) => {
                                     <Typography sx={{color: props.textColor ? props.textColor : "black"}}   textAlign={"center"} className={props.bodyTypo} >{props.address}</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography sx={{color: props.textColor ? props.textColor : "black"}}     textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {dayjs(props.date).format("hh:mm A")} { props.endDate ? `- ${dayjs(props.endDate).format("hh:mm A")}` : "" }</Typography>
+                                    <Typography sx={{color: props.textColor ? props.textColor : "black"}}     textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {localizedDate.format("hh:mm A")} { localizedEndDate ? `- ${localizedEndDate.format("hh:mm A")}` : "" }</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                     {

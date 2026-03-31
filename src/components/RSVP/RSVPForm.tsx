@@ -15,6 +15,7 @@ import ProButton from '../CustomButton/GoldButton';
 import { t } from 'i18next';
 import 'dayjs/locale/es'; 
 import 'dayjs/locale/en';
+import 'dayjs/locale/de';
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import i18n from '../../i18n';
 
@@ -178,12 +179,23 @@ const RSVPForm  = (props:RSVPType) => {
      };
 
     const getFormattedDate = (date: Date) => {
-    if (i18n.language === 'es') {
-        return dayjs(date).format("DD [de] MMMM [de] YYYY");
-    } else if (i18n.language === 'en') {
-        return dayjs(date).format("Do MMMM");
+        const currentLanguage = i18n.language?.split('-')[0] || 'es';
+        const localizedDate = dayjs(date).locale(currentLanguage);
+
+        if (currentLanguage === 'es') {
+            return localizedDate.format("DD [de] MMMM [de] YYYY");
+        }
+
+        if (currentLanguage === 'en') {
+            return localizedDate.format("MMMM Do, YYYY");
+        }
+
+        if (currentLanguage === 'de') {
+            return localizedDate.format("D. MMMM YYYY");
+        }
+
+        return localizedDate.format("D MMMM YYYY");
     }
-}
     const RenderForm = () =>{
         return(
         <Grid container spacing={1} padding={2} sx={{bgcolor: props.bgImage ? "transparent" : props.bgColor}} >
