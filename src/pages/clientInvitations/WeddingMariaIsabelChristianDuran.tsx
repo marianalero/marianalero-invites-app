@@ -88,7 +88,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
             {
                 image : `${URL_IMAGES}recepcion.jpeg`,
                 eventName: t("events.ceremonyReception"),
-                date: new Date(2026, 10, 14, 18, 0, 0),
+                date: new Date(2026, 10, 14, 17, 0, 0),
                 locationName: "Casa Arias",
                 address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
                 size: 12,
