@@ -17,6 +17,7 @@ import Adornment from "../../components/Adornment/Adornment";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
+import WithoutKids from "../../components/WithOutKids/WithoutKids";
 
 
 const XVRegina  = () => {
@@ -135,12 +136,12 @@ const XVRegina  = () => {
             },
             {
                 eventName: "Vals",
-                date: new Date(2026,  3, 11 ,20,30,0),
+                date: new Date(2026,  3, 11 ,21,0,0),
                 icon:`${URL_IMAGES}iconos/22.svg`,
             },
             {
                 eventName: "Cena",
-                date: new Date(2026,  3, 11 ,21,0,0),
+                date: new Date(2026,  3, 11 ,21,30,0),
                 icon:`${URL_IMAGES}iconos/23.svg`,
             },
       
@@ -159,7 +160,7 @@ const XVRegina  = () => {
         bgColor: BG_ACCENT , 
         showEnvelope:true,
         bankIconEnd:`${URL_IMAGES}iconos/26.svg`,
-        envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacernos un obsequio, tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
+        envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacerme un obsequio, el efectivo será ideal !Gracias!",
         // secondPhrase:"O bien puedes realizar transferencia o depósito a la siguiente cuenta:",
         // bankDetails: [
         //     {
@@ -186,6 +187,7 @@ const XVRegina  = () => {
         type:1,
         title:"Formal",
         fontSize:"2rem",
+        omitColorsLabel:"Color verde reservado para la quinceañera."
     }
    
      const qoute:QouteProps ={
@@ -214,7 +216,7 @@ const XVRegina  = () => {
                     <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no"  align="center"
                         sx={{  fontSize: "3rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
                     >
-                    Regina Alvarez Perez
+                    Regina Favela Esquer
                     </Typography>
                      <Typography variant="h1" className={`${BODY_TYPO}`} translate="no"  align="center"
                         sx={{  fontSize: "1.5rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
@@ -494,7 +496,7 @@ const XVRegina  = () => {
               
                 </Fade>
               </Grid>
-          
+          <WithoutKids></WithoutKids>
             <div style={{height:100}}></div>
                        {/* <Gallery photos={galleryPhotos} ></Gallery> */}
             <FooterInvites bgColor={BG_SECTION} color={TEXT_PRIMARY}></FooterInvites>
