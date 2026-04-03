@@ -124,7 +124,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                     numbers: [
                     {
                         numberType: t("gifts.card"),
-                        number: "5264246831634521",
+                        number: "4152 3145 4836 2386",
                     },
                 ],
                 bank: t("banks.bbvaDebitMexico"),
