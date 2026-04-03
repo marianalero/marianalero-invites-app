@@ -95,7 +95,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 color: COLOR_PRIMARY,
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/rutM2huWpbQgHH7y7",
+                href: "https://maps.app.goo.gl/S2AzEa8y7uw6fB6x7",
                 colorButton: COLOR_THIRD,
                 colorIcon: COLOR_PRIMARY,
                 fontSize:"1.9rem",
