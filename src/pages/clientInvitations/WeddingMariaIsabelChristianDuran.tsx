@@ -34,6 +34,7 @@ import EventCardImage from "../../components/EventCard/EventCardImage";
 import GiftList2 from "../../components/Gifts/GiftList2";
 import { GiftListProps } from "../../models/component/giftList";
 import InvitationWelcomeModal from "../../components/InvitationWelcomeModal/InvitationWelcomeModal";
+import Cover from "../../components/Cover/CoverImage/Cover";
 
 
 const WeddingMariaIsabelChristianDuran  = () => {
@@ -221,7 +222,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto", color: COLOR_TEXT}}>
             <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_PRIMARY}/>
-            <CoverInline 
+            <Cover
                 ourWeddingStart={true}
                 weddingDate="14.11.26"
                 bgImage={`${URL_IMAGES}portada.jpg`}
@@ -231,11 +232,11 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 className={MAIN_TYPO}
                 bgSize="cover"
                 overlay={true}
-                fontSize="2.2rem"
+                fontSize="3rem"
                verticalPosition="bottom"
                ampersonClassName={MAIN_TYPO}
                 >
-            </CoverInline>
+            </Cover>
               <div style={{backgroundColor:"#fae9e9", backgroundPosition: "bottom", padding: "50px 20px" }}>
                 <Box padding={2} bgcolor={"rgb(250,250,250,.8)"}   display={"flex"}  justifyContent={"center"}>
            
@@ -395,7 +396,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                     </div>
             <RSVPForm 
                 bgImage={`${URL_IMAGES}confirmacion.jpg`}
-                dateLine={new Date(2026,3,30)}
+                dateLine={new Date(2026,4,20)}
                 textColor={"white"}
                 colorButton={"white"} 
                 bgColor={COLOR_BG} 
@@ -407,7 +408,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                 invitationId={INVITATION_ID}
                 qrActive={false}
                 numberInWords={true}
-                fontSize="2.5rem"
+                fontSize="3rem"
                 transparencyButton={true}
             >
                 
