@@ -372,14 +372,14 @@ const XVRegina  = () => {
 
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
-                      <Typography variant="body1" className={BODY_TYPO}>
+                      <Typography variant="body1" className={MAIN_TYPO}>
                         Ana María Vélez Navarro
                       </Typography>
                     </Fade>
               </Grid>
                <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
-                      <Typography variant="body1" className={BODY_TYPO}>
+                      <Typography variant="body1" className={MAIN_TYPO}>
                         Eleazar Navarro Jiménez
                       </Typography>
                     </Fade>
