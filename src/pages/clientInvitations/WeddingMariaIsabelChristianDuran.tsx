@@ -395,7 +395,7 @@ const WeddingMariaIsabelChristianDuran  = () => {
                     </div>
             <RSVPForm 
                 bgImage={`${URL_IMAGES}confirmacion.jpg`}
-                dateLine={new Date(2026,4,20)}
+              
                 textColor={"white"}
                 colorButton={"white"} 
                 bgColor={COLOR_BG} 
