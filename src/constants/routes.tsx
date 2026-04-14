@@ -56,7 +56,7 @@ import TermsConditions from "../pages/termsConditions/TermsConditions";
 import AdminPage from "../pages/users/users";
 import WeddingMariaIsabelChristianDuran from "../pages/clientInvitations/WeddingMariaIsabelChristianDuran";
 import XVKimberly from "../pages/clientInvitations/XVKimberly";
-import XVRegina from "../pages/clientInvitations/XVRegina";
+
 
 interface RouteConfig {
   path: string;
