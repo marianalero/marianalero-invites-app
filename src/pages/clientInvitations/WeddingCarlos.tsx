@@ -272,9 +272,10 @@ const TEXT_SECONDARY = "#7A6F63"; // Café suave (secundario)
                 className={MAIN_TYPO}
                 bgSize="cover"
                 overlay={true}
-                fontSize="2rem"
+                fontSize="2.2rem"
                verticalPosition="bottom"
                ampersonClassName={MAIN_TYPO}
+               bgPosition="40%"
                 >
             </CoverInline>
             

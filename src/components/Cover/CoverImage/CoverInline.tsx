@@ -6,6 +6,7 @@ import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 
 const CoverInline = (props: CoverProps) => {
+    console.log("CoverInline props:", props);
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [loaded, setLoaded] = useState(false);
     const GENERIC_BLUR =
@@ -14,6 +15,9 @@ const CoverInline = (props: CoverProps) => {
     const objectPositionY =
         props.bgPositionY && !isSmallScreen
             ? props.bgPositionY
+            : "50%";
+            const objectPositionX =
+        props.bgPosition ? props.bgPosition
             : "50%";
 
     useEffect(() => {
@@ -55,7 +59,7 @@ const CoverInline = (props: CoverProps) => {
                 decoding="async"
                 className={`cover-bg ${loaded ? "loaded" : ""}`}
                 style={{
-                    objectPosition: `50% ${objectPositionY}`,
+                    objectPosition: `${objectPositionX} ${objectPositionY}`,
                     filter: loaded ? "blur(0)" : "blur(24px)",
                     opacity: loaded ? 1 : 0.85,
                 }}
