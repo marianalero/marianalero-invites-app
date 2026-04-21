@@ -12,14 +12,14 @@ const WeddingSponsor  = (props:WeddingSponsorProps) => {
         <Grid container spacing={1} display={"flex"} alignItems={"center"} paddingTop={8} paddingBottom={8} sx={{bgcolor:props.bgColor}} paddingX={2} >			
 						<Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" triggerOnce={true}>
-                                <Typography  sx={{color:props.color, fontSize: props.headerFontSize ? props.headerFontSize : "2rem"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >{t("weddingSponsors")}</Typography>
+                                <Typography  sx={{color:props.color, fontSize: props.headerFontSize ? props.headerFontSize : "2rem"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >{ props.headerName ? t(props.headerName) : t("weddingSponsors")}</Typography>
                             </Fade>
                        </Grid>	
                        {
                         props.addorment && (
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                 <Fade direction="up" triggerOnce={true} >
-                                    <Adornment image={props.addorment} width={"250px"} />
+                                    <Adornment image={props.addorment} width={ props.addormentWidth ? props.addormentWidth : "250px"} />
                                 </Fade>
                             </Grid>
                         )
@@ -50,7 +50,7 @@ const WeddingSponsor  = (props:WeddingSponsorProps) => {
                         props.addormentEnd && (
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                 <Fade direction="up" triggerOnce={true} >
-                                    <Adornment image={props.addormentEnd} width={"250px"} />
+                                    <Adornment image={props.addormentEnd} width={ props.addormentWidth ? props.addormentWidth : "250px"} />
                                 </Fade>
                             </Grid>
                         )

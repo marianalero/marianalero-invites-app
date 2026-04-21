@@ -7,6 +7,7 @@ export interface BankAccount{
     bgColor:string;
     numbers: BankNumber[]
     outlineColor?:boolean;
+    concept?:string;
 }
 
 export interface BankNumber {

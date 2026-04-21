@@ -8,6 +8,8 @@ export interface WeddingSponsorProps {
     color:string;
     bgColor?:string;
     headerFontSize?:string;
+    headerName?:string;
+    addormentWidth?:string;
 }
 
 export interface XVSponsorProps {

@@ -44,7 +44,8 @@
     "accountNumber":"Número de Cuenta",
     "clabe":"CLABE",
     "clickHereText": "Clic <1>aquí</1> para ir a nuestra mesa de regalos",
-    "giftMessage": "Su presencia es el mayor regalo. Cualquier muestra adicional de cariño será bienvenida."
+    "giftMessage": "Su presencia es el mayor regalo. Cualquier muestra adicional de cariño será bienvenida.",
+    "concept":"Concepto"
 },
   "introduction":{
     "line1":"Deseamos compartir con ustedes la alegría de nuestra unión",

@@ -76,6 +76,11 @@ const BankCard  = (item:BankAccount) => {
                 
                 <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{t("gifts.bank")}: {item.bank}  </Typography>
                 <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{t("gifts.bankBeneficiary")}: {item.name}</Typography>
+               {
+                item.concept && (
+                    <Typography variant='body1'  textAlign={"center"} className={`${item.bodyTypo}`}>{t("gifts.concept")}: {item.concept}</Typography>
+                )
+               }
          </Paper>
       </div>
     </ReactCardFlip>

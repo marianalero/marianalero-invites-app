@@ -56,6 +56,7 @@ import TermsConditions from "../pages/termsConditions/TermsConditions";
 import AdminPage from "../pages/users/users";
 import WeddingMariaIsabelChristianDuran from "../pages/clientInvitations/WeddingMariaIsabelChristianDuran";
 import XVKimberly from "../pages/clientInvitations/XVKimberly";
+import WeddingCarlos from "../pages/clientInvitations/WeddingCarlos";
 
 
 interface RouteConfig {
@@ -131,6 +132,7 @@ const routes: RouteConfig[] = [
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
 
   {path:'/prev-ic-4', element: <WeddingMariaIsabelChristianDuran></WeddingMariaIsabelChristianDuran>},
+  {path:'/prev-cc', element:<WeddingCarlos></WeddingCarlos>},
   // {path:'/prev-r-2', element: <XVRegina></XVRegina>},
 ];
 
