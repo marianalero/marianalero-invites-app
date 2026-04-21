@@ -16,7 +16,7 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCard from "../../components/EventCard/EventCard";
-import MiniGallery from "../../components/MiniGallery/MiniGallery";
+
 import { Fade } from "react-awesome-reveal";
 import  { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import CoverInline from "../../components/Cover/CoverImage/CoverInline";
