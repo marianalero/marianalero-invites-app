@@ -489,7 +489,15 @@ const TEXT_SECONDARY = "#7A6F63"; // Café suave (secundario)
                     </Grid>
                 </Grid>
                               <WithoutKids {...withOutKids} /> 
-                              </Box>   
+                               
+                              </Box>  
+               <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} marginTop={"10%"} >   
+                                    <Grid container spacing={2} padding={4} >
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                     <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem" }} >Queremos que estén 100% con nosotros y que nuestro fotógrafo tenga la mejor toma sin un mar de celulares. ¡Después les compartimos todo!</Typography>
+                    </Grid>
+                </Grid>    
+                                     </Box>
             <div style={{height:100}}></div>
            
                      <Gallery photos={galleryPhotos}></Gallery>
