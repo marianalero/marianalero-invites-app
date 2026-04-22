@@ -46,6 +46,9 @@ const WeddingCarlos  = () => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
+    const guestType: string = useMemo(() => {
+        return searchParams.get("g") || "cj";
+    }, [searchParams]);
     const INVITATION_ID = 0;
     const [open, setOpen] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
@@ -133,7 +136,8 @@ const TEXT_SECONDARY = "#7A6F63"; // Café suave (secundario)
         envelopeTitleColor:TEXT_PRIMARY,
         envelopePhrase:"Tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo o si lo prefieres puedes hacer transferencia bancaria a la siguiente cuenta:",
         bankIconStart: `${URL_IMAGES}iconos2/14.svg`,
-        bankDetails: [
+        bankDetails: guestType === "cm" ? [
+
             {
                 numbers :[ 
                     {
@@ -154,7 +158,9 @@ const TEXT_SECONDARY = "#7A6F63"; // Café suave (secundario)
                 outlineColor:true,
                 concept:"Regalo boda Carlos y Jaudiel"
                 
-            },
+            }
+            ] :
+            [
             {
                 numbers :[ 
                     {
