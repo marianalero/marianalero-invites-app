@@ -57,6 +57,7 @@ import AdminPage from "../pages/users/users";
 import WeddingMariaIsabelChristianDuran from "../pages/clientInvitations/WeddingMariaIsabelChristianDuran";
 import XVKimberly from "../pages/clientInvitations/XVKimberly";
 import WeddingCarlos from "../pages/clientInvitations/WeddingCarlos";
+import XVRegina from "../pages/clientInvitations/XVRegina";
 
 
 interface RouteConfig {
