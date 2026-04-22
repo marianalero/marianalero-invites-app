@@ -134,7 +134,7 @@ const routes: RouteConfig[] = [
 
   {path:'/prev-ic-4', element: <WeddingMariaIsabelChristianDuran></WeddingMariaIsabelChristianDuran>},
   {path:'/prev-cc-2', element:<WeddingCarlos></WeddingCarlos>},
-  // {path:'/prev-r-2', element: <XVRegina></XVRegina>},
+  {path:'/prev-r-2', element: <XVRegina></XVRegina>},
 ];
 
 
