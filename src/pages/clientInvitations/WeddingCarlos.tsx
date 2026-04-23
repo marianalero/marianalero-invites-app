@@ -1,17 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/WithoutKids";
-
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
 import FooterInvites from "../../components/Footer/FooterInvites";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Dialog, DialogContent, Box, Typography, DialogActions } from "@mui/material";
+import { Dialog, DialogContent, Box, Typography, DialogActions, Paper } from "@mui/material";
 import CustomButton from "../../components/CustomButton/CustomButton";
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
@@ -49,7 +49,7 @@ const WeddingCarlos  = () => {
     const guestType: string = useMemo(() => {
         return searchParams.get("g") || "cj";
     }, [searchParams]);
-    const INVITATION_ID = 0;
+    const INVITATION_ID = 23;
     const [open, setOpen] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
         const handleClickOpen = () => {
@@ -498,6 +498,52 @@ const TEXT_SECONDARY = "#7A6F63"; // Café suave (secundario)
                     </Grid>
                 </Grid>    
                                      </Box>
+                                     <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} marginTop={"10%"} >
+                                         <Grid container spacing={2} padding={2} display="flex" justifyContent="center">
+                                                                    <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                                                                        <Fade direction="up"  triggerOnce={true}>
+                                                                            
+                                                                            {/* Título */}
+                                                                            <Grid container justifyContent="center" textAlign="center" mb={2}>
+                                                                                <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                                                                                    <Typography variant="h4" sx={{ color: TEXT_SECONDARY, fontSize: 40 }} className={MAIN_TYPO}>
+                                                                                    {t("lodging.title")}
+                                                                                    </Typography>
+                                                                                    <Typography sx={{ fontSize: 14, mt: 1 }} className={BODY_TYPO}>
+                                                                                    {t("lodging.lodgingMessage")}
+                                                                                    </Typography>
+                                                                                </Grid>
+                                                                            </Grid>
+                                        <Paper sx={{ padding:2,  mb: 4 }}>
+                                                                            {/* Tarjeta */}
+                                                                            <Grid container justifyContent="center">
+                                                                                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                                                                                    <Box sx={{ p: 3, backgroundColor: "white", borderRadius:1 }} gap={1}>
+                                                                                    
+                                                                                    <Typography variant="h4" align="center" className={SECONDARY_TYPO} sx={{ mb: 1, color:TEXT_SECONDARY }}>
+                                                                                      Hotel Araiza 
+                                                                                    </Typography>
+                                                                                    <img src={`${URL_IMAGES}hotel.jpg`} style={{width: "100%", borderRadius:2}} />
+                                                                                    <Typography sx={{ mt: 1 }} className={BODY_TYPO} align="center">{t("lodging.reservationsAt")}</Typography>
+                                        
+                                                                                    <Typography sx={{ mt: 1, mb: 1,wordBreak: "break-word",overflowWrap: "break-word" }} align="center" className={BODY_TYPO}> <Link style={{color:BUTTON_PRIMARY}} color={BUTTON_PRIMARY} to="https://www.araizahoteles.com/hermosillo/book/dates-of-stay?groupID=5251417&hotelID=11453" target="_blank" rel="noopener noreferrer">https://www.araizahoteles.com/hermosillo/book/dates-of-stay?groupID=5251417&hotelID=11453</Link></Typography>
+                                        
+                                                                           
+                                        
+                                                                                    
+                                                                                <Box display="flex" justifyContent="center">
+                                                                                <   CustomButton href={"https://maps.app.goo.gl/i2VjMcc823aGzjU49"} bgColor={BUTTON_PRIMARY} color={'white'} label={t("events.location")} icon={<LocationOnOutlinedIcon></LocationOnOutlinedIcon>} />
+                                        
+                                                                                </Box>
+                                        
+                                                                            </Box>
+                                                                         </Grid>
+                                                                    </Grid>
+                                                                </Paper>
+                                                             </Fade>
+                                                            </Grid>
+                                                       </Grid>
+                                        </Box>
             <div style={{height:100}}></div>
            
                      <Gallery photos={galleryPhotos}></Gallery>

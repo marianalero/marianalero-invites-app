@@ -496,7 +496,7 @@ const XVRegina  = () => {
               
                 </Fade>
               </Grid>
-          <WithoutKids></WithoutKids>
+          <WithoutKids subtitle2="no niños" ></WithoutKids>
             <div style={{height:100}}></div>
                        {/* <Gallery photos={galleryPhotos} ></Gallery> */}
             <FooterInvites bgColor={BG_SECTION} color={TEXT_PRIMARY}></FooterInvites>
