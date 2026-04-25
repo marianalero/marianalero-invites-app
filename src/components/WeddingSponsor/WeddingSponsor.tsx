@@ -12,7 +12,7 @@ const WeddingSponsor  = (props:WeddingSponsorProps) => {
         <Grid container spacing={1} display={"flex"} alignItems={"center"} paddingTop={8} paddingBottom={8} sx={{bgcolor:props.bgColor}} paddingX={2} >			
 						<Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" triggerOnce={true}>
-                                <Typography  sx={{color:props.color, fontSize: props.headerFontSize ? props.headerFontSize : "2rem"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >{ props.headerName ? t(props.headerName) : t("weddingSponsors")}</Typography>
+                                <Typography  translate="no"  sx={{color:props.color, fontSize: props.headerFontSize ? props.headerFontSize : "2rem"}} variant="h4" textAlign={"center"} className={`${props.mainTypo}`} >{ props.headerName ? t(props.headerName) : t("weddingSponsors")}</Typography>
                             </Fade>
                        </Grid>	
                        {
