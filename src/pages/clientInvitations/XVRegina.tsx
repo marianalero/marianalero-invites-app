@@ -18,6 +18,7 @@ import RSVPForm from "../../components/RSVP/RSVPForm";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
+import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 
 
 const XVRegina  = () => {
@@ -95,6 +96,8 @@ const XVRegina  = () => {
                 href: "https://maps.app.goo.gl/zzzeXucMCxJ7MUAp7",
                 fontSize:"45px",
                 colorButton: BUTTON_PRIMARY ,
+                bgColor: BG_MAIN
+               
          
             },
             {
@@ -112,6 +115,7 @@ const XVRegina  = () => {
                 fontSize:"45px",
                 href: "https://maps.app.goo.gl/YbuLDso9EFq8zJMo8",
                 colorButton: BUTTON_PRIMARY,
+                bgColor: BG_MAIN
                 
             },
     ];
@@ -205,27 +209,62 @@ const XVRegina  = () => {
     return (
         <div style={{backgroundColor:BG_MAIN ,maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={BUTTON_PRIMARY }/>
-           <Grid container justifyContent="center" bgcolor={BG_SECTION} height={"80vh"}>
+           <div style={{backgroundImage: `url("${URL_IMAGES}portada.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+           <Grid container justifyContent="center" bgcolor={"rgb(169, 193, 186,.5)"} height={"80vh"} >
             <Grid size={12} display={"flex"} alignItems={"center"} justifyContent={"center"}>
-                <Box  paddingY={4}>
-                  <Typography variant="h1" className={`${BODY_TYPO}`} translate="no"  align="center"
-                        sx={{  fontSize: "1.5rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
-                    >
-                    Mis XV años
-                    </Typography>
-                    <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no"  align="center"
-                        sx={{  fontSize: "3rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
-                    >
-                    Regina Favela Esquer
-                    </Typography>
-                     <Typography variant="h1" className={`${BODY_TYPO}`} translate="no"  align="center"
-                        sx={{  fontSize: "1.5rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
-                    >
-                    20.06.2026
-                    </Typography>
-                </Box>
+              <div style={{ position: "relative", width: "100%", height: "100%"}}>
+                <div  style={{position:"absolute",top:"55%",left:"50%",transform:"translate(-50%, -50%)", width:"100%"}}>
+                          <Fade direction="left" triggerOnce={true} >
+                      
+                      <Typography variant="h1" className={`${BODY_TYPO}`} translate="no"  align="center"
+                            sx={{  fontSize: "1.5rem",lineHeight:2 , color: BUTTON_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                        >
+                        Mis XV años
+                        </Typography>
+                        <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no"  align="center"
+                            sx={{  fontSize: "3rem",lineHeight:2 , color: BUTTON_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                        >
+                        Regina Favela Esquer
+                        </Typography>
+                        <Typography variant="h1" className={`${BODY_TYPO}`} translate="no"  align="center"
+                            sx={{  fontSize: "1.5rem",lineHeight:2 , color: BUTTON_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                        >
+                        20.06.2026
+                        </Typography>
+                
+                       
+
+                     </Fade>
+                     </div>
+                 <div  style={{position:"absolute",top:"10%",left:"20%",transform:"translate(-50%, -50%)"}}>
+                         <Fade direction="left" triggerOnce={true} >
+                               <img src={`${URL_IMAGES}4.png`}  style={{width: "300px"}} />
+                         </Fade>
+                     
+                     </div>    
+                     <div  style={{position:"absolute",top:"90%",left:"20%",transform:"translate(-50%, -50%)"}}>
+                         <Fade direction="left" triggerOnce={true} >
+                               <img src={`${URL_IMAGES}4.png`}  style={{width: "300px"}} />
+                         </Fade>
+                     
+                     </div>    
+                     <div  style={{position:"absolute",top:"10%",left:"80%",transform:"translate(-50%, -50%) scale(-1, 1)"}}>
+                         <Fade direction="left" triggerOnce={true} >
+                               <img src={`${URL_IMAGES}4.png`}  style={{width: "300px"}} />
+                         </Fade>
+                     
+                     </div>    
+                     <div  style={{position:"absolute",top:"90%",left:"80%",transform:"translate(-50%, -50%) scale(-1, 1)"}}>
+                         <Fade direction="left" triggerOnce={true} >
+                               <img src={`${URL_IMAGES}4.png`}  style={{width: "300px"}} />
+                         </Fade>
+                     
+                     </div>    
+              </div>
+                
             </Grid>
             </Grid>
+            </div>
             {/* <CoverSimple 
                 // bgImage={`${URL_IMAGES}portada.jpeg`}
                 // bgImage2={`${URL_IMAGES}portada.jpeg`}
@@ -245,7 +284,7 @@ const XVRegina  = () => {
            <Qoute 
                {...qoute}>
             </Qoute>
-            <Box height="70vh" bgcolor={"lightgrey"}></Box>
+           
               {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.jpeg`}></ImageMiddle> */}
      <div style={{backgroundImage: `url("${URL_IMAGES}fondo4.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
@@ -257,6 +296,14 @@ const XVRegina  = () => {
             width: "100%",
             mt: 6,
             mb: 6,
+            borderColor: BUTTON_PRIMARY,
+            borderWidth: "2px",
+            borderStyle: "solid",
+            px: 3,
+            py: 3,
+             backgroundColor: "rgba(255, 255, 255, 0.8)", // Fondo blanco con opacidad
+             backdropFilter: "blur(5px)", // Efecto de desenfoque para mejorar la legibilidad
+            
           }}
         >
           <Grid container spacing={2} justifyContent="center" mb={3}>
@@ -326,16 +373,30 @@ const XVRegina  = () => {
       </Grid>
     </Grid>
     </div>
-            <CountDown 
-                eventDate={new Date(2026, 5, 20)}
-                bgImage={`${URL_IMAGES}contador.jpeg`}
-                typoHeader={MAIN_TYPO}
-                typoCountdown={BODY_TYPO} 
-                fontSize="2rem"
-                padding="0 0 0 0"
-                alignItems="center"
+          <div style={{ backgroundColor: BG_ACCENT, padding:"50px 20px" }}>
+            <Box sx={
+              {
+                backgroundColor: BG_MAIN
+                
+              }
+            } >
+
+               <CountDownSimple 
+          eventDate={new Date(2026, 5, 20)}
+          
+          typoHeader={MAIN_TYPO}
+          typoCountdown={BODY_TYPO}
+          fontSize="2rem"
+          bgColor="transparent"
+          circleBgColor={TEXT_PRIMARY}
+          circleTextColor="white"
+           primaryColor={TEXT_PRIMARY}
+            secondarColor={TEXT_PRIMARY}              
                 >  
-            </CountDown>
+            </CountDownSimple>
+            </Box>
+           
+            </div>
             <Grid container spacing={2} justifyContent="center" paddingX={"20px"} paddingY={"50px"} bgcolor={BG_SECTION}>
       {/* Texto inicial */}
       <Grid size={12} textAlign="center" sx={{ width: "100%" }}>
@@ -398,27 +459,15 @@ const XVRegina  = () => {
      
             </Grid>
             </Grid>
-            {/* <MiniGallery
-                    images={[
-                        `${URL_IMAGES}mini1.jpeg`,
-                        `${URL_IMAGES}mini2.jpeg`,
-                        `${URL_IMAGES}mini3.jpeg`,
-                    ]}
-                     backgroundColor={COLOR_THREE}
-                    spacing={8}
-                    gap={6}
-                    imageHeightDesktop={580}
-                    imageHeightMobile={260}
-                    /> */}
-            <Grid container spacing={2} padding={4} justifyContent={"center"} >
+           <div style={{ backgroundImage: `url(${URL_IMAGES}fondo.png)`, padding:"50px 20px" }}>
+            <Grid container spacing={2} padding={2} justifyContent={"center"} >
             {
                 eventCards.map((item,index) => (          
                    <EventCard key={index} {...item}></EventCard>
                 ))
             }
             </Grid>
-           <Box height="70vh" bgcolor={"lightgrey"}></Box>
-            {/* <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`}></ImageMiddle> */}
+            </div>
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
@@ -489,7 +538,9 @@ const XVRegina  = () => {
                 >
                 
             </RSVPForm>
-            <DressCode {...dresscode}></DressCode>
+            <div style={{ backgroundImage: `url(${URL_IMAGES}fondo.png)`, padding:"50px 20px" }}>
+              <Box  sx={{backgroundColor:BG_MAIN}} >
+                  <DressCode {...dresscode}></DressCode>
             <Grid paddingBottom={2} >
                 <Fade direction="up" >
                     <Adornment image={`${URL_IMAGES}adornos2.png`} width={"250px"} />
@@ -497,8 +548,11 @@ const XVRegina  = () => {
                 </Fade>
               </Grid>
           <WithoutKids subtitle2="no niños" ></WithoutKids>
-            <div style={{height:100}}></div>
-                       {/* <Gallery photos={galleryPhotos} ></Gallery> */}
+              </Box>
+          
+           
+            </div>
+ 
             <FooterInvites bgColor={BG_SECTION} color={TEXT_PRIMARY}></FooterInvites>
               <Dialog
             open={open}
