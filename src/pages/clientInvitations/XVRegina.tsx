@@ -537,7 +537,7 @@ const XVRegina  = () => {
               
                 </Fade>
               </Grid>
-          <WithoutKids subtitle2="no niños" ></WithoutKids>
+          <WithoutKids subtitle2="NO NIÑOS" ></WithoutKids>
               </Box>
           
            
