@@ -359,7 +359,7 @@ const XVRegina  = () => {
     </div>
           <div style={{ backgroundColor: BG_ACCENT, padding:"50px 20px", position:"relative" }}>
             <div  style={{position:"absolute",top:"20%",left:"15%",transform:"translate(-50%, -50%) scale(-1)"}}>
-                         <Fade direction="left" triggerOnce={true} >
+                         <Fade direction="right" triggerOnce={true} >
                                <img src={`${URL_IMAGES}5.png`}  style={{width: "300px"}} />
                          </Fade>
                      
