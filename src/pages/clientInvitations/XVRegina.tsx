@@ -16,7 +16,6 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import Adornment from "../../components/Adornment/Adornment";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
-import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 
@@ -265,22 +264,7 @@ const XVRegina  = () => {
             </Grid>
             </Grid>
             </div>
-            {/* <CoverSimple 
-                // bgImage={`${URL_IMAGES}portada.jpeg`}
-                // bgImage2={`${URL_IMAGES}portada.jpeg`}
-                  weddingDate="11.04.2026"
-                 subtitle="Mis XV años"
-                  brideName="Kimberly Mayrin"
-                  symbolr={""}
-                  groomName={""}
-                  className={MAIN_TYPO}
-                  textColor={"white"}
-                  hideText={false}
-                  ourWeddingStart={true}
-                overlay={true}
-                
-                  >
-            </CoverSimple> */}
+           
            <Qoute 
                {...qoute}>
             </Qoute>
@@ -373,7 +357,13 @@ const XVRegina  = () => {
       </Grid>
     </Grid>
     </div>
-          <div style={{ backgroundColor: BG_ACCENT, padding:"50px 20px" }}>
+          <div style={{ backgroundColor: BG_ACCENT, padding:"50px 20px", position:"relative" }}>
+            <div  style={{position:"absolute",top:"20%",left:"15%",transform:"translate(-50%, -50%) scale(-1)"}}>
+                         <Fade direction="left" triggerOnce={true} >
+                               <img src={`${URL_IMAGES}5.png`}  style={{width: "300px"}} />
+                         </Fade>
+                     
+                     </div>   
             <Box sx={
               {
                 backgroundColor: BG_MAIN
