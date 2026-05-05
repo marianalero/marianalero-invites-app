@@ -6,6 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import { useEffect, useRef, useState } from "react";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import RSVPSimple from "../../components/RSVP/RSVPSimple";
+import BankCard from "../../components/Gifts/BankCard";
 
 
 const BabyShowerJoseAlejandro = () => {
@@ -235,6 +236,22 @@ const BabyShowerJoseAlejandro = () => {
                             
                             $500 <br></br> Organizadoras
                         </Typography>
+                    </Grid>
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} paddingY={2} >
+                         <Fade direction="up"  triggerOnce={true}>
+                        <BankCard 
+                        
+                        bank={"BBVA Bancomer"} 
+                        name={"Luz Mercedes Madrid Gil"} 
+                        color={COLOR_PRIMARY} 
+                        bodyTypo={BODY_TYPO} 
+                        bgColor={"#fffcf0"} 
+                        outlineColor={true}
+                        numbers={[
+                            {number:"4152314533574219", numberType:"Tarjeta"},
+                        ]}                        
+                        ></BankCard>
+                         </Fade>
                     </Grid>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                   <RSVPSimple 
