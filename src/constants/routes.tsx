@@ -58,6 +58,7 @@ import WeddingMariaIsabelChristianDuran from "../pages/clientInvitations/Wedding
 import XVKimberly from "../pages/clientInvitations/XVKimberly";
 import WeddingCarlos from "../pages/clientInvitations/WeddingCarlos";
 import XVRegina from "../pages/clientInvitations/XVRegina";
+import BabyShowerJoseAlejandro from "../pages/clientInvitations/BabyShowerJoseAlejandro";
 
 
 interface RouteConfig {
@@ -130,6 +131,7 @@ const routes: RouteConfig[] = [
   {path:'/save-date-xv-dalia', element: <STDDalia></STDDalia>},
    {path:'/baby-shower-alec', element: <BabyShowerAlec></BabyShowerAlec>},
    {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
+   {path:'/baby-shower-jose-alejandro', element: <BabyShowerJoseAlejandro></BabyShowerJoseAlejandro>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  

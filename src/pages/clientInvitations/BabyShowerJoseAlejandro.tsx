@@ -1,27 +1,26 @@
-import { Box, CircularProgress, Dialog, DialogContent,Typography, useMediaQuery } from "@mui/material";
+import { Box, CircularProgress, Typography, useMediaQuery } from "@mui/material";
 import { EventCardSimple } from "../../components/EventCard/EventCardSimple";
 import { URL_REPO } from "../../config";
 import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
 import { useEffect, useRef, useState } from "react";
 import FooterInvites from "../../components/Footer/FooterInvites";
-import RSVPSimple from "../../components/RSVP/RSVPSimple";
-import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
-import CustomButton from "../../components/CustomButton/CustomButton";
-const BabyShowerAlec = () => {
-    const COLOR_THIRD = "#C68642";
-    const COLOR_SECONDARY = "#FAF9F6";
+
+
+const BabyShowerJoseAlejandro = () => {
+    
+    const COLOR_SECONDARY = "#C68642";
     const COLOR_PRIMARY = "#5F6F52";
     const MAIN_TYPO = "the-seasons";
     const SECON_MAIN_TYPO = "handelson-three";
-    const BODY_TYPO = "roboto-400";
+    const BODY_TYPO = "libre-baskerville";
     const URL_IMAGES = `${URL_REPO}otros/bs-jose-alejandro/`;
-    const URL_SONG = `${URL_REPO}canciones/Here-Comes-The-Sun-(Instrumental).mp3`;
+
      // Lista de imágenes a precargar
     const imageList = [
         `${URL_IMAGES}4.png`,
         `${URL_IMAGES}1.png`,
-        `${URL_IMAGES}portada2.png`,
+        `${URL_IMAGES}fondo.png`,
         `${URL_IMAGES}3.png`,
         `${URL_IMAGES}2.png`,
 
@@ -32,7 +31,7 @@ const BabyShowerAlec = () => {
    
 
     useEffect(() => {
-        document.title = "Baby Shower Alec";
+        document.title = "Baby Shower Jose Alejandro";
     }, []);
     useEffect(() => {
         imageList.forEach((src) => {
@@ -50,19 +49,8 @@ const BabyShowerAlec = () => {
     }
   };
 
-   const [open, setOpen] = useState(false);
-   const musicRef = useRef<MusicFabPlayerHandle>(null);
-   const handleClickOpen = () => {
-      setOpen(true);
-   };
-      
-    const handleClose = () => {
-        setOpen(false);
-        musicRef.current?.play()
-  };
-    useEffect(() => {
-           handleClickOpen()
-        }, []);
+  
+  
     // Loader
     if (isLoading) {
         return (
@@ -85,92 +73,92 @@ const BabyShowerAlec = () => {
     }
 
     return(
-          <div style={{backgroundColor:COLOR_THIRD,maxWidth: '100%',overflowY:"auto",}}>
-              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}portada2.png` : `${URL_IMAGES}horz.png`}')`,backgroundPositionX: "50%", minHeight:isSmallScreen ? "50vh" : "100vh", width:"100vw", backgroundSize:"cover",display:"grid",position: "relative", backgroundRepeat:"no-repeat" }} >
-                  <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={COLOR_PRIMARY}/>
+          <div style={{backgroundColor:"#FAF9F6",maxWidth: '100%',overflowY:"auto",color:"#2F2F2F"}}>
+              <div  style={{backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}fondo.png` : `${URL_IMAGES}fondo.png`}')`,backgroundPositionX: "50%", minHeight:isSmallScreen ? "60vh" : "100vh", width:"100vw", backgroundSize:"cover",display:"grid",position: "relative", backgroundRepeat:"no-repeat" }} >
+                 
                 <div style={{marginTop:"10vh" ,paddingLeft:"5vw", paddingRight:"5vw",position: "relative"}}>
-                     <div  style={{position:"absolute",top:"95%",left:"50%",transform:"translate(-50%, -50%)"}}>
+                     
+                    <div  style={{position:"absolute",top:"10%",left:"50%",transform:"translate(-50%, -50%)",width: "100%",}}>
                           <Fade direction="left" triggerOnce={true} >
-                        <Typography  textAlign={"left"} variant="h1"  className={`${MAIN_TYPO}`} sx={{color:COLOR_PRIMARY,zIndex: 2,}}>Alec</Typography>
-                       
+                            <Typography  textAlign={"center"} variant="h2"  className={`${SECON_MAIN_TYPO}`} sx={{color:COLOR_SECONDARY,zIndex: 2,}}>Baby Shower</Typography>
+
 
                      </Fade>
                      </div>
-                    <div  style={{position:"absolute",top:"100%",left:"50%",transform:"translate(-50%, -50%)"}}>
-                          <Fade direction="left" triggerOnce={true} >
-                        
-
-                     </Fade>
-                     </div>
-                     <div  style={{position:"absolute",top:"90%",left:"15%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
+                     <div  style={{position:"absolute",top:"40%",left:"50%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
                          <Fade direction="right" triggerOnce={true}>
-                               <img src={`${URL_IMAGES}2.png`}  style={{width: "50px"}}/>
+                               <img src={`${URL_IMAGES}1.png`}  style={{width: "60vw", marginTop:"30px"}}/>
                          </Fade>
                      
                      </div>
                     
-                    <div  style={{position:"absolute",top:"90%",left:"80%",transform:"translate(-50%, -50%)"}}>
+                    <div  style={{position:"absolute",top:"40%",left:"95%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="left" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}3.1.png`}  style={{width: "50px"}} />
+                               <img src={`${URL_IMAGES}2.png`}  style={{width: "40vw"}} />
                          </Fade>
                      
+                     </div>
+                     <div  style={{position:"absolute",top:"85%",left:"50%",transform:"translate(-50%, -50%)",    width: "100%"}}>
+                          <Fade direction="left" triggerOnce={true} >
+                        <Typography  textAlign={"center"} variant="h3"  className={`${MAIN_TYPO}`} sx={{color:COLOR_PRIMARY,zIndex: 2,}}>JOSE ALEJANDRO</Typography>
+                       
+
+                     </Fade>
                      </div>
                 </div>
                 
                </div>
-               <div  style={{position: "relative" }} >
-                     <div  style={{position:"absolute",top:"90%",left:"15%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
+               <div  style={{position: "relative",backgroundImage: `url('${URL_IMAGES}fondo2.png')`, backgroundSize: "cover", backgroundRepeat: "no-repeat" ,paddingTop: "10vh"}} >
+                     <div  style={{position:"absolute",top:"60%",left:"5%",transform:"translate(-50%, -30%) scale(-1)",zIndex: 1,}}>
                          <Fade direction="right" triggerOnce={true}>
-                               <img src={`${URL_IMAGES}2.png`}  style={{width: "50px"}}/>
+                               <img src={`${URL_IMAGES}2.png`}  style={{width: "15vh"}}/>
                          </Fade>
                      
                      </div>
-                     <div  style={{position:"absolute",top:"50%",right:"10%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
+                     <div  style={{position:"absolute",top:"30%",left:"95%",transform:"translate(-50%, -50%)",zIndex: 1,}}>
                          <Fade direction="right" triggerOnce={true}>
-                               <img src={`${URL_IMAGES}4.1.png`}  style={{width: "50px"}}/>
+                               <img src={`${URL_IMAGES}2.png`}  style={{width: "15vh"}}/>
                          </Fade>
                      
                      </div>
                      <Grid container spacing={2} justifyContent="center" padding={2}>
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
-                             <Typography  textAlign={"center"} variant="h3"  className={`${SECON_MAIN_TYPO}`} sx={{color:COLOR_SECONDARY}}>Baby Shower</Typography>
-                        </Grid>
+                        
                         <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true} >
-                             <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_THIRD  }}>
-                           En honor a <Box component="span"  className={MAIN_TYPO} sx={{  color: COLOR_SECONDARY }}>Mariana & Hector</Box>  
+                             <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem', }}>
+                           En honor a <Box component="span"  className={SECON_MAIN_TYPO} sx={{  color: COLOR_SECONDARY, fontSize: '40px' }}>Luz Mercedes</Box>  
                             </Typography>
                          </Fade>
 
                         </Grid>
                       <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true} >
-                             <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_THIRD  }}>
-                             Un nuevo amanecer llega con nuestro bebé, nuestro pequeño rayito de sol.
+                             <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',  }}>
+                            Nuestro bebé llegará rugiendo de amor
                             </Typography>
                          </Fade>
 
                         </Grid>
                          <Grid  size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
                             <Fade direction="up"  triggerOnce={true}>
-                                <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem' ,color:COLOR_THIRD}}>
+                                <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem' ,}}>
                                   Te invitamos a celebrar con nosotros esta fecha tan especial.
                                 </Typography>
                             </Fade>
                     </Grid>
                     
-                    <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingY={2} sx={{ mb: 4 }} >
+                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingY={2} >
                          <Fade direction="up"  triggerOnce={true}>
                         <Typography
                         className={MAIN_TYPO}
                         sx={{
                       
                             color: COLOR_SECONDARY,
-                            fontSize: '50px',
+                            fontSize: '60px',
                             lineHeight:1,
                         }}
                         >
-                        23 <Box component="span"  className={SECON_MAIN_TYPO} sx={{  color: COLOR_SECONDARY }}>de</Box> Noviembre
+                        17 <Box component="span"  className={SECON_MAIN_TYPO} sx={{  color: COLOR_SECONDARY, fontSize:"40px" }}>de</Box> Mayo
                         </Typography>
                         </Fade>
                           <Fade direction="up"  triggerOnce={true} >
@@ -180,38 +168,32 @@ const BabyShowerAlec = () => {
                         sx={{
                     
                             color: COLOR_SECONDARY,
-                            fontSize: '50px',
+                            fontSize: '60px',
                         }}
                         >
-                        <Box component="span" className={SECON_MAIN_TYPO} sx={{  color: COLOR_SECONDARY }}>del</Box> 2025
+                        <Box component="span" className={SECON_MAIN_TYPO} sx={{  color: COLOR_SECONDARY, fontSize:"40px" }}>del</Box> 2026
                         </Typography>
                         </Fade>
                     </Grid>
 
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true}>
-                        <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_THIRD }} >
-                        <b>4 PM</b> a <b>8 PM</b>
+                        <Typography className={BODY_TYPO} sx={{ fontSize: '1.25rem',color:COLOR_PRIMARY }} >
+                        <b>9:30 AM</b> a <b>1 PM</b>
                         </Typography>
                         </Fade>
                     </Grid>
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2}  >
                           <Fade direction="up"  triggerOnce={true}>
-                    <EventCardSimple bodyTypo={BODY_TYPO} textColor={COLOR_THIRD} eventName="Lugar:" mainTypo={MAIN_TYPO} locationName="Jardín Lucrecia" address="Av. Lucrecia Ruiz de Ayón 49-B, San Luis Rey, Hermosillo, Son." color={COLOR_SECONDARY} href={"https://maps.app.goo.gl/qFzDqtXznc5HJucQ6"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
+                    <EventCardSimple bodyTypo={BODY_TYPO} textColor={"#2F2F2F"} eventName="Lugar:" mainTypo={MAIN_TYPO} locationName="Jardín del Río " address="Blvr. P.º Río Sonora Nte. 49, Mónaco Privada Residencial, Marsella Residencial, Hermosillo, Son." color={COLOR_SECONDARY} href={"https://maps.app.goo.gl/wKPBrpY9u9gnoKDs7"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
                      </Fade>
                      </Grid>
                     
                     
                     </Grid>
-               </div>
+               {/* </div> */}
                 {/* <div  style={{backgroundPositionX: "50%",    minHeight: "70vh",backgroundSize:"cover",}} > */}
               <Grid container spacing={2} justifyContent="center" padding={2}>
-                {/* <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
-                     <Fade direction="up"  triggerOnce={true}>
-                        <Adornment image={`${URL_IMAGES}adornos.png`} width={"350"}/>
-                     </Fade>
-                        
-                </Grid> */}
 
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true}>
@@ -231,7 +213,7 @@ const BabyShowerAlec = () => {
                          variant="body1"
                             className={BODY_TYPO}
                         align="center"
-                        sx={{fontSize: '1.25rem',color: COLOR_THIRD }}
+                        sx={{fontSize: '1.25rem'}}
 
                         >
                             
@@ -246,46 +228,32 @@ const BabyShowerAlec = () => {
                          variant="body1"
                             className={BODY_TYPO}
                         align="center"
-                        sx={{fontSize: '1.25rem', color: COLOR_THIRD }}
+                        sx={{fontSize: '1.25rem'}}
 
                         >
                             
-                            $600 <br></br> Parejas
+                            $500 <br></br> Organizadoras
                         </Typography>
                     </Grid>
                  <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-                  <RSVPSimple 
-                                colorButton={COLOR_PRIMARY}
-                                bgColor={"#fffcf0"}
-                                mainTypo={MAIN_TYPO}
-                                bodyTypo={BODY_TYPO}
-                                count={6}
-                                dateLine={new Date(2025, 8, 30)}
-                                color={COLOR_SECONDARY}
-                                invitationId={9}
-                                qrActive={false} 
-                                textColor={COLOR_THIRD} 
-                                fontSize="30px"                          
-                                >
-                                
-                            </RSVPSimple>
+                 
             </Grid>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true}>
                             <Typography
                             className={BODY_TYPO}
-                            sx={{ color:COLOR_THIRD, fontSize:24 }}
+                            sx={{  fontSize:20 }}
                         >
-                           “Here comes the son… y ya todo empieza a brillar.”
+                           Nuestro pequeño reino crece… y queremos celebrarlo contigo
                         </Typography>
                          </Fade>
                         
                 </Grid>
-                <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingX={2} >
                          <Fade direction="up"  triggerOnce={true}>
                             <Typography
-                            className={MAIN_TYPO}
-                            sx={{ fontSize: '30px', fontWeight: 'bold', color:COLOR_SECONDARY }}
+                            className={SECON_MAIN_TYPO}
+                            sx={{ fontSize: '50px', fontWeight: 'bold', color:COLOR_SECONDARY,marginTop:"20px" }}
                         >
                             ¡Te esperamos!
                         </Typography>
@@ -295,32 +263,13 @@ const BabyShowerAlec = () => {
                 
               </Grid>
                <div  style={{padding:0, display:"flex", justifyContent:"center"}} >
-                     <img src={`${URL_IMAGES}5.png`}  style={{width: "90vw"}}/>
+                     <img src={`${URL_IMAGES}plantas2.png`}  style={{width: "100vw"}}/>
                 </div>
            
-              {/* </div> */}
+              </div>
                <FooterInvites bgColor="rgb(215,174,84,.05)" color={COLOR_SECONDARY}></FooterInvites>
-              <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="alert-dialog-title"
-            aria-describedby="alert-dialog-description"
-            >
-           
-            <DialogContent >
-
-               <Box display={"flex"} justifyContent={"center"}>
-                <Typography variant="body1" sx={{fontSize:"25px"}}  >Bienvenidos</Typography>
-               </Box>
-                <Box display={"flex"} justifyContent={"center"} marginTop={2}>
-                 <CustomButton borderColor={COLOR_THIRD} bgColor={"#ffffff"}  color={COLOR_THIRD} label={'Entrar'} onClick={handleClose}></CustomButton>
-               </Box>
-                
-               
-           
-            </DialogContent>
-        </Dialog>
+              
           </div>
     )
 }
-export default BabyShowerAlec;
+export default BabyShowerJoseAlejandro;
