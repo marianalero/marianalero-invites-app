@@ -18,7 +18,7 @@ export const EventCardSimple = (props:EventCardProps) => {
         <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center">
           <Typography
             sx={{
-              fontSize: '30px',
+              fontSize: props.fontSize ? props.fontSize : '1.5rem',
             
               color: props.color,
             }}

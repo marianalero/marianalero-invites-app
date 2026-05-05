@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid2';
 import { Fade } from "react-awesome-reveal";
 import { useEffect, useRef, useState } from "react";
 import FooterInvites from "../../components/Footer/FooterInvites";
+import RSVPSimple from "../../components/RSVP/RSVPSimple";
 
 
 const BabyShowerJoseAlejandro = () => {
@@ -109,7 +110,7 @@ const BabyShowerJoseAlejandro = () => {
                 
                </div>
                <div  style={{position: "relative",backgroundImage: `url('${URL_IMAGES}fondo2.png')`, backgroundSize: "cover", backgroundRepeat: "no-repeat" ,paddingTop: "10vh"}} >
-                     <div  style={{position:"absolute",top:"60%",left:"5%",transform:"translate(-50%, -30%) scale(-1)",zIndex: 1,}}>
+                     <div  style={{position:"absolute",top:"50%",left:"5%",transform:"translate(-50%, -30%) scale(-1)",zIndex: 1,}}>
                          <Fade direction="right" triggerOnce={true}>
                                <img src={`${URL_IMAGES}2.png`}  style={{width: "15vh"}}/>
                          </Fade>
@@ -185,7 +186,7 @@ const BabyShowerJoseAlejandro = () => {
                     </Grid>
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={2}  >
                           <Fade direction="up"  triggerOnce={true}>
-                    <EventCardSimple bodyTypo={BODY_TYPO} textColor={"#2F2F2F"} eventName="Lugar:" mainTypo={MAIN_TYPO} locationName="Jardín del Río " address="Blvr. P.º Río Sonora Nte. 49, Mónaco Privada Residencial, Marsella Residencial, Hermosillo, Son." color={COLOR_SECONDARY} href={"https://maps.app.goo.gl/wKPBrpY9u9gnoKDs7"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
+                    <EventCardSimple fontSize="2.5rem" bodyTypo={BODY_TYPO} textColor={"#2F2F2F"} eventName="Lugar:" mainTypo={SECON_MAIN_TYPO} locationName="Jardín del Río " address="Blvr. P.º Río Sonora Nte. 49, Mónaco Privada Residencial, Marsella Residencial, Hermosillo, Son." color={COLOR_SECONDARY} href={"https://maps.app.goo.gl/wKPBrpY9u9gnoKDs7"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
                      </Fade>
                      </Grid>
                     
@@ -198,8 +199,8 @@ const BabyShowerJoseAlejandro = () => {
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true}>
                             <Typography
-                            variant="h4"
-                            className={MAIN_TYPO}
+                            fontSize={"2.5rem"}
+                            className={SECON_MAIN_TYPO}
                             sx={{  fontWeight: 'bold', color:COLOR_SECONDARY }}
                         >
                             Regalo Sugerido
@@ -235,9 +236,23 @@ const BabyShowerJoseAlejandro = () => {
                             $500 <br></br> Organizadoras
                         </Typography>
                     </Grid>
-                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-                 
+                <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                  <RSVPSimple 
+                                colorButton={COLOR_PRIMARY}
+                                bgColor={"#fffcf0"}
+                                mainTypo={SECON_MAIN_TYPO}
+                                bodyTypo={BODY_TYPO}
+                                count={6}
+                                color={COLOR_SECONDARY}
+                                invitationId={25}
+                                qrActive={false} 
+                                textColor={COLOR_PRIMARY} 
+                                fontSize="2.5rem"                          
+                                >
+                                
+                            </RSVPSimple>
             </Grid>
+
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                          <Fade direction="up"  triggerOnce={true}>
                             <Typography
