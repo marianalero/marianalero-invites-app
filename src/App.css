@@ -158,6 +158,10 @@
   font-family: 'Libre Baskerville', serif!important;
   font-style: normal;
 }
+.handelson-three {
+  font-family: "Handelson Three"!important;
+  font-style: normal;
+}
 .d-flex{
   display: flex!important;
 }
