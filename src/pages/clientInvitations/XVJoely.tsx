@@ -424,7 +424,7 @@ const XVJoely  = () => {
             </div>
 
             
-          <Grid container justifyContent="center" sx={{ mt: 4 }} >
+          <Grid container justifyContent="center" sx={{ mt: 4 }} bgcolor={BG_ACCENT} paddingTop={8} >
             <Grid size={{xs:12,sm:12,md:8,lg:6}} textAlign="center">
                <Fade direction="up" triggerOnce={true} >
              <Box 
@@ -487,7 +487,7 @@ const XVJoely  = () => {
             </Fade>
             </Grid>
             </Grid>
-            <Grid container justifyContent="center" sx={{ mt: 4 }} bgcolor={BG_ACCENT}>
+            <Grid container justifyContent="center" sx={{ mt: 4 }} >
               <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingX={4} paddingY={4}  >
                 <Fade direction="up" triggerOnce={true} >
                             <Box
