@@ -17,7 +17,7 @@ import RSVPForm from "../../components/RSVP/RSVPForm";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
-import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
+
 
 import Gallery from "../../components/Gallery/Gallert";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
@@ -63,7 +63,7 @@ const XVJoely  = () => {
 
     // 🖋 TEXTOS
     const TEXT_PRIMARY = "#004D35";   // verde oscuro (lectura principal)
-    const TEXT_SECONDARY = "#6B8F85"; // verde suave
+
     const TEXT_LIGHT = "#FFFFFF";     // texto sobre fondos oscuros
 
     // 🎯 BOTONES
@@ -71,7 +71,7 @@ const XVJoely  = () => {
 
     // ✨ ACENTOS
     const GOLD = "#C8A75D";       // dorado principal
-    const GOLD_SOFT = "#E6D3A3";  // dorado suave
+
     const MAIN_TYPO = "great-vibes-regular";
     const BODY_TYPO = "lora to-upper";
     const URL_IMAGES = `${URL_REPO}xv/xv-joely/`;
