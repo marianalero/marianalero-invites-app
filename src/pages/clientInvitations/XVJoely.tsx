@@ -176,16 +176,7 @@ const XVJoely  = () => {
         omitColorsLabel:"Color verde reservado para la quinceañera."
     }
    
-     const qoute:QouteProps ={
-            bodyTypo: MAIN_TYPO,
-            bgColor:"white", 
-            fontsize:"1.5rem",
-            lineheight:"1.5rem",
-            addormentEnd:``,
-            addormentStart:`${URL_IMAGES}corona.png`,
-            addormentSize:"100px",
-        qoute : "Hay momentos inolvidables que se guardan en el corazón para siempre por esa razón quiero que compartas conmigo este día tan especial, Gracias a Dios y a mis Padres",
-        }
+     
       const padrinos = [
         "Rocio Morales Cruz",
         "Christopher Enríquez Ríos",
@@ -235,9 +226,28 @@ const XVJoely  = () => {
                   >
             </Cover>
            
-           <Qoute 
-               {...qoute}>
-            </Qoute>
+           <Grid container justifyContent="center" padding={2} bgcolor={"white"}>
+            <Grid  size={{xs:12,sm:12,md:12,lg:12}} padding={4} textAlign="center">
+              <Fade direction="up" >
+                <Adornment image={`${URL_IMAGES}corona.png`} width={"100px"} />
+              
+                </Fade>
+               <Fade direction="up" >
+              <Typography
+              align="center"
+                className={MAIN_TYPO}
+                sx={{ mt: 2 }}
+                fontSize={"1.8rem"}
+              >
+                Este dia sera muy especial para mi… y no seria lo mismo sin ti.<br></br> Acompañame a celebrar mis xv años, a crear recuerdos que nunca vamos a olvidar
+              </Typography>
+              </Fade>
+                
+              </Grid>
+            </Grid>
+
+       
+      
            
               <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio1.jpeg`}></ImageMiddle>
 
@@ -258,26 +268,21 @@ const XVJoely  = () => {
           }}
         >
           <Grid container spacing={2} justifyContent="center" mb={3}>
-            <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
-               <Fade direction="up" >
-              <Typography
-                className={BODY_TYPO}
-                sx={{ mt: 2 }}
-              >
-                ESTE DIA SERA MUY ESPECIAL PARA MI… Y NO SERIA LO MISMO SIN TI.<br></br> ACOMPAÑAME A CELEBRAR MIS XV AÑOS, A CREAR RECUERDOS QUE NUNCA VAMOS A OLVIDAR
-              </Typography>
-              <Grid container justifyContent="center" sx={{ m: 4 }}>
-                
-              <Grid>
+            <Grid container justifyContent="center">
+            <Grid size={{xs:12,sm:12,md:12,lg:12}}>
+                            <Fade direction="up" >
+                            <Typography className={BODY_TYPO}>Con la bendición de Dios y el apoyo incondicional de mis padres</Typography>
+
+              </Fade>
+            </Grid>
+        
+          </Grid>
+            <Grid>
                 <Fade direction="up" >
                 <Adornment image={`${URL_IMAGES}adornos/9.png`} width={"250px"} />
               
                 </Fade>
               </Grid>
-            </Grid>
-              </Fade>
-            </Grid>
-
 
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
@@ -301,15 +306,7 @@ const XVJoely  = () => {
             </Grid>
           </Grid>
            
-          <Grid container justifyContent="center">
-            <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-                            <Fade direction="up" >
-                            <Typography className={BODY_TYPO}>Con la bendición de Dios y el apoyo incondicional de mis padres</Typography>
-
-              </Fade>
-            </Grid>
-        
-          </Grid>
+          
            <Grid container justifyContent="center" sx={{ mt: 4 }}>
                 
               <Grid>
