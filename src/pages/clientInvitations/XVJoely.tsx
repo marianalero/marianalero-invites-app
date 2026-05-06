@@ -14,7 +14,7 @@ import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabP
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Adornment from "../../components/Adornment/Adornment";
 import RSVPForm from "../../components/RSVP/RSVPForm";
-import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
+
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 
