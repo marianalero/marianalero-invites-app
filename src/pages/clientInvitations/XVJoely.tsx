@@ -35,7 +35,7 @@ const XVJoely  = () => {
                 const num = Number(searchParams.get("id"));
                 return isNaN(num) ? undefined : num;
             }, [searchParams]);
-        const INVITATION_ID = 0;
+        const INVITATION_ID = 26;
         const [open, setOpen] = useState(false);
 
         const musicRef = useRef<MusicFabPlayerHandle>(null);
@@ -238,7 +238,7 @@ const XVJoely  = () => {
                 sx={{ mt: 2 }}
                 fontSize={"1.8rem"}
               >
-                Este dia sera muy especial para mi… y no seria lo mismo sin ti.<br></br> Acompañame a celebrar mis xv años, a crear recuerdos que nunca vamos a olvidar
+                Este día sera muy especial para mi… y no seria lo mismo sin ti.<br></br> Acompañame a celebrar mis xv años, a crear recuerdos que nunca vamos a olvidar
               </Typography>
               </Fade>
                 
