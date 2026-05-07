@@ -163,6 +163,25 @@ const XVJoely  = () => {
         showEnvelope:true,
         bankIconEnd:`${URL_IMAGES}sobre.png`,
         envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacerme un obsequio, el efectivo será ideal !Gracias!",
+        bankDetails:[
+            {
+              bank: "BBVA",
+              name: "Ivonne Patricia Morales Cruz",
+              color: TEXT_PRIMARY,
+              bodyTypo: BODY_TYPO,
+              bgColor: BG_SECTION,
+              outlineColor:true,
+              numbers: [
+                {
+                  numberType: "Tarjeta",
+                  number: "4152314513635121",
+                  
+                },
+              ]
+                  
+            }
+
+        ]
         
               
     };
@@ -179,7 +198,7 @@ const XVJoely  = () => {
      
       const padrinos = [
         "Rocio Morales Cruz",
-        "Christopher Enríquez Rios",
+        "Christhoper Enríquez Rios",
         "Lizbeth Long Castro",
         "José Ramón Morales Cruz",
         "Denisse Morales Cruz",
