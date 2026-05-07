@@ -387,7 +387,7 @@ const XVJoely  = () => {
               padrinos.map((padrino,index) => (
                  <Grid key={index} size={{ xs: 12,md:6,lg:4}}>
                     <Fade direction="up" >  
-                      <Typography variant="body1" className={BODY_TYPO} sx={{color:TEXT_PRIMARY}}>
+                      <Typography variant="body1" className={BODY_TYPO} sx={{color:TEXT_PRIMARY}} translate="no">
                         {padrino}
                       </Typography>
                     </Fade>
