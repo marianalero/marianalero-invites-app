@@ -179,7 +179,7 @@ const XVJoely  = () => {
      
       const padrinos = [
         "Rocio Morales Cruz",
-        "Christopher Enríquez Ríos",
+        "Christopher Enríquez Rios",
         "Lizbeth Long Castro",
         "José Ramón Morales Cruz",
         "Denisse Morales Cruz",
