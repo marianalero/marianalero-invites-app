@@ -72,7 +72,7 @@ const XVJoely  = () => {
     // ✨ ACENTOS
     const GOLD = "#C8A75D";       // dorado principal
 
-    const MAIN_TYPO = "great-vibes-regular";
+    const MAIN_TYPO = "pinyon-script-regular";
     const BODY_TYPO = "lora to-upper";
     const URL_IMAGES = `${URL_REPO}xv/xv-joely/`;
 
@@ -80,7 +80,7 @@ const XVJoely  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Misa Religiosa",
-                date: new Date(2026, 3, 11, 18, 0, 0),
+                date: new Date(2026, 5, 6, 16, 0, 0),
                 locationName: "Parroquia Santa Eduwiges",
                 address: "C. Israel González S/N, Modelo, 83190 Hermosillo, Son.",
                 size: 6,
@@ -98,7 +98,7 @@ const XVJoely  = () => {
             },
             {
                 eventName: "Recepción",
-                date: new Date(2026, 3, 11, 20, 0, 0),
+                date: new Date(2026, 5, 6, 20, 0, 0),
                
                 locationName: "Salón 2 de la Unidad Social Sección 54",
                 address: "Gabriela Mistral s/n Col.Periodista",
@@ -133,17 +133,17 @@ const XVJoely  = () => {
     //         // },
     //         {
     //             eventName: "Recepción",
-    //             date: new Date(2026, 3, 11, 20, 0, 0),
+    //             date: new Date(2026, 5, 6, 20, 0, 0),
     //             icon:`${URL_IMAGES}iconos/16.svg`,
     //         },
     //         {
     //             eventName: "Vals",
-    //             date: new Date(2026,  3, 11 ,21,0,0),
+    //             date: new Date(2026,  5, 6 ,21,0,0),
     //             icon:`${URL_IMAGES}iconos/22.svg`,
     //         },
     //         {
     //             eventName: "Cena",
-    //             date: new Date(2026,  3, 11 ,21,30,0),
+    //             date: new Date(2026,  5, 6 ,21,30,0),
     //             icon:`${URL_IMAGES}iconos/23.svg`,
     //         },
       
@@ -172,7 +172,7 @@ const XVJoely  = () => {
         color:TEXT_PRIMARY,
         type:1,
         title:"Formal",
-        fontSize:"3rem",
+        fontSize:"2.5rem",
         omitColorsLabel:"Color verde reservado para la quinceañera."
     }
    
@@ -180,7 +180,7 @@ const XVJoely  = () => {
       const padrinos = [
         "Rocio Morales Cruz",
         "Christopher Enríquez Ríos",
-        "Lizbeth G. Long Castro",
+        "Lizbeth Long Castro",
         "José Ramón Morales Cruz",
         "Denisse Morales Cruz",
         "Ricardo Fernández Rodríguez",
@@ -189,7 +189,6 @@ const XVJoely  = () => {
         "Hilda Félix Serrano",
         "José Mercado Reyes",
         "Karla Aimé Félix Villegas",
-        "Daniel Meranza Castillón",
         "Daniel Alejandro Meranza Castillón",
        
       ]
@@ -221,7 +220,7 @@ const XVJoely  = () => {
                 overlay={true}
                 fontSize="5rem"
                 verticalPosition="top"
-                margin="80px"
+                margin="60px"
 
                   >
             </Cover>
@@ -286,8 +285,8 @@ const XVJoely  = () => {
 
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
                <Fade direction="up" >
-              <Typography variant="h1" className={`${MAIN_TYPO} tex-`}
-                sx={{fontSize: "2rem" ,lineHeight:2, color: TEXT_PRIMARY }}
+              <Typography variant="h1" className={`${MAIN_TYPO} tex-`} translate="no"
+                sx={{fontSize: "1.8rem" ,lineHeight:2, color: TEXT_PRIMARY }}
               >
                   Joel Alberto Félix Serrano
               </Typography>
@@ -297,7 +296,7 @@ const XVJoely  = () => {
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
               <Fade direction="up" >
               <Typography  variant="h1" className={`${MAIN_TYPO}`} translate="no" 
-                sx={{  fontSize: "2rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                sx={{  fontSize: "1.8rem",lineHeight:2 , color: TEXT_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
               >
               Ivonne Patricia Morales Cruz
 
