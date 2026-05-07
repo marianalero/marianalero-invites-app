@@ -237,8 +237,8 @@ const XVJoely  = () => {
                   hideText={false}
                   ourWeddingStart={true}
                 overlay={true}
-                fontSize="5rem"
-                verticalPosition="top"
+                fontSize="4rem"
+                verticalPosition="bottom"
                 margin="60px"
 
                   >
