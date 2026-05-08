@@ -222,7 +222,11 @@
   font-style: normal;
 }
 
-
+.genty-sans-regular {
+  font-family: "Genty Sans", serif!important;
+  font-weight: 400;
+  font-style: normal;
+}
 .text-rose-gold{
   background-image: linear-gradient(
  to right,
