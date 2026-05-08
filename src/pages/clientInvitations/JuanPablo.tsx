@@ -396,7 +396,7 @@ const JuanPablo = () => {
                          <Fade direction="up"  triggerOnce={true}>
                             <Typography
                             className={MAIN_TYPO}
-                            sx={{ fontSize: '50px', fontWeight: 'bold', color:COLOR_SECONDARY,marginTop:"20px" }}
+                            sx={{ fontSize: '40px', fontWeight: 'bold', color:COLOR_SECONDARY,marginTop:"20px" }}
                         >
                             ¡Te esperamos!
                         </Typography>
