@@ -135,7 +135,7 @@ const routes: RouteConfig[] = [
    {path:'/baby-shower-alec', element: <BabyShowerAlec></BabyShowerAlec>},
    {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
    {path:'/baby-shower-jose-alejandro', element: <BabyShowerJoseAlejandro></BabyShowerJoseAlejandro>},
-   {path:'/prev-jp', element: <JuanPablo></JuanPablo>},
+   {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  

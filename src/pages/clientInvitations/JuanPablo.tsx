@@ -368,7 +368,7 @@ const JuanPablo = () => {
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" >
                             <Fade direction="up"  triggerOnce={true}>
                                 <CustomButton
-                                onClick={() => window.open("https://wa.me/1234567890?text=Quiero confirmar mi asistencia a la fiesta de Juan Pablo", "_blank")}
+                                onClick={() => window.open("https://wa.me/+526623617240?text=Quiero confirmar mi asistencia a la fiesta de Juan Pablo", "_blank")}
                                 color={"white"}
                                 bgColor={"#00A859"} label={"CONFIRMAR ASISTENCIA"}                                >
 
