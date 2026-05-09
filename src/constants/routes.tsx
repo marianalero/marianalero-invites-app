@@ -59,7 +59,6 @@ import XVKimberly from "../pages/clientInvitations/XVKimberly";
 import WeddingCarlos from "../pages/clientInvitations/WeddingCarlos";
 import XVRegina from "../pages/clientInvitations/XVRegina";
 import BabyShowerJoseAlejandro from "../pages/clientInvitations/BabyShowerJoseAlejandro";
-import XVJoely from "../pages/clientInvitations/XVJoely";
 import JuanPablo from "../pages/clientInvitations/JuanPablo";
 
 
