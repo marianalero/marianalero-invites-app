@@ -121,7 +121,7 @@ const routes: RouteConfig[] = [
    {path:'/xv-camila', element: <XVCamila></XVCamila>},
    {path:'/xv-kimberly', element: <XVKimberly></XVKimberly>},
    {path:'/xv-regina', element: <XVRegina></XVRegina>},
-   {path:'/xv-joely-patricia', element: <XVJoely></XVJoely>},
+  //  {path:'/xv-joely-patricia', element: <XVJoely></XVJoely>},
   //Bautizo
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
@@ -140,7 +140,6 @@ const routes: RouteConfig[] = [
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
 
-  {path:'/prev-j-2', element: <XVJoely></XVJoely>},
 ];
 
 
