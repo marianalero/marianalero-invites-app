@@ -60,6 +60,7 @@ import WeddingCarlos from "../pages/clientInvitations/WeddingCarlos";
 import XVRegina from "../pages/clientInvitations/XVRegina";
 import BabyShowerJoseAlejandro from "../pages/clientInvitations/BabyShowerJoseAlejandro";
 import JuanPablo from "../pages/clientInvitations/JuanPablo";
+import XVJoely from "../pages/clientInvitations/XVJoely";
 
 
 interface RouteConfig {
@@ -120,7 +121,7 @@ const routes: RouteConfig[] = [
    {path:'/xv-camila', element: <XVCamila></XVCamila>},
    {path:'/xv-kimberly', element: <XVKimberly></XVKimberly>},
    {path:'/xv-regina', element: <XVRegina></XVRegina>},
-  //  {path:'/xv-joely-patricia', element: <XVJoely></XVJoely>},
+   {path:'/xv-joely-patricia', element: <XVJoely></XVJoely>},
   //Bautizo
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
