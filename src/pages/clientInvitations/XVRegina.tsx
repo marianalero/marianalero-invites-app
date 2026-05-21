@@ -512,7 +512,7 @@ const XVRegina  = () => {
              
            
             <RSVPForm 
-                dateLine={new Date(2026,4,20)}
+                dateLine={new Date(2026,5,10)}
                 textColor={TEXT_SECONDARY}
                     colorButton={TEXT_SECONDARY } 
                     bgColor={BG_SECTION } 
