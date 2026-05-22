@@ -170,7 +170,7 @@ const WeddingDaniaSergio  = () => {
         mainTypo: SECOND_TYPO,
         bodyTypo:BODY_TYPO,
         color:TEXT_PRIMARY,
-        type:1,
+        type:2,
         title:"Formal - Elegante",
         fontSize:"1.6rem",
 
