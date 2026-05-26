@@ -190,12 +190,12 @@ const WeddingBWDemo  = () => {
                     {
                         eventName: "Primer baile",
                         date: new Date(2025, 10, 16, 21, 20, 0),
-                        icon: `${URL_IMAGES}iconos/6.svg`,
+                        icon: `${URL_IMAGES}iconos/7.svg`,
                     },
                     {
                         eventName: "Cena",
                         date: new Date(2025, 10, 16, 21, 30, 0),
-                        icon: `${URL_IMAGES}iconos/7.svg`,
+                        icon: `${URL_IMAGES}iconos/6.svg`,
                     },
                     {
                         eventName: "Fin del evento",
