@@ -211,7 +211,7 @@ const WeddingBWDemo  = () => {
             <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_PRIMARY}/>
             <CoverInline 
                 ourWeddingStart={true}
-                weddingDate="05.12.26"
+                weddingDate="5 de diciembre, 2026"
                 bgImage={`${URL_IMAGES}demoBW1.jpg`}
                 brideName="Valentina" 
                 symbolr={"&"} 
@@ -285,7 +285,7 @@ const WeddingBWDemo  = () => {
                 alignItems="end"
                 >  
             </CountDown>
-            <Grid container spacing={2} sx={{backgroundColor:"#020202"}} padding={2} marginTop={4} marginBottom={4}>
+            <Grid container spacing={2} sx={{backgroundColor:"#020202"}} padding={2} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                     <Box padding={2}  >
                     <Box display={"flex"} justifyContent={"center"} sx={{borderColor:"white",borderStyle:"solid",borderWidth:"1.5px" ,}} >
