@@ -77,7 +77,7 @@ const XVBriana  = () => {
         bgColor: BG_ACCENT , 
         showEnvelope:true,
         bankIconEnd:`${URL_IMAGES}sobre.svg`,
-        envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacerme un obsequio, el efectivo será ideal !Gracias!",
+        envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacerme un obsequio, el efectivo será ideal ¡Gracias!",
         // secondPhrase:"O bien puedes realizar transferencia o depósito a la siguiente cuenta:",
         // bankDetails: [
         //     {
@@ -336,14 +336,14 @@ const XVBriana  = () => {
 
               <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
-                      <Typography variant="h5" className={MAIN_TYPO}>
+                      <Typography variant="h5" className={MAIN_TYPO} lineHeight={1.5} letterSpacing={1.5}> 
                         Jorge Alberto Hoyos Figueroa
                       </Typography>
                     </Fade>
               </Grid>
                <Grid size={{ xs: 12,md:12,lg:12}}>
                     <Fade direction="up" >
-                      <Typography variant="h5" className={MAIN_TYPO}>
+                      <Typography variant="h5" className={MAIN_TYPO} lineHeight={1.5} letterSpacing={1.5}>
                         María Cristina Meza González
                       </Typography>
                     </Fade>
