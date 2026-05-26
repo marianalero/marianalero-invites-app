@@ -18,7 +18,6 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCard from "../../components/EventCard/EventCard";
 import MiniGallery from "../../components/MiniGallery/MiniGallery";
-import Gallery from "../../components/Gallery/Gallert";
 import { Fade } from "react-awesome-reveal";
 import  { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import CoverInline from "../../components/Cover/CoverImage/CoverInline";
@@ -68,7 +67,7 @@ const WeddingBWDemo  = () => {
     const COLOR_BG ="#F7F3EB";
     
     const URL_IMAGES = `${URL_REPO}demos/`;
-    const URL_SONG = `${URL_REPO}canciones/Everyday-AcousticInstrumental.mp3`;
+    const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
    
         const eventCards: EventCardProps[] = [
             {
@@ -114,10 +113,10 @@ const WeddingBWDemo  = () => {
         items: [
             {
                 link: "https://ejemplo.com/mesa-de-regalos",
-                icon: `${URL_IMAGES}regalo.svg`,
+                icon: `${URL_IMAGES}liverpool-negro.png`,
             }
         ],
-        giftIcon: `${URL_IMAGES}regalo.svg`,
+        giftIcon: `${URL_IMAGES}/iconos/14.svg`,
         mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
         color: COLOR_PRIMARY, 
@@ -128,7 +127,7 @@ const WeddingBWDemo  = () => {
         envelopePhrase:"Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
         secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
         envelopeTitleColor:COLOR_PRIMARY,
-        bankIconStart: `${URL_IMAGES}sobre.svg`,
+        bankIconStart: `${URL_IMAGES}iconos/13.svg`,
         bankDetails: [
             {
                 numbers :[ 
@@ -139,7 +138,7 @@ const WeddingBWDemo  = () => {
                 
                 ],
                 bank: "BANCO",
-                name: "Nombre de los Novios",
+                name: "Valentina Martínez López",
                 color: COLOR_PRIMARY,
                 bodyTypo: BODY_TYPO,
                 bgColor:"white",
@@ -181,35 +180,31 @@ const WeddingBWDemo  = () => {
                     {
                         eventName: "Ceremonia Civil",
                         date: new Date(2025, 10, 16, 19, 0, 0),
-                        icon: `${URL_IMAGES}iconos/3.svg`,
+                        icon: `${URL_IMAGES}iconos/1.svg`,
                     },
                     {
                         eventName: "Cóctel  de bienvenida",
                         date: new Date(2025, 10, 16, 20, 0, 0),
-                        icon: `${URL_IMAGES}iconos/4.svg`,
+                        icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
                         eventName: "Primer baile",
                         date: new Date(2025, 10, 16, 21, 20, 0),
-                        icon: `${URL_IMAGES}iconos/5.svg`,
+                        icon: `${URL_IMAGES}iconos/6.svg`,
                     },
                     {
                         eventName: "Cena",
-                        date: new Date(2025, 10, 16, 21, 40, 0),
-                        icon: `${URL_IMAGES}iconos/6.svg`,
+                        date: new Date(2025, 10, 16, 21, 30, 0),
+                        icon: `${URL_IMAGES}iconos/7.svg`,
                     },
                     {
                         eventName: "Fin del evento",
                         date: new Date(2025, 10, 16, 2, 0, 0),
-                        icon: `${URL_IMAGES}iconos/9.svg`,
+                        icon: `${URL_IMAGES}iconos/just-married.svg`,
                     },
                 ],
     };
 
-    const galleryPhotos = [
-        `${URL_IMAGES}demoBW2.jpg`,
-        `${URL_IMAGES}demoBW3.jpg`,
-    ];
 
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
@@ -218,9 +213,9 @@ const WeddingBWDemo  = () => {
                 ourWeddingStart={true}
                 weddingDate="05.12.26"
                 bgImage={`${URL_IMAGES}demoBW1.jpg`}
-                brideName="Nombre Novia" 
+                brideName="Valentina" 
                 symbolr={"&"} 
-                groomName={"Nombre Novio"} 
+                groomName={"Sebastian"} 
                 className={SECONDARY_TYPO}
                 bgSize="cover"
                 overlay={true}
@@ -254,8 +249,8 @@ const WeddingBWDemo  = () => {
                             </Grid>
                            <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"}>Nombre del Padre de la Novia</Typography>
-                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Nombre de la Madre de la Novia</Typography>
+                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"}>Mariana López de Herrera</Typography>
+                                <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Ricardo Herrera Gómez</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
@@ -266,8 +261,8 @@ const WeddingBWDemo  = () => {
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
                             
-                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"} >Nombre del Padre del Novio</Typography>
-                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Nombre de la Madre del Novio</Typography>
+                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"} >Gabriela Torres</Typography>
+                            <Typography sx={{color:COLOR_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Alejandro Mendoza Ruiz</Typography>
                             </Fade>
                         </Grid>	
                             
@@ -281,13 +276,13 @@ const WeddingBWDemo  = () => {
             </div>
             <CountDown 
                 eventDate={new Date(2026,11,5)}
-                bgImage={`${URL_IMAGES}contador-bn.jpg`}
+                bgImage={`${URL_IMAGES}demoBW4.jpg`}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} 
                 fontSize="1.8rem"
                 marginTop="30px"
                 padding="1em"
-                alignItems="start"
+                alignItems="end"
                 >  
             </CountDown>
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
@@ -364,9 +359,9 @@ const WeddingBWDemo  = () => {
                </Grid>
                 <MiniGallery
                     images={[
-                        `${URL_IMAGES}portada.jpg`,
-                        `${URL_IMAGES}enmedio.jpg`,
-                        `${URL_IMAGES}galeria3.jpg`,
+                        `${URL_IMAGES}demoBW1.jpg`,
+                        `${URL_IMAGES}demoBW2.jpg`,
+                        `${URL_IMAGES}demoBW3.jpg`,
                     ]}
                      backgroundColor="rgb(250,250,250,.8)"
                     spacing={8}
@@ -376,11 +371,11 @@ const WeddingBWDemo  = () => {
                     />
                     </div>
             <RSVPForm 
-            bgImage={`${URL_IMAGES}confirmacion.jpg`}
+            
             dateLine={new Date(2026,10,5)}
                 textColor={"white"}
                 colorButton={"white"} 
-                bgColor={COLOR_BG} 
+                bgColor={"#020202"} 
                 mainTypo={MAIN_TYPO} 
                 bodyTypo={BODY_TYPO} 
                 count={invitedGuests}
@@ -407,7 +402,12 @@ const WeddingBWDemo  = () => {
                </Grid>
                               <WithoutKids {...withOutKids} /> 
             <div style={{height:100}}></div>
-                     <Gallery photos={galleryPhotos}></Gallery>
+                <Typography variant="body1" textAlign={"center"} className={`${BODY_TYPO}`} >
+                    IMAGENES 
+Foto de <a href="https://unsplash.com/es/@dazmanov?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Daniel Azmanov</a> en <a href="https://unsplash.com/es/fotos/un-hombre-y-una-mujer-sentados-en-los-escalones-de-un-edificio-lVraV5Eqn6Q?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+               
+                Foto de <a href="https://unsplash.com/es/@mrsrachelmcdermott?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rachel McDermott</a> en <a href="https://unsplash.com/es/fotos/mujer-con-anillo-de-bodas-con-hombre-de-la-mano-fAIklKagBcw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                     </Typography>
          </div>
             <FooterInvites bgColor={"white"} color={COLOR_PRIMARY}></FooterInvites>
              <Dialog
