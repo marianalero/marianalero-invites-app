@@ -163,7 +163,7 @@ const WeddingBWDemo  = () => {
     }
     
     const qoute:QouteProps ={
-            qoute: "Dos corazones, un solo amor. Celebra con nosotros este dia especial.",
+            qoute: "El amor nos unió en un solo camino, y queremos recorrerlo junto a ti en este día especial",
             bodyTypo: BODY_TYPO,
             italic:true,
             fontsize:"1.5rem",
