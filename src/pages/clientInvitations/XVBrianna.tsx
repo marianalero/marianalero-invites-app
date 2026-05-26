@@ -57,7 +57,7 @@ const XVBriana  = () => {
                 address: "Blvd. Camino del Seri & Bv. de las Quintas, Col. la Verbena, 83291 Hermosillo, Son.",
                 size: 6,
                 color: TEXT_PRIMARY ,
-                icon:`${URL_IMAGES}corona.png`,
+                icon:`${URL_IMAGES}corona.svg`,
                 iconSize:"180px",
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
