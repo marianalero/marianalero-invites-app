@@ -155,7 +155,7 @@ const WeddingDaniaSergio  = () => {
                     },
                 
                 ],
-                bank: "BANORTE",
+                bank: "BBVA",
                 name: "Dania Margarita Torres Martinez",
                 color: TEXT_PRIMARY,
                 bodyTypo: BODY_TYPO,
@@ -196,20 +196,25 @@ const WeddingDaniaSergio  = () => {
                         icon: `${URL_IMAGES}iconos/1.svg`,
                     },
                     {
-                        eventName: "Cóctel",
+                        eventName: "Recepción",
                         date: new Date(2025, 10, 16, 21, 0, 0),
                         icon: `${URL_IMAGES}iconos/5.svg`,
                     },
                     {
-                        eventName: "Recepción",
+                        eventName: "Cena",
                         date: new Date(2025, 10, 16, 21, 45, 0),
                         icon: `${URL_IMAGES}iconos/6.svg`,
                     },
                     {
-                        eventName: "Cena",
+                        eventName: "Vals",
                         date: new Date(2025, 10, 16, 22, 30, 0),
                         icon: `${URL_IMAGES}iconos/7.svg`,
                     },
+                    {
+                        eventName: "Fiesta",
+                        date: new Date(2025, 10, 16, 22, 45, 0),
+                        icon: `${URL_IMAGES}iconos/8.svg`,
+                    }
                    
                 ],
     };
@@ -246,7 +251,7 @@ const WeddingDaniaSergio  = () => {
             <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={BUTTON_PRIMARY }/>
             <CoverInline 
                 ourWeddingStart={true}
-                weddingDate="05.12.26"
+                weddingDate="03.10.26"
                 bgImage={`${URL_IMAGES}portada.jpg`}
                 brideName="Dania" 
                 symbolr={"y"} 

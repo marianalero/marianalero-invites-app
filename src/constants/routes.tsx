@@ -62,6 +62,7 @@ import BabyShowerJoseAlejandro from "../pages/clientInvitations/BabyShowerJoseAl
 import JuanPablo from "../pages/clientInvitations/JuanPablo";
 import XVJoely from "../pages/clientInvitations/XVJoely";
 import WeddingDaniaSergio from "../pages/clientInvitations/WeddingDaniaSergio";
+import XVBrianna from "../pages/clientInvitations/XVBrianna";
 
 
 interface RouteConfig {
@@ -140,7 +141,9 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
-  {path:'/prev-ds', element: <WeddingDaniaSergio></WeddingDaniaSergio>},
+  {path:'/prev-ds-2', element: <WeddingDaniaSergio></WeddingDaniaSergio>},
+  {path:'/prev-b-1', element: <XVBrianna></XVBrianna>},
+  
 
 ];
 
