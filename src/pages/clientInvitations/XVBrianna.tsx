@@ -52,7 +52,7 @@ const XVBriana  = () => {
             {
                 eventName: "Recepción",
                 date: new Date(2026, 5, 20, 19, 0, 0),
-               
+               textColor: TEXT_PRIMARY,
                 locationName: "KOVA eventos",
                 address: "Blvd. Camino del Seri & Bv. de las Quintas, Col. la Verbena, 83291 Hermosillo, Son.",
                 size: 6,
@@ -418,6 +418,7 @@ const XVBriana  = () => {
                   position: "relative",
                   zIndex: 2,
                   px: 2,
+                  color: TEXT_PRIMARY,
                 }}
               >
                 <GiftList {...giftListData} />
