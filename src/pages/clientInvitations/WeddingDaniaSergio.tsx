@@ -45,7 +45,7 @@ const WeddingDaniaSergio  = () => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
-    const INVITATION_ID = 0;
+    const INVITATION_ID = 27;
     const [open, setOpen] = useState(false);
         const musicRef = useRef<MusicFabPlayerHandle>(null);
         const handleClickOpen = () => {
@@ -83,7 +83,7 @@ const WeddingDaniaSergio  = () => {
     const BODY_TYPO = "montserrat-400";     // Limpia para texto
     const SECOND_TYPO = "playfair-display-400"; // Elegante para subtítulos
     const URL_IMAGES = `${URL_REPO}boda/boda-dania-sergio/`;
-    const URL_SONG = `${URL_REPO}canciones/Everyday-AcousticInstrumental.mp3`;
+    const URL_SONG = `${URL_REPO}canciones/Alex Warren-Ordinary.mp3`;
    
         const eventCards: EventCardProps[] = [
             {
