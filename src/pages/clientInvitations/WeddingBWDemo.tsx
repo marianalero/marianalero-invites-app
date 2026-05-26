@@ -64,7 +64,7 @@ const WeddingBWDemo  = () => {
     const MAIN_TYPO = "playfair-display-400 to-upper";
     const SECONDARY_TYPO = "the-seasons";
     const BODY_TYPO = "lora";
-    const COLOR_BG ="#F7F3EB";
+
     
     const URL_IMAGES = `${URL_REPO}demos/`;
     const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
