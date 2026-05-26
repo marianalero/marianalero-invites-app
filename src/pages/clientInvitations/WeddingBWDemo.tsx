@@ -285,6 +285,39 @@ const WeddingBWDemo  = () => {
                 alignItems="end"
                 >  
             </CountDown>
+            <Grid container spacing={2} sx={{backgroundColor:"#020202"}} padding={2} marginTop={4} marginBottom={4}>
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                    <Box padding={2}  >
+                    <Box display={"flex"} justifyContent={"center"} sx={{borderColor:"white",borderStyle:"solid",borderWidth:"1.5px" ,}} >
+                       
+                       <Grid container spacing={2} padding={2} justifyContent={"center"} sx={{color:"white"}} >
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                            <Fade direction="up" >
+                                    <Typography sx={{fontSize: "2rem"}} textAlign={"center"} className={`${MAIN_TYPO}`} >Padrinos</Typography>
+                            </Fade>
+                            </Grid>
+                           <Grid size={{xs:12,sm:4,md:4,lg:4}} >
+                            <Fade direction="up" >
+                                <Typography sx={{color:"white", fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"}>Paola Castillo</Typography>
+                                <Typography sx={{color:"white", fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Javier Vega</Typography>
+                            </Fade >
+                        </Grid>	
+                        
+                        <Grid size={{xs:12,sm:4,md:4,lg:4}} >
+                            <Fade direction="up" >
+                            
+                            <Typography sx={{color:"white", fontSize: "1.5rem"}} variant="h4" textAlign={"center"} className={"playfair-display-400"} >Claudia Navarro</Typography>
+                            <Typography sx={{color:"white", fontSize: "1.5rem"}}  variant="h4" textAlign={"center"} className={"playfair-display-400"}>Fernando Salinas</Typography>
+                            </Fade>
+                        </Grid>	
+                            
+                        </Grid>
+                       
+                
+                    </Box>
+                    </Box>
+                </Grid>
+            </Grid>
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             <Grid container spacing={2} padding={4} >
             {eventCards
@@ -320,7 +353,9 @@ const WeddingBWDemo  = () => {
                             sx={{ m: 'auto 0' }}
                             align="right"
                             >
-                            
+                            <Fade direction="up" triggerOnce={true} >
+                              <img className="intinerario-icon" src={item.icon} height="60"/>
+                            </Fade>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
                         <TimelineConnector  sx={{backgroundColor:timelineData.colorPrimary}} />
