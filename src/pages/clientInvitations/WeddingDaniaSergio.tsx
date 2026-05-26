@@ -156,7 +156,7 @@ const WeddingDaniaSergio  = () => {
                 
                 ],
                 bank: "BBVA",
-                name: "Dania Margarita Torres Martinez",
+                name: "Dania Margarita Torres Martínez",
                 color: TEXT_PRIMARY,
                 bodyTypo: BODY_TYPO,
                 bgColor:"white",
