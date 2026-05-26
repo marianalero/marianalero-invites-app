@@ -221,10 +221,10 @@ const WeddingDaniaSergio  = () => {
 
     const sponsors:PairSponsors[] = [
                         {
-                            sponsorOne: { name: "Carmen Martinez  y Jose Luis Contreras" },
+                            sponsorOne: { name: "Carmen Martínez  y Jose Luis Contreras" },
                         },
                         {
-                            sponsorOne: { name: "Martha Martinez  y Sergio Moreno" },
+                            sponsorOne: { name: "Martha Martínez  y Sergio Moreno" },
                         },
                         {
                             sponsorOne: { name: "Hilda Elisa Onuma  y Eduardo Solano" },
