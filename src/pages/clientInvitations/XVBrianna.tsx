@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid2';
 import { Box,  Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
 import { useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo} from "react";
 
 import Adornment from "../../components/Adornment/Adornment";
 ;
@@ -199,9 +199,9 @@ const XVBriana  = () => {
                          </Fade>
                      
                      </div>   
-                     <div  style={{position:"absolute",top:"85%",left:"70%",transform:"translate(-50%, -50%)"}}>
+                     <div  style={{position:"absolute",top:"85%",left:"80%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="left" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}elementos/3.png`}  style={{width: "150px"}} />
+                               <img src={`${URL_IMAGES}elementos/3.png`}  style={{width: "200px"}} />
                          </Fade>
                      
                      </div>    
