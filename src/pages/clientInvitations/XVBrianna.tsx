@@ -57,7 +57,7 @@ const XVBriana  = () => {
                 address: "Blvd. Camino del Seri & Bv. de las Quintas, Col. la Verbena, 83291 Hermosillo, Son.",
                 size: 6,
                 color: TEXT_PRIMARY ,
-                icon:`${URL_IMAGES}recepcion.png`,
+                icon:`${URL_IMAGES}corona.png`,
                 iconSize:"180px",
                 mainTypo:  `${MAIN_TYPO}`,
                 bodyTypo: BODY_TYPO,
@@ -201,7 +201,7 @@ const XVBriana  = () => {
                      </div>   
                      <div  style={{position:"absolute",top:"85%",left:"80%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="left" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}elementos/3.png`}  style={{width: "200px"}} />
+                               <img src={`${URL_IMAGES}elementos/33.png`}  style={{width: "200px"}} />
                          </Fade>
                      
                      </div>    
