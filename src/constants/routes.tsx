@@ -109,7 +109,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-flor-maria-cruz-roberto', element: <WeddingFlorMariaCruzRoberto></WeddingFlorMariaCruzRoberto>},
   {path:'/boda-maria-isabel-christian', element: <WeddingMariaIsabelChristianDuran></WeddingMariaIsabelChristianDuran>},
   {path:'/boda-carlos-jaudiel-carlos-mario', element: <WeddingCarlos></WeddingCarlos>},
-  // {path:'/boda-dania-sergio', element: <WeddingDaniaSergio></WeddingDaniaSergio>},
+  {path:'/boda-dania-sergio', element: <WeddingDaniaSergio></WeddingDaniaSergio>},
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
