@@ -61,7 +61,7 @@ import XVRegina from "../pages/clientInvitations/XVRegina";
 import BabyShowerJoseAlejandro from "../pages/clientInvitations/BabyShowerJoseAlejandro";
 import JuanPablo from "../pages/clientInvitations/JuanPablo";
 import XVJoely from "../pages/clientInvitations/XVJoely";
-import WeddingDaniaSergio from "../pages/clientInvitations/WeddingDaniaSergio";
+
 import XVBrianna from "../pages/clientInvitations/XVBrianna";
 
 
