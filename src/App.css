@@ -1,9 +1,42 @@
 :root {
   --mui-palette-primary-main: #555555;
   --bs-primary-rgb:255,255,255;
+  --atcb-background: transparent;
+  --atcb-border: #1A1A1A;
+  --atcb-text: #1A1A1A;
+  --atcb-shadow: none;
+  --atcb-overlay-background: rgba(0,0,0,.4);
+  --atcb-overlay-backdrop: blur(10px);
+
+  --atcb-button-font: "Lora", serif;
+  --atcb-button-font-size: 14px;
+
+  --atcb-button-padding: 14px 28px;
+  --atcb-button-border-radius: 0px;
+
+  --atcb-dropdown-border-radius: 16px;
+  --atcb-dropdown-background: #ffffff;
+  --atcb-dropdown-text: #1A1A1A;
+
+  --atcb-dropdown-item-hover-background: #f5f5f5;
 }
 
+.atcb-button {
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  border-width: 1.5px !important;
+  transition: all .4s ease !important;
+}
 
+.atcb-button:hover {
+  transform: translateY(-2px);
+  background: #1A1A1A !important;
+  color: white !important;
+}
+
+.atcb-list {
+  padding: 10px !important;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

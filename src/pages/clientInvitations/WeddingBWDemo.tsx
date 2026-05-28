@@ -12,8 +12,8 @@ import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Dialog, DialogContent, Box, Typography, DialogActions } from "@mui/material";
-import CustomButton from "../../components/CustomButton/CustomButton";
+import { Box, Typography,  } from "@mui/material";
+
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCard from "../../components/EventCard/EventCard";
@@ -31,44 +31,55 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import Timeline from "@mui/lab/Timeline";
 import dayjs from "dayjs";
 import { t } from "i18next";
+import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 const WeddingBWDemo  = () => {
     const [searchParams] = useSearchParams();
+
     const invitedGuests: number | undefined = useMemo(() => {
         const num = Number(searchParams.get("number"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
+
     const guestId: number | undefined = useMemo(() => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
+
     const INVITATION_ID = 0;
-    const [open, setOpen] = useState(false);
-        const musicRef = useRef<MusicFabPlayerHandle>(null);
-        const handleClickOpen = () => {
-            setOpen(true);
-        };
-    
-        const handleClose = () => {
-            setOpen(false);
-            musicRef.current?.play()
-         };
-    
-        useEffect(() => {
-           handleClickOpen()
-        }, []);
+
+    // INTRO STATES
+    const [showIntro, setShowIntro] = useState(true);
+    const [showInvitation, setShowInvitation] = useState(false);
+
+    const musicRef = useRef<MusicFabPlayerHandle>(null);
+
+    const handleEnter = () => {
+
+        musicRef.current?.play();
+
+        // empieza transición invitación
+        setShowInvitation(true);
+
+        // desaparece intro después
+        setTimeout(() => {
+            setShowIntro(false);
+        }, 900);
+    };
+
     useEffect(() => {
         document.title = "Invitacion de Boda";
     }, []);
+
     const COLOR_PRIMARY = "#1A1A1A";
     const MAIN_TYPO = "playfair-display-400 to-upper";
     const SECONDARY_TYPO = "the-seasons";
     const BODY_TYPO = "lora";
 
-    
     const URL_IMAGES = `${URL_REPO}demos/`;
     const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
-   
+   const calendarRef = useRef<HTMLDivElement>(null);
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Ceremonia Religiosa",
@@ -207,7 +218,67 @@ const WeddingBWDemo  = () => {
 
 
     return (
-        <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
+           <div
+            style={{
+                backgroundColor: "white",
+                maxWidth: "100%",
+                overflowY: "auto",
+            }}
+        >
+
+            {/* INTRO */}
+            <InvitationIntro
+                open={showIntro}
+                onEnter={handleEnter}
+                musicRef={musicRef}
+
+                title="Una celebración está por comenzar"
+
+                brideName="Valentina"
+                groomName="Sebastian"
+                ampersonSymbol="&"
+
+                namesTypo={SECONDARY_TYPO}
+                ampersonTypo={MAIN_TYPO}
+                guestTypo={BODY_TYPO}
+                bodyTypo={BODY_TYPO}
+
+                backgroundColor="#F8F6F2"
+                primaryColor={COLOR_PRIMARY}
+
+                envelopeImg={`${URL_IMAGES}black-envelope.png`}
+                sealImg={`${URL_IMAGES}seal.png`}
+
+                sealPosition={{
+                    top: "60%",
+                    left: "50%",
+                    width: "75px",
+                    height: "75px",
+                    transform: "translate(-50%, -50%)",
+                }}
+
+                guestName="Familia González"
+                guestCount={invitedGuests}
+            />
+
+            {/* INVITACIÓN */}
+            <Box
+                sx={{
+                    opacity: showInvitation ? 1 : 0,
+
+                    filter: showInvitation
+                        ? "blur(0px)"
+                        : "blur(20px)",
+
+                    transform: showInvitation
+                        ? "scale(1)"
+                        : "scale(1.03)",
+
+                    transition:
+                        "all 1.4s cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
+            >
+
             <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_PRIMARY}/>
             <CoverInline 
                 ourWeddingStart={true}
@@ -326,6 +397,58 @@ const WeddingBWDemo  = () => {
                 ))
             }
             </Grid>
+            <Box>
+                <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:COLOR_PRIMARY, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
+                    No queremos que te pierdas este día
+                    </Typography>
+                           <Box
+  sx={{
+    mt: 5,
+    display: "flex",
+    justifyContent: "center",
+
+    "& add-to-calendar-button": {
+       "--btn-background": "transparent",
+  "--btn-hover-background": COLOR_PRIMARY,
+
+  "--btn-text": COLOR_PRIMARY,
+  "--btn-hover-text": "#ffffff",
+"--btn-border-width": "1px",
+  "--btn-border": COLOR_PRIMARY,
+  "--btn-hover-border": COLOR_PRIMARY,
+
+  "--btn-border-radius": "999px",
+
+  "--btn-padding-x": "22px",
+  "--btn-padding-y": "12px",
+
+  "--btn-font-weight": "500",
+
+  "--btn-shadow": "none",
+  "--btn-hover-shadow": "none",
+  "--btn-active-shadow": "none",
+
+      "--font": BODY_TYPO,
+
+      display: "block",
+    },
+  }}
+>
+  <AddToCalendarButton
+    name="Boda de Valentina & Sebastian"
+    startDate="2026-12-05"
+    startTime="18:00"
+    endDate="2026-12-06"
+    endTime="02:00"
+    timeZone="America/Hermosillo"
+    options={["Apple", "Google"]}
+    language="es"
+    label="Agregar al calendario"
+  />
+</Box>
+            </Box>
+ 
+
             </div>
                           <div style={{backgroundImage: `url("${URL_IMAGES}demoBW3.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
@@ -445,30 +568,8 @@ Foto de <a href="https://unsplash.com/es/@dazmanov?utm_source=unsplash&utm_mediu
                      </Typography>
          </div>
             <FooterInvites bgColor={"white"} color={COLOR_PRIMARY}></FooterInvites>
-             <Dialog
-                         open={open}
-                         onClose={handleClose}
-                         aria-labelledby="alert-dialog-title"
-                         aria-describedby="alert-dialog-description"
-                     >
-                        
-                         <DialogContent >
-             
-                            <Box display={"flex"} justifyContent={"center"} marginBottom={4}>
-                             <Typography variant="h4" className={MAIN_TYPO} sx={{color:COLOR_PRIMARY}}>Bienvenidos</Typography>
-                            </Box>
-                             <Box display={"flex"} justifyContent={"center"}>
-                            <CustomButton borderColor={COLOR_PRIMARY} bgColor={"#ffffff"} color={COLOR_PRIMARY} label={'Entrar'} onClick={handleClose}></CustomButton>
-                            </Box>
-                             
-                            
-                        
-                         </DialogContent>
-                         <DialogActions>
-                         
-                        
-                         </DialogActions>
-                     </Dialog>   
+            </Box>
+          
         </div>
     )
 }

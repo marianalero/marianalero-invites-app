@@ -5,7 +5,7 @@ import routes from './constants/routes';
 import { ProtectedRoute } from './constants/protectedRoutes';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-
+import 'add-to-calendar-button-react';
 function App() {
   return (
     <>
