@@ -79,7 +79,7 @@ const WeddingBWDemo  = () => {
 
     const URL_IMAGES = `${URL_REPO}demos/`;
     const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
-   const calendarRef = useRef<HTMLDivElement>(null);
+
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Ceremonia Religiosa",
