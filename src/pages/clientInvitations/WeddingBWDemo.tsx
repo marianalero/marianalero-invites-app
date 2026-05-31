@@ -33,6 +33,7 @@ import dayjs from "dayjs";
 import { t } from "i18next";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
 import { AddToCalendarButton } from 'add-to-calendar-button-react';
+import CalendarButton from "../../components/CalendarButton/CalendarButton";
 
 const WeddingBWDemo  = () => {
     const [searchParams] = useSearchParams();
@@ -401,51 +402,28 @@ const WeddingBWDemo  = () => {
                 <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:COLOR_PRIMARY, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
                     No queremos que te pierdas este día
                     </Typography>
-                           <Box
-  sx={{
-    mt: 5,
-    display: "flex",
-    justifyContent: "center",
-
-    "& add-to-calendar-button": {
-       "--btn-background": "transparent",
-  "--btn-hover-background": COLOR_PRIMARY,
-
-  "--btn-text": COLOR_PRIMARY,
-  "--btn-hover-text": "#ffffff",
-"--btn-border-width": "1px",
-  "--btn-border": COLOR_PRIMARY,
-  "--btn-hover-border": COLOR_PRIMARY,
-
-  "--btn-border-radius": "999px",
-
-  "--btn-padding-x": "22px",
-  "--btn-padding-y": "12px",
-
-  "--btn-font-weight": "500",
-
-  "--btn-shadow": "none",
-  "--btn-hover-shadow": "none",
-  "--btn-active-shadow": "none",
-
-      "--font": BODY_TYPO,
-
-      display: "block",
-    },
-  }}
->
-  <AddToCalendarButton
-    name="Boda de Valentina & Sebastian"
-    startDate="2026-12-05"
-    startTime="18:00"
-    endDate="2026-12-06"
-    endTime="02:00"
-    timeZone="America/Hermosillo"
-    options={["Apple", "Google"]}
-    language="es"
-    label="Agregar al calendario"
-  />
-</Box>
+                <Box display={"flex"} justifyContent={"center"}>
+                    <CalendarButton
+                        title="Boda de Valentina & Sebastian"
+                        startDate="20261205T180000Z"
+                        endDate="20261206T020000Z"
+                        location="El Jito Eventos"
+                        
+                        fileName="boda-valentina-sebastian"
+                        buttonProps={{
+                            variant: "outlined",
+                            sx: {
+                            borderRadius: "999px",
+                            px: 4,
+                            py: 1.5,
+                            textTransform: "none",
+                            fontFamily: BODY_TYPO,
+                            borderColor: COLOR_PRIMARY,
+                            color: COLOR_PRIMARY
+                            },
+                        }}
+                        />
+                </Box>
             </Box>
  
 
