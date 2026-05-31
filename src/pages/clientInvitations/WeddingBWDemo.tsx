@@ -32,7 +32,7 @@ import Timeline from "@mui/lab/Timeline";
 import dayjs from "dayjs";
 import { t } from "i18next";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
-import { AddToCalendarButton } from 'add-to-calendar-button-react';
+
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
 
 const WeddingBWDemo  = () => {
