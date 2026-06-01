@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { RefObject } from "react";
 import { MusicFabPlayerHandle } from "../../MusicFabPlayer/MusicFabPlayer";
+import { Fade } from "react-awesome-reveal";
 
 export interface InvitationIntroProps {
   open: boolean;
@@ -23,6 +24,8 @@ export interface InvitationIntroProps {
 
   envelopeImg: string;
   sealImg?: string;
+  topLeftCornerImg?: string;
+  bottomRightCornerImg?: string;
 
   guestName?: string;
   guestCount?: number;
@@ -32,6 +35,22 @@ export interface InvitationIntroProps {
     left?: string;
     right?: string;
     bottom?: string;
+    width?: string;
+    height?: string;
+    transform?: string;
+  };
+
+  topLeftCornerPosition?: {
+    top?: string;
+    left?: string;
+    width?: string;
+    height?: string;
+    transform?: string;
+  };
+
+  bottomRightCornerPosition?: {
+    bottom?: string;
+    right?: string;
     width?: string;
     height?: string;
     transform?: string;
@@ -59,9 +78,11 @@ const InvitationIntro = ({
 
   envelopeImg,
   sealImg,
+  topLeftCornerImg,
+  bottomRightCornerImg,
 
   guestName,
-  guestCount,
+  guestCount = 1,
 
   sealPosition = {
     top: "50%",
@@ -69,6 +90,20 @@ const InvitationIntro = ({
     width: "60px",
     height: "60px",
     transform: "translate(-50%, -50%)",
+  },
+
+  topLeftCornerPosition = {
+    top: "8px",
+    left: "8px",
+    width: "70px",
+    height: "70px",
+  },
+
+  bottomRightCornerPosition = {
+    bottom: "8px",
+    right: "8px",
+    width: "70px",
+    height: "70px",
   },
 }: InvitationIntroProps) => {
   const handleEnter = () => {
@@ -117,35 +152,40 @@ const InvitationIntro = ({
       >
         {/* Invitado */}
         {guestName && (
-          <Typography
-            mb={1}
-            className={guestTypo}
-            sx={{
-              color: primaryColor,
-              letterSpacing: "2px",
-              fontSize: "0.95rem",
-              textTransform: "uppercase",
-            }}
-          >
-            {guestName}
-          </Typography>
+           <Fade direction="up" >
+            <Typography
+              mb={1}
+              className={guestTypo}
+              sx={{
+                color: primaryColor,
+                letterSpacing: "2px",
+                fontSize: "0.95rem",
+                textTransform: "uppercase",
+              }}
+            >
+              {guestName}
+            </Typography>
+          </Fade>
         )}
 
         {/* Titulo */}
-        <Typography
-          className={bodyTypo}
-          sx={{
-            color: primaryColor,
-            fontSize: "0.9rem",
-            letterSpacing: "2px",
+        <Fade direction="up" >
+          <Typography
+            className={bodyTypo}
+            sx={{
+              color: primaryColor,
+              fontSize: "0.9rem",
+              letterSpacing: "2px",
             textTransform: "uppercase",
             mb: 1,
           }}
         >
           {title}
         </Typography>
+        </Fade>
 
         {/* Nombres */}
+        <Fade direction="up" >
         <Typography
           mb={3}
           className={namesTypo}
@@ -164,7 +204,7 @@ const InvitationIntro = ({
           </span>{" "}
           {groomName}
         </Typography>
-
+          </Fade>
         {/* Sobre */}
         <Box
           onClick={handleEnter}
@@ -187,46 +227,98 @@ const InvitationIntro = ({
             },
           }}
         >
-          <img
-            src={envelopeImg}
-            alt="Envelope"
-            style={{
-              width: "100%",
-              maxWidth: "320px",
-              objectFit: "contain",
-              display: "block",
-            }}
-          />
-
-          {/* Sello */}
-          {sealImg && (
-            <img
-              src={sealImg}
-              alt="Seal"
-              style={{
-                position: "absolute",
-
-                top: sealPosition.top,
-                left: sealPosition.left,
-                right: sealPosition.right,
-                bottom: sealPosition.bottom,
-
-                width: sealPosition.width,
-                height: sealPosition.height,
-
-                transform: sealPosition.transform,
-
-                objectFit: "contain",
+          <Fade direction="up" >
+            <Box
+              sx={{
+                display: "inline-block",
+                justifyContent: "center",
+                position: "relative",
+                width: "min(100%, 320px)",
               }}
-            />
-          )}
+            >
+              <img
+                src={envelopeImg}
+                alt="Envelope"
+                style={{
+                  width: "100%",
+                  objectFit: "contain",
+                  display: "block",
+                }}
+              />
+
+              {topLeftCornerImg && (
+                <img
+                  src={topLeftCornerImg}
+                  alt="Top left decoration"
+                  style={{
+                    position: "absolute",
+                    top: topLeftCornerPosition.top,
+                    left: topLeftCornerPosition.left,
+                    width: topLeftCornerPosition.width,
+                    height: topLeftCornerPosition.height,
+                    transform: topLeftCornerPosition.transform,
+                    objectFit: "contain",
+                    zIndex: 2,
+                    pointerEvents: "none",
+                  }}
+                />
+              )}
+
+              {bottomRightCornerImg && (
+                <img
+                  src={bottomRightCornerImg}
+                  alt="Bottom right decoration"
+                  style={{
+                    position: "absolute",
+                    bottom: bottomRightCornerPosition.bottom,
+                    right: bottomRightCornerPosition.right,
+                    width: bottomRightCornerPosition.width,
+                    height: bottomRightCornerPosition.height,
+                    transform: bottomRightCornerPosition.transform,
+                    objectFit: "contain",
+                    zIndex: 2,
+                    pointerEvents: "none",
+                  }}
+                />
+              )}
+
+              {/* Sello */}
+              {sealImg && (
+                <img
+                  src={sealImg}
+                  alt="Seal"
+                  style={{
+                    position: "absolute",
+
+                    top: sealPosition.top,
+                    left: sealPosition.left,
+                    right: sealPosition.right,
+                    bottom: sealPosition.bottom,
+
+                    width: sealPosition.width,
+                    height: sealPosition.height,
+
+                    transform: sealPosition.transform,
+
+                    objectFit: "contain",
+                    zIndex: 3,
+                  }}
+                />
+              )}
+            </Box>
+          </Fade>
 
           {/* Tap to open */}
+          
+        </Box>
+
+        {/* Texto inferior */}
+        <Box>
+          <Fade direction="up" >
           <Typography
             className={bodyTypo}
             sx={{
-              position: "absolute",
-              bottom: "-45px",
+     
 
               color: primaryColor,
 
@@ -240,10 +332,8 @@ const InvitationIntro = ({
           >
             Click para abrir
           </Typography>
-        </Box>
-
-        {/* Texto inferior */}
-        <Box>
+          </Fade>
+            <Fade direction="up" >
           <Typography
             className={bodyTypo}
             sx={{
@@ -264,6 +354,7 @@ const InvitationIntro = ({
             )}{" "}
             para ti en este día tan especial.
           </Typography>
+          </Fade>
         </Box>
       </Box>
     </Box>

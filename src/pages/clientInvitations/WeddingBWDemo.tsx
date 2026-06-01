@@ -34,6 +34,8 @@ import { t } from "i18next";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
 
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
+import { getGuestById } from "../../services/guestApiClient";
+import { Guest } from "../../models/guest";
 
 const WeddingBWDemo  = () => {
     const [searchParams] = useSearchParams();
@@ -53,7 +55,7 @@ const WeddingBWDemo  = () => {
     // INTRO STATES
     const [showIntro, setShowIntro] = useState(true);
     const [showInvitation, setShowInvitation] = useState(false);
-
+    const [guest, setGuest] = useState<Guest | null>(null);
     const musicRef = useRef<MusicFabPlayerHandle>(null);
 
     const handleEnter = () => {
@@ -68,6 +70,23 @@ const WeddingBWDemo  = () => {
             setShowIntro(false);
         }, 900);
     };
+
+    const fetchGuest = async () => {
+    
+        if (guestId) {
+            try {
+                const data = await getGuestById(guestId, INVITATION_ID);
+                setGuest(data);
+            } catch (error) {
+                console.error("Error fetching guest:", error);
+            }   
+        };
+    };
+
+    useEffect(() => {
+        fetchGuest();
+    }, [guestId]);
+
 
     useEffect(() => {
         document.title = "Invitacion de Boda";
@@ -257,8 +276,24 @@ const WeddingBWDemo  = () => {
                     height: "75px",
                     transform: "translate(-50%, -50%)",
                 }}
+                bottomRightCornerImg={`${URL_IMAGES}white-flowers/4.png`}
+                topLeftCornerImg={`${URL_IMAGES}white-flowers/4.png`}
+                bottomRightCornerPosition={{
+                    bottom: "-20px",
+                    right: "-20px",
+                    width: "110px",
+                    height: "110px",
+                    transform: "rotate(270deg)",
+                }}
+                topLeftCornerPosition={{
+                    top: "-20px",
+                    left: "-20px",
+                    width: "110px",
+                    height: "110px",
+                    transform: "rotate(90deg)",
+                }}
 
-                guestName="Familia González"
+                guestName={guest ? guest.fullName : ""}
                 guestCount={invitedGuests}
             />
 
@@ -527,16 +562,25 @@ const WeddingBWDemo  = () => {
             </RSVPForm>
                         <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "right", padding: "50px 20px" }}>
 
-            <DressCode {...dresscode}></DressCode>
-
-                 <Grid container spacing={2} padding={4} >
+                    <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} display={"flex"} justifyContent={"center"} sx={{borderColor:COLOR_PRIMARY,borderStyle:"solid",borderWidth:"1.5px" ,}} >
+                <Grid container spacing={2} padding={2} paddingBottom={0} >
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                <DressCode {...dresscode}></DressCode>
+                </Grid>
+               
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                     <Box display={"flex"} justifyContent={"center"} marginBottom={4} width={"50%"} height={"1.5px"} bgcolor={COLOR_PRIMARY}></Box>
                         
                  
                     </Grid>
+                    <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                         <WithoutKids {...withOutKids} /> 
+                    </Grid>
+                      
+
                </Grid>
-                              <WithoutKids {...withOutKids} /> 
+               </Box>
+                           
             <div style={{height:100}}></div>
                 <Typography variant="body1" textAlign={"center"} className={`${BODY_TYPO}`} >
                     IMAGENES 
