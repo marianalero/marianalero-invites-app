@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
 import 'dayjs/locale/es';
@@ -14,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 
 
 const EventCard  = (props:EventCardProps) => {
+    
     const { t, i18n } = useTranslation();
     const localizedDate = dayjs(props.date).locale(i18n.language);
     const localizedEndDate = props.endDate ? dayjs(props.endDate).locale(i18n.language) : null;
@@ -70,4 +72,4 @@ const EventCard  = (props:EventCardProps) => {
 
     )
 }
-export default EventCard;
+export default memo(EventCard);

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import formal from './../../assets/iconos/dresscode/formal.svg';
@@ -132,4 +133,4 @@ const DressCode  = (props:DressCodeProps) =>
     )
 }
 
-export default DressCode;
+export default memo(DressCode);

@@ -3,10 +3,10 @@ import './Cover.css';
 import { Fade } from 'react-awesome-reveal';
 import { CoverProps } from '../CoverProps';
 import { t } from 'i18next';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 const CoverInline = (props: CoverProps) => {
-    console.log("CoverInline props:", props);
+   
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const [loaded, setLoaded] = useState(false);
     const GENERIC_BLUR =
@@ -111,4 +111,4 @@ const CoverInline = (props: CoverProps) => {
     );
 }
 
-export default CoverInline;
+export default memo(CoverInline);

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Box, Typography } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import ImageCircle from "../ImgCircle/ImgCircle";
@@ -92,4 +93,4 @@ const Qoute  = (props:QouteProps) => {
 		</Grid>
     )
 }
-export default Qoute;
+export default memo(Qoute);

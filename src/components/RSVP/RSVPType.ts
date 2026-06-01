@@ -1,3 +1,5 @@
+import { Guest } from "../../models/guest";
+
 export interface RSVPType {
     count?:number;
     dateLine?:Date;
@@ -20,4 +22,5 @@ export interface RSVPType {
     bgPosition?:string;
     numberInWords?:boolean;
     transparencyButton?:boolean;
+    guest?:Guest;
 }

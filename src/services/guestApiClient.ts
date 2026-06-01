@@ -28,7 +28,7 @@ async function CreateAndConfirm(body: CreateGuestParameters): Promise<Guest> {
 
 async function Confirm(body: ConfirmGuestParameters): Promise<BaseStateResponse<Guest>> {
   const response = await apiClient.put<BaseStateResponse<Guest>>("Guests/ConfirmGuest", body);
-  console.log(response);
+
   return response.data;
 }
 

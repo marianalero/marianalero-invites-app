@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { t } from 'i18next';
@@ -30,4 +31,4 @@ const WithoutKids  = (props:WithoutKidsProps) =>
         )
     }
     
-    export default WithoutKids;
+    export default memo(WithoutKids);

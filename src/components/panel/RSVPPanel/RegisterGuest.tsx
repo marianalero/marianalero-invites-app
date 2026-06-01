@@ -64,7 +64,7 @@ export default function RegisterGuest() {
 
   const fetchInvitation = async () =>  {
     const res = await getInvitationById(Number.parseInt(invitationId));
-    console.log(res);
+
     setInvitation(res);
   };
 
@@ -90,7 +90,7 @@ export default function RegisterGuest() {
 
   const download = async () => {
     // setLoadingDownload(true);
-    console.log(age)
+
      await exportGuestsToExcel(Number.parseInt(invitationId), Number(age) !== 0 ? Number(age) :undefined);
   //  setLoadingDownload(false);
   };

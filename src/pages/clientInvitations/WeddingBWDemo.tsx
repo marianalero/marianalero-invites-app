@@ -37,6 +37,192 @@ import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 
+const INVITATION_ID = 1;
+const COLOR_PRIMARY = "#1A1A1A";
+const MAIN_TYPO = "playfair-display-400 to-upper";
+const SECONDARY_TYPO = "the-seasons";
+const BODY_TYPO = "lora";
+const URL_IMAGES = `${URL_REPO}demos/`;
+const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
+const COUNTDOWN_DATE = new Date(2026, 11, 5);
+const RSVP_DATE_LINE = new Date(2026, 10, 5);
+
+const eventCards: EventCardProps[] = [
+    {
+        eventName: "Ceremonia Religiosa",
+        date: new Date(2025, 11, 5, 18, 0, 0),
+        locationName: "Iglesia San Juan De Capistrano",
+        address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
+        size: 12,
+        color: COLOR_PRIMARY,
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        href: "https://maps.app.goo.gl/rutM2huWpbQgHH7y7",
+        colorButton: COLOR_PRIMARY,
+        colorIcon: COLOR_PRIMARY,
+        fontSize: "2rem",
+        bgColor: "white",
+        borderSquare: true,
+    },
+    {
+        bgColor: "white",
+        eventName: "Recepción",
+        date: new Date(2026, 11, 5, 20, 0, 0),
+        locationName: "El Jito Eventos",
+        address: "Cjon. Rosales S/N, El Jito, Hermosillo, Son.",
+        size: 12,
+        color: COLOR_PRIMARY,
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        href: "https://maps.app.goo.gl/GAw8VVfjyR5yCkfP8",
+        colorButton: COLOR_PRIMARY,
+        colorIcon: COLOR_PRIMARY,
+        fontSize: "2rem",
+        borderSquare: true,
+    },
+];
+
+const giftListData: GiftListProps = {
+    title: "Sugerencias de regalos",
+    fontSize: "1.5rem",
+    mainPhrase: "Si su deseo es hacernos algún obsequio compartimos las opciones",
+    items: [
+        {
+            link: "https://ejemplo.com/mesa-de-regalos",
+            icon: `${URL_IMAGES}liverpool-negro.png`,
+        },
+    ],
+    giftIcon: `${URL_IMAGES}/iconos/14.svg`,
+    mainTypo: MAIN_TYPO,
+    bodyTypo: BODY_TYPO,
+    color: COLOR_PRIMARY,
+    bgColor: "#FFFFFF",
+    showEnvelope: true,
+    envelopeMainTypo: "playfair-display-400",
+    envelopeFontSize: "1.5rem",
+    envelopePhrase: "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
+    secondPhrase: "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
+    envelopeTitleColor: COLOR_PRIMARY,
+    bankIconStart: `${URL_IMAGES}iconos/13.svg`,
+    bankDetails: [
+        {
+            numbers: [
+                {
+                    numberType: "Tarjeta",
+                    number: "0000 0000 0000 0000",
+                },
+            ],
+            bank: "BANCO",
+            name: "Valentina Martínez López",
+            color: COLOR_PRIMARY,
+            bodyTypo: BODY_TYPO,
+            bgColor: "white",
+            outlineColor: true,
+        },
+    ],
+};
+
+const dresscode: DressCodeProps = {
+    mainTypo: MAIN_TYPO,
+    bodyTypo: BODY_TYPO,
+    color: COLOR_PRIMARY,
+    type: 2,
+    title: "Formal",
+    fontSize: "2rem",
+};
+
+const withOutKids: WithoutKidsProps = {
+    bodyTypo: BODY_TYPO,
+    subtitle2: "no niños",
+};
+
+const qoute: QouteProps = {
+    qoute: "El amor nos unió en un solo camino, y queremos recorrerlo junto a ti en este día especial",
+    bodyTypo: BODY_TYPO,
+    italic: true,
+    fontsize: "1.5rem",
+};
+
+const timelineData: CustomizedTimelineProps = {
+    mainTypo: MAIN_TYPO,
+    bodyTypo: BODY_TYPO,
+    colorPrimary: "white",
+    colorTitle: "white",
+    colorBody: "white",
+    fontSize: "50px",
+    bgColor: COLOR_PRIMARY,
+    events: [
+        {
+            eventName: "Ceremonia Civil",
+            date: new Date(2025, 10, 16, 19, 0, 0),
+            icon: `${URL_IMAGES}iconos/1.svg`,
+        },
+        {
+            eventName: "Cóctel  de bienvenida",
+            date: new Date(2025, 10, 16, 20, 0, 0),
+            icon: `${URL_IMAGES}iconos/5.svg`,
+        },
+        {
+            eventName: "Primer baile",
+            date: new Date(2025, 10, 16, 21, 20, 0),
+            icon: `${URL_IMAGES}iconos/7.svg`,
+        },
+        {
+            eventName: "Cena",
+            date: new Date(2025, 10, 16, 21, 30, 0),
+            icon: `${URL_IMAGES}iconos/6.svg`,
+        },
+        {
+            eventName: "Fin del evento",
+            date: new Date(2025, 10, 16, 2, 0, 0),
+            icon: `${URL_IMAGES}iconos/just-married.svg`,
+        },
+    ],
+};
+
+const introSealPosition = {
+    top: "60%",
+    left: "50%",
+    width: "75px",
+    height: "75px",
+    transform: "translate(-50%, -50%)",
+};
+
+const introBottomRightCornerPosition = {
+    bottom: "-20px",
+    right: "-20px",
+    width: "110px",
+    height: "110px",
+    transform: "rotate(270deg)",
+};
+
+const introTopLeftCornerPosition = {
+    top: "-20px",
+    left: "-20px",
+    width: "110px",
+    height: "110px",
+    transform: "rotate(90deg)",
+};
+
+const calendarButtonProps = {
+    variant: "outlined" as const,
+    sx: {
+        borderRadius: "999px",
+        px: 4,
+        py: 1.5,
+        textTransform: "none",
+        fontFamily: BODY_TYPO,
+        borderColor: COLOR_PRIMARY,
+        color: COLOR_PRIMARY,
+    },
+};
+
+const galleryImages = [
+    `${URL_IMAGES}demoBW1.jpg`,
+    `${URL_IMAGES}demoBW2.jpg`,
+    `${URL_IMAGES}demoBW3.jpg`,
+];
+
 const WeddingBWDemo  = () => {
     const [searchParams] = useSearchParams();
 
@@ -49,8 +235,6 @@ const WeddingBWDemo  = () => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
-
-    const INVITATION_ID = 0;
 
     // INTRO STATES
     const [showIntro, setShowIntro] = useState(true);
@@ -71,19 +255,19 @@ const WeddingBWDemo  = () => {
         }, 900);
     };
 
-    const fetchGuest = async () => {
-    
-        if (guestId) {
-            try {
-                const data = await getGuestById(guestId, INVITATION_ID);
-                setGuest(data);
-            } catch (error) {
-                console.error("Error fetching guest:", error);
-            }   
-        };
-    };
-
     useEffect(() => {
+        const fetchGuest = async () => {
+            if (guestId) {
+                try {
+                    const data = await getGuestById(guestId, INVITATION_ID);
+                    console.log("Fetched guest data:", data);
+                    setGuest(data);
+                } catch (error) {
+                    console.error("Error fetching guest:", error);
+                }
+            }
+        };
+
         fetchGuest();
     }, [guestId]);
 
@@ -91,151 +275,6 @@ const WeddingBWDemo  = () => {
     useEffect(() => {
         document.title = "Invitacion de Boda";
     }, []);
-
-    const COLOR_PRIMARY = "#1A1A1A";
-    const MAIN_TYPO = "playfair-display-400 to-upper";
-    const SECONDARY_TYPO = "the-seasons";
-    const BODY_TYPO = "lora";
-
-    const URL_IMAGES = `${URL_REPO}demos/`;
-    const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
-
-        const eventCards: EventCardProps[] = [
-            {
-                eventName: "Ceremonia Religiosa",
-                date: new Date(2025, 11, 5, 18, 0, 0),
-                locationName: "Iglesia San Juan De Capistrano",
-                address: "Calz. San Bernardino 52, Seminario, Hermosillo, Son.",
-                size: 12,
-                color: COLOR_PRIMARY,
-                mainTypo: MAIN_TYPO,
-                bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/rutM2huWpbQgHH7y7",
-                colorButton: COLOR_PRIMARY,
-                colorIcon: COLOR_PRIMARY,
-                fontSize:"2rem",
-                bgColor:"white",
-                borderSquare:true,
-            
-            },
-            {
-                bgColor:"white",
-                eventName: "Recepción",
-                date: new Date(2026, 11, 5, 20, 0, 0),
-                locationName: "El Jito Eventos",
-                address: "Cjon. Rosales S/N, El Jito, Hermosillo, Son.",
-                size: 12,
-                color: COLOR_PRIMARY,     
-                mainTypo: MAIN_TYPO,
-                bodyTypo: BODY_TYPO,
-                href: "https://maps.app.goo.gl/GAw8VVfjyR5yCkfP8",
-                colorButton: COLOR_PRIMARY,
-                
-                colorIcon: COLOR_PRIMARY,fontSize:"2rem",
-                borderSquare:true,
-            },
-    ];
-    
-    const giftListData: GiftListProps = {
-        title:"Sugerencias de regalos",
-        
-        fontSize:"1.5rem",
-        mainPhrase: "Si su deseo es hacernos algún obsequio compartimos las opciones",
-        items: [
-            {
-                link: "https://ejemplo.com/mesa-de-regalos",
-                icon: `${URL_IMAGES}liverpool-negro.png`,
-            }
-        ],
-        giftIcon: `${URL_IMAGES}/iconos/14.svg`,
-        mainTypo: MAIN_TYPO,
-        bodyTypo: BODY_TYPO,
-        color: COLOR_PRIMARY, 
-        bgColor: "#FFFFFF", 
-        showEnvelope:true,
-        envelopeMainTypo: "playfair-display-400",
-        envelopeFontSize:"1.5rem",
-        envelopePhrase:"Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
-        secondPhrase:"O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
-        envelopeTitleColor:COLOR_PRIMARY,
-        bankIconStart: `${URL_IMAGES}iconos/13.svg`,
-        bankDetails: [
-            {
-                numbers :[ 
-                    {
-                    numberType: "Tarjeta",
-                    number: "0000 0000 0000 0000",
-                    },
-                
-                ],
-                bank: "BANCO",
-                name: "Valentina Martínez López",
-                color: COLOR_PRIMARY,
-                bodyTypo: BODY_TYPO,
-                bgColor:"white",
-                outlineColor:true,
-                
-            }
-            
-        ],
-    };
-    const dresscode:DressCodeProps = {
-        mainTypo: MAIN_TYPO,
-        bodyTypo:BODY_TYPO,
-        color:COLOR_PRIMARY,
-        type:2,
-        title:"Formal",
-        fontSize:"2rem",
-
-    }
-     const withOutKids:WithoutKidsProps = {
-        bodyTypo:BODY_TYPO,
-        subtitle2:"no niños"
-    }
-    
-    const qoute:QouteProps ={
-            qoute: "El amor nos unió en un solo camino, y queremos recorrerlo junto a ti en este día especial",
-            bodyTypo: BODY_TYPO,
-            italic:true,
-            fontsize:"1.5rem",
-    }
-    const timelineData: CustomizedTimelineProps = {
-                mainTypo: MAIN_TYPO,
-                bodyTypo: BODY_TYPO,
-                colorPrimary: "white",
-                colorTitle: "white",
-                colorBody: "white",
-                fontSize:"50px",
-                bgColor: COLOR_PRIMARY, 
-                events: [
-                    {
-                        eventName: "Ceremonia Civil",
-                        date: new Date(2025, 10, 16, 19, 0, 0),
-                        icon: `${URL_IMAGES}iconos/1.svg`,
-                    },
-                    {
-                        eventName: "Cóctel  de bienvenida",
-                        date: new Date(2025, 10, 16, 20, 0, 0),
-                        icon: `${URL_IMAGES}iconos/5.svg`,
-                    },
-                    {
-                        eventName: "Primer baile",
-                        date: new Date(2025, 10, 16, 21, 20, 0),
-                        icon: `${URL_IMAGES}iconos/7.svg`,
-                    },
-                    {
-                        eventName: "Cena",
-                        date: new Date(2025, 10, 16, 21, 30, 0),
-                        icon: `${URL_IMAGES}iconos/6.svg`,
-                    },
-                    {
-                        eventName: "Fin del evento",
-                        date: new Date(2025, 10, 16, 2, 0, 0),
-                        icon: `${URL_IMAGES}iconos/just-married.svg`,
-                    },
-                ],
-    };
-
 
     return (
            <div
@@ -269,29 +308,11 @@ const WeddingBWDemo  = () => {
                 envelopeImg={`${URL_IMAGES}black-envelope.png`}
                 sealImg={`${URL_IMAGES}seal.png`}
 
-                sealPosition={{
-                    top: "60%",
-                    left: "50%",
-                    width: "75px",
-                    height: "75px",
-                    transform: "translate(-50%, -50%)",
-                }}
+                sealPosition={introSealPosition}
                 bottomRightCornerImg={`${URL_IMAGES}white-flowers/4.png`}
                 topLeftCornerImg={`${URL_IMAGES}white-flowers/4.png`}
-                bottomRightCornerPosition={{
-                    bottom: "-20px",
-                    right: "-20px",
-                    width: "110px",
-                    height: "110px",
-                    transform: "rotate(270deg)",
-                }}
-                topLeftCornerPosition={{
-                    top: "-20px",
-                    left: "-20px",
-                    width: "110px",
-                    height: "110px",
-                    transform: "rotate(90deg)",
-                }}
+                bottomRightCornerPosition={introBottomRightCornerPosition}
+                topLeftCornerPosition={introTopLeftCornerPosition}
 
                 guestName={guest ? guest.fullName : ""}
                 guestCount={invitedGuests}
@@ -382,7 +403,7 @@ const WeddingBWDemo  = () => {
             </Grid>
             </div>
             <CountDown 
-                eventDate={new Date(2026,11,5)}
+                eventDate={COUNTDOWN_DATE}
                 bgImage={`${URL_IMAGES}demoBW4.jpg`}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} 
@@ -445,18 +466,7 @@ const WeddingBWDemo  = () => {
                         location="El Jito Eventos"
                         
                         fileName="boda-valentina-sebastian"
-                        buttonProps={{
-                            variant: "outlined",
-                            sx: {
-                            borderRadius: "999px",
-                            px: 4,
-                            py: 1.5,
-                            textTransform: "none",
-                            fontFamily: BODY_TYPO,
-                            borderColor: COLOR_PRIMARY,
-                            color: COLOR_PRIMARY
-                            },
-                        }}
+                        buttonProps={calendarButtonProps}
                         />
                 </Box>
             </Box>
@@ -529,11 +539,7 @@ const WeddingBWDemo  = () => {
                 </Grid>
                </Grid>
                 <MiniGallery
-                    images={[
-                        `${URL_IMAGES}demoBW1.jpg`,
-                        `${URL_IMAGES}demoBW2.jpg`,
-                        `${URL_IMAGES}demoBW3.jpg`,
-                    ]}
+                    images={galleryImages}
                      backgroundColor="rgb(250,250,250,.8)"
                     spacing={8}
                     gap={6}
@@ -542,8 +548,8 @@ const WeddingBWDemo  = () => {
                     />
                     </div>
             <RSVPForm 
-            
-            dateLine={new Date(2026,10,5)}
+            guest={guest || undefined}
+            dateLine={RSVP_DATE_LINE}
                 textColor={"white"}
                 colorButton={"white"} 
                 bgColor={"#020202"} 

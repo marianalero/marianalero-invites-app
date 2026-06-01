@@ -20,6 +20,12 @@ const CountDown = (props:CountDownProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
    const { t, i18n } = useTranslation();
 
+  const getRemainingTime = () => {
+    const currentTime = new Date().getTime();
+    const eventTime = props.eventDate.getTime();
+    return Math.max(eventTime - currentTime, 0);
+  };
+
     useEffect(() => {
       dayjs.locale(i18n.language);
     }, [i18n.language]);
@@ -28,15 +34,13 @@ const CountDown = (props:CountDownProps) => {
 
     const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
     useEffect(() => {
-        
         if (props.eventDate) {
+          setTimeRemaining(getRemainingTime());
+
           const countdownInterval = setInterval(() => {
-            const currentTime = new Date().getTime();
-            const eventTime = props.eventDate.getTime();
-            let remainingTime = eventTime - currentTime;
+            const remainingTime = getRemainingTime();
     
             if (remainingTime <= 0) {
-              remainingTime = 0;
               clearInterval(countdownInterval);
             }
     
@@ -45,7 +49,7 @@ const CountDown = (props:CountDownProps) => {
     
           return () => clearInterval(countdownInterval);
         }
-      }, [props.eventDate, timeRemaining]);
+      }, [props.eventDate]);
     
     const formatTime = (time:number) => {
         const seconds = Math.floor((time / 1000) % 60);

@@ -52,6 +52,7 @@ const numberToWords = (num: number, language: string): string => {
 };
 
 const RSVPForm  = (props:RSVPType) => {
+    console.log("RSVPForm props", props.guest);
     const [errorName, setErrorName] = useState(false);
     const [guest, setGuest] = useState<Guest>({
     id: 0,
@@ -65,41 +66,51 @@ const RSVPForm  = (props:RSVPType) => {
     registeredAttendance: false,
     companion:'',
     });
-    useEffect(() => {
-       if (props.dateLine && props.dateLine < new Date()) {
-       setDisabledRSVP(true);
-      
-    } else {
-        setDisabledRSVP(false);
-      
-    }
-    const fetchGuest = async () => {
 
-        if( props.guestId && props.guestId > 0 ){
-           
-            const response = await getGuestById(props.guestId,props.invitationId);
-            setGuest(response);
-            if(response.totalConfirmed == 0){
-                updateGuest({
-                totalConfirmed:1
-                })
-            }
-            
-        }
-        else
-        {
-            updateGuest({
-                totalAssigned:props.count == 0 ? 1 : props.count,
-                totalConfirmed:props.count == 0 ? 1 : props.count
-            })
-        }
+    const updateGuest = (newData: Partial<Guest>) => {
+        setGuest((prevData) => ({ ...prevData, ...newData }));
     };
-    fetchGuest();
-  }, [props]);
-  useEffect(() => {
+
+    useEffect(() => {
+       setDisabledRSVP(Boolean(props.dateLine && props.dateLine < new Date()));
+    }, [props.dateLine]);
+
+    useEffect(() => {
+        const fetchGuest = async () => {
+            if (props.guestId && props.guestId > 0 && props.guest === undefined) {
+                const response = await getGuestById(props.guestId, props.invitationId);
+                setGuest(response);
+
+                if (response.totalConfirmed == 0) {
+                    updateGuest({
+                        totalConfirmed: 1
+                    });
+                }
+
+                return;
+            }
+
+            if(props.guest){
+                setGuest(props.guest);
+                return;
+            }
+
+            const assignedCount = props.count == 0 ? 1 : props.count;
+
+            updateGuest({
+                invitationId: props.invitationId,
+                totalAssigned: assignedCount,
+                totalConfirmed: assignedCount
+            });
+        };
+
+        fetchGuest();
+    }, [props.count, props.guestId, props.invitationId]);
+
+    useEffect(() => {
         dayjs.extend(advancedFormat);
         dayjs.locale(i18n.language);
-      }, [i18n.language]);
+    }, [i18n.language]);
     const [disabledForm, setDisabledForm] = React.useState(false)
     const [disabledRSVP, setDisabledRSVP] = React.useState(false)
     const [radioValue, setRadioValue] = React.useState('yes');
@@ -171,9 +182,6 @@ const RSVPForm  = (props:RSVPType) => {
         }
     }
     }
-    const updateGuest = (newData: Partial<Guest>) => {
-        setGuest((prevData) => ({ ...prevData, ...newData }));
-    };
     const handleClose = () => {
         setOpen(false);
      };

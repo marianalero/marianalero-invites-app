@@ -1,7 +1,7 @@
 
 import { useMediaQuery } from '@mui/material';
 import './ImgMiddle.css';
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 export interface ImageMiddleProps {
     bgImage:string;
     height?:string;
@@ -13,7 +13,7 @@ const ImageMiddle = (props: ImageMiddleProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
   const isSmallScreen = useMediaQuery("(max-width:600px)");
-console.log(props.bgPositionY);
+ 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -53,4 +53,4 @@ console.log(props.bgPositionY);
     />
   );
 };
-export default ImageMiddle;
+export default memo(ImageMiddle);

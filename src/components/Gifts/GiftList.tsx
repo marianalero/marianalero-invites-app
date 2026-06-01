@@ -1,4 +1,5 @@
 
+import { memo } from 'react';
 import { IconButton, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import BankCard from './BankCard';
@@ -183,4 +184,4 @@ const GiftList = (props:GiftListProps) =>{
     )
 }
 
-export default GiftList;
+export default memo(GiftList);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Box, Container } from "@mui/material";
 
 interface MiniGalleryProps {
@@ -81,4 +81,4 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({
   );
 };
 
-export default MiniGallery;
+export default memo(MiniGallery);
