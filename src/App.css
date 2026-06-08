@@ -260,6 +260,12 @@
   font-weight: 400;
   font-style: normal;
 }
+.cormorant-garamond-400 {
+  font-family: "Cormorant Garamond", serif!important;
+  font-optical-sizing: auto!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
 .text-rose-gold{
   background-image: linear-gradient(
  to right,
@@ -275,6 +281,7 @@
 
 }
 
+
 .text-silver {
   background-image: linear-gradient(
     45deg,
@@ -288,6 +295,81 @@
   )!important;
   color: transparent!important;
   -webkit-background-clip: text;
+}
+
+.text-gold {
+  background-image: linear-gradient(
+    90deg,
+    #6f4f22 0%,
+    #9c7234 20%,
+    #c89a4f 40%,
+    #f0d18a 50%,
+    #c89a4f 60%,
+    #9c7234 80%,
+    #6f4f22 100%
+  ) !important;
+
+  color: transparent!important;
+  -webkit-background-clip: text!important;
+  background-clip: text!important;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.3),
+    0 1px 2px rgba(111,79,34,.25);
+}
+.text-gold-foil {
+  background-image: linear-gradient(
+    90deg,
+    #6d4e1e 0%,
+    #b98939 20%,
+    #f4d88a 40%,
+    #fff7dd 50%,
+    #f4d88a 60%,
+    #b98939 80%,
+    #6d4e1e 100%
+  )!important;
+
+  color: transparent!important;
+  -webkit-background-clip: text!important;
+  background-clip: text!important;
+}
+
+.foil-text-Gistesy {
+  background: linear-gradient(
+    90deg,
+    #7a5a27 0%,
+    #b88a44 15%,
+    #e0c07a 30%,
+    #fff6d5 45%,
+    #fffdf4 50%,
+    #fff6d5 55%,
+    #e0c07a 70%,
+    #b88a44 85%,
+    #7a5a27 100%
+  );
+
+  background-size: 250% auto;
+
+  color: transparent!important;
+  -webkit-background-clip: text!important;
+  background-clip: text!important;
+
+  filter: drop-shadow(0 2px 3px rgba(122, 90, 39, 0.15));
+
+  animation: foilShine 6s ease-in-out infinite;
+}
+
+@keyframes foilShine {
+  0% {
+    background-position: -250% center;
+  }
+
+  20% {
+    background-position: 250% center;
+  }
+
+  100% {
+    background-position: 250% center;
+  }
 }
 
 .btn-gold {

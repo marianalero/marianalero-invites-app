@@ -109,13 +109,46 @@ const InvitationIntro = ({
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-        if (!envelopeImg) return;
-  
-          const img = new Image();
-          img.src = envelopeImg;
-  
-          img.onload = () => setLoaded(true);
-      }, [envelopeImg]);
+    const imageSources = [
+      envelopeImg,
+      sealImg,
+      topLeftCornerImg,
+      bottomRightCornerImg,
+    ].filter(Boolean) as string[];
+
+    if (imageSources.length === 0) {
+      setLoaded(false);
+      return;
+    }
+
+    let isActive = true;
+    setLoaded(false);
+
+    Promise.all(
+      imageSources.map(
+        (src) =>
+          new Promise<void>((resolve) => {
+            const img = new Image();
+            img.src = src;
+            img.onload = () => resolve();
+            img.onerror = () => resolve();
+          })
+      )
+    ).then(() => {
+      if (isActive) {
+        setLoaded(true);
+      }
+    });
+
+    return () => {
+      isActive = false;
+    };
+  }, [
+    bottomRightCornerImg,
+    envelopeImg,
+    sealImg,
+    topLeftCornerImg,
+  ]);
 
   const handleEnter = () => {
     musicRef?.current?.play();
@@ -251,7 +284,7 @@ const InvitationIntro = ({
               }}
             >
               <img
-                src={ loaded ? envelopeImg : GENERIC_BLUR}  
+                src={loaded ? envelopeImg : GENERIC_BLUR}
                 alt="Envelope"
                 loading="eager"
                 decoding="async"
@@ -261,12 +294,13 @@ const InvitationIntro = ({
                   display: "block",
                   filter: loaded ? "blur(0)" : "blur(24px)",
                   opacity: loaded ? 1 : 0.85,
+                  transition: "opacity 0.8s ease, filter 0.8s ease",
                 }}
               />
 
               {topLeftCornerImg && (
                 <img
-                  src={ loaded ? topLeftCornerImg : GENERIC_BLUR}
+                  src={loaded ? topLeftCornerImg : GENERIC_BLUR}
                   alt="Top left decoration"
                   style={{
                     position: "absolute",
@@ -280,13 +314,14 @@ const InvitationIntro = ({
                     pointerEvents: "none",
                     filter: loaded ? "none" : "blur(20px)",
                     opacity: loaded ? 1 : 0,
+                    transition: "opacity 0.8s ease, filter 0.8s ease",
                   }}
                 />
               )}
 
               {bottomRightCornerImg && (
                 <img
-                  src={ loaded ? bottomRightCornerImg : GENERIC_BLUR}
+                  src={loaded ? bottomRightCornerImg : GENERIC_BLUR}
                   alt="Bottom right decoration"
                   style={{
                     position: "absolute",
@@ -300,6 +335,7 @@ const InvitationIntro = ({
                     pointerEvents: "none",
                     filter: loaded ? "none" : "blur(20px)",
                     opacity: loaded ? 1 : 0,
+                    transition: "opacity 0.8s ease, filter 0.8s ease",
                   }}
                 />
               )}
@@ -307,7 +343,7 @@ const InvitationIntro = ({
               {/* Sello */}
               {sealImg && (
                 <img
-                  src={ loaded ? sealImg : GENERIC_BLUR}
+                  src={loaded ? sealImg : GENERIC_BLUR}
                   alt="Seal"
                   style={{
                     position: "absolute",
@@ -326,6 +362,7 @@ const InvitationIntro = ({
                     zIndex: 3,
                     filter: loaded ? "none" : "blur(20px)",
                     opacity: loaded ? 1 : 0,
+                    transition: "opacity 0.8s ease, filter 0.8s ease",
                   }}
                 />
               )}

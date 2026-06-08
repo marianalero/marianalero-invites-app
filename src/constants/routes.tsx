@@ -64,6 +64,7 @@ import XVJoely from "../pages/clientInvitations/XVJoely";
 
 import XVBrianna from "../pages/clientInvitations/XVBrianna";
 import WeddingDaniaSergio from "../pages/clientInvitations/WeddingDaniaSergio";
+import XVCamila2 from "../pages/clientInvitations/XVCamila2";
 
 
 interface RouteConfig {
@@ -145,6 +146,7 @@ const routes: RouteConfig[] = [
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
   {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
   {path:'/prev-ds-4', element: <WeddingDaniaSergio></WeddingDaniaSergio>},
+  {path:'/prev-xv-c', element: <XVCamila2></XVCamila2>},
 ];
 
 

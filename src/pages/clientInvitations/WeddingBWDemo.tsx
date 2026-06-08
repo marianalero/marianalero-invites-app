@@ -284,6 +284,7 @@ const WeddingBWDemo  = () => {
                 overflowY: "auto",
             }}
         >
+            <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_PRIMARY}/>
 
             {/* INTRO */}
             <InvitationIntro
@@ -336,7 +337,6 @@ const WeddingBWDemo  = () => {
                 }}
             >
 
-            <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={COLOR_PRIMARY}/>
             <CoverInline 
                 ourWeddingStart={true}
                 weddingDate="5 de diciembre, 2026"
