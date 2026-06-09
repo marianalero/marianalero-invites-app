@@ -108,7 +108,7 @@ const XVCamila2  = () => {
         const eventCards: EventCardProps[] = [
             {
                 eventName: "Misa",
-                date: new Date(2026, 6, 4, 19, 0, 0),
+                date: new Date(2026, 6, 4, 17, 0, 0),
                textColor: TEXT_PRIMARY,
                 locationName: "Parroquia Santisima Trinidad",
                 address: "Bv. Justo Sierra, Periodista, Hermosillo, Son.",
@@ -127,7 +127,7 @@ const XVCamila2  = () => {
             },
             {
                 eventName: "Recepción",
-                date: new Date(2026, 6, 4, 19, 0, 0),
+                date: new Date(2026, 6, 4, 20, 0, 0),
                textColor: TEXT_PRIMARY,
                 locationName: "Unidad Social de la Sección 54 del SNTE",
                 address: "Esquina con, Calle Róman Yocupicio, Salvador Díaz Mirón 98, Periodista, Hermosillo, Son.",
