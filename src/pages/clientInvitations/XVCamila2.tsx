@@ -19,7 +19,8 @@ import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDow
 
 const XVCamila2  = () => {
       const [searchParams] = useSearchParams();
-  const [isLoadingInvitation, setIsLoadingInvitation] = useState(true);
+  const [isHeroReady, setIsHeroReady] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
         const invitedGuests: number = useMemo(() => {
             const num = Number(searchParams.get("number"));
             return isNaN(num) ? 1 : num;
@@ -35,7 +36,6 @@ const XVCamila2  = () => {
 
     // 🎯 BOTONES
     const BUTTON_PRIMARY = "#7A1525";
-    const BUTTON_TEXT = "#FFFFFF";
 
     // ✨ DETALLES
     const GOLD_LIGHT = "#E1C89A";
@@ -45,25 +45,25 @@ const XVCamila2  = () => {
     const BODY_TYPO = "montserrat-400";
     const URL_IMAGES = `${URL_REPO}xv/xv-camila-2/`;
 
-    const invitationImages = useMemo(
+    const heroImages = useMemo(
       () => [
         `${URL_IMAGES}fondo.png`,
         `${URL_IMAGES}flores/1.png`,
-        `${URL_IMAGES}flores/2.png`,
-        `${URL_IMAGES}flores/3.png`,
         `${URL_IMAGES}flores/5.png`,
-        `${URL_IMAGES}sello.png`,
-        `${URL_IMAGES}adorno.png`,
-        `${URL_IMAGES}adorno2.png`,
-        `${URL_IMAGES}marfil-hor.png`,
-        `${URL_IMAGES}marfil-ver.png`,
-        `${URL_IMAGES}horz.png`,
-        `${URL_IMAGES}cruz.png`,
-        `${URL_IMAGES}corona.png`,
-        `${URL_IMAGES}sobre2.png`,
       ],
       [URL_IMAGES]
     );
+
+    const eagerImageProps = {
+      loading: "eager" as const,
+      decoding: "async" as const,
+      ...({ fetchpriority: "high" } as any),
+    };
+
+    const lazyImageProps = {
+      loading: "lazy" as const,
+      decoding: "async" as const,
+    };
 
     useEffect(() => {
       let isMounted = true;
@@ -76,16 +76,33 @@ const XVCamila2  = () => {
           image.src = src;
         });
 
-      Promise.all(invitationImages.map(preloadImage)).finally(() => {
+      Promise.all(heroImages.map(preloadImage)).finally(() => {
         if (isMounted) {
-          setIsLoadingInvitation(false);
+          setIsHeroReady(true);
         }
       });
 
       return () => {
         isMounted = false;
       };
-    }, [invitationImages]);
+    }, [heroImages]);
+
+    useEffect(() => {
+      const minimumLoaderTime = 900;
+      const timer = window.setTimeout(() => {
+        if (isHeroReady) {
+          setShowLoader(false);
+        }
+      }, minimumLoaderTime);
+
+      return () => window.clearTimeout(timer);
+    }, [isHeroReady]);
+
+    useEffect(() => {
+      if (!isHeroReady) {
+        setShowLoader(true);
+      }
+    }, [isHeroReady]);
 
   
         const eventCards: EventCardProps[] = [
@@ -151,10 +168,10 @@ const XVCamila2  = () => {
     const handleConfirmed = (name: string, confirmText: string, phoneNumber: string, totalConfirmed: string, companionNames?: string) => {
         console.log("Confirmado:", name, confirmText, phoneNumber, totalConfirmed, companionNames);
         if(confirmText == "Asistiré"){
-            window.open(`https://wa.me/+5200000?text=Hola,Mi nombre es ${name}%20y%20confirmo%20mi%20asistencia%20para%20la%20Quinceañera%20%20de%20Briana.%0ANúmero de invitados:${totalConfirmed}%0AAcompañantes: ${companionNames}`, '_blank');
+            window.open(`https://wa.me/+5215545817457?text=Hola,Mi nombre es ${name}%20y%20confirmo%20mi%20asistencia%20para%20la%20Quinceañera%20%20de%20Camila.%0ANúmero de invitados:${totalConfirmed}%0AAcompañantes: ${companionNames}`, '_blank');
 
         }else{
-            window.open(`https://wa.me/+52000000?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20Quinceañera%20de%20Briana.Mi nombre es: ${name}`, '_blank');
+            window.open(`https://wa.me/+5215545817457?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20Quinceañera%20de%20Camila.Mi nombre es: ${name}`, '_blank');
 
         }
     };
@@ -163,11 +180,11 @@ const XVCamila2  = () => {
     return (
       <>
       <Backdrop
-        open={isLoadingInvitation}
+        open={showLoader}
         sx={{
           zIndex: (theme) => theme.zIndex.modal + 1,
-          color: BUTTON_TEXT,
-          backgroundColor: "rgba(122, 21, 37, 0.92)",
+          color: GOLD_LIGHT,
+          backgroundColor: "rgba(122, 21, 37,1)",
           flexDirection: "column",
           gap: 2,
         }}
@@ -183,10 +200,9 @@ const XVCamila2  = () => {
           Cargando invitacion...
         </Typography>
       </Backdrop>
-      {!isLoadingInvitation && (
       <div style={{backgroundColor:BG_MAIN ,maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
           
-           <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px",minHeight:"80vh",}}>
+           <div style={{backgroundColor: BG_ACCENT, backgroundImage: isHeroReady ? `url("${URL_IMAGES}fondo.png")` : undefined, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px",minHeight:"80vh",}}>
            
            <Box sx={{backgroundColor: `rgba(255,255,255,0.15)`}}></Box>
             <Grid container justifyContent="center"  height={"80vh"} >
@@ -254,14 +270,14 @@ const XVCamila2  = () => {
                   </div>
                    <div  style={{position:"absolute",top:"10%",left:"20%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="left" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}flores/1.png`}  style={{width: "300px"}} />
+                       <img src={`${URL_IMAGES}flores/1.png`} alt="" style={{width: "300px"}} {...eagerImageProps} />
                          </Fade>
                      
                      </div>    
                     
                      <div  style={{position:"absolute",top:"95%",left:"90%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="left" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}flores/5.png`}  style={{width: "250px"}} />
+                       <img src={`${URL_IMAGES}flores/5.png`} alt="" style={{width: "250px"}} {...eagerImageProps} />
                          </Fade>
                      
                      </div>    
@@ -277,7 +293,7 @@ const XVCamila2  = () => {
                         
                           <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <img src={`${URL_IMAGES}sello.png`} height="100"/>
+                            <img src={`${URL_IMAGES}sello.png`} alt="" height="100" {...lazyImageProps}/>
                             </Fade>		
                         </Grid>
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
@@ -386,7 +402,7 @@ const XVCamila2  = () => {
 <div style={{ backgroundColor: BG_ACCENT, padding:"50px 20px", position:"relative",height:"50vh", display:"flex", alignItems:"center", justifyContent:"center"}}>
             <div  style={{position:"absolute",top:"10%",left:"15%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="right" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}flores/3.png`}  style={{width: "300px"}} />
+                   <img src={`${URL_IMAGES}flores/3.png`} alt="" style={{width: "300px"}} {...lazyImageProps} />
                          </Fade>
                      
                      </div>   
@@ -406,7 +422,7 @@ const XVCamila2  = () => {
                  </CountDownSimple>
    <div  style={{position:"absolute",top:"90%",left:"95%",transform:"translate(-50%, -50%)"}}>
                          <Fade direction="right" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}flores/2.png`}  style={{width: "300px"}} />
+             <img src={`${URL_IMAGES}flores/2.png`} alt="" style={{width: "300px"}} {...lazyImageProps} />
                          </Fade>
                      
                      </div>   
@@ -492,7 +508,7 @@ const XVCamila2  = () => {
            <div style={{ backgroundImage: `url(${URL_IMAGES}horz.png)`, backgroundSize: "contain",backgroundRepeat: "repeat", padding:"50px 20px",position:"relative" }}>
                <div  style={{position:"absolute",top:"0%",left:"15%",transform:"translate(-50%, -50%)", zIndex:1}}>
                          <Fade direction="right" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}flores/5.png`}  style={{width: "300px"}} />
+                     <img src={`${URL_IMAGES}flores/5.png`} alt="" style={{width: "300px"}} {...lazyImageProps} />
                          </Fade>
                      
                      </div>   
@@ -507,7 +523,7 @@ const XVCamila2  = () => {
             </Grid>
             <div  style={{position:"absolute",bottom:"-20%",left:"95%",transform:"translate(-50%, -50%)", zIndex:1}}>
                          <Fade direction="right" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}flores/5.png`}  style={{width: "300px"}} />
+                   <img src={`${URL_IMAGES}flores/5.png`} alt="" style={{width: "300px"}} {...lazyImageProps} />
                          </Fade>
                      
                      </div> 
@@ -528,6 +544,9 @@ const XVCamila2  = () => {
               <Box
                 component="img"
                 src={`${URL_IMAGES}sello.png`}
+                alt=""
+                loading="lazy"
+                decoding="async"
                 sx={{
                   position: "absolute",
                   top: "8%",
@@ -543,6 +562,9 @@ const XVCamila2  = () => {
               <Box
                 component="img"
                 src={`${URL_IMAGES}flores/5.png`}
+                alt=""
+                loading="lazy"
+                decoding="async"
                 sx={{
                   position: "absolute",
                   bottom: "-60px",
@@ -556,6 +578,9 @@ const XVCamila2  = () => {
                 <Box
                 component="img"
                 src={`${URL_IMAGES}flores/2.png`}
+                alt=""
+                loading="lazy"
+                decoding="async"
                 sx={{
                   position: "absolute",
                   bottom: "50%",
@@ -578,7 +603,7 @@ const XVCamila2  = () => {
                  <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={2} > 
                          <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <Typography className={`${MAIN_TYPO} text-gold`}  textAlign={"center"}  sx={{fontSize:"4rem",lineHeight:"normal"}} >
+                            <Typography className={`${MAIN_TYPO} text-gold`}  textAlign={"center"}  sx={{fontSize:"3rem",lineHeight:"normal", mt:2}} >
                               Lluvia de sobres
                             </Typography>
                             </Fade>		
@@ -592,7 +617,7 @@ const XVCamila2  = () => {
                         </Grid>	
                           <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <img src={`${URL_IMAGES}sobre2.png`} height="100"/>
+                            <img src={`${URL_IMAGES}sobre2.png`} alt="" height="100" {...lazyImageProps}/>
                             </Fade>		
                         </Grid>
                        
@@ -623,7 +648,7 @@ const XVCamila2  = () => {
                           top: -40,
                           left: "50%",
                           transform: "translateX(-50%)",
-                  }} />
+                    }} loading="lazy" decoding="async" />
                 <CardContent sx={{padding:0, paddingTop:6}}>
                       <RSVPExcel 
             textColor={TEXT_PRIMARY} 
@@ -652,7 +677,6 @@ const XVCamila2  = () => {
               
 
         </div>
-          )}
           </>
     )
 }
