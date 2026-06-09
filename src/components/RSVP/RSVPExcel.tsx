@@ -259,7 +259,7 @@ const RSVPDemo  = (props:RSVPType) => {
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             {
                                         props.classButtonName ? (
-                                            <ProButton onClick={handleSend}  className={props.classButtonName} label={'Ver ubicación'} />
+                                            <ProButton onClick={handleSend}  className={props.classButtonName} label={'Enviar'} />
                                         ) : (
                                              <CustomButton bgColor={props.colorButton} color={'#FFFFFF'} label={'Enviar'} onClick={handleSend}></CustomButton>
 
