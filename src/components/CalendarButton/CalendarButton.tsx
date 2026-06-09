@@ -19,7 +19,7 @@ const CalendarButton = ({
   label = "Agregar al calendario",
   buttonProps,
 }: CalendarButtonProps) => {
-  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  // const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   const googleCalendarUrl = () => {
     const params = new URLSearchParams({
