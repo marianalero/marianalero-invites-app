@@ -108,7 +108,7 @@ const LoginPage = () => {
             mb: 2,
           }}
         />
-        <Typography variant="h4" gutterBottom>Iniciar Sesión</Typography>
+        <Typography variant="h5" gutterBottom>Iniciar Sesión</Typography>
         <Typography variant="body1">Administra tus invitaciones
 y confirma asistentes.</Typography>
         <form onSubmit={handleSubmit}>
