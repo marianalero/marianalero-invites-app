@@ -1,51 +1,173 @@
-import { Box, Container, Typography } from '@mui/material';
-import HeaderHome from '../../layouts/headerHome';
-import Footer from '../../components/Footer/Footer';
+import { Box, Container, Typography, Divider } from "@mui/material";
+import HeaderHome from "../../layouts/headerHome";
+import Footer from "../../components/Footer/Footer";
+
+const sections = [
+  {
+    title: "1. Información que recopilamos",
+    text: "Recopilamos los datos que nos proporcionas al llenar formularios o solicitar una invitación, como nombre, correo electrónico y datos relacionados con tu evento.",
+  },
+  {
+    title: "2. Uso de la información",
+    text: "Utilizamos esta información exclusivamente para diseñar tus invitaciones, comunicarnos contigo y entregarte el producto digital contratado.",
+  },
+  {
+    title: "3. Compartición de datos",
+    text: "No compartimos tu información con terceros, salvo cuando sea necesario para cumplir una obligación legal.",
+  },
+  {
+    title: "4. Seguridad",
+    text: "Implementamos medidas técnicas y organizativas razonables para proteger tus datos personales contra accesos no autorizados, pérdida o alteración.",
+  },
+  {
+    title: "5. Cookies",
+    text: "Este sitio puede utilizar cookies para mejorar la experiencia de navegación. Puedes desactivarlas desde la configuración de tu navegador si así lo prefieres.",
+  },
+  {
+    title: "6. Derechos del usuario",
+    text: "Puedes solicitar la revisión, corrección o eliminación de tus datos personales escribiéndonos a marianalero.invitaciones@gmail.com.",
+  },
+  {
+    title: "7. Cambios en esta política",
+    text: "Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Las modificaciones serán efectivas una vez publicadas en este sitio.",
+  },
+  {
+    title: "8. Contacto",
+    text: "Si tienes alguna duda relacionada con la privacidad o el tratamiento de tus datos, puedes escribirnos a marianalero.invitaciones@gmail.com.",
+  },
+];
 
 const PrivacyPolicy = () => {
   return (
     <>
-    <HeaderHome></HeaderHome>
-      <Container maxWidth="md">
-    <Box sx={{ padding: '2rem', minHeight: '100vh', margin: '0 auto', fontFamily: 'Montserrat, sans-serif' }}>
-      <Typography variant="h4" gutterBottom color="#a41423">
-        Política de Privacidad
-      </Typography>
-      <Typography variant="body1">
-        Última actualización: 26 de mayo de 2025
-      </Typography>
-      <Typography variant="body1">
-        En Mariana Lero Invitaciones respetamos tu privacidad y protegemos tus datos personales conforme a esta Política de Privacidad.
-      </Typography>
-      <Typography variant="body1">
-        <strong>1. Información que recopilamos:</strong> Recopilamos datos que tú nos proporcionas al llenar formularios o encargar una invitación, como nombre, correo electrónico y datos del evento.
-      </Typography>
-      <Typography variant="body1">
-        <strong>2. Uso de la información:</strong> Utilizamos estos datos exclusivamente para diseñar tus invitaciones, comunicarnos contigo y entregarte el producto digital.
-      </Typography>
-      <Typography variant="body1">
-        <strong>3. Compartición de datos:</strong> No compartimos tu información con terceros, salvo que la ley lo exija.
-      </Typography>
-      <Typography variant="body1">
-        <strong>4. Seguridad:</strong> Implementamos medidas técnicas y organizativas para proteger tus datos personales.
-      </Typography>
-      <Typography variant="body1">
-        <strong>5. Cookies:</strong> Este sitio puede usar cookies para mejorar la experiencia de navegación. Puedes desactivarlas en tu navegador si lo prefieres.
-      </Typography>
-      <Typography variant="body1">
-        <strong>6. Derechos del usuario:</strong> Puedes solicitar la revisión, corrección o eliminación de tus datos escribiéndonos a marianalero.invitaciones@gmail.com
-        .
-      </Typography>
-      <Typography variant="body1">
-        <strong>7. Cambios:</strong> Nos reservamos el derecho de actualizar esta política sin previo aviso. Te recomendamos revisarla periódicamente.
-      </Typography>
-      <Typography variant="body1">
-        <strong>8. Contacto:</strong> Para cualquier consulta sobre tu privacidad, escríbenos a marianalero.invitaciones@gmail.com
-        .
-      </Typography>
-    </Box>
-    </Container>
-    <Footer />
+      <HeaderHome />
+
+      <Box
+        sx={{
+          minHeight: "100vh",
+          bgcolor: "#f8f4ec",
+          background:
+            "linear-gradient(180deg, #f8f4ec 0%, #f2eadd 55%, #f8f4ec 100%)",
+          py: { xs: 7, md: 11 },
+          px: { xs: 2, md: 4 },
+        }}
+      >
+        <Container maxWidth="md">
+          {/* Hero */}
+
+          <Box
+            sx={{
+              textAlign: "center",
+              maxWidth: 760,
+              mx: "auto",
+              mb: { xs: 5, md: 7 },
+            }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Montserrat, sans-serif",
+                color: "#bdaa8c",
+                fontSize: ".78rem",
+                fontWeight: 700,
+                letterSpacing: ".24em",
+                textTransform: "uppercase",
+                mb: 2,
+              }}
+            >
+              Información legal
+            </Typography>
+
+            <Typography
+              sx={{
+                fontFamily: "'DM Serif Display', serif",
+                color: "#a41423",
+                fontSize: { xs: "2.7rem", md: "4.2rem" },
+                lineHeight: 0.95,
+                mb: 2,
+              }}
+            >
+              Política de
+              <br />
+              privacidad.
+            </Typography>
+
+            <Typography
+              sx={{
+                fontFamily: "Montserrat, sans-serif",
+                color: "#7d5f55",
+                lineHeight: 1.8,
+              }}
+            >
+              Última actualización: 26 de mayo de 2025
+            </Typography>
+          </Box>
+
+          {/* Contenido */}
+
+          <Box
+            sx={{
+              borderRadius: "36px",
+              bgcolor: "rgba(255,255,255,.42)",
+              border: "1px solid rgba(200,173,120,.35)",
+              boxShadow: "0 20px 50px rgba(75,45,35,.08)",
+              p: { xs: 3, md: 5 },
+            }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Montserrat, sans-serif",
+                color: "#7d5f55",
+                lineHeight: 1.9,
+                mb: 4,
+              }}
+            >
+              En Mariana Lero Invitaciones respetamos tu privacidad y protegemos
+              tus datos personales conforme a esta Política de Privacidad.
+            </Typography>
+
+            <Divider
+              sx={{
+                borderColor: "rgba(200,173,120,.35)",
+                mb: 4,
+              }}
+            />
+
+            {sections.map((section, index) => (
+              <Box
+                key={section.title}
+                sx={{
+                  mb: index === sections.length - 1 ? 0 : 4,
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontFamily: "'DM Serif Display', serif",
+                    color: "#a41423",
+                    fontSize: { xs: "1.45rem", md: "1.75rem" },
+                    lineHeight: 1.15,
+                    mb: 1,
+                  }}
+                >
+                  {section.title}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    fontFamily: "Montserrat, sans-serif",
+                    color: "#7d5f55",
+                    lineHeight: 1.9,
+                    fontSize: ".96rem",
+                  }}
+                >
+                  {section.text}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </Container>
+      </Box>
+
+      <Footer />
     </>
   );
 };

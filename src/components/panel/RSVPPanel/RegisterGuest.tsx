@@ -1,4 +1,4 @@
-import { Button, FormControl, InputLabel, Menu, MenuItem,  Select,  SelectChangeEvent,  TextField, Typography, useMediaQuery, useTheme,
+import { Box, Button, FormControl, InputLabel, Menu, MenuItem,  Select,  SelectChangeEvent,  TextField, Typography, useMediaQuery, useTheme,
 } from '@mui/material';
 import { useEffect, useMemo, useState } from 'react';
 import { GridColDef } from '@mui/x-data-grid';
@@ -122,9 +122,9 @@ const columns: GridColDef[] = !isMobile  ? [
       field: "actions",
       headerName: "",
       type: "actions",
-      width:400,
+     width: invitation?.hasQuestions ? 300 : 220,
       renderCell: (params) => (
-        <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } questions={invitation?.hasQuestions ?? false} />
+        <GuestActions  guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } questions={invitation?.hasQuestions ?? false} />
       ),
     },
 ] : [
@@ -139,7 +139,7 @@ const columns: GridColDef[] = !isMobile  ? [
       field: "actions",
       headerName: "",
       type: "actions",
-      width:400,
+      width:invitation?.hasQuestions ?  180 : 140,
       renderCell: (params) => (
         <GuestActions guest={params.row} link={invitation ? invitation.link : ""} refresh={() => fetchGuests() } questions={invitation?.hasQuestions ?? false} />
       ),
@@ -147,88 +147,172 @@ const columns: GridColDef[] = !isMobile  ? [
 ];
 
   return (
-    <Grid container>
-      <Grid size={{xs:12,sm:12,md:12,lg:12}}>
-         <StatsCards {...stats} />
+  <Box>
+    <Box sx={{ mb: { xs: 3, md: 5 } }}>
+      <StatsCards {...stats} />
+    </Box>
+
+    <Box
+      sx={{
+        borderRadius: "30px",
+        bgcolor: "rgba(255,255,255,.55)",
+        border: "1px solid rgba(200,173,120,.28)",
+        boxShadow: "0 20px 50px rgba(75,45,35,.08)",
+        overflow: "hidden",
+      }}
+    >
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          p: { xs: 2, md: 3 },
+          alignItems: "center",
+          borderBottom: "1px solid rgba(200,173,120,.22)",
+        }}
+      >
+        <Grid size={{ xs: 12, md: 5 }}>
+          <TextField
+            size="small"
+            variant="outlined"
+            placeholder="Buscar por nombre"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            fullWidth
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "999px",
+                bgcolor: "#fff",
+              },
+            }}
+          />
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 4 }}>
+          <FormControl fullWidth size="small">
+            <InputLabel id="confirmation-select-label">Confirmación</InputLabel>
+            <Select
+              labelId="confirmation-select-label"
+              value={age}
+              label="Confirmación"
+              onChange={handleChange}
+              sx={{
+                borderRadius: "999px",
+                bgcolor: "#fff",
+              }}
+            >
+              <MenuItem value={0}>Todos</MenuItem>
+              <MenuItem value={1}>Sin responder</MenuItem>
+              <MenuItem value={2}>Asistirá</MenuItem>
+              <MenuItem value={3}>No asistirá</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid size={{ xs: 12, md: 3 }}>
+          <Button
+            fullWidth
+            id="basic-button"
+            aria-controls={openMenu ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={openMenu ? "true" : undefined}
+            onClick={handleClick}
+            variant="contained"
+            sx={{
+              borderRadius: "999px",
+              py: 1.1,
+              bgcolor: "#a41423",
+              color: "#fff",
+              fontFamily: "Montserrat, sans-serif",
+              fontWeight: 600,
+              textTransform: "none",
+              boxShadow: "0 12px 26px rgba(164,20,35,.18)",
+              "&:hover": {
+                bgcolor: "#7f0f1b",
+              },
+            }}
+          >
+            Acciones
+          </Button>
+
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={openMenu}
+            onClose={handleClose}
+            variant="menu"
+            PaperProps={{
+              sx: {
+                mt: 1,
+                borderRadius: "18px",
+                border: "1px solid rgba(200,173,120,.28)",
+                boxShadow: "0 18px 40px rgba(75,45,35,.12)",
+              },
+            }}
+          >
+            <MenuItem onClick={() => setOpenCreated(true)}>
+              <Add color="primary" sx={{ mr: 1 }} /> Nuevo invitado
+            </MenuItem>
+
+            <MenuItem onClick={() => setOpen(true)}>
+              <FileUploadRoundedIcon color="primary" sx={{ mr: 1 }} /> Cargar invitados
+            </MenuItem>
+
+            <MenuItem
+              onClick={() => {
+                download();
+                setAnchorEl(null);
+              }}
+            >
+              <CloudDownloadIcon color="primary" sx={{ mr: 1 }} /> Descargar Excel
+            </MenuItem>
+
+            <MenuItem onClick={() => setOpenLinks(true)}>
+              <InsertLinkRoundedIcon color="primary" sx={{ mr: 1 }} /> Links genéricos
+            </MenuItem>
+          </Menu>
+        </Grid>
       </Grid>
-       <Grid size={{xs:12,sm:12,md:6,lg:6}} mb={2}>
-              <TextField
-                size="small"
-                variant="outlined"
-                label="Buscar por nombre"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                fullWidth={true}
-              />
-              </Grid>
-              <Grid size={{xs:12,sm:12,md:6,lg:6}} mb={2} display="flex" justifyContent={"end"} gap={2} paddingLeft={2}> 
-                <FormControl fullWidth  size="small">
-                  <InputLabel id="demo-simple-select-label">Confirmación</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
-                    label="Age"
-                    onChange={handleChange}
-                    
-                  >
-                    <MenuItem value={0}>Todos</MenuItem>
-                    <MenuItem value={1}>Sin Responder</MenuItem>
-                    <MenuItem value={2}>Asistirá</MenuItem>
-                    <MenuItem value={3}>No Asistirá</MenuItem>
-                  </Select>
-                </FormControl>
-                    <Button
-                    fullWidth={true}
-                    id="basic-button"
-                    aria-controls={openMenu ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={openMenu ? 'true' : undefined}
-                    onClick={handleClick}
-                    variant='contained'
-                  >
-                    Acciones
-                    </Button>
-                    <Menu
-                      id="basic-menu"
-                      anchorEl={anchorEl}
-                      open={openMenu}
-                      onClose={handleClose}
-                      variant='menu'
-                    >
-                    <MenuItem  onClick={() => setOpenCreated(true)}>
-                      <Typography ><Add color='primary'/> Nuevo Invitado</Typography> </MenuItem>
-                    <MenuItem   onClick={() => setOpen(true)}> <Typography ><FileUploadRoundedIcon color='primary' /> Cargar Invitados</Typography> </MenuItem>
-                    <MenuItem onClick={() => {download(); setAnchorEl(null)}}> <Typography ><CloudDownloadIcon color='primary'/> Descargar Excel</Typography></MenuItem>
-                    <MenuItem onClick={() => setOpenLinks(true)}> <Typography ><InsertLinkRoundedIcon color='primary'/> Links Genericos</Typography></MenuItem>
-                    </Menu>
-            </Grid>
-       
-             <Grid size={{xs:12,sm:12,md:12,lg:12}} mb={2}>
 
-              <DataGridCustom rows={filteredRows} columns={columns}  height={"calc(100vh - 180px)"} loading={loading}></DataGridCustom>
-             </Grid>
-        {open && (
+      <Box
+        sx={{
+          // bgcolor: "#fff",
+          p: 0,
+        }}
+      >
+        <DataGridCustom
+          rows={filteredRows}
+          columns={columns}
+          height="calc(100vh - 360px)"
+          loading={loading}
+        />
+      </Box>
+    </Box>
 
-          <UploadGuestsDialog open={open} onClose={()=> setOpen(false)} onCreated={handleUpload} ></UploadGuestsDialog>
-        )
+    {open && (
+      <UploadGuestsDialog
+        open={open}
+        onClose={() => setOpen(false)}
+        onCreated={handleUpload}
+      />
+    )}
 
-        }
-         {openCreated && (
+    {openCreated && (
+      <CreateGuestDialog
+        open={openCreated}
+        onClose={() => setOpenCreated(false)}
+        onCreated={handleCreated}
+      />
+    )}
 
-          <CreateGuestDialog open={openCreated} onClose={()=> setOpenCreated(false)} onCreated={handleCreated} ></CreateGuestDialog>
-        )
-
-        }
-        {openLinks && (
-        <GenerateGenericLinks
-          open={openLinks}
-          onClose={() => setOpenLinks(false)}
-          link={invitation?.link} onSave={function (): void {
-          } }        />
-      )}
-
-    </Grid>
-  );
+    {openLinks && (
+      <GenerateGenericLinks
+        open={openLinks}
+        onClose={() => setOpenLinks(false)}
+        link={invitation?.link}
+        onSave={() => {}}
+      />
+    )}
+  </Box>
+);
 }
 

@@ -577,54 +577,62 @@ shadows: [
         },
       },
     },
-    MuiDataGrid: {
-      styleOverrides: {
-        root:
-        {
-          backgroundColor:"white",
-          fontSize: "16px",
-          "& .MuiDataGrid-row": {
-            maxHeight: "48px!important",
-            minHeight: "48px!important",
-            "&:hover": {
-              backgroundColor: "white",
-            },
-          },
-          "& .MuiDataGrid-row.Mui-selected": {
-            backgroundColor: "white",
-            "&:hover": {
-              backgroundColor: "white",
-            },
-          },
-          "& .MuiDataGrid-columnHeaderTitle": {
-            fontWeight: 700,
-          },
-          "& .MuiDataGrid-columnHeader": {
-            "&:focus": {
-              outline: 0,
-            },
-            cursor: "auto",
-            fontSize: "14px",
-            
-          },
-          "& .MuiDataGrid-cell": {
-            "&:focus": {
-              outline: 0,
-            },
-            "&:focus-within": {
-              outline: 0,
-            },
-          },
-          "& .MuiDataGrid-columnSeparator": {
-            color: COLORTHEME.palette.primary,
-          },
-          // "& .MuiDataGrid-virtualScrollerContent":
-          // {
-          //   height: "100%!important",
-          // },
-        },
+   MuiDataGrid: {
+  styleOverrides: {
+    root: {
+      border: "none",
+      backgroundColor: "#fff",
+      fontFamily: "Montserrat, sans-serif",
+
+      "& .MuiDataGrid-main": {
+        borderRadius: 0,
+      },
+
+      "& .MuiDataGrid-columnHeaders, & .MuiDataGrid-columnHeadersInner, & .MuiDataGrid-columnHeader, & .MuiDataGrid-columnHeader--sortable": {
+        backgroundColor: "#f8f4ec !important",
+      },
+
+      "& .MuiDataGrid-columnHeader": {
+        minHeight: "56px !important",
+        maxHeight: "56px !important",
+        color: "#3a2a25",
+        fontWeight: 700,
+        fontSize: ".9rem",
+        outline: "none !important",
+      },
+    "& .MuiDataGrid-scrollbarFiller, & .MuiDataGrid-scrollbarFiller--header": {
+        backgroundColor: "#f8f4ec !important",
+      },
+      "& .MuiDataGrid-columnHeaderTitle": {
+        fontWeight: "700 !important",
+      },
+
+      "& .MuiDataGrid-row": {
+        backgroundColor: "#fff",
+        minHeight: "58px !important",
+        maxHeight: "58px !important",
+      },
+
+      "& .MuiDataGrid-cell": {
+        minHeight: "58px !important",
+        maxHeight: "58px !important",
+        borderBottom: "1px solid rgba(200,173,120,.14)",
+        color: "#4c3b35",
+        fontSize: ".95rem",
+        outline: "none !important",
+      },
+
+      "& .MuiDataGrid-row:hover": {
+        backgroundColor: "#fdfaf5",
+      },
+
+      "& .MuiDataGrid-footerContainer": {
+        backgroundColor: "#fff",
+        borderTop: "1px solid rgba(200,173,120,.22)",
       },
     },
+  },
+},
 
   },
   
