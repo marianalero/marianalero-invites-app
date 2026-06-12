@@ -1,57 +1,150 @@
-// src/components/ConfirmationBenefits.tsx
-import { Box, Grid, Typography, Paper } from '@mui/material';
-import one from './../../assets/iconos/23.svg';
-import two from './../../assets/iconos/24.svg';
-import tree from './../../assets/iconos/25.svg';
-import { Fade } from 'react-awesome-reveal';
+import { Box, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import one from "./../../assets/iconos/23.svg";
+import two from "./../../assets/iconos/24.svg";
+import tree from "./../../assets/iconos/25.svg";
+import { Fade } from "react-awesome-reveal";
+
 const benefits = [
   {
-    icon:one,
-    title: "Seguimiento en tiempo real",
-    description: "Visualiza en cualquier momento cuántos invitados han confirmado su asistencia.",
+    icon: one,
+    title: "Control en tiempo real",
+    description:
+      "Consulta en cualquier momento cuántos invitados han confirmado su asistencia.",
   },
   {
-    icon:two,
-    title: "Respuestas personalizadas",
-    description: "Cada invitado tiene un enlace único para confirmar, lo que mejora la organización.",
+    icon: two,
+    title: "Enlaces personalizados",
+    description:
+      "Cada invitado recibe un enlace único para mantener una mejor organización.",
   },
   {
-    icon:tree,
+    icon: tree,
     title: "Exportación de datos",
-    description: "Exporta la lista de invitados confirmados para llevar un mejor control o imprimirla.",
-  }
+    description:
+      "Descarga tu lista de confirmados para tener un mejor control del evento.",
+  },
 ];
 
 const ConfirmationBenefits = () => {
   return (
-    <Box sx={{ padding: 4, backgroundColor: '#f4ebd7' }}>
-      <Fade direction="up" >
-      <Typography
-                            variant="h4"
-                            sx={{
-                                fontFamily: 'Cinzel, serif',
-                                color: '#a41423',
-                                textAlign: 'center',
-                                mb: 6,
-                            }}
-                            >
-                            Ventajas del sistema de confirmaciones
-                            </Typography>
+    <Box
+      sx={{
+        maxWidth: 1300,
+        mx: "auto",
+        py: { xs: 7, md: 9 },
+        px: { xs: 2, md: 4 },
+      }}
+    >
+      <Fade direction="up" triggerOnce>
+        <Box
+          sx={{
+            textAlign: "center",
+            maxWidth: 720,
+            mx: "auto",
+            mb: 7,
+          }}
+        >
+          <Typography
+            sx={{
+              fontFamily: "Montserrat, sans-serif",
+              color: "#bdaa8c",
+              fontSize: ".78rem",
+              fontWeight: 700,
+              letterSpacing: ".24em",
+              textTransform: "uppercase",
+              mb: 2,
+            }}
+          >
+            Sistema de confirmaciones
+          </Typography>
 
-    </Fade>
-      <Grid container spacing={3} justifyContent="center">
-        {benefits.map((benefit, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Fade direction="up" >
-            <Paper elevation={1} sx={{ p: 3, textAlign: 'center', height: '100%',backgroundColor:"#a41423"}}>
-               <img src={benefit.icon} alt={benefit.title} width={60} />
-              <Typography variant="h6" fontWeight="bold" gutterBottom sx={{color:"white"}}>
-                {benefit.title}
-              </Typography>
-              <Typography variant="body2" sx={{color:"white"}}>
-                {benefit.description}
-              </Typography>
-            </Paper>
+          <Typography
+            sx={{
+              fontFamily: "'DM Serif Display', serif",
+              color: "#a41423",
+              fontSize: { xs: "2.3rem", md: "3.6rem" },
+              lineHeight: 1,
+              mb: 2,
+            }}
+          >
+            Organiza a tus invitados
+            <br />
+            de una forma más inteligente.
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: "Montserrat, sans-serif",
+              color: "#7d5f55",
+              lineHeight: 1.8,
+            }}
+          >
+            Nuestro panel de confirmaciones te ayuda a llevar un mejor control
+            del evento sin hojas de cálculo complicadas.
+          </Typography>
+        </Box>
+      </Fade>
+
+      <Grid container spacing={4}>
+        {benefits.map((benefit) => (
+          <Grid key={benefit.title} size={{ xs: 12, md: 4 }}>
+            <Fade direction="up" triggerOnce>
+              <Box
+                sx={{
+                  height: "100%",
+                  p: { xs: 3.5, md: 4 },
+                  borderRadius: "30px",
+                  bgcolor: "rgba(255,255,255,.42)",
+                  border: "1px solid rgba(200,173,120,.35)",
+                  boxShadow: "0 20px 50px rgba(75,45,35,.08)",
+                  transition: ".3s ease",
+                  textAlign: { xs: "center", md: "left" },
+                  "&:hover": {
+                    transform: "translateY(-6px)",
+                    boxShadow: "0 28px 60px rgba(75,45,35,.12)",
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    width: 82,
+                    height: 82,
+                    borderRadius: "50%",
+                    bgcolor: "#f2eadd",
+                    border: "1px solid rgba(200,173,120,.35)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    mb: 3,
+                    mx: { xs: "auto", md: 0 },
+                  }}
+                >
+                  <img src={benefit.icon} alt={benefit.title} width={44} />
+                </Box>
+
+                <Typography
+                  sx={{
+                    fontFamily: "'DM Serif Display', serif",
+                    color: "#a41423",
+                    fontSize: "1.8rem",
+                    mb: 2,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  {benefit.title}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    fontFamily: "Montserrat, sans-serif",
+                    color: "#7d5f55",
+                    lineHeight: 1.8,
+                  }}
+                >
+                  {benefit.description}
+                </Typography>
+              </Box>
             </Fade>
           </Grid>
         ))}

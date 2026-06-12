@@ -65,6 +65,7 @@ import XVJoely from "../pages/clientInvitations/XVJoely";
 import XVBrianna from "../pages/clientInvitations/XVBrianna";
 import WeddingDaniaSergio from "../pages/clientInvitations/WeddingDaniaSergio";
 import XVCamila2 from "../pages/clientInvitations/XVCamila2";
+import XVDemoAlejandra from "../pages/clientInvitations/XVDemoAlejandra";
 
 
 interface RouteConfig {
@@ -83,6 +84,7 @@ const routes: RouteConfig[] = [
     {path:'/demos/3', element: <DemoTree></DemoTree>},
     {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
     {path:"/demos/bw-demo", element: <WeddingBWDemo></WeddingBWDemo>},
+    {path:'/demos/xv-alejandra', element: <XVDemoAlejandra></XVDemoAlejandra>},
     {path:'/terminos', element: <TermsConditions></TermsConditions>},
     {path:'/privacidad', element: <PrivacyPolicy></PrivacyPolicy>},
     {path:'/faq', element: <FaqPage></FaqPage>},

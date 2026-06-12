@@ -1,168 +1,305 @@
 import {
-  Card, CardContent, Typography,Button, Chip, Divider, Stack
-} from '@mui/material';
-import Grid from '@mui/material/Grid2';
-import { Fade } from 'react-awesome-reveal';
+  Box,
+  Typography,
+  Button,
+  Chip,
+  Divider,
+  Stack,
+} from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import { Fade } from "react-awesome-reveal";
+
 const packages = [
   {
-    name: 'Esencia',
-    level: 'Básico',
+    name: "Esencia",
+    level: "Básico",
     features: [
-      'Portada personalizada (foto o diseño)',
-      'Información del evento (fecha, lugar, horario)',
-      'Link de ubicación (Google Maps)',
-      'Confirmación por WhatsApp',
+      "Portada personalizada",
+      "Información del evento",
+      "Link de ubicación",
+      "Confirmación por WhatsApp",
     ],
-    badge: 'Ideal para comenzar',
-    color: 'success',
-    price: '$500 MX'
+    badge: "Ideal para comenzar",
+    price: "$500 MXN",
   },
   {
-    name: 'Memorias',
-    level: 'Intermedio',
+    name: "Memorias",
+    level: "Intermedio",
     features: [
-      'Todo lo de Esencia',
-      'Nombres de padres y padrinos',
-      'Código de vestimenta',
-      'Cuenta regresiva',
-
-      'Mesa de regalos',
-      'Frase personalizada',
-      'Galería de fotos (hasta 5)',
-      'Confirmación por WhatsApp'
+      "Todo lo de Esencia",
+      "Padres y padrinos",
+      "Código de vestimenta",
+      "Cuenta regresiva",
+      "Mesa de regalos",
+      "Frase personalizada",
+      "Galería de fotos hasta 5",
     ],
-    badge: 'Más vendido',
-    color: 'warning',
-    price: '$850 MX'
+    badge: "Más vendido",
+    price: "$850 MXN",
   },
   {
-    name: 'Celebra+',
-    level: 'Avanzado',
+    name: "Celebra+",
+    level: "Avanzado",
     features: [
-      'Todo lo de Memorias',
-      'Galería de fotos (hasta 10)',
-      'Itinerario del evento',
+      "Todo lo de Memorias",
+      "Galería de fotos hasta 10",
+      "Itinerario del evento",
       "Música",
-      'Panel de confirmaciones'
+      "Panel de confirmaciones",
     ],
-    badge: 'Recomendado',
-    color: 'info',
-    price: '$1,100 MX'
+    badge: "Recomendado",
+    price: "$1,100 MXN",
+    recommended: true,
   },
-  // {
-  //   name: 'Celebra+',
-  //   level: 'Avanzado',
-  //   features: [
-  //     'Todo lo de Memorias',
-  //     'Confirmación por Excel'
-  //   ],
-  //   badge: 'Recomendado',
-  //   color: 'info',
-  //   price: '$950 MX'
-  // },
-  // {
-  //   name: 'Código QR',
-  //   level: 'Premium',
-  //   features: [
-  //     'Todo lo de Celebra+',
-  //     'Código QR personalizado'
-  //   ],
-  //   badge: 'Completo',
-  //   color: 'secondary',
-  //   price: '$1,300 MX'
-  // }
 ];
-
-// const featureList = [
-//   'Portada personalizada',
-//   'Información del evento',
-//   'Ubicación',
-//   'Confirmación WhatsApp',
-//   'Canción',
-//   'Nombres de padres/padrinos',
-//   'Código vestimenta',
-//   'Cuenta regresiva',
-//   'Itinerario',
-//   'Mesa de regalos',
-//   'Frase personalizada',
-//   'Galería de fotos',
-//   'Confirmación web',
-//   'Código QR'
-// ];
-
-// const packageInclusion = [
-//   ['Esencia',      [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-//   ['Memorias',     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0]],
-//   ['Celebra+',     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]],
-//   ['Código QR',    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
-// ];
 
 const Packages = () => {
   return (
-      <Grid container spacing={2}  paddingY={2}>
-        <Grid size={{xs:12, sm:12, md:12}}>
-              <Fade direction="up" >
-      <Typography variant="h4" mb={4} textAlign="center" className='cinzel-700' color='primary'>Nuestros Paquetes</Typography>
-          </Fade>
-        </Grid>
-   
+    <Box
+      sx={{
+        maxWidth: 1300,
+        mx: "auto",
+        py: { xs: 7, md: 9 },
+        px: { xs: 2, md: 4 },
+      }}
+    >
+      <Fade direction="up" triggerOnce>
+        <Box
+          sx={{
+            textAlign: "center",
+            maxWidth: 720,
+            mx: "auto",
+            mb: 7,
+          }}
+        >
+          <Typography
+            sx={{
+              fontFamily: "Montserrat, sans-serif",
+              color: "#bdaa8c",
+              fontSize: ".78rem",
+              fontWeight: 700,
+              letterSpacing: ".24em",
+              textTransform: "uppercase",
+              mb: 2,
+            }}
+          >
+            Paquetes
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: "'DM Serif Display', serif",
+              color: "#a41423",
+              fontSize: { xs: "2.3rem", md: "3.6rem" },
+              lineHeight: 1,
+              mb: 2,
+            }}
+          >
+            Elige la experiencia
+            <br />
+            ideal para tu evento.
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: "Montserrat, sans-serif",
+              color: "#7d5f55",
+              lineHeight: 1.8,
+            }}
+          >
+            Cada paquete está pensado para adaptarse al estilo, detalles y
+            necesidades de tu celebración.
+          </Typography>
+        </Box>
+      </Fade>
+
+      <Grid container spacing={4} alignItems="stretch">
         {packages.map((pkg) => (
-          <Grid size={{xs:12, sm:6, md:4}}  key={pkg.name}>
-            <Fade direction="up" >
-            <Card>
-              <CardContent>
-                <Stack direction="row" justifyContent="space-between" alignItems="center">
-                  <Typography className="dm-serif-display-regular" variant="h6">{pkg.name}</Typography>
-                  <Chip label={pkg.badge} color="secondary" size="small" />
+          <Grid key={pkg.name} size={{ xs: 12, md: 4 }}>
+            <Fade direction="up" triggerOnce>
+              <Box
+                sx={{
+                  height: "100%",
+                  position: "relative",
+                  p: { xs: 3.5, md: 4 },
+                  borderRadius: "34px",
+                  bgcolor: pkg.recommended
+                    ? "#a41423"
+                    : "rgba(255,255,255,.42)",
+                  border: pkg.recommended
+                    ? "1px solid #a41423"
+                    : "1px solid rgba(200,173,120,.35)",
+                  boxShadow: pkg.recommended
+                    ? "0 28px 70px rgba(164,20,35,.22)"
+                    : "0 20px 50px rgba(75,45,35,.08)",
+                  transition: ".3s ease",
+                  overflow: "hidden",
+                  "&:hover": {
+                    transform: "translateY(-6px)",
+                    boxShadow: pkg.recommended
+                      ? "0 34px 80px rgba(164,20,35,.28)"
+                      : "0 28px 60px rgba(75,45,35,.12)",
+                  },
+                }}
+              >
+                {pkg.recommended && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      width: 160,
+                      height: 160,
+                      borderRadius: "50%",
+                      bgcolor: "rgba(255,255,255,.08)",
+                      top: -55,
+                      right: -45,
+                    }}
+                  />
+                )}
+
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="flex-start"
+                  spacing={2}
+                  sx={{ mb: 2 }}
+                >
+                  <Box>
+                    <Typography
+                      sx={{
+                        fontFamily: "'DM Serif Display', serif",
+                        color: pkg.recommended ? "#fff" : "#a41423",
+                        fontSize: "2.1rem",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {pkg.name}
+                    </Typography>
+
+                    <Typography
+                      sx={{
+                        mt: 0.8,
+                        fontFamily: "Montserrat, sans-serif",
+                        color: pkg.recommended
+                          ? "rgba(255,255,255,.76)"
+                          : "#7d5f55",
+                        fontSize: ".86rem",
+                      }}
+                    >
+                      {pkg.level}
+                    </Typography>
+                  </Box>
+
+                  <Chip
+                    label={pkg.badge}
+                    size="small"
+                    sx={{
+                      bgcolor: pkg.recommended
+                        ? "rgba(255,255,255,.14)"
+                        : "#f2eadd",
+                      color: pkg.recommended ? "#fff" : "#a41423",
+                      border: "1px solid rgba(200,173,120,.35)",
+                      fontFamily: "Montserrat, sans-serif",
+                      fontWeight: 600,
+                    }}
+                  />
                 </Stack>
-                <Typography variant="body2" color="text.secondary" mb={2}>{pkg.level}</Typography>
-                <Divider sx={{ mb: 2 }} />
-                <ul>
-                  {pkg.features.map((feature, i) => (
-                    <li key={i}>
-                      <Typography variant="body2"> {feature}</Typography>
-                    </li>
+
+                <Typography
+                  sx={{
+                    fontFamily: "'DM Serif Display', serif",
+                    color: pkg.recommended ? "#fff" : "#a41423",
+                    fontSize: "2.3rem",
+                    mb: 2,
+                  }}
+                >
+                  {pkg.price}
+                </Typography>
+
+                <Divider
+                  sx={{
+                    mb: 3,
+                    borderColor: pkg.recommended
+                      ? "rgba(255,255,255,.18)"
+                      : "rgba(200,173,120,.35)",
+                  }}
+                />
+
+                <Stack spacing={1.6} sx={{ mb: 4 }}>
+                  {pkg.features.map((feature) => (
+                    <Box
+                      key={feature}
+                      sx={{
+                        display: "flex",
+                        gap: 1.2,
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 20,
+                          height: 20,
+                          minWidth: 20,
+                          borderRadius: "50%",
+                          mt: 0.2,
+                          bgcolor: pkg.recommended
+                            ? "rgba(255,255,255,.16)"
+                            : "#f2eadd",
+                          color: pkg.recommended ? "#fff" : "#a41423",
+                          fontSize: ".75rem",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontWeight: 700,
+                        }}
+                      >
+                        ✓
+                      </Box>
+
+                      <Typography
+                        sx={{
+                          fontFamily: "Montserrat, sans-serif",
+                          color: pkg.recommended
+                            ? "rgba(255,255,255,.86)"
+                            : "#7d5f55",
+                          fontSize: ".92rem",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        {feature}
+                      </Typography>
+                    </Box>
                   ))}
-                </ul>
-                  <Divider sx={{ mb: 2 }} />
-                  <Typography variant="h6" color="text.primary" mb={2}>{pkg.price}</Typography>
-                <Button fullWidth variant="contained" color="primary" sx={{ mt: 2 }}>
-                  Ver Modelo
+                </Stack>
+
+                <Button
+                  fullWidth
+                  href="/demos"
+                  sx={{
+                    mt: "auto",
+                    borderRadius: "999px",
+                    py: 1.3,
+                    bgcolor: pkg.recommended ? "#fff" : "#a41423",
+                    color: pkg.recommended ? "#a41423" : "#fff",
+                    fontFamily: "Montserrat, sans-serif",
+                    fontWeight: 600,
+                    textTransform: "none",
+                    boxShadow: pkg.recommended
+                      ? "0 12px 26px rgba(0,0,0,.12)"
+                      : "0 12px 26px rgba(164,20,35,.18)",
+                    "&:hover": {
+                      bgcolor: pkg.recommended ? "#f8f4ec" : "#7f0f1b",
+                      transform: "translateY(-2px)",
+                    },
+                  }}
+                >
+                  Ver modelos
                 </Button>
-              </CardContent>
-            </Card>
+              </Box>
             </Fade>
           </Grid>
         ))}
-{/*       
- <Grid size={{xs:12, sm:12, md:12}}>
-      <Typography variant="h5" mt={8} mb={2} textAlign="center" className='cinzel-700' color='primary'>Comparativa de características</Typography>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Características</TableCell>
-              {packageInclusion.map(([name]) => (
-                <TableCell key={name as string} align="center"><strong>{name}</strong></TableCell>
-              ))}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {featureList.map((feature, i) => (
-              <TableRow key={feature}>
-                <TableCell>{feature}</TableCell>
-                {packageInclusion.map(([, inclusions], j) => (
-                  <TableCell key={j} align="center">
-                    {inclusions[i] ? <CheckIcon color="success" /> : ''}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      </Grid> */}
       </Grid>
+    </Box>
   );
 };
 

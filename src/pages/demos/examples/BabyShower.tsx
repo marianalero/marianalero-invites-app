@@ -73,20 +73,13 @@ const BabyShower = () => {
 
            </Grid>
         </Grid>
-              <Grid container spacing={2} justifyContent="center">
+              <Grid container spacing={2} justifyContent="center" mt={2} mb={4}>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} paddingY={2} >
                     <EventCardSimple bodyTypo={BODY_TYPO} textColor={COLOR_SECONDARY} eventName="Lugar:" mainTypo="dm-serif-display-regular" locationName="Jardín Lucrecia" address="Av. Lucrecia Ruiz de Ayón 49-B, San Luis Rey, Hermosillo, Son." color={"#dfad87"} href={"https://maps.app.goo.gl/2peNHQFJ1jNvhSwB7"} colorButton={COLOR_PRIMARY} ></EventCardSimple>
                 </Grid>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                     <Grid container spacing={2} justifyContent="center">
-                        <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
-                        <Typography
-                            className={MAIN_TYPO}
-                            sx={{ fontSize: '80px', fontWeight: 'bold', color:COLOR_SECONDARY }}
-                        >
-                            ¡Te esperamos!
-                        </Typography>
-                        </Grid>
+                        
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
                         <Typography
                             className={MAIN_TYPO}
@@ -116,6 +109,14 @@ const BabyShower = () => {
                             $500
                             </Typography>
                         </Box>
+                        </Grid>
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} textAlign="center" paddingTop={2}>
+                        <Typography
+                            className={MAIN_TYPO}
+                            sx={{ fontSize: '80px', fontWeight: 'bold', color:COLOR_SECONDARY }}
+                        >
+                            ¡Te esperamos!
+                        </Typography>
                         </Grid>
                     </Grid>
                 </Grid>
