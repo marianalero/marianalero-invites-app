@@ -72,7 +72,7 @@ const DemosPage = () => {
       titulo: "Esencia",
       nombres: "Baby Shower Alec",
       imagen: "images/otras/41.png",
-      link: "/demos/baby-shower",
+      link: "/baby-shower-alec",
     },
     {
       id: 12,

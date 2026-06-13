@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   Box,
-  Tabs,
-  Tab,
   Typography,
   CardMedia,
+  Button,
+  Stack,
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import HeaderHome from "../../layouts/headerHome";
@@ -356,6 +356,11 @@ const CreacionesPage: React.FC = () => {
     if (activeTab === 2) return i.category !== "Bodas" && i.category !== "XV Años";
     return true;
   });
+  const categoryButtons = [
+  { label: "Bodas", value: 0 },
+  { label: "XV Años", value: 1 },
+  { label: "Otros", value: 2 },
+];
 
   return (
     <><HeaderHome></HeaderHome><Box
@@ -399,7 +404,77 @@ const CreacionesPage: React.FC = () => {
         </Typography>
       </Box>
 
-      {/* TABS */}
+          <Stack
+  spacing={1.5}
+  alignItems="center"
+  sx={{
+    mb: { xs: 4, md: 6 },
+  }}
+>
+  <Stack direction="row" spacing={1.5} justifyContent="center">
+    {categoryButtons.slice(0, 2).map((item) => {
+      const active = activeTab === item.value;
+
+      return (
+        <Button
+          key={item.label}
+          onClick={() => handleTabChange({} as React.SyntheticEvent, item.value)}
+          sx={{
+            minWidth: 110,
+            borderRadius: "999px",
+            px: 3,
+            py: 1,
+            bgcolor: active ? "#a41423" : "rgba(255,255,255,.35)",
+            color: active ? "#fff" : "#a41423",
+            border: active
+              ? "1px solid #a41423"
+              : "1px solid rgba(200,173,120,.45)",
+            fontFamily: "Montserrat, sans-serif",
+            fontWeight: 600,
+            textTransform: "none",
+            boxShadow: active
+              ? "0 10px 24px rgba(164,20,35,.18)"
+              : "none",
+            "&:hover": {
+              bgcolor: active ? "#7f0f1b" : "rgba(164,20,35,.06)",
+              transform: "translateY(-2px)",
+            },
+          }}
+        >
+          {item.label}
+        </Button>
+      );
+    })}
+  </Stack>
+
+  <Button
+    onClick={() => handleTabChange({} as React.SyntheticEvent, 2)}
+    sx={{
+      minWidth: 110,
+      borderRadius: "999px",
+      px: 3,
+      py: 1,
+      bgcolor: activeTab === 2 ? "#a41423" : "rgba(255,255,255,.35)",
+      color: activeTab === 2 ? "#fff" : "#a41423",
+      border:
+        activeTab === 2
+          ? "1px solid #a41423"
+          : "1px solid rgba(200,173,120,.45)",
+      fontFamily: "Montserrat, sans-serif",
+      fontWeight: 600,
+      textTransform: "none",
+      boxShadow:
+        activeTab === 2 ? "0 10px 24px rgba(164,20,35,.18)" : "none",
+      "&:hover": {
+        bgcolor: activeTab === 2 ? "#7f0f1b" : "rgba(164,20,35,.06)",
+        transform: "translateY(-2px)",
+      },
+    }}
+  >
+    Otros
+  </Button>
+</Stack>
+      {/* TABS 
       <Tabs
         value={activeTab}
         onChange={handleTabChange}
@@ -437,7 +512,7 @@ const CreacionesPage: React.FC = () => {
         <Tab label="XV Años" />
         <Tab label="Momentos especiales" />
       </Tabs>
-
+*/}
       {/* GALLERY */}
       <Grid
         container
