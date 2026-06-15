@@ -462,7 +462,7 @@ const TEXT_SECONDARY = "#7A6F63"; // Café suave (secundario)
                     </div>
             <RSVPForm 
            
-            dateLine={new Date(2026,5,2)}
+            dateLine={new Date(2026,5,20)}
                 textColor={"white"}
                 colorButton={BUTTON_PRIMARY}
                 bgColor={BG_ACCENT} 
