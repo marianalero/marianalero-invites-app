@@ -19,8 +19,9 @@ const packages = [
       "Link de ubicación",
       "Confirmación por WhatsApp",
     ],
-    badge: "Ideal para comenzar",
+    badge: "Para comenzar",
     price: "$500 MXN",
+    cta: "Ver modelos",
   },
   {
     name: "Memorias",
@@ -34,8 +35,9 @@ const packages = [
       "Frase personalizada",
       "Galería de fotos hasta 5",
     ],
-    badge: "Más vendido",
+    badge: "Mejor equilibrio",
     price: "$850 MXN",
+    cta: "Ver ejemplos",
   },
   {
     name: "Celebra+",
@@ -45,11 +47,12 @@ const packages = [
       "Galería de fotos hasta 10",
       "Itinerario del evento",
       "Música",
-      "Panel de confirmaciones",
+      "Panel de confirmaciones (la función favorita de nuestros clientes)",
     ],
-    badge: "Recomendado",
+    badge: "Más elegido",
     price: "$1,100 MXN",
     recommended: true,
+    cta: "Quiero este paquete",
   },
 ];
 
@@ -292,7 +295,7 @@ const Packages = () => {
                     },
                   }}
                 >
-                  Ver modelos
+                  {pkg.cta}
                 </Button>
               </Box>
             </Fade>

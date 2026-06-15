@@ -6,6 +6,7 @@ import {
   CardMedia,
   Button,
   Stack,
+  Chip,
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import HeaderHome from "../../layouts/headerHome";
@@ -15,6 +16,7 @@ interface InvitationItem {
   imageUrl: string;
   link: string;
   hide: boolean;
+  package?: "Esencia" | "Memorias" | "Celebra +";
 }
 
 const invitations: InvitationItem[] = [
@@ -23,84 +25,96 @@ const invitations: InvitationItem[] = [
       category: "Bodas",
       imageUrl: "/images/bodas/6.png",
       link: "https://marianalero-invites.com/boda-fernanda-mario",
-      hide: false
+      hide: false,
+      package: "Celebra +"
   },
   {
       title: "Rocio & Mariana",
       category: "Bodas",
       imageUrl: "/images/bodas/7.png",
       link: "https://marianalero-invites.com/boda-rocio-mariana",
-      hide: false
+      hide: false,
+      package: "Celebra +"
   },
   {
       title: "Steven & Arely",
       category: "Bodas",
       imageUrl: "/images/bodas/8.png",
       link: "https://marianalero-invites.com/boda-steven-arely",
-      hide: false
+      hide: false,
+      package: "Celebra +"
   },
   {
       title: "Angelica & Jose",
       category: "Bodas",
       imageUrl: "/images/bodas/9.png",
       link: "https://marianalero-invites.com/boda-angelica-jose",
-      hide: false
+      hide: false,
+      package: "Celebra +"
   },
   {
       title: "Adilene & Osvaldo",
       category: "Bodas",
       imageUrl: "/images/bodas/10.png",
       link: "https://marianalero-invites.com/boda-adilene-osvaldo",
-      hide: false
+      hide: false,
+      package: "Celebra +"
   },
   {
       title: "Karol & Mario",
       category: "Bodas",
       imageUrl: "/images/bodas/11.png",
       link: "https://marianalero-invites.com/boda-karol-mario",
-      hide: true
+      hide: true,
+      package: "Celebra +"
   },
   {
     title:"Civil Karol & Mario",
     category:"Bodas",
     imageUrl:"/images/bodas/12.png",
     link:"https://marianalero-invites.com/boda-civil-karol-mario",
-    hide:true
+    hide:true,
+    package: "Memorias"
   },
   {
     title:"Cendy & Adrian",
     category:"Bodas",
     imageUrl:"/images/bodas/13.png",
     link:"https://marianalero-invites.com/boda-cendy-adrian",
-    hide:false
+    hide:false,
+    package: "Celebra +"
   },
   {
     title:"Stephania & Ismael",
     category:"Bodas",
-    imageUrl:"",
+    imageUrl:"/images/bodas/22.png",
     link:"https://marianalero-invites.com/boda-stephania-ismael",
-    hide:false
+    hide:false,
+    package: "Celebra +"
   },
   {
     title:"Sophia & Luis Enrique",
     category:"Bodas",
     imageUrl:"/images/bodas/14.png",
     link:"https://marianalero-invites.com/boda-sophia-luis-enrique",
-    hide:false
+    hide:false,
+    package: "Celebra +"
   },
   {
     title:"Maria Lourdes & Francisco Michel",
     category:"Bodas",
     imageUrl:"/images/bodas/15.png",
     link:"https://marianalero-invites.com/boda-maria-lourdes-francisco-michel",
-    hide:false
+    hide:false,
+    package: "Celebra +"
   },
   {
       title:"Glenda & Jose",
       category:"Bodas",
       imageUrl:"/images/bodas/16.png",
       link:"https://marianalero-invites.com/boda-glenda-jose",
-      hide:false
+      hide:false,
+      package: "Celebra +"
   }
   ,
   {
@@ -108,56 +122,65 @@ const invitations: InvitationItem[] = [
       category: "XV Años",
       imageUrl: "/images/xv/22.png",
       link: "https://marianalero-invites.com/xv-valentina",
-      hide: false
+      hide: false,
+      package: "Celebra +"
   },
   {
       title: "Quinceañera Karla Ximena",
       category: "XV Años",
       imageUrl: "/images/xv/23.png",
       link: "https://marianalero-invites.com/xv-karla-ximena",
-      hide: false
+      hide: false,
+      package: "Celebra +"
   },
   {
       title: "Quinceañera Melanie Samadhi",
       category: "XV Años",
       imageUrl: "/images/xv/24.png",
       link: "https://marianalero-invites.com/xv-melani-samadhi",
-      hide: false
+      hide: false,
+      package: "Celebra +",
+      
   },
   {
       title: "Quinceañera Dainaly",
       category: "XV Años",
       imageUrl: "/images/xv/25.png",
       link: "https://marianalero-invites.com/xv-dainaly",
-      hide: false
+      hide: false,
+      package: "Celebra +"
   },
    {
        title: "Quinceañera Alexia",
        category: "XV Años",
        imageUrl: "/images/xv/26.png",
        link: "https://marianalero-invites.com/xv-alexia",
-       hide: false
+       hide: false,
+        package: "Celebra +"
    },
    {
       title:"Quinceañera Dalia",
       category:"XV Años",
       imageUrl:"/images/xv/27.png",
       link:"https://marianalero-invites.com/xv-daniela",
-      hide:false
+      hide:false,
+      package: "Celebra +"
    }
     ,{
       title:"Quinceañera Emely",
       category:"XV Años",
       imageUrl:"/images/xv/28.png",
       link:"https://marianalero-invites.com/xv-emely",
-      hide:false
+      hide:false,
+      package: "Celebra +"
     },
     {
       title:"Quinceañera Victoria",
       category:"XV Años",
       imageUrl:"/images/xv/29.png",
       link:"https://marianalero-invites.com/xv-victoria",
-      hide:false
+      hide:false,
+      package: "Celebra +"
     },
     // {
     //   title:"Quinceañera Renata Isabela"
@@ -171,49 +194,56 @@ const invitations: InvitationItem[] = [
       category:"XV Años",
       imageUrl:"/images/xv/30.png",
       link:"https://marianalero-invites.com/xv-laura-camila",
-      hide:false
+      hide:false,
+      package: "Celebra +"
    },
   {
       title: "Bautizo Alondra",
       category: "Bautizo",
       imageUrl: "/images/otras/36.png",
       link: "https://marianalero-invites.com/bau-alondra",
-      hide: false
+      hide: false,
+      package: "Memorias"
   },
    {
        title: "Bautizo Matías",
        category: "Bautizo",
        imageUrl: "/images/otras/37.png",
        link: "https://marianalero-invites.com/bau-matias",
-       hide: false
+       hide: false,
+       package: "Celebra +"
    },
    {
        title: "Revelación de Género",
        category: "Otras",
-       imageUrl: "/images/otras/38.png",
+       imageUrl: "/images/otras/46.png",
        link: "https://marianalero-invites.com/gender-reveal",
-       hide: false
+       hide: false,
+        package: "Esencia"
    },
   {
       title: "60 Silvia",
       category: "Cumpleaños",
       imageUrl: "/images/otras/38.png",
       link: "https://marianalero-invites.com/60-silvia",
-      hide: false
+      hide: false,
+      package: "Esencia"
   },
   {
       title: "Bridal Shower Sophia",
       category: "Otras",
       imageUrl: "/images/otras/39.png",
       link: "https://marianalero-invites.com/bridalshower-sophia",
-      hide: false
+      hide: false,
+      package: "Esencia"
   },
   {
       title: "Save the Date Dalia",
       category: "Otras",
       imageUrl: "/images/otras/40.png",
       link: "https://marianalero-invites.com/save-date-xv-dalia",
-      hide: false
+      hide: false,
+      package: "Esencia"
   },
   // {
   //     title: "Showroom",
@@ -227,98 +257,112 @@ const invitations: InvitationItem[] = [
      category: "Baby Shower",
      imageUrl: "/images/otras/41.png",
      link: "https://marianalero-invites.com/baby-shower-alec",
-     hide: false
+     hide: false,
+     package: "Esencia"
   },
   {
     title:"Posada TDR",
     category: "Otras",
     imageUrl: "/images/otras/42.png",
     link: "https://marianalero-invites.com/posada-tdr",
-    hide: false
+    hide: false,
+    package: "Esencia"
   },
   {
     title:"Cumpleaños Juan Pablo",
     category: "Cumpleaños",
     imageUrl: "/images/otras/45.png",
     link: "https://marianalero-invites.com/juan-pablo-12",
-    hide: false
+    hide: false,
+    package: "Esencia"
   },
   {
     title: "Boda Carlos Jaudiel & Carlos",
     category: "Bodas",
     imageUrl: "/images/bodas/17.png",
     link: "https://marianalero-invites.com/boda-carlos-jaudiel-carlos",
-    hide: false
+    hide: true,
+    package: "Celebra +"
   },
   {
     title: "Boda Dania & Sergio",
     category: "Bodas",
     imageUrl: "/images/bodas/18.png",
     link: "https://marianalero-invites.com/boda-dania-sergio",
-    hide: true
+    hide: true,
+    package: "Celebra +"
   },
   {
     title:"Boda Flor Maria & Cruz Roberto",
     category:"Bodas",
     imageUrl:"/images/bodas/19.png",
     link:"https://marianalero-invites.com/boda-flor-maria-cruz-roberto",
-    hide: true
+    hide: true,
+    package: "Celebra +"
   },
   {
     title: "Boda Fedra & Juan",
     category: "Bodas",
     imageUrl: "/images/bodas/20.png",
     link: "https://marianalero-invites.com/boda-fedra-edlyn-juan-pablo", 
-    hide: true
+    hide: true,
+    package: "Celebra +"
   },
   {
     title: "Boda Maria Isabel & Christian",
     category: "Bodas",
     imageUrl: "/images/bodas/21.png",
     link: "https://marianalero-invites.com/boda-maria-isabel-christian",
-    hide: true
+    hide: true,
+    package: "Celebra +"
   },
   {
     title: "XV Brianna",
     category: "XV Años",
     imageUrl: "/images/xv/31.png",
     link: "https://marianalero-invites.com/xv-brianna",
-    hide: false
+    hide: false,
+    package: "Memorias"
   },
   {
     title:"XV Camila",
     category:"XV Años",
     imageUrl:"/images/xv/32.png",
     link:"https://marianalero-invites.com/xv-camila",
-    hide:false
+    hide:false,
+    package: "Memorias"
    },
    {
     title :"XV Joely",
     category:"XV Años",
     imageUrl:"/images/xv/33.png",
     link:"https://marianalero-invites.com/xv-joely-patricia",
-    hide:false
+    hide:false,
+    package: "Celebra +"
    },
    {
     title:"XV Kimberly",
     category:"XV Años",
     imageUrl:"/images/xv/34.png",
     link:"https://marianalero-invites.com/xv-kimberly",
-    hide:false
+    hide:false,
+    package: "Celebra +"
     },
     {
       title:"XV Regina",
       category:"XV Años",
       imageUrl:"/images/xv/35.png",
       link:"https://marianalero-invites.com/xv-regina",
-      hide:false
+      hide:false,
+      package: "Celebra +"
     },
    {
     title:"Baby Shower Jose Alejandro" ,
     category:"Baby Shower",
     imageUrl:"/images/otras/43.png",
     link:"https://marianalero-invites.com/baby-shower-jose-alejandro",
-    hide:false
+    hide:false,
+    package: "Esencia"
    }
 
 
@@ -596,18 +640,31 @@ const CreacionesPage: React.FC = () => {
               </Box>
 
               <Box sx={{ mt: 2.2, px: 0.5 }}>
-                <Typography
-                  className="creation-title"
-                  sx={{
-                    fontFamily: "'DM Serif Display', serif",
-                    color: "#a41423",
-                    fontSize: "1.35rem",
-                    lineHeight: 1.1,
-                    transition: "color .25s ease",
-                  }}
-                >
-                  {item.title}
-                </Typography>
+                <Box sx={{display:"flex", justifyContent:"space-between", gap: 1, mb: 0.8}}>
+                    <Typography
+                    className="creation-title"
+                    sx={{
+                      fontFamily: "'DM Serif Display', serif",
+                      color: "#a41423",
+                      fontSize: "1.35rem",
+                      lineHeight: 1.1,
+                      transition: "color .25s ease",
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Chip                    label={item.package}
+                    size="small"
+                    sx={{ 
+                      fontFamily: "Montserrat, sans-serif",
+                      fontWeight: 600,
+                      bgcolor: "rgba(164,20,35,.12)",
+                      color: "#a41423",
+                      border: "1px solid rgba(164,20,35,.18)",
+                    }}
+                  />
+                </Box>
+                
 
                 <Typography
                   sx={{
