@@ -58,14 +58,14 @@ const invitations: InvitationItem[] = [
       category: "Bodas",
       imageUrl: "/images/bodas/11.png",
       link: "https://marianalero-invites.com/boda-karol-mario",
-      hide: false
+      hide: true
   },
   {
     title:"Civil Karol & Mario",
     category:"Bodas",
     imageUrl:"/images/bodas/12.png",
     link:"https://marianalero-invites.com/boda-civil-karol-mario",
-    hide:false
+    hide:true
   },
   {
     title:"Cendy & Adrian",
@@ -77,28 +77,28 @@ const invitations: InvitationItem[] = [
   {
     title:"Stephania & Ismael",
     category:"Bodas",
-    imageUrl:"/images/bodas/14.png",
+    imageUrl:"",
     link:"https://marianalero-invites.com/boda-stephania-ismael",
     hide:false
   },
   {
     title:"Sophia & Luis Enrique",
     category:"Bodas",
-    imageUrl:"/images/bodas/15.png",
+    imageUrl:"/images/bodas/14.png",
     link:"https://marianalero-invites.com/boda-sophia-luis-enrique",
     hide:false
   },
   {
     title:"Maria Lourdes & Francisco Michel",
     category:"Bodas",
-    imageUrl:"/images/bodas/16.png",
+    imageUrl:"/images/bodas/15.png",
     link:"https://marianalero-invites.com/boda-maria-lourdes-francisco-michel",
     hide:false
   },
   {
       title:"Glenda & Jose",
       category:"Bodas",
-      imageUrl:"/images/bodas/17.png",
+      imageUrl:"/images/bodas/16.png",
       link:"https://marianalero-invites.com/boda-glenda-jose",
       hide:false
   }
@@ -255,35 +255,28 @@ const invitations: InvitationItem[] = [
     category: "Bodas",
     imageUrl: "/images/bodas/18.png",
     link: "https://marianalero-invites.com/boda-dania-sergio",
-    hide: false
+    hide: true
   },
   {
     title:"Boda Flor Maria & Cruz Roberto",
     category:"Bodas",
     imageUrl:"/images/bodas/19.png",
     link:"https://marianalero-invites.com/boda-flor-maria-cruz-roberto",
-    hide: false
+    hide: true
   },
   {
     title: "Boda Fedra & Juan",
     category: "Bodas",
     imageUrl: "/images/bodas/20.png",
     link: "https://marianalero-invites.com/boda-fedra-edlyn-juan-pablo", 
-    hide: false
+    hide: true
   },
   {
     title: "Boda Maria Isabel & Christian",
     category: "Bodas",
     imageUrl: "/images/bodas/21.png",
     link: "https://marianalero-invites.com/boda-maria-isabel-christian",
-    hide: false
-  },
-  {
-    title: "Boda Maria Lourdes & Francisco Michel",
-    category: "Bodas",
-    imageUrl: "/images/bodas/15.png",
-    link: "https://marianalero-invites.com/boda-maria-lourdes-francisco-michel",
-    hide: false
+    hide: true
   },
   {
     title: "XV Brianna",
