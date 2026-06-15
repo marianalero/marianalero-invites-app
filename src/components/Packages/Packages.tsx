@@ -47,7 +47,7 @@ const packages = [
       "Galería de fotos hasta 10",
       "Itinerario del evento",
       "Música",
-      "Boton de Agregar al calendario",
+      "Botón de Agregar al calendario",
       "Panel de confirmaciones (la función favorita de nuestros clientes)",
     ],
     badge: "Más elegido",
