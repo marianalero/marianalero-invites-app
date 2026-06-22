@@ -44,7 +44,7 @@ const BG_ACCENT = "#E5EEF7";    // Acuarela azul suave
 
 // 🖋 TEXTOS
 const TEXT_PRIMARY = "#7A8DA3";     // Azul grisáceo elegante
-// const TEXT_SECONDARY = "#A2B1C1";   // Azul empolvado
+const TEXT_SECONDARY = "#A2B1C1";   // Azul empolvado
 
 // 🎯 BOTONES
 const BUTTON_PRIMARY = "#B7CADA";
@@ -182,16 +182,16 @@ const introSealPosition = {
 };
 
 const introBottomRightCornerPosition = {
-    bottom: "-20px",
-    right: "-20px",
+    bottom: "-15px",
+    right: "10px",
     width: "110px",
     height: "110px",
     transform: "rotate(270deg)",
 };
 
 const introTopLeftCornerPosition = {
-    top: "-20px",
-    left: "-20px",
+    top: "-10px",
+    left: "15px",
     width: "110px",
     height: "110px",
     transform: "rotate(90deg)",
@@ -312,20 +312,20 @@ const WeddingAvielisseOskar  = () => {
                 groomName="Oskar"
                 ampersonSymbol="&"
 
-                namesTypo={SECONDARY_TYPO}
+                namesTypo={MAIN_TYPO}
                 ampersonTypo={MAIN_TYPO}
                 guestTypo={BODY_TYPO}
                 bodyTypo={BODY_TYPO}
 
-                backgroundColor={BG_SECTION}
-                primaryColor={BUTTON_PRIMARY}
+                backgroundColor={BG_MAIN}
+                primaryColor={TEXT_PRIMARY}
 
-                envelopeImg={`${URL_IMAGES}black-envelope.png`}
-                sealImg={`${URL_IMAGES}seal.png`}
+                envelopeImg={`${URL_IMAGES}sobre.png`}
+                sealImg={`${URL_IMAGES}sello.png`}
 
                 sealPosition={introSealPosition}
-                bottomRightCornerImg={`${URL_IMAGES}white-flowers/4.png`}
-                topLeftCornerImg={`${URL_IMAGES}white-flowers/4.png`}
+                bottomRightCornerImg={`${URL_IMAGES}flores/5.png`}
+                topLeftCornerImg={`${URL_IMAGES}flores/5.png`}
                 bottomRightCornerPosition={introBottomRightCornerPosition}
                 topLeftCornerPosition={introTopLeftCornerPosition}
 
@@ -412,7 +412,21 @@ const WeddingAvielisseOskar  = () => {
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
                             <Fade direction="up" >
-                                <Typography sx={{color:BUTTON_PRIMARY, fontSize: "1.5rem"}}  variant="h4" textAlign={"center"}className={SECONDARY_TYPO} >&</Typography>
+                                <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                                <Box 
+                                    component="img" 
+                                    src={`${URL_IMAGES}flores/6.png`} 
+                                    alt="Description" 
+                                    sx={{ 
+                                        height: { xs: 120, md: 150 }, 
+                            
+                                        opacity:.8,
+                                        transform: "rotate(270deg)",
+                                }}
+                                    />
+                                    
+                            
+                                </Grid>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}} >
@@ -736,6 +750,7 @@ const WeddingAvielisseOskar  = () => {
                 </Grid>
                
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                         <Fade direction="up" >
                     <Box 
                         component="img" 
                         src={`${URL_IMAGES}flores/6.png`} 
@@ -747,7 +762,7 @@ const WeddingAvielisseOskar  = () => {
                             transform: "rotate(270deg)",
                     }}
                         />
-                        
+                        </Fade>
                  
                     </Grid>
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
