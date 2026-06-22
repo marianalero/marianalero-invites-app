@@ -44,7 +44,6 @@ const BG_ACCENT = "#E5EEF7";    // Acuarela azul suave
 
 // 🖋 TEXTOS
 const TEXT_PRIMARY = "#7A8DA3";     // Azul grisáceo elegante
-const TEXT_SECONDARY = "#A2B1C1";   // Azul empolvado
 
 // 🎯 BOTONES
 const BUTTON_PRIMARY = "#B7CADA";
