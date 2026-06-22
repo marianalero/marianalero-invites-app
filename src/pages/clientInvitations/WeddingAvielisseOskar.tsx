@@ -66,7 +66,7 @@ const RSVP_DATE_LINE = new Date(2026, 7, 20);
 const eventCards: EventCardProps[] = [
     {
         eventName: "Recepción",
-        date: new Date(2026, 9, 9, 18, 0, 0),
+        date: new Date(2026, 9, 9, 17, 0, 0),
         locationName: "Salón Manglares",
         address: "Manglares, 85506 San Carlos, Son.",
         size: 12,
@@ -124,7 +124,7 @@ const dresscode: DressCodeProps = {
     mainTypo: MAIN_TYPO,
     bodyTypo: BODY_TYPO,
     color: TEXT_PRIMARY,
-    type: 2,
+    type: 1,
     title: "Formal",
     fontSize: "3rem",
 };
