@@ -60,7 +60,7 @@ const MAIN_TYPO = "boheme-floral";
 const SECONDARY_TYPO = "dm-serif-display-regular-italic";
 const BODY_TYPO = "montserrat-400";
 const URL_IMAGES = `${URL_REPO}boda/boda-avielisse-oskar/`;
-const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
+const URL_SONG = `${URL_REPO}canciones/PabloAlborán-Solamentetú.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 9, 9);
 const RSVP_DATE_LINE = new Date(2026, 7, 20);
 
