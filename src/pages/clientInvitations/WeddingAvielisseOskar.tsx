@@ -8,7 +8,6 @@ import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/With
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
 import FooterInvites from "../../components/Footer/FooterInvites";
-import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
@@ -17,7 +16,6 @@ import { Box, Typography,  } from "@mui/material";
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCard from "../../components/EventCard/EventCard";
-import MiniGallery from "../../components/MiniGallery/MiniGallery";
 import { Fade } from "react-awesome-reveal";
 import  { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import CoverInline from "../../components/Cover/CoverImage/CoverInline";
@@ -46,7 +44,7 @@ const BG_ACCENT = "#E5EEF7";    // Acuarela azul suave
 
 // 🖋 TEXTOS
 const TEXT_PRIMARY = "#7A8DA3";     // Azul grisáceo elegante
-const TEXT_SECONDARY = "#A2B1C1";   // Azul empolvado
+// const TEXT_SECONDARY = "#A2B1C1";   // Azul empolvado
 
 // 🎯 BOTONES
 const BUTTON_PRIMARY = "#B7CADA";
