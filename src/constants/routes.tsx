@@ -67,6 +67,7 @@ import WeddingDaniaSergio from "../pages/clientInvitations/WeddingDaniaSergio";
 import XVCamila2 from "../pages/clientInvitations/XVCamila2";
 import XVDemoAlejandra from "../pages/clientInvitations/XVDemoAlejandra";
 import XVRenataDemo from "../pages/clientInvitations/XVRenataDemo";
+import WeddingAvielisseOskar from "../pages/clientInvitations/WeddingAvielisseOskar";
 
 
 interface RouteConfig {
@@ -149,9 +150,8 @@ const routes: RouteConfig[] = [
    {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
   //Borradores
   {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-  {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>},  
-  {path:'/prev-ds-4', element: <WeddingDaniaSergio></WeddingDaniaSergio>},
-  {path:'/prev-xv-c-2', element: <XVCamila2></XVCamila2>},
+      {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>}, 
+      {path:'/prev-ao',element: <WeddingAvielisseOskar></WeddingAvielisseOskar>}
 ];
 
 

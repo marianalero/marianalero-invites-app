@@ -69,7 +69,7 @@ const CoverInline = (props: CoverProps) => {
             {props.overlay && <div className="cover-overlay" />}
             <Fade direction="up" triggerOnce={true}>
                 {props.ourWeddingStart && (
-                    <h1 className="holder" style={{ marginTop: props.margin ? props.margin : "16px", }}>
+                    <h1 className={props.bodyTypoClassName ? `${props.bodyTypoClassName} holder` : "holder"} style={{ marginTop: props.margin ? props.margin : "16px", }}>
                         <span style={{fontSize:"1rem"}} >{props.subtitle ? props.subtitle : t("ourWedding")}</span>
                     </h1>
                 )}
@@ -90,7 +90,7 @@ const CoverInline = (props: CoverProps) => {
                 </Typography>
 
                 {!props.ourWeddingStart && (
-                    <h1 className={props.dateClass ? `${props.dateClass} holder` : "holder"}>
+                    <h1 className={props.bodyTypoClassName ? `${props.bodyTypoClassName} holder` : "holder"}>
                         <span style={{fontSize:"1rem"}}>{props.subtitle ? props.subtitle : "Nuestra Boda"}</span>
                     </h1>
                 )}
@@ -101,7 +101,7 @@ const CoverInline = (props: CoverProps) => {
                     textAlign="center"
                     color='white'
                     typography="h6"
-                    className={props.dateClass ? props.dateClass : "pt-serif-caption-regular cover-date"}
+                    className={props.bodyTypoClassName ? props.bodyTypoClassName : "pt-serif-caption-regular cover-date"}
                     sx={{ fontWeight: 400 }}
                 >
                     {props.weddingDate}
