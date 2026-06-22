@@ -549,8 +549,8 @@ const WeddingAvielisseOskar  = () => {
                 <Box display={"flex"} justifyContent={"center"}>
                     <CalendarButton
                         title="Boda de Avielisse y Oskar"
-                        startDate="20261009T170000Z"
-                        endDate="20261009T020000Z"
+                        startDate="20261009T170000"
+                        endDate="20261010T020000"
                         location="Salón Manglares, San Carlos, Son."
                         
                         // fileName="boda-valentina-sebastian"

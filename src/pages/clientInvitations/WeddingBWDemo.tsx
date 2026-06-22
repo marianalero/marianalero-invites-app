@@ -461,8 +461,8 @@ const WeddingBWDemo  = () => {
                 <Box display={"flex"} justifyContent={"center"}>
                     <CalendarButton
                         title="Boda de Valentina & Sebastian"
-                        startDate="20261205T180000Z"
-                        endDate="20261206T020000Z"
+                        startDate="20261205T180000"
+                        endDate="20261206T020000"
                         location="El Jito Eventos"
                         
                         // fileName="boda-valentina-sebastian"
