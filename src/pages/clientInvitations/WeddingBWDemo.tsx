@@ -37,7 +37,7 @@ import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 
-const INVITATION_ID = 1;
+const INVITATION_ID = 9;
 const COLOR_PRIMARY = "#1A1A1A";
 const MAIN_TYPO = "playfair-display-400 to-upper";
 const SECONDARY_TYPO = "the-seasons";

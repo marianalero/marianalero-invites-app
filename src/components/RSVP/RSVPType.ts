@@ -23,4 +23,5 @@ export interface RSVPType {
     numberInWords?:boolean;
     transparencyButton?:boolean;
     guest?:Guest;
+    hideTitle?:boolean;
 }

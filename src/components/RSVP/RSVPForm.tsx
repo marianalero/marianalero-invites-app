@@ -207,12 +207,16 @@ const RSVPForm  = (props:RSVPType) => {
     const RenderForm = () =>{
         return(
         <Grid container spacing={1} padding={2} sx={{bgcolor: props.bgImage ? "transparent" : props.bgColor}} >
+            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+                {!props.hideTitle && (
+                    <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color, fontSize: props.fontSize ? props.fontSize : "3rem"}} >{t("RSVP.title")}</Typography>
+                )}
+            </Grid>
             <Grid size={{xs:12,sm:12,md:12,lg:12}}>
                 <Fade direction="up" triggerOnce={true}>
-                {!props.guestId ? (
-                <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color, fontSize: props.fontSize ? props.fontSize : "3rem"}} >{t("RSVP.title")}</Typography>
-                ):(
-                    <Typography textAlign={"center"} variant='h3' className={props.mainTypo} sx={{color:props.color, fontSize: props.fontSize ? props.fontSize : "3rem"}} >Hola, {guest.fullName}</Typography>
+                {props.guestId && (
+               
+                    <Typography textAlign={"center"}  className={props.bodyTypo} sx={{color:props.color, fontStyle:"italic!important"}} >Hola, {guest.fullName}</Typography>
 
                 )
                 }
