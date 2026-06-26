@@ -156,7 +156,7 @@ const routes: RouteConfig[] = [
       {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>}, 
       {path:'/prev-ao',element: <WeddingAvielisseOskar></WeddingAvielisseOskar>},
 
-      {path:'/prev-ba', element: <WeddingBrandonAlejandra></WeddingBrandonAlejandra>},
+      {path:'/prev-ba-2', element: <WeddingBrandonAlejandra></WeddingBrandonAlejandra>},
 ];
 
 
