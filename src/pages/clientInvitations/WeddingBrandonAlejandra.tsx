@@ -166,7 +166,7 @@ const calendarButtonProps = {
 
 const galleryImages = [
     `${URL_IMAGES}galeria1.JPEG`,
-    `${URL_IMAGES}galeria2.JPEG`,
+    `${URL_IMAGES}galeria2.JPG`,
     `${URL_IMAGES}galeria3.JPEG`,
 ];
 
