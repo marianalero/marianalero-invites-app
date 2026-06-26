@@ -25,7 +25,7 @@ import { Guest } from "../../models/guest";
 import Gallery from "../../components/Gallery/Gallert";
 import CoverInline from "../../components/Cover/CoverImage/CoverInline";
 
-const INVITATION_ID = 9;
+const INVITATION_ID = 30;
 // 🎨 FONDOS
 const BG_MAIN = "#FCFBF8";      // Cream - papel marfil
 const BG_SECTION = "#F3E2D1";   // Buttermilk - beige cálido

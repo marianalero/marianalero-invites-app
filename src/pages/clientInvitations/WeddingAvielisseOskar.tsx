@@ -36,7 +36,7 @@ import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 import Gallery from "../../components/Gallery/Gallert";
 
-const INVITATION_ID = 1;
+const INVITATION_ID = 29;
 // 🎨 BACKGROUNDS
 const BG_MAIN = "#FCFBF8";      // Papel marfil
 const BG_SECTION = "#F0F8FF";   // Alice Blue
@@ -102,16 +102,16 @@ const giftListData: GiftListProps = {
         {
             numbers: [
                 {
-                    numberType: "IBAN",
-                    number: "DE33 1001 1001 2895 3431 02",
+                    numberType: "CLABE",
+                    number: "012 760 01565800865 4",
                 },
                 {
-                    numberType: "IBAN",
-                    number: "DE26 5001 0517 5446 1198 23",
+                    numberType: "Cuenta",
+                    number: "156 580 0865",
                 },
             ],
-            bank: "IBAN",
-            name: "",
+            bank: "BBVA Bancomer",
+            name: "Avielisse Salas Ruelas",
             color: TEXT_PRIMARY,
             bodyTypo: BODY_TYPO,
             bgColor: "white",
