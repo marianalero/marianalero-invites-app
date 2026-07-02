@@ -96,7 +96,7 @@ const Mariana30 = () => {
         /> */}
         <Grid container spacing={2} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} paddingX={3}>
-                 <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
+                 <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem"}}>
 
                     Con un poco de drama… <br></br>y muchas historias que no se pueden contar completas…<br></br>anunciamos el final de una era
                </Typography>
@@ -113,7 +113,7 @@ const Mariana30 = () => {
                 />
             </Grid>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} paddingX={3}>
-                <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
+                <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem"}}>
                    IN MEMORIAM
                 </Typography>
             </Grid>    
@@ -123,15 +123,14 @@ const Mariana30 = () => {
                 </Typography>
             </Grid>  
             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} paddingX={3}>
-                 <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
+                 <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem"}}>
 
                     CON PROFUNDO DOLOR...<br></br>
                     DESPEDIMOS MIS 20'S.<br></br>
-                    MURIERON JÓVENES...<br></br>
-                     Y ENDEUDADOS.<br></br>
+                    MURIERON JÓVENES... Y ENDEUDADOS.<br></br>
                     PERO DE SUS CENIZAS...<br></br>
                     RENACE ALGO MEJOR.<br></br>
-                     y al inicio de algo nuevo.
+                     y el inicio de algo nuevo.
                </Typography>
             </Grid>  
             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} paddingX={3}>
@@ -151,7 +150,7 @@ const Mariana30 = () => {
                 </Typography>
             </Grid>  
             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} paddingX={3}>
-                    <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
+                    <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem"}}>
                         Porque algunas etapas no terminan... se despiden con estilo.
                 </Typography>  
             </Grid>
@@ -181,7 +180,7 @@ const Mariana30 = () => {
                         className={SECONDARY_TYPO}
                         sx={{
                            
-                            fontSize: { xs: "3rem", md: "4.8rem" },
+                            fontSize: { xs: "3rem", md: "41rem" },
                             fontWeight: 400,
                             color:TEXT_PRIMARY,
                             lineHeight: 1,
@@ -242,7 +241,7 @@ const Mariana30 = () => {
                         />
                     </Grid>
                     <Grid container spacing={2} sx={{width: isSmallScreen ? "90vw" : "30vw", display:"flex", alignItems: "center", justifyContent: "center"}}>
-                        <Typography textAlign={"center"} fontWeight={800}  className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem", fontWeight: "800!important"}}>
+                        <Typography textAlign={"center"} fontWeight={800}  className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem", fontWeight: "800!important"}}>
                             El negro será el color de la noche.
                         </Typography>
                         <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".7rem" : "1.3rem"}}>
@@ -322,11 +321,11 @@ const Mariana30 = () => {
                         />
                     </Grid>
                     <Grid container spacing={2} sx={{width: isSmallScreen ? "90vw" : "30vw", display:"flex", alignItems: "center", justifyContent: "center"}}>
-                        <Typography textAlign={"center"} fontWeight={800}  className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
+                        <Typography textAlign={"center"} fontWeight={800}  className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem"}}>
                             Casa Rodríguez Lerma
                         </Typography>
                         <br></br>
-                        <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
+                        <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem"}}>
                         Etchojoa #1110, Col.Misioneros
                         </Typography>
                     </Grid>
@@ -340,7 +339,7 @@ const Mariana30 = () => {
             </Typography>
             </Grid>
              <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} paddingX={3} >
-            <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
+            <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem"}}>
                           ¡Te espero para celebrar juntos el comienzo de una nueva década!
             </Typography>
             </Grid>
