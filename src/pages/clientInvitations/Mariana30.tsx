@@ -67,7 +67,7 @@ const Mariana30 = () => {
     }
 
   return (
-    <div style={{width:"100%", backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}fondo.png` : `${URL_IMAGES}fondo.png`}')`,backgroundPosition: "50% 0", minHeight: "100vh", backgroundSize:"cover", display:"flex", alignItems: "center", justifyContent: "center", position: "relative", padding: isSmallScreen ? "10vh 0 8vh" : "12vh 0" }} >
+    <div style={{width:"100%",backgroundColor: "black", backgroundImage: `url('${isSmallScreen ? `${URL_IMAGES}fondo.png` : `${URL_IMAGES}fondo.png`}')`,backgroundPosition: "50% 0", minHeight: "100vh", backgroundSize:"cover", display:"flex", alignItems: "center", justifyContent: "center", position: "relative", padding: isSmallScreen ? "10vh 0 8vh" : "12vh 0" }} >
         {/* <Box 
             component="img"
             src={`${URL_IMAGES}adornos/1.png`}
