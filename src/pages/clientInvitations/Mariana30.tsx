@@ -321,7 +321,7 @@ const Mariana30 = () => {
                         />
                     </Grid>
                     <Grid container spacing={2} sx={{width: isSmallScreen ? "90vw" : "30vw", display:"flex", alignItems: "center", justifyContent: "center"}}>
-                        <Typography textAlign={"center"} fontWeight={800}  className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem"}}>
+                        <Typography textAlign={"center"} fontWeight={800}  className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? "1rem" : "1.3rem", fontWeight: "800!important"}}>
                             Casa Rodríguez Lerma
                         </Typography>
                         <br></br>
