@@ -325,6 +325,7 @@ const Mariana30 = () => {
                         <Typography textAlign={"center"} fontWeight={800}  className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
                             Casa Rodríguez Lerma
                         </Typography>
+                        <br></br>
                         <Typography textAlign={"center"}   className={BODY_TYPO}  sx={{color:TEXT_PRIMARY, fontSize: isSmallScreen ? ".8rem" : "1.3rem"}}>
                         Etchojoa #1110, Col.Misioneros
                         </Typography>
