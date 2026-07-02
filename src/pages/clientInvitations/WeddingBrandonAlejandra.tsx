@@ -434,7 +434,7 @@ const WeddingBrandonAlejandra  = () => {
                         title="Boda de Brandon y Alejandra"
                         startDate="20261010T190000"
                         endDate="20261011T020000"
-                        location="Salón Manglares, San Carlos, Son."
+                        location="Fiestas Yadira"
                         
                         // fileName="boda-valentina-sebastian"
                         buttonProps={calendarButtonProps}

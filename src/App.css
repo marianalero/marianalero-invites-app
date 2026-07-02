@@ -266,6 +266,44 @@
   font-weight: 400!important;
   font-style: normal!important;
 }
+
+.raleway-400 {
+  font-family: "Raleway", sans-serif!important;
+  font-optical-sizing: auto!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+
+.raleway-italic-400 {
+  font-family: "Raleway", sans-serif!important;
+  font-optical-sizing: auto!important;
+  font-weight: 400!important;
+  font-style: italic!important;
+}
+
+.allura-regular {
+  font-family: "Allura", cursive!important;
+  font-weight: 400!important;
+  font-style: normal!important  ;
+}
+.cinzel-decorative-regular {
+  font-family: "Cinzel Decorative", serif!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+
+.cinzel-decorative-bold {
+  font-family: "Cinzel Decorative", serif!important;
+  font-weight: 700!important;
+  font-style: normal!important;
+}
+
+.cinzel-decorative-black {
+  font-family: "Cinzel Decorative", serif!important;
+  font-weight: 900!important;
+  font-style: normal!important;
+}
+
 .text-rose-gold{
   background-image: linear-gradient(
  to right,
