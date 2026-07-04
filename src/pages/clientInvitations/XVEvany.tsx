@@ -26,6 +26,7 @@ import { Guest } from "../../models/guest";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import Adornment from "../../components/Adornment/Adornment";
 import Cover from "../../components/Cover/CoverImage/Cover";
+import Gallery from "../../components/Gallery/Gallert";
 
 const INVITATION_ID = 9;
 // 🌸 BACKGROUNDS
@@ -39,15 +40,11 @@ const TEXT_PRIMARY = "#98AE9D";
 
 // 🎯 BOTONES
 const BUTTON_PRIMARY = "#D6B5A7";
-// const BUTTON_HOVER = "#C8A191";
 
-// // 🌿 COLORES DE APOYO
-// const ACCENT_GREEN = "#BCCDBF";
-// const ACCENT_GREEN_DARK = "#98AE9D";
-// const ACCENT_GOLD = "#CDB295";
+const ACCENT_GOLD = "#CDB295";
 
 // ✨ DETALLES
-const BORDER_COLOR = "#E8DDD5";
+
 const SHADOW_COLOR = "rgba(143,123,114,.15)";
 
 // ✨ TÍTULOS
@@ -55,11 +52,11 @@ const TITLE_COLOR = "#C4A29A";
 
 // 🐎 ESTILO
 
-const MAIN_TYPO = "alex-brush-regular";
+const MAIN_TYPO = "pinyon-script-regular";
 const SECONDARY_TYPO = "cormorant-garamond-400";
-const BODY_TYPO = "montserrat-400";
+const BODY_TYPO = "lora to-upper";
 const URL_IMAGES = `${URL_REPO}xv/xv-evany/`;
-const URL_SONG = `${URL_REPO}canciones/ramon-ayala-mi-tesoro.mp3`;
+const URL_SONG = `${URL_REPO}canciones/Alphaville-ForeverYoung.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 13);
 const RSVP_DATE_LINE = new Date(2026, 9, 20);
 
@@ -71,15 +68,16 @@ const eventCards: EventCardProps[] = [
         address: "Calle Guadalupe Victoria, San Benito, 83190 Hermosillo, Son.",
         size: 12,
         color: TEXT_PRIMARY,
-        mainTypo: SECONDARY_TYPO,
+        mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
         href: "https://maps.app.goo.gl/FTEe2ZXxo17mFptM6",
         colorButton: BUTTON_PRIMARY,
         colorIcon: BUTTON_PRIMARY,
         fontSize: "3rem",
-        bgColor: BG_MAIN,
-        
+        bgColor: "transparent",
+        borderSquare: true,
         icon: `${URL_IMAGES}iglesia.png`,
+        iconSize: "200px",
     },
     {
         eventName: "Recepción",
@@ -88,15 +86,16 @@ const eventCards: EventCardProps[] = [
         address: "Carretera 26, Km2.8, San José de las Minitas",
         size: 12,
         color: TEXT_PRIMARY,
-        mainTypo: SECONDARY_TYPO,
+        mainTypo: MAIN_TYPO,
         bodyTypo: BODY_TYPO,
         href: "https://maps.app.goo.gl/FKtKC7UmKPpxsNuZ9",
         colorButton: BUTTON_PRIMARY,
         colorIcon: BUTTON_PRIMARY,
         fontSize: "3rem",
-        bgColor: BG_MAIN,
-    
+        bgColor: "transparent",
+        borderSquare: true,
         icon: `${URL_IMAGES}recepcion.png`,
+        iconSize: "200px",
     },
     
 ];
@@ -107,18 +106,18 @@ const giftListData: GiftListProps = {
     mainTypo: MAIN_TYPO,
     bodyTypo: BODY_TYPO,
     color: TEXT_PRIMARY,
-    bgColor: BG_MAIN,
+    bgColor: "transparent",
     showEnvelope: true,
     envelopeMainTypo: MAIN_TYPO,
     envelopeFontSize: "3rem",
     envelopePhrase: "Tu presencia es el mejor regalo, pero si deseas hacerme un obsequio, el efectivo será ideal !Gracias!",
     envelopeTitleColor: TEXT_PRIMARY,
-    bankIconStart: `${URL_IMAGES}sobre.png`,
+    bankIconEnd: `${URL_IMAGES}sobre.svg`,
 };
 
 
 const introSealPosition = {
-    top: "60%",
+    top: "70%",
     left: "50%",
     width: "75px",
     height: "75px",
@@ -126,18 +125,18 @@ const introSealPosition = {
 };
 
 const introBottomRightCornerPosition = {
-    bottom: "-15px",
-    right: "10px",
-    width: "110px",
-    height: "110px",
+    bottom: "-60px",
+    right: "-40px",
+    width: "150px",
+    height: "200px",
     transform: "rotate(270deg)",
 };
 
 const introTopLeftCornerPosition = {
-    top: "-10px",
-    left: "15px",
-    width: "110px",
-    height: "110px",
+    top: "-50px",
+    left: "-80px",
+    width: "200px",
+    height: "200px",
     transform: "rotate(90deg)",
 };
 
@@ -154,11 +153,11 @@ const calendarButtonProps = {
     },
 };
 
-// const galleryImages = [
-//     `${URL_IMAGES}galeria1.JPEG`,
-//     `${URL_IMAGES}galeria2.JPG`,
-//     `${URL_IMAGES}galeria3.JPEG`,
-// ];
+const galleryImages = [
+  
+    `${URL_IMAGES}galeria2.jpg`,
+    `${URL_IMAGES}galeria3.jpg`,
+];
 
     const dresscode:DressCodeProps = {
         mainTypo:`${MAIN_TYPO}`,
@@ -168,15 +167,16 @@ const calendarButtonProps = {
         title:"Formal",
         omitColorsLabel:"Color verde reservado para la quinceañera",
         omitColorsText: "No color rojo",
+        fontSize:"2.5rem",
     }
    
-// const padrinos = [
-//         "Icela Grijalva García y Javier Valdez Ruiz",
-//         "Claudina Valenzuela y Daniel Grijalva García",
-//         "Lucrecia figueroa Lugo y Juan Luis Coronado amescua ",
-//         "Gianelly Maldonado Araujo y José Alberto Baca Rey",
-//         "Karely Berenice Fourcade Othon y Luis Donaldo Coronado Rey",
-//       ]
+const padrinos = [
+        "Icela Grijalva García y Javier Valdez Ruiz",
+        "Claudina Valenzuela y Daniel Grijalva García",
+        "Lucrecia figueroa Lugo y Juan Luis Coronado amescua ",
+        "Gianelly Maldonado Araujo y José Alberto Baca Rey",
+        "Karely Berenice Fourcade Othon y Luis Donaldo Coronado Rey",
+      ]
 
 const XVEvany  = () => {
     const [searchParams] = useSearchParams();
@@ -248,11 +248,11 @@ const XVEvany  = () => {
                 onEnter={handleEnter}
                 musicRef={musicRef}
 
-                title="Una celebración está por comenzar"
+                title="Te invito a celebrar mis XV años"
 
-                brideName="Brandon"
-                groomName="Alejandra"
-                ampersonSymbol="&"
+                brideName=""
+                groomName="Evany"
+                ampersonSymbol=""
 
                 namesTypo={MAIN_TYPO}
                 ampersonTypo={MAIN_TYPO}
@@ -261,13 +261,13 @@ const XVEvany  = () => {
 
                 backgroundColor={BG_MAIN}
                 primaryColor={TEXT_PRIMARY}
-
-                envelopeImg={`${URL_IMAGES}sobre-intro.png`}
+                
+                envelopeImg={`${URL_IMAGES}envelope.png`}
                 sealImg={`${URL_IMAGES}sello.png`}
 
                 sealPosition={introSealPosition}
-                bottomRightCornerImg={`${URL_IMAGES}flores/5.png`}
-                topLeftCornerImg={`${URL_IMAGES}flores/5.png`}
+                bottomRightCornerImg={`${URL_IMAGES}flores/1.png`}
+                topLeftCornerImg={`${URL_IMAGES}flores/8.png`}
                 bottomRightCornerPosition={introBottomRightCornerPosition}
                 topLeftCornerPosition={introTopLeftCornerPosition}
 
@@ -294,8 +294,8 @@ const XVEvany  = () => {
             >
 
             <Cover 
-            bgImage={`${URL_IMAGES}portada.jpeg`}
-            bgImage2={`${URL_IMAGES}portada.jpeg`}
+            bgImage={`${URL_IMAGES}portada.jpg`}
+            bgImage2={`${URL_IMAGES}portada.jpg`}
                   weddingDate="13.11.2026"
                  subtitle="Mis XV años"
                   brideName="Evany"
@@ -312,7 +312,7 @@ const XVEvany  = () => {
 
                   >
             </Cover>
-               <Box></Box>
+              
                  <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={2} paddingBottom={6}> 
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                              <Box
@@ -320,36 +320,39 @@ const XVEvany  = () => {
                         backgroundImage: `url("${URL_IMAGES}marfil-hor.png")`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        height: "50px",
+                        p: 1,
+                        boxShadow: `0 15px 35px ${SHADOW_COLOR}`,
                         position: "relative",
+                        
                     }}
-                ></Box>
+                >
+                           <Grid container spacing={2} display={"flex"} alignItems={"center"} justifyContent={"center"} padding={2} paddingBottom={6}> 
+                        <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
                                 <Box
-                    component="img"
-                    src={`${URL_IMAGES}ChatGPT Image 29 jun 2026, 01_14_53 p.m..png`}
-                    sx={{
-                    
-                    height: 120,
-                    
-                    }}
-                />
+                                    component="img"
+                                    src={`${URL_IMAGES}letra.png`}
+                                    sx={{
+                                    
+                                    height: 100,
+                                    
+                                    }}
+                                />
                             </Fade>
                         </Grid>
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1.3rem", fontStyle: "italic!important" }} >"frase"</Typography>
+                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem", fontStyle: "italic!important" }} >Con alegría en el corazón, hoy celebro el comienzo de una nueva etapa.</Typography>
                             </Fade>		
                         </Grid>	
+                        </Grid>
+                        </Box>
+                 </Grid>
                  </Grid>
            
-                    <Box
-                    sx={{
-                        backgroundColor: "lightgrey",
-                        height: "50vh",
-                    }}></Box>
-            {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.JPEG`} bgPositionY="30%"></ImageMiddle> */}
-        <div style={{backgroundImage: `url("${URL_IMAGES}fondo4.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+              
+            <ImageMiddle bgPosition="50%" height="90vh" bgImage={`${URL_IMAGES}enmedio1.jpg`} bgPositionY="50%"></ImageMiddle>
+        <div style={{backgroundImage: `url("${URL_IMAGES}fondo4.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "20px 20px" }}>
 
                                 <Grid container justifyContent="center" padding={2}>
             <Grid  size={{xs:12,sm:12,md:12,lg:12}}>
@@ -371,7 +374,17 @@ const XVEvany  = () => {
                         
                     <Grid>
                         <Fade direction="up" >
-                        <Adornment image={`${URL_IMAGES}adorno.png`} width={"250px"} />
+                            <Box
+                                component="img"
+                                src={`${URL_IMAGES}flores/1.png`}
+                                alt="Description"
+                                sx={{
+                                    height: { xs: 120, md: 180 },
+                                    opacity: .8,
+                                    transform: "rotate(320deg)",
+                                }}
+                            />
+                      
                     
                         </Fade>
                     </Grid>
@@ -419,7 +432,17 @@ const XVEvany  = () => {
                         
                     <Grid>
                         <Fade direction="up" >
-                            <Adornment image={`${URL_IMAGES}adorno.png`} width={"250px"} />
+                            <Box
+                                component="img"
+                                src={`${URL_IMAGES}flores/1.png`}
+                                alt="Description"
+                                sx={{
+                                    height: { xs: 120, md: 180 },
+                                    opacity: .8,
+                                    transform: "rotate(320deg)",
+                                }}
+                            />
+                      
                     
                         </Fade>
                     </Grid>
@@ -430,7 +453,7 @@ const XVEvany  = () => {
             </div>
             <CountDown 
                 eventDate={COUNTDOWN_DATE}
-                bgImage={`${URL_IMAGES}contador.JPEG`}
+                bgImage={`${URL_IMAGES}contador.jpg`}
                 typoHeader={SECONDARY_TYPO}
                 typoCountdown={BODY_TYPO} 
                 fontSize="2rem"
@@ -439,13 +462,137 @@ const XVEvany  = () => {
                 alignItems="start"
                 >  
             </CountDown>
-      
+            <Box
+                component="section"
+                sx={{
+                    py: { xs: 7, md: 10 },
+                    px: 3,
+                    textAlign: "center",
+                    backgroundColor: BG_SECTION,
+                }}
+            >
+               
+
+                <Typography
+                    className={BODY_TYPO}
+                    sx={{
+                       
+                        fontSize: { xs: ".9rem", md: "1rem" },
+                        
+                        letterSpacing: "2px",
+                        textTransform: "uppercase",
+                        mb: { xs: 5, md: 6 },
+                    }}
+                >
+                    Gracias por acompañarme en este día tan especial
+                </Typography>
+                <Typography
+                    className={MAIN_TYPO}
+                    sx={{
+                        
+                        fontSize: { xs: "2.5rem", md: "2.7rem" },
+                        color: TITLE_COLOR,
+                        mb: 4,
+                    }}
+                >
+                    Mis padrinos
+                </Typography>
+                <Box
+                    sx={{
+                        maxWidth: 520,
+                        mx: "auto",
+                    }}
+                >
+                    {padrinos.map((name, index) => (
+                        <Box key={name}>
+                            <Typography
+                            className={`${SECONDARY_TYPO} to-upper`}
+                                sx={{
+                                    
+                                    fontSize: { xs: "1rem", md: "1.55rem" },
+                                    color: ACCENT_GOLD,
+                                    lineHeight: 1.4,
+                                }}
+                            >
+                                {name}
+                            </Typography>
+
+                            {index < padrinos.length - 1 && (
+                                <Typography
+                                    sx={{
+                                        my: { xs: 2.2, md: 2.8 },
+                                        color: ACCENT_GOLD,
+                                        fontSize: "1rem",
+                                    }}
+                                >
+                                   <Box
+                                    component="img"
+                                    src={`${URL_IMAGES}flores/4.png`}
+                                    alt="Description"
+                                    height={50}
+                                   >
+
+                                   </Box>
+                                </Typography>
+                            )}
+                        </Box>
+                    ))}
+                </Box>
+            </Box>
 
             <div style={{backgroundColor:BG_ACCENT, padding: "50px 20px" }}>
-            <Grid container spacing={2} padding={4} >
+            <Grid container spacing={2} padding={4} position="relative" >
+                    <Box 
+                    component="img"
+                    src={`${URL_IMAGES}flores/8.png`}
+                    alt="Description"
+                    sx={{
+                        height: { xs: 200, md: 250 },
+                        opacity:.8,
+           
+                        top: { xs: -50, md: 0 },
+                        left: { xs: -30, md: 0 },
+                        // transform: "rotate(90deg)",
+                        position:"absolute",
+                        zIndex:1
+                    }}
+                    
+
+                    />
+                    <Box 
+                    component="img"
+                    src={`${URL_IMAGES}flores/1.png`}
+                    alt="Description"
+                    sx={{
+                        height: { xs: 200, md: 250 },
+                        opacity:.8,
+           
+                        bottom: { xs: -20, md: 0 },
+                        right: { xs: -30, md: 0 },
+                        transform: "rotate(290deg)",
+                        position:"absolute",
+                        zIndex:1
+                    }}
+                    
+
+                    />
+                     
             {eventCards
-                .map((item,index) => (          
+                .map((item,index) => (   
+                     <Box display={"flex"} justifyContent={"center"} marginBottom={4}
+                sx={{
+                    backgroundImage: `url("${URL_IMAGES}marfil-hor.png")`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    
+                    p: 1,
+                    boxShadow: `0 15px 35px ${SHADOW_COLOR}`
+                }}
+                >
+                   
+                
                    <EventCard key={index} {...item}></EventCard>
+                   </Box>       
                 ))
             }
             </Grid>
@@ -468,17 +615,34 @@ const XVEvany  = () => {
  
 
             </div>
-            <ImageMiddle bgPosition="40%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.JPEG`} bgPositionY="50%"></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpg`} bgPositionY="50%"></ImageMiddle>
                 
-            <div style={{backgroundColor:BG_SECTION, padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
+            <div style={{backgroundColor:BG_ACCENT, padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
             <Grid container spacing={2} padding={2} paddingBottom={0} >
-                <Grid size={{xs:12,sm:12,md:12,lg:12}} >
+                <Grid size={{xs:12,sm:12,md:12,lg:12}} position="relative" >
+                     <Box 
+                    component="img"
+                    src={`${URL_IMAGES}flores/6.png`}
+                    alt="Description"
+                    sx={{
+                        height: { xs: 200, md: 250 },
+                        opacity:.8,
+           
+                        top: { xs: "-25%", md: 0 },
+                        left: { xs: "25%", md: 0 },
+                       
+                        position:"absolute",
+                        zIndex:1
+                    }}
+                    
+
+                    />
                     <Box display={"flex"} justifyContent={"center"} marginBottom={4}
          
             sx={{
-                background: "#fff",
-                border: `1px solid ${BORDER_COLOR}`,
-                borderRadius: "26px",
+                backgroundImage: `url("${URL_IMAGES}marfil-hor.png")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
                 p: 1,
                 boxShadow: `0 15px 35px ${SHADOW_COLOR}`
             }}
@@ -494,7 +658,9 @@ const XVEvany  = () => {
             
                     <Box
                         sx={{
-                            backgroundColor: BG_MAIN,
+                            backgroundImage: `url("${URL_IMAGES}marfil-ver.png")`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
                             position: "relative",
                             maxWidth: "750px",
                             mx: "auto",
@@ -505,27 +671,12 @@ const XVEvany  = () => {
                          <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                                 <Typography textAlign={"center"} className={MAIN_TYPO} sx={{color:TITLE_COLOR, fontSize: "2.5rem"}} >¡Confirma tu asistencia!</Typography>
                          </Grid>
-                          <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} marginTop={2}>
-                         <Fade direction="up" >
-                    <Box 
-                        component="img" 
-                        src={`${URL_IMAGES}adornos/7.png`} 
-                        alt="Description" 
-                        sx={{ 
-                            height: { xs: 40, md: 60 }, 
-                
-                            opacity:.8,
-                            
-                    }}
-                        />
-                        </Fade>
-                 
-                    </Grid>
+                         
                             <RSVPForm
                             hideTitle={true}
                             dateLine={RSVP_DATE_LINE}
                                 guest={guest || undefined}
-                                textColor={TEXT_PRIMARY}
+                                textColor={"#020202"}
                                 colorButton={BUTTON_PRIMARY}
                                 bgColor={"transparent"}
                                 mainTypo={MAIN_TYPO}
@@ -538,9 +689,24 @@ const XVEvany  = () => {
                                 numberInWords={true}
                                 fontSize="3rem"
                             />
-                           
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} marginTop={2}>
+                         <Fade direction="up" >
+                             <Box
+                                component="img"
+                                src={`${URL_IMAGES}flores/1.png`}
+                                alt="Description"
+                                sx={{
+                                    height: { xs: 150, md: 180 },
+                                    opacity: .8,
+                                    transform: "rotate(320deg)",
+                                }}
+                            />
+                      
+                        </Fade>
+                 
+                    </Grid>
                         </Box>
-                               <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}enmedio3.JPEG`} bgPositionY="50%"></ImageMiddle>
+                               <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria1.jpg`} bgPositionY="50%"></ImageMiddle>
                         <Box
     sx={{
         py: 10,
@@ -549,18 +715,22 @@ const XVEvany  = () => {
         textAlign: "center"
     }}
 >
-<Box  sx={{backgroundColor:BG_MAIN}} >
+<Box  sx={{backgroundColor:BG_SECTION}} >
                   <DressCode {...dresscode}></DressCode>
             <Grid paddingBottom={2} >
-                <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}adornos/7.png`} width={"250px"} />
+               
+                    <Adornment image={`${URL_IMAGES}flores/1.png`} width={"150px"} />
               
-                </Fade>
+             
               </Grid>
           {/* <WithoutKids subtitle2="NO NIÑOS" bodyTypo={BODY_TYPO} ></WithoutKids> */}
               </Box>
 
 </Box>
+<div style={{height: "50px"}}></div>
+<Gallery photos={galleryImages}></Gallery>
+
+
             
             <FooterInvites bgColor={"white"} color={BUTTON_PRIMARY}></FooterInvites>
             </Box>
