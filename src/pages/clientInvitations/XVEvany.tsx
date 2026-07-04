@@ -119,8 +119,8 @@ const giftListData: GiftListProps = {
 const introSealPosition = {
     top: "70%",
     left: "50%",
-    width: "75px",
-    height: "75px",
+    width: "70px",
+    height: "70px",
     transform: "translate(-50%, -50%)",
 };
 
@@ -156,13 +156,13 @@ const calendarButtonProps = {
 const galleryImages = [
   
     `${URL_IMAGES}galeria2.jpg`,
-    `${URL_IMAGES}galeria3.jpg`,
+
 ];
 
     const dresscode:DressCodeProps = {
         mainTypo:`${MAIN_TYPO}`,
         bodyTypo:BODY_TYPO,
-        color:TEXT_PRIMARY,
+        color:TITLE_COLOR,
         type:1,
         title:"Formal",
         omitColorsLabel:"Color verde reservado para la quinceañera",
@@ -510,7 +510,7 @@ const XVEvany  = () => {
                                 sx={{
                                     
                                     fontSize: { xs: "1rem", md: "1.55rem" },
-                                    color: ACCENT_GOLD,
+                                     
                                     lineHeight: 1.4,
                                 }}
                             >
@@ -669,7 +669,7 @@ const XVEvany  = () => {
                         }}
                     >
                          <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                                <Typography textAlign={"center"} className={MAIN_TYPO} sx={{color:TITLE_COLOR, fontSize: "2.5rem"}} >¡Confirma tu asistencia!</Typography>
+                                <Typography textAlign={"center"} className={MAIN_TYPO} sx={{color:TITLE_COLOR, fontSize: "2.8rem"}} >¡Confirma tu asistencia!</Typography>
                          </Grid>
                          
                             <RSVPForm
@@ -689,7 +689,7 @@ const XVEvany  = () => {
                                 numberInWords={true}
                                 fontSize="3rem"
                             />
-                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"} marginTop={2}>
+                            <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                          <Fade direction="up" >
                              <Box
                                 component="img"
@@ -708,27 +708,27 @@ const XVEvany  = () => {
                         </Box>
                                <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria1.jpg`} bgPositionY="50%"></ImageMiddle>
                         <Box
-    sx={{
-        py: 10,
-        px: 3,
-        backgroundColor: BG_MAIN,
-        textAlign: "center"
-    }}
->
-<Box  sx={{backgroundColor:BG_SECTION}} >
+                            sx={{
+                                py: 10,
+                                px: 3,
+                                backgroundColor: BG_SECTION,
+                                textAlign: "center"
+                            }}
+                        >
+                        <Box  sx={{backgroundColor:BG_SECTION}} >
                   <DressCode {...dresscode}></DressCode>
-            <Grid paddingBottom={2} >
-               
-                    <Adornment image={`${URL_IMAGES}flores/1.png`} width={"150px"} />
-              
-             
-              </Grid>
-          {/* <WithoutKids subtitle2="NO NIÑOS" bodyTypo={BODY_TYPO} ></WithoutKids> */}
+                    <Grid paddingBottom={2} >
+                    
+                            <Adornment image={`${URL_IMAGES}flores/1.png`} width={"150px"} />
+                    
+                    
+                    </Grid>
+        
               </Box>
 
-</Box>
-<div style={{height: "50px"}}></div>
-<Gallery photos={galleryImages}></Gallery>
+            </Box>
+            <div style={{height: "50px"}}></div>
+            <Gallery photos={galleryImages}></Gallery>
 
 
             
