@@ -307,7 +307,7 @@ const XVEvany  = () => {
                   ourWeddingStart={true}
                 overlay={true}
                 fontSize="4rem"
-                verticalPosition="top"
+                verticalPosition="center"
                 margin="60px"
 
                   >
@@ -459,7 +459,7 @@ const XVEvany  = () => {
                 fontSize="2rem"
                 marginTop="30px"
                 padding="1em"
-                alignItems="start"
+                alignItems="end"
                 >  
             </CountDown>
             <Box
