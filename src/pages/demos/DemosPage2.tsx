@@ -16,7 +16,7 @@ const DemosPage = () => {
       titulo: "Celebra+",
       nombres: "Elena María y José Carlos",
       imagen: "images/demos/3.png",
-      link: "/demos/1?number=2",
+      link: "/boda-cowboy?number=2",
     },
     {
       id: 2,
