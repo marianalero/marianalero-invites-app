@@ -111,7 +111,7 @@ const giftListData: GiftListProps = {
     envelopeFontSize: "3rem",
     envelopePhrase: "Tu presencia es el mejor regalo, pero si deseas hacerme un obsequio, el efectivo será ideal !Gracias!",
     envelopeTitleColor: TEXT_PRIMARY,
-    bankIconEnd: `${URL_IMAGES}sobre.svg`,
+    bankIconEnd: `${URL_IMAGES}sobre.png`,
 };
 
 
