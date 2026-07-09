@@ -310,7 +310,7 @@ const WeddingCowboy  = () => {
             <Cover 
                 ourWeddingStart={true}
                 weddingDate="21 de Octubre 2026"
-                bgImage={`https://marianalero.github.io/Invitacion/images/DSC_9995.jpg`}
+                bgImage={`https://marianalero.github.io/Invitacion/images/DSC_9636.JPG`}
                 brideName="Elena Marai" 
                 symbolr={"&"} 
                 groomName={"Jose Carlos"} 
