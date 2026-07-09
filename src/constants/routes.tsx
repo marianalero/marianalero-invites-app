@@ -71,6 +71,8 @@ import WeddingAvielisseOskar from "../pages/clientInvitations/WeddingAvielisseOs
 import WeddingBrandonAlejandra from "../pages/clientInvitations/WeddingBrandonAlejandra";
 import XVEvany from "../pages/clientInvitations/XVEvany";
 import Mariana30 from "../pages/clientInvitations/Mariana30";
+import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
+import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
 
 
 interface RouteConfig {
@@ -158,6 +160,8 @@ const routes: RouteConfig[] = [
       {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>}, 
   {path:'/prev-e', element: <XVEvany></XVEvany>},
   {path:'/mariana-30', element: <Mariana30></Mariana30>},
+  {path:'/boda-cowboy', element: <WeddingCowboy></WeddingCowboy>},
+  {path:'/prev-xv', element: <XVDannaSophia></XVDannaSophia >},
 ];
 
 

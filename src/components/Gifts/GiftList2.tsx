@@ -115,7 +115,7 @@ const GiftList2 = (props:GiftListProps) =>{
                                         <div style={{display:"block", justifyItems:"center"}}>
                                             { props.bankIconStart &&
                                             (
-                                                <Grid container>
+                                                <Grid container mt={2}>
                                                     <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
                                                         <img height={props.iconSize? props.iconSize : "60px"} src={props.bankIconStart}/>
                                                     </Grid>
@@ -126,7 +126,7 @@ const GiftList2 = (props:GiftListProps) =>{
 
                                             { props.bankIconEnd &&
                                             (
-                                                <Grid container>
+                                                <Grid container mt={2}>
                                                     <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
                                                         <img height={props.iconSize? props.iconSize : "60px"} src={props.bankIconEnd}/>
                                                     </Grid>
