@@ -35,6 +35,9 @@ export interface InvitationIntroProps {
   guestName?: string;
   guestCount?: number;
 
+  /** Muestra el intro de inmediato y deja que las imagenes carguen progresivamente. */
+  waitForImages?: boolean;
+
   sealPosition?: {
     top?: string;
     left?: string;
@@ -88,6 +91,7 @@ const InvitationIntro = ({
 
   guestName,
   guestCount = 1,
+  waitForImages = true,
 
   sealPosition = {
     top: "50%",
@@ -111,9 +115,14 @@ const InvitationIntro = ({
     height: "70px",
   },
 }: InvitationIntroProps) => {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(!waitForImages);
 
   useEffect(() => {
+    if (!waitForImages) {
+      setLoaded(true);
+      return;
+    }
+
     const imageSources = [
       envelopeImg,
       sealImg,
@@ -153,6 +162,7 @@ const InvitationIntro = ({
     envelopeImg,
     sealImg,
     topLeftCornerImg,
+    waitForImages,
   ]);
 
   const handleEnter = () => {

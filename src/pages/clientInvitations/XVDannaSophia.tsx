@@ -244,6 +244,7 @@ const XVDannaSophia  = () => {
                 open={showIntro}
                 onEnter={handleEnter}
                 musicRef={musicRef}
+                waitForImages={false}
 
                 title="Te invito a celebrar mis XV años"
 
