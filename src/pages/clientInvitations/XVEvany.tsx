@@ -27,6 +27,7 @@ import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode"
 import Adornment from "../../components/Adornment/Adornment";
 import Cover from "../../components/Cover/CoverImage/Cover";
 import Gallery from "../../components/Gallery/Gallert";
+import WithoutKids from "../../components/WithOutKids/WithoutKids";
 
 const INVITATION_ID = 9;
 // 🌸 BACKGROUNDS
@@ -719,9 +720,12 @@ const XVEvany  = () => {
                   <DressCode {...dresscode}></DressCode>
                     <Grid paddingBottom={2} >
                     
-                            <Adornment image={`${URL_IMAGES}flores/1.png`} width={"150px"} />
+                            <Adornment image={`${URL_IMAGES}flores/1.png`} width={"100px"} />
                     
                     
+                    </Grid>
+                    <Grid paddingBottom={2} >
+                            <WithoutKids bodyTypo={BODY_TYPO}></WithoutKids>
                     </Grid>
         
               </Box>
