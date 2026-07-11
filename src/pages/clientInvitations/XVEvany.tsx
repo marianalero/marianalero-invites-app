@@ -262,7 +262,7 @@ const XVEvany  = () => {
                 backgroundColor={BG_MAIN}
                 primaryColor={TEXT_PRIMARY}
                 
-                envelopeImg={`${URL_IMAGES}envelope.png`}
+                envelopeImg={`${URL_IMAGES}envelope2.png`}
                 sealImg={`${URL_IMAGES}sello.png`}
 
                 sealPosition={introSealPosition}
