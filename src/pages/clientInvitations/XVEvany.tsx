@@ -29,7 +29,7 @@ import Cover from "../../components/Cover/CoverImage/Cover";
 import Gallery from "../../components/Gallery/Gallert";
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
 
-const INVITATION_ID = 9;
+const INVITATION_ID = 31;
 // 🌸 BACKGROUNDS
 const BG_MAIN = "#FDFBF9";
 const BG_SECTION = "#F7F2EE";
