@@ -7,6 +7,7 @@ interface MiniGalleryProps {
   maxWidth?: "lg" | "md" | "xl" | false;
   spacing?: number;
   gap?: number;
+  mobileColumns?: 1 | 2 | 3;
   imageHeightDesktop?: number;
   imageHeightMobile?: number;
   enableAnimation?: boolean;
@@ -18,6 +19,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({
   maxWidth = "lg",
   spacing = 14,
   gap = 4,
+  mobileColumns = 3,
   imageHeightDesktop = 560,
   imageHeightMobile = 260,
   enableAnimation = true,
@@ -30,7 +32,10 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)", // 👈 siempre 3 columnas
+            gridTemplateColumns: {
+              xs: `repeat(${mobileColumns}, 1fr)`,
+              md: "repeat(3, 1fr)",
+            },
             gap: { xs: 2, md: gap },
           }}
         >

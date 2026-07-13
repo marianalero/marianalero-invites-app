@@ -418,8 +418,9 @@ const WeddingFredaJuanColor  = () => {
                      backgroundColor="rgb(250,250,250,.8)"
                     spacing={8}
                     gap={6}
+                    mobileColumns={1}
                     imageHeightDesktop={580}
-                    imageHeightMobile={260}
+                    imageHeightMobile={420}
                     />
                      {/* <Gallery photos={galleryPhotos}></Gallery> */}
          </div>
