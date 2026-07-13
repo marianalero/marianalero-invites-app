@@ -20,6 +20,9 @@ export interface RSVPType {
     hideLabelAssignedPeople?:boolean;
     hidePhoneNumberInput?:boolean;
     bgPosition?:string;
+    bgPositionY?:string;
+    mobileBgPosition?:string;
+    mobileBgPositionY?:string;
     numberInWords?:boolean;
     transparencyButton?:boolean;
     guest?:Guest;

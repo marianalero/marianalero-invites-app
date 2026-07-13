@@ -8,6 +8,8 @@ export interface ImageMiddleProps {
     bgSize?:string;
     bgPosition?:string;
     bgPositionY?:string;
+    mobileBgPosition?:string;
+    mobileBgPositionY?:string;
 }
 const ImageMiddle = (props: ImageMiddleProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,8 +42,9 @@ const ImageMiddle = (props: ImageMiddleProps) => {
       style={{
         backgroundImage: loaded ? `url(${props.bgImage})` : "none",
         backgroundSize: props.bgSize ?? "cover",
-        backgroundPosition: props.bgPosition ?? "50%",
-        backgroundPositionY: isSmallScreen ? "50%" : `${props.bgPositionY ?? "50%"}`,
+        backgroundPosition: isSmallScreen ? props.mobileBgPosition ?? props.bgPosition ?? "50%" : props.bgPosition ?? "50%",
+        backgroundPositionY: isSmallScreen ? props.mobileBgPositionY ?? props.bgPositionY ?? "50%" : props.bgPositionY ?? "50%",
+        backgroundRepeat: "no-repeat",
         height: isSmallScreen ? props.height ?? "50vh" : "100vh",
 
         /* 🎨 placeholder */
