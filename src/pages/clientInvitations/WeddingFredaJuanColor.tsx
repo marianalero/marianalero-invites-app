@@ -169,7 +169,7 @@ const WeddingFredaJuanColor  = () => {
                 colorPrimary: "white",
                 colorTitle: "white",
                 colorBody: "white",
-                fontSize:"50px",
+                fontSize:"2rem",
                 bgColor: COLOR_PRIMARY, 
                 events: [
                     {
@@ -221,9 +221,9 @@ const WeddingFredaJuanColor  = () => {
                 bgPositionY="40%"
                 mobileBgPosition="50%"
                 mobileBgPositionY="40%"
-                mobileHeight="70svh"
+                mobileHeight="80vh"
                 overlay={true}
-                fontSize="2rem"
+                fontSize="1.8rem"
                verticalPosition="bottom"
                ampersonClassName={MAIN_TYPO}
                 >
@@ -257,7 +257,7 @@ const WeddingFredaJuanColor  = () => {
             <ImageMiddle
                 bgPosition="30%"
                 bgPositionY="30%"
-                mobileBgPosition="50%"
+                mobileBgPosition="30%"
                 mobileBgPositionY="30%"
                 height="60vh"
                 bgImage={`${URL_IMAGES}galeria3.jpg`}
@@ -329,24 +329,23 @@ const WeddingFredaJuanColor  = () => {
                     backgroundSize: "cover",
                     backgroundPosition: { xs: "50% 25%", md: "center" },
                     backgroundRepeat: "no-repeat",
-                    padding: "50px 20px",
+                    padding: "20px 20px",
+                    height:"540px",
+                    display:"flex",
+                    justifyContent:"center"
                 }}
             >
 
-             <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(207,193,167,.8)"}}>
+             <Grid container spacing={2} padding={1} sx={{backgroundColor:"rgb(207,193,167,.8)"}} minHeight="500px">
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
-              <Typography variant='h4' style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>{t("timeline.title")}</Typography>
+              
             </Fade>
             </Grid>	
-            <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-            <Fade direction="up" triggerOnce={true}>
-                <Typography color={timelineData.colorBody} textAlign={"center"} className={`${timelineData?.bodyTypo}`}>{t("timeline.subtitle")}</Typography>
-            </Fade>
            
-           </Grid>	
-            <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                
+            <Grid size={{xs:12,sm:12,md:12,lg:12}} padding={0} >
+                <Typography variant='h4' style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>{t("timeline.title")}</Typography>
+                <Typography sx={{fontSize:"1rem"}} color={timelineData.colorBody} textAlign={"center"} className={`${timelineData?.bodyTypo}`}>{t("timeline.subtitle")}</Typography>
                 <Timeline position="alternate">
                 {
                 timelineData.events?.map((item,index) => (
@@ -358,7 +357,7 @@ const WeddingFredaJuanColor  = () => {
                             align="right"
                             >
                             <Fade direction="up" triggerOnce={true} >
-                              <img className="intinerario-icon" src={item.icon} height="60"/>
+                              <img className="intinerario-icon" src={item.icon} style={{height:"6.66vh"}}/>
                             </Fade>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
@@ -369,12 +368,12 @@ const WeddingFredaJuanColor  = () => {
                         </TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
-                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
+                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"1rem"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
                             {dayjs(item.date).format("hh:mm A")}
                             </Typography>
                             </Fade>
                             <Fade direction="up" triggerOnce={true} >
-                            <Typography  sx={{color:timelineData.colorPrimary}} className={`${SECONDARY_TYPO}`}>{item.eventName} </Typography>
+                            <Typography  sx={{color:timelineData.colorPrimary,fontSize:".8rem"}} className={`${SECONDARY_TYPO}`}>{item.eventName} </Typography>
                             </Fade>
                         </TimelineContent>
                     </TimelineItem>
@@ -442,9 +441,9 @@ const WeddingFredaJuanColor  = () => {
                      backgroundColor="rgb(250,250,250,.8)"
                     spacing={8}
                     gap={6}
-                    mobileColumns={1}
+                    mobileColumns={3}
                     imageHeightDesktop={580}
-                    imageHeightMobile={420}
+                    imageHeightMobile={"35vh"}
                     />
                      {/* <Gallery photos={galleryPhotos}></Gallery> */}
          </div>
