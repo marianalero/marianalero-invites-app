@@ -9,7 +9,7 @@ interface MiniGalleryProps {
   gap?: number;
   mobileColumns?: 1 | 2 | 3;
   imageHeightDesktop?: number;
-  imageHeightMobile?: string;
+  imageHeightMobile?: number | string;
   enableAnimation?: boolean;
 }
 
