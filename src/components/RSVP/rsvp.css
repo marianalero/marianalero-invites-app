@@ -26,6 +26,6 @@
 @media (max-width: 767.98px) {
   .fondo-con-overlay {
     background-position: var(--rsvp-bg-position-mobile, var(--rsvp-bg-position-desktop, center));
-    min-height: 100svh;
+    min-height: 100vh;
   }
 }
