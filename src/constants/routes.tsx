@@ -72,7 +72,7 @@ import WeddingBrandonAlejandra from "../pages/clientInvitations/WeddingBrandonAl
 import XVEvany from "../pages/clientInvitations/XVEvany";
 import Mariana30 from "../pages/clientInvitations/Mariana30";
 import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
-import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
+// import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
 
 
 interface RouteConfig {
