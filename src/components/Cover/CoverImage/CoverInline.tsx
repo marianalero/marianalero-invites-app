@@ -18,6 +18,9 @@ const CoverInline = (props: CoverProps) => {
     const objectPositionX = isSmallScreen
         ? props.mobileBgPosition ?? props.bgPosition ?? "50%"
         : props.bgPosition ?? "50%";
+    const namesFontSize = isSmallScreen
+        ? `min(${props.fontSize ?? "60px"}, 7vw)`
+        : props.fontSize ?? "60px";
 
     useEffect(() => {
         if (!props.bgImage) return;
@@ -75,7 +78,12 @@ const CoverInline = (props: CoverProps) => {
                 )}
 
                 <Typography
-                    sx={{ fontSize: props.fontSize ? props.fontSize : "60px" }}
+                    sx={{
+                        fontSize: namesFontSize,
+                        lineHeight: 1.1,
+                        maxWidth: "100vw",
+                        whiteSpace: "nowrap",
+                    }}
                     paddingX={1}
                     textAlign="center"
                     color='white'
