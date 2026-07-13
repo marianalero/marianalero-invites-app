@@ -53,6 +53,8 @@ const numberToWords = (num: number, language: string): string => {
 
 const RSVPForm  = (props:RSVPType) => {
     console.log("RSVPForm props", props.guest);
+    const backgroundPositionDesktop = `${props.bgPosition ?? "center"} ${props.bgPositionY ?? "center"}`;
+    const backgroundPositionMobile = `${props.mobileBgPosition ?? props.bgPosition ?? "center"} ${props.mobileBgPositionY ?? props.bgPositionY ?? "center"}`;
     const [errorName, setErrorName] = useState(false);
     const [guest, setGuest] = useState<Guest>({
     id: 0,
@@ -548,7 +550,14 @@ const RSVPForm  = (props:RSVPType) => {
     return ( 
         <div>
          { props.bgImage !== undefined ? (     
-          <div style={{backgroundImage:`url('${props.bgImage}')`, backgroundPositionX: props.bgPosition ? props.bgPosition : 'center'}} className="fondo-con-overlay" >
+          <div
+            style={{
+                backgroundImage:`url('${props.bgImage}')`,
+                "--rsvp-bg-position-desktop": backgroundPositionDesktop,
+                "--rsvp-bg-position-mobile": backgroundPositionMobile,
+            } as React.CSSProperties}
+            className="fondo-con-overlay"
+          >
             {
                (guest && (guest.rsvpStatus == 1 || guest.rsvpStatus == 3 )) || !props.qrActive? (
                       RenderForm()

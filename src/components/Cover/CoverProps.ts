@@ -10,6 +10,7 @@ export interface CoverProps{
     textColor?:string;
     hideText?:boolean;
     bgPosition?:string;
+    mobileBgPosition?:string;
     margin?:string;
     ourWeddingStart:boolean;
     overlay:boolean;
@@ -17,6 +18,8 @@ export interface CoverProps{
     subtitle?:string;
     dateClass?:string;
     bgPositionY?:string; // Nueva propiedad para la posición vertical del fondo en patantalla completa
+    mobileBgPositionY?:string;
+    mobileHeight?:string;
     ampersonClassName?:string; // Clase opcional para la tipografía del ampersand
     verticalPosition?: 'top' | 'center' | 'bottom'; // Posición vertical del contenido
     bodyTypoClassName?: string; // Clase opcional para la tipografía del texto adicional

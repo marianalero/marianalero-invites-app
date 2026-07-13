@@ -217,6 +217,11 @@ const WeddingFredaJuanColor  = () => {
                 groomName={"Juan Pablo"} 
                 className={SECONDARY_TYPO}
                 bgSize="cover"
+                bgPosition="50%"
+                bgPositionY="40%"
+                mobileBgPosition="50%"
+                mobileBgPositionY="40%"
+                mobileHeight="70svh"
                 overlay={true}
                 fontSize="2rem"
                verticalPosition="bottom"
@@ -249,7 +254,14 @@ const WeddingFredaJuanColor  = () => {
                  </Grid>
             </Box>
             </div>
-            <ImageMiddle bgPosition="30%" height="60vh" bgImage={`${URL_IMAGES}galeria3.jpg`} bgPositionY="30%"></ImageMiddle>
+            <ImageMiddle
+                bgPosition="30%"
+                bgPositionY="30%"
+                mobileBgPosition="50%"
+                mobileBgPositionY="30%"
+                height="60vh"
+                bgImage={`${URL_IMAGES}galeria3.jpg`}
+            />
               <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             
             <Grid container spacing={2} >
@@ -311,7 +323,15 @@ const WeddingFredaJuanColor  = () => {
             </Grid>
             </div>
               {/* <ImageMiddle bgPosition="50%" height="30vh" bgImage={`${URL_IMAGES}galeria6.jpg`} bgSize="contain"></ImageMiddle> */}
-                          <div style={{backgroundImage: `url("${URL_IMAGES}galeria2.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+            <Box
+                sx={{
+                    backgroundImage: `url("${URL_IMAGES}galeria2.jpg")`,
+                    backgroundSize: "cover",
+                    backgroundPosition: { xs: "50% 25%", md: "center" },
+                    backgroundRepeat: "no-repeat",
+                    padding: "50px 20px",
+                }}
+            >
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(207,193,167,.8)"}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -366,7 +386,7 @@ const WeddingFredaJuanColor  = () => {
                 </Timeline>
             </Grid>	
       </Grid>
-        </div>
+            </Box>
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
             <Grid container spacing={2} padding={2} paddingBottom={0} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -380,6 +400,10 @@ const WeddingFredaJuanColor  = () => {
                     </div>
             <RSVPForm 
             bgImage={`${URL_IMAGES}confirmacion.jpg`}
+            bgPosition="center"
+            bgPositionY="center"
+            mobileBgPosition="50%"
+            mobileBgPositionY="25%"
             dateLine={new Date(2026,10,5)}
                 textColor={"white"}
                 colorButton={"white"} 

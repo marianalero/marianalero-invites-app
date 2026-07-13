@@ -10,6 +10,6 @@
         height: 50vh;
         background-size: cover !important;
         position: relative !important;
-        background-repeat: repeat !important;
+        background-repeat: no-repeat !important;
     }
 }
