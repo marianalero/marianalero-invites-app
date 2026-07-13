@@ -21,6 +21,11 @@ const CoverInline = (props: CoverProps) => {
     const namesFontSize = isSmallScreen
         ? `min(${props.fontSize ?? "60px"}, 7vw)`
         : props.fontSize ?? "60px";
+    const oneLineTypographySx = {
+        lineHeight: 1.1,
+        maxWidth: "100vw",
+        whiteSpace: "nowrap",
+    };
 
     useEffect(() => {
         if (!props.bgImage) return;
@@ -79,10 +84,8 @@ const CoverInline = (props: CoverProps) => {
 
                 <Typography
                     sx={{
+                        ...oneLineTypographySx,
                         fontSize: namesFontSize,
-                        lineHeight: 1.1,
-                        maxWidth: "100vw",
-                        whiteSpace: "nowrap",
                     }}
                     paddingX={1}
                     textAlign="center"
@@ -110,7 +113,11 @@ const CoverInline = (props: CoverProps) => {
                     color='white'
                     typography="h6"
                     className={props.bodyTypoClassName ? props.bodyTypoClassName : "pt-serif-caption-regular cover-date"}
-                    sx={{ fontWeight: 400 }}
+                    sx={{
+                        ...oneLineTypographySx,
+                        fontWeight: 400,
+                        fontSize: isSmallScreen ? "min(1.25rem, 4vw)" : undefined,
+                    }}
                 >
                     {props.weddingDate}
                 </Typography>
