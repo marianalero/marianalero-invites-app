@@ -314,7 +314,7 @@ const WeddingFredaJuanColor  = () => {
                 >  
             </CountDown>
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
-            <Grid container spacing={2} padding={4} >
+            <Grid container spacing={2} >
             {eventCards
                 .map((item,index) => (          
                    <EventCard key={index} {...item}></EventCard>
@@ -387,7 +387,7 @@ const WeddingFredaJuanColor  = () => {
       </Grid>
             </Box>
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo.png")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
-            <Grid container spacing={2} padding={2} paddingBottom={0} >
+            <Grid container spacing={2}  paddingBottom={0} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                     <Box display={"flex"} justifyContent={"center"} marginBottom={4}>
                         <GiftList {...giftListData}></GiftList>
