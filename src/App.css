@@ -303,7 +303,12 @@
   font-weight: 900!important;
   font-style: normal!important;
 }
-
+.manrope-400 {
+  font-family: "Manrope", sans-serif !important;
+  font-optical-sizing: auto!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
 .text-rose-gold{
   background-image: linear-gradient(
  to right,

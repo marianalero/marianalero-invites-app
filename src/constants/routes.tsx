@@ -72,6 +72,7 @@ import WeddingBrandonAlejandra from "../pages/clientInvitations/WeddingBrandonAl
 import XVEvany from "../pages/clientInvitations/XVEvany";
 import Mariana30 from "../pages/clientInvitations/Mariana30";
 import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
+import WeddingAnnaJuanAngel from "../pages/clientInvitations/WeddingAnnaJuanAngel";
 // import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
 
 
@@ -163,6 +164,7 @@ const routes: RouteConfig[] = [
   {path:'/mariana-30', element: <Mariana30></Mariana30>},
   {path:'/boda-cowboy', element: <WeddingCowboy></WeddingCowboy>},
   // {path:'/prev-xv', element: <XVDannaSophia></XVDannaSophia >},
+  {path:'/prev-a-ja', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>}
 ];
 
 
