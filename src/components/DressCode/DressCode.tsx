@@ -19,6 +19,7 @@ export interface DressCodeProps
     omitColorsText?:string;
     fontWeight?:string;
     fontSize?:string;
+    imageSize?:string;
 }
 
 const DressCode  = (props:DressCodeProps) => 
@@ -46,7 +47,7 @@ const DressCode  = (props:DressCodeProps) =>
                }
                { props.type == 3 &&
                     <Fade direction="up" triggerOnce={true}>
-                   <img src={props.image} style={{height:"40vh"}}/>
+                   <img src={props.image} style={{height: props.imageSize ? props.imageSize :"40vh"}}/>
                    </Fade>
                }
             </Grid>

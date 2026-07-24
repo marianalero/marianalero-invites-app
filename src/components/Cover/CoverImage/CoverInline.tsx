@@ -8,6 +8,7 @@ import { memo, useEffect, useState } from 'react';
 const CoverInline = (props: CoverProps) => {
    
     const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isSmallerScreen = useMediaQuery('(max-width:400px)');
     const [loaded, setLoaded] = useState(false);
     const GENERIC_BLUR =
         "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBUQEA8PEA8PDw8PDw8PDw8PDw8PFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFy0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAAEAAQMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAABAgAD/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIQAxAAAAH6A//EABgQAQEBAQEAAAAAAAAAAAAAAAERAhIh/9oACAEBAAEFAk8d4o//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8BSP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/ASf/xAAbEAADAQEBAQEAAAAAAAAAAAABERAhMUFRcf/aAAgBAQAGPwKzK0kAq0p1k//EABsQAQEAAwEBAQAAAAAAAAAAAAERACExQVFh/9oACAEBAAE/IVFZfE2PqC5nSlQ2RZ5WqX//2gAMAwEAAgADAAAAEB//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QEf/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/ECL/xAAbEAEBAQEAAwEAAAAAAAAAAAABEQAhMVFhcf/aAAgBAQABPxDkXIpT+R9xKk4a5QZ2h+V5J7VZ//Z";
@@ -18,7 +19,7 @@ const CoverInline = (props: CoverProps) => {
     const objectPositionX = isSmallScreen
         ? props.mobileBgPosition ?? props.bgPosition ?? "50%"
         : props.bgPosition ?? "50%";
-    const namesFontSize = isSmallScreen
+    const namesFontSize = isSmallerScreen
         ? `min(${props.fontSize ?? "60px"}, 7vw)`
         : props.fontSize ?? "60px";
     const oneLineTypographySx = {

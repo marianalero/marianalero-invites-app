@@ -81,7 +81,7 @@ const eventCards: EventCardProps[] = [
     {
         eventName: "Recepción",
         date: new Date(2026, 8, 5, 21, 0, 0),
-        locationName: "Casas Nool",
+        locationName: "Casa Nool",
         address: "Haciendas Real del Catorce, 83310 El Real del Catorce, Son.",
         size: 12,
         color: TEXT_PRIMARY,
