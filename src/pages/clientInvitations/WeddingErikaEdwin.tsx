@@ -112,14 +112,14 @@ const giftListData: GiftListProps = {
                 icon: `${URL_IMAGES}amazon.svg`,
             }
         ],
-    fontSize: "3rem",
+    fontSize: "2.5rem",
     mainTypo: MAIN_TYPO,
     bodyTypo: BODY_TYPO,
     color: TEXT_PRIMARY,
     bgColor: "#FFFFFF",
     showEnvelope: true,
     envelopeMainTypo: MAIN_TYPO,
-    envelopeFontSize: "3rem",
+    envelopeFontSize: "2.5rem",
     envelopePhrase: "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
     secondPhrase: "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
     envelopeTitleColor: TEXT_PRIMARY,
@@ -149,7 +149,7 @@ const dresscode: DressCodeProps = {
     color: TEXT_PRIMARY,
     type: 3,
     title: "Formal",
-    fontSize: "3rem",
+    fontSize: "2.5rem",
     image:`${URL_IMAGES}FLORES/9.png`,
     imageSize: "20vh"
 };
@@ -166,34 +166,34 @@ const timelineData: CustomizedTimelineProps = {
     colorPrimary: ACCENT,
     colorTitle: ACCENT,
     colorBody: ACCENT,
-    fontSize: "50px",
+    fontSize: "2.5rem",
     bgColor: BG_ACCENT,
     events: [
-        {
-            eventName: "Cóctel  de bienvenida",
-            date: new Date(2026, 9, 9, 17, 0, 0),
-            icon: `${URL_IMAGES}iconos/2.svg`,
+         {
+            eventName: "Ceremonia Religiosa",
+            date: new Date(2026, 9, 9, 12, 0, 0),
+            icon: `${URL_IMAGES}iconos/1.svg`,
         },
         {
-            eventName: "Nupcias",
-            date: new Date(2026, 9, 9, 17, 30, 0),
+            eventName: "Civil",
+            date: new Date(2026, 9, 9, 17, 0, 0),
             icon: `${URL_IMAGES}iconos/4.svg`,
         },
         {
-            eventName: "Fotos",
+            eventName: "Cóctel  de bienvenida",
             date: new Date(2026, 9, 9, 18, 0, 0),
-            icon: `${URL_IMAGES}iconos/5.svg`,
+            icon: `${URL_IMAGES}iconos/2.svg`,
         },
         {
             eventName: "Cena",
-            date: new Date(2026, 9, 9, 18, 30, 0),
+            date: new Date(2026, 9, 9, 19, 0, 0),
             icon: `${URL_IMAGES}iconos/6.svg`,
         },
-        {
-            eventName: "Inicio de fiesta",
-            date: new Date(2026, 9, 9, 19, 30, 0),
-            icon: `${URL_IMAGES}iconos/8.svg`,
-        },
+        // {
+        //     eventName: "Posboda",
+        //     date: new Date(2026, 10, 15, 15, 0, 0),
+        //     icon: `${URL_IMAGES}iconos/8.svg`,
+        // },
     ],
 };
 
@@ -337,6 +337,7 @@ const WeddingAErikaEdwin  = () => {
 
                 guestName={guest ? guest.fullName : ""}
                 guestCount={invitedGuests}
+                
             />
 
             {/* INVITACIÓN */}
@@ -367,7 +368,7 @@ const WeddingAErikaEdwin  = () => {
                 className={MAIN_TYPO}
                 bgSize="cover"
                 overlay={true}
-                fontSize="4rem"
+                fontSize="3rem"
                verticalPosition="bottom"
                ampersonClassName={MAIN_TYPO}
                bodyTypoClassName={BODY_TYPO}
@@ -527,7 +528,7 @@ const WeddingAErikaEdwin  = () => {
             }
             </Grid>
             <Box>
-                <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:TITLE_COLOR, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
+                <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:TITLE_COLOR, fontSize:"1.2.5rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
                     No queremos que te pierdas este día
                     </Typography>
                 <Box display={"flex"} justifyContent={"center"}>
@@ -562,7 +563,7 @@ const WeddingAErikaEdwin  = () => {
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{ boxShadow: `8px 8px 8px ${SHADOW_COLOR}`}} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
-              <Typography variant='h4' style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>{t("timeline.title")}</Typography>
+              <Typography variant='h4' style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2.5rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>{t("timeline.title")}</Typography>
             </Fade>
             </Grid>	
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -607,7 +608,34 @@ const WeddingAErikaEdwin  = () => {
                    
                 ))
             }
-       
+       <TimelineItem >
+                     
+                        <TimelineOppositeContent
+                            sx={{ m: 'auto 0' }}
+                            align="right"
+                            >
+                            <Fade direction="up" triggerOnce={true} >
+                              <img className="intinerario-icon" src={`${URL_IMAGES}iconos/8.svg`} height="60"/>
+                            </Fade>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                        <TimelineConnector  sx={{backgroundColor:timelineData.colorPrimary}} />
+                        <TimelineDot sx={{backgroundColor:timelineData.colorPrimary}}>
+                        </TimelineDot>
+                        <TimelineConnector sx={{backgroundColor:timelineData.colorPrimary}}/>
+                        </TimelineSeparator>
+                        <TimelineContent sx={{ py: '12px', px: 2 }}>
+                          <Fade direction="up" triggerOnce={true} >
+                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
+                            {dayjs(new Date(2026,10,15,15,0,0)).format("hh:mm A")}
+                            </Typography>
+                            </Fade>
+                            <Fade direction="up" triggerOnce={true} >
+                            <Typography  sx={{color:timelineData.colorPrimary}} className={`${SECONDARY_TYPO}`}>Posboda </Typography>
+                              <Typography  sx={{color:timelineData.colorPrimary}} className={`${SECONDARY_TYPO}`}>Residencial del Mar Vista </Typography>
+                            </Fade>
+                        </TimelineContent>
+                    </TimelineItem>
    
                 </Timeline>
             </Grid>	

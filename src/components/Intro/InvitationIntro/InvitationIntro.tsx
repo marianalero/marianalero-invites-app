@@ -14,7 +14,7 @@ export interface InvitationIntroProps {
   musicRef?: RefObject<MusicFabPlayerHandle | null>;
 
   title: string;
-
+  fontSizeNames?:string;
   brideName: string;
   groomName: string;
   ampersonSymbol: string;
@@ -274,7 +274,7 @@ const InvitationIntro = ({
           {/* Nombres */}
           <Fade direction="up" >
           <Typography
-            mb={3}
+            
             className={namesTypo}
             sx={{
               color: primaryColor,
@@ -303,7 +303,7 @@ const InvitationIntro = ({
               alignItems: "center",
 
               mb: 8,
-
+              mt:2,
               cursor: "pointer",
 
               transition:
