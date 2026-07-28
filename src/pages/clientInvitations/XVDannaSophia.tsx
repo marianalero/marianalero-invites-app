@@ -26,6 +26,9 @@ import { Guest } from "../../models/guest";
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import Adornment from "../../components/Adornment/Adornment";
 import Cover from "../../components/Cover/CoverImage/Cover";
+import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
+import MiniGallery from "../../components/MiniGallery/MiniGallery";
+import Gallery from "../../components/Gallery/Gallert";
 
 
 const INVITATION_ID = 9;
@@ -152,11 +155,14 @@ const calendarButtonProps = {
     },
 };
 
-// const galleryImages = [
+const galleryImages = [
   
-//     `${URL_IMAGES}galeria2.jpg`,
+     `${URL_IMAGES}mg-3.jpg`,
+     `${URL_IMAGES}galeria2.jpg`,
+      `${URL_IMAGES}galeria3.jpg`,
+       `${URL_IMAGES}galeria4.jpg`,
 
-// ];
+];
 
     const dresscode:DressCodeProps = {
         mainTypo:`${MAIN_TYPO}`,
@@ -292,8 +298,8 @@ const XVDannaSophia  = () => {
             >
 
             <Cover 
-            bgImage={`${URL_IMAGES}portada.jpg`}
-            bgImage2={`${URL_IMAGES}portada.jpg`}
+            bgImage={`${URL_IMAGES}portada.jpeg`}
+            bgImage2={`${URL_IMAGES}portada.jpeg`}
                   weddingDate="05 Septiembre, 2026 "
                  subtitle="Mis XV años"
                   brideName="Danna Sophia"
@@ -338,7 +344,8 @@ const XVDannaSophia  = () => {
                         </Grid>
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                             <Fade direction="up" triggerOnce={true}>
-                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem", fontStyle: "italic!important", color: BG_MAIN }} >Frase</Typography>
+                            <Typography className={BODY_TYPO}  textAlign={"center"}  sx={{fontSize:"1rem", fontStyle: "italic!important", color: BG_MAIN }} >Al caer la noche en el cielo millones de estrellas podrás contar… cada una de ellas era un deseo que en mi corazón voy a guardar… Dicen que la vida es más bella si podemos cumplir lo que soñamos y mi sueño es que compartas conmigo la noche de mis 15 años.
+</Typography>
                             </Fade>		
                         </Grid>	
                         </Grid>
@@ -347,13 +354,8 @@ const XVDannaSophia  = () => {
                  </Grid>
            
               
-            {/* <ImageMiddle bgPosition="50%" height="90vh" bgImage={`${URL_IMAGES}enmedio1.jpg`} bgPositionY="50%"></ImageMiddle> */}
-            <Box
-                sx={{
-                    height: "90vh",
-                    backgroundColor:"lightgray",
-                }}
-                ></Box>
+            <ImageMiddle bgPosition="50%" height="40vh" bgImage={`${URL_IMAGES}enmedio2.jpg`} bgPositionY="50%"></ImageMiddle>
+           
         {/* <div style={{backgroundImage: `url("${URL_IMAGES}fondo4.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "20px 20px" }}> */}
 
                                 <Grid container justifyContent="center" padding={2}>
@@ -439,7 +441,8 @@ const XVDannaSophia  = () => {
                 fontSize="2rem"
                 marginTop="30px"
                 padding="1em"
-                alignItems="end"
+                alignItems="center"
+                bgPosition="30% 50%"
                 >  
             </CountDown>
             <Box
@@ -519,7 +522,20 @@ const XVDannaSophia  = () => {
                     ))}
                 </Box>
             </Box>
-
+            <MiniGallery
+                               images={[
+                                   `${URL_IMAGES}mg-1.jpg`,
+                                   `${URL_IMAGES}mg-2.jpg`,
+                                //    `${URL_IMAGES}mg-3.jpg`,
+                               ]}
+                                backgroundColor={BG_ACCENT}
+                               spacing={8}
+                               gap={6}
+                               mobileColumns={2}
+                               imageHeightDesktop={580}
+                               imageHeightMobile={"35vh"}
+                               />
+          
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`,backgroundPosition: "center",backgroundSize: "cover", padding: "50px 20px" }}>
             <Grid container spacing={2} padding={4} position="relative" >
                    
@@ -559,15 +575,8 @@ const XVDannaSophia  = () => {
  
 
             </div>
-            <Box
-                sx={{
-                height: "90vh",
-                backgroundColor:"lightgray",
-                }}
-            >
-
-            </Box>
-            {/* <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpg`} bgPositionY="50%"></ImageMiddle> */}
+            
+            <ImageMiddle bgPosition="50%" height="45vh" bgImage={`${URL_IMAGES}enmedio1.jpg`} bgPositionY="50%"></ImageMiddle>
                 
             <div style={{backgroundColor:BG_ACCENT, padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
             <Grid container spacing={2} padding={2} paddingBottom={0} >
@@ -638,14 +647,8 @@ const XVDannaSophia  = () => {
                             bgColor={""}                            />
                            
                         </Box>
-                        <Box 
-                            sx={{
-                                height: "60vh",
-                                backgroundColor:"lightgray",
-                            }}
-                        >
-                        </Box>
-                               {/* <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria1.jpg`} bgPositionY="50%"></ImageMiddle> */}
+                       
+                               <ImageMiddle bgPosition="50%" height="50vh" bgImage={`${URL_IMAGES}galeria1.jpg`} bgPositionY="50%"></ImageMiddle>
                         <Box
                             sx={{
                                 py: 10,
@@ -667,7 +670,7 @@ const XVDannaSophia  = () => {
 
             </Box>
             <div style={{height: "50px"}}></div>
-            {/* <Gallery photos={galleryImages}></Gallery> */}
+            <Gallery photos={galleryImages}></Gallery>
 
 
             

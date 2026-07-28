@@ -24,7 +24,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({
   imageHeightMobile = 260,
   enableAnimation = true,
 }) => {
-  if (!images || images.length !== 3) return null;
+
 
   return (
     <Box sx={{ backgroundColor, py: spacing }}>

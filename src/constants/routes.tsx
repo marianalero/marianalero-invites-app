@@ -75,7 +75,7 @@ import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
 import WeddingAnnaJuanAngel from "../pages/clientInvitations/WeddingAnnaJuanAngel";
 
 import WeddingAErikaEdwin from "../pages/clientInvitations/WeddingErikaEdwin";
-// import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
+import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
 
 
 interface RouteConfig {
@@ -164,9 +164,9 @@ const routes: RouteConfig[] = [
       {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>}, 
   {path:'/mariana-30', element: <Mariana30></Mariana30>},
   {path:'/boda-cowboy', element: <WeddingCowboy></WeddingCowboy>},
-  // {path:'/prev-xv', element: <XVDannaSophia></XVDannaSophia >},
+  {path:'/prev-ds-2', element: <XVDannaSophia></XVDannaSophia >},
   {path:'/prev-a-ja', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>},
-  {path:'/prev-ee', element:<WeddingAErikaEdwin></WeddingAErikaEdwin>}
+  {path:'/prev-ee-2', element:<WeddingAErikaEdwin></WeddingAErikaEdwin>}
 ];
 
 

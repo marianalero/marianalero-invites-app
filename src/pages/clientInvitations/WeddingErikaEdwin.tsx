@@ -360,7 +360,7 @@ const WeddingAErikaEdwin  = () => {
 
             <CoverInline 
                 ourWeddingStart={true}
-                weddingDate="9 de Octubre, 2026"
+                weddingDate="14 de Noviembre, 2026"
                 bgImage={`${URL_IMAGES}portada.jpeg`}
                 brideName="Erika" 
                 symbolr={"&"} 
@@ -546,7 +546,7 @@ const WeddingAErikaEdwin  = () => {
  
 
             </div>
-            <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpeg`} bgPositionY="30%"></ImageMiddle>
+            <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio3.jpeg`} bgPositionY="30%"></ImageMiddle>
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
             <Grid container spacing={2} padding={2} paddingBottom={0} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -629,10 +629,14 @@ const WeddingAErikaEdwin  = () => {
                             <Typography sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
                             {dayjs(new Date(2026,10,15,15,0,0)).format("hh:mm A")}
                             </Typography>
+                             <Typography sx={{color:timelineData.colorPrimary,fontSize:"18px"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
+                            {dayjs(new Date(2026,10,15,15,0,0)).format("DD MMMM")}
+                            </Typography>
                             </Fade>
+                            
                             <Fade direction="up" triggerOnce={true} >
-                            <Typography  sx={{color:timelineData.colorPrimary}} className={`${SECONDARY_TYPO}`}>Posboda </Typography>
-                              <Typography  sx={{color:timelineData.colorPrimary}} className={`${SECONDARY_TYPO}`}>Residencial del Mar Vista </Typography>
+                            <Typography variant="body1"  sx={{color:timelineData.colorPrimary}} className={`${SECONDARY_TYPO}`}>Posboda </Typography>
+                              <Typography variant="body1" sx={{color:timelineData.colorPrimary, fontSize:".8rem", fontStyle:"italic!important"}} className={`${BODY_TYPO}`}>Residencial del Mar Vista </Typography>
                             </Fade>
                         </TimelineContent>
                     </TimelineItem>
