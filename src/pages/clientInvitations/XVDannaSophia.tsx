@@ -45,7 +45,6 @@ const TEXT_PRIMARY = "#2E4368"; // Azul marino para títulos y texto importante
 const BUTTON_PRIMARY = "#2E4368"; // Azul marino
 
 // ✨ DETALLES
-const ACCENT_GOLD = "#C8A96B";    // Champagne dorado
 
 const SHADOW_COLOR = "rgba(34,56,92,.12)";
 
