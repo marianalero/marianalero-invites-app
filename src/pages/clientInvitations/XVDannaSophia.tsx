@@ -176,9 +176,12 @@ const galleryImages = [
     }
    
 const padrinos = [
-        "padrino 1",
-        "padrino 2",
-       
+        "Perla Quihuis",
+        "Juan Antonio Ortega",
+        "Nereyda Quihuis",
+        "Nora burciaga",
+        "Iridian Quihuis",
+        "Angelina Ramonet",
       ]
 
 const XVDannaSophia  = () => {
@@ -481,13 +484,22 @@ const XVDannaSophia  = () => {
                     Mis padrinos
                 </Typography>
                 <Box
+                                    component="img"
+                                    src={`${URL_IMAGES}flores/4.png`}
+                                    alt="Description"
+                                    width={100}
+                                   
+                                   ></Box>
+                <Box
+                
                     sx={{
                         maxWidth: 520,
                         mx: "auto",
+                        mt:2
                     }}
                 >
                     {padrinos.map((name, index) => (
-                        <Box key={name}>
+                        <Box key={index} mt={1}>
                             <Typography
                             className={`${SECONDARY_TYPO} to-upper`}
                                 sx={{
@@ -500,24 +512,7 @@ const XVDannaSophia  = () => {
                                 {name}
                             </Typography>
 
-                            {index < padrinos.length - 1 && (
-                                <Typography
-                                    sx={{
-                                        my: { xs: 2.2, md: 2.8 },
-                                        color: ACCENT_GOLD,
-                                        fontSize: "1rem",
-                                    }}
-                                >
-                                   <Box
-                                    component="img"
-                                    src={`${URL_IMAGES}flores/4.png`}
-                                    alt="Description"
-                                    height={50}
-                                   >
-
-                                   </Box>
-                                </Typography>
-                            )}
+                            
                         </Box>
                     ))}
                 </Box>

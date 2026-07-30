@@ -506,7 +506,7 @@ const WeddingAErikaEdwin  = () => {
                         secondarColor={TITLE_COLOR}
                         circleBgColor="white"
                         bgColor="transparent"
-                        
+                        fontSize="2rem"
                         > 
                         </CountDownSimple>
                     <div  style={{position:"absolute",top:"90%",left:"95%",transform:"translate(-50%, -50%)"}}>
