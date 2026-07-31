@@ -31,7 +31,7 @@ import MiniGallery from "../../components/MiniGallery/MiniGallery";
 import Gallery from "../../components/Gallery/Gallert";
 
 
-const INVITATION_ID = 9;
+const INVITATION_ID = 32;
 // 🎨 FONDOS
 const BG_MAIN = "#FAF8F4";      // Marfil
 const BG_SECTION = "#F3EEE8";   // Crema ligeramente más cálido
