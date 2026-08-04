@@ -34,7 +34,7 @@ import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 
-const INVITATION_ID = 9;
+const INVITATION_ID = 33;
 // 🎨 FONDOS
 const BG_MAIN = "#F7F4EF";      // Marfil cálido
 const BG_SECTION = "#EFE8DF";   // Arena suave

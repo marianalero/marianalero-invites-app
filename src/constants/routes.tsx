@@ -126,6 +126,8 @@ const routes: RouteConfig[] = [
   {path:'/boda-dania-sergio', element: <WeddingDaniaSergio></WeddingDaniaSergio>},
   {path:'/boda-brandon-alejandra', element: <WeddingBrandonAlejandra></WeddingBrandonAlejandra>},
   {path:'/boda-avielisse-oskar', element: <WeddingAvielisseOskar></WeddingAvielisseOskar>},
+  {path:'/boda-erika-edwin', element:<WeddingAErikaEdwin></WeddingAErikaEdwin>},
+  //Bautizo
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
   {path:'/xv-daniela-lizbeth', element: <XVDaniela></XVDaniela>},
@@ -146,7 +148,7 @@ const routes: RouteConfig[] = [
    {path:'/xv-briana-cristina', element: <XVBrianna></XVBrianna>},
    {path:'/xv-evany', element: <XVEvany></XVEvany>},
    {path:'/xv-danna-sophia', element: <XVDannaSophia></XVDannaSophia >},
-  //Bautizo
+   
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
    {path:'/bautizo-ivanna', element: <BauIvanna></BauIvanna>},
@@ -165,9 +167,9 @@ const routes: RouteConfig[] = [
       {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>}, 
   {path:'/mariana-30', element: <Mariana30></Mariana30>},
   {path:'/boda-cowboy', element: <WeddingCowboy></WeddingCowboy>},
-  {path:'/prev-ds-3', element: <XVDannaSophia></XVDannaSophia >},
+
   {path:'/prev-a-ja', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>},
-  {path:'/prev-ee-2', element:<WeddingAErikaEdwin></WeddingAErikaEdwin>}
+  
 ];
 
 
