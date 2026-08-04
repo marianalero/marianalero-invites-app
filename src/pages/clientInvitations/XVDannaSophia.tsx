@@ -444,7 +444,7 @@ const XVDannaSophia  = () => {
                 marginTop="30px"
                 padding="1em"
                 alignItems="center"
-                bgPosition="30% 50%"
+                bgPosition="30% 10%"
                 >  
             </CountDown>
             <Box
@@ -500,6 +500,7 @@ const XVDannaSophia  = () => {
                     {padrinos.map((name, index) => (
                         <Box key={index} mt={1}>
                             <Typography
+                            translate="no" 
                             className={`${SECONDARY_TYPO} to-upper`}
                                 sx={{
                                     
@@ -523,11 +524,12 @@ const XVDannaSophia  = () => {
                                 //    `${URL_IMAGES}mg-3.jpg`,
                                ]}
                                 backgroundColor={BG_ACCENT}
-                               spacing={8}
-                               gap={6}
+                               spacing={4}
+                               gap={4}
                                mobileColumns={2}
                                imageHeightDesktop={580}
                                imageHeightMobile={"35vh"}
+                               objectFit="contain"
                                />
           
             <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`,backgroundPosition: "center",backgroundSize: "cover", padding: "50px 20px" }}>

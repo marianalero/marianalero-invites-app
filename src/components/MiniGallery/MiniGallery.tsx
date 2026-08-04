@@ -11,6 +11,7 @@ interface MiniGalleryProps {
   imageHeightDesktop?: number;
   imageHeightMobile?: number | string;
   enableAnimation?: boolean;
+  objectFit?:string;
 }
 
 const MiniGallery: React.FC<MiniGalleryProps> = ({
@@ -23,6 +24,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({
   imageHeightDesktop = 560,
   imageHeightMobile = 260,
   enableAnimation = true,
+  objectFit = "cover"
 }) => {
 
 
@@ -34,7 +36,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({
             display: "grid",
             gridTemplateColumns: {
               xs: `repeat(${mobileColumns}, 1fr)`,
-              md: "repeat(3, 1fr)",
+              md: "repeat(${mobileColumns}, 1fr)",
             },
             gap: { xs: 2, md: gap },
           }}
@@ -71,7 +73,7 @@ const MiniGallery: React.FC<MiniGalleryProps> = ({
                 sx={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover",
+                  objectFit: objectFit ? objectFit : "cover",
                   transition: "transform 0.8s ease",
                   "&:hover": {
                     transform: "scale(1.03)",
