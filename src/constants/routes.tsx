@@ -18,7 +18,6 @@ import WeddingFerMario from "../pages/clientInvitations/WeddingFernandaMario";
 import WeddingFredaJuanColor from "../pages/clientInvitations/WeddingFredaJuanColor";
 import WeddingGlendaJose from "../pages/clientInvitations/WeddingGlendaJose";
 import WeddingKarolMario from "../pages/clientInvitations/WeddingKarolMario";
-import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import WeddingMariluMichel from "../pages/clientInvitations/WeddingMaríaLourdes";
 import WeddingRocioMariana from "../pages/clientInvitations/WeddingRocioMariana";
 import WeddingSphiaLuis from "../pages/clientInvitations/WeddingSphiaLuis";
@@ -38,7 +37,6 @@ import XVRenataIsabela from "../pages/clientInvitations/XVRenataIsabela";
 import XVValeria from "../pages/clientInvitations/XVValeria";
 import XVVictoria from "../pages/clientInvitations/XVVictoria";
 import CreacionesPage from "../pages/creations/creations";
-// import WeddingKorinaDaniel from "../pages/clientInvitations/WeddingKorinaDaniel";
 import Dashboard from "../pages/dashboard/dashboard";
 import DemosPage from "../pages/demos/DemosPage2";
 import BabyShower from "../pages/demos/examples/BabyShower";
@@ -71,11 +69,11 @@ import WeddingAvielisseOskar from "../pages/clientInvitations/WeddingAvielisseOs
 import WeddingBrandonAlejandra from "../pages/clientInvitations/WeddingBrandonAlejandra";
 import XVEvany from "../pages/clientInvitations/XVEvany";
 import Mariana30 from "../pages/clientInvitations/Mariana30";
-import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
-import WeddingAnnaJuanAngel from "../pages/clientInvitations/WeddingAnnaJuanAngel";
+
 
 import WeddingAErikaEdwin from "../pages/clientInvitations/WeddingErikaEdwin";
 import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
+import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
 
 
 interface RouteConfig {
@@ -96,6 +94,7 @@ const routes: RouteConfig[] = [
     {path:"/demos/bw-demo", element: <WeddingBWDemo></WeddingBWDemo>},
     {path:'/demos/xv-alejandra', element: <XVDemoAlejandra></XVDemoAlejandra>},
     {path:'/demos/xv-renata', element: <XVRenataDemo></XVRenataDemo>},
+    {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>}, 
     {path:'/terminos', element: <TermsConditions></TermsConditions>},
     {path:'/privacidad', element: <PrivacyPolicy></PrivacyPolicy>},
     {path:'/faq', element: <FaqPage></FaqPage>},
@@ -127,6 +126,8 @@ const routes: RouteConfig[] = [
   {path:'/boda-brandon-alejandra', element: <WeddingBrandonAlejandra></WeddingBrandonAlejandra>},
   {path:'/boda-avielisse-oskar', element: <WeddingAvielisseOskar></WeddingAvielisseOskar>},
   {path:'/boda-erika-edwin', element:<WeddingAErikaEdwin></WeddingAErikaEdwin>},
+    {path:'/boda-cowboy', element: <WeddingCowboy></WeddingCowboy>},
+ 
   //Bautizo
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
@@ -162,13 +163,13 @@ const routes: RouteConfig[] = [
    {path:'/pos-tdr', element: <PosataTDR></PosataTDR>},
    {path:'/baby-shower-jose-alejandro', element: <BabyShowerJoseAlejandro></BabyShowerJoseAlejandro>},
    {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
+   {path:'/mariana-30', element: <Mariana30></Mariana30>},
   //Borradores
-  {path:'/prev-kd-3', element: <WeddingKorinaDaniel></WeddingKorinaDaniel>},
-      {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>}, 
-  {path:'/mariana-30', element: <Mariana30></Mariana30>},
-  {path:'/boda-cowboy', element: <WeddingCowboy></WeddingCowboy>},
 
-  {path:'/prev-a-ja', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>},
+
+
+
+
   
 ];
 
