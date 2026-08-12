@@ -1,5 +1,4 @@
-import { useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+
 import { GiftListProps } from "../../models/component/giftList";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import { URL_REPO } from "../../config";
@@ -974,7 +973,7 @@ const isSmallScreen = useMediaQuery('(max-width:600px)');
             </Grid>	
       </Grid>
        </div>
-       <Box bgcolor={BG_SECTION} padding={4}>
+       <Box bgcolor={BG_ACCENT} padding={4}>
                 <Box bgcolor={BG_MAIN} 
                 sx={{
                    backgroundImage: isSmallScreen? `URL(${URL_REPO}demos/marfil-ver.png)` : `URL(${URL_REPO}demos/marfil-hor.png)`,
