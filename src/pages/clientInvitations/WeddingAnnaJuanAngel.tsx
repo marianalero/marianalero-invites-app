@@ -2,7 +2,8 @@
 import { GiftListProps } from "../../models/component/giftList";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import { URL_REPO } from "../../config";
-import { Box, Divider, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Box, CircularProgress, Divider, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
+import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -49,6 +50,18 @@ const MAIN_TYPO = "edwardian";
 const SECONDARY_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "manrope-400";
 const URL_IMAGES = `${URL_REPO}boda/boda-ana-juan-angel/`;
+
+const INVITATION_IMAGES = [
+    `${URL_IMAGES}portada.png`,
+    `${URL_IMAGES}portada-horz.png`,
+    `${URL_IMAGES}monograma1.png`,
+    `${URL_IMAGES}sobre.png`,
+    `${URL_IMAGES}sello .png`,
+    `${URL_IMAGES}fondo1.png`,
+    `${URL_IMAGES}fondo2.png`,
+    `${URL_IMAGES}jardin.jpg`,
+    `${URL_IMAGES}dresscode.png`,
+];
 
 const eventCards: EventCardProps[] = [
     {
@@ -154,8 +167,26 @@ const timelineData: CustomizedTimelineProps = {
 };
 
 const WeddingAnnaJuanAngel  = () => { 
-    
-const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const [isLoading, setIsLoading] = useState(true);
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
+
+    useEffect(() => {
+        let isMounted = true;
+        const preloadImage = (src: string) => new Promise<void>((resolve) => {
+            const image = new Image();
+            image.onload = () => resolve();
+            image.onerror = () => resolve();
+            image.src = src;
+        });
+
+        Promise.all(INVITATION_IMAGES.map(preloadImage)).finally(() => {
+            if (isMounted) setIsLoading(false);
+        });
+
+        return () => {
+            isMounted = false;
+        };
+    }, []);
 
 
     const handleConfirm =async ( )=> {
@@ -164,6 +195,28 @@ const isSmallScreen = useMediaQuery('(max-width:600px)');
             window.open(`https://wa.me/+526629366579?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20boda%20de%20Anna y Juan Angel`, '_blank');
 
         
+    }
+
+    if (isLoading) {
+        return (
+            <Box
+                sx={{
+                    minHeight: "100svh",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 2,
+                    backgroundColor: BG_MAIN,
+                    color: TEXT_PRIMARY,
+                }}
+            >
+                <CircularProgress size={34} thickness={3} sx={{ color: TEXT_PRIMARY }} />
+                <Typography className={SECONDARY_TYPO} sx={{ fontSize: "1.25rem", letterSpacing: "0.08em" }}>
+                    Cargando invitación…
+                </Typography>
+            </Box>
+        );
     }
 
     return (
@@ -395,7 +448,7 @@ const isSmallScreen = useMediaQuery('(max-width:600px)');
               position: "absolute",
               zIndex: 3,
 
-              width: { xs: "68%", sm: "70%", md: "65%" },
+              width: { xs: "75%", sm: "80%", md: "85%" },
 
               left: { xs: "25vh", md: "45vh" },
               top: { xs: "20vh", md: "10vh" },
@@ -735,7 +788,7 @@ const isSmallScreen = useMediaQuery('(max-width:600px)');
           </Box>
 
           {/* SELLO */}
-          <Box
+          {/* <Box
             component="img"
             src={`${URL_IMAGES}sello .png`}
             alt=""
@@ -754,7 +807,7 @@ const isSmallScreen = useMediaQuery('(max-width:600px)');
                 drop-shadow(0 7px 8px rgba(60, 50, 40, 0.18))
               `,
             }}
-          />
+          /> */}
         </Box>
       </Stack>
     </Box>
