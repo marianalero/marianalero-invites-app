@@ -418,7 +418,7 @@ const WeddingAnnaJuanAngel  = () => {
             // Altura proporcional a la composición
             // En móvil la tarjeta se extiende por debajo del sobre; esta altura
             // evita que el contenedor de la escena la recorte.
-            height: { xs: 750, sm: 700, md: 720 },
+            height: { xs: 650, sm: 700, md: 720 },
           }}
         >
           {/* SOBRE */}
@@ -450,8 +450,8 @@ const WeddingAnnaJuanAngel  = () => {
 
               width: { xs: "75%", sm: "80%", md: "85%" },
 
-              left: { xs: "25vh", md: "45vh" },
-              top: { xs: "20vh", md: "10vh" },
+              left: { xs: "50%", md: "50%" },
+              top: { xs: "10vh", md: "10vh" },
 
               transform: "translateX(-50%)",
 
@@ -535,9 +535,9 @@ const WeddingAnnaJuanAngel  = () => {
                 
                   fontStyle: "italic",
                   fontSize: {
-                    xs: "0.72rem",
-                    sm: "0.78rem",
-                    md: "0.86rem",
+                    xs: "0.75rem",
+                    sm: "0.83rem",
+                    md: "0.91rem",
                   },
                   lineHeight: 1.45,
                   color: TEXT_DARK,
@@ -557,9 +557,9 @@ const WeddingAnnaJuanAngel  = () => {
                   mb: 1.5,
                  
                   fontSize: {
-                    xs: "0.46rem",
-                    sm: "0.52rem",
-                    md: "0.58rem",
+                     xs: "0.6rem",
+                    sm: "0.65rem",
+                    md: "0.72rem",
                   },
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
@@ -591,15 +591,15 @@ const WeddingAnnaJuanAngel  = () => {
                     sx={{
                       
                       fontSize: {
-                        xs: "0.52rem",
-                        sm: "0.6rem",
-                        md: "0.68rem",
+                        xs: "0.58rem",
+                        sm: "0.66rem",
+                        md: "0.73rem",
                       },
                       lineHeight: 1.25,
                       color: TEXT_DARK,
                     }}
                   >
-                    Juan Miguel Córdova Limón †
+                    María del Carmen Moras De Córdova
                   </Typography>
 
                   <Typography
@@ -607,15 +607,15 @@ const WeddingAnnaJuanAngel  = () => {
                     sx={{
                       
                       fontSize: {
-                        xs: "0.48rem",
-                        sm: "0.56rem",
-                        md: "0.63rem",
+                         xs: "0.58rem",
+                        sm: "0.66rem",
+                        md: "0.73rem",
                       },
                       lineHeight: 1.25,
-                      color: TEXT_PRIMARY,
+                      color: TEXT_DARK,
                     }}
                   >
-                    María del Carmen Moras de Córdova
+                    Juan Miguel Córdova Limón †
                   </Typography>
                 </Stack>
 
@@ -632,15 +632,15 @@ const WeddingAnnaJuanAngel  = () => {
                     sx={{
                   
                       fontSize: {
-                        xs: "0.52rem",
-                        sm: "0.6rem",
-                        md: "0.68rem",
+                        xs: "0.58rem",
+                        sm: "0.66rem",
+                        md: "0.73rem",
                       },
                       lineHeight: 1.25,
                       color: TEXT_DARK,
                     }}
                   >
-                    Alejandro Córdova Salcido
+                    Guadalupe Alfonsina Salcido De Córdova
                   </Typography>
 
                   <Typography
@@ -648,15 +648,15 @@ const WeddingAnnaJuanAngel  = () => {
                     sx={{
                     
                       fontSize: {
-                        xs: "0.48rem",
-                        sm: "0.56rem",
-                        md: "0.63rem",
+                        xs: "0.58rem",
+                        sm: "0.66rem",
+                        md: "0.73rem",
                       },
                       lineHeight: 1.25,
-                      color: TEXT_PRIMARY,
+                      color: TEXT_DARK,
                     }}
                   >
-                    Guadalupe Alfonsina Salcido de Córdova
+                    Alejandro Córdova Salcido
                   </Typography>
                 </Stack>
               </Box>
@@ -668,9 +668,9 @@ const WeddingAnnaJuanAngel  = () => {
                   mt: { xs: 2.5, md: 3.5 },
                   
                   fontSize: {
-                    xs: "0.5rem",
-                    sm: "0.55rem",
-                    md: "0.62rem",
+                    xs: "0.6rem",
+                    sm: "0.65rem",
+                    md: "0.72rem",
                   },
                   lineHeight: 1.5,
                   letterSpacing: "0.08em",
@@ -698,9 +698,9 @@ const WeddingAnnaJuanAngel  = () => {
     sx={{
   
       fontSize: {
-        xs: "0.78rem",
-        sm: "0.86rem",
-        md: "0.95rem",
+        xs: "0.9rem",
+        sm: "0.96rem",
+        md: "0.1rem",
       },
       lineHeight: 1.2,
       textAlign: "center",
@@ -744,9 +744,9 @@ const WeddingAnnaJuanAngel  = () => {
         sx={{
 
           fontSize: {
-            xs: "0.62rem",
-            sm: "0.68rem",
-            md: "0.72rem",
+            xs: "0.72rem",
+            sm: "0.78rem",
+            md: "0.82rem",
           },
           lineHeight: 1.35,
           whiteSpace: "pre-line",
