@@ -948,7 +948,7 @@ const WeddingAnnaJuanAngel  = () => {
                 md: "0.8rem",
               },
               lineHeight: 1.65,
-              color: TEXT_PRIMARY,
+              
               maxWidth: 330,
             }}
           >
@@ -1089,11 +1089,11 @@ const WeddingAnnaJuanAngel  = () => {
 
                   {/* Texto */}
                   <Typography
-                      className={SECONDARY_TYPO}
+                      className={BODY_TYPO}
                       sx={{
-                          color: TEXT_DARK,
+                          
                           fontSize: {
-                              xs: "1.15rem",
+                              xs: "1rem",
                               md: "1.3rem",
                           },
                           lineHeight: 1.8,
@@ -1151,7 +1151,7 @@ const WeddingAnnaJuanAngel  = () => {
                       <Typography
                           className={SECONDARY_TYPO}
                           sx={{
-                              color: TEXT_DARK,
+                              
                               fontSize: "1rem",
                               fontStyle: "italic",
                           }}
