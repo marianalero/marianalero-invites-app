@@ -50,3 +50,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Edwardian Script ITC";
+  src: local('Edwardian Script ITC'), url('../assets/fonts/edwardianscriptitc.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

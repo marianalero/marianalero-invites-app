@@ -309,6 +309,15 @@
   font-weight: 400!important;
   font-style: normal!important;
 }
+.edwardian{
+  font-family: "Edwardian Script ITC", cursive !important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+
+.italic{
+  font-style: italic!important;
+}
 .text-rose-gold{
   background-image: linear-gradient(
  to right,

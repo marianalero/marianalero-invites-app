@@ -74,6 +74,7 @@ import Mariana30 from "../pages/clientInvitations/Mariana30";
 import WeddingAErikaEdwin from "../pages/clientInvitations/WeddingErikaEdwin";
 import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
 import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
+import WeddingAnnaJuanAngel from "../pages/clientInvitations/WeddingAnnaJuanAngel";
 
 
 interface RouteConfig {
@@ -127,7 +128,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-avielisse-oskar', element: <WeddingAvielisseOskar></WeddingAvielisseOskar>},
   {path:'/boda-erika-edwin', element:<WeddingAErikaEdwin></WeddingAErikaEdwin>},
     {path:'/boda-cowboy', element: <WeddingCowboy></WeddingCowboy>},
- 
+    {path:'/boda-ana-juan-angel', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>},
   //Bautizo
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
@@ -149,7 +150,7 @@ const routes: RouteConfig[] = [
    {path:'/xv-briana-cristina', element: <XVBrianna></XVBrianna>},
    {path:'/xv-evany', element: <XVEvany></XVEvany>},
    {path:'/xv-danna-sophia', element: <XVDannaSophia></XVDannaSophia >},
-   
+
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
    {path:'/bautizo-ivanna', element: <BauIvanna></BauIvanna>},
@@ -165,7 +166,7 @@ const routes: RouteConfig[] = [
    {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
    {path:'/mariana-30', element: <Mariana30></Mariana30>},
   //Borradores
-
+  {path:'/prev-aja', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>}
 
 
 
