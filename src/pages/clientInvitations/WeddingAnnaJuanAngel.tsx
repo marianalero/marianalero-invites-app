@@ -1271,8 +1271,8 @@ const WeddingAnnaJuanAngel  = () => {
                         component="img"
                         src={`${URL_IMAGES}santander.svg`}
                         sx={{
-                            height: 28,
-                            objectFit: "contain",
+                            height: 40,
+                            
                         }}
                     />
 
