@@ -268,7 +268,8 @@ const WeddingAnnaJuanAngel  = () => {
                       sx={{
                         background:" rgba(237, 215, 184,.18)",
 backdropFilter: "blur(12px)",
-border: "1px solid rgba(255,255,255,.25)"
+border: "1px solid rgba(255,255,255,.25)",
+width: isSmallScreen ? "80vw" : "70vw",
                       }}
                       >
                         <Typography
@@ -284,7 +285,7 @@ border: "1px solid rgba(255,255,255,.25)"
                               },
                               lineHeight: 1.45,
                               color: TEXT_DARK,
-                              maxWidth: 340,
+                              
                             }}
                           >
                               “Dios nos ha concedido el privilegio de conocernos<br></br>
@@ -421,41 +422,7 @@ border: "1px solid rgba(255,255,255,.25)"
           alignItems: "center",
         }}
       >
-        {/* Encabezado de sección */}
-        {/* <Stack
-          spacing={0.8}
-          alignItems="center"
-          sx={{
-            mb: { xs: 5, md: 7 },
-            textAlign: "center",
-          }}
-        >
-          <Typography
-            sx={{
-              fontFamily: BODY_TYPO,
-              fontSize: { xs: "0.58rem", md: "0.65rem" },
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: TEXT_PRIMARY,
-            }}
-          >
-            Nuestra historia
-          </Typography>
-
-          <Typography
-            sx={{
-              fontFamily: SECONDARY_TYPO,
-              fontSize: { xs: "2.1rem", md: "2.7rem" },
-              lineHeight: 1,
-              color: TEXT_PRIMARY,
-              fontWeight: 400,
-            }}
-          >
-            La invitación
-          </Typography>
-        </Stack> */}
-
-        {/* ESCENA DEL SOBRE */}
+       
         <Box
           sx={{
             position: "relative",
@@ -465,7 +432,11 @@ border: "1px solid rgba(255,255,255,.25)"
             // Altura proporcional a la composición
             // En móvil la tarjeta se extiende por debajo del sobre; esta altura
             // evita que el contenedor de la escena la recorte.
-            height: { xs: 650, sm: 700, md: 720 },
+            height: { 
+               xs: 460,
+    sm: 560,
+    md: 620,
+             },
           }}
         >
           {/* SOBRE */}
@@ -495,12 +466,24 @@ border: "1px solid rgba(255,255,255,.25)"
               position: "absolute",
               zIndex: 3,
 
-              width: { xs: "75%", sm: "80%", md: "85%" },
+              width:{
+    xs:"78%",
+    sm:"82%",
+    md:"84%"
+},
 
               left: { xs: "50%", md: "50%" },
               top: { xs: "10vh", md: "10vh" },
 
               transform: "translateX(-50%)",
+
+              // El papel deja de ser una imagen con proporción fija: el fondo
+              // acompaña la altura real del contenido de la tarjeta.
+              backgroundColor: BG_MAIN,
+              backgroundImage: `url(${URL_REPO}demos/marfil-ver.png)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
 
               filter: `
                 drop-shadow(
@@ -509,25 +492,10 @@ border: "1px solid rgba(255,255,255,.25)"
               `,
             }}
           >
-            {/* Imagen del papel */}
-            <Box
-              component="img"
-              src={`${URL_REPO}demos/marfil-ver.png`}
-              alt=""
-              sx={{
-                display: "block",
-                width: "100%",
-                height: "auto",
-              }}
-            />
-
             {/* CONTENIDO DE LA TARJETA */}
             <Stack
               sx={{
-                position: "absolute",
-                inset: 0,
-
-                px: { xs: 1, sm: 4, md: 5 },
+                px: { xs: 2, sm: 4, md: 5 },
                 py: { xs: 1, sm: 4, md: 5 },
 
                 alignItems: "center",
@@ -603,7 +571,7 @@ border: "1px solid rgba(255,255,255,.25)"
                 sx={{
                   width: "100%",
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
                   columnGap: { xs: 1, md: 2 },
                 }}
               >
@@ -614,6 +582,7 @@ border: "1px solid rgba(255,255,255,.25)"
                   sx={{
                     pr: { xs: 0.3, md: 1.5 },
                     borderRight: `1px solid ${CHAMPAGNE}`,
+                    minWidth: 0,
                   }}
                 >
                   <Typography
@@ -624,7 +593,7 @@ border: "1px solid rgba(255,255,255,.25)"
                       lineHeight: 1.25,
                       color: TEXT_DARK,
                       whiteSpace:"nowrap",
-                      fontSize: "clamp(8px, 1.9vw, .95rem)",
+                      fontSize: "clamp(8px, 1.3vw, .78rem)",
                     }}
                   >
                     María del Carmen Moras De Córdova
@@ -634,7 +603,7 @@ border: "1px solid rgba(255,255,255,.25)"
                    className={SECONDARY_TYPO}
                     sx={{
                       
-                      fontSize: "clamp(8px, 1.9vw, .95rem)",
+                      fontSize: "clamp(8px, 1.3vw, .78rem)",
                       lineHeight: 1.25,
                       color: TEXT_DARK,
                       whiteSpace:"nowrap"
@@ -650,13 +619,14 @@ border: "1px solid rgba(255,255,255,.25)"
                   alignItems="center"
                   sx={{
                     pl: { xs: 0.8, md: 1.5 },
+                    minWidth: 0,
                   }}
                 >
                   <Typography
                    className={SECONDARY_TYPO}
                     sx={{
                   
-                                            fontSize: "clamp(8px, 1.9vw, .95rem)",
+                      fontSize: "clamp(8px, 1.3vw, .78rem)",
 
                       lineHeight: 1.25,
                       color: TEXT_DARK,
@@ -670,7 +640,7 @@ border: "1px solid rgba(255,255,255,.25)"
                    className={SECONDARY_TYPO}
                     sx={{
                     
-                                            fontSize: "clamp(8px, 1.9vw, .95rem)",
+                      fontSize: "clamp(8px, 1.3vw, .78rem)",
 
                       lineHeight: 1.25,
                       color: TEXT_DARK,
