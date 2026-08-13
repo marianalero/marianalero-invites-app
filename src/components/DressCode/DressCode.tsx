@@ -25,10 +25,11 @@ export interface DressCodeProps
 const DressCode  = (props:DressCodeProps) => 
 {
     return(
-        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4}>
+        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={2}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                 <Fade direction="up" triggerOnce={true}>
-                <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>{t("dresscode.title")}</Typography>
+                <Typography  variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem",display: "inline-block",overflow: "visible",
+                        lineHeight: 1.15,}}>{t("dresscode.title")}</Typography>
                 <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={props.fontWeight ? props.fontWeight:400}>{props.title}</Typography>
                 <Typography className={props.bodyTypo} variant='body1' textAlign={"center"}>{props.description}</Typography>
                 </Fade>

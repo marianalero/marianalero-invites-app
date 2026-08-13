@@ -149,7 +149,7 @@ const timelineData: CustomizedTimelineProps = {
             icon: `${URL_IMAGES}iconos/10.png`,
         },
         {
-            eventName: "Vals Novios",
+            eventName: "Vals Novio",
             date: new Date(2026, 9, 9, 17, 30, 0),
             icon: `${URL_IMAGES}iconos/11.png`,
         },
@@ -262,60 +262,13 @@ const WeddingAnnaJuanAngel  = () => {
                     }}
                 />
                    </Fade>
-                    <Fade>
-                      <Box
-                      p={2}
-                      sx={{
-                        background:" rgba(237, 215, 184,.18)",
-backdropFilter: "blur(12px)",
-border: "1px solid rgba(255,255,255,.25)"
-                      }}
-                      >
-                        <Typography
-                          className={SECONDARY_TYPO}
-                          align="center"
-                            sx={{
-                            
-                              fontStyle: "italic!important",
-                              fontSize: {
-                                xs: "1rem",
-                                sm: "1.5rem",
-                                md: "2rem",
-                              },
-                              lineHeight: 1.45,
-                              color: TEXT_DARK,
-                              maxWidth: 340,
-                            }}
-                          >
-                              “Dios nos ha concedido el privilegio de conocernos<br></br>
-                               y con la
-                              bendición de nuestras familias,<br></br> hoy queremos compartir con
-                              ustedes<br></br> la alegría de nuestra unión”
-                          </Typography>
-                      </Box>
-                    </Fade>
+            
                     <Box>
                         <Fade direction="up" triggerOnce={true}>
                           
 
             
-                    <Typography 
-                      
-                      mt={3}  
-                      paddingX={1} 
-                      fontSize={"2.8rem"} 
-                      textAlign={"center"} 
-                      sx={{
-                        color:TITLE_COLOR,
-                        whiteSpace: "nowrap",
-                        display: "inline-block",
-                        overflow: "visible",
-                        lineHeight: 1.15,
-                      }} 
-                      className={MAIN_TYPO} 
-                    >
-                      28  Noviembre, 2026
-                      </Typography>
+                    <Typography mt={3}  paddingX={1} fontSize={"3rem"} textAlign={"center"} sx={{color:TITLE_COLOR}} className={MAIN_TYPO} >28  Noviembre, 2026</Typography>
            
 
                    
@@ -527,8 +480,8 @@ border: "1px solid rgba(255,255,255,.25)"
                 position: "absolute",
                 inset: 0,
 
-                px: { xs: 1, sm: 4, md: 5 },
-                py: { xs: 1, sm: 4, md: 5 },
+                px: { xs: 3, sm: 4, md: 5 },
+                py: { xs: 3, sm: 4, md: 5 },
 
                 alignItems: "center",
                 textAlign: "center",
@@ -576,13 +529,31 @@ border: "1px solid rgba(255,255,255,.25)"
               />
 
               {/* FRASE */}
-              
+              <Typography
+               className={SECONDARY_TYPO}
+                sx={{
+                
+                  fontStyle: "italic",
+                  fontSize: {
+                    xs: "0.75rem",
+                    sm: "0.83rem",
+                    md: "0.91rem",
+                  },
+                  lineHeight: 1.45,
+                  color: TEXT_DARK,
+                  maxWidth: 340,
+                }}
+              >
+                “Dios nos ha concedido el privilegio de conocernos y con la
+                bendición de nuestras familias, hoy queremos compartir con
+                ustedes la alegría de nuestra unión”
+              </Typography>
 
               {/* PADRES */}
               <Typography
                 className={BODY_TYPO}
                 sx={{
-                  
+                  mt: { xs: 2.5, md: 3.5 },
                   mb: 1.5,
                  
                   fontSize: {
@@ -593,7 +564,6 @@ border: "1px solid rgba(255,255,255,.25)"
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   color: TEXT_PRIMARY,
-                  whiteSpace:"nowrap"
                 }}
               >
                 En compañía de nuestros padres:
@@ -609,10 +579,10 @@ border: "1px solid rgba(255,255,255,.25)"
               >
                 {/* Familia 1 */}
                 <Stack
-                  spacing={0.1}
+                  spacing={0.25}
                   alignItems="center"
                   sx={{
-                    pr: { xs: 0.3, md: 1.5 },
+                    pr: { xs: 0.8, md: 1.5 },
                     borderRight: `1px solid ${CHAMPAGNE}`,
                   }}
                 >
@@ -620,11 +590,13 @@ border: "1px solid rgba(255,255,255,.25)"
                    className={SECONDARY_TYPO}
                     sx={{
                       
-                      
+                      fontSize: {
+                        xs: "0.58rem",
+                        sm: "0.66rem",
+                        md: "0.73rem",
+                      },
                       lineHeight: 1.25,
                       color: TEXT_DARK,
-                      whiteSpace:"nowrap",
-                      fontSize: "clamp(8px, 1.9vw, .95rem)",
                     }}
                   >
                     María del Carmen Moras De Córdova
@@ -634,10 +606,13 @@ border: "1px solid rgba(255,255,255,.25)"
                    className={SECONDARY_TYPO}
                     sx={{
                       
-                      fontSize: "clamp(8px, 1.9vw, .95rem)",
+                      fontSize: {
+                         xs: "0.58rem",
+                        sm: "0.66rem",
+                        md: "0.73rem",
+                      },
                       lineHeight: 1.25,
                       color: TEXT_DARK,
-                      whiteSpace:"nowrap"
                     }}
                   >
                     Juan Miguel Córdova Limón †
@@ -656,25 +631,29 @@ border: "1px solid rgba(255,255,255,.25)"
                    className={SECONDARY_TYPO}
                     sx={{
                   
-                                            fontSize: "clamp(8px, 1.9vw, .95rem)",
-
+                      fontSize: {
+                        xs: "0.58rem",
+                        sm: "0.66rem",
+                        md: "0.73rem",
+                      },
                       lineHeight: 1.25,
                       color: TEXT_DARK,
-                      whiteSpace:"nowrap"
                     }}
                   >
-                    Gpe. Alfonsina Salcido De Córdova
+                    Guadalupe Alfonsina Salcido De Córdova
                   </Typography>
 
                   <Typography
                    className={SECONDARY_TYPO}
                     sx={{
                     
-                                            fontSize: "clamp(8px, 1.9vw, .95rem)",
-
+                      fontSize: {
+                        xs: "0.58rem",
+                        sm: "0.66rem",
+                        md: "0.73rem",
+                      },
                       lineHeight: 1.25,
                       color: TEXT_DARK,
-                      whiteSpace:"nowrap"
                     }}
                   >
                     Alejandro Córdova Salcido
@@ -698,10 +677,9 @@ border: "1px solid rgba(255,255,255,.25)"
                   textTransform: "uppercase",
                   color: TEXT_PRIMARY,
                   maxWidth: 300,
-                  whiteSpace:"nowrap"
                 }}
               >
-                Tenemos el honor de invitarlos a la<br></br> celebración de nuestro
+                Tenemos el honor de invitarlos a la celebración de nuestro
                 matrimonio el día
               </Typography>
 
@@ -1003,7 +981,7 @@ border: "1px solid rgba(255,255,255,.25)"
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
-              <Typography  style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2.5rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>Itinerario</Typography>
+              <Typography  style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2.5rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>Itineraro</Typography>
             </Fade>
             </Grid>	
            
@@ -1031,12 +1009,12 @@ border: "1px solid rgba(255,255,255,.25)"
                         </TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
-                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"1rem"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
+                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
                             {dayjs(item.date).format("hh:mm A")}
                             </Typography>
                             </Fade>
                             <Fade direction="up" triggerOnce={true} >
-                            <Typography  sx={{color:timelineData.colorPrimary,fontSize:"1rem",whiteSpace:"nowrap"}} className={`${SECONDARY_TYPO}`}>{item.eventName} </Typography>
+                            <Typography  sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${SECONDARY_TYPO}`}>{item.eventName} </Typography>
                             </Fade>
                         </TimelineContent>
                     </TimelineItem>
@@ -1098,7 +1076,7 @@ border: "1px solid rgba(255,255,255,.25)"
                       sx={{
                           color: TEXT_PRIMARY,
                           fontSize: {
-                              xs: "2.5rem",
+                              xs: "2.8rem",
                               md: "3.3rem",
                           },
                           lineHeight: .9,
@@ -1122,7 +1100,7 @@ border: "1px solid rgba(255,255,255,.25)"
                           maxWidth: 360,
                       }}
                   >
-                      Esperamos contar con ustedes para celebrar este día tan especial, por lo que agradeceremos
+                      Esperamos contar con ustedes para celebrar este día tan especial,por lo que agradeceremos
                       <br />
                      
                      
@@ -1230,37 +1208,45 @@ border: "1px solid rgba(255,255,255,.25)"
             sx={{
                 color: giftListData.textColor,
                 textAlign: "center",
-                
+                fontSize: giftListData.fontSize,
                 lineHeight: 1.9,
                 mb: 3,
-                            whiteSpace: "nowrap",
-                            fontSize:".8rem",
             }}
         >
-            Para nosotros lo mas importante es su presencia,<br></br> 
-            pero si deseas hacernos un obsequio tendremos <br></br> 
-            un buzón de sobres el día del evento
-                
+            {giftListData.mainPhrase}
         </Typography>
 
         {/* Sobre */}
 
-        
+        {giftListData.showEnvelope && (
+            <Typography
+                className={BODY_TYPO}
+                sx={{
+                    color: giftListData.textColor,
+                    textAlign: "center",
+                    lineHeight: 1.9,
+                    mb: 4,
+                }}
+            >
+                Tendremos un buzón de sobres el día
+                <br />
+                del evento,
+                
+            </Typography>
+        )}
 
         {/* Segunda frase */}
 
         <Typography
             className={BODY_TYPO}
             sx={{
-              fontSize:".8rem",
                 color: giftListData.textColor,
                 textAlign: "center",
                 lineHeight: 1.9,
                 mb: 5,
-                whiteSpace:"nowrap"
             }}
         >
-           O bien, puedes hacer una transferencia<br></br> a nuestra cuenta bancaria
+            {giftListData.secondPhrase}
         </Typography>
 
         {/* Tarjeta bancaria */}
@@ -1305,13 +1291,11 @@ border: "1px solid rgba(255,255,255,.25)"
                         className={SECONDARY_TYPO}
                         sx={{
                             fontSize: {
-                              xs: "1.65rem",
-                              sm: "1.9rem",
+                                xs: "2rem",
+                                md: "2.2rem",
                             },
-                            letterSpacing: "0.04em",
-                            whiteSpace: "nowrap",
                             color: TEXT_DARK,
-                            // letterSpacing: ".04em",
+                            letterSpacing: ".04em",
                             textAlign: "center",
                             lineHeight: 1.1,
                         }}
@@ -1329,7 +1313,7 @@ border: "1px solid rgba(255,255,255,.25)"
                         }}
                     >
                         Juan Angel Cordova Salcido<br></br>
-                        Anna Cordova Moras
+                        Anna Cordoca Moras
                     </Typography>
 
                     <CustomButton
