@@ -166,7 +166,7 @@ const routes: RouteConfig[] = [
    {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
    {path:'/mariana-30', element: <Mariana30></Mariana30>},
   //Borradores
-  {path:'/prev-aja-3', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>}
+  {path:'/prev-aja-4', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>}
 
 
 

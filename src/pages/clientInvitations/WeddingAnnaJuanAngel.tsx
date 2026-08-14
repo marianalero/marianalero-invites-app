@@ -172,19 +172,39 @@ const WeddingAnnaJuanAngel  = () => {
 
     useEffect(() => {
         let isMounted = true;
+        let hasFinishedLoading = false;
+
+        const finishLoading = () => {
+            if (isMounted && !hasFinishedLoading) {
+                hasFinishedLoading = true;
+                setIsLoading(false);
+            }
+        };
+
         const preloadImage = (src: string) => new Promise<void>((resolve) => {
             const image = new Image();
-            image.onload = () => resolve();
-            image.onerror = () => resolve();
+            let hasSettled = false;
+            const finish = () => {
+                if (!hasSettled) {
+                    hasSettled = true;
+                    window.clearTimeout(imageTimeout);
+                    resolve();
+                }
+            };
+            // En datos móviles una imagen puede quedar pendiente sin emitir error.
+            // Nunca permitimos que una sola descarga mantenga bloqueada la invitación.
+            const imageTimeout = window.setTimeout(finish, 3500);
+            image.onload = finish;
+            image.onerror = finish;
             image.src = src;
         });
 
-        Promise.all(INVITATION_IMAGES.map(preloadImage)).finally(() => {
-            if (isMounted) setIsLoading(false);
-        });
+        const pageTimeout = window.setTimeout(finishLoading, 4000);
+        Promise.all(INVITATION_IMAGES.map(preloadImage)).finally(finishLoading);
 
         return () => {
             isMounted = false;
+            window.clearTimeout(pageTimeout);
         };
     }, []);
 
@@ -285,6 +305,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                               },
                               lineHeight: 1.45,
                               color: TEXT_DARK,
+                              whiteSpace: "nowrap",
                               
                             }}
                           >
@@ -518,7 +539,7 @@ width: isSmallScreen ? "80vw" : "70vw",
               <Typography
               className={SECONDARY_TYPO}
                 sx={{
-                
+                  mt:2,
                   fontSize: {
                     xs: "1.15rem",
                     sm: "1.35rem",
@@ -769,9 +790,10 @@ width: isSmallScreen ? "80vw" : "70vw",
           },
           lineHeight: 1.35,
           textTransform: "uppercase",
+          whiteSpace: "nowrap",
         }}
       >
-        {"JARDÍN\nCASA ENCANTADA"}
+        JARDÍN<br></br> CASA ENCANTADA
       </Typography>
     </Box>
   </Box>
@@ -968,7 +990,7 @@ width: isSmallScreen ? "80vw" : "70vw",
     ))}
   </Stack>
 </Box>
-            <div style={{backgroundImage: isSmallScreen ? `url("${URL_IMAGES}fondo2.png")` : `url("${URL_IMAGES}itinerario-horz.png")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "50px 20px" }}>
+            <div style={{backgroundImage: isSmallScreen ? `url("${URL_IMAGES}fondo2.png")` : `url("${URL_IMAGES}itinerario-horz.png")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "20px 20px 50px 20px", height:"650px" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -986,7 +1008,9 @@ width: isSmallScreen ? "80vw" : "70vw",
                   <TimelineItem key={index}>
                      
                         <TimelineOppositeContent
-                            sx={{ m: 'auto 0' }}
+                            sx={{
+                              m: 'auto 0',
+                            }}
                             align="right"
                             >
                             <Fade direction="up" triggerOnce={true} >
@@ -994,7 +1018,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                             </Fade>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
-                        <TimelineConnector  sx={{backgroundColor:timelineData.colorPrimary}} />
+                        <TimelineConnector sx={{backgroundColor:timelineData.colorPrimary}} />
                         <TimelineDot sx={{backgroundColor:timelineData.colorPrimary}}>
                         </TimelineDot>
                         <TimelineConnector sx={{backgroundColor:timelineData.colorPrimary}}/>
@@ -1092,7 +1116,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                           maxWidth: 360,
                       }}
                   >
-                      Esperamos contar con ustedes para celebrar este día tan especial, por lo que agradeceremos
+                      Esperamos contar con ustedes<br /> para celebrar este día tan especial,<br /> por lo que agradeceremos
                       <br />
                      
                      
@@ -1208,7 +1232,7 @@ width: isSmallScreen ? "80vw" : "70vw",
             }}
         >
             Para nosotros lo mas importante es su presencia,<br></br> 
-            pero si deseas hacernos un obsequio tendremos <br></br> 
+            pero si desean hacernos un obsequio tendremos <br></br> 
             un buzón de sobres el día del evento
                 
         </Typography>
@@ -1230,7 +1254,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                 whiteSpace:"nowrap"
             }}
         >
-           O bien, puedes hacer una transferencia<br></br> a nuestra cuenta bancaria
+           O bien, pueden hacer una transferencia<br></br> a nuestra cuenta bancaria
         </Typography>
 
         {/* Tarjeta bancaria */}
