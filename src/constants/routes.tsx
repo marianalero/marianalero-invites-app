@@ -77,6 +77,7 @@ import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
 import WeddingAnnaJuanAngel from "../pages/clientInvitations/WeddingAnnaJuanAngel";
 import WeddingBrisa from "../pages/clientInvitations/WeddingBrisa";
 import WeddingBrisa2 from "../pages/clientInvitations/WeddingBrisa2";
+import WeddingAnnaJuanAngel2 from "../pages/clientInvitations/WeddingAnnaJuanAngel2";
 
 
 interface RouteConfig {
@@ -169,6 +170,7 @@ const routes: RouteConfig[] = [
    {path:'/mariana-30', element: <Mariana30></Mariana30>},
   //Borradores
   {path:'/prev-aja-4', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>},
+   {path:'/prev-aja-5', element:<WeddingAnnaJuanAngel2></WeddingAnnaJuanAngel2>},
   {path:'/prev-br', element:<WeddingBrisa></WeddingBrisa>},
  {path:'/prev-br-2', element:<WeddingBrisa2></WeddingBrisa2>}
 
