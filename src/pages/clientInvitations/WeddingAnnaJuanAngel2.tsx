@@ -1047,7 +1047,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
                             <Typography sx={{color:timelineData.colorPrimary,fontSize:"1rem"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
-                            {dayjs(item.date).format("hh:mm A")}
+                            {dayjs(item.date).format("HH:mm HRS")}
                             </Typography>
                             </Fade>
                             <Fade direction="up" triggerOnce={true} >
