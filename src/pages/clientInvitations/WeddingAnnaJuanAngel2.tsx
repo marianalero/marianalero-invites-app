@@ -113,7 +113,7 @@ const dresscode:DressCodeProps = {
         color:TEXT_PRIMARY,
         type:3,
         title:"FORMAL",
-        image: `${URL_IMAGES}dresscode.png`,
+        image: `${URL_IMAGES}dresscode.webp`,
       imageSize:"200px"
     
     }
@@ -162,11 +162,11 @@ const WeddingAnnaJuanAngel  = () => {
         let isMounted = true;
         const coverSource = isSmallScreen
             ? `${URL_IMAGES}portada.webp`
-            : `${URL_IMAGES}portada-horz.png`;
+            : `${URL_IMAGES}portada-horz.webp`;
         const initialImages = [
             coverSource,
-            `${URL_IMAGES}monograma1.png`,
-            `${URL_IMAGES}sobre.png`,
+            `${URL_IMAGES}monograma1.webp`,
+            `${URL_IMAGES}sobre.webp`,
         ];
 
         const finishLoading = () => {
@@ -175,7 +175,7 @@ const WeddingAnnaJuanAngel  = () => {
 
         // Solo portada, monograma y sobre bloquean la entrada. El resto se
         // descarga progresivamente después, sin saturar conexiones 4G/5G.
-        const timeout = window.setTimeout(finishLoading, 3000);
+     
         const preloadImage = (src: string) => new Promise<void>((resolve) => {
             const image = new Image();
             image.onload = () => resolve();
@@ -184,13 +184,13 @@ const WeddingAnnaJuanAngel  = () => {
         });
 
         Promise.all(initialImages.map(preloadImage)).finally(() => {
-            window.clearTimeout(timeout);
+            
             finishLoading();
         });
 
         return () => {
             isMounted = false;
-            window.clearTimeout(timeout);
+           
         };
     }, [isSmallScreen]);
 
@@ -234,7 +234,7 @@ const WeddingAnnaJuanAngel  = () => {
             }}
         >
             <div style={{
-                backgroundImage: isSmallScreen ? `URL(${URL_IMAGES}portada.png)` : `URL(${URL_IMAGES}portada-horz.png)`,
+                backgroundImage: isSmallScreen ? `URL(${URL_IMAGES}portada.webp)` : `URL(${URL_IMAGES}portada-horz.webp)`,
                 backgroundSize:"cover",
                 height:"70vh",
                 display:"flex",
@@ -257,7 +257,7 @@ const WeddingAnnaJuanAngel  = () => {
                 <Fade  direction="up" triggerOnce={true}>
                     <Box 
                     component="img"
-                    src={`${URL_IMAGES}monograma1.png`}
+                    src={`${URL_IMAGES}monograma1.webp`}
                     alt="Imagen 2"
                     sx={{
                        
@@ -449,7 +449,7 @@ width: isSmallScreen ? "80vw" : "70vw",
           {/* SOBRE */}
           <Box
             component="img"
-            src={`${URL_IMAGES}sobre.png`}
+            src={`${URL_IMAGES}sobre.webp`}
             alt=""
             sx={{
               position: "absolute",
@@ -487,7 +487,7 @@ width: isSmallScreen ? "80vw" : "70vw",
               // El papel deja de ser una imagen con proporción fija: el fondo
               // acompaña la altura real del contenido de la tarjeta.
               backgroundColor: BG_MAIN,
-              backgroundImage: `url(${URL_REPO}demos/marfil-ver.png)`,
+              backgroundImage: `url(${URL_REPO}demos/marfil-ver.webp)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -976,7 +976,7 @@ width: isSmallScreen ? "80vw" : "70vw",
     ))}
   </Stack>
 </Box>
-            <div style={{backgroundImage: isSmallScreen ? `url("${URL_IMAGES}fondo2.webp")` : `url("${URL_IMAGES}itinerario-horz.png")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "20px 20px 50px 20px", height:"650px" }}>
+            <div style={{backgroundImage: isSmallScreen ? `url("${URL_IMAGES}fondo2.webp")` : `url("${URL_IMAGES}itinerario-horz.webp")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "20px 20px 50px 20px", height:"650px" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -1031,7 +1031,7 @@ width: isSmallScreen ? "80vw" : "70vw",
        <Box bgcolor={BG_ACCENT} padding={4}>
                 <Box bgcolor={BG_MAIN} 
                 sx={{
-                   backgroundImage: isSmallScreen? `URL(${URL_REPO}demos/marfil-ver.png)` : `URL(${URL_REPO}demos/marfil-hor.png)`,
+                   backgroundImage: isSmallScreen? `URL(${URL_REPO}demos/marfil-ver.webp)` : `URL(${URL_REPO}demos/marfil-hor.webp)`,
                    backgroundSize:"cover",
                    border:"1px solid rgba(160,150,140,.15)",
                    boxShadow:"0 10px 30px rgba(60,60,60,.08)"
@@ -1049,7 +1049,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                   minHeight: "50svh",
                   overflow: "hidden",
                   backgroundColor: BG_MAIN,
-                  backgroundImage:  isSmallScreen ? `URL(${URL_REPO}demos/marfil-ver.png)` : `URL(${URL_REPO}demos/marfil-hor.png)`,
+                  backgroundImage:  isSmallScreen ? `URL(${URL_REPO}demos/marfil-ver.webp)` : `URL(${URL_REPO}demos/marfil-hor.webp)`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   display: "flex",
