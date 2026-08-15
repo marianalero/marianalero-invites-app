@@ -50,6 +50,8 @@ const MAIN_TYPO = "edwardian";
 const SECONDARY_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "manrope-400";
 const URL_IMAGES = "/src/assets/boda-ana-juan-angel-webp/";
+const GENERIC_BLUR =
+    "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBUQEA8PEA8PDw8PDw8PDw8PDw8PFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFy0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAAEAAQMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAABAgAD/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIQAxAAAAH6A//EABgQAQEBAQEAAAAAAAAAAAAAAAERAhIh/9oACAEBAAEFAk8d4o//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8BSP/EAAURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/ASf/xAAbEAADAQEBAQEAAAAAAAAAAAABERAhMUFRcf/aAAgBAQAGPwKzK0kAq0p1k//EABsQAQEAAwEBAQAAAAAAAAAAAAERACExQVFh/9oACAEBAAE/IVFZfE2PqC5nSlQ2RZ5WqX//2gAMAwEAAgADAAAAEB//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QEf/EAAURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/ECL/xAAbEAEBAQEAAwEAAAAAAAAAAAABEQAhMVFhcf/aAAgBAQABPxDkXIpT+R9xKk4a5QZ2h+V5J7VZ//Z";
 
 const eventCards: EventCardProps[] = [
     {
@@ -156,25 +158,17 @@ const timelineData: CustomizedTimelineProps = {
 
 const WeddingAnnaJuanAngel2  = () => { 
     const [isLoading, setIsLoading] = useState(true);
+    const [coverLoaded, setCoverLoaded] = useState(false);
+    const [monogramLoaded, setMonogramLoaded] = useState(false);
     const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const coverSource = isSmallScreen
+        ? `${URL_IMAGES}portada.webp`
+        : `${URL_IMAGES}portada-horz.png`;
 
     useEffect(() => {
         let isMounted = true;
-        const coverSource = isSmallScreen
-            ? `${URL_IMAGES}portada.webp`
-            : `${URL_IMAGES}portada-horz.webp`;
-        const initialImages = [
-            coverSource,
-            `${URL_IMAGES}monograma1.webp`,
-            `${URL_IMAGES}sobre.webp`,
-        ];
-
-        const finishLoading = () => {
-            if (isMounted) setIsLoading(false);
-        };
-
-        // Solo portada, monograma y sobre bloquean la entrada. El resto se
-        // descarga progresivamente después, sin saturar conexiones 4G/5G.
+        // El sobre bloquea la entrada; portada y monograma se revelan
+        // progresivamente con el efecto de desenfoque.
      
         const preloadImage = (src: string) => new Promise<void>((resolve) => {
             const image = new Image();
@@ -183,16 +177,42 @@ const WeddingAnnaJuanAngel2  = () => {
             image.src = src;
         });
 
-        Promise.all(initialImages.map(preloadImage)).finally(() => {
-            
-            finishLoading();
+        preloadImage(`${URL_IMAGES}sobre.webp`).finally(() => {
+            if (isMounted) setIsLoading(false);
         });
 
         return () => {
             isMounted = false;
-           
         };
-    }, [isSmallScreen]);
+    }, []);
+
+    useEffect(() => {
+        if (isLoading) return;
+
+        let isMounted = true;
+        setCoverLoaded(false);
+        const image = new Image();
+        image.onload = image.onerror = () => {
+            if (isMounted) setCoverLoaded(true);
+        };
+        image.src = coverSource;
+
+        return () => { isMounted = false; };
+    }, [coverSource, isLoading]);
+
+    useEffect(() => {
+        if (isLoading) return;
+
+        let isMounted = true;
+        setMonogramLoaded(false);
+        const image = new Image();
+        image.onload = image.onerror = () => {
+            if (isMounted) setMonogramLoaded(true);
+        };
+        image.src = `${URL_IMAGES}monograma1.webp`;
+
+        return () => { isMounted = false; };
+    }, [isLoading]);
 
 
     const handleConfirm =async ( )=> {
@@ -234,37 +254,52 @@ const WeddingAnnaJuanAngel2  = () => {
             }}
         >
             <div style={{
-                backgroundImage: isSmallScreen ? `URL(${URL_IMAGES}portada.webp)` : `URL(${URL_IMAGES}portada-horz.webp)`,
-                backgroundSize:"cover",
                 height:"70vh",
                 display:"flex",
                 justifyContent:"center",
-                alignItems:"center"
-               
-            
+                alignItems:"center",
+                position: "relative",
+                overflow: "hidden",
             }}>
-               
-                
+                <Box
+                    component="img"
+                    src={coverLoaded ? coverSource : GENERIC_BLUR}
+                    alt=""
+                    aria-hidden="true"
+                    sx={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        filter: coverLoaded ? "blur(0)" : "blur(24px)",
+                        opacity: coverLoaded ? 1 : 0.85,
+                        transform: coverLoaded ? "scale(1)" : "scale(1.04)",
+                        transition: "opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease",
+                    }}
+                />
                 <Box p={4}
                 sx={{
                    display:"flex",
                    justifyContent:"center",
                    alignItems:"center",
                    flexDirection: "column",
+                   position: "relative",
+                   zIndex: 1,
                 }}
                 > 
                
                 <Fade  direction="up" triggerOnce={true}>
                     <Box 
                     component="img"
-                    src={`${URL_IMAGES}monograma1.webp`}
+                    src={monogramLoaded ? `${URL_IMAGES}monograma1.webp` : GENERIC_BLUR}
                     alt="Imagen 2"
                     sx={{
-                       
-
                         width: isSmallScreen ? "80vw" : "30vh",
                         height: "auto",
-            
+                        filter: monogramLoaded ? "blur(0)" : "blur(24px)",
+                        opacity: monogramLoaded ? 1 : 0.85,
+                        transition: "opacity 0.8s ease, filter 0.8s ease",
                     }}
                 />
                    </Fade>

@@ -71,7 +71,7 @@ const InvitationIntro = ({
   musicRef,
 
   title,
-
+fontSizeNames,
   brideName,
   groomName,
   ampersonSymbol,
@@ -279,7 +279,7 @@ const InvitationIntro = ({
             sx={{
               color: primaryColor,
               fontSize: {
-                xs: "2.5rem",
+                xs: fontSizeNames ? fontSizeNames : "2.5rem",
                 md: "3.5rem",
               },
               lineHeight: 1.1,

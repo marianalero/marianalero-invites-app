@@ -214,7 +214,7 @@ const timelineData: CustomizedTimelineProps = {
 };
 
 const introSealPosition = {
-    top: "60%",
+    top: "70%",
     left: "50%",
     width: "75px",
     height: "75px",
@@ -222,16 +222,16 @@ const introSealPosition = {
 };
 
 const introBottomRightCornerPosition = {
-    bottom: "-15px",
-    right: "10px",
+    bottom: "-25px",
+    right: "-40px",
     width: "110px",
     height: "110px",
     transform: "rotate(270deg)",
 };
 
 const introTopLeftCornerPosition = {
-    top: "-10px",
-    left: "15px",
+    top: "-30px",
+    left: "-30px",
     width: "110px",
     height: "110px",
     transform: "rotate(90deg)",
@@ -327,6 +327,7 @@ const WeddingBrisa2  = () => {
                 musicRef={musicRef}
 
                 title="Una celebración está por comenzar"
+                fontSizeNames="1.5rem"
 
                 brideName="Brisa del Mar"
                 groomName="Rey David"
@@ -340,7 +341,7 @@ const WeddingBrisa2  = () => {
                 backgroundColor={BG_MAIN}
                 primaryColor={TEXT_PRIMARY}
 
-                envelopeImg={`${URL_IMAGES}sobre.png`}
+                envelopeImg={`${URL_REPO}xv/xv-evany/envelope.png`}
                 sealImg={`${URL_IMAGES}sello.png`}
 
                 sealPosition={introSealPosition}
