@@ -49,7 +49,7 @@ const TITLE_COLOR = "#718078";
 const MAIN_TYPO = "edwardian";
 const SECONDARY_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "manrope-400";
-const URL_IMAGES = `${URL_REPO}boda/boda-ana-juan-angel-webp/`;
+const URL_IMAGES = "/src/assets/boda-ana-juan-angel-webp/";
 
 const eventCards: EventCardProps[] = [
     {
@@ -154,7 +154,7 @@ const timelineData: CustomizedTimelineProps = {
     ],
 };
 
-const WeddingAnnaJuanAngel  = () => { 
+const WeddingAnnaJuanAngel2  = () => { 
     const [isLoading, setIsLoading] = useState(true);
     const isSmallScreen = useMediaQuery('(max-width:600px)');
 
@@ -1363,4 +1363,4 @@ width: isSmallScreen ? "80vw" : "70vw",
     )
 }
 
-export default WeddingAnnaJuanAngel;
+export default WeddingAnnaJuanAngel2;

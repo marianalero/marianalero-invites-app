@@ -131,7 +131,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-avielisse-oskar', element: <WeddingAvielisseOskar></WeddingAvielisseOskar>},
   {path:'/boda-erika-edwin', element:<WeddingAErikaEdwin></WeddingAErikaEdwin>},
     {path:'/boda-cowboy', element: <WeddingCowboy></WeddingCowboy>},
-    {path:'/boda-ana-juan-angel', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>},
+    {path:'/boda-ana-juan-angel', element:<WeddingAnnaJuanAngel2></WeddingAnnaJuanAngel2>},
   //Bautizo
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
