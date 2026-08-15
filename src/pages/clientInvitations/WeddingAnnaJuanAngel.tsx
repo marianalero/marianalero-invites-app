@@ -160,27 +160,33 @@ const WeddingAnnaJuanAngel  = () => {
 
     useEffect(() => {
         let isMounted = true;
-        const coverImage = new Image();
         const coverSource = isSmallScreen
             ? `${URL_IMAGES}portada.png`
             : `${URL_IMAGES}portada-horz.png`;
+        const initialImages = [
+            coverSource,
+            `${URL_IMAGES}monograma1.png`,
+            `${URL_IMAGES}sobre.png`,
+        ];
 
         const finishLoading = () => {
             if (isMounted) setIsLoading(false);
         };
 
-        // Solo la portada bloquea la entrada. El resto de imágenes se descarga
-        // progresivamente después, sin saturar conexiones 4G/5G.
+        // Solo portada, monograma y sobre bloquean la entrada. El resto se
+        // descarga progresivamente después, sin saturar conexiones 4G/5G.
         const timeout = window.setTimeout(finishLoading, 3000);
-        coverImage.onload = () => {
+        const preloadImage = (src: string) => new Promise<void>((resolve) => {
+            const image = new Image();
+            image.onload = () => resolve();
+            image.onerror = () => resolve();
+            image.src = src;
+        });
+
+        Promise.all(initialImages.map(preloadImage)).finally(() => {
             window.clearTimeout(timeout);
             finishLoading();
-        };
-        coverImage.onerror = () => {
-            window.clearTimeout(timeout);
-            finishLoading();
-        };
-        coverImage.src = coverSource;
+        });
 
         return () => {
             isMounted = false;

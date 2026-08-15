@@ -343,7 +343,7 @@ const WeddingBrisa  = () => {
                 backgroundColor={BG_MAIN}
                 primaryColor={TEXT_PRIMARY}
 
-                envelopeImg={`${URL_IMAGES}sobre.png`}
+                envelopeImg={`${URL_REPO}xv/xv-evany/envelope.png`}
                 sealImg={`${URL_IMAGES}sello.png`}
 
                 sealPosition={introSealPosition}
