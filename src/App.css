@@ -316,7 +316,11 @@
   font-weight: 400!important;
   font-style: normal!important;
 }
-
+.brittany{
+  font-family: "Brittany Signature", cursive !important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
 .italic{
   font-style: italic!important;
 }

@@ -44,22 +44,19 @@ const BG_ACCENT = "#B2C8A2";    // Verde salvia (cuenta regresiva, timeline)
 
 // 🖋 TEXTOS
 const TEXT_PRIMARY = "#6F5F52"; // Taupe oscuro para excelente legibilidad
-// const TEXT_SECONDARY = "#AC9780";
-// const BUTTON_HOVER = "#7C8F76";
-// const ICON_COLOR = "#AC9780";
+
 // 🎯 BOTONES
 const BUTTON_PRIMARY = "#8E9F87"; // Verde salvia un poco más profundo
 
 // ✨ DETALLES
 const BORDER_COLOR = "#E8E1DA";   // Bordes muy sutiles
-// const DECORATION = "#AC9780";     // Ramas, líneas decorativas e íconos
 const SHADOW_COLOR = "rgba(111, 95, 82, 0.10)";
 
 // ✨ TÍTULOS
 const TITLE_COLOR = "#8A7665";    // Taupe elegante
-const MAIN_TYPO = "great-vibes-regular";
+const MAIN_TYPO = "brittany";
 // const MAIN_TYPO = "dm-serif-display-regular-italic";
-const BODY_TYPO = "cormorant-garamond-400";
+const BODY_TYPO = "montserrat-400 to-upper";
 const URL_IMAGES = `${URL_REPO}boda/boda-brisa-rey/`;
 const URL_SONG = `${URL_REPO}cancion.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 14);
@@ -260,7 +257,7 @@ const godparents= ["Armida Sánchez Escalante","Gastón R. Torrescano Urrutia","
   
 
 
-const WeddingBrisa  = () => {
+const WeddingBrisa2  = () => {
     const [searchParams] = useSearchParams();
 
     const invitedGuests: number | undefined = useMemo(() => {
@@ -381,16 +378,16 @@ const WeddingBrisa  = () => {
                         <div  style={{position:"absolute",top:"55%",left:"50%",transform:"translate(-50%, -50%)", width:"100%"}}>
                                 <Fade direction="left" triggerOnce={true} >
                             
-                            <Typography variant="h1" className={`${BODY_TYPO} to-upper`} translate="no"  align="center" 
+                            <Typography  className={`${BODY_TYPO} to-upper`} translate="no"  align="center" 
                                     sx={{  fontSize: "1.5rem",lineHeight:2 , color: BUTTON_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0',letterSpacing:2 }}
                                 >
                                Nuestra boda
                                 </Typography>
                                 <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no"  align="center" mt={2}
-                                    sx={{  fontSize: "3rem",lineHeight:1 , color: BUTTON_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
+                                    sx={{  fontSize: "3rem",lineHeight:1.5 , color: BUTTON_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0', }}
                                 >
                                 Brisa del Mar <br></br>
-                                & <br></br>
+                                y <br></br>
                                  Rey David
                                 </Typography>
                               <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
@@ -409,8 +406,8 @@ const WeddingBrisa  = () => {
                                     </Fade>
                             
                                 </Grid>
-                                <Typography variant="h1" className={`${BODY_TYPO}`} translate="no"  align="center"
-                                    sx={{  fontSize: "2rem",lineHeight:2 , color: BUTTON_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0',letterSpacing:2 }}
+                                <Typography  className={`${BODY_TYPO}`} translate="no"  align="center"
+                                    sx={{  fontSize: "1.5rem",lineHeight:2 , color: BUTTON_PRIMARY,fontFeatureSettings: '"liga" 0, "locl" 0',letterSpacing:2 }}
                                 >
                                 14.11.2026
                                 </Typography>
@@ -701,12 +698,12 @@ en este día tan especial.</Typography>
                         </TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
-                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${BODY_TYPO}`} variant="subtitle1" component="span">
+                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${BODY_TYPO}`}  component="span">
                             {dayjs(item.date).format("hh:mm A")}
                             </Typography>
                             </Fade>
                             <Fade direction="up" triggerOnce={true} >
-                            <Typography  sx={{color:timelineData.colorPrimary}} className={`${MAIN_TYPO}`}>{item.eventName} </Typography>
+                            <Typography  sx={{color:timelineData.colorPrimary ,fontSize:"1.2rem", lineHeight:1.2}} className={`${MAIN_TYPO}`}>{item.eventName} </Typography>
                             </Fade>
                         </TimelineContent>
                     </TimelineItem>
@@ -844,4 +841,4 @@ en este día tan especial.</Typography>
         </div>
     )
 }
-export default WeddingBrisa;
+export default WeddingBrisa2;

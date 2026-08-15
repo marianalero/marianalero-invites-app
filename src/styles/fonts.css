@@ -57,3 +57,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face{
+  font-family: "Brittany Signature";
+  src: local('Brittany Signature'), url('../assets/fonts/BrittanySignature.ttf') format('truetype');
+    font-weight: normal;
+  font-style: normal;
+}

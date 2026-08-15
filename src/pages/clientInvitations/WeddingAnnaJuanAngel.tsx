@@ -51,18 +51,6 @@ const SECONDARY_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "manrope-400";
 const URL_IMAGES = `${URL_REPO}boda/boda-ana-juan-angel/`;
 
-const INVITATION_IMAGES = [
-    `${URL_IMAGES}portada.png`,
-    `${URL_IMAGES}portada-horz.png`,
-    `${URL_IMAGES}monograma1.png`,
-    `${URL_IMAGES}sobre.png`,
-    `${URL_IMAGES}sello .png`,
-    `${URL_IMAGES}fondo1.png`,
-    `${URL_IMAGES}fondo2.png`,
-    `${URL_IMAGES}jardin.jpg`,
-    `${URL_IMAGES}dresscode.png`,
-];
-
 const eventCards: EventCardProps[] = [
     {
         eventName: "Ceremonia Civil y Recepción",
@@ -172,41 +160,33 @@ const WeddingAnnaJuanAngel  = () => {
 
     useEffect(() => {
         let isMounted = true;
-        let hasFinishedLoading = false;
+        const coverImage = new Image();
+        const coverSource = isSmallScreen
+            ? `${URL_IMAGES}portada.png`
+            : `${URL_IMAGES}portada-horz.png`;
 
         const finishLoading = () => {
-            if (isMounted && !hasFinishedLoading) {
-                hasFinishedLoading = true;
-                setIsLoading(false);
-            }
+            if (isMounted) setIsLoading(false);
         };
 
-        const preloadImage = (src: string) => new Promise<void>((resolve) => {
-            const image = new Image();
-            let hasSettled = false;
-            const finish = () => {
-                if (!hasSettled) {
-                    hasSettled = true;
-                    window.clearTimeout(imageTimeout);
-                    resolve();
-                }
-            };
-            // En datos móviles una imagen puede quedar pendiente sin emitir error.
-            // Nunca permitimos que una sola descarga mantenga bloqueada la invitación.
-            const imageTimeout = window.setTimeout(finish, 3500);
-            image.onload = finish;
-            image.onerror = finish;
-            image.src = src;
-        });
-
-        const pageTimeout = window.setTimeout(finishLoading, 4000);
-        Promise.all(INVITATION_IMAGES.map(preloadImage)).finally(finishLoading);
+        // Solo la portada bloquea la entrada. El resto de imágenes se descarga
+        // progresivamente después, sin saturar conexiones 4G/5G.
+        const timeout = window.setTimeout(finishLoading, 3000);
+        coverImage.onload = () => {
+            window.clearTimeout(timeout);
+            finishLoading();
+        };
+        coverImage.onerror = () => {
+            window.clearTimeout(timeout);
+            finishLoading();
+        };
+        coverImage.src = coverSource;
 
         return () => {
             isMounted = false;
-            window.clearTimeout(pageTimeout);
+            window.clearTimeout(timeout);
         };
-    }, []);
+    }, [isSmallScreen]);
 
 
     const handleConfirm =async ( )=> {
@@ -1014,7 +994,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                             align="right"
                             >
                             <Fade direction="up" triggerOnce={true} >
-                              <img className="intinerario-icon" src={item.icon} height="80"/>
+                              <img className="intinerario-icon" src={item.icon} height="80" loading="lazy" alt=""/>
                             </Fade>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
