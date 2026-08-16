@@ -59,7 +59,7 @@ const BODY_TYPO = "libre-baskerville to-upper";
 const URL_IMAGES = `${URL_REPO}xv/xv-danna-sophia/`;
 const URL_SONG = `${URL_IMAGES}cancion.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 8, 5);
-const RSVP_DATE_LINE = new Date(2026, 7, 3);
+const RSVP_DATE_LINE = new Date(2026, 7, 31);
 
 const eventCards: EventCardProps[] = [
     {
