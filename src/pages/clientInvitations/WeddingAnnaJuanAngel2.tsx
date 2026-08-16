@@ -1377,6 +1377,8 @@ width: isSmallScreen ? "80vw" : "70vw",
     sx={{
         mt: 6,
         width: "100%",
+        paddingLeft:2,
+        // paddingRight:2
     }}
 >
     <Typography
