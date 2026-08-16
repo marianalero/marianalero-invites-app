@@ -140,22 +140,22 @@ const timelineData: CustomizedTimelineProps = {
          {
             eventName: "Recepción",
             date: new Date(2026, 9, 9, 16, 0, 0),
-            icon: `${URL_IMAGES}iconos/9.png`,
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/9.png`,
         },
         {
             eventName: "Comida",
             date: new Date(2026, 9, 9, 16, 30, 0),
-            icon: `${URL_IMAGES}iconos/10.png`,
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/10.png`,
         },
         {
             eventName: "Vals Novios",
             date: new Date(2026, 9, 9, 17, 30, 0),
-            icon: `${URL_IMAGES}iconos/11.png`,
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/11.png`,
         },
         {
             eventName: "Fin del evento",
             date: new Date(2026, 9, 9, 21, 0, 0),
-            icon: `${URL_IMAGES}iconos/12.png`,
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/12.png`,
         },
         // {
         //     eventName: "Posboda",
