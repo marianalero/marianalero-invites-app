@@ -19,6 +19,7 @@ export interface DressCodeProps
     omitColorsText?:string;
     fontWeight?:string;
     fontSize?:string;
+    bodyFontSize?:string;
     imageSize?:string;
 }
 
@@ -35,8 +36,8 @@ const DressCode  = (props:DressCodeProps) =>
                 className={`${props.mainTypo}`} 
                 sx={{fontSize: props.fontSize ? props.fontSize : "3rem",
                         lineHeight: 1.15,}}>{t("dresscode.title")}</Typography>
-                <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={props.fontWeight ? props.fontWeight:400}>{props.title}</Typography>
-                <Typography className={props.bodyTypo} variant='body1' textAlign={"center"}>{props.description}</Typography>
+                <Typography  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={props.fontWeight ? props.fontWeight:400} sx={{fontSize: props.bodyFontSize ? props.bodyFontSize : "1rem"}}>{props.title}</Typography>
+                <Typography className={props.bodyTypo} variant='body1' textAlign={"center"} sx={{fontSize: props.bodyFontSize ? props.bodyFontSize : "1rem"}}>{props.description}</Typography>
                 </Fade>
             </Grid>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} alignItems={"center"} justifyContent={"center"} >

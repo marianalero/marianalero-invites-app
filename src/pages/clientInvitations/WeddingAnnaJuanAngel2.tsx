@@ -125,7 +125,9 @@ const dresscode:DressCodeProps = {
         type:3,
         title:"FORMAL",
         image: `${dresscodeimg}`,
-      imageSize:"200px"
+      imageSize:"200px",
+      bodyFontSize:".8rem"
+
     
     }
 const timelineData: CustomizedTimelineProps = {
@@ -355,7 +357,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                       
                       mt={3}  
                       paddingX={1} 
-                      fontSize={"2.8rem"} 
+                      fontSize={"2rem"} 
                       textAlign={"center"} 
                       sx={{
                         color:TITLE_COLOR,
@@ -1139,8 +1141,8 @@ width: isSmallScreen ? "80vw" : "70vw",
                       sx={{
                           
                           fontSize: {
-                              xs: "1rem",
-                              md: "1.3rem",
+                              xs: ".8rem",
+                              md: "1rem",
                           },
                           lineHeight: 1.8,
                           maxWidth: 360,
