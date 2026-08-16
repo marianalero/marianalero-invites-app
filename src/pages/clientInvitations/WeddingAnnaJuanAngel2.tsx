@@ -21,6 +21,15 @@ import dayjs from "dayjs";
 import { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Timeline from "@mui/lab/Timeline";
 import FooterInvites from "../../components/Footer/FooterInvites";
+import portada from "../../assets/boda-ana-juan-angel-webp/portada.webp";
+import portadaHorz from "../../assets/boda-ana-juan-angel-webp/portada-horz.png";
+import fondo1 from "../../assets/boda-ana-juan-angel-webp/fondo1.webp";
+import fondo2 from "../../assets/boda-ana-juan-angel-webp/fondo2.webp";
+import dresscodeimg from "../../assets/boda-ana-juan-angel-webp/dresscode.webp";
+import itinerarioHorz from "../../assets/boda-ana-juan-angel-webp/itinerario-horz.webp";
+import monograma1 from "../../assets/boda-ana-juan-angel-webp/monograma1.webp";
+import sobre from "../../assets/boda-ana-juan-angel-webp/sobre.webp";
+import jardin from "../../assets/boda-ana-juan-angel-webp/jardin.jpg";
 
 // 🎨 FONDOS
 const BG_MAIN = "#F5F1E8";       // Marfil
@@ -49,7 +58,7 @@ const TITLE_COLOR = "#718078";
 const MAIN_TYPO = "edwardian";
 const SECONDARY_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "manrope-400";
-const URL_IMAGES = "/src/assets/boda-ana-juan-angel-webp/";
+const URL_IMAGES = "/src/assets/boda-ana-juan-angel/";
 const GENERIC_BLUR =
     "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBUQEA8PEA8PDw8PDw8PDw8PDw8PFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQFy0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAAEAAQMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAABAgAD/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIQAxAAAAH6A//EABgQAQEBAQEAAAAAAAAAAAAAAAERAhIh/9oACAEBAAEFAk8d4o//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8BSP/EAAURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/ASf/xAAbEAADAQEBAQEAAAAAAAAAAAABERAhMUFRcf/aAAgBAQAGPwKzK0kAq0p1k//EABsQAQEAAwEBAQAAAAAAAAAAAAERACExQVFh/9oACAEBAAE/IVFZfE2PqC5nSlQ2RZ5WqX//2gAMAwEAAgADAAAAEB//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QEf/EAAURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/ECL/xAAbEAEBAQEAAwEAAAAAAAAAAAABEQAhMVFhcf/aAAgBAQABPxDkXIpT+R9xKk4a5QZ2h+V5J7VZ//Z";
 
@@ -69,7 +78,7 @@ const eventCards: EventCardProps[] = [
         fontSize: "3rem",
         bgColor: BG_MAIN,
         
-        image: `${URL_IMAGES}jardin.jpg`,
+        image: `${jardin}`,
     },
     
 ];
@@ -115,7 +124,7 @@ const dresscode:DressCodeProps = {
         color:TEXT_PRIMARY,
         type:3,
         title:"FORMAL",
-        image: `${URL_IMAGES}dresscode.webp`,
+        image: `${dresscodeimg}`,
       imageSize:"200px"
     
     }
@@ -162,8 +171,8 @@ const WeddingAnnaJuanAngel2  = () => {
     const [monogramLoaded, setMonogramLoaded] = useState(false);
     const isSmallScreen = useMediaQuery('(max-width:600px)');
     const coverSource = isSmallScreen
-        ? `${URL_IMAGES}portada.webp`
-        : `${URL_IMAGES}portada-horz.png`;
+        ? portada
+        : portadaHorz;
 
     useEffect(() => {
         let isMounted = true;
@@ -177,7 +186,7 @@ const WeddingAnnaJuanAngel2  = () => {
             image.src = src;
         });
 
-        preloadImage(`${URL_IMAGES}sobre.webp`).finally(() => {
+        preloadImage(`${sobre}`).finally(() => {
             if (isMounted) setIsLoading(false);
         });
 
@@ -209,7 +218,7 @@ const WeddingAnnaJuanAngel2  = () => {
         image.onload = image.onerror = () => {
             if (isMounted) setMonogramLoaded(true);
         };
-        image.src = `${URL_IMAGES}monograma1.webp`;
+        image.src = `${monograma1}`;
 
         return () => { isMounted = false; };
     }, [isLoading]);
@@ -292,7 +301,7 @@ const WeddingAnnaJuanAngel2  = () => {
                 <Fade  direction="up" triggerOnce={true}>
                     <Box 
                     component="img"
-                    src={monogramLoaded ? `${URL_IMAGES}monograma1.webp` : GENERIC_BLUR}
+                    src={monogramLoaded ? `${monograma1}` : GENERIC_BLUR}
                     alt="Imagen 2"
                     sx={{
                         width: isSmallScreen ? "80vw" : "30vh",
@@ -484,7 +493,7 @@ width: isSmallScreen ? "80vw" : "70vw",
           {/* SOBRE */}
           <Box
             component="img"
-            src={`${URL_IMAGES}sobre.webp`}
+            src={`${sobre}`}
             alt=""
             sx={{
               position: "absolute",
@@ -850,7 +859,7 @@ width: isSmallScreen ? "80vw" : "70vw",
  id="ubicacion"
   component="section"
   sx={{
-    backgroundImage: `url(${URL_IMAGES}fondo1.webp)`,
+    backgroundImage: `url(${fondo1})`,
     backgroundSize:"cover",
     position: "relative",
     minHeight: "70svh",
@@ -1011,7 +1020,7 @@ width: isSmallScreen ? "80vw" : "70vw",
     ))}
   </Stack>
 </Box>
-            <div style={{backgroundImage: isSmallScreen ? `url("${URL_IMAGES}fondo2.webp")` : `url("${URL_IMAGES}itinerario-horz.webp")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "20px 20px 50px 20px", height:"650px" }}>
+            <div style={{backgroundImage: isSmallScreen ? `url("${fondo2}")` : `url("${itinerarioHorz}")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "20px 20px 50px 20px", height:"650px" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -1047,7 +1056,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
                             <Typography sx={{color:timelineData.colorPrimary,fontSize:"1rem"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
-                            {`${dayjs(item.date).format("HH:mm")}HRS`}
+                            {`${dayjs(item.date).format("HH:mm")} HRS`}
                             </Typography>
                             </Fade>
                             <Fade direction="up" triggerOnce={true} >
@@ -1212,7 +1221,7 @@ width: isSmallScreen ? "80vw" : "70vw",
         position: "relative",
         minHeight: "100svh",
         overflow: "hidden",
-         backgroundImage: `url(${URL_IMAGES}fondo1.webp)`,
+         backgroundImage: `url(${fondo1})`,
     backgroundSize:"cover",
         display: "flex",
         justifyContent: "center",
@@ -1381,7 +1390,7 @@ width: isSmallScreen ? "80vw" : "70vw",
 
     <Box
         component="img"
-        src={`${URL_IMAGES}monograma1.webp`}
+        src={`${monograma1}`}
         sx={{
             width: 130,
             objectFit: "contain",
