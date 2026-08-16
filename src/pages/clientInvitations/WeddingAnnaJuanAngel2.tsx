@@ -118,7 +118,7 @@ const giftListData: GiftListProps = {
 };
 
 const dresscode:DressCodeProps = {
-        fontSize:"3rem",
+        fontSize:"2.5rem",
         mainTypo: MAIN_TYPO,
         bodyTypo:BODY_TYPO,
         color:TEXT_PRIMARY,
