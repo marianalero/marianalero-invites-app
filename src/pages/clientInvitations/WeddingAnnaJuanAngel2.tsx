@@ -1307,7 +1307,7 @@ width: isSmallScreen ? "80vw" : "70vw",
                 >
                     <Box
                         component="img"
-                        src={`${URL_IMAGES}santander.svg`}
+                        src={`${URL_REPO}boda/boda-ana-juan-angel/santander.svg`}
                         sx={{
                             height: 40,
                             
