@@ -74,10 +74,11 @@ import Mariana30 from "../pages/clientInvitations/Mariana30";
 import WeddingAErikaEdwin from "../pages/clientInvitations/WeddingErikaEdwin";
 import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
 import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
-import WeddingAnnaJuanAngel from "../pages/clientInvitations/WeddingAnnaJuanAngel";
+
 import WeddingBrisa from "../pages/clientInvitations/WeddingBrisa";
 import WeddingBrisa2 from "../pages/clientInvitations/WeddingBrisa2";
 import WeddingAnnaJuanAngel2 from "../pages/clientInvitations/WeddingAnnaJuanAngel2";
+import WeddingDemoRose from "../pages/clientInvitations/WeddingDemo";
 
 
 interface RouteConfig {
@@ -99,6 +100,7 @@ const routes: RouteConfig[] = [
     {path:'/demos/xv-alejandra', element: <XVDemoAlejandra></XVDemoAlejandra>},
     {path:'/demos/xv-renata', element: <XVRenataDemo></XVRenataDemo>},
     {path:'/demo-one-bi', element: <DemoOneBI></DemoOneBI>}, 
+    {path:'/demo-rose', element: <WeddingDemoRose></WeddingDemoRose>}, 
     {path:'/terminos', element: <TermsConditions></TermsConditions>},
     {path:'/privacidad', element: <PrivacyPolicy></PrivacyPolicy>},
     {path:'/faq', element: <FaqPage></FaqPage>},
@@ -169,10 +171,9 @@ const routes: RouteConfig[] = [
    {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
    {path:'/mariana-30', element: <Mariana30></Mariana30>},
   //Borradores
-  {path:'/prev-aja-4', element:<WeddingAnnaJuanAngel></WeddingAnnaJuanAngel>},
-   {path:'/prev-aja-6', element:<WeddingAnnaJuanAngel2></WeddingAnnaJuanAngel2>},
   {path:'/prev-br', element:<WeddingBrisa></WeddingBrisa>},
- {path:'/prev-br-2', element:<WeddingBrisa2></WeddingBrisa2>}
+ {path:'/prev-br-2', element:<WeddingBrisa2></WeddingBrisa2>},
+
 
 
   

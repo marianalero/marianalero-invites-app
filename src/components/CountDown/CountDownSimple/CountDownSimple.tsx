@@ -21,6 +21,7 @@ export interface CountDownSimpleProps{
     bgImage?:string;
     bgVertical?:string;
      format?:string;
+    numberSize?:string;
 }
 const CountDownSimple = (props:CountDownSimpleProps) => {
   const isSmallScreen = useMediaQuery('(max-width:600px)');
@@ -65,13 +66,13 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
         return (
             <div className={`countdown ${props.typoCountdown}`}>
-				<span   id="days"  > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{days.toString().padStart(2, "0")}</div>   <span style={{ color:props.primaryColor}} className="labels">{t('countdown.days')}</span></span>
-				<span className="" id="">: <br/> <span></span></span>
-				<span  id="hours" > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{hours.toString().padStart(2, "0")}</div>  <span style={{ color:props.primaryColor}} className="labels">{t('countdown.hours')}</span></span>
-				<span className="" id="">: <br/> <span ></span></span>
-				<span  id="minutes" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{minutes.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">{t('countdown.minutes')}</span></span>
-				<span className="" id="">: <br/> <span ></span></span>
-				<span  id="seconds" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.circleTextColor ? props.circleTextColor : props.primaryColor}}>{seconds.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">{t('countdown.seconds')}</span></span>
+				<span   id="days"  > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor, fontSize : props.numberSize ? props.numberSize : "25px"}}>{days.toString().padStart(2, "0")}</div>   <span style={{ color:props.primaryColor}} className="labels">{t('countdown.days')}</span></span>
+				<span className="" id=""style={{ color:props.primaryColor}}>: <br/> <span></span></span>
+				<span  id="hours" > <div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor, fontSize : props.numberSize ? props.numberSize : "25px"}}>{hours.toString().padStart(2, "0")}</div>  <span style={{ color:props.primaryColor}} className="labels">{t('countdown.hours')}</span></span>
+				<span className="" id=""style={{ color:props.primaryColor}}>: <br/> <span ></span></span>
+				<span  id="minutes" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor,  color:props.circleTextColor ? props.circleTextColor : props.primaryColor, fontSize : props.numberSize ? props.numberSize : "25px"}}>{minutes.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">{t('countdown.minutes')}</span></span>
+				<span className="" id="" style={{ color:props.primaryColor}}>: <br/> <span ></span></span>
+				<span  id="seconds" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.circleTextColor ? props.circleTextColor : props.primaryColor, fontSize : props.numberSize ? props.numberSize : "25px"}}>{seconds.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">{t('countdown.seconds')}</span></span>
 			</div>
         //   <div className="countdown-display">
         //     <div className="countdown-value">

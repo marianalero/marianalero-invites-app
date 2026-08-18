@@ -2,11 +2,11 @@
 import { GiftListProps } from "../../models/component/giftList";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import { URL_REPO } from "../../config";
-import { Box, CircularProgress, Divider, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Box, IconButton, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
 import DressCode, { DressCodeProps } from "../../components/DressCode/DressCode";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -21,7 +21,25 @@ import dayjs from "dayjs";
 import { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Timeline from "@mui/lab/Timeline";
 import FooterInvites from "../../components/Footer/FooterInvites";
-
+import portada from "../../assets/boda-ana-juan-angel-webp/portada.webp";
+import portadaHorz from "../../assets/boda-ana-juan-angel-webp/portada-horz.png";
+import fondo1 from "../../assets/boda-ana-juan-angel-webp/fondo1.webp";
+import fondo2 from "../../assets/demo-rose/itinerario.png";
+import dresscodeimg from "../../assets/boda-ana-juan-angel-webp/dresscode.webp";
+import itinerarioHorz from "../../assets/demo-rose/itinerario-hoz.png";
+import monograma1 from "../../assets/demo-rose/monograma1.png";
+import sobre from "../../assets/boda-ana-juan-angel-webp/sobre.webp";
+import villa from "../../assets/demo-rose/vila-toscana.jpeg";
+import iglesia from "../../assets/demo-rose/catedral.jpg";
+import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
+import RSVPForm from "../../components/RSVP/RSVPForm";
+import { useSearchParams } from "react-router-dom";
+import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
+import { Guest } from "../../models/guest";
+import { getGuestById } from "../../services/guestApiClient";
+import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
+import CalendarButton from "../../components/CalendarButton/CalendarButton";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 // 🎨 FONDOS
 const BG_MAIN = "#F5F1E8";       // Marfil
 const BG_SECTION = "#E5D1D0";    // Rosa empolvado
@@ -49,50 +67,67 @@ const TITLE_COLOR = "#718078";
 const MAIN_TYPO = "edwardian";
 const SECONDARY_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "manrope-400";
-const URL_IMAGES = `${URL_REPO}boda/boda-ana-juan-angel/`;
+const COUNTDOWN_DATE = new Date(2026, 11, 5);
+const RSVP_DATE_LINE = new Date(2026, 10, 15);
+const INVITATION_ID = 9;
 
-const INVITATION_IMAGES = [
-    `${URL_IMAGES}portada.png`,
-    `${URL_IMAGES}portada-horz.png`,
-    `${URL_IMAGES}monograma1.png`,
-    `${URL_IMAGES}sobre.png`,
-    `${URL_IMAGES}sello .png`,
-    `${URL_IMAGES}fondo1.png`,
-    `${URL_IMAGES}fondo2.png`,
-    `${URL_IMAGES}jardin.jpg`,
-    `${URL_IMAGES}dresscode.png`,
-];
-
+const URL_SONG = `${URL_REPO}/canciones/AThousandYears-ChristinaPerri-Violin.mp3`;
 const eventCards: EventCardProps[] = [
-    {
-        eventName: "Ceremonia Civil y Recepción",
-        date: new Date(2026, 10, 28, 21, 0, 0),
-        locationName: "Jardín Casa Encantada",
-        address: "Avenida San Rafael German, C.P. 83300, El Saucito",
+  {
+        eventName: "Ceremonia Religiosa",
+        date: new Date(2026, 10, 28, 17, 0, 0),
+        locationName: "Catedral Metropolitana de Hermosillo",
+        address: "Blvr. Miguel Hidalgo S/N, Centro Norte, Hermosillo, Son.",
         size: 12,
         color: CHAMPAGNE,
         mainTypo: SECONDARY_TYPO,
         bodyTypo: BODY_TYPO,
-        href: "https://maps.app.goo.gl/4T9rcyQJTLfc7rSC8",
+        href: "https://maps.app.goo.gl/w3WozHkVa5AYeZ1eA",
         colorButton: BUTTON_PRIMARY,
         colorIcon: BUTTON_PRIMARY,
         fontSize: "3rem",
         bgColor: BG_MAIN,
         
-        image: `${URL_IMAGES}jardin.jpg`,
+        image: `${iglesia}`,
+    },
+    {
+        eventName: "Recepción",
+        date: new Date(2026, 10, 28, 21, 0, 0),
+        locationName: "Eventos Villa Toscana",
+        address: "C. Quintero Arce 280, Puerta Grande, 83246 Hermosillo, Son.",
+        size: 12,
+        color: CHAMPAGNE,
+        mainTypo: SECONDARY_TYPO,
+        bodyTypo: BODY_TYPO,
+        href: "https://maps.app.goo.gl/VbwtzUFgSwEJPoam6",
+        colorButton: BUTTON_PRIMARY,
+        colorIcon: BUTTON_PRIMARY,
+        fontSize: "3rem",
+        bgColor: BG_MAIN,
+        
+        image: `${villa}`,
     },
     
 ];
 
 const giftListData: GiftListProps = {
-    title: "",
+    title: "Sugerencia de Regalos",
     titleColor : TITLE_COLOR,
-    mainPhrase:"Para nosotros lo mas importante es su presencia, pero si deseas hacernos un obsequio",
+    mainPhrase:
+        "Lo más valioso para nosotros es contar con tu compañía. Si deseas consentirnos con un regalo, aquí encontrarás algunas opciones.",
+
+    items: [
+        {
+            number: "500055211",
+            link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60024483",
+            icon: `${URL_REPO}boda/boda-brisa-rey/mesa/7.png`,
+        },
+    ],
     fontSize: "1rem",
     mainTypo: MAIN_TYPO,
     bodyTypo: BODY_TYPO,
     textColor: TEXT_DARK,
-    bgColor: BG_SECTION,
+    bgColor: BG_MAIN,
     showEnvelope: true,
     envelopeMainTypo: MAIN_TYPO,
     envelopeFontSize: "3rem",
@@ -104,11 +139,11 @@ const giftListData: GiftListProps = {
             numbers: [
                 {
                     numberType: "CLABE INTERBANCARIA",
-                    number: "014760606356755894",
+                    number: "00528548541654854",
                 }
             ],
-            bank: "Santander",
-            name: "Juan Angel Cordova Salcido,Anna Cordoca Moras",
+            bank: "BBVA BANCOMER",
+            name: "Marisol",
             textColor: CHAMPAGNE,
             bodyTypo: BODY_TYPO,
             bgColor: BG_MAIN,
@@ -125,8 +160,10 @@ const dresscode:DressCodeProps = {
         color:TEXT_PRIMARY,
         type:3,
         title:"FORMAL",
-        image: `${URL_IMAGES}dresscode.png`,
-      imageSize:"200px"
+        image: `${dresscodeimg}`,
+      imageSize:"200px",
+      bodyFontSize:".8rem"
+
     
     }
 const timelineData: CustomizedTimelineProps = {
@@ -138,25 +175,35 @@ const timelineData: CustomizedTimelineProps = {
     fontSize: "3rem",
     bgColor: BG_ACCENT,
     events: [
+        {
+            eventName: "Ceremonia Religiosa",
+            date: new Date(2026, 9, 9, 16, 0, 0),
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/15.png`,
+        },
+        {
+            eventName: "Coctel de Bienvenida",
+            date: new Date(2026, 9, 9, 16, 0, 0),
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/16.png`,
+        },
          {
             eventName: "Recepción",
             date: new Date(2026, 9, 9, 16, 0, 0),
-            icon: `${URL_IMAGES}iconos/9.png`,
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/17.png`,
         },
         {
-            eventName: "Comida",
+            eventName: "Cena",
             date: new Date(2026, 9, 9, 16, 30, 0),
-            icon: `${URL_IMAGES}iconos/10.png`,
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/10.png`,
         },
         {
-            eventName: "Vals Novio",
+            eventName: "Vals Novios",
             date: new Date(2026, 9, 9, 17, 30, 0),
-            icon: `${URL_IMAGES}iconos/11.png`,
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/11.png`,
         },
         {
             eventName: "Fin del evento",
             date: new Date(2026, 9, 9, 21, 0, 0),
-            icon: `${URL_IMAGES}iconos/12.png`,
+            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/12.png`,
         },
         // {
         //     eventName: "Posboda",
@@ -166,60 +213,105 @@ const timelineData: CustomizedTimelineProps = {
     ],
 };
 
-const WeddingAnnaJuanAngel  = () => { 
-    const [isLoading, setIsLoading] = useState(true);
+const introSealPosition = {
+    top: "70%",
+    left: "50%",
+    width: "75px",
+    height: "75px",
+    transform: "translate(-50%, -50%)",
+};
+
+const introBottomRightCornerPosition = {
+    bottom: "-25px",
+    right: "-40px",
+    width: "110px",
+    height: "110px",
+    transform: "rotate(270deg)",
+};
+
+const introTopLeftCornerPosition = {
+    top: "-30px",
+    left: "-30px",
+    width: "110px",
+    height: "110px",
+    transform: "rotate(90deg)",
+};
+
+const calendarButtonProps = {
+    variant: "outlined" as const,
+    sx: {
+        borderRadius: "999px",
+        px: 4,
+        py: 1.5,
+        textTransform: "none",
+        fontFamily: BODY_TYPO,
+        borderColor: TITLE_COLOR,
+        color: TITLE_COLOR,
+    },
+};
+
+const WeddingDemoRose  = () => { 
+    const [searchParams] = useSearchParams();
+
+    const invitedGuests: number | undefined = useMemo(() => {
+        const num = Number(searchParams.get("number"));
+        return isNaN(num) ? undefined : num;
+    }, [searchParams]);
+
+    const guestId: number | undefined = useMemo(() => {
+        const num = Number(searchParams.get("id"));
+        return isNaN(num) ? undefined : num;
+    }, [searchParams]);
+
+    // INTRO STATES
+    const [showIntro, setShowIntro] = useState(true);
+    const [showInvitation, setShowInvitation] = useState(false);
+    const [guest, setGuest] = useState<Guest | null>(null);
+    const musicRef = useRef<MusicFabPlayerHandle>(null);
+
+
     const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const coverSource = isSmallScreen
+        ? portada
+        : portadaHorz;
+
+    const handleEnter = () => {
+
+        musicRef.current?.play();
+
+        // empieza transición invitación
+        setShowInvitation(true);
+
+        // desaparece intro después
+        setTimeout(() => {
+            setShowIntro(false);
+        }, 900);
+    };
 
     useEffect(() => {
-        let isMounted = true;
-        const preloadImage = (src: string) => new Promise<void>((resolve) => {
-            const image = new Image();
-            image.onload = () => resolve();
-            image.onerror = () => resolve();
-            image.src = src;
-        });
-
-        Promise.all(INVITATION_IMAGES.map(preloadImage)).finally(() => {
-            if (isMounted) setIsLoading(false);
-        });
-
-        return () => {
-            isMounted = false;
+        const fetchGuest = async () => {
+            if (guestId) {
+                try {
+                    const data = await getGuestById(guestId, INVITATION_ID);
+                    console.log("Fetched guest data:", data);
+                    setGuest(data);
+                } catch (error) {
+                    console.error("Error fetching guest:", error);
+                }
+            }
         };
+
+        fetchGuest();
+    }, [guestId]);
+
+
+    useEffect(() => {
+        document.title = "Boda Marisol & Jesús";
     }, []);
 
 
-    const handleConfirm =async ( )=> {
-       
-       
-            window.open(`https://wa.me/+526629366579?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20para%20la%20boda%20de%20Anna y Juan Angel`, '_blank');
-
-        
-    }
-
-    if (isLoading) {
-        return (
-            <Box
-                sx={{
-                    minHeight: "100svh",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 2,
-                    backgroundColor: BG_MAIN,
-                    color: TEXT_PRIMARY,
-                }}
-            >
-                <CircularProgress size={34} thickness={3} sx={{ color: TEXT_PRIMARY }} />
-                <Typography className={SECONDARY_TYPO} sx={{ fontSize: "1.25rem", letterSpacing: "0.08em" }}>
-                    Cargando invitación…
-                </Typography>
-            </Box>
-        );
-    }
-
     return (
+      
         <div
             style={{
                 backgroundColor: BG_MAIN,
@@ -227,48 +319,130 @@ const WeddingAnnaJuanAngel  = () => {
                 overflowY: "auto",
             }}
         >
+           <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={BUTTON_PRIMARY}/>
+
+            {/* INTRO */}
+            <InvitationIntro
+                open={showIntro}
+                onEnter={handleEnter}
+                musicRef={musicRef}
+
+                title="Una celebración está por comenzar"
+                fontSizeNames="2rem"
+
+                brideName="Marisol"
+                groomName="Jesús"
+                ampersonSymbol="&"
+
+                namesTypo={MAIN_TYPO}
+                ampersonTypo={MAIN_TYPO}
+                guestTypo={BODY_TYPO}
+                bodyTypo={BODY_TYPO}
+
+                backgroundColor={BG_MAIN}
+                primaryColor={TEXT_PRIMARY}
+
+                envelopeImg={`${URL_REPO}xv/xv-evany/envelope.png`}
+                sealImg={`${URL_REPO}boda/boda-brisa-rey/sello.png`}
+
+                sealPosition={introSealPosition}
+                // bottomRightCornerImg={`${URL_IMAGES}flores/5.png`}
+                // topLeftCornerImg={`${URL_IMAGES}flores/5.png`}
+                bottomRightCornerPosition={introBottomRightCornerPosition}
+                topLeftCornerPosition={introTopLeftCornerPosition}
+
+                guestName={guest ? guest.fullName : ""}
+                guestCount={invitedGuests}
+            />
+            <Box
+                      sx={{
+                          opacity: showInvitation ? 1 : 0,
+      
+                          filter: showInvitation
+                              ? "blur(0px)"
+                              : "blur(20px)",
+      
+                          transform: showInvitation
+                              ? "scale(1)"
+                              : "scale(1.03)",
+      
+                          transition:
+                              "all 1.4s cubic-bezier(0.22, 1, 0.36, 1)",
+                      }}
+                  >
             <div style={{
-                backgroundImage: isSmallScreen ? `URL(${URL_IMAGES}portada.png)` : `URL(${URL_IMAGES}portada-horz.png)`,
-                backgroundSize:"cover",
                 height:"70vh",
                 display:"flex",
                 justifyContent:"center",
-                alignItems:"center"
-               
-            
+                alignItems:"center",
+                position: "relative",
+                overflow: "hidden",
             }}>
-               
-                
+                <Box
+                    component="img"
+                    src={coverSource}
+                    alt=""
+                    aria-hidden="true"
+                    sx={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        filter: coverSource ? "blur(0)" : "blur(24px)",
+                        opacity: coverSource ? 1 : 0.85,
+                        transform: coverSource ? "scale(1)" : "scale(1.04)",
+                        transition: "opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease",
+                    }}
+                />
                 <Box p={4}
                 sx={{
                    display:"flex",
                    justifyContent:"center",
                    alignItems:"center",
                    flexDirection: "column",
+                   position: "relative",
+                   zIndex: 1,
                 }}
                 > 
                
                 <Fade  direction="up" triggerOnce={true}>
                     <Box 
                     component="img"
-                    src={`${URL_IMAGES}monograma1.png`}
+                    src={monograma1}
                     alt="Imagen 2"
                     sx={{
-                       
-
                         width: isSmallScreen ? "80vw" : "30vh",
                         height: "auto",
-            
+                        filter: monograma1 ? "blur(0)" : "blur(24px)",
+                        opacity: monograma1 ? 1 : 0.85,
+                        transition: "opacity 0.8s ease, filter 0.8s ease",
                     }}
                 />
                    </Fade>
-            
+                    
                     <Box>
                         <Fade direction="up" triggerOnce={true}>
                           
 
             
-                    <Typography mt={3}  paddingX={1} fontSize={"3rem"} textAlign={"center"} sx={{color:TITLE_COLOR}} className={MAIN_TYPO} >28  Noviembre, 2026</Typography>
+                    <Typography 
+                      
+                      mt={3}  
+                      paddingX={1} 
+                      fontSize={"2rem"} 
+                      textAlign={"center"} 
+                      sx={{
+                        color:TITLE_COLOR,
+                        whiteSpace: "nowrap",
+                        display: "inline-block",
+                        overflow: "visible",
+                        lineHeight: 1.15,
+                      }} 
+                      className={MAIN_TYPO} 
+                    >
+                      05  Diciembre, 2026
+                      </Typography>
            
 
                    
@@ -374,41 +548,7 @@ const WeddingAnnaJuanAngel  = () => {
           alignItems: "center",
         }}
       >
-        {/* Encabezado de sección */}
-        {/* <Stack
-          spacing={0.8}
-          alignItems="center"
-          sx={{
-            mb: { xs: 5, md: 7 },
-            textAlign: "center",
-          }}
-        >
-          <Typography
-            sx={{
-              fontFamily: BODY_TYPO,
-              fontSize: { xs: "0.58rem", md: "0.65rem" },
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              color: TEXT_PRIMARY,
-            }}
-          >
-            Nuestra historia
-          </Typography>
-
-          <Typography
-            sx={{
-              fontFamily: SECONDARY_TYPO,
-              fontSize: { xs: "2.1rem", md: "2.7rem" },
-              lineHeight: 1,
-              color: TEXT_PRIMARY,
-              fontWeight: 400,
-            }}
-          >
-            La invitación
-          </Typography>
-        </Stack> */}
-
-        {/* ESCENA DEL SOBRE */}
+       
         <Box
           sx={{
             position: "relative",
@@ -418,13 +558,17 @@ const WeddingAnnaJuanAngel  = () => {
             // Altura proporcional a la composición
             // En móvil la tarjeta se extiende por debajo del sobre; esta altura
             // evita que el contenedor de la escena la recorte.
-            height: { xs: 650, sm: 700, md: 720 },
+            height: { 
+               xs: 560,
+    sm: 560,
+    md: 620,
+             },
           }}
         >
           {/* SOBRE */}
           <Box
             component="img"
-            src={`${URL_IMAGES}sobre.png`}
+            src={`${sobre}`}
             alt=""
             sx={{
               position: "absolute",
@@ -448,12 +592,24 @@ const WeddingAnnaJuanAngel  = () => {
               position: "absolute",
               zIndex: 3,
 
-              width: { xs: "75%", sm: "80%", md: "85%" },
+              width:{
+    xs:"78%",
+    sm:"82%",
+    md:"84%"
+},
 
               left: { xs: "50%", md: "50%" },
               top: { xs: "10vh", md: "10vh" },
 
               transform: "translateX(-50%)",
+
+              // El papel deja de ser una imagen con proporción fija: el fondo
+              // acompaña la altura real del contenido de la tarjeta.
+              backgroundColor: BG_MAIN,
+              backgroundImage: `url(${URL_REPO}demos/marfil-ver.webp)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
 
               filter: `
                 drop-shadow(
@@ -462,26 +618,11 @@ const WeddingAnnaJuanAngel  = () => {
               `,
             }}
           >
-            {/* Imagen del papel */}
-            <Box
-              component="img"
-              src={`${URL_REPO}demos/marfil-ver.png`}
-              alt=""
-              sx={{
-                display: "block",
-                width: "100%",
-                height: "auto",
-              }}
-            />
-
             {/* CONTENIDO DE LA TARJETA */}
             <Stack
               sx={{
-                position: "absolute",
-                inset: 0,
-
-                px: { xs: 3, sm: 4, md: 5 },
-                py: { xs: 3, sm: 4, md: 5 },
+                px: { xs: 2, sm: 4, md: 5 },
+                py: { xs: 2, sm: 4, md: 5 },
 
                 alignItems: "center",
                 textAlign: "center",
@@ -503,7 +644,7 @@ const WeddingAnnaJuanAngel  = () => {
               <Typography
               className={SECONDARY_TYPO}
                 sx={{
-                
+                  mt:1,
                   fontSize: {
                     xs: "1.15rem",
                     sm: "1.35rem",
@@ -514,9 +655,16 @@ const WeddingAnnaJuanAngel  = () => {
                   mb: 2,
                 }}
               >
-                ANNA <span style={{ fontSize:"1.5rem", marginRight:5, color:CHAMPAGNE}} className={MAIN_TYPO}>Y</span>  JUAN ANGEL
+                MARISOL <span style={{ fontSize:"1.5rem", marginRight:5, color:CHAMPAGNE}} className={MAIN_TYPO}>Y</span>  JESÚS
               </Typography>
 
+              {/* Separador */}
+              
+
+              {/* FRASE */}
+              <Typography mb={2}  className={`${SECONDARY_TYPO} italic`}>
+                "No fuiste ni antes ni después , fuiste a tiempo. A tiempo para que me enamorara de ti. "
+              </Typography>
               {/* Separador */}
               <Box
                 sx={{
@@ -527,33 +675,11 @@ const WeddingAnnaJuanAngel  = () => {
                   mb: { xs: 2, md: 2.5 },
                 }}
               />
-
-              {/* FRASE */}
-              <Typography
-               className={SECONDARY_TYPO}
-                sx={{
-                
-                  fontStyle: "italic",
-                  fontSize: {
-                    xs: "0.75rem",
-                    sm: "0.83rem",
-                    md: "0.91rem",
-                  },
-                  lineHeight: 1.45,
-                  color: TEXT_DARK,
-                  maxWidth: 340,
-                }}
-              >
-                “Dios nos ha concedido el privilegio de conocernos y con la
-                bendición de nuestras familias, hoy queremos compartir con
-                ustedes la alegría de nuestra unión”
-              </Typography>
-
               {/* PADRES */}
               <Typography
                 className={BODY_TYPO}
                 sx={{
-                  mt: { xs: 2.5, md: 3.5 },
+                  
                   mb: 1.5,
                  
                   fontSize: {
@@ -564,99 +690,104 @@ const WeddingAnnaJuanAngel  = () => {
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   color: TEXT_PRIMARY,
+                  // whiteSpace:"nowrap"
                 }}
               >
-                En compañía de nuestros padres:
+                Con la bendición de Dios, y de nuestros padres
               </Typography>
 
               <Box
                 sx={{
                   width: "100%",
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  // display: "grid",
+                  // gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
                   columnGap: { xs: 1, md: 2 },
                 }}
               >
                 {/* Familia 1 */}
                 <Stack
-                  spacing={0.25}
+                  spacing={0.1}
                   alignItems="center"
                   sx={{
-                    pr: { xs: 0.8, md: 1.5 },
+                    pr: { xs: 0.3, md: 1.5 },
                     borderRight: `1px solid ${CHAMPAGNE}`,
+                    minWidth: 0,
                   }}
                 >
                   <Typography
-                   className={SECONDARY_TYPO}
+                   className={`${SECONDARY_TYPO} italic`}
                     sx={{
                       
-                      fontSize: {
-                        xs: "0.58rem",
-                        sm: "0.66rem",
-                        md: "0.73rem",
-                      },
+                      
                       lineHeight: 1.25,
                       color: TEXT_DARK,
+                      // whiteSpace:"nowrap",
+                      
                     }}
                   >
-                    María del Carmen Moras De Córdova
+                    Laura Martínez González
                   </Typography>
 
                   <Typography
-                   className={SECONDARY_TYPO}
+                   className={`${SECONDARY_TYPO} italic`}
                     sx={{
                       
-                      fontSize: {
-                         xs: "0.58rem",
-                        sm: "0.66rem",
-                        md: "0.73rem",
-                      },
+                      // fontSize: "1.5rem",
                       lineHeight: 1.25,
                       color: TEXT_DARK,
+                      // whiteSpace:"nowrap"
                     }}
                   >
-                    Juan Miguel Córdova Limón †
+                    Carlos Ramírez Herrera
                   </Typography>
                 </Stack>
-
+                 <Stack alignItems="center" >
+                  <Box
+                sx={{
+                  width: 42,
+                  height: "1px",
+                  backgroundColor: CHAMPAGNE,
+                  opacity: 0.8,
+                  mb: { xs: 2, md: 2.5 },
+                  mt: { xs: 2, md: 2.5 },
+                }}
+              />
+                  </Stack>   
                 {/* Familia 2 */}
                 <Stack
                   spacing={0.25}
                   alignItems="center"
                   sx={{
                     pl: { xs: 0.8, md: 1.5 },
+                    minWidth: 0,
                   }}
                 >
                   <Typography
-                   className={SECONDARY_TYPO}
+                   className={`${SECONDARY_TYPO} italic`}
                     sx={{
                   
-                      fontSize: {
-                        xs: "0.58rem",
-                        sm: "0.66rem",
-                        md: "0.73rem",
-                      },
+                      // fontSize: "1.5rem",
+
                       lineHeight: 1.25,
                       color: TEXT_DARK,
+                      whiteSpace:"nowrap"
                     }}
                   >
-                    Guadalupe Alfonsina Salcido De Córdova
+                   Patricia Torres Mendoza
                   </Typography>
 
                   <Typography
-                   className={SECONDARY_TYPO}
+                   className={`${SECONDARY_TYPO} italic`}
                     sx={{
                     
-                      fontSize: {
-                        xs: "0.58rem",
-                        sm: "0.66rem",
-                        md: "0.73rem",
-                      },
+                      // fontSize: "1.5rem",
+
                       lineHeight: 1.25,
                       color: TEXT_DARK,
+                      // whiteSpace:"nowrap"
                     }}
                   >
-                    Alejandro Córdova Salcido
+                   Fernando López Salazar
                   </Typography>
                 </Stack>
               </Box>
@@ -677,145 +808,78 @@ const WeddingAnnaJuanAngel  = () => {
                   textTransform: "uppercase",
                   color: TEXT_PRIMARY,
                   maxWidth: 300,
+                  // whiteSpace:"nowrap"
                 }}
               >
-                Tenemos el honor de invitarlos a la celebración de nuestro
-                matrimonio el día
+                Tenemos el honor de invitarlos a la celebración de nuestra union
               </Typography>
 
-              {/* FECHA */}
-             <Box
-  sx={{
-    width: "100%",
-    maxWidth: 280,
-    mt: { xs: 2.5, md: 3.5 },
-    color: TEXT_DARK,
-  }}
->
-  {/* FECHA */}
-  <Typography
-   className={SECONDARY_TYPO}
-    sx={{
-  
-      fontSize: {
-        xs: "0.9rem",
-        sm: "0.96rem",
-        md: "0.1rem",
-      },
-      lineHeight: 1.2,
-      textAlign: "center",
-      mb: 0.8,
-    }}
-  >
-    Sábado 28 de Noviembre, 2026
-  </Typography>
+           
 
-  {/* Línea superior */}
-  <Box
-    sx={{
-      width: "100%",
-      height: ".5px",
-      backgroundColor: CHAMPAGNE,
-      opacity: 0.65,
-    }}
-  />
-
-  {/* Información */}
-  <Box
-    sx={{
-      display: "grid",
-      gridTemplateColumns: "1fr 1.5fr",
-      minHeight: 62,
-    }}
-  >
-    {/* HORA */}
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        borderRight: `1px solid ${CHAMPAGNE}`,
-        opacity: 0.85,
-      }}
-    >
-      <Typography
-      className={BODY_TYPO}
-        sx={{
-
-          fontSize: {
-            xs: "0.72rem",
-            sm: "0.78rem",
-            md: "0.82rem",
-          },
-          lineHeight: 1.35,
-          whiteSpace: "pre-line",
-        }}
-      >
-        {"15:45\nHRS"}
-      </Typography>
-    </Box>
-
-    {/* LUGAR */}
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        px: 1,
-      }}
-    >
-      <Typography
-      className={BODY_TYPO}
-        sx={{
-      
-          fontSize: {
-            xs: "0.62rem",
-            sm: "0.68rem",
-            md: "0.72rem",
-          },
-          lineHeight: 1.35,
-          textTransform: "uppercase",
-        }}
-      >
-        {"JARDÍN\nCASA ENCANTADA"}
-      </Typography>
-    </Box>
-  </Box>
-</Box>
             </Stack>
           </Box>
 
-          {/* SELLO */}
-          {/* <Box
-            component="img"
-            src={`${URL_IMAGES}sello .png`}
-            alt=""
-            sx={{
-              position: "absolute",
-              zIndex: 5,
-
-              width: { xs: 80, sm: 92, md: 112 },
-
-              left: { xs: "20vw", md: "10vw" },
-              top: { xs: "20vh", md: "10vh" },
-
-              transform: "translateX(-50%)",
-
-              filter: `
-                drop-shadow(0 7px 8px rgba(60, 50, 40, 0.18))
-              `,
-            }}
-          /> */}
+        
         </Box>
       </Stack>
     </Box>
+    <Box bgcolor={BG_ACCENT} padding={0}>
+                <Box bgcolor={BG_MAIN} 
+                sx={{
+                   backgroundImage: isSmallScreen? `URL(${URL_REPO}demos/marfil-ver.webp)` : `URL(${URL_REPO}demos/marfil-hor.webp)`,
+                   backgroundSize:"cover",
+                   border:"1px solid rgba(160,150,140,.15)",
+                   boxShadow:"0 10px 30px rgba(60,60,60,.08)",
+                   position:"relative"
+                }}
+                    >
+                      <Box
+                                          component="img"
+                                          src={`${URL_REPO}boda/boda-brisa-rey/flores/8.png`}
+                                          sx={{
+                                          position: "absolute",
+                                          top: isSmallScreen ? 10 : 10,
+                                          right:isSmallScreen ? 5 : 10,
+                                          width: 90,
+                                          opacity: .20,
+                                          transform: "rotate(270deg)"
+                                          }}
+                                      />
+                         <Box
+                                          component="img"
+                                          src={`${URL_REPO}boda/boda-brisa-rey/flores/8.png`}
+                                          sx={{
+                                          position: "absolute",
+                                          top: isSmallScreen ? "80%" : 10,
+                                          left:isSmallScreen ? 5 : 10,
+                                          width: 90,
+                                          opacity: .20,
+                                          transform: "rotate(50deg)"
+                                          }}
+                                      />
+                        <CountDownSimple 
+                          eventDate={COUNTDOWN_DATE}
+                          
+                          typoHeader={MAIN_TYPO}
+                          typoCountdown={SECONDARY_TYPO}
+                          fontSize="2.5rem"
+                          bgColor="transparent"
+                          circleBgColor="transparent"
+                          circleTextColor={TEXT_PRIMARY}
+                          primaryColor={TEXT_PRIMARY}
+                            secondarColor={TEXT_PRIMARY}           
+                            numberSize="3rem"   
+                                >  
+                            </CountDownSimple>
+                    </Box>
+                     
+            </Box>
+ 
  <Box
  id="ubicacion"
   component="section"
   sx={{
-    backgroundImage: `url(${URL_IMAGES}fondo1.png)`,
+    backgroundImage: `url(${fondo1})`,
     backgroundSize:"cover",
     position: "relative",
     minHeight: "70svh",
@@ -876,7 +940,7 @@ const WeddingAnnaJuanAngel  = () => {
           maxWidth: 470,
 
           backgroundColor: BG_MAIN,
-
+          mt:2,
           p: {
             xs: 2,
             sm: 2.5,
@@ -900,6 +964,21 @@ const WeddingAnnaJuanAngel  = () => {
             overflow: "hidden",
           }}
         >
+          <Typography
+          align={"center"}
+            className={MAIN_TYPO}
+            sx={{
+              fontSize: {
+                xs: "2.5rem",
+                md: "3rem",
+              },
+              lineHeight: 1.1,
+              color: TEXT_DARK,
+              marginY:2
+            }}
+          >
+            {item.eventName}
+          </Typography>
           <Box
             component="img"
             src={item.image}
@@ -913,7 +992,7 @@ const WeddingAnnaJuanAngel  = () => {
             }}
           />
         </Box>
-
+        
         {/* INFORMACIÓN */}
         <Stack
           alignItems="center"
@@ -923,6 +1002,7 @@ const WeddingAnnaJuanAngel  = () => {
             pb: { xs: 2.5, md: 3 },
           }}
         >
+         
           {/* NOMBRE */}
           <Typography
             className={SECONDARY_TYPO}
@@ -935,7 +1015,7 @@ const WeddingAnnaJuanAngel  = () => {
               color: TEXT_DARK,
             }}
           >
-            Jardín Casa Encantada
+            {item.locationName}
           </Typography>
 
           {/* DIRECCIÓN */}
@@ -952,9 +1032,9 @@ const WeddingAnnaJuanAngel  = () => {
               maxWidth: 330,
             }}
           >
-            Avenida San Rafael German, El Saucito
+            {item.address}
             <br />
-            C.P. 83300
+           
           </Typography>
 
           {/* BOTÓN */}
@@ -975,13 +1055,29 @@ const WeddingAnnaJuanAngel  = () => {
       </Box>
     ))}
   </Stack>
+   <Box mt={2}>
+                  <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:TITLE_COLOR, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
+                      No queremos que te pierdas este día
+                      </Typography>
+                  <Box display={"flex"} justifyContent={"center"}>
+                      <CalendarButton
+                          title="Boda Marisol & Jesús"
+                          startDate="20261205T170000"
+                          endDate="20261213T020000"
+                          location="Cetedral de Hermosillo/Villa Toscana"
+                          
+                          // fileName="boda-valentina-sebastian"
+                          buttonProps={calendarButtonProps}
+                          />
+                  </Box>
+              </Box>
 </Box>
-            <div style={{backgroundImage: isSmallScreen ? `url("${URL_IMAGES}fondo2.png")` : `url("${URL_IMAGES}itinerario-horz.png")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "50px 20px" }}>
+            <div style={{backgroundImage: isSmallScreen ? `url("${fondo2}")` : `url("${itinerarioHorz}")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "20px 20px 50px 20px", height:"90vh" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
-              <Typography  style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2.5rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>Itineraro</Typography>
+              <Typography  style={{fontSize: timelineData.fontSize ? timelineData.fontSize :"2.5rem"}} color={timelineData.colorTitle} textAlign={"center"} className={`${timelineData.mainTypo}`}>Itinerario</Typography>
             </Fade>
             </Grid>	
            
@@ -994,27 +1090,29 @@ const WeddingAnnaJuanAngel  = () => {
                   <TimelineItem key={index}>
                      
                         <TimelineOppositeContent
-                            sx={{ m: 'auto 0' }}
+                            sx={{
+                              m: 'auto 0',
+                            }}
                             align="right"
                             >
                             <Fade direction="up" triggerOnce={true} >
-                              <img className="intinerario-icon" src={item.icon} height="80"/>
+                              <img className="intinerario-icon" src={item.icon} height="80" loading="lazy" alt=""/>
                             </Fade>
                         </TimelineOppositeContent>
                         <TimelineSeparator>
-                        <TimelineConnector  sx={{backgroundColor:timelineData.colorPrimary}} />
+                        <TimelineConnector sx={{backgroundColor:timelineData.colorPrimary}} />
                         <TimelineDot sx={{backgroundColor:timelineData.colorPrimary}}>
                         </TimelineDot>
                         <TimelineConnector sx={{backgroundColor:timelineData.colorPrimary}}/>
                         </TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
-                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
-                            {dayjs(item.date).format("hh:mm A")}
+                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"1rem"}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
+                            {`${dayjs(item.date).format("HH:mm")} HRS`}
                             </Typography>
                             </Fade>
                             <Fade direction="up" triggerOnce={true} >
-                            <Typography  sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${SECONDARY_TYPO}`}>{item.eventName} </Typography>
+                            <Typography  sx={{color:timelineData.colorPrimary,fontSize:"1rem"}} className={`${SECONDARY_TYPO}`}>{item.eventName} </Typography>
                             </Fade>
                         </TimelineContent>
                     </TimelineItem>
@@ -1029,7 +1127,7 @@ const WeddingAnnaJuanAngel  = () => {
        <Box bgcolor={BG_ACCENT} padding={4}>
                 <Box bgcolor={BG_MAIN} 
                 sx={{
-                   backgroundImage: isSmallScreen? `URL(${URL_REPO}demos/marfil-ver.png)` : `URL(${URL_REPO}demos/marfil-hor.png)`,
+                   backgroundImage: isSmallScreen? `URL(${URL_REPO}demos/marfil-ver.webp)` : `URL(${URL_REPO}demos/marfil-hor.webp)`,
                    backgroundSize:"cover",
                    border:"1px solid rgba(160,150,140,.15)",
                    boxShadow:"0 10px 30px rgba(60,60,60,.08)"
@@ -1047,7 +1145,7 @@ const WeddingAnnaJuanAngel  = () => {
                   minHeight: "50svh",
                   overflow: "hidden",
                   backgroundColor: BG_MAIN,
-                  backgroundImage:  isSmallScreen ? `URL(${URL_REPO}demos/marfil-ver.png)` : `URL(${URL_REPO}demos/marfil-hor.png)`,
+                  backgroundImage:  isSmallScreen ? `URL(${URL_REPO}demos/marfil-ver.webp)` : `URL(${URL_REPO}demos/marfil-hor.webp)`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   display: "flex",
@@ -1057,114 +1155,36 @@ const WeddingAnnaJuanAngel  = () => {
                   py: { xs: 10, md: 12 },
               }}
           >
-              {/* Decoraciones */}
+             <Box
+                                          component="img"
+                                          src={`${URL_REPO}boda/boda-brisa-rey/flores/8.png`}
+                                          sx={{
+                                          position: "absolute",
+                                          top: isSmallScreen ? "75%" : 10,
+                                          left:isSmallScreen ? -20 : 10,
+                                          height: 200,
+                                          opacity: .20,
+                                          transform: "rotate(50deg)"
+                                          }}
+                                      />
             
 
-              <Stack
-                  spacing={3}
-                  alignItems="center"
-                  textAlign="center"
-                  sx={{
-                      position: "relative",
-                      zIndex: 2,
-                      maxWidth: 420,
-                  }}
-              >
-                  {/* Título */}
-                  <Typography
-                      className={MAIN_TYPO}
-                      sx={{
-                          color: TEXT_PRIMARY,
-                          fontSize: {
-                              xs: "2.8rem",
-                              md: "3.3rem",
-                          },
-                          lineHeight: .9,
-                      }}
-                  >
-                      Confirmación de asistencia
-                  </Typography>
-
-                 
-
-                  {/* Texto */}
-                  <Typography
-                      className={BODY_TYPO}
-                      sx={{
-                          
-                          fontSize: {
-                              xs: "1rem",
-                              md: "1.3rem",
-                          },
-                          lineHeight: 1.8,
-                          maxWidth: 360,
-                      }}
-                  >
-                      Esperamos contar con ustedes para celebrar este día tan especial,por lo que agradeceremos
-                      <br />
-                     
-                     
-                  </Typography>
-
-                  {/* Botón */}
-                  <Box sx={{ pt: 1 }}>
-                      <CustomButton
-                          label="Confirmar aquí"
-                          icon={<WhatsAppIcon />}
-                          bgColor={BUTTON_PRIMARY}
-                          color="white"
-                          onClick={handleConfirm}
-                      />
-                  </Box>
-
-                  {/* Separador */}
-                  <Box
-                      sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          width: "100%",
-                          mt: 2,
-                          mb: 1,
-                      }}
-                  >
-                      <Divider sx={{ flex: 1 }} />
-
-                      <Typography
-                          sx={{
-                              mx: 2,
-                              color: CHAMPAGNE,
-                              fontSize: "1rem",
-                          }}
-                      >
-                          ✦ 
-                      </Typography>
-
-                      <Divider sx={{ flex: 1 }} />
-                  </Box>
-
-                  {/* Restricciones */}
-
-                  <Stack
-                      spacing={1.5}
-                      alignItems="center"
-                  >
-                      <Typography
-                          className={SECONDARY_TYPO}
-                          sx={{
-                              
-                              fontSize: "1rem",
-                              fontStyle: "italic",
-                          }}
-                      >
-                          *Respetuosamente no niños
-                      </Typography>
-
-                 
-                  </Stack>
-
-                
-              
-              </Stack>
+            <RSVPForm
+                            dateLine={RSVP_DATE_LINE}
+                                guest={guest || undefined}
+                                textColor={TEXT_PRIMARY}
+                                colorButton={BUTTON_PRIMARY}
+                                bgColor={"transparent"}
+                                mainTypo={MAIN_TYPO}
+                                bodyTypo={BODY_TYPO}
+                                count={invitedGuests}
+                                color={TEXT_PRIMARY}
+                                guestId={guestId}
+                                invitationId={INVITATION_ID}
+                                qrActive={false}
+                                numberInWords={true}
+                                fontSize="3rem"
+                            />
           </Box>
             
            
@@ -1175,7 +1195,7 @@ const WeddingAnnaJuanAngel  = () => {
         position: "relative",
         minHeight: "100svh",
         overflow: "hidden",
-         backgroundImage: `url(${URL_IMAGES}fondo1.png)`,
+         backgroundImage: `url(${fondo1})`,
     backgroundSize:"cover",
         display: "flex",
         justifyContent: "center",
@@ -1198,7 +1218,22 @@ const WeddingAnnaJuanAngel  = () => {
         }}
     >
         {/* Título */}
-
+         <Typography
+            className={MAIN_TYPO}
+            sx={{
+                color: giftListData.textColor,
+                textAlign: "center",
+                
+                lineHeight: 1.9,
+                mb: 2,
+                          
+                            fontSize:"2.5rem",
+            }}
+        >
+            
+         {giftListData.title}
+                
+        </Typography>
        
 
         {/* Frase principal */}
@@ -1208,45 +1243,92 @@ const WeddingAnnaJuanAngel  = () => {
             sx={{
                 color: giftListData.textColor,
                 textAlign: "center",
-                fontSize: giftListData.fontSize,
+                
                 lineHeight: 1.9,
                 mb: 3,
+                          
+                            fontSize:".8rem",
             }}
         >
-            {giftListData.mainPhrase}
+            Para nosotros lo mas importante es su presencia,<br></br> 
+            pero si desean hacernos un obsequio tendremos estas opciones<br></br> 
+         
+                
         </Typography>
 
         {/* Sobre */}
 
-        {giftListData.showEnvelope && (
-            <Typography
-                className={BODY_TYPO}
+        {giftListData.items?.map((item, index) => (
+            <Paper
+                key={index}
+                elevation={0}
                 sx={{
-                    color: giftListData.textColor,
-                    textAlign: "center",
-                    lineHeight: 1.9,
-                    mb: 4,
+                    bgcolor: giftListData.bgColor,
+                    borderRadius: "0",
+                    p: 4,
+                    border: "1.5px solid rgba(190,170,130,.45)",
+                    boxShadow: "0 10px 25px rgba(0,0,0,.05)",
                 }}
             >
-                Tendremos un buzón de sobres el día
-                <br />
-                del evento,
-                
-            </Typography>
-        )}
+                <Stack
+                    spacing={2}
+                    alignItems="center"
+                >
+                    <Box
+                        component="img"
+                        src={item.icon}
+                        sx={{
+                            height: 40,
+                            
+                        }}
+                    />
+
+                    <Typography
+                        className={SECONDARY_TYPO}
+                        sx={{
+                            fontSize: {
+                              xs: "1.65rem",
+                              sm: "1.9rem",
+                            },
+                            letterSpacing: "0.04em",
+                            whiteSpace: "nowrap",
+                            color: TEXT_DARK,
+                            // letterSpacing: ".04em",
+                            textAlign: "center",
+                            lineHeight: 1.1,
+                        }}
+                    >
+                        {item.number}
+                    </Typography>
+
+                    <CustomButton
+                        label="Ver mesa de regalos"
+                        bgColor={BUTTON_PRIMARY}
+                        color="white"
+                        href={item.link}
+                    />
+
+                   
+                    
+                </Stack>
+            </Paper>
+        ))}
 
         {/* Segunda frase */}
 
         <Typography
             className={BODY_TYPO}
             sx={{
+              fontSize:".8rem",
                 color: giftListData.textColor,
                 textAlign: "center",
                 lineHeight: 1.9,
                 mb: 5,
+                mt:5
+                
             }}
         >
-            {giftListData.secondPhrase}
+          Tendremos un buzón de sobres el día del evento,<br></br> o bien, pueden hacer una transferencia a nuestra cuenta bancaria
         </Typography>
 
         {/* Tarjeta bancaria */}
@@ -1269,7 +1351,7 @@ const WeddingAnnaJuanAngel  = () => {
                 >
                     <Box
                         component="img"
-                        src={`${URL_IMAGES}santander.svg`}
+                        src={`${URL_REPO}boda/boda-ana-juan-angel/BBVA.png`}
                         sx={{
                             height: 40,
                             
@@ -1291,16 +1373,26 @@ const WeddingAnnaJuanAngel  = () => {
                         className={SECONDARY_TYPO}
                         sx={{
                             fontSize: {
-                                xs: "2rem",
-                                md: "2.2rem",
+                              xs: "1.65rem",
+                              sm: "1.9rem",
                             },
+                            letterSpacing: "0.04em",
+                            whiteSpace: "nowrap",
                             color: TEXT_DARK,
-                            letterSpacing: ".04em",
+                            // letterSpacing: ".04em",
                             textAlign: "center",
                             lineHeight: 1.1,
                         }}
                     >
                         {bank.numbers[0].number}
+                        <IconButton
+                        onClick={() => {
+                        navigator.clipboard.writeText(bank.numbers[0].number.trim());
+                      
+                        }}
+                      >
+                      <ContentCopyIcon sx={{color: TEXT_PRIMARY}} />
+                    </IconButton>
                     </Typography>
 
                     <Typography
@@ -1312,18 +1404,10 @@ const WeddingAnnaJuanAngel  = () => {
                             textAlign: "center",
                         }}
                     >
-                        Juan Angel Cordova Salcido<br></br>
-                        Anna Cordoca Moras
+                        Marisol Martinez Ramirez
                     </Typography>
 
-                    <CustomButton
-                        label="Copiar CLABE"
-                        bgColor={BUTTON_PRIMARY}
-                        color="white"
-                        onClick={() =>
-                            navigator.clipboard.writeText(bank.numbers[0].number)
-                        }
-                    />
+                    
                 </Stack>
             </Paper>
         ))}
@@ -1335,6 +1419,8 @@ const WeddingAnnaJuanAngel  = () => {
     sx={{
         mt: 6,
         width: "100%",
+        paddingLeft:2,
+        // paddingRight:2
     }}
 >
     <Typography
@@ -1350,7 +1436,7 @@ const WeddingAnnaJuanAngel  = () => {
 
     <Box
         component="img"
-        src={`${URL_IMAGES}monograma1.png`}
+        src={`${monograma1}`}
         sx={{
             width: 130,
             objectFit: "contain",
@@ -1363,8 +1449,10 @@ const WeddingAnnaJuanAngel  = () => {
 </Box>
             <div style={{height:100}}></div>
               <FooterInvites bgColor={BG_MAIN} color={BUTTON_PRIMARY}></FooterInvites>
+                </Box>
         </div>
+      
     )
 }
 
-export default WeddingAnnaJuanAngel;
+export default WeddingDemoRose;

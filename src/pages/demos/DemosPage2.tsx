@@ -29,8 +29,8 @@ const DemosPage = () => {
       id: 3,
       titulo: "Celebra+",
       nombres: "Sin fotografías",
-      imagen: "images/demos/2.png",
-      link: "/demos/3?number=2",
+      imagen: "images/demos/49.png",
+      link: "/demo-rose?number=2",
     },
     {
       id: 5,

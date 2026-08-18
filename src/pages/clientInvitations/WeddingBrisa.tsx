@@ -61,7 +61,7 @@ const MAIN_TYPO = "great-vibes-regular";
 // const MAIN_TYPO = "dm-serif-display-regular-italic";
 const BODY_TYPO = "cormorant-garamond-400";
 const URL_IMAGES = `${URL_REPO}boda/boda-brisa-rey/`;
-const URL_SONG = `${URL_REPO}cancion.mp3`;
+const URL_SONG = `${URL_IMAGES}cancion.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 14);
 const RSVP_DATE_LINE = new Date(2026, 9, 30);
 
