@@ -79,6 +79,7 @@ import WeddingBrisa from "../pages/clientInvitations/WeddingBrisa";
 import WeddingBrisa2 from "../pages/clientInvitations/WeddingBrisa2";
 import WeddingAnnaJuanAngel2 from "../pages/clientInvitations/WeddingAnnaJuanAngel2";
 import WeddingDemoRose from "../pages/clientInvitations/WeddingDemo";
+import WeddingVianneyAlberto from "../pages/clientInvitations/WeddingVianneyAlberto";
 
 
 interface RouteConfig {
@@ -173,7 +174,7 @@ const routes: RouteConfig[] = [
   //Borradores
   {path:'/prev-br', element:<WeddingBrisa></WeddingBrisa>},
  {path:'/prev-br-2', element:<WeddingBrisa2></WeddingBrisa2>},
-
+{path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
 
 
   

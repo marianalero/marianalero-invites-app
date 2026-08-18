@@ -1420,38 +1420,7 @@ const WeddingDemoRose  = () => {
             </Paper>
         ))}
 
-        <Stack
-    direction="row"
-    justifyContent="space-between"
-    alignItems="center"
-    sx={{
-        mt: 6,
-        width: "100%",
-        paddingLeft:2,
-        // paddingRight:2
-    }}
->
-    <Typography
-        className={MAIN_TYPO}
-        sx={{
-            fontSize: "2.5rem",
-            color: TEXT_PRIMARY,
-            lineHeight: .9,
-        }}
-    >
-        Muchas gracias
-    </Typography>
-
-    <Box
-        component="img"
-        src={`${monograma1}`}
-        sx={{
-            width: 130,
-            objectFit: "contain",
-        }}
-    />
-</Stack>
-
+      
        
     </Paper>
 </Box>

@@ -61,7 +61,7 @@ const GiftList = (props:GiftListProps) =>{
             (
                 
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                        <Paper elevation={0} >
+                        <Paper elevation={0} sx={{backgroundColor : props.bgColor ? props.bgColor :"white"}} >
                             <Grid container>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} sx={{display:"flex",justifyContent:"center"}} >
                                     <img width="175px" src={props.items[0].icon}/>	    
