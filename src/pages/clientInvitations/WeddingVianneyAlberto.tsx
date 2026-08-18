@@ -8,7 +8,6 @@ import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/With
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
 import FooterInvites from "../../components/Footer/FooterInvites";
-import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
 import { Box, Container, Divider, Paper, Stack, Typography,  } from "@mui/material";
@@ -28,7 +27,7 @@ import EventCardImage from "../../components/EventCard/EventCardImage";
 
 const INVITATION_ID = 9;
 const BG_MAIN = "#FCFBF8";
-const BG_SECTION = "#F2F1EC";
+// const BG_SECTION = "#F2F1EC";
 const BG_ACCENT = "#A6A998";
 const BG_CARD ="#f2f1e9"
 // Textos
