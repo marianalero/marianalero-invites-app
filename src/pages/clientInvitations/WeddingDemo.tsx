@@ -623,7 +623,7 @@ const WeddingDemoRose  = () => {
               sx={{
                 px: { xs: 2, sm: 4, md: 5 },
                 py: { xs: 2, sm: 4, md: 5 },
-
+                paddingBottom:  { xs: 4, sm: 6, md: 7 },
                 alignItems: "center",
                 textAlign: "center",
                 color: TEXT_PRIMARY,
@@ -840,7 +840,7 @@ const WeddingDemoRose  = () => {
                                           position: "absolute",
                                           top: isSmallScreen ? 10 : 10,
                                           right:isSmallScreen ? 5 : 10,
-                                          width: 90,
+                                          width: isSmallScreen ? 90 : 200,
                                           opacity: .20,
                                           transform: "rotate(270deg)"
                                           }}
@@ -850,9 +850,9 @@ const WeddingDemoRose  = () => {
                                           src={`${URL_REPO}boda/boda-brisa-rey/flores/8.png`}
                                           sx={{
                                           position: "absolute",
-                                          top: isSmallScreen ? "80%" : 10,
+                                          top: isSmallScreen ? "80%" : "70%",
                                           left:isSmallScreen ? 5 : 10,
-                                          width: 90,
+                                          width: isSmallScreen ? 90 : 200,
                                           opacity: .20,
                                           transform: "rotate(50deg)"
                                           }}
@@ -1072,7 +1072,15 @@ const WeddingDemoRose  = () => {
                   </Box>
               </Box>
 </Box>
-            <div style={{backgroundImage: isSmallScreen ? `url("${fondo2}")` : `url("${itinerarioHorz}")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "20px 20px 50px 20px", height:"90vh" }}>
+            <div style={{
+                  backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+                url(${isSmallScreen ? fondo2 : itinerarioHorz})
+              `,
+              backgroundSize: "cover",
+               backgroundPosition: "bottom",
+                padding: "20px 20px 50px 20px",
+                 height:"90vh" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} >
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -1160,9 +1168,9 @@ const WeddingDemoRose  = () => {
                                           src={`${URL_REPO}boda/boda-brisa-rey/flores/8.png`}
                                           sx={{
                                           position: "absolute",
-                                          top: isSmallScreen ? "75%" : 10,
+                                          top: isSmallScreen ? "75%" : "55%",
                                           left:isSmallScreen ? -20 : 10,
-                                          height: 200,
+                                          height: isSmallScreen ? 200 : 400,
                                           opacity: .20,
                                           transform: "rotate(50deg)"
                                           }}
