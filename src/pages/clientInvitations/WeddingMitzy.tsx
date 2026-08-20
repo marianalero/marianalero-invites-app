@@ -71,7 +71,15 @@ const SECONDARY_TYPO = "bonodi-moda-regular to-upper letter-spacing-25em";
 const BODY_TYPO = "inter-regular";
 const URL_IMAGES = `${URL_REPO}boda/boda-mitzia-jhovanny/`;
 // const URL_IMAGES_DEMOS = `${URL_REPO}demos/`;
-const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
+const URL_SONG = `${URL_REPO}canciones/`;
+const SONGS_BY_ID: Record<number, string> = {
+    1: "AThousandYears-ChristinaPerri.mp3",
+    2: "L-O-V-E.mp3",
+    3: "Photograph-Ed Sheeran.mp3",
+    4: "TeddySwims-LoseControl.mp3",
+    5: "ThisWillBe.mp3",
+    6: "HaroldyElena-Por-Siempre.mp3",
+};
 const COUNTDOWN_DATE = new Date(2026, 10, 6);
 const RSVP_DATE_LINE = new Date(2026, 9, 21);
 
@@ -272,6 +280,12 @@ const WeddingMitzy  = () => {
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
 
+    const songUrl = useMemo(() => {
+        const songId = Number(searchParams.get("song"));
+        const fileName = SONGS_BY_ID[songId] ?? SONGS_BY_ID[1];
+        return `${URL_SONG}${encodeURIComponent(fileName)}`;
+    }, [searchParams]);
+
     // INTRO STATES
     const [showIntro, setShowIntro] = useState(true);
     const [guest, setGuest] = useState<Guest | null>(null);
@@ -314,7 +328,7 @@ const WeddingMitzy  = () => {
                 height: showIntro ? "100dvh" : "auto",
             }}
         >
-            <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={TEXT_PRIMARY}/>
+            <MusicFabPlayer ref={musicRef}  src={songUrl} backgroundColor={TEXT_PRIMARY}/>
 
             {/* INTRO */}
             <EnvelopeIntro
