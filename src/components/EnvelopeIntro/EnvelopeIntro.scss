@@ -1,0 +1,73 @@
+.envelope-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+    z-index: 99999;
+    background: var(--overlay-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease 0.28s;
+
+    &.is-opening {
+        background-color: transparent;
+        pointer-events: none;
+    }
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    perspective: 2500px;
+}
+
+.left-flap,
+.right-flap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.left-flap {
+    z-index: 2;
+    transform-origin: left center;
+}
+
+.right-flap {
+    z-index: 1;
+    transform-origin: right center;
+}
+
+.seal {
+    position: absolute;
+    left: var(--seal-x);
+    top: var(--seal-y);
+    width: 110px;
+    margin-left: -55px;
+    margin-top: -55px;
+    z-index: 20;
+    cursor: pointer;
+    filter: drop-shadow(0 8px 18px var(--shadow));
+}
+
+@media (min-width: 900px) and (orientation: landscape) {
+    .seal {
+        width: 128px;
+        margin-left: -64px;
+        margin-top: -64px;
+    }
+}

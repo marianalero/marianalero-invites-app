@@ -1412,7 +1412,7 @@ const WeddingDemoRose  = () => {
                             textAlign: "center",
                         }}
                     >
-                        Marisol Martinez Ramirez
+                         {bank.name}
                     </Typography>
 
                     
