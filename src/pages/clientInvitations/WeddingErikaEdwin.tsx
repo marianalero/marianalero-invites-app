@@ -63,7 +63,7 @@ const BODY_TYPO = "montserrat-400";
 const URL_IMAGES = `${URL_REPO}boda/boda-erika-edwin/`;
 const URL_SONG = `${URL_IMAGES}cancion2.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 14);
-const RSVP_DATE_LINE = new Date(2026, 11, 1);
+const RSVP_DATE_LINE = new Date(2026, 9, 10);
 
 const eventCards: EventCardProps[] = [
     {

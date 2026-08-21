@@ -346,6 +346,16 @@
   font-weight: 400!important;
   font-style: italic!important;
 }
+.inter-regular{
+  font-family: "Inter", cursive !important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+.inter-italic{
+  font-family: "Inter Italic", cursive !important;
+  font-weight: 400!important;
+  font-style: italic!important;
+}
 .italic{
   font-style: italic!important;
 }

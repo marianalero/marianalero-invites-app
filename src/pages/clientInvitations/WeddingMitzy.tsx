@@ -81,7 +81,7 @@ const SONGS_BY_ID: Record<number, string> = {
     6: "HaroldyElena-Por-Siempre.mp3",
 };
 const COUNTDOWN_DATE = new Date(2026, 10, 6);
-const RSVP_DATE_LINE = new Date(2026, 9, 21);
+const RSVP_DATE_LINE = new Date(2026, 9, 28);
 
 const eventCards: EventCardProps[] = [
     {
@@ -228,7 +228,6 @@ const calendarButtonProps = {
 };
 
 const galleryImages = [
-    `${URL_IMAGES}g1.jpg`,
     `${URL_IMAGES}g2.jpg`,
 ];
 
@@ -244,10 +243,6 @@ const godParents = [
   {
     title: "Velacion",
     names: [" Diana Carolina López Miranda ", "Luis Ernesto Estrada Corrales"],
-  },
-  {
-    title: "Anillos",
-    names: ["Ana Minerva González Juárez ", " Jesús Eduardo Urías "],
   },
   {
     title: "Lazo",
@@ -532,6 +527,7 @@ const WeddingMitzy  = () => {
                 <Grid size={{ xs: 12, md: 6 }} key={index}>
                     <Box textAlign="center">
                     <Typography
+                    translate="no"
                     className={SECONDARY_TYPO}
                         sx={{
                        
@@ -642,7 +638,7 @@ de esta celebración.</Typography>
                         </TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
-                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"22px",}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
+                            <Typography translate="no" sx={{color:timelineData.colorPrimary,fontSize:"22px",}} className={`${SECONDARY_TYPO}`} variant="subtitle1" component="span">
                             {dayjs(item.date).format("hh:mm A")}
                             </Typography>
                             </Fade>
@@ -903,7 +899,7 @@ de esta celebración.</Typography>
                 guestId={guestId}
                 invitationId={INVITATION_ID}
                 qrActive={false}
-                numberInWords={true}
+                
                 fontSize="2rem"
                
             >
