@@ -52,7 +52,7 @@ const numberToWords = (num: number, language: string): string => {
 };
 
 const RSVPForm  = (props:RSVPType) => {
-    console.log("RSVPForm props", props.guest);
+    console.log("RSVPForm props", props);
     const backgroundPositionDesktop = `${props.bgPosition ?? "center"} ${props.bgPositionY ?? "center"}`;
     const backgroundPositionMobile = `${props.mobileBgPosition ?? props.bgPosition ?? "center"} ${props.mobileBgPositionY ?? props.bgPositionY ?? "center"}`;
     const [errorName, setErrorName] = useState(false);
@@ -218,7 +218,7 @@ const RSVPForm  = (props:RSVPType) => {
                 <Fade direction="up" triggerOnce={true}>
                 {props.guestId && (
                
-                    <Typography textAlign={"center"}  className={props.bodyTypo} sx={{color:props.color, fontStyle:"italic!important"}} >Hola, {guest.fullName}</Typography>
+                    <Typography textAlign={"center"}  className={props.bodyTypo} sx={{fontStyle:"italic!important"}} >Hola, {guest.fullName}</Typography>
 
                 )
                 }
@@ -281,7 +281,7 @@ const RSVPForm  = (props:RSVPType) => {
                     noValidate
                     autoComplete="off"
                     >
-                        <Grid container spacing={2} padding={4} >
+                        <Grid container spacing={2} padding={props.padding ? props.padding : 4} >
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                                 <Typography  textAlign={"center"} variant='body1' className={props.bodyTypo}  sx={{color:props.textColor}}> {t("RSVP.willYouAttend")}</Typography>
                                 <RadioGroup 

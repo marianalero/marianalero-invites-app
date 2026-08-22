@@ -27,4 +27,5 @@ export interface RSVPType {
     transparencyButton?:boolean;
     guest?:Guest;
     hideTitle?:boolean;
+    padding?:number;
 }
