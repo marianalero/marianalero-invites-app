@@ -105,7 +105,7 @@ const URL_SONG = `${URL_REPO}canciones/Photograph-Ed Sheeran.mp3`;
 //     6: "HaroldyElena-Por-Siempre.mp3",
 // };
 const COUNTDOWN_DATE = new Date(2026, 10, 6);
-const RSVP_DATE_LINE = new Date(2026, 9, 28);
+const RSVP_DATE_LINE = new Date(2026, 8, 28);
 
 const eventCards: EventCardProps[] = [
     {
@@ -500,6 +500,7 @@ const WeddingMitzy  = () => {
                 px: 3,
             }}
             >
+        
             {/* Título */}
             <Typography
                 className={SECONDARY_TYPO}
@@ -545,8 +546,11 @@ const WeddingMitzy  = () => {
 
             <Grid container spacing={6}>
                 {godParents.map((item, index) => (
+                    
                 <Grid size={{ xs: 12, md: 6 }} key={index}>
+
                     <Box textAlign="center">
+                        <Fade direction="up" triggerOnce={true}>
                     <Typography
                     translate="no"
                     className={SECONDARY_TYPO}
@@ -588,9 +592,12 @@ const WeddingMitzy  = () => {
                         mt: 2,
                         }}
                     />
+                    </Fade>
                     </Box>
+                    
                 </Grid>
                 ))}
+
             </Grid>
             </Box>
             <div style={{backgroundColor:BG_SECTION, padding: "50px 20px" }}>

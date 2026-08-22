@@ -52,7 +52,7 @@ const EventCard  = (props:EventCardProps) => {
                                     <Typography sx={{color: props.textColor ? props.textColor : "black"}}   textAlign={"center"} className={props.bodyTypo} >{props.address}</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                                    <Typography sx={{color: props.textColor ? props.textColor : "black"}}     textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {localizedDate.format("hh:mm A")} { localizedEndDate ? `- ${localizedEndDate.format("hh:mm A")}` : "" }</Typography>
+                                    <Typography translate="no" sx={{color: props.textColor ? props.textColor : "black"}}     textAlign={"center"} className={props.bodyTypo}> <AccessTimeIcon></AccessTimeIcon>  {localizedDate.format("hh:mm A")} { localizedEndDate ? `- ${localizedEndDate.format("hh:mm A")}` : "" }</Typography>
                                 </Grid>
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}}  display={"flex"} alignItems={"center"} justifyContent={"center"} >
                                     {
