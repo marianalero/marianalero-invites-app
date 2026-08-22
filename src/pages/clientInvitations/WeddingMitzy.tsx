@@ -1292,7 +1292,7 @@ de esta celebración.</Typography>
                         my: 2,
                     }}
                     >
-                    {invitedGuests}
+                    {guest ? guest.totalAssigned :invitedGuests}
                     </Typography>
 
                     <Typography
