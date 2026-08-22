@@ -502,6 +502,7 @@ const WeddingMitzy  = () => {
             >
         
             {/* Título */}
+               <Fade direction="up" triggerOnce={true}>
             <Typography
                 className={SECONDARY_TYPO}
                 textAlign="center"
@@ -543,7 +544,7 @@ const WeddingMitzy  = () => {
                         mt: 2,
                         }}
                     />
-
+</Fade>
             <Grid container spacing={6}>
                 {godParents.map((item, index) => (
                     
