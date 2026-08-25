@@ -8,7 +8,7 @@ import FooterInvites from "../../components/Footer/FooterInvites";
 
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Grid from '@mui/material/Grid2';
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
 import { useSearchParams } from "react-router-dom";
 import { useMemo, useRef } from "react";
@@ -38,7 +38,7 @@ const GOLD_LIGHT = "#E7CB80";
 
 // 🎯 BOTONES
 const BUTTON_PRIMARY = "#6E1C23";
-const BUTTON_TEXT = "#FFFFFF";
+
 const MAIN_TYPO = "alex-brush-regular";
 const SECOND_TYPO ="cormorant-garamond-600"
 const BODY_TYPO = "montserrat-400 ";
