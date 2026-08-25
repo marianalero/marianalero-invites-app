@@ -192,7 +192,7 @@ const XVMichelle  = () => {
             <CoverSimple 
                 bgImage={`${URL_IMAGES}image0.jpeg`}
                 bgImage2={`${URL_IMAGES}image0.jpeg`}
-                  weddingDate="31.10.2026"
+                  weddingDate="02.10.2026"
                  subtitle="Mis XV años"
                   brideName="Michelle Centeno"
                   symbolr={""}
