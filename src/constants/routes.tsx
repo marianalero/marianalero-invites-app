@@ -76,7 +76,6 @@ import XVDannaSophia from "../pages/clientInvitations/XVDannaSophia";
 import WeddingCowboy from "../pages/clientInvitations/WeddingCowboy";
 
 import WeddingBrisa from "../pages/clientInvitations/WeddingBrisa";
-import WeddingBrisa2 from "../pages/clientInvitations/WeddingBrisa2";
 import WeddingAnnaJuanAngel2 from "../pages/clientInvitations/WeddingAnnaJuanAngel2";
 import WeddingDemoRose from "../pages/clientInvitations/WeddingDemo";
 import WeddingVianneyAlberto from "../pages/clientInvitations/WeddingVianneyAlberto";

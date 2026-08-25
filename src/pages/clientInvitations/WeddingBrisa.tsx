@@ -10,8 +10,8 @@ import Grid from '@mui/material/Grid2';
 import FooterInvites from "../../components/Footer/FooterInvites";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Box, IconButton, Paper, Stack, Typography, useMediaQuery,  } from "@mui/material";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { Box, Stack, Typography, useMediaQuery,  } from "@mui/material";
+
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCard from "../../components/EventCard/EventCard";
@@ -34,9 +34,8 @@ import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 
-import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
+
 import EditorialCountdown from "../../components/EditorialCountdown";
-import CustomButton from "../../components/CustomButton/CustomButton";
 
 const INVITATION_ID = 9;
 // Fondos
@@ -46,7 +45,7 @@ const BG_ACCENT = "#B7C7A9";
 
 // Textos
 const TEXT_PRIMARY = "#5C5147";
-const TEXT_SECONDARY = "#8D8278";
+// const TEXT_SECONDARY = "#8D8278";
 
 // Títulos
 const TITLE_COLOR = "#6E6157";
@@ -55,11 +54,11 @@ const TITLE_COLOR = "#6E6157";
 const DIVIDER_COLOR = "#DDD3C9";
 
 // Monograma
-const MONOGRAM_COLOR = "rgba(110,97,87,.08)";
+// const MONOGRAM_COLOR = "rgba(110,97,87,.08)";
 
-// Cards
-const CARD_BG = "rgba(255,255,255,.70)";
-const CARD_RADIUS = "0px";
+// // Cards
+// const CARD_BG = "rgba(255,255,255,.70)";
+// const CARD_RADIUS = "0px";
 const CARD_SHADOW = "0 12px 40px rgba(0,0,0,.08)";
 const BUTTON_PRIMARY = "#8E9F87";
 const MAIN_TYPO = "noto-serif-display-400";
