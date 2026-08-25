@@ -592,7 +592,7 @@ color: TEXT_PRIMARY
                 ))
             }
             </Grid>
-            <Box paddingX={2}>
+            <Box p={2} >
                 <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:GOLD_LIGHT, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
                     No queremos que te pierdas este día
                     </Typography>
