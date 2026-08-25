@@ -264,7 +264,7 @@ const XVMichelle  = () => {
     }, []);
     return (
         <div style={{backgroundColor:BG_MAIN,maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
-           <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={TEXT_PRIMARY}/>
+           <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={TEXT_PRIMARY} startTime={3}/>
            <InvitationIntro
                            open={showIntro}
                            onEnter={handleEnter}
