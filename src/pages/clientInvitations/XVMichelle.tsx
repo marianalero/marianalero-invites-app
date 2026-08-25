@@ -9,7 +9,6 @@ import FooterInvites from "../../components/Footer/FooterInvites";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Grid from '@mui/material/Grid2';
 import { Box, Typography } from "@mui/material";
-import { URL_REPO } from "../../config";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState,  } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
@@ -26,6 +25,26 @@ import { getGuestById } from "../../services/guestApiClient";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { Guest } from "../../models/guest";
+
+import image0 from "../../assets/xv-michelle-centeno/image0.jpeg";
+import image1 from "../../assets/xv-michelle-centeno/image1.jpeg";
+import image2 from "../../assets/xv-michelle-centeno/image2.jpeg";
+import image3 from "../../assets/xv-michelle-centeno/image3.jpeg";
+import image4 from "../../assets/xv-michelle-centeno/image4.jpeg";
+import fondo from "../../assets/xv-michelle-centeno/fondo.png";
+import envelop from "../../assets/xv-michelle-centeno/envelop.png";
+import sello from "../../assets/xv-michelle-centeno/sello.png";
+import card13 from "../../assets/xv-michelle-centeno/cards/13.png";
+import card14 from "../../assets/xv-michelle-centeno/cards/14.png";
+import card15 from "../../assets/xv-michelle-centeno/cards/15.png";
+import deco2 from "../../assets/xv-michelle-centeno/deco/2.png";
+import deco4 from "../../assets/xv-michelle-centeno/deco/4.png";
+import deco6 from "../../assets/xv-michelle-centeno/deco/6.png";
+import icono17 from "../../assets/xv-michelle-centeno/iconos/17.svg";
+import icono23 from "../../assets/xv-michelle-centeno/iconos/23.svg";
+import icono24 from "../../assets/xv-michelle-centeno/iconos/24.svg";
+import icono25 from "../../assets/xv-michelle-centeno/iconos/25.svg";
+import cancion from "../../assets/xv-michelle-centeno/cancion.mp3";
   
 // 🎨 BACKGROUNDS
 const BG_MAIN = "#F7F3EE";      // Perla
@@ -46,10 +65,9 @@ const BUTTON_PRIMARY = "#6E1C23";
 const MAIN_TYPO = "alex-brush-regular";
 const SECOND_TYPO ="cormorant-garamond-600"
 const BODY_TYPO = "montserrat-400 ";
-const URL_IMAGES = `${URL_REPO}xv/xv-michelle-centeno/`;
 const galleryPhotos = [
-       `${URL_IMAGES}image3.jpeg`,
-       `${URL_IMAGES}image4.jpeg`,
+       image3,
+       image4,
 ]
 
 const eventCards: EventCardProps[] = [
@@ -60,7 +78,7 @@ const eventCards: EventCardProps[] = [
                 address: "Calle Guadalupe Victoria S/N, Balderrama, Hermosillo, Son..",
                 size: 6,
                 color: GOLD,
-                icon: `${URL_IMAGES}cards/14.png`,
+                icon: card14,
                 mainTypo:`${SECOND_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/cKEVUrVSYRt6bHXr8",
@@ -77,7 +95,7 @@ const eventCards: EventCardProps[] = [
                 address: "Lázaro Cárdenas, Arco Iris, Hermosillo, Son.",
                 size: 6,
                 color: GOLD,
-                icon:`${URL_IMAGES}cards/13.png`,
+                icon: card13,
                 mainTypo:  `${SECOND_TYPO}`,
                 bodyTypo: BODY_TYPO,
                 fontSize:"45px",
@@ -99,22 +117,22 @@ const timelineData: CustomizedTimelineProps = {
             {
                 eventName: "Misa",
                 date: new Date(2026, 0, 31, 18, 30, 0),
-                icon:`${URL_IMAGES}iconos/17.svg`,
+                icon: icono17,
             },
             {
                 eventName: "Recepción",
                 date: new Date(2026, 0, 31, 21, 0, 0),
-                icon:`${URL_IMAGES}iconos/23.svg`,
+                icon: icono23,
             },
             {
                 eventName: "Vals",
                 date: new Date(2026,  0, 31,22,0,0),
-                icon:`${URL_IMAGES}iconos/24.svg`,
+                icon: icono24,
             },
             {
                 eventName: "Cena",
                 date: new Date(2026,  0, 31,22,30,0),
-                icon:`${URL_IMAGES}iconos/25.svg`,
+                icon: icono25,
             },
             // {
             //     eventName: "Fin del evento",
@@ -130,7 +148,7 @@ const giftListData: GiftListProps = {
         textColor: TEXT_LIGHT, 
         bgColor:BG_ACCENT, 
         showEnvelope:true,
-        bankIconEnd:`${URL_IMAGES}cards/15.png`,
+        bankIconEnd: card15,
         cardColor: BG_ACCENT,
         envelopePhrase:"Tu presencia es mi mejor regalo. Si deseas obsequiarme algo, agradecería mucho que fuera en efectivo.",
         // secondPhrase:"O bien puedes realizar transferencia o depósito a la siguiente cuenta:",
@@ -173,7 +191,6 @@ const godparents= [
   "Ariadna Salazar"
 
 ];
-const URL_SONG = `${URL_IMAGES}cancion.mp3`;   
 const INVITATION_ID = 35;
 
 const introSealPosition = {
@@ -264,7 +281,7 @@ const XVMichelle  = () => {
     }, []);
     return (
         <div style={{backgroundColor:BG_MAIN,maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
-           <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={TEXT_PRIMARY} startTime={3}/>
+           <MusicFabPlayer ref={musicRef}  src={cancion} backgroundColor={TEXT_PRIMARY} startTime={3}/>
            <InvitationIntro
                            open={showIntro}
                            onEnter={handleEnter}
@@ -285,12 +302,12 @@ const XVMichelle  = () => {
                            backgroundColor={BG_MAIN}
                            primaryColor={TEXT_PRIMARY}
            
-                           envelopeImg={`${URL_IMAGES}envelop.png`}
-                           sealImg={`${URL_IMAGES}sello.png`}
+                           envelopeImg={envelop}
+                           sealImg={sello}
            
                            sealPosition={introSealPosition}
-                           topLeftCornerImg={`${URL_IMAGES}deco/6.png`}
-                           bottomRightCornerImg={`${URL_IMAGES}deco/6.png`}
+                           topLeftCornerImg={deco6}
+                           bottomRightCornerImg={deco6}
                            bottomRightCornerPosition={introBottomRightCornerPosition}
                            topLeftCornerPosition={introTopLeftCornerPosition}
            
@@ -314,8 +331,8 @@ const XVMichelle  = () => {
                 }}
             >
             <CoverSimple 
-                bgImage={`${URL_IMAGES}image0.jpeg`}
-                bgImage2={`${URL_IMAGES}image0.jpeg`}
+                bgImage={image0}
+                bgImage2={image0}
                   weddingDate="02.10.2026"
                  subtitle="Mis XV años"
                   brideName="Michel Camacho"
@@ -332,7 +349,7 @@ const XVMichelle  = () => {
             <Grid container spacing={2} justifyContent="center"  bgcolor={BG_MAIN}>
               <Grid pb={0} pt={2} >
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}deco/4.png`} width={"150px"} />
+                    <Adornment image={deco4} width={"150px"} />
               
                 </Fade>
               </Grid>
@@ -349,12 +366,12 @@ const XVMichelle  = () => {
             </Grid>
             <Grid pb={2} pt={0} >
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}deco/4.png`} width={"150px"} />
+                    <Adornment image={deco4} width={"150px"} />
               
                 </Fade>
               </Grid>
             </Grid>
-              <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}image1.jpeg`}></ImageMiddle>
+              <ImageMiddle bgPosition="30%" height="70vh" bgImage={image1}></ImageMiddle>
        <Grid
   container
   justifyContent="center"
@@ -385,7 +402,7 @@ const XVMichelle  = () => {
           <Fade direction="up">
           <Box mt={4} mb={4}>
             <Adornment
-              image={`${URL_IMAGES}deco/2.png`}
+              image={deco2}
               width="180px"
             />
           </Box>
@@ -485,7 +502,7 @@ const XVMichelle  = () => {
       <Fade direction="up">
         <Box mt={6}>
           <Adornment
-            image={`${URL_IMAGES}deco/2.png`}
+            image={deco2}
             width="180px"
           />
         </Box>
@@ -503,7 +520,7 @@ const XVMichelle  = () => {
                 primaryColor={GOLD} 
                 secondarColor={GOLD_LIGHT}
                 circleBgColor="transparent"
-                bgImage={`url('${URL_IMAGES}fondo.png')`} 
+                bgImage={`url('${fondo}')`} 
                 format="DD MMMM YYYY"
                 >  
             </CountDownSimple>
@@ -609,7 +626,7 @@ color: TEXT_PRIMARY
                 </Box>
             </Box>
              </div>
-            <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}image2.jpeg`}></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="70vh" bgImage={image2}></ImageMiddle>
 
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
 
@@ -639,7 +656,7 @@ color: TEXT_PRIMARY
             <DressCode {...dresscode}></DressCode>
             <Grid paddingBottom={2} >
                 <Fade direction="up" >
-                    <Adornment image={`${URL_IMAGES}deco/2.png`} width={"150px"} />
+                    <Adornment image={deco2} width={"150px"} />
               
                 </Fade>
               </Grid>
