@@ -272,7 +272,7 @@ const XVMichelle  = () => {
            
                            title="Te invito a celebrar mis XV años"
 
-                           fontSizeNames="1.5rem"
+                           fontSizeNames="2.5rem"
                            brideName="Michel"
                            groomName="Camacho"
                            ampersonSymbol=""
