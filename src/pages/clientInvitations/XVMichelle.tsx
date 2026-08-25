@@ -260,7 +260,7 @@ const XVMichelle  = () => {
 
 
     useEffect(() => {
-        document.title = "XV Michelle";
+        document.title = "XV Michel";
     }, []);
     return (
         <div style={{backgroundColor:BG_MAIN,maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
@@ -273,7 +273,7 @@ const XVMichelle  = () => {
                            title="Te invito a celebrar mis XV años"
 
                            fontSizeNames="1.5rem"
-                           brideName="Michelle"
+                           brideName="Michel"
                            groomName="Camacho"
                            ampersonSymbol=""
            
@@ -318,7 +318,7 @@ const XVMichelle  = () => {
                 bgImage2={`${URL_IMAGES}image0.jpeg`}
                   weddingDate="02.10.2026"
                  subtitle="Mis XV años"
-                  brideName="Michelle Camacho"
+                  brideName="Michel Camacho"
                   symbolr={""}
                   groomName={""}
                   className={MAIN_TYPO}
@@ -598,7 +598,7 @@ color: TEXT_PRIMARY
                     </Typography>
                 <Box display={"flex"} justifyContent={"center"}>
                     <CalendarButton
-                        title="XV Michelle"
+                        title="XV Michel"
                         startDate="20261002T170000"
                         endDate="20261003T020000"
                         location="Parroquia San Francisco de Asís/Salón de Eventos El Mezquite"
