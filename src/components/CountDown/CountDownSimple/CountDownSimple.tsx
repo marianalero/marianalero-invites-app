@@ -74,20 +74,7 @@ const CountDownSimple = (props:CountDownSimpleProps) => {
 				<span className="" id="" style={{ color:props.primaryColor}}>: <br/> <span ></span></span>
 				<span  id="seconds" ><div className="countdown-circle"  style={{backgroundColor:props.circleBgColor, color:props.circleTextColor ? props.circleTextColor : props.primaryColor, fontSize : props.numberSize ? props.numberSize : "25px"}}>{seconds.toString().padStart(2, "0")}</div><span style={{ color:props.primaryColor}} className="labels">{t('countdown.seconds')}</span></span>
 			</div>
-        //   <div className="countdown-display">
-        //     <div className="countdown-value">
-        //       {days.toString().padStart(2, "0")} <span>days</span>
-        //     </div>
-        //     <div className="countdown-value">
-        //       {hours.toString().padStart(2, "0")} <span> hours</span>
-        //     </div>
-        //     <div className="countdown-value">
-        //       {minutes.toString().padStart(2, "0")} <span>minutes</span>
-        //     </div>
-        //     <div className="countdown-value">
-        //       {seconds.toString().padStart(2, "0")} <span>seconds</span>
-        //     </div>
-        //   </div>
+       
         );
       };
     return (

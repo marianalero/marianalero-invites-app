@@ -53,9 +53,9 @@ const BankCard  = (item:BankAccount) => {
         }}
       >
        <Paper 
-            variant="outlined"
+            elevation={0}
             sx={{
-                borderColor:item.color,
+                border: item.outlineColor ? `2px solid ${item.color}` : 'none',
                 padding:1,
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
                 marginY:"10px"
@@ -69,7 +69,7 @@ const BankCard  = (item:BankAccount) => {
                       
                         }}
                       >
-                      <ContentCopyIcon sx={{color:  item.outlineColor ? item.color : item.bgColor}} />
+                      <ContentCopyIcon sx={{color:  item.color}} />
                     </IconButton>
                     </Typography>
                   ))}

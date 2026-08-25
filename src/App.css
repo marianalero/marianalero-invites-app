@@ -349,22 +349,12 @@
 }
 
 .inter-regular{
-  font-family: "Inter", cursive !important;
+  font-family: "Inter", serif !important;
   font-weight: 400!important;
   font-style: normal!important;
 }
 .inter-italic{
-  font-family: "Inter Italic", cursive !important;
-  font-weight: 400!important;
-  font-style: italic!important;
-}
-.inter-regular{
-  font-family: "Inter", cursive !important;
-  font-weight: 400!important;
-  font-style: normal!important;
-}
-.inter-italic{
-  font-family: "Inter Italic", cursive !important;
+  font-family: "Inter Italic", serif !important;
   font-weight: 400!important;
   font-style: italic!important;
 }

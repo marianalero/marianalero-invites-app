@@ -40,7 +40,7 @@ const GiftList = (props:GiftListProps) =>{
                 props.mainPhrase && (
                      <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                         <Fade direction="up" triggerOnce={true}>
-                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem"}}>{ props.title ? props.title : t("gifts.giftTable")}</Typography>
+                        <Typography variant='h3' color={props.color} textAlign={"center"} className={`${props.mainTypo}`} sx={{fontSize: props.fontSize ? props.fontSize : "3rem", lineHeight:1}}>{ props.title ? props.title : t("gifts.giftTable")}</Typography>
                         </Fade>
                     </Grid>	
                     
