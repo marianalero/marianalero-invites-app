@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid2';
 import { Box, Typography } from "@mui/material";
 import { URL_REPO } from "../../config";
 import { useSearchParams } from "react-router-dom";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState,  } from "react";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 
 import CoverSimple from "../../components/Cover/CoverSimple/CoverSimple";
@@ -22,6 +22,10 @@ import RSVPForm from "../../components/RSVP/RSVPForm";
 import GiftList2 from "../../components/Gifts/GiftList2";
 import { GiftListProps } from "../../models/component/giftList";
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
+import { getGuestById } from "../../services/guestApiClient";
+import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
+import CalendarButton from "../../components/CalendarButton/CalendarButton";
+import { Guest } from "../../models/guest";
   
 // 🎨 BACKGROUNDS
 const BG_MAIN = "#F7F3EE";      // Perla
@@ -128,7 +132,7 @@ const giftListData: GiftListProps = {
         showEnvelope:true,
         bankIconEnd:`${URL_IMAGES}cards/15.png`,
         cardColor: BG_ACCENT,
-        envelopePhrase:"Tu presencia es el mejor regalo, pero si deseas hacerme un obsequio, tendremos una caja para sobres el día del evento por si deseas hacernos un regalo en efectivo.",
+        envelopePhrase:"Tu presencia es mi mejor regalo. Si deseas obsequiarme algo, agradecería mucho que fuera en efectivo.",
         // secondPhrase:"O bien puedes realizar transferencia o depósito a la siguiente cuenta:",
         // bankDetails: [
         //     {
@@ -163,17 +167,54 @@ const godparents= [
   "Ariadna Castro - Mauricio Gutiérrez",
   "Alegría Centeno L. - Eliseo Cadena V.",
   "Francisca Pacheco - Leonel Rivera",
-  "Ariadna Salazar",
   "Lorenia Landeros",
   "Verónica Campoy - Germán Monge",
   "Rubi Cruz - Jonathan Cruz",
   "Ariadna Salazar"
 
 ];
-const URL_SONG = `${URL_IMAGES}cancione.mp3`;   
+const URL_SONG = `${URL_IMAGES}cancion.mp3`;   
 const INVITATION_ID = 9;
+
+const introSealPosition = {
+    top: "70%",
+    left: "50%",
+    width: "75px",
+    height: "75px",
+    transform: "translate(-50%, -50%)",
+};
+
+const introBottomRightCornerPosition = {
+    bottom: "-30px",
+    right: "10px",
+    width: "110px",
+    height: "110px",
+    transform: "rotate(180deg)",
+};
+
+const introTopLeftCornerPosition = {
+    top: "-35px",
+    left: "20px",
+    width: "110px",
+    height: "110px",
+    transform: "rotate(30deg)",
+
+};
+
+const calendarButtonProps = {
+    variant: "outlined" as const,
+    sx: {
+        borderRadius: "999px",
+        px: 4,
+        py: 1.5,
+        textTransform: "none",
+        fontFamily: BODY_TYPO,
+        borderColor: TEXT_LIGHT,
+        color: TEXT_LIGHT,
+    },
+};
 const XVMichelle  = () => {
-      const musicRef = useRef<MusicFabPlayerHandle>(null);
+      
       const [searchParams] = useSearchParams();
         const invitedGuests: number = useMemo(() => {
             const num = Number(searchParams.get("number"));
@@ -183,18 +224,101 @@ const XVMichelle  = () => {
                 const num = Number(searchParams.get("id"));
                 return isNaN(num) ? undefined : num;
             }, [searchParams]);
+    const [showIntro, setShowIntro] = useState(true);
+    const [showInvitation, setShowInvitation] = useState(false);
+    const [guest, setGuest] = useState<Guest | null>(null);
+    const musicRef = useRef<MusicFabPlayerHandle>(null);
+
+    const handleEnter = () => {
+
+        musicRef.current?.play();
+
+        // empieza transición invitación
+        setShowInvitation(true);
+
+        // desaparece intro después
+        setTimeout(() => {
+            setShowIntro(false);
+        }, 900);
+    };
+
+    useEffect(() => {
+        const fetchGuest = async () => {
+            if (guestId) {
+                try {
+                    const data = await getGuestById(guestId, INVITATION_ID);
+                    console.log("Fetched guest data:", data);
+                    setGuest(data);
+                } catch (error) {
+                    console.error("Error fetching guest:", error);
+                }
+            }
+        };
+
+        fetchGuest();
+    }, [guestId]);
 
 
-    
+    useEffect(() => {
+        document.title = "XV Michelle";
+    }, []);
     return (
         <div style={{backgroundColor:BG_MAIN,maxWidth: '100%',overflowY:"auto", overflowX: "hidden"}}>
            <MusicFabPlayer ref={musicRef}  src={`${URL_SONG}`} backgroundColor={TEXT_PRIMARY}/>
+           <InvitationIntro
+                           open={showIntro}
+                           onEnter={handleEnter}
+                           musicRef={musicRef}
+           
+                           title="Te invito a celebrar mis XV años"
+
+                           fontSizeNames="1.5rem"
+                           brideName="Michelle"
+                           groomName="Camacho"
+                           ampersonSymbol=""
+           
+                           namesTypo={MAIN_TYPO}
+                           ampersonTypo={MAIN_TYPO}
+                           guestTypo={BODY_TYPO}
+                           bodyTypo={BODY_TYPO}
+           
+                           backgroundColor={BG_MAIN}
+                           primaryColor={TEXT_PRIMARY}
+           
+                           envelopeImg={`${URL_IMAGES}envelop.png`}
+                           sealImg={`${URL_IMAGES}sello.png`}
+           
+                           sealPosition={introSealPosition}
+                           topLeftCornerImg={`${URL_IMAGES}deco/6.png`}
+                           bottomRightCornerImg={`${URL_IMAGES}deco/6.png`}
+                           bottomRightCornerPosition={introBottomRightCornerPosition}
+                           topLeftCornerPosition={introTopLeftCornerPosition}
+           
+                           guestName={guest ? guest.fullName : ""}
+                           guestCount={invitedGuests}
+                       />
+                        <Box
+                sx={{
+                    opacity: showInvitation ? 1 : 0,
+
+                    filter: showInvitation
+                        ? "blur(0px)"
+                        : "blur(20px)",
+
+                    transform: showInvitation
+                        ? "scale(1)"
+                        : "scale(1.03)",
+
+                    transition:
+                        "all 1.4s cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
+            >
             <CoverSimple 
                 bgImage={`${URL_IMAGES}image0.jpeg`}
                 bgImage2={`${URL_IMAGES}image0.jpeg`}
                   weddingDate="02.10.2026"
                  subtitle="Mis XV años"
-                  brideName="Michelle Centeno"
+                  brideName="Michelle Camacho"
                   symbolr={""}
                   groomName={""}
                   className={MAIN_TYPO}
@@ -202,7 +326,7 @@ const XVMichelle  = () => {
                   hideText={false}
                   ourWeddingStart={true}
                 overlay={true}
-                
+                bgPosition="40%"
                   >
             </CoverSimple>
             <Grid container spacing={2} justifyContent="center"  bgcolor={BG_MAIN}>
@@ -468,6 +592,22 @@ color: TEXT_PRIMARY
                 ))
             }
             </Grid>
+            <Box paddingX={2}>
+                <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:GOLD_LIGHT, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
+                    No queremos que te pierdas este día
+                    </Typography>
+                <Box display={"flex"} justifyContent={"center"}>
+                    <CalendarButton
+                        title="XV Michelle"
+                        startDate="20261002T170000"
+                        endDate="20261003T020000"
+                        location="Parroquia San Francisco de Asís/Salón de Eventos El Mezquite"
+                        
+                        // fileName="boda-valentina-sebastian"
+                        buttonProps={calendarButtonProps}
+                        />
+                </Box>
+            </Box>
              </div>
             <ImageMiddle bgPosition="50%" height="70vh" bgImage={`${URL_IMAGES}image2.jpeg`}></ImageMiddle>
 
@@ -510,7 +650,7 @@ color: TEXT_PRIMARY
                        <Gallery photos={galleryPhotos} ></Gallery>
             <FooterInvites bgColor={BG_MAIN} color={TEXT_PRIMARY}></FooterInvites>
               
-
+        </Box>
         </div>
     )
 }
