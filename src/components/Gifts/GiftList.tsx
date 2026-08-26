@@ -29,13 +29,15 @@ export interface GiftListProps {
     envelopeTitleColor?:string;
     title?:string;
     giftIcon?:string;
+    bodyColor?:string;
+    envelopeTitle?:string;
 }
 
 
 const GiftList = (props:GiftListProps) =>{
 
     return (
-        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:props.bgColor}}>
+        <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:props.bgColor, color:props.bodyColor ? props.bodyColor : "black"}}>
             {
                 props.mainPhrase && (
                      <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -130,8 +132,8 @@ const GiftList = (props:GiftListProps) =>{
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}  >
                   
                      <Fade direction="up" triggerOnce={true} >
-                        <Typography variant='h3' color={props.envelopeTitleColor ? props.envelopeTitleColor : props.color} textAlign={"center"} className={`${ props.envelopeMainTypo ? props.envelopeMainTypo : props.mainTypo}`} sx={{fontSize: props.envelopeFontSize ? props.envelopeFontSize : "3rem"}}>{t("gifts.rainEnvelopes")}</Typography>
-                        <div style={{display:"block", justifyItems:"center"}}>
+                        <Typography mb={2} lineHeight={1} color={props.envelopeTitleColor ? props.envelopeTitleColor : props.color} textAlign={"center"} className={`${ props.envelopeMainTypo ? props.envelopeMainTypo : props.mainTypo}`} sx={{fontSize: props.envelopeFontSize ? props.envelopeFontSize : "3rem"}}>{props.envelopeTitle ? props.envelopeTitle:t("gifts.rainEnvelopes") }</Typography>
+                        <div style={{display:"block", justifyItems:"center"}} >
                          { props.bankIconStart &&
                         (
                            

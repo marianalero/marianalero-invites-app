@@ -108,3 +108,21 @@
     font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Baskervville Regular";
+  src: url('../assets/fonts/Baskervville-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PermianSansTypeface";
+  src:local('PermianSansTypeface'), url('../assets/fonts/PermianSansTypeface.otf') format('opentype');
+   font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PermianSansTypeface Bold";
+  src:local('PermianSansTypeface-Bold'), url('../assets/fonts/PermianSansTypeface-Bold.otf') format('opentype');
+   font-weight: normal;
+  font-style: normal;
+}

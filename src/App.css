@@ -358,6 +358,34 @@
   font-weight: 400!important;
   font-style: italic!important;
 }
+.baskervville{
+  font-family: "Baskervville Regular"!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+.baskervville-500{
+  font-family: "Baskervville Regular"!important;
+  font-weight: 500!important;
+  font-style: normal!important;
+}
+.prata-700{
+  font-family: "Prata Regular";
+  font-weight: 700!important;
+  font-style: normal!important;
+}
+.PermianSansTypeface-bold{
+  font-family: "PermianSansTypeface Bold"!important;
+  font-weight: 700!important;
+  font-style: normal!important;
+}
+
+.PermianSansTypeface{
+  font-family: "PermianSansTypeface"!important;
+  font-weight: 700!important;
+  font-style: normal!important;
+}
+
+
 .italic{
   font-style: italic!important;
 }

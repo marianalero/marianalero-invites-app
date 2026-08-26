@@ -48,8 +48,9 @@ const TEXT_PRIMARY = "#5C5147";
 // const TEXT_SECONDARY = "#8D8278";
 
 // Títulos
-const TITLE_COLOR = "#6E6157";
-
+const TITLE_COLOR = "#3e2511";
+const BODY_COLOR = "#25291c";
+const HIGHLITH_COLOR ="#3d6229";
 // Líneas
 const DIVIDER_COLOR = "#DDD3C9";
 
@@ -61,9 +62,10 @@ const DIVIDER_COLOR = "#DDD3C9";
 // const CARD_RADIUS = "0px";
 const CARD_SHADOW = "0 12px 40px rgba(0,0,0,.08)";
 const BUTTON_PRIMARY = "#8E9F87";
-const MAIN_TYPO = "noto-serif-display-400";
-// const MAIN_TYPO = "dm-serif-display-regular-italic";
-const BODY_TYPO = "inter-regular";
+const MAIN_TYPO= "noto-serif-display-400";
+const SECOND_TYPO = "PermianSansTypeface-bold to-upper";
+const SECOND_TYPO_REG = "PermianSansTypeface";
+const BODY_TYPO = "baskervville-500";
 const URL_IMAGES = `${URL_REPO}boda/boda-brisa-rey/`;
 const URL_SONG = `${URL_IMAGES}cancion.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 14);
@@ -77,15 +79,16 @@ const eventCards: EventCardProps[] = [
         address: "Bv. Justo Sierra, Periodista, Hermosillo, Son.",
         size: 12,
         color: TEXT_PRIMARY,
-        mainTypo: MAIN_TYPO,
+        mainTypo: SECOND_TYPO,
         bodyTypo: BODY_TYPO,
         href: "https://maps.app.goo.gl/ZzBSeeYpoqzWQfNG9",
         colorButton: BUTTON_PRIMARY,
         colorIcon: BUTTON_PRIMARY,
-        fontSize: "2rem",
+        fontSize: "1.5rem",
         bgColor: "white",
         borderSquare: true, 
         icon: `${URL_IMAGES}iglesia.png`,
+        textColor: BODY_COLOR
     },
     {
         eventName: "Recepción",
@@ -94,22 +97,23 @@ const eventCards: EventCardProps[] = [
         address: "1ro Mayo #105 esquina con Nayarit, 5 de Mayo, Hermosillo, Son.",
         size: 12,
         color: TEXT_PRIMARY,
-        mainTypo: MAIN_TYPO,
+        mainTypo: SECOND_TYPO,
         bodyTypo: BODY_TYPO,
         href: "https://maps.app.goo.gl/VP4avfiPj1Cmbu946",
         colorButton: BUTTON_PRIMARY,
         colorIcon: BUTTON_PRIMARY,
-        fontSize: "2rem",
+        fontSize: "1.5rem",
         bgColor: "white",
         borderSquare: true, 
         icon: `${URL_IMAGES}recepcion.png`,
+        textColor: BODY_COLOR
     },
     
 ];
 
 const giftListData: GiftListProps = {
     title: "Sugerencias de regalos",
-
+    bodyColor:HIGHLITH_COLOR,
     mainPhrase:
         "Lo más valioso para nosotros es contar con tu compañía. Si deseas consentirnos con un regalo, aquí encontrarás algunas opciones.",
 
@@ -125,24 +129,24 @@ const giftListData: GiftListProps = {
         },
     ],
 
-    fontSize: "2rem",
-    mainTypo: MAIN_TYPO,
+    fontSize: "1.5rem",
+    mainTypo: SECOND_TYPO,
     bodyTypo: BODY_TYPO,
 
     // Colores
-    color: TEXT_PRIMARY,
+    color: TITLE_COLOR,
     bgColor: BG_SECTION,
 
     showEnvelope: true,
 
-    envelopeMainTypo: MAIN_TYPO,
-    envelopeFontSize: "2rem",
-
+    envelopeMainTypo: SECOND_TYPO,
+    envelopeFontSize: "1.5rem",
+    envelopeTitle:"Nuestro nuevo capítulo",
     envelopePhrase:
-        "Si deseas tener un detalle con nosotros, durante el evento encontrarás un buzón para lluvia de sobres.",
+        "En la recepción habrá un espacio asignado para sus buenos deseos",
 
     secondPhrase:
-        "Si te resulta más cómodo, también puedes hacerlo mediante transferencia bancaria:",
+        "Para quienes prefieran la comodidad digital, les compartimos nuestros datos:",
 
     envelopeTitleColor: TITLE_COLOR,
 
@@ -169,29 +173,31 @@ const giftListData: GiftListProps = {
 };
 
 const dresscode: DressCodeProps = {
-    mainTypo: MAIN_TYPO,
+    mainTypo: SECOND_TYPO,
     bodyTypo: BODY_TYPO,
     color: TEXT_PRIMARY,
     type: 3,
     title: "Formal",
-    fontSize: "2rem",
+    fontSize: "1.5rem",
     image: `${URL_IMAGES}deco/17.png`,
     imageSize:"200px"
 };
 
 const withOutKids: WithoutKidsProps = {
     bodyTypo: BODY_TYPO,
-    subtitle2: "no niños",
+    title:"Queremos que disfruten y se relajen esta noche con nosotros sin preocupaciones, por lo que hemos planeado una celebración solo para adultos",
+    hideSubtitle:true,
+    textColor: BODY_COLOR
 };
 
 
 const timelineData: CustomizedTimelineProps = {
-    mainTypo: MAIN_TYPO,
+    mainTypo: SECOND_TYPO,
     bodyTypo: BODY_TYPO,
     colorPrimary: BUTTON_PRIMARY,
-    colorTitle: BUTTON_PRIMARY,
+    colorTitle: TITLE_COLOR,
     colorBody: BUTTON_PRIMARY,
-    fontSize: "2rem",
+    fontSize: "1.5rem",
     bgColor: BG_MAIN,
     events: [
         {
@@ -381,12 +387,12 @@ const WeddingBrisa  = () => {
                 }}
             >
 
-            <div style={{backgroundImage: `url("${URL_IMAGES}fondo-ver.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
-                <Grid container justifyContent="center"  height={"80vh"} >
+            <div style={{backgroundImage: `url("${URL_IMAGES}fondo-ver.png")`, backgroundSize: "cover", backgroundPosition: "center",color:BODY_COLOR }}>
+                <Grid container justifyContent="center"  height={"100vh"} minHeight="700px" >
                     <Grid size={12} display={"flex"} alignItems={"center"} justifyContent={"center"}>
                     <div style={{ position: "relative", width: "100%", height: "100%"}}>
-                        <div  style={{position:"absolute",top:"55%",left:"50%",transform:"translate(-50%, -50%)", width:"100%"}}>
-                             <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no"  align="center" mt={2}
+                        <div  style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%, -50%)", width:"100%"}}>
+                             <Typography variant="h1" className={`${MAIN_TYPO}`} translate="no"  align="center"
                                     sx={{  fontSize: "15rem",lineHeight:1 , color: TITLE_COLOR,fontFeatureSettings: '"liga" 0, "locl" 0',opacity: .08}}
                                 >
                                 BD
@@ -425,35 +431,34 @@ const WeddingBrisa  = () => {
 
                             </Fade>
                             </div>
-                        <div  style={{position:"absolute",top:"10%",left:"10%",transform:"translate(-50%, -50%) rotate(70deg)"}}>
-                                <Fade direction="left" triggerOnce={true} >
-                                    <img src={`${URL_IMAGES}deco/11.png`}  style={{width: isSmallScreen? "250px" :"350px"}} />
-                                </Fade>
-                            
-                            </div>    
-                            {/* <div  style={{position:"absolute",top:"90%",left:"20%",transform:"translate(-50%, -50%) scale(-1, 1)"}}>
-                                <Fade direction="left" triggerOnce={true} >
-                                    <img src={`${URL_IMAGES}deco/4.png`}  style={{width: "300px"}} />
-                                </Fade>
-                            
-                            </div>     */}
-                            {/* <div  style={{position:"absolute",top:"10%",left:"80%",transform:"translate(-50%, -50%)" }}>
-                                <Fade direction="left" triggerOnce={true} >
-                                    <img src={`${URL_IMAGES}deco/4.png`}  style={{width: "300px"}} />
-                                </Fade>
-                            
-                            </div>     */}
-                            <div  style={{position:"absolute",top:"95%",left:"90%",transform:"translate(-50%, -50%) rotate(280deg)",}}>
-                                <Fade direction="left" triggerOnce={true} >
-                                    <img src={`${URL_IMAGES}deco/12.png`}  style={{width: isSmallScreen? "200px" :"400px"}} />
-                                </Fade>
-                            
-                            </div>    
+                    <Box
+                        component="img"
+                        src={`${URL_IMAGES}deco/11.png`}
+                        sx={{
+                            position: "absolute",
+                            top: { xs: -80, sm: -60, md: -30 },
+                            left: { xs: -80, sm: -60, md: -30 },
+                            width: { xs: 320, md: 350 },
+                            transform: "rotate(70deg)",
+                        }}
+                    />
+
+                    <Box
+                        component="img"
+                        src={`${URL_IMAGES}deco/11.png`}
+                        sx={{
+                            position: "absolute",
+                            bottom: { xs: -80, sm: -60, md: -30 },
+                            right: { xs: -80, sm: -60, md: -30 },
+                            width: { xs: 320, md: 350 },
+                            transform: "scale(-1,-1) rotate(70deg)",
+                        }}
+                    />
                     </div>
                         
                     </Grid>
-                    </Grid>
-                    </div>
+                </Grid>
+            </div>
              
               <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             
@@ -464,8 +469,8 @@ const WeddingBrisa  = () => {
                        <Grid container spacing={2} padding={2} justifyContent={"center"} >
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                             <Fade direction="up" >
-                                     <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >¡Nos casamos!<br></br>
-Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matrimonio, por lo que nos complace que sean participes de esta unión </Typography>
+                                     <Typography  textAlign={"center"} className={`${BODY_TYPO}`} color={HIGHLITH_COLOR}>
+La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebrantable certeza de ser el uno para el otro.</Typography>
 
                             </Fade>
                             </Grid>
@@ -476,19 +481,19 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
                               </Grid>
                             <Grid size={{xs:12,sm:12,md:12,lg:12}}  mt={2}>
                             <Fade direction="up" >
-                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Con la bendición nuestros padres:</Typography>
+                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:BODY_COLOR}} >Con el corazón lleno de gratitud y listos para decir "para siempre", deseamos celebrar este día con ustedes, con la bendición de Dios y de nuestros padres:</Typography>
                             </Fade>
                             </Grid>
                            <Grid size={{xs:12,sm:4,md:4,lg:4}}  mt={2}>
                             <Fade direction="up" >
-                                <Typography sx={{color:TEXT_PRIMARY, fontSize: {
+                                <Typography sx={{color:TITLE_COLOR, fontSize: {
                   xs: "1.2rem",
                   md: "1.8rem",
-                },}} variant="body1" textAlign={"center"} className={MAIN_TYPO}>Celia Amparo Martínez Cabanillas</Typography>
-                                <Typography sx={{color:TEXT_PRIMARY, fontSize: {
+                },}} variant="body1" textAlign={"center"} className={SECOND_TYPO_REG}>Celia Amparo Martínez Cabanillas</Typography>
+                                <Typography sx={{color:TITLE_COLOR, fontSize: {
                   xs: "1.2rem",
                   md: "1.8rem",
-                },}}  variant="body1" textAlign={"center"} className={MAIN_TYPO}>José Encarnación Torres Camacho</Typography>
+                },}}  variant="body1" textAlign={"center"} className={SECOND_TYPO_REG}>José Encarnación Torres Camacho</Typography>
                             </Fade >
                         </Grid>	
                         <Grid size={{xs:12,sm:4,md:4,lg:4}}  mt={2} >
@@ -513,19 +518,19 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
                         <Grid size={{xs:12,sm:4,md:4,lg:4}}  mt={2}>
                             <Fade direction="up" >
                             
-                            <Typography sx={{color:TEXT_PRIMARY, fontSize: {
+                            <Typography sx={{color:TITLE_COLOR, fontSize: {
                   xs: "1.2rem",
                   md: "1.8rem",
-                },}} variant="body1" textAlign={"center"} className={MAIN_TYPO} >Armida Sánchez Patrón</Typography>
-                            <Typography sx={{color:TEXT_PRIMARY, fontSize: {
+                },}} variant="body1" textAlign={"center"} className={SECOND_TYPO_REG} >Armida Sánchez Patrón</Typography>
+                            <Typography sx={{color:TITLE_COLOR, fontSize: {
                   xs: "1.2rem",
                   md: "1.8rem",
-                },}}  variant="body1" textAlign={"center"} className={MAIN_TYPO}>Crisanto Vargas Ríos</Typography>
+                },}}  variant="body1" textAlign={"center"} className={SECOND_TYPO_REG}>Crisanto Vargas Ríos</Typography>
                             </Fade>
                         </Grid>	
                         <Grid size={{xs:12,sm:12,md:12,lg:12}} mt={2}>
                             <Fade direction="up" >
-                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`} >Queremos invitarles a celebrar con nosotros</Typography>
+                                    <Typography  textAlign={"center"} className={`${BODY_TYPO}`}  >El sueño de unir nuestras vidas está a punto de hacerse realidad</Typography>
                             </Fade>
                         </Grid>
                             
@@ -552,8 +557,8 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
                   eventDate={COUNTDOWN_DATE}
                   background={{ color: "transparent" }}
                   title={{
-                    fontFamily: '"Noto Serif Display", serif',
-                    color: TEXT_PRIMARY,
+                    fontFamily: '"PermianSansTypeface", serif',
+                    color: TITLE_COLOR,
                     fontSize: "2rem",
                     letterSpacing: "0.08em",
                     fontWeight:700,
@@ -561,15 +566,16 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
                     textTransform:"uppercase"
                   }}
                   number={{
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: '"PermianSansTypeface", serif',
                     color: TEXT_PRIMARY,
                     fontSize: "3.25rem",
-                    fontWeight: 300,
+                    fontWeight: 500,
                   }}
                   label={{
-                    fontFamily: '"Inter", sans-serif',
+                    fontFamily: '"Baskervville Regular", sans-serif',
                     color: TEXT_PRIMARY,
                     fontSize: "0.7rem",
+                    fontWeight: 500,
                   }}
                   divider={{ color: TEXT_PRIMARY }}
                   responsive={{
@@ -616,32 +622,33 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
     <Stack spacing={3} alignItems="center">
       {/* Título */}
       <Typography
-        className={MAIN_TYPO}
+        className={SECOND_TYPO}
+        
         sx={{
           color: TITLE_COLOR,
           fontSize: {
             xs: "2rem",
             md: "3rem",
           },
-          fontWeight:700,
+      
           
           textAlign: "center",
         }}
       >
-        Padrinos
+       <b>PADRINOS</b> 
       </Typography>
 
       {/* Descripción */}
       <Typography
         className={BODY_TYPO}
         sx={{
-          color: TEXT_PRIMARY,
+          color: HIGHLITH_COLOR,
           textAlign: "center",
           
           fontSize: "1rem",
           maxWidth: 420,
         mx: "auto",
-        lineHeight: 1.9,
+        // lineHeight: 1.9,
         }}
       >
         Con profundo cariño agradecemos a quienes nos acompañan y
@@ -670,7 +677,7 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
         {godparents.map((godparent, index) => (
           <Box key={godparent}>
             <Typography
-              className={MAIN_TYPO}
+              className={SECOND_TYPO_REG}
               sx={{
                 color: TITLE_COLOR,
                 textAlign: "center",
@@ -725,10 +732,10 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
             }
             </Grid>
             <Box>
-                <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:TITLE_COLOR, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
-                    No queremos que te pierdas este día
+                <Typography textAlign={"center"} className={`${SECOND_TYPO}`} sx={{color:TITLE_COLOR, fontSize:"1.2rem", }}>
+                    Acompáñanos a escribir el capítulo más especial de nuestra historia
                     </Typography>
-                <Box display={"flex"} justifyContent={"center"}>
+                <Box display={"flex"} justifyContent={"center"} mt={2}>
                     <CalendarButton
                         title="Boda Brisa del Mar & Rey David"
                         startDate="20261114T170000"
@@ -766,7 +773,7 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
             </Grid>	
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
-                <Typography color={timelineData.colorBody} textAlign={"center"} className={`${timelineData?.bodyTypo}`}>{t("timeline.subtitle")}</Typography>
+                <Typography color={HIGHLITH_COLOR} textAlign={"center"} className={`${timelineData?.bodyTypo}`}>{t("timeline.subtitle")}</Typography>
             </Fade>
            
            </Grid>	
@@ -794,12 +801,12 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
                         </TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
-                            <Typography sx={{color:timelineData.colorPrimary,fontSize:"24px"}} className={`${MAIN_TYPO}`} variant="subtitle1" component="span">
+                            <Typography sx={{color:TITLE_COLOR,fontSize:"24px"}} className={`${SECOND_TYPO}`} variant="subtitle1" component="span">
                             {dayjs(item.date).format("hh:mm A")}
                             </Typography>
                             </Fade>
                             <Fade direction="up" triggerOnce={true} >
-                            <Typography  sx={{color:timelineData.colorPrimary}} className={`${BODY_TYPO}`}>{item.eventName} </Typography>
+                            <Typography  sx={{color:HIGHLITH_COLOR}} className={`${BODY_TYPO}`}>{item.eventName} </Typography>
                             </Fade>
                         </TimelineContent>
                     </TimelineItem>
@@ -880,15 +887,15 @@ Después de 12 años caminando juntos hemos decidido unir nuestras vidas en matr
                                 boxShadow: CARD_SHADOW,
                             }}
                         >
-                            <Typography mt={2} sx={{color:TEXT_PRIMARY, fontSize: "2em",lineHeight:1,fontWeight:700}} variant="body1" textAlign={"center"} className={MAIN_TYPO} >¡Confirma tu asistencia!</Typography>
+                            <Typography mt={2} sx={{color:TITLE_COLOR, fontSize: "1.5em",lineHeight:1,fontWeight:700}} variant="body1" textAlign={"center"} className={SECOND_TYPO} >¡Confirma tu asistencia!</Typography>
 
                             <RSVPForm
                             dateLine={RSVP_DATE_LINE}
                                 guest={guest || undefined}
-                                textColor={TEXT_PRIMARY}
+                                textColor={BODY_COLOR}
                                 colorButton={BUTTON_PRIMARY}
                                 bgColor={"transparent"}
-                                mainTypo={MAIN_TYPO}
+                                mainTypo={SECOND_TYPO}
                                 bodyTypo={BODY_TYPO}
                                 count={invitedGuests}
                                 color={TEXT_PRIMARY}
