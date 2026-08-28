@@ -12,7 +12,6 @@ import { URL_REPO } from "../../config";
 import { Box, Typography,  } from "@mui/material";
 
 
-import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCard from "../../components/EventCard/EventCard";
 import { Fade } from "react-awesome-reveal";
 import  { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
@@ -63,7 +62,6 @@ const BODY_TYPO = "montserrat-400";
 const URL_IMAGES = `${URL_REPO}boda/boda-erika-edwin/`;
 const URL_SONG = `${URL_IMAGES}cancion2.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 14);
-const RSVP_DATE_LINE = new Date(2026, 9, 10);
 
 const eventCards: EventCardProps[] = [
     {
@@ -244,22 +242,10 @@ const calendarButtonProps = {
 
 
 const WeddingAErikaEdwin  = () => {
-    const [searchParams] = useSearchParams();
-
-    const invitedGuests: number | undefined = useMemo(() => {
-        const num = Number(searchParams.get("number"));
-        return isNaN(num) ? undefined : num;
-    }, [searchParams]);
-
-    const guestId: number | undefined = useMemo(() => {
-        const num = Number(searchParams.get("id"));
-        return isNaN(num) ? undefined : num;
-    }, [searchParams]);
-
     // INTRO STATES
     const [showIntro, setShowIntro] = useState(true);
     const [showInvitation, setShowInvitation] = useState(false);
-    const [guest, setGuest] = useState<Guest | null>(null);
+  
     const musicRef = useRef<MusicFabPlayerHandle>(null);
 
     const handleEnter = () => {
@@ -275,21 +261,6 @@ const WeddingAErikaEdwin  = () => {
         }, 900);
     };
 
-    useEffect(() => {
-        const fetchGuest = async () => {
-            if (guestId) {
-                try {
-                    const data = await getGuestById(guestId, INVITATION_ID);
-                    console.log("Fetched guest data:", data);
-                    setGuest(data);
-                } catch (error) {
-                    console.error("Error fetching guest:", error);
-                }
-            }
-        };
-
-        fetchGuest();
-    }, [guestId]);
 
 
     useEffect(() => {
@@ -334,9 +305,8 @@ const WeddingAErikaEdwin  = () => {
                 topLeftCornerImg={`${URL_IMAGES}FLORES/1.png`}
                 bottomRightCornerPosition={introBottomRightCornerPosition}
                 topLeftCornerPosition={introTopLeftCornerPosition}
-
-                guestName={guest ? guest.fullName : ""}
-                guestCount={invitedGuests}
+                hideGuest={true}
+                
                 
             />
 
@@ -646,92 +616,7 @@ const WeddingAErikaEdwin  = () => {
       </Grid>
         </div>
             
-                    <Box
-                        sx={{
-                            backgroundColor: BG_ACCENT,
-                            position: "relative",
-                            maxWidth: "750px",
-                            mx: "auto",
-                            px: { xs: 2, md: 4 },
-                            py: 6,
-                        }}
-                    >
-                        {/* Flor superior izquierda */}
-                        <Box
-                            component="img"
-                            src={`${URL_IMAGES}FLORES/1.png`}
-                            sx={{
-                                position: "absolute",
-                                top: 15,
-                                left: 5,
-                                width: { xs: 130, md: 180 },
-                                zIndex: 2,
-                                pointerEvents: "none"
-                            }}
-                        />
-
-                        {/* Flor superior derecha */}
-                      
-                        {/* Flor inferior izquierda */}
-                        {/* <Box
-                            component="img"
-                            src={`${URL_IMAGES}FLORES/5.png`}
-                            sx={{
-                                position: "absolute",
-                                bottom: 30,
-                                left: -20,
-                                width: { xs: 120, md: 130 },
-                                zIndex: 2,
-                                pointerEvents: "none"
-                            }}
-                        /> */}
-
-                        {/* Flor inferior derecha */}
-                        <Box
-                            component="img"
-                            src={`${URL_IMAGES}FLORES/2.png`}
-                            sx={{
-                                position: "absolute",
-                                bottom: -10,
-                                right: -20,
-                                width: { xs: 160, md: 200 },
-                                zIndex: 2,
-                                pointerEvents: "none",
-                                // transform: "rotate(220deg)"
-                            }}
-                        />
-
-                        {/* Tarjeta */}
-                        <Box
-                            sx={{
-                                position: "relative",
-                                zIndex: 1,
-                                p: { xs: 3, md: 5 },
-                               
-                                background: "rgba(255,255,255)",
-                                backdropFilter: "blur(6px)",
-                                border: `1px solid ${ACCENT}`,
-                                boxShadow: "0 15px 40px rgba(183,202,218,.18)",
-                            }}
-                        >
-                            <RSVPForm
-                            dateLine={RSVP_DATE_LINE}
-                                guest={guest || undefined}
-                                textColor={TEXT_PRIMARY}
-                                colorButton={BUTTON_PRIMARY}
-                                bgColor={"transparent"}
-                                mainTypo={MAIN_TYPO}
-                                bodyTypo={BODY_TYPO}
-                                count={invitedGuests}
-                                color={TEXT_PRIMARY}
-                                guestId={guestId}
-                                invitationId={INVITATION_ID}
-                                qrActive={false}
-                                numberInWords={true}
-                                fontSize="3rem"
-                            />
-                        </Box>
-                    </Box>
+                    
                         <div style={{ padding: "50px 20px",backgroundColor:BG_SECTION }}>
 
                     <Box padding={2} bgcolor={BG_MAIN} display={"flex"} justifyContent={"center"} sx={{borderColor:BUTTON_PRIMARY,borderStyle:"solid",borderWidth:"1.5px" ,}} >

@@ -34,7 +34,7 @@ export interface InvitationIntroProps {
 
   guestName?: string;
   guestCount?: number;
-
+  hideGuest?:boolean;
   /** Muestra el intro de inmediato y deja que las imagenes carguen progresivamente. */
   waitForImages?: boolean;
 
@@ -114,6 +114,7 @@ fontSizeNames,
     width: "70px",
     height: "70px",
   },
+  hideGuest = false
 }: InvitationIntroProps) => {
   const [loaded, setLoaded] = useState(!waitForImages);
 
@@ -434,6 +435,7 @@ fontSizeNames,
               Click para abrir
             </Typography>
             </Fade>
+            {!hideGuest && (
               <Fade direction="up" >
             <Typography
               className={bodyTypo}
@@ -456,6 +458,7 @@ fontSizeNames,
               para ti en este día tan especial.
             </Typography>
             </Fade>
+            )}
           </Box>
         </Box>
       </Box>
