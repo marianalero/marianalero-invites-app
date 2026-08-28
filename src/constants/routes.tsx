@@ -82,6 +82,7 @@ import WeddingVianneyAlberto from "../pages/clientInvitations/WeddingVianneyAlbe
 import WeddingMitzy from "../pages/clientInvitations/WeddingMitzy";
 import XVMichelle from "../pages/clientInvitations/XVMichelle";
 
+import WeddingAranxaJhoan from "../pages/clientInvitations/WeddingAranxaJhoan";
 
 interface RouteConfig {
   path: string;
@@ -179,8 +180,7 @@ const routes: RouteConfig[] = [
 {path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
 
 {path:'/prev-m', element:<XVMichelle></XVMichelle>},
-
-  
+  {path:'/prev-aj-1', element:<WeddingAranxaJhoan></WeddingAranxaJhoan>},
 ];
 
 

@@ -368,9 +368,9 @@
   font-weight: 500!important;
   font-style: normal!important;
 }
-.prata-700{
-  font-family: "Prata Regular";
-  font-weight: 700!important;
+.prata{
+  font-family: "Prata Regular"!important;
+  font-weight: 400!important;
   font-style: normal!important;
 }
 .PermianSansTypeface-bold{
@@ -384,7 +384,16 @@
   font-weight: 700!important;
   font-style: normal!important;
 }
-
+.instrument-sans{
+  font-family: "Instrument Sans", serif !important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
+.instrument-sans-italic{
+  font-family: "Inter Italic", serif !important;
+  font-weight: 400!important;
+  font-style: italic!important;
+}
 
 .italic{
   font-style: italic!important;
