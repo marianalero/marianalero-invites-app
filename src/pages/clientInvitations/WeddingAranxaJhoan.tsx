@@ -1558,8 +1558,10 @@ const WeddingAranxaJhoan  = () => {
                 <Box
                     sx={{
                     width: {
-                        xs: "88%",
-                        sm: 340,
+                        xs: "90vw",
+                        sm: "90vw",
+                        md:"400px",
+                        l:"400px"
                     },
                     background: BUTTON_PRIMARY,
                     borderRadius: "180px 180px 0 0",

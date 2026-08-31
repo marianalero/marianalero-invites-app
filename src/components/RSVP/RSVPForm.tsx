@@ -1,4 +1,4 @@
-import { Box, Dialog, DialogContent, FormControl, FormControlLabel, IconButton, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material';
+import { Box, Dialog, DialogContent, FormControlLabel, IconButton, MenuItem, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react';
@@ -413,50 +413,38 @@ const RSVPForm  = (props:RSVPType) => {
                                 guest.totalAssigned > 1 &&
                                 (
                                        <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }} display={"flex"} justifyContent={"center"}>
-                                  <FormControl 
-                                    fullWidth
-                                    sx={{ minWidth: "80%", maxWidth: "80%" }}
-                                  >
-                                                                
-                                        <InputLabel 
-                                         id="guests-label"
-                                            sx={{color:"#757575",
-                                       
-                                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                                            padding: '0 4px',
-                                            borderRadius: '4px',
-                                            }} 
-                                            >{t("RSVP.guestsPlaceholder")}</InputLabel>
-                                  
-                                                               
-                                    <Select<number>
-                                        label={t("RSVP.guestsPlaceholder")}
-                                        labelId="guests-label"
+                                    <TextField
+                                        select
                                         id="guests"
+                                        label={t("RSVP.guestsPlaceholder")}
                                         value={guest.totalConfirmed}
                                         onChange={(e) => updateGuest({
                                             totalConfirmed: Number(e.target.value)
                                         })}
+                                        disabled={disabledRSVP}
+                                        slotProps={{ inputLabel: { shrink: true } }}
                                         sx={{
                                             minWidth: "80%",
-                                            color: "black",
-                                            '& .MuiSelect-select': {
-                                                textAlign: 'left',
+                                            '& label.Mui-focused': {
+                                                color: props.colorButton,
                                             },
-                                            '& .MuiOutlinedInput-notchedOutline': {
-                                                borderColor: props.colorButton, // borde normal
+                                            '& .MuiOutlinedInput-root': {
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: props.colorButton,
+                                                },
                                             },
-                                            '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                borderColor: props.colorButton,
+                                            '& .MuiInputLabel-root': {
+                                                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                                                padding: '0 4px',
+                                                borderRadius: '4px',
                                             },
-                                            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                                                borderColor: "black",
+                                            '& .MuiInputLabel-root.Mui-focused': {
+                                                backgroundColor: 'rgba(255, 255, 255, 0.8)',
                                             },
                                             '& .MuiSvgIcon-root': {
                                                 color: props.colorButton,
                                             },
                                         }}
-                                        disabled={disabledRSVP}
                                     >
                                         {Array.from({ length: guest.totalAssigned }, (_, index) => (
                                             <MenuItem key={index + 1} value={index + 1}
@@ -477,8 +465,7 @@ const RSVPForm  = (props:RSVPType) => {
                                                 {index + 1}
                                             </MenuItem>
                                         ))}
-                                    </Select>
-                                    </FormControl>
+                                    </TextField>
                                 </Grid>
                                 )
                             }
