@@ -54,6 +54,7 @@ export interface InvitationIntroProps {
     width?: string;
     height?: string;
     transform?: string;
+    opacity?:string;
   };
 
   bottomRightCornerPosition?: {
@@ -62,6 +63,7 @@ export interface InvitationIntroProps {
     width?: string;
     height?: string;
     transform?: string;
+    opacity?:string;
   };
 }
 
@@ -106,6 +108,7 @@ fontSizeNames,
     left: "8px",
     width: "70px",
     height: "70px",
+     opacity:"1"
   },
 
   bottomRightCornerPosition = {
@@ -113,6 +116,7 @@ fontSizeNames,
     right: "8px",
     width: "70px",
     height: "70px",
+    opacity:"1"
   },
   hideGuest = false
 }: InvitationIntroProps) => {
@@ -354,7 +358,7 @@ fontSizeNames,
                       zIndex: 2,
                       pointerEvents: "none",
                       filter: loaded ? "none" : "blur(20px)",
-                      opacity: loaded ? 1 : 0,
+                      opacity: loaded ? topLeftCornerPosition.opacity : 0,
                       transition: "opacity 0.8s ease, filter 0.8s ease",
                     }}
                   />
@@ -375,7 +379,7 @@ fontSizeNames,
                       zIndex: 2,
                       pointerEvents: "none",
                       filter: loaded ? "none" : "blur(20px)",
-                      opacity: loaded ? 1 : 0,
+                      opacity: loaded ? bottomRightCornerPosition.opacity : 0,
                       transition: "opacity 0.8s ease, filter 0.8s ease",
                     }}
                   />

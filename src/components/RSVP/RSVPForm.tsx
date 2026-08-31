@@ -251,6 +251,7 @@ const RSVPForm  = (props:RSVPType) => {
             </div>
         ) : (
             <div>
+                {!props.hideLabelAssignedPeople &&(
             <Typography textAlign="center" variant="body1" className={props.bodyTypo}  sx={{color:props.textColor}}>
                 {guest.totalAssigned === 1 
                     ? t("RSVP.placesReserved") 
@@ -259,6 +260,7 @@ const RSVPForm  = (props:RSVPType) => {
                         : t("RSVP.placesReserved_plural", { count: guest.totalAssigned })
                 }
             </Typography>
+            )}
             {props.dateLine && (
                  <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
                {t("RSVP.dateLineStart")} {getFormattedDate(props.dateLine!)}.
