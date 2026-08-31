@@ -463,11 +463,11 @@ const WeddingAranxaJhoan  = () => {
                         component="img"
                         src={deco6}
                         sx={{
-                            zIndex:1,
+                            zIndex:10,
                             position: "absolute",
-                            bottom: { xs: -80, sm: -60, md: -30 },
-                            right: { xs: -20, sm: -60, md: -30 },
-                            height: { xs: 250, md: 350 },
+                            bottom: { xs: -20, sm: -60, md: -30 },
+                            right: { xs: 15, sm: -60, md: -30 },
+                            height: { xs: 180, md: 350 },
                             transform: "scale(-1,-1) rotate(120deg)",
                         }}
                     />
@@ -476,10 +476,11 @@ const WeddingAranxaJhoan  = () => {
                         src={deco7}
                         sx={{
                             position: "absolute",
-                            bottom: { xs: -80, sm: -60, md: -30 },
-                            right: { xs: -130, sm: -60, md: -30 },
-                            height: { xs: 350, md: 350 },
+                            bottom: { xs: -30, sm: -60, md: -30 },
+                            right: { xs: -70, sm: -50, md: -30 },
+                            height: { xs: 250, md: 350 },
                             transform: "scale(-1,-1) rotate(160deg)",
+                            zIndex:-111,
                         }}
                     />
                     </Fade>
@@ -820,7 +821,7 @@ const WeddingAranxaJhoan  = () => {
 >
     <Container maxWidth="sm">
 
-        <Fade triggerOnce>
+     <Fade triggerOnce direction="up">
 
             <Typography
                 textAlign="center"
@@ -849,7 +850,7 @@ const WeddingAranxaJhoan  = () => {
             }}
         />
 
-        <Fade triggerOnce>
+        <Fade triggerOnce direction="up">
 
             <Box
                 component="img"
@@ -864,7 +865,7 @@ const WeddingAranxaJhoan  = () => {
             />
 
         </Fade>
-
+ <Fade triggerOnce direction="up">
         <Typography
             textAlign="center"
             className={BODY_TYPO}
@@ -892,7 +893,7 @@ const WeddingAranxaJhoan  = () => {
             <br />
             Centro, Hermosillo, Son.
         </Typography>
-
+</Fade>
         <Box
             display="flex"
             justifyContent="center"
@@ -917,7 +918,7 @@ const WeddingAranxaJhoan  = () => {
                 08:00 PM
             </Typography>
         </Box>
-        
+        <Fade triggerOnce direction="up">
                 <Box
             display="flex"
             justifyContent="center"
@@ -970,9 +971,11 @@ const WeddingAranxaJhoan  = () => {
             </Button>
      
         </Box>
+        </Fade>
     </Container>
 </Box>
  {/* SEPARADOR */}
+ <Fade triggerOnce direction="up">
 <Box
     display="flex"
     alignItems="center"
@@ -1007,6 +1010,8 @@ const WeddingAranxaJhoan  = () => {
         }}
     />
 </Box>
+</Fade>
+<Fade triggerOnce direction="up">
             {/* CALENDARIO */}
             <Box>
                 <Typography textAlign={"center"} className={`${SECONDARY_TYPO}`} sx={{color:TEXT_PRIMARY, fontSize:"1.2rem", letterSpacing:".04em",mt:2, mb:1,fontStyle:"italic"}}>
@@ -1024,7 +1029,7 @@ const WeddingAranxaJhoan  = () => {
                         />
                 </Box>
             </Box>
- 
+ </Fade>
 
             </div>
              <ImageMiddle bgPosition="center" height="70vh" bgImage={imgCp2} bgPositionY="50%"></ImageMiddle>
