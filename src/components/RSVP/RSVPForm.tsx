@@ -1,4 +1,4 @@
-import { Box, Dialog, DialogContent, FormControlLabel, IconButton, MenuItem, Radio, RadioGroup, TextField, Typography } from '@mui/material';
+import { Box, Button, Dialog, DialogContent, FormControlLabel, IconButton, MenuItem, Radio, RadioGroup, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import dayjs from 'dayjs';
 import React, { useEffect, useState } from 'react';
@@ -18,7 +18,7 @@ import 'dayjs/locale/en';
 import 'dayjs/locale/de';
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import i18n from '../../i18n';
-
+import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 // Helper function to convert numbers to words
 const numberToWords = (num: number, language: string): string => {
     const wordsEs: { [key: number]: string } = {
@@ -564,28 +564,68 @@ const RSVPForm  = (props:RSVPType) => {
                 )
         )}
                 <Dialog
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                   
-                    <DialogContent >
-                        <Box display={"flex"} justifyContent={"end"}>
-                            <IconButton aria-label="delete" onClick={handleClose}>
-                                <CloseIcon sx={{color:props.color}} />
-                            </IconButton>
-                         
-                       </Box>
-                       <Box display={"flex"} justifyContent={"center"}>
-                        <Typography variant="h4" className={props.bodyTypo}>{t("RSVP.successSend")}</Typography>
-                       </Box>
-                   
-                        
-                       
-                   
-                    </DialogContent>
-                </Dialog>
+    open={open}
+    onClose={handleClose}
+    maxWidth="xs"
+    fullWidth
+    PaperProps={{
+        sx: {
+            borderRadius: 2,
+            p: 2
+        }
+    }}
+>
+    <DialogContent>
+
+        <Box display="flex" justifyContent="flex-end">
+            <IconButton onClick={handleClose}>
+                <CloseIcon sx={{color:'#020202'}} />
+            </IconButton>
+        </Box>
+
+        <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            textAlign="center"
+            pb={2}
+        >
+
+            <CheckCircleOutlineRoundedIcon
+                sx={{
+                    fontSize: 70,
+                    color: "#7B8F6A",
+                    mb: 2
+                }}
+            />
+
+            <Typography
+                variant="h4"
+                className={props.mainTypo}
+                sx={{
+                    
+                    fontWeight: 600
+                }}
+            >
+                ¡Confirmación enviada!
+            </Typography>
+
+            <Typography
+                sx={{
+                    mt: 1,
+                    
+                    maxWidth: 320
+                }}
+            >
+               Tu respuesta ha sido registrada correctamente. ¡Nos vemos muy pronto!
+            </Typography>
+
+          
+
+        </Box>
+
+    </DialogContent>
+</Dialog>
        </div>
     )
 }

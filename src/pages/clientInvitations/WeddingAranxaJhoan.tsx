@@ -67,9 +67,9 @@ import sobreIntro from "../../assets/boda-arantxa-jhoan/sobre-intro.png";
 import sello from "../../assets/boda-arantxa-jhoan/sello.png";
 import fondoVer from "../../assets/boda-arantxa-jhoan/fondo-ver.png";
 import bancomer from "../../assets/boda-arantxa-jhoan/bancomer.png";
-import { AccessTimeRounded, LocationOnOutlined } from "@mui/icons-material";
+import { AccessTimeRounded, DirectionsCarOutlined, LocationOnOutlined } from "@mui/icons-material";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
-const INVITATION_ID = 9;
+const INVITATION_ID = 36;
 // 🎨 BACKGROUNDS
 const BG_MAIN = "#FBF7F2";
 // const BG_SECTION = "#FFFDFC";
@@ -92,7 +92,7 @@ const BODY_TYPO = "instrument-sans";
 
 const COUNTDOWN_DATE = new Date(2026, 10, 14);
 const RSVP_DATE_LINE = new Date(2026, 9, 31);
-const colorPalette = ["#1F3A73","#7A4CC7","#F11778","#F56AA0","#FF861A","#FFA735","#C94C12","#FFD562","#8A8D47","#A1A163"]
+const colorPalette = ["#1F3A73","#3b1f6d","#F11778","#F56AA0","#FF861A","#FFA735","#C94C12","#FFD562","#8A8D47","#A1A163"]
 
 const URL_SONG = `${URL_REPO}canciones/LanaDelRey-VideoGames.mp3`;
 const giftListData: GiftListProps = {
@@ -438,7 +438,7 @@ const WeddingAranxaJhoan  = () => {
                         src={deco4}
                         sx={{
                             position: "absolute",
-                            top: { xs: -30, sm: -60, md: -30 },
+                            top: { xs: -30, sm: -60, md: -40 },
                             left: { xs: -30, sm: -60, md: -30 },
                             height: { xs: 250, md: 350 },
                             transform: "rotate(50deg)",
@@ -451,8 +451,8 @@ const WeddingAranxaJhoan  = () => {
                         src={deco3}
                         sx={{
                             position: "absolute",
-                            top: { xs: 50, sm: -60, md: -30 },
-                            left: { xs: -50, sm: -60, md: -30 },
+                            top: { xs: 50, sm: -60, md: 60 },
+                            left: { xs: -50, sm: -60, md: -40 },
                             height: { xs: 250, md: 350 },
                             transform: "rotate(50deg)",
                         }}
@@ -465,8 +465,8 @@ const WeddingAranxaJhoan  = () => {
                         sx={{
                             zIndex:10,
                             position: "absolute",
-                            bottom: { xs: -20, sm: -60, md: -30 },
-                            right: { xs: 15, sm: -60, md: -30 },
+                            bottom: { xs: -20, sm: -60, md: -60 },
+                            right: { xs: 15, sm: -60, md: 50 },
                             height: { xs: 180, md: 350 },
                             transform: "scale(-1,-1) rotate(120deg)",
                         }}
@@ -476,7 +476,7 @@ const WeddingAranxaJhoan  = () => {
                         src={deco7}
                         sx={{
                             position: "absolute",
-                            bottom: { xs: -30, sm: -60, md: -30 },
+                            bottom: { xs: -30, sm: -60, md: -10 },
                             right: { xs: -70, sm: -50, md: -30 },
                             height: { xs: 250, md: 350 },
                             transform: "scale(-1,-1) rotate(160deg)",
@@ -487,7 +487,7 @@ const WeddingAranxaJhoan  = () => {
                     
             </Box>
               
-            <ImageMiddle bgPosition="30%" height="100vh" bgImage={imgCp1} bgPositionY="70%"></ImageMiddle>
+            <ImageMiddle bgPosition="30%" height="100vh" bgImage={imgCp1} bgPositionY="20%"></ImageMiddle>
             
            
            <Box
@@ -526,7 +526,7 @@ const WeddingAranxaJhoan  = () => {
         sx={{
             position: "absolute",
             bottom: 10,
-            right: -40,
+             right: {xs: -40, sm:  -40, md: -20},
             zIndex: 0,
             opacity: .95
         }}
@@ -535,7 +535,7 @@ const WeddingAranxaJhoan  = () => {
             <img
                 src={deco5}
                 style={{
-                    height: 170,
+                    height:170 ,
                     transform: "rotate(-20deg)"
                 }}
             />
@@ -545,7 +545,7 @@ const WeddingAranxaJhoan  = () => {
         sx={{
             position: "absolute",
             top: "30%",
-            right: -70,
+            right: {xs: -70, sm:  -70, md: -50},
             zIndex: 0,
             opacity: .95
         }}
@@ -918,6 +918,30 @@ const WeddingAranxaJhoan  = () => {
                 08:00 PM
             </Typography>
         </Box>
+        <Box
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
+    gap={1}
+    mt={1}
+>
+    <DirectionsCarOutlined
+        sx={{
+            fontSize: 18,
+            // color: TEXT_PRIMARY,
+        }}
+    />
+
+    <Typography
+        className={BODY_TYPO}
+        sx={{
+            // color: TEXT_PRIMARY,
+            fontSize: "1rem",
+        }}
+    >
+       Servicio de valet parking disponible.
+    </Typography>
+</Box>
         <Fade triggerOnce direction="up">
                 <Box
             display="flex"
@@ -928,7 +952,7 @@ const WeddingAranxaJhoan  = () => {
         >
             <Button
                 variant="contained"
-                href="https://maps.app.goo.gl/BLLHhXG4Eu1FaRtZ8"
+                href="https://maps.app.goo.gl/U7frYahfxyXniued8"
                 target="_blank"
                 rel="noopener noreferrer"
                 endIcon={<LocationOnOutlined sx={{ fontSize: 18 }} />}
@@ -1032,7 +1056,7 @@ const WeddingAranxaJhoan  = () => {
  </Fade>
 
             </div>
-             <ImageMiddle bgPosition="center" height="70vh" bgImage={imgCp2} bgPositionY="50%"></ImageMiddle>
+             <ImageMiddle bgPosition="center" height="70vh" bgImage={imgCp2} bgPositionY="30%"></ImageMiddle>
           <div style={{backgroundColor:BG_ACCENT, padding: "50px 20px",position:"relative" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} >
@@ -1193,7 +1217,7 @@ const WeddingAranxaJhoan  = () => {
             </Fade>
         </Box>
         </div>
-        <ImageMiddle bgImage={imgItinerario} height="80vh" ></ImageMiddle>
+        <ImageMiddle bgImage={imgItinerario} height="80vh" bgPositionY="40%"></ImageMiddle>
           <Box
       sx={{
         background: BG_MAIN,
@@ -1220,9 +1244,9 @@ const WeddingAranxaJhoan  = () => {
                         src={deco5}
                         sx={{
                             position: "absolute",
-                            top: { xs: -120, sm: -60, md: -30 },
-                            left: { xs: -50, sm: -60, md: -30 },
-                            height: { xs: 220, md: 350 },
+                            top: { xs: -120, sm: -120, md: -80 },
+                            left: { xs: -50, sm: -60, md: -50 },
+                            height: { xs: 220, md: 250 },
                             transform: "rotate(150deg)",
                         }}
                     />
@@ -1255,7 +1279,7 @@ const WeddingAranxaJhoan  = () => {
         className={MAIN_TYPO}
         sx={{
           lineHeight:1,
-          fontSize: { xs: 48, md: 70 },
+          fontSize: "2.5rem",
           color: TITLE_COLOR,
         }}
       >
@@ -1285,7 +1309,7 @@ const WeddingAranxaJhoan  = () => {
               component="img"
                src={imgDresscode}
               sx={{
-                height: "20vh",
+                height: {xs:"20vh", sm:"30vh", md:"50vh"},
                 maxHeight: 300,
                 mt: 3,
                 mb: 4,
@@ -1373,7 +1397,7 @@ const WeddingAranxaJhoan  = () => {
               </Grid>
       </Grid>
     </Box>
-        <ImageMiddle bgPosition="center" height="70vh" bgImage={imgConf} bgPositionY="50%"></ImageMiddle>
+        <ImageMiddle bgPosition="center" height="70vh" bgImage={imgConf} bgPositionY="25%"></ImageMiddle>
             <Box bgcolor={BG_ACCENT} px={3} py={2} >
             <Grid container spacing={2} padding={1} paddingBottom={0} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -1384,11 +1408,12 @@ const WeddingAranxaJhoan  = () => {
                                 width: "100%",
                                 maxWidth: 470,
                                 bgcolor: "white",
-                                p: { xs: 4, md: 5 },
+                                p: { xs: 2.5, sm: 4, md: 5 },
                                 borderRadius: 0,
                                 boxShadow: "0 18px 45px rgba(0,0,0,.08)",
                                 position: "relative",
                                 overflow: "hidden",
+                                boxSizing: "border-box",
                             }}
                         >
                             {/* Título */}
@@ -1458,7 +1483,10 @@ const WeddingAranxaJhoan  = () => {
                                     sx={{
                                         bgcolor: bank.bgColor,
                                         borderRadius: "0",
-                                        p: 4,
+                                        p: { xs: 2.5, sm: 4 },
+                                        width: "100%",
+                                        maxWidth: "100%",
+                                        boxSizing: "border-box",
                                         border: "1.5px solid rgba(190,170,130,.45)",
                                         boxShadow: "0 10px 25px rgba(0,0,0,.05)",
                                         mt:2
@@ -1467,6 +1495,7 @@ const WeddingAranxaJhoan  = () => {
                                     <Stack
                                         spacing={2}
                                         alignItems="center"
+                                        sx={{ width: "100%", minWidth: 0 }}
                                     >
                                         <Box
                                             component="img"
@@ -1488,31 +1517,46 @@ const WeddingAranxaJhoan  = () => {
                                             {bank.numbers[0].numberType}
                                         </Typography>
 
-                                        <Typography
-                                            className={BODY_TYPO}
+                                        <Box
                                             sx={{
-                                                fontSize: {
-                                                xs: "1.65rem",
-                                                sm: "1.9rem",
-                                                },
-                                                letterSpacing: "0.04em",
-                                                whiteSpace: "nowrap",
-                                                color: TEXT_PRIMARY,
-                                                // letterSpacing: ".04em",
-                                                textAlign: "center",
-                                                lineHeight: 1.1,
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                gap: 0.25,
+                                                width: "100%",
+                                                maxWidth: "100%",
+                                                minWidth: 0,
                                             }}
                                         >
-                                            {bank.numbers[0].number}
+                                            <Typography
+                                                className={BODY_TYPO}
+                                                sx={{
+                                                    fontSize: {
+                                                        xs: "clamp(0.78rem, 3.5vw, 1.25rem)",
+                                                        sm: "1.65rem",
+                                                        md: "1.9rem",
+                                                    },
+                                                    letterSpacing: { xs: "0.01em", sm: "0.04em" },
+                                                    whiteSpace: "nowrap",
+                                                    color: TEXT_PRIMARY,
+                                                    textAlign: "center",
+                                                    lineHeight: 1.1,
+                                                    minWidth: 0,
+                                                }}
+                                            >
+                                                {bank.numbers[0].number}
+                                            </Typography>
                                             <IconButton
-                                            onClick={() => {
-                                            navigator.clipboard.writeText(bank.numbers[0].number.trim());
-                                        
-                                            }}
-                                        >
-                                        <ContentCopyIcon sx={{color: TEXT_PRIMARY}} />
-                                        </IconButton>
-                                        </Typography>
+                                                size="small"
+                                                aria-label="Copiar número de tarjeta"
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(bank.numbers[0].number.trim());
+                                                }}
+                                                sx={{ flexShrink: 0, p: { xs: 0.35, sm: 0.75 } }}
+                                            >
+                                                <ContentCopyIcon sx={{ color: TEXT_PRIMARY, fontSize: { xs: "1rem", sm: "1.35rem" } }} />
+                                            </IconButton>
+                                        </Box>
 
                                         <Typography
                                             className={BODY_TYPO}
@@ -1547,7 +1591,7 @@ const WeddingAranxaJhoan  = () => {
                     imageHeightMobile={260}
                     /> */}
                     </Box>
-            <ImageMiddle bgPosition="center" height="70vh" bgImage={imgDrs01274} bgPositionY="50%"></ImageMiddle>
+            <ImageMiddle bgPosition="center" height="70vh" bgImage={imgDrs01274} bgPositionY="35%"></ImageMiddle>
              <Box
                 display="flex"
                 justifyContent="center"
