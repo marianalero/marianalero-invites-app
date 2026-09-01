@@ -69,6 +69,7 @@ import fondoVer from "../../assets/boda-arantxa-jhoan/fondo-ver.png";
 import bancomer from "../../assets/boda-arantxa-jhoan/bancomer.png";
 import { AccessTimeRounded, DirectionsCarOutlined, LocationOnOutlined } from "@mui/icons-material";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
+import { useSnackbar } from "../../context/snackbarContext";
 const INVITATION_ID = 36;
 // 🎨 BACKGROUNDS
 const BG_MAIN = "#FBF7F2";
@@ -257,6 +258,7 @@ const WeddingAranxaJhoan  = () => {
     const [showInvitation, setShowInvitation] = useState(false);
     const [guest, setGuest] = useState<Guest | null>(null);
     const musicRef = useRef<MusicFabPlayerHandle>(null);
+    const { showSnackbar } = useSnackbar();
 
     const handleEnter = () => {
          musicRef.current?.play();
@@ -1078,9 +1080,8 @@ const WeddingAranxaJhoan  = () => {
            <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                 {
                 timelineData.events?.map((item,index) => (
-                <Fade triggerOnce={true}  direction="up">
-                 <Box 
-                 key={index}
+                <Fade key={item.eventName ?? index} triggerOnce={true} direction="up">
+                 <Box
                     sx={{
                         display: "flex",
                         flexDirection: "column",
@@ -1510,7 +1511,7 @@ const WeddingAranxaJhoan  = () => {
                                             className={BODY_TYPO}
                                             sx={{
                                                 letterSpacing: ".18em",
-                                                fontSize: "1.2rem",
+                                                fontSize: "1rem",
                                                 color: TEXT_PRIMARY,
                                             }}
                                         >
@@ -1551,6 +1552,7 @@ const WeddingAranxaJhoan  = () => {
                                                 aria-label="Copiar número de tarjeta"
                                                 onClick={() => {
                                                     navigator.clipboard.writeText(bank.numbers[0].number.trim());
+                                                    showSnackbar("Número copiado", "success");
                                                 }}
                                                 sx={{ flexShrink: 0, p: { xs: 0.35, sm: 0.75 } }}
                                             >
@@ -1561,7 +1563,7 @@ const WeddingAranxaJhoan  = () => {
                                         <Typography
                                             className={BODY_TYPO}
                                             sx={{
-                                                fontSize: "1.2rem",
+                                                fontSize: "1rem",
                                                 color: TEXT_PRIMARY,
                                                 opacity: .85,
                                                 textAlign: "center",

@@ -52,7 +52,7 @@ const numberToWords = (num: number, language: string): string => {
 };
 
 const RSVPForm  = (props:RSVPType) => {
-    console.log("RSVPForm props", props);
+
     const backgroundPositionDesktop = `${props.bgPosition ?? "center"} ${props.bgPositionY ?? "center"}`;
     const backgroundPositionMobile = `${props.mobileBgPosition ?? props.bgPosition ?? "center"} ${props.mobileBgPositionY ?? props.bgPositionY ?? "center"}`;
     const [errorName, setErrorName] = useState(false);
