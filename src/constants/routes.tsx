@@ -84,6 +84,8 @@ import XVMichelle from "../pages/clientInvitations/XVMichelle";
 
 import WeddingAranxaJhoan from "../pages/clientInvitations/WeddingAranxaJhoan";
 
+import WeddingAnaCeciliaJuanCarlos from "../pages/clientInvitations/WeddingAnaCeciliaJuanCarlos";
+
 interface RouteConfig {
   path: string;
   element: React.ReactNode;
@@ -139,7 +141,7 @@ const routes: RouteConfig[] = [
     {path:'/boda-ana-juan-angel', element:<WeddingAnnaJuanAngel2></WeddingAnnaJuanAngel2>},
     {path:'/boda-mitzia-jhovanny', element:<WeddingMitzy></WeddingMitzy>},
       {path:'/boda-arantxa-jhoan', element:<WeddingAranxaJhoan></WeddingAranxaJhoan>},
-
+  {path:'/boda-ana-cecilia-juan-carlos', element:<WeddingAnaCeciliaJuanCarlos></WeddingAnaCeciliaJuanCarlos>},
   //Bautizo
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
@@ -182,7 +184,8 @@ const routes: RouteConfig[] = [
 {path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
 
 {path:'/prev-m', element:<XVMichelle></XVMichelle>},
-  {path:'/prev-aj-2', element:<WeddingAranxaJhoan></WeddingAranxaJhoan>},
+
+  {path:'/prev-aj', element:<WeddingAnaCeciliaJuanCarlos></WeddingAnaCeciliaJuanCarlos>},
 ];
 
 

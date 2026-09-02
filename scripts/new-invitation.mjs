@@ -8,6 +8,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const INVITES_DIR = path.join(ROOT, "src", "pages", "clientInvitations");
 const ROUTES_FILE = path.join(ROOT, "src", "constants", "routes.tsx");
+const PUBLIC_DIR = path.join(ROOT, "public");
+const APP_HOST = "http://marianalero-invites.com";
+const OG_IMAGE_BASE = "https://marianalero.github.io/invites-images";
 
 const SECTIONS = {
   boda: "  //Bodas",
@@ -27,6 +30,8 @@ function parseArgs(argv) {
     images: "",
     assets: "",
     section: "",
+    publicName: "",
+    title: "",
     dryRun: false,
     help: false,
   };
@@ -44,6 +49,8 @@ function parseArgs(argv) {
     else if (current === "--images") args.images = next, i += 1;
     else if (current === "--assets") args.assets = next, i += 1;
     else if (current === "--section") args.section = next, i += 1;
+    else if (current === "--public") args.publicName = next, i += 1;
+    else if (current === "--title") args.title = next, i += 1;
   }
 
   return args;
@@ -68,12 +75,16 @@ Opciones:
                  Ej: boda-lucia-pedro
   --section      boda | xv | bautizo | otros | borradores
                  Si el slug empieza con prev-, usa borradores.
+  --public       Nombre de la carpeta en public/. Crea
+                 public/invitacion-{nombre}/index.html
+                 Ej: lucia-pedro  ->  public/invitacion-lucia-pedro
+  --title        Titulo y og:title. Ej: "Boda Lucia & Pedro"
   --dry-run      Muestra los cambios sin escribir archivos.
   --help         Muestra esta ayuda.
 
 Ejemplos:
-  npm run new-invite -- --from WeddingVianneyAlberto --file WeddingAnaLuis --slug prev-al-1 --id 41 --images boda/boda-ana-luis --section borradores
-  npm run new-invite -- --from XVMichelle --file XVCamilaSofia --slug xv-camila-sofia --section xv
+  npm run new-invite -- --from WeddingVianneyAlberto --file WeddingAnaLuis --slug prev-al-1 --id 41 --images boda/boda-ana-luis --public ana-luis --title "Boda Ana & Luis" --section borradores
+  npm run new-invite -- --from XVMichelle --file XVCamilaSofia --slug xv-camila-sofia --public xv-camila-sofia --section xv
 `);
 }
 
@@ -155,6 +166,84 @@ function insertImport(routesSource, component, fileName) {
   return `${routesSource.slice(0, index).replace(/\s+$/, "\n\n")}${importLine}\n${routesSource.slice(index)}`;
 }
 
+function splitPascalCase(value) {
+  return value.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/(\d+)$/, " $1").trim();
+}
+
+function titleFromFile(fileName, section) {
+  const prefixes = [
+    ["CivilWedding", "Boda civil"],
+    ["BabyShower", "Baby Shower"],
+    ["Wedding", "Boda"],
+    ["XV", "XV"],
+    ["Bau", "Bautizo"],
+  ];
+
+  for (const [prefix, label] of prefixes) {
+    if (fileName.startsWith(prefix) && fileName.length > prefix.length) {
+      const names = splitPascalCase(fileName.slice(prefix.length)).split(" ").filter(Boolean);
+      if (names.length >= 2) {
+        const last = names.pop();
+        return `${label} ${names.join(" ")} & ${last}`;
+      }
+      if (names.length === 1) return `${label} ${names[0]}`;
+      return label;
+    }
+  }
+
+  if (section === "boda") return `Boda ${splitPascalCase(fileName)}`;
+  if (section === "xv") return `XV ${splitPascalCase(fileName)}`;
+  if (section === "bautizo") return `Bautizo ${splitPascalCase(fileName)}`;
+  return splitPascalCase(fileName);
+}
+
+function defaultPublicName(slug) {
+  return slug.replace(/^(prev-|demo-|boda-)/, "");
+}
+
+function publicFolderName(name) {
+  const clean = name.trim().replace(/^\/+|\/+$/g, "").replace(/^(invitation-|invitacion-)/i, "");
+  if (!clean) throw new Error("El nombre de la carpeta public no puede estar vacio.");
+  return `invitacion-${clean}`;
+}
+
+function ogImageUrl(images, slug) {
+  const folder = (images || `boda/${slug.replace(/^(prev-|demo-)/, "")}`).replace(/^\/+|\/+$/g, "");
+  return `${OG_IMAGE_BASE}/${folder}/og.jpg`;
+}
+
+function buildPublicIndex({ title, slug, ogImage }) {
+  const appUrl = `${APP_HOST}/${slug}`;
+  return `<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>${title}</title>
+    <meta name="description" content="Invitación" />
+    <meta property="og:title" content="${title}" />
+    <meta property="og:description" content="Invitación" />
+    <meta property="og:image" content="${ogImage}" />
+    <meta property="og:url" content="${appUrl}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      var params = {};
+	    location.search.slice(1).split("&").forEach(function(pair) {
+		pair = pair.split("=");
+		params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);});
+    if(params.number){
+      window.location.href = "${appUrl}?number="+params.number;
+    }
+    if(params.id){
+      window.location.href = "${appUrl}?id="+params.id;
+    }
+    </script>
+  </body>
+</html>
+`;
+}
+
 function inferSection(slug, explicit) {
   if (explicit && SECTIONS[explicit]) return explicit;
   if (slug.startsWith("prev-") || slug.startsWith("demo-")) return "borradores";
@@ -220,6 +309,12 @@ async function promptMissing(args) {
     if (!args.section) {
       args.section = (await rl.question("--section (boda|xv|bautizo|otros|borradores, Enter para inferir): ")).trim();
     }
+    if (!args.publicName) {
+      args.publicName = (await rl.question("--public (carpeta, ej. lucia-pedro): ")).trim();
+    }
+    if (!args.title) {
+      args.title = (await rl.question('--title (ej. "Boda Lucia & Pedro", Enter para inferir): ')).trim();
+    }
   } finally {
     rl.close();
   }
@@ -261,6 +356,16 @@ async function main() {
   const slug = (args.slug || newFile.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()).replace(/^\/+/, "");
   const section = inferSection(slug, args.section);
   const assets = args.assets || (oldAssets ? slug : "");
+  const publicFolder = publicFolderName(args.publicName || defaultPublicName(slug));
+  const publicDir = path.join(PUBLIC_DIR, publicFolder);
+  const publicIndexPath = path.join(publicDir, "index.html");
+  const title = args.title || titleFromFile(newFile, section);
+  const ogImage = ogImageUrl(args.images, slug);
+  const publicIndex = buildPublicIndex({ title, slug, ogImage });
+
+  if (fs.existsSync(publicIndexPath)) {
+    throw new Error(`Ya existe ${path.join("public", publicFolder, "index.html")}`);
+  }
 
   const nextSource = applyReplacements(source, {
     oldComponent,
@@ -283,6 +388,8 @@ async function main() {
   if (args.id) console.log(`ID:          ${args.id}`);
   if (args.images) console.log(`Imagenes:    ${args.images}`);
   if (oldAssets && assets) console.log(`Assets:      ${oldAssets} -> ${assets}`);
+  console.log(`Public:      public/${publicFolder}/index.html`);
+  console.log(`Titulo OG:   ${title}`);
 
   if (args.dryRun) {
     console.log("\nDry-run: no se escribieron archivos.");
@@ -291,6 +398,8 @@ async function main() {
 
   fs.writeFileSync(destPath, nextSource, "utf8");
   fs.writeFileSync(ROUTES_FILE, routesSource, "utf8");
+  fs.mkdirSync(publicDir, { recursive: true });
+  fs.writeFileSync(publicIndexPath, publicIndex, "utf8");
 
   console.log("\nListo. Siguiente:");
   console.log("  1. Reemplaza nombres, fechas, lugares y textos.");
@@ -298,7 +407,8 @@ async function main() {
   if (oldAssets) {
     console.log(`  3. Crea src/assets/${assets}/ y copia las imagenes nuevas.`);
   }
-  console.log(`  4. Abre http://localhost:5173/${slug}`);
+  console.log("  4. Sube og.jpg (o cambia la extension en el index.html) para la vista previa.");
+  console.log(`  5. Abre http://localhost:5173/${slug}`);
 }
 
 main().catch((error) => {
