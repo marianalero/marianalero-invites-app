@@ -163,7 +163,7 @@ const godParents = [
     names: ["Rosa Robles y Noe Rios"],
   },
 ];
-const URL_SONG = `${URL_REPO}canciones/grupo-chisspa.mp3`;
+const URL_SONG = `${URL_REPO}cancion.mp3`;
 const giftListData: GiftListProps = {
   title: "Luvia de Sobres",
 
