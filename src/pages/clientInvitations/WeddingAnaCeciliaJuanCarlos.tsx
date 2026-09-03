@@ -545,8 +545,8 @@ const WeddingAnaCeciliaJuanCarlos = () => {
                           textAlign={"center"}
                           className={`${BODY_TYPO}`}
                         >
-                          Deseamos compartir con ustedes la alegria de nuestra
-                          union, con la bendicion de Dios y nuestros padres:
+                          Con la bendición de Dios y el amor de nuestros padres,<br></br>
+                        tenemos la dicha de compartir con ustedes este momento tan especial.
                         </Typography>
                       </Fade>
                     </Grid>
@@ -606,8 +606,7 @@ const WeddingAnaCeciliaJuanCarlos = () => {
                           // whiteSpace:"nowrap"
                         }}
                       >
-                        Tenemos el honor de invitarlos a la celebración de
-                        nuestra union
+                        Les invitamos a celebrar el inicio de nuestra vida juntos.
                       </Typography>
                     </Grid>
                   </Grid>
