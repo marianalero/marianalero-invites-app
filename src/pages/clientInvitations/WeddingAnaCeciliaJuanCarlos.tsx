@@ -80,7 +80,7 @@ import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 
-const INVITATION_ID = 9;
+const INVITATION_ID = 37;
 // 🎨 FONDOS
 
 const BG_MAIN = "#FBF8F4"; // Papel algodón
