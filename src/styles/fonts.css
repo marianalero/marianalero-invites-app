@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "EyesomeScript";
-  src: local('Eyesome Script'), url('../assets/fonts/Eyesome Script.ttf') format('opentype');
+  src: url('../assets/fonts/Eyesome Script.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }

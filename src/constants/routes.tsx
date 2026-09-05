@@ -37,6 +37,7 @@ import XVRenataIsabela from "../pages/clientInvitations/XVRenataIsabela";
 import XVValeria from "../pages/clientInvitations/XVValeria";
 import XVVictoria from "../pages/clientInvitations/XVVictoria";
 import CreacionesPage from "../pages/creations/creations";
+import FontPreviewPage from "../pages/fontPreview/FontPreviewPage";
 import Dashboard from "../pages/dashboard/dashboard";
 import DemosPage from "../pages/demos/DemosPage2";
 import BabyShower from "../pages/demos/examples/BabyShower";
@@ -111,6 +112,7 @@ const routes: RouteConfig[] = [
     {path:'/privacidad', element: <PrivacyPolicy></PrivacyPolicy>},
     {path:'/faq', element: <FaqPage></FaqPage>},
     {path:'/creaciones', element: <CreacionesPage></CreacionesPage>},
+    {path:'/font-preview', element: <FontPreviewPage />},
     //panel
      {path:'/login', element: <LoginPage></LoginPage>},
   { path: '/panel', element: <Dashboard />, protected: true },

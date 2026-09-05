@@ -27,6 +27,7 @@ const TextInput = (props: TextInputType) => {
                                                         backgroundColor: 'rgba(255, 255, 255, 0.8)',
                                                     },
                                                     }}
+                                                    placeholder={props.placeholder}
                                                     value={props.value ?? ''}
                                                     onChange={(e) => props.onChange?.(e.target.value)}
                                                     slotProps={{ inputLabel: { shrink: true } }} 
