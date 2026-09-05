@@ -232,6 +232,9 @@ const introTopLeftCornerPosition = {
     // transform: "rotate(120deg)",
 };
 
+/** Solo celulares bajos y angostos; no cambia iPhone normal ni desktop. */
+const COVER_SMALL_PHONE = "@media (max-width: 430px) and (max-height: 740px)";
+
 
 
 const WeddingAranxaJhoan  = () => {
@@ -374,6 +377,11 @@ const WeddingAranxaJhoan  = () => {
                         position: "relative",
                         zIndex: 2,
                         px: 4,
+                        [COVER_SMALL_PHONE]: {
+                            px: 3,
+                            pt: 6,
+                            pb: 16,
+                        },
                     }}
                 >
                     <Typography
@@ -386,6 +394,10 @@ const WeddingAranxaJhoan  = () => {
                             },
                             color: TITLE_COLOR,
                             lineHeight: 2,
+                            [COVER_SMALL_PHONE]: {
+                                fontSize: "3.6rem",
+                                lineHeight: 1.1,
+                            },
                         }}
                     >
                         Arantxa
@@ -398,12 +410,18 @@ const WeddingAranxaJhoan  = () => {
                             fontSize: "5rem",
                             color: TITLE_COLOR,
                             my: 1,
+                            [COVER_SMALL_PHONE]: {
+                                fontSize: "3.2rem",
+                                my: 0,
+                                lineHeight: 1,
+                            },
                         }}
                     >
                         &
                     </Typography>
 
                     <Typography
+                    translate="no"
                     className={MAIN_TYPO}
                         sx={{
                             
@@ -413,6 +431,10 @@ const WeddingAranxaJhoan  = () => {
                             },
                             color: TITLE_COLOR,
                             lineHeight: 2,
+                            [COVER_SMALL_PHONE]: {
+                                fontSize: "3.6rem",
+                                lineHeight: 1.1,
+                            },
                         }}
                     >
                         Jhoan
@@ -427,7 +449,11 @@ const WeddingAranxaJhoan  = () => {
                                 md: "2.5rem",
                             },
                             color: TITLE_COLOR,
-                            
+                            [COVER_SMALL_PHONE]: {
+                                fontSize: "1.2rem",
+                                mt: 2,
+                                px: 4,
+                            },
                         }}
                     >
                         14 Noviembre 2026
@@ -445,7 +471,12 @@ const WeddingAranxaJhoan  = () => {
                             height: { xs: 250, md: 350 },
                             transform: "rotate(50deg)",
                             opacity: .92,
-                            // filter: "brightness(.98)"
+                            pointerEvents: "none",
+                            [COVER_SMALL_PHONE]: {
+                                height: 160,
+                                top: -50,
+                                left: -45,
+                            },
                         }}
                     />
                     <Box
@@ -457,6 +488,12 @@ const WeddingAranxaJhoan  = () => {
                             left: { xs: -50, sm: -60, md: -40 },
                             height: { xs: 250, md: 350 },
                             transform: "rotate(50deg)",
+                            pointerEvents: "none",
+                            [COVER_SMALL_PHONE]: {
+                                height: 160,
+                                top: 8,
+                                left: -70,
+                            },
                         }}
                     />
                     
@@ -471,6 +508,13 @@ const WeddingAranxaJhoan  = () => {
                             right: { xs: 15, sm: -60, md: 50 },
                             height: { xs: 180, md: 350 },
                             transform: "scale(-1,-1) rotate(120deg)",
+                            pointerEvents: "none",
+                            [COVER_SMALL_PHONE]: {
+                                zIndex: 1,
+                                height: 110,
+                                bottom: -60,
+                                right: -50,
+                            },
                         }}
                     />
                     <Box
@@ -483,6 +527,12 @@ const WeddingAranxaJhoan  = () => {
                             height: { xs: 250, md: 350 },
                             transform: "scale(-1,-1) rotate(160deg)",
                             zIndex:-111,
+                            pointerEvents: "none",
+                            [COVER_SMALL_PHONE]: {
+                                height: 150,
+                                bottom: -70,
+                                right: -95,
+                            },
                         }}
                     />
                     </Fade>

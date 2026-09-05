@@ -5,10 +5,12 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import { fonts } from "../../constants/fonts";
 import { useSnackbar } from "../../context/snackbarContext";
 import FontCategoryFilter from "./components/FontCategoryFilter";
+import FontPreviewExportCanvas from "./components/FontPreviewExportCanvas";
 import FontPreviewExportFooter from "./components/FontPreviewExportFooter";
 import FontPreviewExportHeader from "./components/FontPreviewExportHeader";
 import FontPreviewForm from "./components/FontPreviewForm";
 import FontPreviewGrid from "./components/FontPreviewGrid";
+import { FONTS_PER_WHATSAPP_IMAGE, chunkItems } from "./constants";
 import { useFontPreviewExport } from "./hooks/useFontPreviewExport";
 import type { FontFilterValue } from "./types";
 
@@ -20,7 +22,9 @@ const FontPreviewPage = () => {
   const [name, setName] = useState(DEFAULT_NAME);
   const [previewName, setPreviewName] = useState(DEFAULT_NAME);
   const [category, setCategory] = useState<FontFilterValue>("Todas");
-  const { isExporting, downloadImage } = useFontPreviewExport(exportRef);
+  const [exportPageIndex, setExportPageIndex] = useState(0);
+  const { isExporting, downloadWhatsAppImages } =
+    useFontPreviewExport(exportRef);
 
   const previewText = previewName.trim() || DEFAULT_NAME;
 
@@ -32,9 +36,21 @@ const FontPreviewPage = () => {
     [category],
   );
 
+  const exportPages = useMemo(
+    () => chunkItems(visibleFonts, FONTS_PER_WHATSAPP_IMAGE),
+    [visibleFonts],
+  );
+
+  const exportFonts = exportPages[exportPageIndex] ?? [];
+  const exportStartIndex = exportPageIndex * FONTS_PER_WHATSAPP_IMAGE;
+
   useEffect(() => {
     document.title = "Selector de Tipografías | Mariana Lero Invitaciones";
   }, []);
+
+  useEffect(() => {
+    setExportPageIndex(0);
+  }, [category]);
 
   const handleNameChange = (value: string) => {
     setName(value);
@@ -47,10 +63,19 @@ const FontPreviewPage = () => {
 
   const handleDownload = async () => {
     try {
-      await downloadImage(previewText);
-      showSnackbar("Imagen descargada", "success");
+      const count = await downloadWhatsAppImages({
+        previewName: previewText,
+        pageCount: exportPages.length,
+        renderPage: setExportPageIndex,
+      });
+      showSnackbar(
+        count === 1
+          ? "Imagen descargada"
+          : `Se descargaron ${count} imágenes para WhatsApp`,
+        "success",
+      );
     } catch {
-      showSnackbar("No se pudo generar la imagen. Intenta de nuevo.", "error");
+      showSnackbar("No se pudieron generar las imágenes. Intenta de nuevo.", "error");
     }
   };
 
@@ -110,18 +135,16 @@ const FontPreviewPage = () => {
                 bgColor="#fff"
                 color="#a41423"
                 borderColor="#a41423"
-                label={isExporting ? "Generando..." : "Descargar imagen"}
+                label={isExporting ? "Generando..." : "Descargar para WhatsApp"}
                 onClick={() => {
                   void handleDownload();
                 }}
-                width="220px"
+                width="240px"
               />
             </Stack>
           </Stack>
 
           <Box
-            ref={exportRef}
-            className="font-preview-export"
             sx={{
               bgcolor: "#f8f4ec",
               boxSizing: "border-box",
@@ -131,14 +154,6 @@ const FontPreviewPage = () => {
               p: { xs: 3, md: 6 },
               containerType: "inline-size",
               containerName: "font-preview",
-              "&.is-exporting-fonts .font-preview-grid": {
-                gridTemplateColumns: "1fr 1fr !important",
-                gap: "28px !important",
-              },
-              "&.is-exporting-fonts .font-preview-sample": {
-                fontSize: "48px !important",
-                minHeight: "88px !important",
-              },
             }}
           >
             <FontPreviewExportHeader />
@@ -146,6 +161,27 @@ const FontPreviewPage = () => {
             <FontPreviewExportFooter />
           </Box>
         </Container>
+      </Box>
+
+      <Box
+        aria-hidden
+        sx={{
+          position: "fixed",
+          top: 0,
+          left: isExporting ? 0 : -2000,
+          zIndex: isExporting ? 14000 : -1,
+          width: 1080,
+          pointerEvents: "none",
+        }}
+      >
+        <FontPreviewExportCanvas
+          ref={exportRef}
+          fonts={exportFonts}
+          previewText={previewText}
+          startIndex={exportStartIndex}
+          page={exportPageIndex + 1}
+          totalPages={exportPages.length || 1}
+        />
       </Box>
     </>
   );

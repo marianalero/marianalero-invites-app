@@ -1,8 +1,15 @@
 import { Box, Typography } from "@mui/material";
+import type { FontPreviewExportHeaderProps } from "../types";
 
-const FontPreviewExportHeader = () => {
+const FontPreviewExportHeader = ({
+  page,
+  totalPages,
+}: FontPreviewExportHeaderProps) => {
+  const showPage =
+    typeof page === "number" && typeof totalPages === "number" && totalPages > 1;
+
   return (
-    <Box sx={{ textAlign: "center", mb: { xs: 4, md: 5 } }}>
+    <Box sx={{ textAlign: "center", mb: 4 }}>
       <Typography
         sx={{
           fontFamily: "Montserrat, sans-serif",
@@ -21,13 +28,29 @@ const FontPreviewExportHeader = () => {
         sx={{
           fontFamily: "'DM Serif Display', serif",
           color: "#a41423",
-          fontSize: { xs: "2.1rem", md: "2.8rem" },
+          fontSize: "2.4rem",
           lineHeight: 1.05,
-          mb: 2,
+          mb: showPage ? 1 : 2,
         }}
       >
         Opciones de tipografía
       </Typography>
+
+      {showPage && (
+        <Typography
+          sx={{
+            fontFamily: "Montserrat, sans-serif",
+            color: "#7d5f55",
+            fontSize: ".8rem",
+            fontWeight: 600,
+            letterSpacing: ".16em",
+            textTransform: "uppercase",
+            mb: 2,
+          }}
+        >
+          Parte {page} de {totalPages}
+        </Typography>
+      )}
 
       <Box
         sx={{

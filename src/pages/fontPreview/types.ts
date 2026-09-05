@@ -11,6 +11,13 @@ export interface FontCardProps {
 export interface FontPreviewGridProps {
   fonts: InvitationFont[];
   previewText: string;
+  startIndex?: number;
+  columns?: 1 | 2;
+}
+
+export interface FontPreviewExportHeaderProps {
+  page?: number;
+  totalPages?: number;
 }
 
 export interface FontCategoryFilterProps {

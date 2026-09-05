@@ -1,15 +1,18 @@
 import { type RefObject, useCallback, useState } from "react";
+import { flushSync } from "react-dom";
 import { toPng } from "html-to-image";
-
-const EXPORT_WIDTH = 1080;
-const EXPORT_PADDING = "48px";
-const PIXEL_RATIO = 2;
+import { EXPORT_PIXEL_RATIO } from "../constants";
 
 const waitForLayout = (): Promise<void> =>
   new Promise((resolve) => {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => resolve());
     });
+  });
+
+const delay = (ms: number): Promise<void> =>
+  new Promise((resolve) => {
+    setTimeout(resolve, ms);
   });
 
 const slugify = (value: string): string =>
@@ -20,9 +23,24 @@ const slugify = (value: string): string =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "") || "tipografias";
 
+const triggerDownload = (fileName: string, dataUrl: string): void => {
+  const link = document.createElement("a");
+  link.download = fileName;
+  link.href = dataUrl;
+  link.click();
+};
+
+type DownloadWhatsAppImagesOptions = {
+  previewName: string;
+  pageCount: number;
+  renderPage: (pageIndex: number) => void;
+};
+
 type UseFontPreviewExportResult = {
   isExporting: boolean;
-  downloadImage: (previewName: string) => Promise<void>;
+  downloadWhatsAppImages: (
+    options: DownloadWhatsAppImagesOptions,
+  ) => Promise<number>;
 };
 
 export const useFontPreviewExport = (
@@ -30,59 +48,77 @@ export const useFontPreviewExport = (
 ): UseFontPreviewExportResult => {
   const [isExporting, setIsExporting] = useState(false);
 
-  const downloadImage = useCallback(
-    async (previewName: string) => {
-      const node = containerRef.current;
-      if (!node) {
-        throw new Error("No se encontró el contenedor de tipografías.");
+  const downloadWhatsAppImages = useCallback(
+    async ({
+      previewName,
+      pageCount,
+      renderPage,
+    }: DownloadWhatsAppImagesOptions): Promise<number> => {
+      if (pageCount < 1) {
+        throw new Error("No hay tipografías para exportar.");
       }
 
-      setIsExporting(true);
-
-      const previous = {
-        width: node.style.width,
-        maxWidth: node.style.maxWidth,
-        padding: node.style.padding,
-        boxSizing: node.style.boxSizing,
-        margin: node.style.margin,
-      };
+      const slug = slugify(previewName);
+      const files: { fileName: string; dataUrl: string }[] = [];
 
       try {
-        await document.fonts.ready;
-
-        node.style.boxSizing = "border-box";
-        node.style.width = `${EXPORT_WIDTH}px`;
-        node.style.maxWidth = `${EXPORT_WIDTH}px`;
-        node.style.padding = EXPORT_PADDING;
-        node.style.margin = "0";
-        node.classList.add("is-exporting-fonts");
-
-        await waitForLayout();
-
-        const dataUrl = await toPng(node, {
-          cacheBust: true,
-          pixelRatio: PIXEL_RATIO,
-          backgroundColor: "#f8f4ec",
-          width: node.scrollWidth,
-          height: node.scrollHeight,
+        flushSync(() => {
+          setIsExporting(true);
+          renderPage(0);
         });
 
-        const link = document.createElement("a");
-        link.download = `tipografias-${slugify(previewName)}.png`;
-        link.href = dataUrl;
-        link.click();
+        await document.fonts.ready;
+        await waitForLayout();
+
+        for (let pageIndex = 0; pageIndex < pageCount; pageIndex += 1) {
+          flushSync(() => {
+            renderPage(pageIndex);
+          });
+          await waitForLayout();
+          await delay(120);
+
+          const node = containerRef.current;
+          if (!node) {
+            throw new Error("No se encontró el contenedor de tipografías.");
+          }
+
+          if (node.scrollHeight < 80) {
+            throw new Error("El lienzo de exportación no se renderizó.");
+          }
+
+          const dataUrl = await toPng(node, {
+            cacheBust: true,
+            pixelRatio: EXPORT_PIXEL_RATIO,
+            backgroundColor: "#f8f4ec",
+            style: {
+              transform: "none",
+              left: "0",
+              top: "0",
+              position: "static",
+              opacity: "1",
+            },
+          });
+
+          const pageNumber = String(pageIndex + 1).padStart(2, "0");
+          const total = String(pageCount).padStart(2, "0");
+          files.push({
+            fileName: `tipografias-${slug}-${pageNumber}-de-${total}.png`,
+            dataUrl,
+          });
+        }
+
+        for (const file of files) {
+          triggerDownload(file.fileName, file.dataUrl);
+          await delay(250);
+        }
+
+        return files.length;
       } finally {
-        node.classList.remove("is-exporting-fonts");
-        node.style.width = previous.width;
-        node.style.maxWidth = previous.maxWidth;
-        node.style.padding = previous.padding;
-        node.style.boxSizing = previous.boxSizing;
-        node.style.margin = previous.margin;
         setIsExporting(false);
       }
     },
     [containerRef],
   );
 
-  return { isExporting, downloadImage };
+  return { isExporting, downloadWhatsAppImages };
 };
