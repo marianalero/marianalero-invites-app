@@ -25,7 +25,7 @@ const FontPreviewExportCanvas = forwardRef<
       sx={{
         boxSizing: "border-box",
         width: EXPORT_WIDTH,
-        bgcolor: "#f8f4ec",
+        bgcolor: "#fff",
         p: `${EXPORT_PADDING_PX}px`,
         "& .font-preview-sample": {
           fontSize: "56px !important",

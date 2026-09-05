@@ -1,4 +1,4 @@
-export const FONTS_PER_WHATSAPP_IMAGE = 7;
+export const FONTS_PER_WHATSAPP_IMAGE = 8;
 export const EXPORT_WIDTH = 1080;
 export const EXPORT_PADDING_PX = 48;
 export const EXPORT_PIXEL_RATIO = 2;

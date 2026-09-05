@@ -89,13 +89,16 @@ export const useFontPreviewExport = (
           const dataUrl = await toPng(node, {
             cacheBust: true,
             pixelRatio: EXPORT_PIXEL_RATIO,
-            backgroundColor: "#f8f4ec",
+            backgroundColor: "#ffffff",
+            width: node.scrollWidth,
+            height: node.scrollHeight,
             style: {
               transform: "none",
               left: "0",
               top: "0",
               position: "static",
               opacity: "1",
+              background: "#ffffff",
             },
           });
 
