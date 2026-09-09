@@ -331,8 +331,8 @@ const handleConfirmed = (
                 title="Una celebración está por comenzar"
                 fontSizeNames="2rem"
 
-                brideName="Marisol"
-                groomName="Jesús"
+                brideName="Mariela"
+                groomName="Ivan"
                 ampersonSymbol="&"
 
                 namesTypo={MAIN_TYPO}
@@ -707,13 +707,13 @@ const handleConfirmed = (
 
               {/* FRASE */}
               <Typography mb={2}  className={`${SECONDARY_TYPO} italic`}>
-                Porque las mejores historias de amor se escriben con la madurez del alma y el abrazo de la familia.
+                "Porque las mejores historias de amor se escriben con la madurez del alma y el abrazo de la familia." 
               </Typography>
               <Typography mb={2}  className={`${SECONDARY_TYPO} italic`}>
-                Celebramos un amor maduro, consciente y elegido con el corazón. Una unión que suma historias, multiplica alegrías y comparte el futuro.
+                "Celebramos un amor maduro, consciente y elegido con el corazón. Una unión que suma historias, multiplica alegrías y comparte el futuro."
               </Typography>
               <Typography mb={2}  className={`${SECONDARY_TYPO} italic`}>
-               Porque el amor verdadero sabe esperar, sabe madurar y sabe exactamente lo que quiere. <br></br>Nos casamos y nos encantaría compartir nuestra felicidad contigo.
+               "Porque el amor verdadero sabe esperar, sabe madurar y sabe exactamente lo que quiere." <br></br><br></br>Nos casamos y nos encantaría compartir nuestra felicidad contigo.
               </Typography>
              
 
@@ -788,11 +788,11 @@ const handleConfirmed = (
                   title={{
                     fontFamily: '"EyesomeScript", serif',
                     color: TEXT_LIGHT,
-                    fontSize: "2rem",
+                    fontSize: "2.2rem",
                     letterSpacing: "0.08em",
                     fontWeight:700,
                     lineHeight:1.5,
-                    dateFormat:"ddddd DD MMMM"
+                    dateFormat:"dddd DD MMMM"
                     // textTransform:"uppercase"
                   }}
                   number={{
