@@ -87,6 +87,7 @@ import WeddingAranxaJhoan from "../pages/clientInvitations/WeddingAranxaJhoan";
 
 import WeddingAnaCeciliaJuanCarlos from "../pages/clientInvitations/WeddingAnaCeciliaJuanCarlos";
 import XVCamilaFernanda from "../pages/clientInvitations/XVCamilaFernanda";
+import WeddingMariela from "../pages/clientInvitations/WeddingMariela";
 
 interface RouteConfig {
   path: string;
@@ -145,6 +146,7 @@ const routes: RouteConfig[] = [
     {path:'/boda-mitzia-jhovanny', element:<WeddingMitzy></WeddingMitzy>},
       {path:'/boda-arantxa-jhoan', element:<WeddingAranxaJhoan></WeddingAranxaJhoan>},
   {path:'/boda-ana-cecilia-juan-carlos', element:<WeddingAnaCeciliaJuanCarlos></WeddingAnaCeciliaJuanCarlos>},
+    {path:'/boda-brisa-david', element:<WeddingBrisa></WeddingBrisa>},
   //Bautizo
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
@@ -183,12 +185,12 @@ const routes: RouteConfig[] = [
    {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
    {path:'/mariana-30', element: <Mariana30></Mariana30>},
   //Borradores
-  {path:'/prev-br-4', element:<WeddingBrisa></WeddingBrisa>},
+  {path:'/prev-br-5', element:<WeddingBrisa></WeddingBrisa>},
 {path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
 
 {path:'/prev-cf', element:<XVCamilaFernanda></XVCamilaFernanda>},
 
-  {path:'/prev-aj', element:<WeddingAnaCeciliaJuanCarlos></WeddingAnaCeciliaJuanCarlos>},
+  {path:'/prev-mi', element:<WeddingMariela></WeddingMariela>},
 ];
 
 

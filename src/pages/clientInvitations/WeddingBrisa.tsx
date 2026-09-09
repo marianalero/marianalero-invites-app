@@ -76,33 +76,33 @@ const eventCards: EventCardProps[] = [
         eventName: "Ceremonia Religiosa",
         date: new Date(2026, 10, 14, 17, 0, 0),
         locationName: "Parroquia Santísima Trinidad",
-        address: "Bv. Justo Sierra, Periodista, Hermosillo, Son.",
+        address: "Blvd. Justo Sierra, Col. Periodista, Hermosillo, Sonora.",
         size: 12,
-        color: TEXT_PRIMARY,
+        color: TITLE_COLOR,
         mainTypo: SECOND_TYPO,
         bodyTypo: BODY_TYPO,
         href: "https://maps.app.goo.gl/ZzBSeeYpoqzWQfNG9",
         colorButton: BUTTON_PRIMARY,
         colorIcon: BUTTON_PRIMARY,
-        fontSize: "1.5rem",
+        fontSize: "2rem",
         bgColor: "white",
         borderSquare: true, 
         icon: `${URL_IMAGES}iglesia.png`,
         textColor: BODY_COLOR
     },
     {
-        eventName: "Recepción",
+        eventName: "Civil y Recepción",
         date: new Date(2026, 10, 14, 20, 0, 0),
         locationName: "Casa Ava",
-        address: "1ro Mayo #105 esquina con Nayarit, 5 de Mayo, Hermosillo, Son.",
+        address: "Primero de Mayo #105 esquina con Nayarit, 5 de Mayo, Hermosillo, Son.",
         size: 12,
-        color: TEXT_PRIMARY,
+        color: TITLE_COLOR,
         mainTypo: SECOND_TYPO,
         bodyTypo: BODY_TYPO,
         href: "https://maps.app.goo.gl/VP4avfiPj1Cmbu946",
         colorButton: BUTTON_PRIMARY,
         colorIcon: BUTTON_PRIMARY,
-        fontSize: "1.5rem",
+        fontSize: "2rem",
         bgColor: "white",
         borderSquare: true, 
         icon: `${URL_IMAGES}recepcion.png`,
@@ -129,7 +129,7 @@ const giftListData: GiftListProps = {
         },
     ],
 
-    fontSize: "1.5rem",
+    fontSize: "2rem",
     mainTypo: SECOND_TYPO,
     bodyTypo: BODY_TYPO,
 
@@ -140,7 +140,7 @@ const giftListData: GiftListProps = {
     showEnvelope: true,
 
     envelopeMainTypo: SECOND_TYPO,
-    envelopeFontSize: "1.5rem",
+    envelopeFontSize: "2rem",
     envelopeTitle:"Nuestro nuevo capítulo",
     envelopePhrase:
         "En la recepción habrá un espacio asignado para sus buenos deseos",
@@ -175,10 +175,10 @@ const giftListData: GiftListProps = {
 const dresscode: DressCodeProps = {
     mainTypo: SECOND_TYPO,
     bodyTypo: BODY_TYPO,
-    color: TEXT_PRIMARY,
+    color: TITLE_COLOR,
     type: 3,
     title: "Formal",
-    fontSize: "1.5rem",
+    fontSize: "2rem",
     image: `${URL_IMAGES}deco/17.png`,
     imageSize:"200px"
 };
@@ -197,7 +197,7 @@ const timelineData: CustomizedTimelineProps = {
     colorPrimary: BUTTON_PRIMARY,
     colorTitle: TITLE_COLOR,
     colorBody: BUTTON_PRIMARY,
-    fontSize: "1.5rem",
+    fontSize: "2rem",
     bgColor: BG_MAIN,
     events: [
         {
@@ -206,8 +206,13 @@ const timelineData: CustomizedTimelineProps = {
             icon: `${URL_IMAGES}deco/18.png`,
         },
         {
-            eventName: "Recepción",
+            eventName: "Ceremonia Civil",
             date: new Date(2026, 9, 9, 20, 0, 0),
+            icon: `${URL_IMAGES}deco/22.png`,
+        },
+        {
+            eventName: "Recepción",
+            date: new Date(2026, 9, 9, 20, 30, 0),
             icon: `${URL_IMAGES}deco/19.png`,
         },
         {
@@ -264,12 +269,6 @@ const calendarButtonProps = {
         color: TITLE_COLOR,
     },
 };
-
-
-
-const godparents= ["Armida Sánchez Escalante","Gastón R. Torrescano Urrutia","Karla Cardenas","Juan Cardenas"];
-  
-  
 
 
 const WeddingBrisa  = () => {
@@ -557,7 +556,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                   eventDate={COUNTDOWN_DATE}
                   background={{ color: "transparent" }}
                   title={{
-                    fontFamily: '"PermianSansTypeface", serif',
+                    fontFamily: '"PermianSansTypeface Bold", serif',
                     color: TITLE_COLOR,
                     fontSize: "2rem",
                     letterSpacing: "0.08em",
@@ -635,7 +634,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
           textAlign: "center",
         }}
       >
-       <b>PADRINOS</b> 
+       PADRINOS
       </Typography>
 
       {/* Descripción */}
@@ -674,25 +673,22 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
           maxWidth: 520,
         }}
       >
-        {godparents.map((godparent, index) => (
-          <Box key={godparent}>
-            <Typography
-              className={SECOND_TYPO_REG}
-              sx={{
-                color: TITLE_COLOR,
-                textAlign: "center",
-                fontSize: {
+
+          <Box>
+            <Typography sx={{color:TITLE_COLOR, fontSize: {
                   xs: "1.2rem",
                   md: "1.8rem",
-                },
-                lineHeight: 1.4,
-              }}
-            >
-              {godparent}
+                },}} variant="body1" textAlign={"center"} className={SECOND_TYPO_REG} >
+              Armida Sánchez Escalante
+            </Typography>
+            <Typography sx={{color:TITLE_COLOR, fontSize: {
+                  xs: "1.2rem",
+                  md: "1.8rem",
+                },}} variant="body1" textAlign={"center"} className={SECOND_TYPO_REG} >
+              Gastón R. Torrescano Urrutia
             </Typography>
 
-            {index !== godparents.length - 1 && (
-              <Box
+            <Box
                 component="img"
                 src={`${URL_IMAGES}deco/14.png`} 
                 sx={{
@@ -704,9 +700,35 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                   mt: 3,
                 }}
               />
-            )}
           </Box>
-        ))}
+          <Box>
+            <Typography sx={{color:TITLE_COLOR, fontSize: {
+                  xs: "1.2rem",
+                  md: "1.8rem",
+                },}} variant="body1" textAlign={"center"} className={SECOND_TYPO_REG} >
+              Karla Cardenas
+            </Typography>
+            <Typography sx={{color:TITLE_COLOR, fontSize: {
+                  xs: "1.2rem",
+                  md: "1.8rem",
+                },}} variant="body1" textAlign={"center"} className={SECOND_TYPO_REG} >
+             Juan Cardenas
+            </Typography>
+
+            <Box
+                component="img"
+                src={`${URL_IMAGES}deco/14.png`} 
+                sx={{
+                    display:"flex",
+                  width: "50%",
+                //   height: "50px",
+                  
+                  mx: "auto",
+                  mt: 3,
+                }}
+              />
+          </Box>
+
       </Stack>
 
       {/* Separador inferior */}
@@ -887,7 +909,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                                 boxShadow: CARD_SHADOW,
                             }}
                         >
-                            <Typography mt={2} sx={{color:TITLE_COLOR, fontSize: "1.5em",lineHeight:1,fontWeight:700}} variant="body1" textAlign={"center"} className={SECOND_TYPO} >¡Confirma tu asistencia!</Typography>
+                            <Typography mt={2} sx={{color:TITLE_COLOR, fontSize: "2rem",lineHeight:1,fontWeight:700}} variant="body1" textAlign={"center"} className={SECOND_TYPO} >¡Confirma tu asistencia!</Typography>
 
                             <RSVPForm
                             dateLine={RSVP_DATE_LINE}
@@ -898,7 +920,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                                 mainTypo={SECOND_TYPO}
                                 bodyTypo={BODY_TYPO}
                                 count={invitedGuests}
-                                color={TEXT_PRIMARY}
+                                color={TITLE_COLOR}
                                 guestId={guestId}
                                 invitationId={INVITATION_ID}
                                 qrActive={false}
