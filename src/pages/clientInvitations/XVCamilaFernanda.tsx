@@ -127,7 +127,9 @@ const XVCamilaFernanda = () => {
     const num = Number(searchParams.get("number"));
     return isNaN(num) ? 1 : num;
   }, [searchParams]);
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(
+    searchParams.get("skipIntro") !== "1",
+  );
   //  const musicRef = useRef<MusicFabPlayerHandle>(null);
   const handleEnter = () => {
     // musicRef.current?.play();
@@ -177,141 +179,152 @@ const XVCamilaFernanda = () => {
         envelopeHighlight={PRIMARY_LIGHT}
         shadowColor={SHADOW}
       ></EnvelopeIntro>
-      <div
-        style={{
-          padding: "50px 20px",
-          height: "100vh",
+      <Box
+        sx={{
+          height: { xs: "100svh", md: "100vh" },
+          px: { xs: 2, sm: 2.5 },
+          pt: { xs: 4, sm: 6 },
+          pb: 0,
+          boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden",
         }}
       >
-        <Grid
-          container
-          justifyContent="center"
-          // bgcolor={"rgb(169, 193, 186,.5)"}
-          height="calc(100vh - 50px)"
+        <Box
+          sx={{
+            position: "relative",
+            flex: 1,
+            minHeight: 0,
+            display: "flex",
+            flexDirection: "column",
+          }}
         >
-          <Grid
-            size={12}
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"center"}
+          <Box
+            sx={{
+              position: "absolute",
+              top: { xs: 12, sm: 24 },
+              left: { xs: 8, sm: "8%" },
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
           >
-            <div
-              style={{ position: "relative", width: "100%", height: "100%" }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "20%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  width: "100%",
-                }}
-              >
-                <Fade direction="left" triggerOnce={true}>
-                  <Typography
-                    variant="h1"
-                    className={`${MAIN_TYPO}`}
-                    translate="no"
-                    align="center"
-                    sx={{
-                      fontSize: "5rem",
-                      lineHeight: 1,
-                      color: PRIMARY,
-                      fontFeatureSettings: '"liga" 0, "locl" 0',
-                    }}
-                  >
-                    Camila<br></br> Fernanda
-                  </Typography>
-                  <Typography
-                    className={`${SECOND_TYPO}`}
-                    translate="no"
-                    align="center"
-                    sx={{
-                      fontSize: "1.5rem",
-                      lineHeight: 1.2,
-                      color: PRIMARY_DARK,
-                      fontFeatureSettings: '"liga" 0, "locl" 0',
-                    }}
-                  >
-                    Mis XV años
-                  </Typography>
-                  <Typography
-                    className={`${SECOND_TYPO} italic`}
-                    translate="no"
-                    align="center"
-                    sx={{
-                      fontSize: "1.5rem",
-                      lineHeight: 1.2,
-                      color: "#8F97A5",
-                      fontFeatureSettings: '"liga" 0, "locl" 0',
-                    }}
-                  >
-                    Érase una vez un sueño...
-                  </Typography>
-                  <Typography
-                    className={`${BODY_TYPO}`}
-                    translate="no"
-                    align="center"
-                    sx={{
-                      fontSize: "1rem",
-                      lineHeight: 2,
-                      color: PRIMARY,
-                      fontFeatureSettings: '"liga" 0, "locl" 0',
-                    }}
-                  >
-                    28 · NOVIEMBRE · 2026
-                  </Typography>
-                </Fade>
-              </div>
+            <Fade direction="up" triggerOnce={true}>
+              <img src={destellos} alt="" style={{ width: "100px" }} />
+            </Fade>
+          </Box>
+          <Box
+            sx={{
+              position: "absolute",
+              top: { xs: "38%", sm: "42%" },
+              right: { xs: 0, sm: "4%" },
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+          >
+            <Fade direction="up" triggerOnce={true}>
+              <img src={destellos} alt="" style={{ width: "100px" }} />
+            </Fade>
+          </Box>
 
-              <div
-                style={{
-                  position: "absolute",
-                  top: "calc(10% - 100px)",
-                  left: "10%",
-                  transform: "translate(-50%, -50%)",
+          <Box sx={{ position: "relative", zIndex: 2, flexShrink: 0 }}>
+            <Fade direction="left" triggerOnce={true}>
+              <Typography
+                variant="h1"
+                className={`${MAIN_TYPO}`}
+                translate="no"
+                align="center"
+                sx={{
+                  fontSize: { xs: "3.6rem", sm: "4.5rem", md: "5rem" },
+                  lineHeight: 1,
+                  color: PRIMARY,
+                  fontFeatureSettings: '"liga" 0, "locl" 0',
                 }}
               >
-                <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
-                </Fade>
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "calc(50% - 100px)",
-                  right: "calc(10% - 100px)",
-                  transform: "translate(-50%, -50%)",
+                Camila<br></br> Fernanda
+              </Typography>
+              <Typography
+                className={`${SECOND_TYPO}`}
+                translate="no"
+                align="center"
+                sx={{
+                  fontSize: { xs: "1.25rem", sm: "1.5rem" },
+                  lineHeight: 1.2,
+                  color: PRIMARY_DARK,
+                  fontFeatureSettings: '"liga" 0, "locl" 0',
                 }}
               >
-                <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
-                </Fade>
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "calc(100% - 300px)",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
+                Mis XV años
+              </Typography>
+              <Typography
+                className={`${SECOND_TYPO} italic`}
+                translate="no"
+                align="center"
+                sx={{
+                  fontSize: { xs: "1.25rem", sm: "1.5rem" },
+                  lineHeight: 1.2,
+                  color: "#8F97A5",
+                  fontFeatureSettings: '"liga" 0, "locl" 0',
+                }}
+              >
+                Érase una vez un sueño...
+              </Typography>
+              <Typography
+                className={`${BODY_TYPO}`}
+                translate="no"
+                align="center"
+                sx={{
+                  fontSize: "1rem",
+                  lineHeight: 2,
+                  color: PRIMARY,
+                  fontFeatureSettings: '"liga" 0, "locl" 0',
+                }}
+              >
+                28 · NOVIEMBRE · 2026
+              </Typography>
+            </Fade>
+          </Box>
+
+          <Box
+            sx={{
+              flex: 1,
+              minHeight: 0,
+              mt: { xs: 1, sm: 2 },
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "center",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            <Fade
+              direction="up"
+              triggerOnce={true}
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                component="img"
+                src={castillo}
+                alt=""
+                sx={{
+                  width: "auto",
+                  height: "100%",
+                  maxWidth: "100%",
+                  objectFit: "contain",
+                  objectPosition: "bottom center",
                   filter: "drop-shadow(0px 15px 35px rgba(110,143,183,.12))",
                 }}
-              >
-                <Fade direction="up" triggerOnce={true}>
-                  <img
-                    src={castillo}
-                    style={{
-                      width: "100vw",
-                      filter:
-                        "drop-shadow(0px 15px 35px rgba(110,143,183,.12))",
-                    }}
-                  />
-                </Fade>
-              </div>
-            </div>
-          </Grid>
-        </Grid>
-      </div>
+              />
+            </Fade>
+          </Box>
+        </Box>
+      </Box>
 
       <Box
         p={2}
