@@ -2,7 +2,7 @@
 import { GiftListProps } from "../../models/component/giftList";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import { URL_REPO } from "../../config";
-import { Box, IconButton, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Box, Card, IconButton, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 
@@ -30,7 +30,8 @@ import monograma2 from "../../assets/boda-mariela-ivan/monogramaAzul.png";
 import separador from "../../assets/boda-mariela-ivan/separador.png";
 import rama from "../../assets/boda-mariela-ivan/rama.png";
 import ramaRosa from "../../assets/boda-mariela-ivan/rama-rosa.png";
-
+import qrImage from "../../assets/boda-mariela-ivan/qr.jpeg";
+import camara from "../../assets/boda-mariela-ivan/camara.png";
 import icono1 from "../../assets/boda-mariela-ivan/iconos/1.png";
 import icono2 from "../../assets/boda-mariela-ivan/iconos/2.png";
 import icono3 from "../../assets/boda-mariela-ivan/iconos/3.png";
@@ -1392,6 +1393,122 @@ const handleConfirmed = (
                 />
                 </Box>   
         </Paper>
+         <Box
+      sx={{
+        py: 10,
+        
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Card
+        elevation={0}
+        sx={{
+          maxWidth: 420,
+          width: "100%",
+          p: 4,
+          borderRadius: 0,
+          bgcolor: "#F6F1E8",
+          textAlign: "center",
+          position: "relative",
+          boxShadow: "0 18px 45px rgba(0,0,0,.08)",
+        }}
+      >
+        {/* Rama superior */}
+      
+        <Typography
+          sx={{
+            fontFamily: "Eyesome Script",
+            fontSize: "2rem",
+            color: "#6D2D3A",
+            mb: 2,
+            textTransform:"uppercase",
+            lineHeight:1.5
+          }}
+        >
+          Comparte tus recuerdos
+        </Typography>
+<Box
+      sx={{
+       
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+       <Box
+            component="img"
+            src={camara}
+            alt="Finca"
+            sx={{
+              display: "block",
+              width: "40%",
+              height:"auto",
+             
+            }}
+          />
+    </Box>
+        
+    
+
+        <Typography
+        className={BODY_TYPO}
+          sx={{
+            color: "#5B524D",
+            lineHeight: 1.9,
+            fontSize: 17,
+            maxWidth: 310,
+            mx: "auto",
+            mb: 5,
+          }}
+        >
+          Queremos revivir este día también a través de tu mirada.
+          Escanea el código QR y comparte con nosotros las fotografías
+          y videos que captures durante nuestra celebración.
+        </Typography>
+
+    <Box
+  sx={{
+    bgcolor: "#FFFDFB",
+    border: "1px solid #E5D8D1",
+    borderRadius: 2,
+    p: 3,
+    display: "inline-flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 2,
+    boxShadow: "0 8px 24px rgba(0,0,0,.04)"
+  }}
+>
+  <img
+    src={qrImage}
+    width={210}
+  />
+
+  <Typography
+    sx={{
+      fontSize: 13,
+      color: "#6D2D3A",
+      letterSpacing: 1.5,
+      textTransform: "uppercase",
+    }}
+  >
+    Escanea aquí
+  </Typography>
+</Box>
+
+        {/* Rama inferior */}
+        <Box
+          component="img"
+          src={separador}
+          sx={{
+            width: 200,
+            mt: 5,
+            transform: "rotate(180deg)",
+            opacity: .8,
+          }}
+        />
+      </Card>
+    </Box>
 </Box>
             <div style={{height:100}}></div>
               <FooterInvites bgColor={BG_MAIN} color={BUTTON_PRIMARY}></FooterInvites>

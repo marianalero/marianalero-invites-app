@@ -55,7 +55,9 @@ const CoverSimple  = (props:CoverProps) => {
           textAlign={"center"} 
           color='white' 
           typography={"h2"} 
-          className={`${props.className}`}>
+          className={`${props.className}`} 
+          translate="no"
+          >
             {props.brideName}
         </Typography>
         <Typography 
@@ -64,6 +66,7 @@ const CoverSimple  = (props:CoverProps) => {
           textAlign={"center"} 
           color='white' 
           typography={"h2"} 
+          translate="no"
           className={`${props.className}`}>
             {props.symbolr}
         </Typography>
@@ -73,7 +76,9 @@ const CoverSimple  = (props:CoverProps) => {
           textAlign={"center"} 
           color='white' 
           typography={"h2"} 
-          className={`${props.className}`}>
+          className={`${props.className}`}
+          translate="no"
+          >
           {props.groomName}
         </Typography>
         <Typography textTransform={"uppercase"} marginTop={2}  sx={{color:props.textColor}} textAlign={"center"} color='white' typography={"h6"} className="pt-serif-caption-regular cover-date">{props.weddingDate}</Typography>
