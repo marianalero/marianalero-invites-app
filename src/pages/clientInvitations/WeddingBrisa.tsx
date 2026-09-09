@@ -37,7 +37,7 @@ import { Guest } from "../../models/guest";
 
 import EditorialCountdown from "../../components/EditorialCountdown";
 
-const INVITATION_ID = 9;
+const INVITATION_ID = 38;
 // Fondos
 const BG_MAIN = "#F8F6F2";
 const BG_SECTION = "#EFE8E1";
