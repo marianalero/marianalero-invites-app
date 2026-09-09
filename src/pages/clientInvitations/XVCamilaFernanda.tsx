@@ -127,9 +127,7 @@ const XVCamilaFernanda = () => {
     const num = Number(searchParams.get("number"));
     return isNaN(num) ? 1 : num;
   }, [searchParams]);
-  const [showIntro, setShowIntro] = useState(
-    searchParams.get("skipIntro") !== "1",
-  );
+  const [showIntro, setShowIntro] = useState(true);
   //  const musicRef = useRef<MusicFabPlayerHandle>(null);
   const handleEnter = () => {
     // musicRef.current?.play();
