@@ -306,9 +306,15 @@ const handleConfirmed = (
       companionNames,
     );
     if (confirmText == "Asistiré") {
-      // window.open(`https://wa.me/+526625017752?text=Hola,Mi nombre es ${name}%20y%20confirmo%20mi%20asistencia%20para%20la%20Quinceañera%20%20de%20Briana.%0ANúmero de invitados:${totalConfirmed}%0AAcompañantes: ${companionNames}`, '_blank');
+      window.open(
+        `https://wa.me/+526623738004?text=Hola,%20mi%20nombre%20es%20${name}%20y%20confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Mariela%20e%20Iván.%0ANúmero%20de%20invitados:%20${totalConfirmed}%0AAcompañantes:%20${companionNames}`,
+        '_blank'
+      );  
     } else {
-      // window.open(`https://wa.me/+526625017752?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20Quinceañera%20de%20Briana.Mi nombre es: ${name}`, '_blank');
+      window.open(
+        `https://wa.me/+526623738004?text=Hola,%20mi%20nombre%20es%20${name}%20y%20lamentablemente%20no%20podré%20asistir%20a%20la%20boda%20de%20Mariela%20e%20Iván.%20Les%20deseo%20lo%20mejor%20en%20su%20gran%20día.%20¡Muchas%20felicidades!`,
+        '_blank'
+      );
     }
   };
     return (
