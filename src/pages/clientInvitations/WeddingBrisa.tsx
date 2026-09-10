@@ -37,6 +37,28 @@ import { Guest } from "../../models/guest";
 
 import EditorialCountdown from "../../components/EditorialCountdown";
 
+import cancion from "../../assets/boda-brisa-rey/cancion.mp3";
+import fondoVer from "../../assets/boda-brisa-rey/fondo-ver.png";
+import fondoHorz from "../../assets/boda-brisa-rey/fondo-horz.png";
+import iglesia from "../../assets/boda-brisa-rey/iglesia.png";
+import recepcion from "../../assets/boda-brisa-rey/recepcion.png";
+import sello from "../../assets/boda-brisa-rey/sello.png";
+import mesa7 from "../../assets/boda-brisa-rey/mesa/7.png";
+import mesa8 from "../../assets/boda-brisa-rey/mesa/8.png";
+import deco11 from "../../assets/boda-brisa-rey/deco/11.png";
+import deco12 from "../../assets/boda-brisa-rey/deco/12.png";
+import deco13 from "../../assets/boda-brisa-rey/deco/13.png";
+import deco14 from "../../assets/boda-brisa-rey/deco/14.png";
+import deco15 from "../../assets/boda-brisa-rey/deco/15.png";
+import deco16 from "../../assets/boda-brisa-rey/deco/16.png";
+import deco17 from "../../assets/boda-brisa-rey/deco/17.png";
+import deco18 from "../../assets/boda-brisa-rey/deco/18.png";
+import deco19 from "../../assets/boda-brisa-rey/deco/19.png";
+import deco20 from "../../assets/boda-brisa-rey/deco/20.png";
+import deco21 from "../../assets/boda-brisa-rey/deco/21.png";
+import deco23 from "../../assets/boda-brisa-rey/deco/23.png";
+import decoSobre from "../../assets/boda-brisa-rey/deco/sobre.png";
+
 const INVITATION_ID = 38;
 // Fondos
 const BG_MAIN = "#F8F6F2";
@@ -67,9 +89,8 @@ const SECOND_TYPO = "PermianSansTypeface-bold to-upper";
 const SECOND_TYPO_REG = "PermianSansTypeface";
 const BODY_TYPO = "baskervville-500";
 const URL_IMAGES = `${URL_REPO}boda/boda-brisa-rey/`;
-const URL_SONG = `${URL_IMAGES}cancion.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 14);
-const RSVP_DATE_LINE = new Date(2026, 9, 30);
+const RSVP_DATE_LINE = new Date(2026, 9, 16);
 
 const eventCards: EventCardProps[] = [
     {
@@ -87,7 +108,7 @@ const eventCards: EventCardProps[] = [
         fontSize: "2rem",
         bgColor: "white",
         borderSquare: true, 
-        icon: `${URL_IMAGES}iglesia.png`,
+        icon: iglesia,
         textColor: BODY_COLOR
     },
     {
@@ -105,7 +126,7 @@ const eventCards: EventCardProps[] = [
         fontSize: "2rem",
         bgColor: "white",
         borderSquare: true, 
-        icon: `${URL_IMAGES}recepcion.png`,
+        icon: recepcion,
         textColor: BODY_COLOR
     },
     
@@ -121,11 +142,11 @@ const giftListData: GiftListProps = {
         {
             number: "60024483",
             link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60024483",
-            icon: `${URL_IMAGES}mesa/7.png`,
+            icon: mesa7,
         },
         {
             link: "https://www.amazon.com.mx/wedding/share/brisaydavid",
-            icon: `${URL_IMAGES}mesa/8.png`,
+            icon: mesa8,
         },
     ],
 
@@ -150,7 +171,7 @@ const giftListData: GiftListProps = {
 
     envelopeTitleColor: TITLE_COLOR,
 
-    bankIconStart: `${URL_IMAGES}deco/sobre.png`,
+    bankIconStart: decoSobre,
 
     bankDetails: [
         {
@@ -179,7 +200,7 @@ const dresscode: DressCodeProps = {
     type: 3,
     title: "Formal",
     fontSize: "2rem",
-    image: `${URL_IMAGES}deco/17.png`,
+    image: deco17,
     imageSize:"200px"
 };
 
@@ -203,27 +224,27 @@ const timelineData: CustomizedTimelineProps = {
         {
             eventName: "Ceremonia Religiosa",
             date: new Date(2026, 9, 9, 17, 0, 0),
-            icon: `${URL_IMAGES}deco/18.png`,
+            icon: deco18,
         },
         {
             eventName: "Ceremonia Civil",
             date: new Date(2026, 9, 9, 20, 0, 0),
-            icon: `${URL_IMAGES}deco/22.png`,
+            icon: deco23,
         },
         {
             eventName: "Recepción",
             date: new Date(2026, 9, 9, 20, 30, 0),
-            icon: `${URL_IMAGES}deco/19.png`,
+            icon: deco19,
         },
         {
             eventName: "Cena",
             date: new Date(2026, 9, 9, 21, 0, 0),
-            icon: `${URL_IMAGES}deco/20.png`,
+            icon: deco20,
         },
         {
             eventName: "Vals de novios",
             date: new Date(2026, 9, 9, 21, 30, 0),
-            icon: `${URL_IMAGES}deco/21.png`,
+            icon: deco21,
         },
         // {
         //     eventName: "Inicio de fiesta",
@@ -331,9 +352,11 @@ const WeddingBrisa  = () => {
                 backgroundColor: BG_MAIN,
                 maxWidth: "100%",
                 overflowY: "auto",
+                width:"100vw",
+                overflowX:"hidden"
             }}
         >
-            <MusicFabPlayer ref={musicRef}  src={URL_SONG} backgroundColor={BUTTON_PRIMARY}/>
+            <MusicFabPlayer ref={musicRef}  src={cancion} backgroundColor={BUTTON_PRIMARY}/>
 
             {/* INTRO */}
             <InvitationIntro
@@ -356,11 +379,11 @@ const WeddingBrisa  = () => {
                 primaryColor={TEXT_PRIMARY}
 
                 envelopeImg={`${URL_REPO}xv/xv-evany/envelope.png`}
-                sealImg={`${URL_IMAGES}sello.png`}
+                sealImg={sello}
 
                 sealPosition={introSealPosition}
-                bottomRightCornerImg={`${URL_IMAGES}deco/12.png`}
-                topLeftCornerImg={`${URL_IMAGES}deco/11.png`}
+                bottomRightCornerImg={deco12}
+                topLeftCornerImg={deco11}
                 bottomRightCornerPosition={introBottomRightCornerPosition}
                 topLeftCornerPosition={introTopLeftCornerPosition}
 
@@ -386,7 +409,7 @@ const WeddingBrisa  = () => {
                 }}
             >
 
-            <div style={{backgroundImage: `url("${URL_IMAGES}fondo-ver.png")`, backgroundSize: "cover", backgroundPosition: "center",color:BODY_COLOR }}>
+            <div style={{backgroundImage: `url("${fondoVer}")`, backgroundSize: "cover", backgroundPosition: "center",color:BODY_COLOR }}>
                 <Grid container justifyContent="center"  height={"100vh"} minHeight="700px" >
                     <Grid size={12} display={"flex"} alignItems={"center"} justifyContent={"center"}>
                     <div style={{ position: "relative", width: "100%", height: "100%"}}>
@@ -408,7 +431,7 @@ const WeddingBrisa  = () => {
                                     <Fade direction="up" >
                                         <Box 
                                             component="img" 
-                                            src={`${URL_IMAGES}deco/16.png`} 
+                                            src={deco16} 
                                             alt="Description" 
                                             sx={{ 
                                                 width: { xs: 200, md: 350 }, 
@@ -432,7 +455,7 @@ const WeddingBrisa  = () => {
                             </div>
                     <Box
                         component="img"
-                        src={`${URL_IMAGES}deco/11.png`}
+                        src={deco11}
                         sx={{
                             position: "absolute",
                             top: { xs: -80, sm: -60, md: -30 },
@@ -444,7 +467,7 @@ const WeddingBrisa  = () => {
 
                     <Box
                         component="img"
-                        src={`${URL_IMAGES}deco/11.png`}
+                        src={deco11}
                         sx={{
                             position: "absolute",
                             bottom: { xs: -80, sm: -60, md: -30 },
@@ -500,7 +523,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                                 <Box 
                                     component="img" 
-                                    src={`${URL_IMAGES}deco/13.png`} 
+                                    src={deco13} 
                                     alt="Description" 
                                     sx={{ 
                                         width: { xs: 250, md: 300 }, 
@@ -541,7 +564,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
             <Box sx={{position:"relative"}}>
             {/* <div  style={{position:"absolute",top:"20%",left:"-5%",transform:"translate(-50%, -50%) scale(-1) rotate(220deg)"}}>
                          <Fade direction="right" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}deco/12.png`}  style={{height: "200px"}} />
+                               <img src={deco12}  style={{height: "200px"}} />
                          </Fade>
                      
                      </div>    */}
@@ -589,7 +612,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                                 <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                                 <Box 
                                     component="img" 
-                                    src={`${URL_IMAGES}deco/13.png`} 
+                                    src={deco13} 
                                     alt="Description" 
                                     sx={{ 
                                         width: { xs: 250, md: 300 }, 
@@ -657,7 +680,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
       {/* Separador */}
       {/* <Box
         component="img"
-        src={`${URL_IMAGES}deco/13.png`} 
+        src={deco13} 
         sx={{
           width: 180,
           opacity: 0.9,
@@ -690,7 +713,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
 
             <Box
                 component="img"
-                src={`${URL_IMAGES}deco/14.png`} 
+                src={deco14} 
                 sx={{
                     display:"flex",
                   width: "50%",
@@ -717,7 +740,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
 
             <Box
                 component="img"
-                src={`${URL_IMAGES}deco/14.png`} 
+                src={deco14} 
                 sx={{
                     display:"flex",
                   width: "50%",
@@ -734,7 +757,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
       {/* Separador inferior */}
       {/* <Box
         component="img"
-        src={`${URL_IMAGES}deco/13.png`} 
+        src={deco13} 
         sx={{
           width: 250,
           opacity: 0.9,
@@ -777,13 +800,13 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                 
             <div  style={{position:"absolute",top:"5%",left: isSmallScreen? "10%" : "5%",transform:"translate(-50%, -50%) scale(-1) rotate(220deg)"}}>
                          <Fade direction="right" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}deco/12.png`}  style={{width: isSmallScreen? "150px" : "350px", opacity:".8"}} />
+                               <img src={deco12}  style={{width: isSmallScreen? "150px" : "350px", opacity:".8"}} />
                          </Fade>
                      
                      </div>   
             <div  style={{position:"absolute",bottom: isSmallScreen? "-10%" : "-40%",left:"90%",transform:"translate(-50%, -50%) scale(-1) rotate(120deg)"}}>
                          <Fade direction="right" triggerOnce={true} >
-                               <img src={`${URL_IMAGES}deco/12.png`}  style={{width:  isSmallScreen? "150px" : "350px", opacity:".8"}} />
+                               <img src={deco12}  style={{width:  isSmallScreen? "150px" : "350px", opacity:".8"}} />
                          </Fade>
                      
                      </div> 
@@ -884,7 +907,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                         {/* Flor inferior derecha */}
                         <Box
                             component="img"
-                            src={`${URL_IMAGES}deco/11.png`}
+                            src={deco11}
                             sx={{
                                 position: "absolute",
                                 bottom: isSmallScreen ? -20 : -50,
@@ -902,7 +925,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                                 position: "relative",
                                 zIndex: 1,
                                 p: { xs: 2, md: 2 },
-                                backgroundImage: isSmallScreen ? `url(${URL_IMAGES}fondo-ver.png)` : `url(${URL_IMAGES}fondo-horz.png)`,
+                                backgroundImage: isSmallScreen ? `url(${fondoVer})` : `url(${fondoHorz})`,
                                 // background: "rgba(255,255,255)",
                                 // backdropFilter: "blur(6px)",
                                 border: `1px solid ${DIVIDER_COLOR}`,
@@ -930,7 +953,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                             />
                         </Box>
                     </Box>
-                        <div style={{backgroundImage: isSmallScreen ? `url("${URL_IMAGES}fondo-ver.png")` :`url("${URL_IMAGES}fondo-horz.png")` , backgroundSize: "cover", backgroundPosition: "right", padding: "50px 20px", display:"flex", justifyContent:"center" }}>
+                        <div style={{backgroundImage: isSmallScreen ? `url("${fondoVer}")` :`url("${fondoHorz}")` , backgroundSize: "cover", backgroundPosition: "right", padding: "50px 20px", display:"flex", justifyContent:"center" }}>
 
                     <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} display={"flex"} justifyContent={"center"} sx={{borderColor:BUTTON_PRIMARY,borderStyle:"solid",borderWidth:"1.5px" ,maxWidth: "570px",}} >
                 <Grid container spacing={2} padding={2} paddingBottom={0} >
@@ -942,7 +965,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                          <Fade direction="up" >
                             <Box 
                                 component="img" 
-                                src={`${URL_IMAGES}deco/15.png`} 
+                                src={deco15} 
                                 alt="Description" 
                                 sx={{ 
                                     width: { xs: 250, md: 300 }, 
