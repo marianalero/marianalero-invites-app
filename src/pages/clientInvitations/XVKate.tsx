@@ -109,7 +109,7 @@ const eventCards: EventCardProps[] = [
     mainTypo: `${SECOND_TYPO}`,
     bodyTypo: BODY_TYPO,
     fontSize: "45px",
-    href: "https://maps.app.goo.gl/KTTVoScwtosXccRF8",
+    href: "https://maps.app.goo.gl/1YF2Yc1Y2YsvWXCAA",
     colorButton: BUTTON_PRIMARY,
     bgColor: BG_MAIN,
     iconSize:"70px"
