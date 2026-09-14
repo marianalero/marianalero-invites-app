@@ -649,7 +649,7 @@ color: TEXT_PRIMARY
                     invitationId={INVITATION_ID}
                     qrActive={false}
                    classButtonName="btn-gold"
-                   dateLine={new Date(2026,8,13)}
+                   dateLine={new Date(2026,8,28)}
                 >
                 
             </RSVPForm>
