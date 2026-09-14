@@ -21,7 +21,7 @@ import fondo2 from "../../assets/xv-camila-fernanda/fondo2.png";
 import fondoHorz from "../../assets/xv-camila-fernanda/fondo-horz.png";
 import sello from "../../assets/xv-camila-fernanda/sello.png";
 
-import separador from "../../assets/xv-camila-fernanda/deco/17.png";
+import castillo from "../../assets/xv-camila-fernanda/deco/6.png";
 import zapatilla from "../../assets/xv-camila-fernanda/deco/7.png";
 import corona from "../../assets/xv-camila-fernanda/deco/8.png";
 import moño from "../../assets/xv-camila-fernanda/deco/9.png";
@@ -33,59 +33,41 @@ import reloj from "../../assets/xv-camila-fernanda/deco/14.png";
 
 import destellos from "../../assets/xv-camila-fernanda/deco/16.png";
 import EditorialCountdown from "../../components/EditorialCountdown";
-import f1 from "../../assets/xv-camila-fernanda/flores/1.png";
-import f2 from "../../assets/xv-camila-fernanda/flores/2.png";
-import f3 from "../../assets/xv-camila-fernanda/flores/3.png";
-import f4 from "../../assets/xv-camila-fernanda/flores/4.png";
-import f5 from "../../assets/xv-camila-fernanda/flores/5.png";
-import f6 from "../../assets/xv-camila-fernanda/flores/6.png";
 // =========================
 // Backgrounds
 // =========================
 
-export const BG_MAIN = "#F7F2E9"; // Fondo principal (crema)
-
-export const BG_SECTION = "#FCFAF5"; // Tarjetas / secciones
-
-export const BG_ALT = "#E3EDF3"; // Secciones alternas
-
-export const BG_ACCENT = "#527A9F10"; // Azul muy tenue para bloques
+export const BG_MAIN = "#FCFBF7"; // Fondo principal (marfil)
+export const BG_SECTION = "#FFFFFF"; // Tarjetas / secciones
+export const BG_ALT = "#F7F4EF"; // Secciones alternas
+export const BG_ACCENT = "#AFC7E810"; // Azul muy tenue para bloques
 
 // =========================
 // Primary Palette
 // =========================
 
-export const PRIMARY = "#527A9F"; // Azul elegante principal
-
-export const PRIMARY_DARK = "#365A78"; // Azul profundo
-
-export const PRIMARY_LIGHT = "#AFC4D5"; // Azul acuarela
+export const PRIMARY = "#AFC7E8"; // Azul Cenicienta
+export const PRIMARY_DARK = "#6E8FB7"; // Azul profundo
+export const PRIMARY_LIGHT = "#DCEAF8"; // Azul claro
 
 // =========================
 // Neutral Palette
 // =========================
 
 export const WHITE = "#FFFFFF";
+export const IVORY = "#FCFBF7";
+export const BEIGE = "#E8DCCB";
 
-export const IVORY = "#F7F2E9";
+export const TEXT_PRIMARY = "#4A4A4A";
+export const TEXT_SECONDARY = "#777777";
 
-export const BEIGE = "#E9DDCC";
+export const GOLD = "#C7A96B";
+export const BORDER = "#E8DCCB"; // Borde del papel
 
-export const TEXT_PRIMARY = "#5B5751";
-
-export const TEXT_SECONDARY = "#8A8176";
-
-export const GOLD = "#C8A66A";
-
-export const BORDER = "#E2D5C3"; // Borde del papel
-
-export const SHADOW = "0px 10px 30px rgba(54,90,120,.10)";
-
-export const DIVIDER = "#DCCFBE";
-
-export const MAGIC_GLOW = "0 0 30px rgba(200,166,106,.25)";
-
-export const STORY_DIVIDER = "#C8D5DF";
+export const SHADOW = "0px 10px 30px rgba(110,143,183,.10)";
+export const DIVIDER = "#E6DED1";
+export const MAGIC_GLOW = "0 0 30px rgba(175,199,232,.35)";
+export const STORY_DIVIDER = "#D8E3F0";
 const MAIN_TYPO = "parisienne-regular";
 const SECOND_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "montserat-regular to-upper";
@@ -197,7 +179,7 @@ const XVCamilaFernanda = () => {
       ></EnvelopeIntro>
       <Box
         sx={{
-          height: { xs: "70svh", md: "100vh" },
+          height: { xs: "100svh", md: "100vh" },
           px: { xs: 2, sm: 2.5 },
           pt: { xs: 4, sm: 6 },
           pb: 0,
@@ -205,7 +187,6 @@ const XVCamilaFernanda = () => {
           display: "flex",
           flexDirection: "column",
           overflow: "hidden",
-          backgroundColor:BG_ACCENT
         }}
       >
         <Box
@@ -227,7 +208,7 @@ const XVCamilaFernanda = () => {
             }}
           >
             <Fade direction="up" triggerOnce={true}>
-              <img src={f1} alt="" style={{ width: "100px" }} />
+              <img src={destellos} alt="" style={{ width: "100px" }} />
             </Fade>
           </Box>
           <Box
@@ -240,7 +221,7 @@ const XVCamilaFernanda = () => {
             }}
           >
             <Fade direction="up" triggerOnce={true}>
-              <img src={f5} alt="" style={{ width: "100px" }} />
+              <img src={destellos} alt="" style={{ width: "100px" }} />
             </Fade>
           </Box>
 
@@ -273,7 +254,19 @@ const XVCamilaFernanda = () => {
               >
                 Mis XV años
               </Typography>
-             
+              <Typography
+                className={`${SECOND_TYPO} italic`}
+                translate="no"
+                align="center"
+                sx={{
+                  fontSize: { xs: "1.25rem", sm: "1.5rem" },
+                  lineHeight: 1.2,
+                  color: "#8F97A5",
+                  fontFeatureSettings: '"liga" 0, "locl" 0',
+                }}
+              >
+                Érase una vez un sueño...
+              </Typography>
               <Typography
                 className={`${BODY_TYPO}`}
                 translate="no"
@@ -290,7 +283,44 @@ const XVCamilaFernanda = () => {
             </Fade>
           </Box>
 
-          
+          <Box
+            sx={{
+              flex: 1,
+              minHeight: 0,
+              mt: { xs: 1, sm: 2 },
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "center",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            <Fade
+              direction="up"
+              triggerOnce={true}
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                component="img"
+                src={castillo}
+                alt=""
+                sx={{
+                  width: "auto",
+                  height: "100%",
+                  maxWidth: "100%",
+                  objectFit: "contain",
+                  objectPosition: "bottom center",
+                  filter: "drop-shadow(0px 15px 35px rgba(110,143,183,.12))",
+                }}
+              />
+            </Fade>
+          </Box>
         </Box>
       </Box>
 
@@ -306,11 +336,11 @@ const XVCamilaFernanda = () => {
           <Grid
             size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
             display="flex"
-            justifyContent="center"
+            justifyContent="end"
           >
             <Box
               component="img"
-              src={separador}
+              src={zapatilla}
               sx={{
                 height: { xs: 55, md: 65 },
                 mb: 3,
@@ -337,21 +367,6 @@ const XVCamilaFernanda = () => {
               vida especial. Será un honor que me acompañes a celebrar este
               momento inolvidable.
             </Typography>
-          </Grid>
-            <Grid
-            size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
-            display="flex"
-            justifyContent="center"
-          >
-            <Box
-              component="img"
-              src={separador}
-              sx={{
-                height: { xs: 55, md: 65 },
-                mb: 3,
-                mt: 3,
-              }}
-            />
           </Grid>
         </Grid>
       </Box>
@@ -382,16 +397,16 @@ const XVCamilaFernanda = () => {
               <div
                 style={{
                   position: "absolute",
-                  top: "calc(35% - 150px)",
-                  left: "calc(45% - 150px)",
+                  top: "calc(15% - 100px)",
+                  left: "calc(25% - 100px)",
                   transform: "translate(-50%, -50%)",
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f1} style={{ width: "150px" }} />
+                  <img src={destellos} style={{ width: "100px" }} />
                 </Fade>
               </div>
-              {/* <div
+              <div
                 style={{
                   position: "absolute",
                   top: "calc(5% - 100px)",
@@ -402,20 +417,20 @@ const XVCamilaFernanda = () => {
                 <Fade direction="up" triggerOnce={true}>
                   <img src={destellos} style={{ width: "100px" }} />
                 </Fade>
-              </div> */}
+              </div>
               <div
                 style={{
                   position: "absolute",
-                  bottom: "calc(0% - 150px)",
-                  right: "calc(0% - 150px)",
-                  transform: "translate(-50%, -50%) rotate(-20deg)",
+                  bottom: "calc(0% - 100px)",
+                  right: "calc(-10% - 100px)",
+                  transform: "translate(-50%, -50%)",
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f5} style={{ width: "150px" }} />
+                  <img src={destellos} style={{ width: "100px" }} />
                 </Fade>
               </div>
-              {/* <div
+              <div
                 style={{
                   position: "absolute",
                   bottom: "calc(10% - 100px)",
@@ -426,7 +441,7 @@ const XVCamilaFernanda = () => {
                 <Fade direction="up" triggerOnce={true}>
                   <img src={destellos} style={{ width: "100px" }} />
                 </Fade>
-              </div> */}
+              </div>
 
               <Grid container spacing={2} justifyContent="center" mb={3}>
                 <Grid
@@ -436,7 +451,7 @@ const XVCamilaFernanda = () => {
                 >
                   <Box
                     component="img"
-                    src={separador}
+                    src={corona}
                     sx={{
                       height: { xs: 55, md: 65 },
                       mb: 2,
@@ -491,7 +506,7 @@ const XVCamilaFernanda = () => {
                       sx={{
                         fontSize: "1.5rem",
                         lineHeight: 1,
-                        color: PRIMARY,
+                        color: "#90A6C6",
                       }}
                     >
                       &
@@ -638,7 +653,7 @@ const XVCamilaFernanda = () => {
                 // py: 3,
               }}
             >
-              {/* <div
+              <div
                 style={{
                   position: "absolute",
                   top: "calc(15% - 100px)",
@@ -649,7 +664,7 @@ const XVCamilaFernanda = () => {
                 <Fade direction="up" triggerOnce={true}>
                   <img src={destellos} style={{ width: "100px" }} />
                 </Fade>
-              </div> */}
+              </div>
               <div
                 style={{
                   position: "absolute",
@@ -659,10 +674,10 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f3} style={{ width: "100px" }} />
+                  <img src={destellos} style={{ width: "100px" }} />
                 </Fade>
               </div>
-              {/* <div
+              <div
                 style={{
                   position: "absolute",
                   bottom: "calc(0% - 100px)",
@@ -673,17 +688,17 @@ const XVCamilaFernanda = () => {
                 <Fade direction="up" triggerOnce={true}>
                   <img src={destellos} style={{ width: "100px" }} />
                 </Fade>
-              </div> */}
+              </div>
               <div
                 style={{
                   position: "absolute",
-                  bottom: "calc(10% - 150px)",
-                  left: "calc(15% - 150px)",
-             
+                  bottom: "calc(10% - 100px)",
+                  left: "calc(5% - 100px)",
+                  transform: "scale(-1,1)",
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f4} style={{ width: "150px" }} />
+                  <img src={destellos} style={{ width: "100px" }} />
                 </Fade>
               </div>
 
@@ -695,9 +710,9 @@ const XVCamilaFernanda = () => {
                 >
                   <Box
                     component="img"
-                    src={separador}
+                    src={moño}
                     sx={{
-                      height: { xs: 50, md: 100 },
+                      height: { xs: 100, md: 150 },
                       mb: 2,
                     }}
                   />
@@ -773,6 +788,9 @@ const XVCamilaFernanda = () => {
                     </Typography>
                   </Fade>
                 </Grid>
+              </Grid>
+
+              <Grid container justifyContent="center">
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
@@ -785,23 +803,7 @@ const XVCamilaFernanda = () => {
                     </Typography>
                   </Fade>
                 </Grid>
-                <Grid
-                  size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <Box
-                    component="img"
-                    src={separador}
-                    sx={{
-                      height: { xs: 50, md: 100 },
-                      mb: 2,
-                    }}
-                  />
-                </Grid>
               </Grid>
-
-            
             </Box>
           </Grid>
         </Grid>
