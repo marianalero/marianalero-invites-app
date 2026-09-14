@@ -21,11 +21,6 @@ import fondo2 from "../../assets/xv-camila-fernanda/fondo2.png";
 import fondoHorz from "../../assets/xv-camila-fernanda/fondo-horz.png";
 import sello from "../../assets/xv-camila-fernanda/sello.png";
 
-import separador from "../../assets/xv-camila-fernanda/deco/17.png";
-import zapatilla from "../../assets/xv-camila-fernanda/deco/7.png";
-import corona from "../../assets/xv-camila-fernanda/deco/8.png";
-import moño from "../../assets/xv-camila-fernanda/deco/9.png";
-import carruaje from "../../assets/xv-camila-fernanda/deco/10.png";
 import recepcion from "../../assets/xv-camila-fernanda/deco/11.png";
 import iglesia from "../../assets/xv-camila-fernanda/deco/12.png";
 import sobre from "../../assets/xv-camila-fernanda/deco/13.png";
