@@ -39,27 +39,25 @@ import f3 from "../../assets/xv-camila-fernanda/flores/3.png";
 import f4 from "../../assets/xv-camila-fernanda/flores/4.png";
 import f5 from "../../assets/xv-camila-fernanda/flores/5.png";
 import f6 from "../../assets/xv-camila-fernanda/flores/6.png";
-// =========================
-// Backgrounds
-// =========================
+export const BG_MAIN = "#f8f5ee"; // Crema cálido
 
-export const BG_MAIN = "#F7F2E9"; // Fondo principal (crema)
+export const BG_SECTION = "#FCFAF6"; // Marfil claro
 
-export const BG_SECTION = "#FCFAF5"; // Tarjetas / secciones
+export const BG_ALT = "#E5EEF1"; // Azul niebla suave
 
-export const BG_ALT = "#E3EDF3"; // Secciones alternas
+export const BG_ACCENT = "#3F6F9314"; // Azul tenue para bloques
 
-export const BG_ACCENT = "#527A9F10"; // Azul muy tenue para bloques
 
 // =========================
 // Primary Palette
 // =========================
 
-export const PRIMARY = "#527A9F"; // Azul elegante principal
+export const PRIMARY = "#3F6F93"; // Azul principal
 
-export const PRIMARY_DARK = "#365A78"; // Azul profundo
+export const PRIMARY_DARK = "#294F70"; // Azul profundo
 
-export const PRIMARY_LIGHT = "#AFC4D5"; // Azul acuarela
+export const PRIMARY_LIGHT = "#B8D3E2"; // Azul acuarela
+
 
 // =========================
 // Neutral Palette
@@ -67,25 +65,26 @@ export const PRIMARY_LIGHT = "#AFC4D5"; // Azul acuarela
 
 export const WHITE = "#FFFFFF";
 
-export const IVORY = "#F7F2E9";
+export const IVORY = "#F8F5EE";
 
-export const BEIGE = "#E9DDCC";
+export const BEIGE = "#E9DED0";
 
-export const TEXT_PRIMARY = "#5B5751";
+export const TEXT_PRIMARY = "#55534F";
 
-export const TEXT_SECONDARY = "#8A8176";
+export const TEXT_SECONDARY = "#817B73";
 
-export const GOLD = "#C8A66A";
+export const GOLD = "#C6A15F";
 
-export const BORDER = "#E2D5C3"; // Borde del papel
+export const BORDER = "#E4D9CB";
 
-export const SHADOW = "0px 10px 30px rgba(54,90,120,.10)";
+export const SHADOW = "0px 10px 30px rgba(41,79,112,.10)";
 
-export const DIVIDER = "#DCCFBE";
+export const DIVIDER = "#D8E2E5";
 
-export const MAGIC_GLOW = "0 0 30px rgba(200,166,106,.25)";
+export const MAGIC_GLOW = "0 0 30px rgba(63,111,147,.22)";
 
-export const STORY_DIVIDER = "#C8D5DF";
+export const STORY_DIVIDER = "#C7DCE7";
+
 const MAIN_TYPO = "parisienne-regular";
 const SECOND_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "montserat-regular to-upper";
@@ -195,133 +194,204 @@ const XVCamilaFernanda = () => {
         envelopeHighlight={PRIMARY_LIGHT}
         shadowColor={SHADOW}
       ></EnvelopeIntro>
-      <Box
-        sx={{
-          height: { xs: "70svh", md: "100vh" },
-          px: { xs: 2, sm: 2.5 },
-          pt: { xs: 4, sm: 6 },
-          pb: 0,
-          boxSizing: "border-box",
-          display: "flex",
-          flexDirection: "column",
-          overflow: "hidden",
-          backgroundColor:BG_ACCENT
-        }}
-      >
-        <Box
+<Box
+  sx={{
+    height: { xs: "70svh", md: "100vh" },
+    px: { xs: 2, sm: 2.5 },
+    pt: { xs: 4, sm: 6 },
+    pb: 0,
+    boxSizing: "border-box",
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+    backgroundImage: `url("${fondoHorz}")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+  }}
+>
+  <Box
+    sx={{
+      position: "relative",
+      flex: 1,
+      minHeight: 0,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }}
+  >
+
+    {/* ========================= */}
+    {/* FLOR SUPERIOR */}
+    {/* ========================= */}
+
+    {/* <Box
+      sx={{
+        position: "absolute",
+        top: { xs: 0, sm: 10 },
+        left: { xs: "-5px", sm: "4%" },
+        pointerEvents: "none",
+        zIndex: 1,
+      }}
+    >
+      <Fade direction="up" triggerOnce>
+        <img
+          src={f1}
+          alt=""
+          style={{
+            width: "120px",
+            height: "auto",
+            display: "block",
+          }}
+        />
+      </Fade>
+    </Box> */}
+
+
+    {/* ========================= */}
+    {/* CONTENIDO */}
+    {/* ========================= */}
+
+    <Box
+      sx={{
+        position: "relative",
+        zIndex: 2,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        mt: { xs: 0, sm: 1 },
+        top:"30%"
+      }}
+    >
+
+      <Fade direction="up" triggerOnce>
+
+        <Typography
+          variant="h1"
+          className={`${MAIN_TYPO}`}
+          translate="no"
+          align="center"
           sx={{
-            position: "relative",
-            flex: 1,
-            minHeight: 0,
-            display: "flex",
-            flexDirection: "column",
+            fontSize: {
+              xs: "3.7rem",
+              sm: "4.6rem",
+              md: "5.1rem",
+            },
+            lineHeight: 0.92,
+            color: PRIMARY_DARK,
+            fontFeatureSettings: '"liga" 0, "locl" 0',
           }}
         >
-          <Box
-            sx={{
-              position: "absolute",
-              top: { xs: 12, sm: 24 },
-              left: { xs: 8, sm: "8%" },
-              pointerEvents: "none",
-              zIndex: 0,
-            }}
-          >
-            <Fade direction="up" triggerOnce={true}>
-              <img src={f1} alt="" style={{ width: "100px" }} />
-            </Fade>
-          </Box>
-          <Box
-            sx={{
-              position: "absolute",
-              top: { xs: "38%", sm: "42%" },
-              right: { xs: 0, sm: "4%" },
-              pointerEvents: "none",
-              zIndex: 0,
-            }}
-          >
-            <Fade direction="up" triggerOnce={true}>
-              <img src={f5} alt="" style={{ width: "100px" }} />
-            </Fade>
-          </Box>
+          Camila
+          <br />
+          Fernanda
+        </Typography>
 
-          <Box sx={{ position: "relative", zIndex: 2, flexShrink: 0 }}>
-            <Fade direction="left" triggerOnce={true}>
-              <Typography
-                variant="h1"
-                className={`${MAIN_TYPO}`}
-                translate="no"
-                align="center"
-                sx={{
-                  fontSize: { xs: "3.6rem", sm: "4.5rem", md: "5rem" },
-                  lineHeight: 1,
-                  color: PRIMARY,
-                  fontFeatureSettings: '"liga" 0, "locl" 0',
-                }}
-              >
-                Camila<br></br> Fernanda
-              </Typography>
-              <Typography
-                className={`${SECOND_TYPO}`}
-                translate="no"
-                align="center"
-                sx={{
-                  fontSize: { xs: "1.25rem", sm: "1.5rem" },
-                  lineHeight: 1.2,
-                  color: PRIMARY_DARK,
-                  fontFeatureSettings: '"liga" 0, "locl" 0',
-                }}
-              >
-                Mis XV años
-              </Typography>
-             
-              <Typography
-                className={`${BODY_TYPO}`}
-                translate="no"
-                align="center"
-                sx={{
-                  fontSize: "1rem",
-                  lineHeight: 2,
-                  color: PRIMARY,
-                  fontFeatureSettings: '"liga" 0, "locl" 0',
-                }}
-              >
-                28 · NOVIEMBRE · 2026
-              </Typography>
-            </Fade>
-          </Box>
+        <Typography
+          className={`${SECOND_TYPO}`}
+          translate="no"
+          align="center"
+          sx={{
+            mt: 1.2,
+            fontSize: {
+              xs: "1.25rem",
+              sm: "1.45rem",
+            },
+            lineHeight: 1.2,
+            color: PRIMARY,
+            fontFeatureSettings: '"liga" 0, "locl" 0',
+          }}
+        >
+          Mis XV años
+        </Typography>
 
-          
-        </Box>
+        <Typography
+          className={`${BODY_TYPO}`}
+          translate="no"
+          align="center"
+          sx={{
+            mt: 0.5,
+            fontSize: "0.95rem",
+            lineHeight: 1.8,
+            letterSpacing: "0.04em",
+            color: PRIMARY,
+            fontFeatureSettings: '"liga" 0, "locl" 0',
+          }}
+        >
+          28 · NOVIEMBRE · 2026
+        </Typography>
+
+      </Fade>
+
+
+      {/* ========================= */}
+      {/* SEPARADOR */}
+      {/* ========================= */}
+<Fade direction="up" triggerOnce>
+      <Box
+        sx={{
+          width: { xs: "170px", sm: "200px" },
+          mt: { xs: 2, sm: 2.5 },
+          mb: 1,
+          opacity: 0.9,
+        }}
+      >
+        <img
+          src={f6}
+          alt=""
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+            transform:"rotate(-40deg)"
+          }}
+        />
       </Box>
+</Fade>
+
+      {/* ========================= */}
+      {/* BOUQUET INFERIOR */}
+      {/* ========================= */}
+
+     
+
+    </Box>
+
+  </Box>
+</Box>
 
       <Box
         p={2}
         sx={{
-          backgroundImage: `url("${fondoHorz}")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundColor:BG_ALT
+          // backgroundImage: `url("${fondoHorz}")`,
+          // backgroundSize: "cover",
+          // backgroundPosition: "center",
         }}
       >
         <Grid container p={2}>
-          <Grid
+           {/* <Grid
             size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
             display="flex"
             justifyContent="center"
           >
             <Box
               component="img"
-              src={separador}
+              src={f6}
               sx={{
-                height: { xs: 55, md: 65 },
+                width: { xs: 150, md: 65 },
                 mb: 3,
                 mt: 3,
+                transform:"rotate(-40deg)"
               }}
             />
-          </Grid>
+          </Grid> */}
           <Grid
             size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
             display="flex"
             justifyContent="center"
+            mt={4}
+            mb={4}
           >
             <Typography
               textAlign="center"
@@ -330,6 +400,7 @@ const XVCamilaFernanda = () => {
               mb={4}
               lineHeight={1.55}
               maxWidth={"85%"}
+              color={PRIMARY}
             >
               Hoy, al cumplir mis XV años, abro las puertas a una nueva etapa de
               mi vida, llena de sueños, ilusiones y nuevos comienzos. Con mucha
@@ -338,21 +409,7 @@ const XVCamilaFernanda = () => {
               momento inolvidable.
             </Typography>
           </Grid>
-            <Grid
-            size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
-            display="flex"
-            justifyContent="center"
-          >
-            <Box
-              component="img"
-              src={separador}
-              sx={{
-                height: { xs: 55, md: 65 },
-                mb: 3,
-                mt: 3,
-              }}
-            />
-          </Grid>
+           
         </Grid>
       </Box>
 
@@ -429,21 +486,7 @@ const XVCamilaFernanda = () => {
               </div> */}
 
               <Grid container spacing={2} justifyContent="center" mb={3}>
-                <Grid
-                  size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <Box
-                    component="img"
-                    src={separador}
-                    sx={{
-                      height: { xs: 55, md: 65 },
-                      mb: 2,
-                      mt: 3,
-                    }}
-                  />
-                </Grid>
+                
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
@@ -662,18 +705,7 @@ const XVCamilaFernanda = () => {
                   <img src={f3} style={{ width: "100px" }} />
                 </Fade>
               </div>
-              {/* <div
-                style={{
-                  position: "absolute",
-                  bottom: "calc(0% - 100px)",
-                  right: "calc(-10% - 100px)",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
-                </Fade>
-              </div> */}
+              
               <div
                 style={{
                   position: "absolute",
@@ -688,20 +720,7 @@ const XVCamilaFernanda = () => {
               </div>
 
               <Grid container spacing={2} justifyContent="center" mb={3}>
-                <Grid
-                  size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <Box
-                    component="img"
-                    src={separador}
-                    sx={{
-                      height: { xs: 50, md: 100 },
-                      mb: 2,
-                    }}
-                  />
-                </Grid>
+             
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
@@ -748,7 +767,7 @@ const XVCamilaFernanda = () => {
                       sx={{
                         fontSize: "1.5rem",
                         lineHeight: 1,
-                        color: "#90A6C6",
+                        color:PRIMARY,
                       }}
                     >
                       &
@@ -785,20 +804,7 @@ const XVCamilaFernanda = () => {
                     </Typography>
                   </Fade>
                 </Grid>
-                <Grid
-                  size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <Box
-                    component="img"
-                    src={separador}
-                    sx={{
-                      height: { xs: 50, md: 100 },
-                      mb: 2,
-                    }}
-                  />
-                </Grid>
+               
               </Grid>
 
             
@@ -853,54 +859,21 @@ const XVCamilaFernanda = () => {
                 position: "relative",
               }}
             >
+              
               <div
                 style={{
                   position: "absolute",
-                  top: "calc(15% - 100px)",
-                  left: "calc(25% - 100px)",
-                  transform: "translate(-50%, -50%)",
+                  top: "calc(-5% - 100px)",
+                  right: "calc(5% - 100px)",
+                  transform: "rotate(-15deg)",
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
+                  <img src={f6} style={{ width: "200px" }} />
                 </Fade>
               </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "calc(5% - 100px)",
-                  right: "calc(10% - 100px)",
-                  transform: "scale(-1,1)",
-                }}
-              >
-                <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
-                </Fade>
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "calc(0% - 100px)",
-                  right: "calc(-10% - 100px)",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
-                </Fade>
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "calc(10% - 100px)",
-                  left: "calc(5% - 100px)",
-                  transform: "scale(-1,1)",
-                }}
-              >
-                <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
-                </Fade>
-              </div>
+              
+        
 
               <Box>
                 <Container maxWidth="md">
@@ -940,7 +913,7 @@ const XVCamilaFernanda = () => {
         </Grid>
       </div>
 
-      <Box bgcolor={BG_ACCENT}>
+      <Box bgcolor={BG_SECTION}>
         <Box
           textAlign="center"
           sx={{
@@ -948,38 +921,21 @@ const XVCamilaFernanda = () => {
             position: "relative",
           }}
         >
+          
           <div
             style={{
               position: "absolute",
-              bottom: "calc(5% - 100px)",
-              right: "calc(10% - 100px)",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            <Fade direction="up" triggerOnce={true}>
-              <img src={destellos} style={{ width: "100px" }} />
-            </Fade>
-          </div>
-          <div
-            style={{
-              position: "absolute",
-              bottom: "calc(20% - 100px)",
+              bottom: "calc(10% - 100px)",
               left: "calc(15% - 100px)",
-              transform: "scale(-1,1)",
+              transform: "scale(-1,1) rotate(70deg)",
+              zIndex:2
             }}
           >
             <Fade direction="up" triggerOnce={true}>
-              <img src={destellos} style={{ width: "100px" }} />
+              <img src={f6} style={{ width: "200px" }} />
             </Fade>
           </div>
-          <Box
-            component="img"
-            src={carruaje}
-            alt="Sobre"
-            sx={{
-              width: { xs: 150, md: 110 },
-            }}
-          />
+          
           <RSVPExcel
             dateLine={RSVP_DATE_LINE}
             textColor={TEXT_PRIMARY}
@@ -990,7 +946,7 @@ const XVCamilaFernanda = () => {
             color={PRIMARY}
             colorButton={PRIMARY}
             invitationId={0}
-            bgColor={"transparent"}
+            bgColor={BG_ACCENT}
             confirmed={handleConfirmed}
             hidePhoneNumberInput={true}
             transparencyButton={true}
@@ -1002,9 +958,22 @@ const XVCamilaFernanda = () => {
         style={{
           backgroundImage: `url(${fondo2})`,
           padding: "50px 20px",
+          position:"relative"
         }}
       >
-        <Box sx={{ backgroundColor: BG_MAIN }}>
+         <div
+                style={{
+                  position: "absolute",
+                  bottom: "calc(25% - 152px)",
+                  right: "calc(22% - 152px)",
+                  transform: "rotate(-50deg)",
+                }}
+              >
+                <Fade direction="up" triggerOnce={true}>
+                  <img src={f2} style={{ width: "152px" }} />
+                </Fade>
+              </div>
+        <Box sx={{ backgroundColor: BG_ALT }}>
           <DressCode {...dresscode}></DressCode>
           <Grid paddingBottom={2}>
             <Fade direction="up">

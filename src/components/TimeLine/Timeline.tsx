@@ -20,6 +20,7 @@ export interface CustomizedTimelineProps {
     bgColor?:string;
     events?:Event[];
     fontSize?:string;
+    position?: 'left' | 'right' | 'alternate' | 'alternate-reverse';
 }
 const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
     return (
@@ -36,7 +37,7 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
            
            </Grid>	
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
-                <Timeline position="alternate">
+                <Timeline position={props.position ? props.position : "alternate"}>
                 {
                 props.events?.map((item,index) => (
                
@@ -58,12 +59,12 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
                         </TimelineSeparator>
                         <TimelineContent sx={{ py: '12px', px: 2 }}>
                           <Fade direction="up" triggerOnce={true} >
-                            <Typography sx={{color:props.colorPrimary}}  variant="subtitle1" component="span">
+                            <Typography sx={{color:props.colorPrimary}} className={props.bodyTypo}  variant="subtitle1" component="span">
                             {item.eventName}
                             </Typography>
                             </Fade>
                             <Fade direction="up" triggerOnce={true} >
-                            <Typography sx={{color:props.colorPrimary}}> {dayjs(item.date).format("hh:mm A")}</Typography>
+                            <Typography sx={{color:props.colorPrimary}} className={props.bodyTypo} > {dayjs(item.date).format("hh:mm A")}</Typography>
                             </Fade>
                         </TimelineContent>
                     </TimelineItem>
