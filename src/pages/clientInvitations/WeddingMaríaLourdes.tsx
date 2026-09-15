@@ -21,6 +21,8 @@ import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/Ti
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import EventCard from "../../components/EventCard/EventCard";
 import Gallery from "../../components/Gallery/Gallert";
+import { getAssets } from "../../services/mediaApiClient";
+import type { InvitationAsset } from "../../models/invitationAsset";
 const WeddingMariluMichel  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -57,6 +59,15 @@ const WeddingMariluMichel  = () => {
     const COLOR_BG ="rgb(215,174,84,.1)";
     const URL_IMAGES = `${URL_REPO}boda/boda-maria-lourdes-francisco-michel/`;
     const URL_SONG = `${URL_REPO}canciones/Maluma-ADMV.mp3`;
+    const MEDIA_KEY = "invitacion-maria-lourdes-francisco-michel";
+    const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
+
+    useEffect(() => {
+        getAssets(MEDIA_KEY).then(setCloudAssets).catch(() => setCloudAssets([]));
+    }, []);
+
+    const assetUrl = (kind: string, fallback: string, index = 0) =>
+        cloudAssets.filter((asset) => asset.assetKind === kind)[index]?.secureUrl ?? fallback;
    
         const eventCards: EventCardProps[] = [
             {
@@ -66,7 +77,7 @@ const WeddingMariluMichel  = () => {
                 address: "Arq Gustavo F. Aguilar Beltrán 70, EL CHANATE, Hermosillo, Son.",
                 size: 12,
                 color: COLOR_TREE,
-                icon: `${URL_IMAGES}anillos3.png`,
+                icon: assetUrl("icon", `${URL_IMAGES}anillos3.png`),
                 mainTypo: MAIN_TYPO,
                 bodyTypo: BODY_TYPO,
                 href: "https://maps.app.goo.gl/TGDDjAx7Z9VLpg8k8",
@@ -81,7 +92,7 @@ const WeddingMariluMichel  = () => {
         items: [
             {
                 link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/51785559",
-                icon: `${URL_IMAGES}liverpool.svg`,
+                icon: assetUrl("icon", `${URL_IMAGES}liverpool.svg`, 1),
             }
         ],
         mainTypo: MAIN_TYPO,
@@ -129,7 +140,7 @@ const WeddingMariluMichel  = () => {
     const qoute:QouteProps ={
             qoute: "El amor nos unió en un solo camino, y queremos recorrerlo junto a ti en este día especial.",
             bodyTypo: BODY_TYPO,
-            addormentEnd:`${URL_IMAGES}adornos/1.svg`,
+        addormentEnd: assetUrl("ornament", `${URL_IMAGES}adornos/1.svg`),
             italic:true,
     }
     const timelineData: CustomizedTimelineProps = {
@@ -144,35 +155,36 @@ const WeddingMariluMichel  = () => {
                     {
                         eventName: "Ceremonia Civil",
                         date: new Date(2025, 10, 16, 19, 0, 0),
-                        icon: `${URL_IMAGES}iconos/3.svg`,
+                        icon: assetUrl("icon", `${URL_IMAGES}iconos/3.svg`, 2),
                     },
                     {
                         eventName: "Cóctel  de bienvenida",
                         date: new Date(2025, 10, 16, 20, 0, 0),
-                        icon: `${URL_IMAGES}iconos/4.svg`,
+                        icon: assetUrl("icon", `${URL_IMAGES}iconos/4.svg`, 3),
                     },
                     {
                         eventName: "Primer baile",
                         date: new Date(2025, 10, 16, 21, 20, 0),
-                        icon: `${URL_IMAGES}iconos/5.svg`,
+                        icon: assetUrl("icon", `${URL_IMAGES}iconos/5.svg`, 4),
                     },
                     {
                         eventName: "Cena",
                         date: new Date(2025, 10, 16, 21, 40, 0),
-                        icon: `${URL_IMAGES}iconos/6.svg`,
+                        icon: assetUrl("icon", `${URL_IMAGES}iconos/6.svg`, 5),
                     },
                     {
                         eventName: "Fin del evento",
                         date: new Date(2025, 10, 16, 2, 0, 0),
-                        icon: `${URL_IMAGES}iconos/9.svg`,
+                        icon: assetUrl("icon", `${URL_IMAGES}iconos/9.svg`, 6),
                     },
                 ],
     };
 
-    const galleryPhotos = [
+    const galleryFallbacks = [
         `${URL_IMAGES}galeria6.jpeg`,
         `${URL_IMAGES}galeria10.jpg`,
     ];
+    const galleryPhotos = cloudAssets.filter((asset) => asset.assetKind === "gallery").map((asset) => asset.secureUrl);
 
     return (
         <div style={{backgroundColor:"white",maxWidth: '100%',overflowY:"auto",}}>
@@ -180,7 +192,7 @@ const WeddingMariluMichel  = () => {
             <Cover 
                 ourWeddingStart={true}
                 weddingDate="13.03.26"
-                bgImage={`${URL_IMAGES}galeria2.jpeg`}
+                bgImage={assetUrl("cover", `${URL_IMAGES}galeria2.jpeg`)}
                 brideName="María Lourdes" 
                 symbolr={"&"} 
                 groomName={"Francisco Michel"} 
@@ -194,7 +206,7 @@ const WeddingMariluMichel  = () => {
              <Qoute 
                {...qoute}>
             </Qoute>
-            <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria9.jpeg`} bgPositionY="30%"></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="100vh" bgImage={assetUrl("middle-image", `${URL_IMAGES}galeria9.jpeg`)} bgPositionY="30%"></ImageMiddle>
          
             <Introduction
                 brideFather="Juan Carlos Ramírez Ramírez"
@@ -204,14 +216,14 @@ const WeddingMariluMichel  = () => {
                 mainTypo={MAIN_TYPO}
                 bodyTypo={BODY_TYPO}
                 color={COLOR_PRIMARY}
-                adornment={`${URL_IMAGES}adornos/2.svg`}
+                adornment={assetUrl("ornament", `${URL_IMAGES}adornos/2.svg`, 1)}
                 amperson="&"
                 fontSize="35px"
             >
             </Introduction>
             <CountDown 
                 eventDate={new Date(2026,2,13)}
-                bgImage={`${URL_IMAGES}contador.jpeg`}
+                bgImage={assetUrl("background", `${URL_IMAGES}contador.jpeg`)}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} 
                 fontSize="42px"
@@ -225,13 +237,13 @@ const WeddingMariluMichel  = () => {
                 ))
             }
             </Grid>
-              <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria5.jpeg`} bgPositionY="40%"></ImageMiddle>
+              <ImageMiddle bgPosition="50%" height="100vh" bgImage={assetUrl("middle-image", `${URL_IMAGES}galeria5.jpeg`, 1)} bgPositionY="40%"></ImageMiddle>
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-            <ImageMiddle bgPosition="50%" height="100vh" bgImage={`${URL_IMAGES}galeria1.jpeg`}></ImageMiddle>
+            <ImageMiddle bgPosition="50%" height="100vh" bgImage={assetUrl("middle-image", `${URL_IMAGES}galeria1.jpeg`, 2)}></ImageMiddle>
             <GiftList {...giftListData} ></GiftList>
            
             <RSVPForm 
-            bgImage={`${URL_IMAGES}galeria8.jpeg`}
+            bgImage={assetUrl("background", `${URL_IMAGES}galeria8.jpeg`, 1)}
             textColor="white"
                 colorButton={COLOR_PRIMARY} 
                 bgColor={COLOR_BG} 
@@ -247,10 +259,10 @@ const WeddingMariluMichel  = () => {
             </RSVPForm>
             <DressCode {...dresscode}></DressCode>
 
-                   <Adornment image={`${URL_IMAGES}adornos/1.svg`} width={"250px"} />
+                   <Adornment image={assetUrl("ornament", `${URL_IMAGES}adornos/1.svg`, 2)} width={"250px"} />
                               <WithoutKids {...withOutKids} /> 
             <div style={{height:100}}></div>
-            <Gallery photos={galleryPhotos}></Gallery>
+            <Gallery photos={galleryPhotos.length ? galleryPhotos : galleryFallbacks}></Gallery>
             <FooterInvites bgColor="rgb(249, 249, 249)" color={COLOR_PRIMARY}></FooterInvites>
              <Dialog
                          open={open}
