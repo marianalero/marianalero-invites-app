@@ -89,6 +89,8 @@ import WeddingAnaCeciliaJuanCarlos from "../pages/clientInvitations/WeddingAnaCe
 import XVCamilaFernanda from "../pages/clientInvitations/XVCamilaFernanda";
 import WeddingMariela from "../pages/clientInvitations/WeddingMariela";
 import XVKate from "../pages/clientInvitations/XVKate";
+import XVIsabellaGrijalva from "../pages/clientInvitations/XVIsabellaGrijalva";
+import XVIsabellaGrijalvapPink from "../pages/clientInvitations/XVIsabellaGrijalvapPink";
 
 interface RouteConfig {
   path: string;
@@ -170,6 +172,7 @@ const routes: RouteConfig[] = [
    {path:'/xv-briana-cristina', element: <XVBrianna></XVBrianna>},
    {path:'/xv-evany', element: <XVEvany></XVEvany>},
    {path:'/xv-danna-sophia', element: <XVDannaSophia></XVDannaSophia >},
+   {path:'/invitacion-xv-isabella-grijalva', element: <XVIsabellaGrijalva></XVIsabellaGrijalva>},
   {path:'/xv-michel', element:<XVMichelle></XVMichelle>},
 
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
@@ -193,7 +196,8 @@ const routes: RouteConfig[] = [
 {path:'/prev-cf-2', element:<XVCamilaFernanda></XVCamilaFernanda>},
 
 {path:'/prev-ka', element:<XVKate></XVKate>},
-
+{path:'/prev-ig', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
+{path:'/prev-ig-p', element:<XVIsabellaGrijalvapPink></XVIsabellaGrijalvapPink>},
 ];
 
 

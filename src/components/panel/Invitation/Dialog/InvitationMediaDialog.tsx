@@ -9,7 +9,7 @@ import type { InvitationAsset } from "../../../../models/invitationAsset";
 import { deleteInvitationAsset, getAssets, uploadInvitationAsset } from "../../../../services/mediaApiClient";
 import { useSnackbar } from "../../../../context/snackbarContext";
 
-const assetKinds = [["cover", "Portada"], ["cover-desktop", "Portada horizontal"], ["background", "Fondo"], ["middle-image", "Imagen intermedia"], ["gallery", "Galería"], ["mini-gallery", "Mini galería"], ["icon", "Icono"], ["ornament", "Adorno"], ["og", "Vista previa social"]] as const;
+const assetKinds = [["cover", "Portada"], ["cover-desktop", "Portada horizontal"], ["background", "Fondo"], ["middle-image", "Imagen intermedia"], ["gallery", "Galería"], ["mini-gallery", "Mini galería"], ["icon", "Icono"], ["ornament", "Adorno"], ["seal", "Sello"], ["envelope", "Sobre"], ["og", "Vista previa social"], ["reception", "Recepción"], ["church", "Iglesia"], ["civil", "Civil"]] as const;
 
 interface Props { invitation: Invitation; open: boolean; onClose: () => void; }
 

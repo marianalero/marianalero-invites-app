@@ -8,8 +8,7 @@ import CustomizedTimeline, {
 } from "../../components/TimeLine/Timeline";
 import Grid from "@mui/material/Grid2";
 import { Box, Button, Container, Paper, Stack, Typography } from "@mui/material";
-import { useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MusicFabPlayer, {
   MusicFabPlayerHandle,
 } from "../../components/MusicFabPlayer/MusicFabPlayer";
@@ -19,10 +18,8 @@ import Adornment from "../../components/Adornment/Adornment";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 
-import { getGuestById } from "../../services/guestApiClient";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
-import { Guest } from "../../models/guest";
 
 import portada from "../../assets/xv-kate/portada.jpg";
 import image1 from "../../assets/xv-kate/1.jpg";
@@ -52,7 +49,8 @@ import g3 from "../../assets/xv-kate/g3.jpg";
 
 import dayjs from "dayjs";
 import EditorialCountdown from "../../components/EditorialCountdown";
-
+import { URL_REPO } from "../../config";
+    const URL_SONG = `${URL_REPO}canciones/Maluma-ADMV.mp3`;
 const BG_MAIN = "#F5F0E8"; // Marfil cálido
 const BG_SECTION = "#eee0dc"; // Nude rosado
 const BG_ACCENT = "#641D2B"; // Guinda protagonista
@@ -76,7 +74,7 @@ const BODY_TYPO = "lora";
 const galleryPhotos = [g1, g2, g3];
 
 const COUNTDOWN_DATE = new Date(2026, 9, 10);
-const RSVP_DATE_LINE = new Date(2026, 9, 5);
+const RSVP_DATE_LINE = new Date(2026, 9, 1);
 const eventCards: EventCardProps[] = [
   {
     eventName: "Misa de Acción de Gracias",
@@ -88,7 +86,7 @@ const eventCards: EventCardProps[] = [
     icon: misa,
     mainTypo: `${SECOND_TYPO}`,
     bodyTypo: BODY_TYPO,
-    href: "https://maps.app.goo.gl/cKEVUrVSYRt6bHXr8",
+    href: "https://maps.app.goo.gl/6ruirdydo7X2tnXp6",
     fontSize: "45px",
     colorButton: BUTTON_PRIMARY,
     bgColor: BG_MAIN,
@@ -240,18 +238,10 @@ const PeopleGroup = (title: string, names: string[]) => (
   </Stack>
 );
 const XVKate = () => {
-  const [searchParams] = useSearchParams();
-  const invitedGuests: number = useMemo(() => {
-    const num = Number(searchParams.get("number"));
-    return isNaN(num) ? 1 : num;
-  }, [searchParams]);
-  const guestId: number | undefined = useMemo(() => {
-    const num = Number(searchParams.get("id"));
-    return isNaN(num) ? undefined : num;
-  }, [searchParams]);
+  
   const [showIntro, setShowIntro] = useState(true);
   const [showInvitation, setShowInvitation] = useState(false);
-  const [guest, setGuest] = useState<Guest | null>(null);
+
   const musicRef = useRef<MusicFabPlayerHandle>(null);
 
   const handleEnter = () => {
@@ -266,22 +256,7 @@ const XVKate = () => {
     }, 900);
   };
 
-  useEffect(() => {
-    const fetchGuest = async () => {
-      if (guestId) {
-        try {
-          const data = await getGuestById(guestId, INVITATION_ID);
-          console.log("Fetched guest data:", data);
-          setGuest(data);
-        } catch (error) {
-          console.error("Error fetching guest:", error);
-        }
-      }
-    };
-
-    fetchGuest();
-  }, [guestId]);
-
+  
   useEffect(() => {
     document.title = "XV Kate Alejandra";
   }, []);
@@ -296,7 +271,7 @@ const XVKate = () => {
     >
       <MusicFabPlayer
         ref={musicRef}
-        src={""}
+        src={URL_SONG}
         backgroundColor={TEXT_PRIMARY}
         startTime={3}
       />
@@ -322,8 +297,8 @@ const XVKate = () => {
         bottomRightCornerImg={""}
         bottomRightCornerPosition={introBottomRightCornerPosition}
         topLeftCornerPosition={introTopLeftCornerPosition}
-        guestName={guest ? guest.fullName : ""}
-        guestCount={invitedGuests}
+        
+        guestCount={1}
       />
       <Box
         sx={{
@@ -423,8 +398,7 @@ const XVKate = () => {
                 letterSpacing: "0.01em",
               }}
             >
-              Con gratitud a Dios y mucha alegría, celebramos los 15 años de
-              nuestra hija Kate.
+              Con gratitud a Dios y mucha alegría, celebramos los 15 años de nuestra hija Kate Alejandra.
             </Typography>
 
             {/* Separador */}
@@ -463,10 +437,7 @@ const XVKate = () => {
                 fontWeight: 400,
               }}
             >
-              Damos gracias a Dios por el don de la vida de nuestra hija Kate, y
-              por estos quince años llenos de amor, alegría y bendiciones.{" "}
-              <br></br>Le pedimos que continúe guiando sus pasos, iluminando sus
-              sueños y acompañándola siempre en cada etapa de su vida.
+              Damos gracias a Dios por estos quince años llenos de amor, alegría y bendiciones. Le pedimos que continúe guiando sus pasos, iluminando sus sueños y acompañándola siempre en cada etapa de su vida.
             </Typography>
  <Box
               sx={{
@@ -492,7 +463,7 @@ const XVKate = () => {
                 }}
               />
             </Box>
-            <Typography
+            {/* <Typography
               className={BODY_TYPO}
               sx={{
                
@@ -506,7 +477,7 @@ const XVKate = () => {
               <br></br>
               agradeciendo profundamente su presencia y cariño en la vida de
               nuestra hija.
-            </Typography>
+            </Typography> */}
 
             {/* Separador */}
            <Box 
@@ -607,7 +578,7 @@ const XVKate = () => {
 
             {PeopleGroup("Sus padres", [
               "Betzabé Minerva Flores Orante",
-              "Chovde Eduardo Navarro Soto",
+              "Clayde  Eduardo Navarro Soto",
             ])}
 
             {PeopleGroup("Y sus hermanos", [
@@ -1197,7 +1168,7 @@ const XVKate = () => {
             color: TEXT_PRIMARY,
           }}
         >
-          Si quieres, puedes traer tu antifaz.
+         Trae tu antifaz (opcional)
         </Typography>
 
         {/* SEPARADOR */}
@@ -1332,14 +1303,15 @@ const XVKate = () => {
           bgColor={"rgb(245, 240, 232,.8)"}
           mainTypo={MAIN_TYPO}
           bodyTypo={BODY_TYPO}
-          count={invitedGuests}
+          count={1}
           color={BUTTON_PRIMARY}
-          guestId={guestId}
+          
           invitationId={INVITATION_ID}
           qrActive={false}
           classButtonName="btn-gold"
           dateLine={RSVP_DATE_LINE}
           fontSize="2.5rem"
+          numberInWords
           
         ></RSVPForm>
       
@@ -1445,8 +1417,7 @@ const XVKate = () => {
             textAlign: "center",
           }}
         >
-          Gracias por ser parte de este momento tan especial y por acompañarnos a celebrar con amor, alegría y gratitud estos quince años de vida de nuestra querida Kate.
-          
+ Gracias por acompañarnos a celebrar estos quince años de vida de nuestra hija Kate Alejandra.          
         </Typography>
         <Typography
           sx={{
@@ -1459,7 +1430,7 @@ const XVKate = () => {
           }}
         >
          
-          ¡Esta fiesta no te la puedes perder!
+          ¡Está fiesta no te la puedes perder!
         </Typography>
           <Typography
           sx={{

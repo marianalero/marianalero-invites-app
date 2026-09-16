@@ -449,17 +449,15 @@ fontSizeNames,
                 lineHeight: 1.7,
               }}
             >
-              Hemos reservado
-              {guestCount && (
-                <>
-                  {" "}
-                  <strong>{guestCount}</strong>{" "}
-                  {guestCount === 1
-                    ? "lugar"
-                    : "lugares"}
-                </>
-              )}{" "}
-              para ti en este día tan especial.
+             Hemos reservado{" "}
+  {guestCount === 1 ? (
+    "un lugar"
+  ) : guestCount > 1 ? (
+    <>
+      <strong>{guestCount}</strong> lugares
+    </>
+  ) : null}{" "}
+  para ti en este día tan especial.
             </Typography>
             </Fade>
             )}
