@@ -50,7 +50,7 @@ import g3 from "../../assets/xv-kate/g3.jpg";
 import dayjs from "dayjs";
 import EditorialCountdown from "../../components/EditorialCountdown";
 import { URL_REPO } from "../../config";
-    const URL_SONG = `${URL_REPO}canciones/Maluma-ADMV.mp3`;
+    const URL_SONG = `${URL_REPO}canciones/Alemán.mp3`;
 const BG_MAIN = "#F5F0E8"; // Marfil cálido
 const BG_SECTION = "#eee0dc"; // Nude rosado
 const BG_ACCENT = "#641D2B"; // Guinda protagonista
