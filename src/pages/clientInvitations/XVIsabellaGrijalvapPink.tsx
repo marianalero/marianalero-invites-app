@@ -1091,7 +1091,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           </Typography>
           <Box
             component="img"
-            src={item.image}
+            src={item.icon}
             alt={item.locationName}
             sx={{
               display: "block",
