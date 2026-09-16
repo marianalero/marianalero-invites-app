@@ -8,7 +8,7 @@ import FooterInvites from "../../components/Footer/FooterInvites";
 import Grid from "@mui/material/Grid2";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Adornment from "../../components/Adornment/Adornment";
 
@@ -16,24 +16,9 @@ import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import { ENVELOPE_OPEN_MS } from "../../components/EnvelopeIntro/animations";
 import EnvelopeIntro from "../../components/EnvelopeIntro/EnvelopeIntro";
 import RSVPExcel from "../../components/RSVP/RSVPExcel";
-import fondo from "../../assets/xv-camila-fernanda/fondo.png";
-import fondo2 from "../../assets/xv-camila-fernanda/fondo2.png";
-import fondoHorz from "../../assets/xv-camila-fernanda/fondo-horz.png";
-import sello from "../../assets/xv-camila-fernanda/sello.png";
-
-import recepcion from "../../assets/xv-camila-fernanda/deco/11.png";
-import iglesia from "../../assets/xv-camila-fernanda/deco/12.png";
-import sobre from "../../assets/xv-camila-fernanda/deco/13.png";
-import reloj from "../../assets/xv-camila-fernanda/deco/14.png";
-
-import destellos from "../../assets/xv-camila-fernanda/deco/16.png";
 import EditorialCountdown from "../../components/EditorialCountdown";
-import f1 from "../../assets/xv-camila-fernanda/flores/1.png";
-import f2 from "../../assets/xv-camila-fernanda/flores/2.png";
-import f3 from "../../assets/xv-camila-fernanda/flores/3.png";
-import f4 from "../../assets/xv-camila-fernanda/flores/4.png";
-import f5 from "../../assets/xv-camila-fernanda/flores/5.png";
-import f6 from "../../assets/xv-camila-fernanda/flores/6.png";
+import { getAssets } from "../../services/mediaApiClient";
+import type { InvitationAsset } from "../../models/invitationAsset";
 export const BG_MAIN = "#f8f5ee"; // Crema cálido
 
 export const BG_SECTION = "#FCFAF6"; // Marfil claro
@@ -83,42 +68,9 @@ export const STORY_DIVIDER = "#C7DCE7";
 const MAIN_TYPO = "parisienne-regular";
 const SECOND_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "montserat-regular to-upper";
-
-const eventCards: EventCardProps[] = [
-  {
-    eventName: "Misa Religiosa",
-    date: new Date(2026, 3, 11, 17, 0, 0),
-    locationName: "Parroquia de los Sagrados Corazones de Jesús y María",
-    address: "Circuito de las Misiones Sur, Colonia Bachoco",
-    size: 6,
-    color: PRIMARY_DARK,
-    icon: iglesia,
-    iconSize: "180px",
-    mainTypo: `${MAIN_TYPO}`,
-    bodyTypo: BODY_TYPO,
-    href: "https://maps.app.goo.gl/1oZ4r57ZKDQYFuaGA",
-    fontSize: "45px",
-    colorButton: PRIMARY,
-    bgColor: BG_MAIN,
-  },
-  {
-    eventName: "Recepción",
-    date: new Date(2026, 3, 11, 20, 0, 0),
-
-    locationName: "Hotel Araiza Inn",
-    address: "Blvd. Fco. Eusebio Kino 353, Lomas Pitic.",
-    size: 6,
-    color: PRIMARY_DARK,
-    icon: recepcion,
-    iconSize: "180px",
-    mainTypo: `${MAIN_TYPO}`,
-    bodyTypo: BODY_TYPO,
-    fontSize: "45px",
-    href: "https://maps.app.goo.gl/NzZRisdB9mEdvab2A",
-    colorButton: PRIMARY,
-    bgColor: BG_MAIN,
-  },
-];
+const MEDIA_KEY = "xv-camila-fernanda";
+const EMPTY_ASSET =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 
 const dresscode: DressCodeProps = {
   mainTypo: `${MAIN_TYPO}`,
@@ -140,6 +92,51 @@ const XVCamilaFernanda = () => {
     return isNaN(num) ? 1 : num;
   }, [searchParams]);
   const [showIntro, setShowIntro] = useState(true);
+  const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
+
+  useEffect(() => {
+    getAssets(MEDIA_KEY).then(setCloudAssets).catch(() => setCloudAssets([]));
+  }, []);
+
+  const assetUrl = (kind: string, index = 0) =>
+    cloudAssets
+      .filter((asset) => asset.assetKind === kind)
+      .sort((a, b) => a.sortOrder - b.sortOrder)[index]?.secureUrl ?? EMPTY_ASSET;
+
+  const eventCards: EventCardProps[] = [
+    {
+      eventName: "Misa Religiosa",
+      date: new Date(2026, 3, 11, 17, 0, 0),
+      locationName: "Parroquia de los Sagrados Corazones de Jesús y María",
+      address: "Circuito de las Misiones Sur, Colonia Bachoco",
+      size: 6,
+      color: PRIMARY_DARK,
+      icon: assetUrl("icon", 1),
+      iconSize: "180px",
+      mainTypo: `${MAIN_TYPO}`,
+      bodyTypo: BODY_TYPO,
+      href: "https://maps.app.goo.gl/1oZ4r57ZKDQYFuaGA",
+      fontSize: "45px",
+      colorButton: PRIMARY,
+      bgColor: BG_MAIN,
+    },
+    {
+      eventName: "Recepción",
+      date: new Date(2026, 3, 11, 20, 0, 0),
+      locationName: "Hotel Araiza Inn",
+      address: "Blvd. Fco. Eusebio Kino 353, Lomas Pitic.",
+      size: 6,
+      color: PRIMARY_DARK,
+      icon: assetUrl("icon", 0),
+      iconSize: "180px",
+      mainTypo: `${MAIN_TYPO}`,
+      bodyTypo: BODY_TYPO,
+      fontSize: "45px",
+      href: "https://maps.app.goo.gl/NzZRisdB9mEdvab2A",
+      colorButton: PRIMARY,
+      bgColor: BG_MAIN,
+    },
+  ];
   //  const musicRef = useRef<MusicFabPlayerHandle>(null);
   const handleEnter = () => {
     // musicRef.current?.play();
@@ -183,7 +180,7 @@ const XVCamilaFernanda = () => {
         open={showIntro}
         onEnter={handleEnter}
         // musicRef={musicRef}
-        sealImage={sello}
+        sealImage={assetUrl("seal")}
         envelopeColor={BG_MAIN}
         overlayColor={PRIMARY_DARK}
         envelopeHighlight={PRIMARY_LIGHT}
@@ -199,7 +196,7 @@ const XVCamilaFernanda = () => {
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
-    backgroundImage: `url("${fondoHorz}")`,
+    backgroundImage: `url("${assetUrl("background", 2)}")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
   }}
@@ -230,7 +227,7 @@ const XVCamilaFernanda = () => {
     >
       <Fade direction="up" triggerOnce>
         <img
-          src={f1}
+          src={assetUrl("ornament", 0)}
           alt=""
           style={{
             width: "120px",
@@ -332,7 +329,7 @@ const XVCamilaFernanda = () => {
         }}
       >
         <img
-          src={f6}
+          src={assetUrl("ornament", 5)}
           alt=""
           style={{
             width: "100%",
@@ -359,7 +356,7 @@ const XVCamilaFernanda = () => {
         p={2}
         sx={{
           backgroundColor:BG_ALT
-          // backgroundImage: `url("${fondoHorz}")`,
+          // backgroundImage: `url("${assetUrl("background", 2)}")`,
           // backgroundSize: "cover",
           // backgroundPosition: "center",
         }}
@@ -372,7 +369,7 @@ const XVCamilaFernanda = () => {
           >
             <Box
               component="img"
-              src={f6}
+              src={assetUrl("ornament", 5)}
               sx={{
                 width: { xs: 150, md: 65 },
                 mb: 3,
@@ -440,7 +437,7 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f1} style={{ width: "150px" }} />
+                  <img src={assetUrl("ornament", 0)} style={{ width: "150px" }} />
                 </Fade>
               </div>
               {/* <div
@@ -452,7 +449,7 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
+                  <img src={assetUrl("icon", 5)} style={{ width: "100px" }} />
                 </Fade>
               </div> */}
               <div
@@ -464,7 +461,7 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f5} style={{ width: "150px" }} />
+                  <img src={assetUrl("ornament", 4)} style={{ width: "150px" }} />
                 </Fade>
               </div>
               {/* <div
@@ -476,7 +473,7 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
+                  <img src={assetUrl("icon", 5)} style={{ width: "100px" }} />
                 </Fade>
               </div> */}
 
@@ -576,7 +573,7 @@ const XVCamilaFernanda = () => {
       </div>
       <div
         style={{
-          backgroundImage: `url("${fondo2}")`,
+          backgroundImage: `url("${assetUrl("background", 1)}")`,
           backgroundSize: "cover",
 
           padding: "50px 20px",
@@ -592,7 +589,7 @@ const XVCamilaFernanda = () => {
           >
             <Box
               component="img"
-              src={reloj}
+              src={assetUrl("icon", 3)}
               sx={{
                 height: { xs: 100, md: 120 },
               }}
@@ -685,7 +682,7 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={destellos} style={{ width: "100px" }} />
+                  <img src={assetUrl("icon", 5)} style={{ width: "100px" }} />
                 </Fade>
               </div> */}
               <div
@@ -697,7 +694,7 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f3} style={{ width: "100px" }} />
+                  <img src={assetUrl("ornament", 2)} style={{ width: "100px" }} />
                 </Fade>
               </div>
               
@@ -710,7 +707,7 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f4} style={{ width: "150px" }} />
+                  <img src={assetUrl("ornament", 3)} style={{ width: "150px" }} />
                 </Fade>
               </div>
 
@@ -809,7 +806,7 @@ const XVCamilaFernanda = () => {
       </div>
       <div
         style={{
-          backgroundImage: `url("${fondo}")`,
+          backgroundImage: `url("${assetUrl("background", 0)}")`,
           backgroundSize: "cover",
           padding: "50px 20px",
         }}
@@ -864,7 +861,7 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f6} style={{ width: "200px" }} />
+                  <img src={assetUrl("ornament", 5)} style={{ width: "200px" }} />
                 </Fade>
               </div>
               
@@ -894,7 +891,7 @@ const XVCamilaFernanda = () => {
                     </Typography>
                     <Box
                       component="img"
-                      src={sobre}
+                      src={assetUrl("icon", 2)}
                       alt="Sobre"
                       sx={{
                         width: { xs: 90, md: 110 },
@@ -927,7 +924,7 @@ const XVCamilaFernanda = () => {
             }}
           >
             <Fade direction="up" triggerOnce={true}>
-              <img src={f6} style={{ width: "200px" }} />
+              <img src={assetUrl("ornament", 5)} style={{ width: "200px" }} />
             </Fade>
           </div>
           
@@ -951,7 +948,7 @@ const XVCamilaFernanda = () => {
 
       <div
         style={{
-          backgroundImage: `url(${fondo2})`,
+          backgroundImage: `url(${assetUrl("background", 1)})`,
           padding: "50px 20px",
           position:"relative"
         }}
@@ -965,14 +962,14 @@ const XVCamilaFernanda = () => {
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={f2} style={{ width: "152px" }} />
+                  <img src={assetUrl("ornament", 1)} style={{ width: "152px" }} />
                 </Fade>
               </div>
         <Box sx={{ backgroundColor: BG_ALT }}>
           <DressCode {...dresscode}></DressCode>
           <Grid paddingBottom={2}>
             <Fade direction="up">
-              <Adornment image={`${destellos}`} width={"100px"} />
+              <Adornment image={assetUrl("icon", 5)} width={"100px"} />
             </Fade>
           </Grid>
           <WithoutKids

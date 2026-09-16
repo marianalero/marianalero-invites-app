@@ -123,7 +123,7 @@ const calendarButtonProps = {
 };
 const COUNTDOWN_DATE = new Date(2026, 10, 13);
 const RSVP_DATE_LINE = new Date(2026, 10, 9);
-const INVITATION_ID =9;
+const INVITATION_ID = 39;
 
 const XVIsabellaGrijalva = () => {
   const [searchParams] = useSearchParams();
@@ -1087,7 +1087,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           </Typography>
           <Box
             component="img"
-            src={item.image}
+            src={item.icon}
             alt={item.locationName}
             sx={{
               display: "block",

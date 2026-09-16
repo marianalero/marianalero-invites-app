@@ -20,35 +20,10 @@ import RSVPForm from "../../components/RSVP/RSVPForm";
 
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
-
-import portada from "../../assets/xv-kate/portada.jpg";
-import image1 from "../../assets/xv-kate/1.jpg";
-import image2 from "../../assets/xv-kate/2.jpg";
-import image3 from "../../assets/xv-kate/3.jpg";
-import fondo from "../../assets/xv-kate/fondo.png";
-import itinerario from "../../assets/xv-kate/itinerario.png";
-import envelop from "../../assets/xv-kate/envelop.png";
-import sello from "../../assets/xv-kate/sello.png";
-import separador from "../../assets/xv-kate/separador.png";
-import deco from "../../assets/xv-kate/deco.png";
-import ant1 from "../../assets/xv-kate/ant1.png";
-import ant2 from "../../assets/xv-kate/ant2.png";
-import ant3 from "../../assets/xv-kate/ant-gold.png";
-
-import sobre from "../../assets/xv-kate/sobre.png";
-
-import misa from "../../assets/xv-kate/14.png";
-import icono17 from "../../assets/xv-kate/iconos/3.png";
-import icono23 from "../../assets/xv-kate/iconos/4.png";
-import icono24 from "../../assets/xv-kate/iconos/5.png";
-import icono25 from "../../assets/xv-kate/iconos/6.png";
-import icono7 from "../../assets/xv-kate/iconos/7.png";
-import g1 from "../../assets/xv-kate/g1.jpg";
-import g2 from "../../assets/xv-kate/g2.jpg";
-import g3 from "../../assets/xv-kate/g3.jpg";
-
 import dayjs from "dayjs";
 import EditorialCountdown from "../../components/EditorialCountdown";
+import { getAssets } from "../../services/mediaApiClient";
+import type { InvitationAsset } from "../../models/invitationAsset";
 import { URL_REPO } from "../../config";
     const URL_SONG = `${URL_REPO}canciones/Alemán.mp3`;
 const BG_MAIN = "#F5F0E8"; // Marfil cálido
@@ -71,89 +46,13 @@ const BUTTON_PRIMARY = "#641D2B"; // Guinda
 const MAIN_TYPO = "alex-brush-regular";
 const SECOND_TYPO = "playfair-display-400";
 const BODY_TYPO = "lora";
-const galleryPhotos = [g1, g2, g3];
 
 const COUNTDOWN_DATE = new Date(2026, 9, 10);
 const RSVP_DATE_LINE = new Date(2026, 9, 1);
-const eventCards: EventCardProps[] = [
-  {
-    eventName: "Misa de Acción de Gracias",
-    date: new Date(2026, 9, 10, 16, 0, 0),
-    locationName: "Templo Expiatorio",
-    address: " Gral. Antonio Villarreal 23, Colonia Country Club",
-    size: 6,
-    color: GOLD,
-    icon: misa,
-    mainTypo: `${SECOND_TYPO}`,
-    bodyTypo: BODY_TYPO,
-    href: "https://maps.app.goo.gl/6ruirdydo7X2tnXp6",
-    fontSize: "45px",
-    colorButton: BUTTON_PRIMARY,
-    bgColor: BG_MAIN,
-    priest: "Pbro. Francisco Javier Arriola Merlos",
-     iconSize:"100px"
-    // classButtonName:"btn-gold"
-  },
-  {
-    eventName: "Recepción",
-    date: new Date(2026, 9, 10, 19, 0, 0),
-
-    locationName: "Hacienda Las Minitas",
-    address:
-      "Calle Cerro los Molinos 97, Colonia Las Minitas, entre Camino del Seri y Carretera 26",
-    size: 6,
-    color: GOLD,
-    icon: ant3,
-    mainTypo: `${SECOND_TYPO}`,
-    bodyTypo: BODY_TYPO,
-    fontSize: "45px",
-    href: "https://maps.app.goo.gl/1YF2Yc1Y2YsvWXCAA",
-    colorButton: BUTTON_PRIMARY,
-    bgColor: BG_MAIN,
-    iconSize:"70px"
-    // classButtonName:"btn-gold"
-  },
-];
-const timelineData: CustomizedTimelineProps = {
-  position:"right",
-  mainTypo: MAIN_TYPO,
-  bodyTypo: SECOND_TYPO,
-  colorPrimary: GOLD_LIGHT,
-  colorTitle: GOLD_LIGHT,
-  colorBody: GOLD_LIGHT,
-  bgColor: "rgb(100, 29, 43,.5)",
-  fontSize: "38px",
-  events: [
-    {
-      eventName: "Misa de Acción de Gracias",
-      date: new Date(2026, 0, 31, 16, 0, 0),
-      icon: icono17,
-    },
-    {
-      eventName: "Recepción",
-      date: new Date(2026, 0, 31, 19, 0, 0),
-      icon: icono23,
-    },
-    {
-      eventName: "Nuestro Vals",
-      date: new Date(2026, 0, 31, 21, 0, 0),
-      icon: icono24,
-    },
-    {
-      eventName: "Cena",
-      date: new Date(2026, 0, 31, 22, 0, 0),
-      icon: icono25,
-    },
-    {
-      eventName: "Fin del evento",
-      date: new Date(2026, 1, 1, 1, 0, 0),
-      icon: icono7,
-    },
-  ],
-};
-
-
-const INVITATION_ID = 9;
+const MEDIA_KEY = "xv-kate";
+const EMPTY_ASSET =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
+const INVITATION_ID = 41;
 
 const introSealPosition = {
   top: "70%",
@@ -238,11 +137,95 @@ const PeopleGroup = (title: string, names: string[]) => (
   </Stack>
 );
 const XVKate = () => {
-  
   const [showIntro, setShowIntro] = useState(true);
   const [showInvitation, setShowInvitation] = useState(false);
+  const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
 
   const musicRef = useRef<MusicFabPlayerHandle>(null);
+
+  useEffect(() => {
+    getAssets(MEDIA_KEY).then(setCloudAssets).catch(() => setCloudAssets([]));
+  }, []);
+
+  const assetUrl = (kind: string, index = 0) =>
+    cloudAssets
+      .filter((asset) => asset.assetKind === kind)
+      .sort((a, b) => a.sortOrder - b.sortOrder)[index]?.secureUrl ?? EMPTY_ASSET;
+
+  const eventCards: EventCardProps[] = [
+    {
+      eventName: "Misa de Acción de Gracias",
+      date: new Date(2026, 9, 10, 16, 0, 0),
+      locationName: "Templo Expiatorio",
+      address: " Gral. Antonio Villarreal 23, Colonia Country Club",
+      size: 6,
+      color: GOLD,
+      icon: assetUrl("church"),
+      mainTypo: `${SECOND_TYPO}`,
+      bodyTypo: BODY_TYPO,
+      href: "https://maps.app.goo.gl/6ruirdydo7X2tnXp6",
+      fontSize: "45px",
+      colorButton: BUTTON_PRIMARY,
+      bgColor: BG_MAIN,
+      priest: "Pbro. Francisco Javier Arriola Merlos",
+      iconSize: "100px",
+    },
+    {
+      eventName: "Recepción",
+      date: new Date(2026, 9, 10, 19, 0, 0),
+      locationName: "Hacienda Las Minitas",
+      address:
+        "Calle Cerro los Molinos 97, Colonia Las Minitas, entre Camino del Seri y Carretera 26",
+      size: 6,
+      color: GOLD,
+      icon: assetUrl("reception"),
+      mainTypo: `${SECOND_TYPO}`,
+      bodyTypo: BODY_TYPO,
+      fontSize: "45px",
+      href: "https://maps.app.goo.gl/1YF2Yc1Y2YsvWXCAA",
+      colorButton: BUTTON_PRIMARY,
+      bgColor: BG_MAIN,
+      iconSize: "70px",
+    },
+  ];
+  const timelineData: CustomizedTimelineProps = {
+    position: "right",
+    mainTypo: MAIN_TYPO,
+    bodyTypo: SECOND_TYPO,
+    colorPrimary: GOLD_LIGHT,
+    colorTitle: GOLD_LIGHT,
+    colorBody: GOLD_LIGHT,
+    bgColor: "rgb(100, 29, 43,.5)",
+    fontSize: "38px",
+    events: [
+      {
+        eventName: "Misa de Acción de Gracias",
+        date: new Date(2026, 0, 31, 16, 0, 0),
+        icon: assetUrl("icon", 2),
+      },
+      {
+        eventName: "Recepción",
+        date: new Date(2026, 0, 31, 19, 0, 0),
+        icon: assetUrl("icon", 3),
+      },
+      {
+        eventName: "Nuestro Vals",
+        date: new Date(2026, 0, 31, 21, 0, 0),
+        icon: assetUrl("icon", 4),
+      },
+      {
+        eventName: "Cena",
+        date: new Date(2026, 0, 31, 22, 0, 0),
+        icon: assetUrl("icon", 5),
+      },
+      {
+        eventName: "Fin del evento",
+        date: new Date(2026, 1, 1, 1, 0, 0),
+        icon: assetUrl("icon", 6),
+      },
+    ],
+  };
+  const galleryPhotos = [0, 1, 2].map((index) => assetUrl("gallery", index));
 
   const handleEnter = () => {
     musicRef.current?.play();
@@ -290,8 +273,8 @@ const XVKate = () => {
         bodyTypo={BODY_TYPO}
         backgroundColor={BG_MAIN}
         primaryColor={TEXT_PRIMARY}
-        envelopeImg={envelop}
-        sealImg={sello}
+        envelopeImg={assetUrl("envelope")}
+        sealImg={assetUrl("seal")}
         sealPosition={introSealPosition}
         topLeftCornerImg={""}
         bottomRightCornerImg={""}
@@ -312,8 +295,8 @@ const XVKate = () => {
         }}
       >
         <CoverSimple
-          bgImage={portada}
-          bgImage2={portada}
+          bgImage={assetUrl("cover")}
+          bgImage2={assetUrl("cover")}
           weddingDate="10.10.2026"
           subtitle="Mis XV años"
           brideName="Kate Alejandra"
@@ -341,7 +324,7 @@ const XVKate = () => {
             justifyContent: "center",
             overflow: "hidden",
 
-            backgroundImage: `url(${fondo})`,
+            backgroundImage: `url(${assetUrl("gallery", 3)})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -369,7 +352,7 @@ const XVKate = () => {
                     >
                       <Fade direction="right" triggerOnce>
                         <img
-                          src={ant1}
+                          src={assetUrl("ornament", 1)}
                           style={{
                             height: 190,
                             transform: "scaleX(-1)",
@@ -417,7 +400,7 @@ const XVKate = () => {
             >
               <Box
                 component="img"
-                src={separador}
+                src={assetUrl("ornament")}
                 alt=""
                 sx={{
                   display: "block",
@@ -454,7 +437,7 @@ const XVKate = () => {
             >
               <Box
                 component="img"
-                src={separador}
+                src={assetUrl("ornament")}
                 alt=""
                 sx={{
                   display: "block",
@@ -489,7 +472,7 @@ const XVKate = () => {
         <ImageMiddle
           bgPosition="30%"
           height="70vh"
-          bgImage={image1}
+          bgImage={assetUrl("middle-image")}
         ></ImageMiddle>
         <Box
           component="section"
@@ -524,7 +507,7 @@ const XVKate = () => {
           >
             <Box
               component="img"
-              src={separador}
+              src={assetUrl("ornament")}
               alt=""
               sx={{
                 display: "block",
@@ -606,7 +589,7 @@ const XVKate = () => {
           >
             <Box
               component="img"
-              src={separador}
+              src={assetUrl("ornament")}
               alt=""
               sx={{
                 display: "block",
@@ -633,7 +616,7 @@ const XVKate = () => {
       width: "100%",
       height: "95px",
 
-      backgroundImage: `url(${deco})`,
+      backgroundImage: `url(${assetUrl("ornament", 3)})`,
       backgroundRepeat: "repeat-x",
       backgroundPosition: "top left",
       backgroundSize: "100px auto",
@@ -701,7 +684,7 @@ const XVKate = () => {
         <ImageMiddle
           bgPosition="50%"
           height="70vh"
-          bgImage={image2}
+          bgImage={assetUrl("middle-image", 1)}
         ></ImageMiddle>
         <Box
           component="section"
@@ -743,7 +726,7 @@ const XVKate = () => {
             >
               <Box
                 component="img"
-                src={separador}
+                src={assetUrl("ornament")}
                 alt=""
                 sx={{
                   display: "block",
@@ -1004,7 +987,7 @@ const XVKate = () => {
             justifyContent: "center",
             overflow: "hidden",
 
-            backgroundImage: `url(${itinerario})`,
+            backgroundImage: `url(${assetUrl("gallery", 4)})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -1027,7 +1010,7 @@ const XVKate = () => {
         <ImageMiddle
           bgPosition="50%"
           height="70vh"
-          bgImage={image3}
+          bgImage={assetUrl("middle-image", 2)}
         ></ImageMiddle>
          <Box
       component="section"
@@ -1129,7 +1112,7 @@ const XVKate = () => {
         >
           <Box
             component="img"
-            src={ant2}
+            src={assetUrl("ornament", 2)}
             alt="Antifaz decorativo"
             sx={{
               display: "block",
@@ -1230,7 +1213,7 @@ const XVKate = () => {
                       >
                         <Box
                           component="img"
-                          src={separador}
+                          src={assetUrl("ornament")}
                           alt=""
                           sx={{
                             display: "block",
@@ -1252,7 +1235,7 @@ const XVKate = () => {
                       </Typography>
                       <Box
                         component="img"
-                        src={sobre}
+                        src={assetUrl("icon", 7)}
                         alt="Sobre"
                         sx={{
                           width: { xs: 150, md: 200 },
@@ -1280,7 +1263,7 @@ const XVKate = () => {
             overflow: "hidden",
             flexDirection:"column",
 
-            backgroundImage: `url(${fondo})`,
+            backgroundImage: `url(${assetUrl("gallery", 3)})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -1336,7 +1319,7 @@ const XVKate = () => {
         {/* Título */}
         <Grid paddingBottom={2}>
           <Fade direction="up">
-            <Adornment image={separador} width={"150px"} />
+            <Adornment image={assetUrl("ornament")} width={"150px"} />
           </Fade>
         </Grid>
          <Typography
@@ -1364,7 +1347,7 @@ const XVKate = () => {
           >
         <Box
                 component="img"
-                src={separador}
+                src={assetUrl("ornament")}
                 alt="AJA"
                 sx={{
                     width: { xs: 150, sm: 250, md: 350 },
@@ -1467,7 +1450,7 @@ Prepárate para bailar, celebrar y disfrutar, porque nos espera una gran noche.
       >
         {galleryPhotos.map((image, index) => (
           <Box
-            key={image}
+            key={index}
             sx={{
               width: "100%",
               aspectRatio: "2 / 3",
@@ -1507,7 +1490,7 @@ Prepárate para bailar, celebrar y disfrutar, porque nos espera una gran noche.
       </Box>
       <Grid paddingBottom={2} mt={3}>
           <Fade direction="up">
-            <Adornment image={separador} width={"150px"} />
+            <Adornment image={assetUrl("ornament")} width={"150px"} />
           </Fade>
         </Grid>
     </Box>

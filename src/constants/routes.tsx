@@ -87,6 +87,7 @@ import WeddingAranxaJhoan from "../pages/clientInvitations/WeddingAranxaJhoan";
 
 import WeddingAnaCeciliaJuanCarlos from "../pages/clientInvitations/WeddingAnaCeciliaJuanCarlos";
 import XVCamilaFernanda from "../pages/clientInvitations/XVCamilaFernanda";
+import XVCenicienta from "../pages/clientInvitations/XVCenicienta";
 import WeddingMariela from "../pages/clientInvitations/WeddingMariela";
 import XVKate from "../pages/clientInvitations/XVKate";
 import XVIsabellaGrijalva from "../pages/clientInvitations/XVIsabellaGrijalva";
@@ -151,6 +152,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-ana-cecilia-juan-carlos', element:<WeddingAnaCeciliaJuanCarlos></WeddingAnaCeciliaJuanCarlos>},
     {path:'/boda-brisa-david', element:<WeddingBrisa></WeddingBrisa>},
     {path:'/boda-mariela-ivan', element:<WeddingMariela></WeddingMariela>},
+    {path:'/xv-kate-alejandra', element:<XVKate></XVKate>},
   //Bautizo
   //XV
   {path:'/xv-valentina', element: <XVValeria></XVValeria>},
@@ -174,6 +176,8 @@ const routes: RouteConfig[] = [
    {path:'/xv-danna-sophia', element: <XVDannaSophia></XVDannaSophia >},
    {path:'/invitacion-xv-isabella-grijalva', element: <XVIsabellaGrijalva></XVIsabellaGrijalva>},
   {path:'/xv-michel', element:<XVMichelle></XVMichelle>},
+  {path:'/xv-camila-fernanda', element:<XVCamilaFernanda></XVCamilaFernanda>},
+
 
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
@@ -194,6 +198,7 @@ const routes: RouteConfig[] = [
 {path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
 
 {path:'/prev-cf-2', element:<XVCamilaFernanda></XVCamilaFernanda>},
+{path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
 
 {path:'/prev-ka', element:<XVKate></XVKate>},
 {path:'/prev-ig', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
