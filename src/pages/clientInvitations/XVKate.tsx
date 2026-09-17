@@ -1515,7 +1515,4 @@ Los esperamos para bailar, celebrar y disfrutar esta gran noche.        </Typogr
   );
 };
 export default XVKate;
-function setGuest(data: Guest) {
-  throw new Error("Function not implemented.");
-}
 
