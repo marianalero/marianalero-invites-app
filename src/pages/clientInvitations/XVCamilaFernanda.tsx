@@ -649,7 +649,7 @@ const XVCamilaFernanda = () => {
           title={{
             fontFamily: '"Parisienne"',
             color: PRIMARY_DARK,
-            fontSize: "2rem",
+            fontSize: "1.7rem",
             fontWeight: 700,
             lineHeight: 1.5,
             dateFormat: "DD MMMM YYYY",

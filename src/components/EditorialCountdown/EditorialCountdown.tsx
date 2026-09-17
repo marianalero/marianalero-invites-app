@@ -256,6 +256,7 @@ const EditorialCountdown = ({
             {titleVisible && titleContent != null && titleContent !== "" && (
               <Typography
                 component="p"
+                noWrap
                 sx={{
                   margin: 0,
                   textAlign: "center",
@@ -267,6 +268,7 @@ const EditorialCountdown = ({
                   lineHeight: titleStyle.lineHeight,
                   fontStyle: titleStyle.fontStyle,
                   textTransform: titleStyle.textTransform,
+                  
                 }}
               >
                 {titleContent}
