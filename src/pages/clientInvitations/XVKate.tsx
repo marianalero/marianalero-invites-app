@@ -8,7 +8,7 @@ import CustomizedTimeline, {
 } from "../../components/TimeLine/Timeline";
 import Grid from "@mui/material/Grid2";
 import { Box, Button, Container, Paper, Stack, Typography } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import MusicFabPlayer, {
   MusicFabPlayerHandle,
 } from "../../components/MusicFabPlayer/MusicFabPlayer";
@@ -25,6 +25,9 @@ import EditorialCountdown from "../../components/EditorialCountdown";
 import { getAssets } from "../../services/mediaApiClient";
 import type { InvitationAsset } from "../../models/invitationAsset";
 import { URL_REPO } from "../../config";
+import { useSearchParams } from "react-router-dom";
+import { getGuestById } from "../../services/guestApiClient";
+import { Guest } from "../../models/guest";
     const URL_SONG = `${URL_REPO}canciones/Deadtome.mp3`;
 const BG_MAIN = "#F5F0E8"; // Marfil cálido
 const BG_SECTION = "#eee0dc"; // Nude rosado
@@ -137,6 +140,18 @@ const PeopleGroup = (title: string, names: string[]) => (
   </Stack>
 );
 const XVKate = () => {
+  const [searchParams] = useSearchParams();
+  
+    const invitedGuests: number | undefined = useMemo(() => {
+      const num = Number(searchParams.get("number"));
+      return isNaN(num) ? undefined : num;
+    }, [searchParams]);
+  
+    const guestId: number | undefined = useMemo(() => {
+      const num = Number(searchParams.get("id"));
+      return isNaN(num) ? undefined : num;
+    }, [searchParams]);
+  const [guest, setGuest] = useState<Guest | null>(null);  
   const [showIntro, setShowIntro] = useState(true);
   const [showInvitation, setShowInvitation] = useState(false);
   const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
@@ -146,7 +161,22 @@ const XVKate = () => {
   useEffect(() => {
     getAssets(MEDIA_KEY).then(setCloudAssets).catch(() => setCloudAssets([]));
   }, []);
+  
+ useEffect(() => {
+    const fetchGuest = async () => {
+      if (guestId) {
+        try {
+          const data = await getGuestById(guestId, INVITATION_ID);
+         
+          setGuest(data);
+        } catch (error) {
+          console.error("Error fetching guest:", error);
+        }
+      }
+    };
 
+    fetchGuest();
+  }, [guestId]);
   const assetUrl = (kind: string, index = 0) =>
     cloudAssets
       .filter((asset) => asset.assetKind === kind)
@@ -281,7 +311,8 @@ const XVKate = () => {
         bottomRightCornerPosition={introBottomRightCornerPosition}
         topLeftCornerPosition={introTopLeftCornerPosition}
         
-        guestCount={1}
+        guestName={guest ? guest.fullName : ""}
+        guestCount={guest ? guest.totalAssigned : invitedGuests}
       />
       <Box
         sx={{
@@ -1268,16 +1299,16 @@ const XVKate = () => {
           bgColor={"rgb(245, 240, 232,.8)"}
           mainTypo={MAIN_TYPO}
           bodyTypo={BODY_TYPO}
-          count={1}
+          count={invitedGuests}
           color={BUTTON_PRIMARY}
-          
+          guest={guest || undefined}
           invitationId={INVITATION_ID}
           qrActive={false}
           classButtonName="btn-gold"
           dateLine={RSVP_DATE_LINE}
           fontSize="2.5rem"
           numberInWords
-          
+          guestId={guestId}
         ></RSVPForm>
       
 
@@ -1484,3 +1515,7 @@ Los esperamos para bailar, celebrar y disfrutar esta gran noche.        </Typogr
   );
 };
 export default XVKate;
+function setGuest(data: Guest) {
+  throw new Error("Function not implemented.");
+}
+
