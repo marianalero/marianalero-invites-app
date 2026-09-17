@@ -25,7 +25,7 @@ import EditorialCountdown from "../../components/EditorialCountdown";
 import { getAssets } from "../../services/mediaApiClient";
 import type { InvitationAsset } from "../../models/invitationAsset";
 import { URL_REPO } from "../../config";
-    const URL_SONG = `${URL_REPO}canciones/Alemán.mp3`;
+    const URL_SONG = `${URL_REPO}canciones/Deadtome.mp3`;
 const BG_MAIN = "#F5F0E8"; // Marfil cálido
 const BG_SECTION = "#eee0dc"; // Nude rosado
 const BG_ACCENT = "#641D2B"; // Guinda protagonista
@@ -341,25 +341,7 @@ const XVKate = () => {
             },
           }}
         >
-          <Box
-                      sx={{
-                        position: "absolute",
-                        bottom: "0%",
-                        right: -45,
-                        zIndex: 0,
-                        opacity: 0.95,
-                      }}
-                    >
-                      <Fade direction="right" triggerOnce>
-                        <img
-                          src={assetUrl("ornament", 1)}
-                          style={{
-                            height: 190,
-                            transform: "scaleX(-1)",
-                          }}
-                        />
-                      </Fade>
-                    </Box>
+          
           <Box
             sx={{
               position: "relative",
@@ -1400,7 +1382,7 @@ const XVKate = () => {
             textAlign: "center",
           }}
         >
- Gracias por acompañarnos a celebrar estos quince años de vida de nuestra hija Kate Alejandra.          
+ Gracias por acompañarnos a celebrar estos quince años de vida de nuestra hija Kate Alejandra.
         </Typography>
         <Typography
           sx={{
@@ -1413,7 +1395,7 @@ const XVKate = () => {
           }}
         >
          
-          ¡Está fiesta no te la puedes perder!
+         ¡Está fiesta no te la puedes perder!
         </Typography>
           <Typography
           sx={{
@@ -1424,8 +1406,7 @@ const XVKate = () => {
             textAlign: "center",
           }}
         >
-Prepárate para bailar, celebrar y disfrutar, porque nos espera una gran noche.          
-        </Typography>
+Los esperamos para bailar, celebrar y disfrutar esta gran noche.        </Typography>
         
       </Stack>
 

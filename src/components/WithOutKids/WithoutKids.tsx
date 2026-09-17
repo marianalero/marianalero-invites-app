@@ -12,6 +12,7 @@ export interface WithoutKidsProps
         hideTitle?:boolean;
         hideSubtitle?:boolean;
     textColor?:string
+    fontSize?:string;
 }
 
 const WithoutKids  = (props:WithoutKidsProps) => 
@@ -21,10 +22,10 @@ const WithoutKids  = (props:WithoutKidsProps) =>
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                      <Fade direction="up" triggerOnce={true} >
                         {!props.hideTitle && (
-                        <Typography sx={{color:props.textColor ? props.textColor : "black"}}  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={400}> {props.title ? props.title : t("NoKidsMessageTitle")} </Typography>
+                        <Typography sx={{color:props.textColor ? props.textColor : "black", fontSize: props.fontSize ?  props.fontSize : "1rem"}}  className={props.bodyTypo} textAlign={"center"} variant='subtitle1' fontWeight={400}> {props.title ? props.title : t("NoKidsMessageTitle")} </Typography>
                         )}
                         {!props.hideSubtitle && (
-                    <Typography  className={props.bodyTypo} textAlign={"center"} variant='body1'> {props.subtitle ? props.subtitle : t("NoKidsMessageBody")} <b>{props.subtitle2 ? props.subtitle2 : t("NoKidsMessageBodyDesc")}</b></Typography>
+                    <Typography  className={props.bodyTypo} textAlign={"center"} variant='body1' sx={{color:props.textColor ? props.textColor : "black", fontSize: props.fontSize ?  props.fontSize : "1rem"}}> {props.subtitle ? props.subtitle : t("NoKidsMessageBody")} <b>{props.subtitle2 ? props.subtitle2 : t("NoKidsMessageBodyDesc")}</b></Typography>
                         )}
                       </Fade>
                 </Grid>

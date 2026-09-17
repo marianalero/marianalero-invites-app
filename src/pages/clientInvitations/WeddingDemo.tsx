@@ -21,16 +21,6 @@ import dayjs from "dayjs";
 import { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Timeline from "@mui/lab/Timeline";
 import FooterInvites from "../../components/Footer/FooterInvites";
-import portada from "../../assets/boda-ana-juan-angel-webp/portada.webp";
-import portadaHorz from "../../assets/boda-ana-juan-angel-webp/portada-horz.png";
-import fondo1 from "../../assets/boda-ana-juan-angel-webp/fondo1.webp";
-import fondo2 from "../../assets/demo-rose/itinerario.png";
-import dresscodeimg from "../../assets/boda-ana-juan-angel-webp/dresscode.webp";
-import itinerarioHorz from "../../assets/demo-rose/itinerario-hoz.png";
-import monograma1 from "../../assets/demo-rose/monograma1.png";
-import sobre from "../../assets/boda-ana-juan-angel-webp/sobre.webp";
-import villa from "../../assets/demo-rose/vila-toscana.jpeg";
-import iglesia from "../../assets/demo-rose/catedral.jpg";
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import { useSearchParams } from "react-router-dom";
@@ -40,6 +30,8 @@ import { getGuestById } from "../../services/guestApiClient";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { getAssets } from "../../services/mediaApiClient";
+import type { InvitationAsset } from "../../models/invitationAsset";
 // 🎨 FONDOS
 const BG_MAIN = "#F5F1E8";       // Marfil
 const BG_SECTION = "#E5D1D0";    // Rosa empolvado
@@ -69,46 +61,12 @@ const SECONDARY_TYPO = "cormorant-garamond-400";
 const BODY_TYPO = "manrope-400";
 const COUNTDOWN_DATE = new Date(2026, 11, 5);
 const RSVP_DATE_LINE = new Date(2026, 10, 15);
-const INVITATION_ID = 9;
+const INVITATION_ID = 43;
+const MEDIA_KEY = "demo-rose";
+const EMPTY_ASSET =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 
 const URL_SONG = `${URL_REPO}/canciones/AThousandYears-ChristinaPerri-Violin.mp3`;
-const eventCards: EventCardProps[] = [
-  {
-        eventName: "Ceremonia Religiosa",
-        date: new Date(2026, 10, 28, 17, 0, 0),
-        locationName: "Catedral Metropolitana de Hermosillo",
-        address: "Blvr. Miguel Hidalgo S/N, Centro Norte, Hermosillo, Son.",
-        size: 12,
-        color: CHAMPAGNE,
-        mainTypo: SECONDARY_TYPO,
-        bodyTypo: BODY_TYPO,
-        href: "https://maps.app.goo.gl/w3WozHkVa5AYeZ1eA",
-        colorButton: BUTTON_PRIMARY,
-        colorIcon: BUTTON_PRIMARY,
-        fontSize: "3rem",
-        bgColor: BG_MAIN,
-        
-        image: `${iglesia}`,
-    },
-    {
-        eventName: "Recepción",
-        date: new Date(2026, 10, 28, 21, 0, 0),
-        locationName: "Eventos Villa Toscana",
-        address: "C. Quintero Arce 280, Puerta Grande, 83246 Hermosillo, Son.",
-        size: 12,
-        color: CHAMPAGNE,
-        mainTypo: SECONDARY_TYPO,
-        bodyTypo: BODY_TYPO,
-        href: "https://maps.app.goo.gl/VbwtzUFgSwEJPoam6",
-        colorButton: BUTTON_PRIMARY,
-        colorIcon: BUTTON_PRIMARY,
-        fontSize: "3rem",
-        bgColor: BG_MAIN,
-        
-        image: `${villa}`,
-    },
-    
-];
 
 const giftListData: GiftListProps = {
     title: "Sugerencia de Regalos",
@@ -119,7 +77,7 @@ const giftListData: GiftListProps = {
     items: [
         {
             number: "500055211",
-            link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60024483",
+            link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/0",
             icon: `${URL_REPO}boda/boda-brisa-rey/mesa/7.png`,
         },
     ],
@@ -150,66 +108,6 @@ const giftListData: GiftListProps = {
             outlineColor: true,
             mainTypo: MAIN_TYPO
         },
-    ],
-};
-
-const dresscode:DressCodeProps = {
-        fontSize:"3rem",
-        mainTypo: MAIN_TYPO,
-        bodyTypo:BODY_TYPO,
-        color:TEXT_PRIMARY,
-        type:3,
-        title:"FORMAL",
-        image: `${dresscodeimg}`,
-      imageSize:"200px",
-      bodyFontSize:".8rem"
-
-    
-    }
-const timelineData: CustomizedTimelineProps = {
-    mainTypo: MAIN_TYPO,
-    bodyTypo: BODY_TYPO,
-    colorPrimary: TEXT_PRIMARY,
-    colorTitle: TEXT_PRIMARY,
-    colorBody: TEXT_PRIMARY,
-    fontSize: "3rem",
-    bgColor: BG_ACCENT,
-    events: [
-        {
-            eventName: "Ceremonia Religiosa",
-            date: new Date(2026, 9, 9, 16, 0, 0),
-            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/15.png`,
-        },
-        {
-            eventName: "Coctel de Bienvenida",
-            date: new Date(2026, 9, 9, 16, 0, 0),
-            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/16.png`,
-        },
-         {
-            eventName: "Recepción",
-            date: new Date(2026, 9, 9, 16, 0, 0),
-            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/17.png`,
-        },
-        {
-            eventName: "Cena",
-            date: new Date(2026, 9, 9, 16, 30, 0),
-            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/10.png`,
-        },
-        {
-            eventName: "Vals Novios",
-            date: new Date(2026, 9, 9, 17, 30, 0),
-            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/11.png`,
-        },
-        {
-            eventName: "Fin del evento",
-            date: new Date(2026, 9, 9, 21, 0, 0),
-            icon: `${URL_REPO}boda/boda-ana-juan-angel/iconos/12.png`,
-        },
-        // {
-        //     eventName: "Posboda",
-        //     date: new Date(2026, 10, 15, 15, 0, 0),
-        //     icon: `${URL_IMAGES}iconos/8.svg`,
-        // },
     ],
 };
 
@@ -267,13 +165,113 @@ const WeddingDemoRose  = () => {
     const [showIntro, setShowIntro] = useState(true);
     const [showInvitation, setShowInvitation] = useState(false);
     const [guest, setGuest] = useState<Guest | null>(null);
+    const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
     const musicRef = useRef<MusicFabPlayerHandle>(null);
 
-
     const isSmallScreen = useMediaQuery('(max-width:600px)');
+
+    useEffect(() => {
+        getAssets(MEDIA_KEY).then(setCloudAssets).catch(() => setCloudAssets([]));
+    }, []);
+
+    const assetUrl = (kind: string, index = 0) =>
+        cloudAssets
+            .filter((asset) => asset.assetKind === kind)
+            .sort((a, b) => a.sortOrder - b.sortOrder)[index]?.secureUrl ?? EMPTY_ASSET;
+
     const coverSource = isSmallScreen
-        ? portada
-        : portadaHorz;
+        ? assetUrl("cover")
+        : assetUrl("cover-desktop");
+    const monogram = assetUrl("icon");
+
+    const eventCards: EventCardProps[] = [
+        {
+            eventName: "Ceremonia Religiosa",
+            date: new Date(2026, 10, 28, 17, 0, 0),
+            locationName: "Catedral Metropolitana de Hermosillo",
+            address: "Blvr. Miguel Hidalgo S/N, Centro Norte, Hermosillo, Son.",
+            size: 12,
+            color: CHAMPAGNE,
+            mainTypo: SECONDARY_TYPO,
+            bodyTypo: BODY_TYPO,
+            href: "https://maps.app.goo.gl/w3WozHkVa5AYeZ1eA",
+            colorButton: BUTTON_PRIMARY,
+            colorIcon: BUTTON_PRIMARY,
+            fontSize: "3rem",
+            bgColor: BG_MAIN,
+            image: assetUrl("church"),
+        },
+        {
+            eventName: "Recepción",
+            date: new Date(2026, 10, 28, 21, 0, 0),
+            locationName: "Eventos Villa Toscana",
+            address: "C. Quintero Arce 280, Puerta Grande, 83246 Hermosillo, Son.",
+            size: 12,
+            color: CHAMPAGNE,
+            mainTypo: SECONDARY_TYPO,
+            bodyTypo: BODY_TYPO,
+            href: "https://maps.app.goo.gl/VbwtzUFgSwEJPoam6",
+            colorButton: BUTTON_PRIMARY,
+            colorIcon: BUTTON_PRIMARY,
+            fontSize: "3rem",
+            bgColor: BG_MAIN,
+            image: assetUrl("reception"),
+        },
+    ];
+
+    const dresscode: DressCodeProps = {
+        fontSize: "3rem",
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        color: TEXT_PRIMARY,
+        type: 3,
+        title: "FORMAL",
+        image: assetUrl("icon", 8),
+        imageSize: "200px",
+        bodyFontSize: ".8rem",
+    };
+
+    const timelineData: CustomizedTimelineProps = {
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        colorPrimary: TEXT_PRIMARY,
+        colorTitle: TEXT_PRIMARY,
+        colorBody: TEXT_PRIMARY,
+        fontSize: "3rem",
+        bgColor: BG_ACCENT,
+        events: [
+            {
+                eventName: "Ceremonia Religiosa",
+                date: new Date(2026, 9, 9, 16, 0, 0),
+                icon: assetUrl("icon", 4),
+            },
+            {
+                eventName: "Coctel de Bienvenida",
+                date: new Date(2026, 9, 9, 16, 0, 0),
+                icon: assetUrl("icon", 5),
+            },
+            {
+                eventName: "Recepción",
+                date: new Date(2026, 9, 9, 16, 0, 0),
+                icon: assetUrl("icon", 3),
+            },
+            {
+                eventName: "Cena",
+                date: new Date(2026, 9, 9, 16, 30, 0),
+                icon: assetUrl("icon", 1),
+            },
+            {
+                eventName: "Vals Novios",
+                date: new Date(2026, 9, 9, 17, 30, 0),
+                icon: assetUrl("icon", 2),
+            },
+            {
+                eventName: "Fin del evento",
+                date: new Date(2026, 9, 9, 21, 0, 0),
+                icon: assetUrl("icon", 6),
+            },
+        ],
+    };
 
     const handleEnter = () => {
 
@@ -342,8 +340,8 @@ const WeddingDemoRose  = () => {
                 backgroundColor={BG_MAIN}
                 primaryColor={TEXT_PRIMARY}
 
-                envelopeImg={`${URL_REPO}xv/xv-evany/envelope.png`}
-                sealImg={`${URL_REPO}boda/boda-brisa-rey/sello.png`}
+                envelopeImg={assetUrl("envelope")}
+                sealImg={assetUrl("seal")}
 
                 sealPosition={introSealPosition}
                 // bottomRightCornerImg={`${URL_IMAGES}flores/5.png`}
@@ -409,13 +407,13 @@ const WeddingDemoRose  = () => {
                 <Fade  direction="up" triggerOnce={true}>
                     <Box 
                     component="img"
-                    src={monograma1}
+                    src={monogram}
                     alt="Imagen 2"
                     sx={{
                         width: isSmallScreen ? "80vw" : "30vh",
                         height: "auto",
-                        filter: monograma1 ? "blur(0)" : "blur(24px)",
-                        opacity: monograma1 ? 1 : 0.85,
+                        filter: monogram !== EMPTY_ASSET ? "blur(0)" : "blur(24px)",
+                        opacity: monogram !== EMPTY_ASSET ? 1 : 0.85,
                         transition: "opacity 0.8s ease, filter 0.8s ease",
                     }}
                 />
@@ -568,7 +566,7 @@ const WeddingDemoRose  = () => {
           {/* SOBRE */}
           <Box
             component="img"
-            src={`${sobre}`}
+            src={assetUrl("ornament")}
             alt=""
             sx={{
               position: "absolute",
@@ -879,7 +877,7 @@ const WeddingDemoRose  = () => {
  id="ubicacion"
   component="section"
   sx={{
-    backgroundImage: `url(${fondo1})`,
+    backgroundImage: `url(${assetUrl("background")})`,
     backgroundSize:"cover",
     position: "relative",
     minHeight: "70svh",
@@ -1075,7 +1073,7 @@ const WeddingDemoRose  = () => {
             <div style={{
                   backgroundImage: `
                 linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
-                url(${isSmallScreen ? fondo2 : itinerarioHorz})
+                url(${isSmallScreen ? assetUrl("background", 1) : assetUrl("background", 2)})
               `,
               backgroundSize: "cover",
                backgroundPosition: "bottom",
@@ -1203,7 +1201,7 @@ const WeddingDemoRose  = () => {
         position: "relative",
         minHeight: "100svh",
         overflow: "hidden",
-         backgroundImage: `url(${fondo1})`,
+         backgroundImage: `url(${assetUrl("background")})`,
     backgroundSize:"cover",
         display: "flex",
         justifyContent: "center",
@@ -1284,7 +1282,7 @@ const WeddingDemoRose  = () => {
                 >
                     <Box
                         component="img"
-                        src={item.icon}
+                        src={assetUrl("icon", 9)}
                         sx={{
                             height: 40,
                             

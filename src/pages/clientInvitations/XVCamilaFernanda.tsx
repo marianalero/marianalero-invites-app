@@ -32,11 +32,11 @@ export const BG_ACCENT = "#3F6F9314"; // Azul tenue para bloques
 // Primary Palette
 // =========================
 
-export const PRIMARY = "#3F6F93"; // Azul principal
+export const PRIMARY = "#356989"; // Azul principal
 
-export const PRIMARY_DARK = "#294F70"; // Azul profundo
+export const PRIMARY_DARK = "#234D6D"; // Azul profundo
 
-export const PRIMARY_LIGHT = "#B8D3E2"; // Azul acuarela
+export const PRIMARY_LIGHT = "#A5C5D8"; // Azul acuarela
 
 
 // =========================
@@ -49,9 +49,9 @@ export const IVORY = "#F8F5EE";
 
 export const BEIGE = "#E9DED0";
 
-export const TEXT_PRIMARY = "#55534F";
+const TEXT_PRIMARY = "#4B4945";
 
-export const TEXT_SECONDARY = "#817B73";
+export const TEXT_SECONDARY = "#706B64";
 
 export const GOLD = "#C6A15F";
 
@@ -119,6 +119,7 @@ const XVCamilaFernanda = () => {
       fontSize: "45px",
       colorButton: PRIMARY,
       bgColor: BG_MAIN,
+      textColor: TEXT_PRIMARY
     },
     {
       eventName: "Recepción",
@@ -135,6 +136,7 @@ const XVCamilaFernanda = () => {
       href: "https://maps.app.goo.gl/NzZRisdB9mEdvab2A",
       colorButton: PRIMARY,
       bgColor: BG_MAIN,
+      textColor: TEXT_PRIMARY
     },
   ];
   //  const musicRef = useRef<MusicFabPlayerHandle>(null);
@@ -160,9 +162,9 @@ const XVCamilaFernanda = () => {
       companionNames,
     );
     if (confirmText == "Asistiré") {
-      // window.open(`https://wa.me/+526625017752?text=Hola,Mi nombre es ${name}%20y%20confirmo%20mi%20asistencia%20para%20la%20Quinceañera%20%20de%20Briana.%0ANúmero de invitados:${totalConfirmed}%0AAcompañantes: ${companionNames}`, '_blank');
+       window.open(`https://wa.me/+526621150540?text=Hola,Mi nombre es ${name}%20y%20confirmo%20mi%20asistencia%20para%20la%20Quinceañera%20%20de%20Camila Fernanda.%0ANúmero de invitados:${totalConfirmed}%0AAcompañantes: ${companionNames}`, '_blank');
     } else {
-      // window.open(`https://wa.me/+526625017752?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20Quinceañera%20de%20Briana.Mi nombre es: ${name}`, '_blank');
+       window.open(`https://wa.me/+526621150540?text=Hola,%20no%20podre%20mi%20asistir%20a%20la%20Quinceañera%20de%20Camila Fernanda.Mi nombre es: ${name}`, '_blank');
     }
   };
 
@@ -257,7 +259,26 @@ const XVCamilaFernanda = () => {
     >
 
       <Fade direction="up" triggerOnce>
-
+  <Typography
+          className={`cormorant-garamond-600 to-upper`}
+          translate="no"
+          align="center"
+          sx={{
+            mt: 1.2,
+            mb:1.2,
+            fontSize: {
+              xs: "1.25rem",
+              sm: "1.45rem",
+            },
+            lineHeight: 2,
+            color: PRIMARY,
+            fontFeatureSettings: '"liga" 0, "locl" 0',
+            letterSpacing: 1,
+            fontWeight:600
+          }}
+        >
+          Mis XV años
+        </Typography>
         <Typography
           variant="h1"
           className={`${MAIN_TYPO}`}
@@ -279,23 +300,7 @@ const XVCamilaFernanda = () => {
           Fernanda
         </Typography>
 
-        <Typography
-          className={`${SECOND_TYPO}`}
-          translate="no"
-          align="center"
-          sx={{
-            mt: 1.2,
-            fontSize: {
-              xs: "1.25rem",
-              sm: "1.45rem",
-            },
-            lineHeight: 1.2,
-            color: PRIMARY,
-            fontFeatureSettings: '"liga" 0, "locl" 0',
-          }}
-        >
-          Mis XV años
-        </Typography>
+      
 
         <Typography
           className={`${BODY_TYPO}`}
@@ -303,7 +308,7 @@ const XVCamilaFernanda = () => {
           align="center"
           sx={{
             mt: 0.5,
-            fontSize: "0.95rem",
+            fontSize: "1.2rem",
             lineHeight: 1.8,
             letterSpacing: "0.04em",
             color: PRIMARY,
@@ -311,6 +316,25 @@ const XVCamilaFernanda = () => {
           }}
         >
           28 · NOVIEMBRE · 2026
+        </Typography>
+        <Typography
+          className={`cormorant-garamond-600 to-upper`}
+          translate="no"
+          align="center"
+          sx={{
+            mt: 1.2,
+            fontSize: {
+              xs: "1rem",
+              sm: "1.45rem",
+            },
+            lineHeight: 1.2,
+            letterSpacing: .5,
+            color: PRIMARY,
+            fontFeatureSettings: '"liga" 0, "locl" 0',
+            fontWeight:600
+          }}
+        >
+          Hermosillo, Sonora
         </Typography>
 
       </Fade>
@@ -485,6 +509,7 @@ const XVCamilaFernanda = () => {
                       className={`${SECOND_TYPO}`}
                       mb={2}
                       lineHeight={1.5}
+                      fontSize="1.5rem"
                     >
                       Con el amor y la guía de quienes<br></br> han acompañado
                       cada paso de mi vida...
@@ -506,6 +531,7 @@ const XVCamilaFernanda = () => {
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
+                    
                       variant="h1"
                       className={`${MAIN_TYPO} tex-`}
                       sx={{
@@ -557,6 +583,7 @@ const XVCamilaFernanda = () => {
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
+                    fontSize="1.5rem"
                       className={SECOND_TYPO}
                       sx={{ mt: 2 }}
                       lineHeight={1.5}
@@ -606,9 +633,9 @@ const XVCamilaFernanda = () => {
               translate="no"
               align="center"
               sx={{
-                fontSize: "1.3rem",
+                fontSize: "1.5rem",
                 lineHeight: 1.2,
-                color: "#8F97A5",
+                color: TEXT_SECONDARY,
                 fontFeatureSettings: '"liga" 0, "locl" 0',
               }}
             >
@@ -622,7 +649,7 @@ const XVCamilaFernanda = () => {
           title={{
             fontFamily: '"Parisienne"',
             color: PRIMARY_DARK,
-            fontSize: "1.8rem",
+            fontSize: "2rem",
             fontWeight: 700,
             lineHeight: 1.5,
             dateFormat: "DD MMMM YYYY",
@@ -716,6 +743,7 @@ const XVCamilaFernanda = () => {
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
+                    fontSize="1.5rem"
                       className={`${SECOND_TYPO}`}
                       mb={2}
                       lineHeight={1.5}
@@ -787,6 +815,7 @@ const XVCamilaFernanda = () => {
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
+                    fontSize="1.5rem"
                       className={SECOND_TYPO}
                       sx={{ mt: 2 }}
                       lineHeight={1.5}
@@ -973,7 +1002,8 @@ const XVCamilaFernanda = () => {
             </Fade>
           </Grid>
           <WithoutKids
-            bodyTypo={SECOND_TYPO}
+            fontSize="1rem"
+            bodyTypo={BODY_TYPO}
             textColor={TEXT_PRIMARY}
             subtitle2="NO NIÑOS"
           ></WithoutKids>

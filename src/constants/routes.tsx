@@ -194,13 +194,13 @@ const routes: RouteConfig[] = [
    {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
    {path:'/mariana-30', element: <Mariana30></Mariana30>},
   //Borradores
-  {path:'/prev-br-5', element:<WeddingBrisa></WeddingBrisa>},
+
 {path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
 
-{path:'/prev-cf-2', element:<XVCamilaFernanda></XVCamilaFernanda>},
+{path:'/prev-cf-3', element:<XVCamilaFernanda></XVCamilaFernanda>},
 {path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
 
-{path:'/prev-ka', element:<XVKate></XVKate>},
+{path:'/prev-ka-3', element:<XVKate></XVKate>},
 {path:'/prev-ig', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
 {path:'/prev-ig-p', element:<XVIsabellaGrijalvapPink></XVIsabellaGrijalvapPink>},
 ];
