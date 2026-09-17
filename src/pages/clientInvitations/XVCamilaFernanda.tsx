@@ -190,73 +190,29 @@ const XVCamilaFernanda = () => {
       ></EnvelopeIntro>
 <Box
   sx={{
-    height: { xs: "80svh", md: "100vh" },
+    height: { xs: "70svh", md: "100vh" },
+    width: "100%",
     px: { xs: 2, sm: 2.5 },
-    pt: { xs: 2, sm: 6 },
-    pb: 0,
     boxSizing: "border-box",
     display: "flex",
     flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     overflow: "hidden",
     backgroundImage: `url("${assetUrl("background", 2)}")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   }}
 >
   <Box
     sx={{
-      position: "relative",
-      flex: 1,
-      minHeight: 0,
       display: "flex",
       flexDirection: "column",
+      justifyContent: "center",
       alignItems: "center",
+      textAlign: "center",
     }}
   >
-
-    {/* ========================= */}
-    {/* FLOR SUPERIOR */}
-    {/* ========================= */}
-
-    {/* <Box
-      sx={{
-        position: "absolute",
-        top: { xs: 0, sm: 10 },
-        left: { xs: "-5px", sm: "4%" },
-        pointerEvents: "none",
-        zIndex: 1,
-      }}
-    >
-      <Fade direction="up" triggerOnce>
-        <img
-          src={assetUrl("ornament", 0)}
-          alt=""
-          style={{
-            width: "120px",
-            height: "auto",
-            display: "block",
-          }}
-        />
-      </Fade>
-    </Box> */}
-
-
-    {/* ========================= */}
-    {/* CONTENIDO */}
-    {/* ========================= */}
-
-    <Box
-      sx={{
-        position: "relative",
-        zIndex: 2,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        textAlign: "center",
-        mt: { xs: 0, sm: 1 },
-        
-      }}
-    >
 
       <Fade direction="up" triggerOnce>
   <Typography
@@ -347,8 +303,9 @@ const XVCamilaFernanda = () => {
       <Box
         sx={{
           width: { xs: "170px", sm: "200px" },
-          mt: { xs: 2, sm: 2.5 },
-          mb: 1,
+          height: { xs: "72px", sm: "88px" },
+          mt: { xs: 5, sm: 2.5 },
+          position: "relative",
           opacity: 0.9,
         }}
       >
@@ -356,10 +313,13 @@ const XVCamilaFernanda = () => {
           src={assetUrl("ornament", 5)}
           alt=""
           style={{
+            position: "absolute",
             width: "100%",
             height: "auto",
+            left: 0,
+            top: "50%",
+            transform: "translateY(-50%) rotate(-40deg)",
             display: "block",
-            transform:"rotate(-40deg)"
           }}
         />
       </Box>
@@ -369,11 +329,7 @@ const XVCamilaFernanda = () => {
       {/* BOUQUET INFERIOR */}
       {/* ========================= */}
 
-     
-
     </Box>
-
-  </Box>
 </Box>
 
       <Box
