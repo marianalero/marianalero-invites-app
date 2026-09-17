@@ -190,9 +190,9 @@ const XVCamilaFernanda = () => {
       ></EnvelopeIntro>
 <Box
   sx={{
-    height: { xs: "70svh", md: "100vh" },
+    height: { xs: "80svh", md: "100vh" },
     px: { xs: 2, sm: 2.5 },
-    pt: { xs: 4, sm: 6 },
+    pt: { xs: 2, sm: 6 },
     pb: 0,
     boxSizing: "border-box",
     display: "flex",
@@ -254,7 +254,7 @@ const XVCamilaFernanda = () => {
         alignItems: "center",
         textAlign: "center",
         mt: { xs: 0, sm: 1 },
-        top:"30%"
+        
       }}
     >
 

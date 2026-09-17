@@ -256,7 +256,7 @@ const EditorialCountdown = ({
             {titleVisible && titleContent != null && titleContent !== "" && (
               <Typography
                 component="p"
-                noWrap
+                
                 sx={{
                   margin: 0,
                   textAlign: "center",
