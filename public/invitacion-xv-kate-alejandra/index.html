@@ -2,20 +2,31 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>XV Alexia</title>
+    <title>XV Kate Alejandra</title>
     <meta name="description" content="Invitación" />
-    <meta property="og:title" content="XV Alexia" />
+    <meta property="og:title" content="XV KateAlejandra" />
     <meta property="og:description" content="Invitación" />
     <meta property="og:image" content="https://res.cloudinary.com/dgikurjhr/image/upload/v1789588152/invitations/xv-kate/na1evfzd9znd0fphoqnd.jpg" />
     <meta property="og:url" content="http://marianalero-invites.com/xv-kate-alejandra" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <script>
+  
+<script>
+    const params = new URLSearchParams(window.location.search);
 
-      window.location.href = "http://marianalero-invites.com/xv-kate-alejandra";
+    const number = params.get("number");
+    const id = params.get("id");
+
+    if (number) {
+        window.location.href = `https://marianalero-invites.com/?number=${encodeURIComponent(number)}`;
+    } else if (id) {
+        window.location.href = `https://marianalero-invites.com/?id=${encodeURIComponent(id)}`;
+    } else {
+        window.location.href = "https://marianalero-invites.com";
+    }
+</script>
+      
     
-
-    </script>
   </body>
 </html>
