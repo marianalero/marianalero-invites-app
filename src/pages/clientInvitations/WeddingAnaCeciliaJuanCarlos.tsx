@@ -116,7 +116,7 @@ const SECONDARY_TYPO = "dm-serif-display-regular";
 const BODY_TYPO = "manrope-400";
 
 const COUNTDOWN_DATE = new Date(2026, 9, 15);
-const RSVP_DATE_LINE = new Date(2026, 8, 20);
+const RSVP_DATE_LINE = new Date(2026, 8, 30);
 
 const eventCards: EventCardProps[] = [
   {
