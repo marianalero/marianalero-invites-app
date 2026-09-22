@@ -573,7 +573,7 @@ const XVKate = () => {
             {/* PADRES */}
 
             {PeopleGroup("Sus padres", [
-              "Betzabé Minerva Flores Orante",
+              "Betzabé Minerva Flores Orantes",
               "Clayde  Eduardo Navarro Soto",
             ])}
 
