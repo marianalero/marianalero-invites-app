@@ -92,6 +92,7 @@ import WeddingMariela from "../pages/clientInvitations/WeddingMariela";
 import XVKate from "../pages/clientInvitations/XVKate";
 import XVIsabellaGrijalva from "../pages/clientInvitations/XVIsabellaGrijalva";
 import XVIsabellaGrijalvapPink from "../pages/clientInvitations/XVIsabellaGrijalvapPink";
+import WeddingEliMiguel from "../pages/clientInvitations/WeddingEliMiguel";
 
 interface RouteConfig {
   path: string;
@@ -152,6 +153,7 @@ const routes: RouteConfig[] = [
   {path:'/boda-ana-cecilia-juan-carlos', element:<WeddingAnaCeciliaJuanCarlos></WeddingAnaCeciliaJuanCarlos>},
     {path:'/boda-brisa-david', element:<WeddingBrisa></WeddingBrisa>},
     {path:'/boda-mariela-ivan', element:<WeddingMariela></WeddingMariela>},
+    {path:'/boda-elizabeth-miguel', element:<WeddingEliMiguel></WeddingEliMiguel>},
     {path:'/xv-kate-alejandra', element:<XVKate></XVKate>},
   //Bautizo
   //XV
@@ -197,12 +199,13 @@ const routes: RouteConfig[] = [
 
 {path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
 
-{path:'/prev-cf-3', element:<XVCamilaFernanda></XVCamilaFernanda>},
+
 {path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
 
-{path:'/prev-ka-3', element:<XVKate></XVKate>},
+
 {path:'/prev-ig', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
 {path:'/prev-ig-p', element:<XVIsabellaGrijalvapPink></XVIsabellaGrijalvapPink>},
+{path:'/prev-em', element:<WeddingEliMiguel></WeddingEliMiguel>},
 ];
 
 

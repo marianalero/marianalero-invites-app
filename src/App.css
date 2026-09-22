@@ -394,7 +394,12 @@
   font-weight: 400!important;
   font-style: italic!important;
 }
-
+.dm-sans-500 {
+  font-family: "DM Sans", sans-serif!important;
+  font-optical-sizing: auto;
+  font-weight: 500!important;
+  font-style: normal;
+}
 .italic{
   font-style: italic!important;
 }

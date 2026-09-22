@@ -38,35 +38,13 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import EnvelopeIntro from "../../components/EnvelopeIntro/EnvelopeIntro";
 import { ENVELOPE_OPEN_MS } from "../../components/EnvelopeIntro/animations";
 import Gallery from "../../components/Gallery/Gallert";
-
-import imgPortada from "../../assets/boda-mitzia-jhovanny/portada.jpg";
-import imgEnmedio from "../../assets/boda-mitzia-jhovanny/enmedio.jpg";
-import imgEnmedio2 from "../../assets/boda-mitzia-jhovanny/enmedio2.jpg";
-import imgEnmedio3 from "../../assets/boda-mitzia-jhovanny/enmedio3.jpg";
-import imgFondo1 from "../../assets/boda-mitzia-jhovanny/fondo1.png";
-import imgFondo2 from "../../assets/boda-mitzia-jhovanny/fondo2.png";
-import imgContador from "../../assets/boda-mitzia-jhovanny/contador.jpg";
-import imgItinerario from "../../assets/boda-mitzia-jhovanny/itinerario.jpg";
-import imgIglesia from "../../assets/boda-mitzia-jhovanny/iglesia.jpeg";
-import imgRecepcion from "../../assets/boda-mitzia-jhovanny/recepcion.jpeg";
-import imgSello from "../../assets/boda-mitzia-jhovanny/sello.png";
-import imgHombres from "../../assets/boda-mitzia-jhovanny/hombres.png";
-import imgMujeres from "../../assets/boda-mitzia-jhovanny/mujeres.png";
-import imgG2 from "../../assets/boda-mitzia-jhovanny/g2.jpg";
-import imgM1 from "../../assets/boda-mitzia-jhovanny/m1.jpg";
-import imgM2 from "../../assets/boda-mitzia-jhovanny/m2.jpg";
-import imgM3 from "../../assets/boda-mitzia-jhovanny/m3.jpg";
-import icono1 from "../../assets/boda-mitzia-jhovanny/iconos/1.png";
-import icono2 from "../../assets/boda-mitzia-jhovanny/iconos/2.png";
-import icono3 from "../../assets/boda-mitzia-jhovanny/iconos/3.png";
-import icono7 from "../../assets/boda-mitzia-jhovanny/iconos/7.png";
-import icono8 from "../../assets/boda-mitzia-jhovanny/iconos/8.png";
-import icono10 from "../../assets/boda-mitzia-jhovanny/iconos/10.png";
-import mesa7 from "../../assets/boda-mitzia-jhovanny/mesa/7.png";
-import mesa8 from "../../assets/boda-mitzia-jhovanny/mesa/8.png";
-import mesa51 from "../../assets/boda-mitzia-jhovanny/mesa/51.png";
+import { getAssets } from "../../services/mediaApiClient";
+import type { InvitationAsset } from "../../models/invitationAsset";
 
 const INVITATION_ID = 34;
+const MEDIA_KEY = "invitacion-mitzia-jhovanny";
+const EMPTY_ASSET =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 // 🎨 BACKGROUNDS
 const BG_MAIN = "#FCFBF8";      // Blanco cálido (base de toda la invitación)
 const BG_SECTION = "#F7F3EC";   // Beige muy sutil para separar secciones
@@ -107,132 +85,11 @@ const URL_SONG = `${URL_REPO}canciones/Photograph-Ed Sheeran.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 6);
 const RSVP_DATE_LINE = new Date(2026, 8, 28);
 
-const eventCards: EventCardProps[] = [
-    {
-        eventName: "Ceremonia",
-        date: new Date(2025, 10, 6, 12, 0, 0),
-        locationName: "Parroquia Medalla Milagrosa ",
-        address: "Av Villa del Mar, Villas de Miramar, Guaymas, Son.",
-        size: 12,
-        color: TEXT_PRIMARY,
-        mainTypo: SECONDARY_TYPO,
-        bodyTypo: BODY_TYPO,
-        href: "https://maps.app.goo.gl/A3Kfq5advC1bnbur8?g_st=ac",
-        colorButton: BUTTON_PRIMARY,
-        colorIcon: BUTTON_PRIMARY,
-        fontSize: "2rem",
-        bgColor: "white",
-        borderSquare: true,
-        icon: imgIglesia
-    },
-    {
-        bgColor: "white",
-        eventName: "Recepción",
-        date: new Date(2026, 10, 6, 16, 0, 0),
-        locationName: " Jardin Quinta Got, San Carlos, Son",
-        address: "Av. A 1265, Sector ranchitos, San Carlos, Son.",
-        size: 12,
-        color: TEXT_PRIMARY,
-        mainTypo: SECONDARY_TYPO,
-        bodyTypo: BODY_TYPO,
-        href: "https://maps.app.goo.gl/BLLHhXG4Eu1FaRtZ8",
-        colorButton: BUTTON_PRIMARY,
-        colorIcon: TEXT_PRIMARY,
-        fontSize: "2rem",
-        borderSquare: true,
-        icon: imgRecepcion
-    },
-];
-
-const giftListData: GiftListProps = {
-    title: "Sugerencias de regalos",
-    fontSize: "1.5rem",
-    mainPhrase: "Si su deseo es hacernos algún obsequio compartimos las opciones",
-    items: [
-        {
-            link: "https://www.amazon.com.mx/wedding/guest-view/YB2G0H03RN60",
-            icon: mesa8,
-        },
-        {
-            link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60026387	",
-            number: "60026387",
-            icon: mesa7,
-        },
-    ],
-    giftIcon: icono10,
-    mainTypo: MAIN_TYPO,
-    bodyTypo: BODY_TYPO,
-    textColor: TEXT_PRIMARY,
-    bgColor: "#FFFFFF",
-    showEnvelope: true,
-    envelopeMainTypo: SECONDARY_TYPO,
-    envelopeFontSize: "1.5rem",
-    envelopePhrase: "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
-    secondPhrase: "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
-    envelopeTitleColor: TEXT_PRIMARY,
-    bankIconStart: mesa51,
-    bankDetails: [
-        {
-            numbers: [
-                {
-                    numberType: "N. Tarjeta",
-                    number: "4152314051913500",
-                },
-            ],
-            bank: "BBVA",
-            name: "Mitzia Alejandra Oceguera osuna ",
-            textColor: TEXT_PRIMARY,
-            bodyTypo: BODY_TYPO,
-            bgColor: "white",
-            outlineColor: true,
-            mainTypo: MAIN_TYPO
-        },
-    ],
-};
-
-
 const qoute: QouteProps = {
     qoute: "Lo que Dios unió, que el amor lo conserve por siempre",
     bodyTypo: MAIN_TYPO,
     italic: true,
     fontsize: "2rem",
-};
-
-const timelineData: CustomizedTimelineProps = {
-    mainTypo: MAIN_TYPO,
-    bodyTypo: BODY_TYPO,
-    colorPrimary: "white",
-    colorTitle: "white",
-    colorBody: "white",
-    fontSize: "50px",
-    bgColor: TEXT_PRIMARY,
-    events: [
-        {
-            eventName: "Ceremonia Religiosa",
-            date: new Date(2025, 10, 16, 12, 0, 0),
-            icon: icono1,
-        },
-        {
-            eventName: "Cóctel  de bienvenida",
-            date: new Date(2025, 10, 16, 16, 0, 0),
-            icon: icono2,
-        },
-        {
-            eventName: "Boda civil",
-            date: new Date(2025, 10, 16, 17, 0, 0),
-            icon: icono3,
-        },
-        {
-            eventName: "Cena",
-            date: new Date(2025, 10, 16, 18, 0, 0),
-            icon: icono7,
-        },
-        {
-            eventName: "Fiesta",
-            date: new Date(2025, 10, 16, 18, 45, 0),
-            icon: icono8,
-        },
-    ],
 };
 
 const calendarButtonProps = {
@@ -247,17 +104,6 @@ const calendarButtonProps = {
         color: TEXT_PRIMARY,
     },
 };
-
-const galleryImages = [
-    imgG2,
-];
-
-const miniGallery = [
-    imgM1,
-    imgM3,
-    imgM2,
-];
-
 
 const godParents = [
   {
@@ -294,6 +140,147 @@ const WeddingMitzy  = () => {
         const num = Number(searchParams.get("id"));
         return isNaN(num) ? undefined : num;
     }, [searchParams]);
+
+    const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
+
+    useEffect(() => {
+        getAssets(MEDIA_KEY).then(setCloudAssets).catch(() => setCloudAssets([]));
+    }, []);
+
+    const assetUrl = (kind: string, index = 0) =>
+        cloudAssets
+            .filter((asset) => asset.assetKind === kind)
+            .sort((a, b) => a.sortOrder - b.sortOrder)[index]?.secureUrl ?? EMPTY_ASSET;
+
+    const eventCards: EventCardProps[] = [
+        {
+            eventName: "Ceremonia",
+            date: new Date(2025, 10, 6, 12, 0, 0),
+            locationName: "Parroquia Medalla Milagrosa ",
+            address: "Av Villa del Mar, Villas de Miramar, Guaymas, Son.",
+            size: 12,
+            color: TEXT_PRIMARY,
+            mainTypo: SECONDARY_TYPO,
+            bodyTypo: BODY_TYPO,
+            href: "https://maps.app.goo.gl/A3Kfq5advC1bnbur8?g_st=ac",
+            colorButton: BUTTON_PRIMARY,
+            colorIcon: BUTTON_PRIMARY,
+            fontSize: "2rem",
+            bgColor: "white",
+            borderSquare: true,
+            icon: assetUrl("church"),
+        },
+        {
+            bgColor: "white",
+            eventName: "Recepción",
+            date: new Date(2026, 10, 6, 16, 0, 0),
+            locationName: " Jardin Quinta Got, San Carlos, Son",
+            address: "Av. A 1265, Sector ranchitos, San Carlos, Son.",
+            size: 12,
+            color: TEXT_PRIMARY,
+            mainTypo: SECONDARY_TYPO,
+            bodyTypo: BODY_TYPO,
+            href: "https://maps.app.goo.gl/BLLHhXG4Eu1FaRtZ8",
+            colorButton: BUTTON_PRIMARY,
+            colorIcon: TEXT_PRIMARY,
+            fontSize: "2rem",
+            borderSquare: true,
+            icon: assetUrl("reception"),
+        },
+    ];
+
+    const giftListData: GiftListProps = {
+        title: "Sugerencias de regalos",
+        fontSize: "1.5rem",
+        mainPhrase: "Si su deseo es hacernos algún obsequio compartimos las opciones",
+        items: [
+            {
+                link: "https://www.amazon.com.mx/wedding/guest-view/YB2G0H03RN60",
+                icon: assetUrl("icon", 7),
+            },
+            {
+                link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60026387	",
+                number: "60026387",
+                icon: assetUrl("icon", 6),
+            },
+        ],
+        giftIcon: assetUrl("icon", 5),
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        textColor: TEXT_PRIMARY,
+        bgColor: "#FFFFFF",
+        showEnvelope: true,
+        envelopeMainTypo: SECONDARY_TYPO,
+        envelopeFontSize: "1.5rem",
+        envelopePhrase: "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
+        secondPhrase: "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
+        envelopeTitleColor: TEXT_PRIMARY,
+        bankIconStart: assetUrl("icon", 8),
+        bankDetails: [
+            {
+                numbers: [
+                    {
+                        numberType: "N. Tarjeta",
+                        number: "4152314051913500",
+                    },
+                ],
+                bank: "BBVA",
+                name: "Mitzia Alejandra Oceguera osuna ",
+                textColor: TEXT_PRIMARY,
+                bodyTypo: BODY_TYPO,
+                bgColor: "white",
+                outlineColor: true,
+                mainTypo: MAIN_TYPO
+            },
+        ],
+    };
+
+    const timelineData: CustomizedTimelineProps = {
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        colorPrimary: "white",
+        colorTitle: "white",
+        colorBody: "white",
+        fontSize: "50px",
+        bgColor: TEXT_PRIMARY,
+        events: [
+            {
+                eventName: "Ceremonia Religiosa",
+                date: new Date(2025, 10, 16, 12, 0, 0),
+                icon: assetUrl("icon", 0),
+            },
+            {
+                eventName: "Cóctel  de bienvenida",
+                date: new Date(2025, 10, 16, 16, 0, 0),
+                icon: assetUrl("icon", 1),
+            },
+            {
+                eventName: "Boda civil",
+                date: new Date(2025, 10, 16, 17, 0, 0),
+                icon: assetUrl("icon", 2),
+            },
+            {
+                eventName: "Cena",
+                date: new Date(2025, 10, 16, 18, 0, 0),
+                icon: assetUrl("icon", 3),
+            },
+            {
+                eventName: "Fiesta",
+                date: new Date(2025, 10, 16, 18, 45, 0),
+                icon: assetUrl("icon", 4),
+            },
+        ],
+    };
+
+    const galleryImages = cloudAssets
+        .filter((asset) => asset.assetKind === "gallery")
+        .sort((a, b) => a.sortOrder - b.sortOrder)
+        .map((asset) => asset.secureUrl);
+
+    const miniGallery = cloudAssets
+        .filter((asset) => asset.assetKind === "mini-gallery")
+        .sort((a, b) => a.sortOrder - b.sortOrder)
+        .map((asset) => asset.secureUrl);
 
     // const songUrl = useMemo(() => {
     //     const songId = Number(searchParams.get("song"));
@@ -350,7 +337,7 @@ const WeddingMitzy  = () => {
                 open={showIntro}
                 onEnter={handleEnter}
                 musicRef={musicRef}
-                sealImage={imgSello}
+                sealImage={assetUrl("seal")}
                 envelopeColor="#0F0F0F"
 
                 overlayColor="#000"
@@ -392,7 +379,7 @@ const WeddingMitzy  = () => {
             <CoverInline 
                 ourWeddingStart={true}
                 weddingDate="06. Noviembre.2026"
-                bgImage={imgPortada}
+                bgImage={assetUrl("cover")}
                 brideName="Mitzia" 
                 symbolr={"y"} 
                 groomName={"Jhovanny"} 
@@ -414,8 +401,8 @@ const WeddingMitzy  = () => {
            
             </Box>
             </div>
-            <ImageMiddle bgPosition="30%" height="50vh" bgImage={imgEnmedio} bgPositionY="70%"></ImageMiddle>
-              <div style={{backgroundImage: `url("${imgFondo1}")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+            <ImageMiddle bgPosition="30%" height="50vh" bgImage={assetUrl("middle-image")} bgPositionY="70%"></ImageMiddle>
+              <div style={{backgroundImage: `url("${assetUrl("background")}")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             
             <Grid container spacing={2} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -481,10 +468,10 @@ const WeddingMitzy  = () => {
                 </Grid>
             </Grid>
             </div>
-            <ImageMiddle bgPosition="center" height="50vh" bgImage={imgEnmedio2} bgPositionY="50%"></ImageMiddle>
+            <ImageMiddle bgPosition="center" height="50vh" bgImage={assetUrl("middle-image", 1)} bgPositionY="50%"></ImageMiddle>
             <CountDown 
                 eventDate={COUNTDOWN_DATE}
-                bgImage={imgContador}
+                bgImage={assetUrl("background", 2)}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={SECONDARY_TYPO} 
                 fontSize="1.8rem"
@@ -628,7 +615,7 @@ const WeddingMitzy  = () => {
  
 
             </div>
-                          <div style={{backgroundImage: `url("${imgItinerario}")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+                          <div style={{backgroundImage: `url("${assetUrl("background", 3)}")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(0,0,0,.5)"}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -801,10 +788,9 @@ de esta celebración.</Typography>
             >
               Mujeres
             </Typography>
-
             <Box
               component="img"
-               src={imgMujeres}
+               src={assetUrl("icon",10)}
               sx={{
                 width: "100%",
                 maxWidth: 300,
@@ -812,12 +798,12 @@ de esta celebración.</Typography>
                 mb: 4,
               }}
             />
-
             <Typography
               sx={{
                 fontFamily: "Inter",
                 color: TEXT_PRIMARY,
                 lineHeight: 2,
+                mt: 3,
                 mb: 4,
               }}
             >
@@ -863,10 +849,9 @@ de esta celebración.</Typography>
             >
               Hombres
             </Typography>
-
-            <Box
+ <Box
               component="img"
-              src={imgHombres}
+               src={assetUrl("icon",9)}
               sx={{
                 width: "100%",
                 maxWidth: 300,
@@ -874,12 +859,12 @@ de esta celebración.</Typography>
                 mb: 4,
               }}
             />
-
             <Typography
               sx={{
                 fontFamily: "Inter",
                 color: TEXT_PRIMARY,
                 lineHeight: 2,
+                mt: 3,
                 mb: 4,
               }}
             >
@@ -982,7 +967,7 @@ de esta celebración.</Typography>
               </Grid>
       </Grid>
     </Box>
-            <div style={{backgroundImage: `url("${imgFondo2}")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat", }}>
+            <div style={{backgroundImage: `url("${assetUrl("background", 1)}")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat", }}>
             <Grid container spacing={2} padding={1} paddingBottom={0} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                     <Box display={"flex"} justifyContent={"center"} marginBottom={4}>
@@ -1045,7 +1030,7 @@ de esta celebración.</Typography>
                                         >
                                         <Box
                                             component="img"
-                                            src={icono10}
+                                            src={assetUrl("icon", 5)}
                                             sx={{
                                             height: "100px",
                                             }}
@@ -1087,7 +1072,7 @@ de esta celebración.</Typography>
                                     >
                                         <Box
                                             component="img"
-                                            src={mesa51}
+                                            src={assetUrl("icon", 8)}
                                             sx={{
                                                 height: 40,
                                                 
@@ -1243,7 +1228,7 @@ de esta celebración.</Typography>
                     imageHeightMobile={260}
                     />
                     </div>
-            <ImageMiddle bgPosition="center" height="50vh" bgImage={imgEnmedio3} bgPositionY="50%"></ImageMiddle>
+            <ImageMiddle bgPosition="center" height="50vh" bgImage={assetUrl("middle-image", 2)} bgPositionY="50%"></ImageMiddle>
              <Box
                 display="flex"
                 justifyContent="center"
@@ -1348,7 +1333,7 @@ de esta celebración.</Typography>
                 </Box>
             
           
-                        <div style={{backgroundImage: `url("${imgFondo2}")`, backgroundSize: "cover", backgroundPosition: "right", padding: "10px 10px" }}>
+                        <div style={{backgroundImage: `url("${assetUrl("background", 1)}")`, backgroundSize: "cover", backgroundPosition: "right", padding: "10px 10px" }}>
 
                     
                         
