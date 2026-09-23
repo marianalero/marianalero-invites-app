@@ -73,7 +73,7 @@ const BODY_TYPO = "dm-sans-500";
 const URL_SONG = `${URL_REPO}canciones/Unchained-Melody.mp3`;
 
 const COUNTDOWN_DATE = new Date(2026, 9, 24);
-const RSVP_DATE_LINE = new Date(2026, 8, 28);
+const RSVP_DATE_LINE = new Date(2026, 9, 10);
 
 const calendarButtonProps = {
   variant: "outlined" as const,
@@ -103,8 +103,6 @@ const godParents = [
 ];
 
 const colorPalette = [
-  "#A8B09F",
-  "#E8DED0",
   "#A85F3F",
   "#5A2630",
   "#25483E",
@@ -190,8 +188,8 @@ const WeddingEliMiguel = () => {
             number: "012 180 01526677937 9",
           },
         ],
-        bank: "BANCO",
-        name: "NOMBRE CUENT",
+        bank: "BBVA Bancomer",
+        name: " Elizabeth Salazar",
         textColor: TEXT_PRIMARY,
         bodyTypo: BODY_TYPO,
         bgColor: "white",
@@ -221,8 +219,13 @@ const WeddingEliMiguel = () => {
         icon: assetUrl("icon", 3),
       },
       {
-        eventName: "Bendición - Brindis",
+        eventName: "Ceremonia religiosa",
         date: new Date(2025, 10, 16, 17, 30, 0),
+        icon: assetUrl("icon", 4),
+      },
+      {
+        eventName: "Brindis",
+        date: new Date(2025, 10, 16, 17, 45, 0),
         icon: assetUrl("icon", 5),
       },
       {
@@ -332,7 +335,7 @@ const WeddingEliMiguel = () => {
         <CoverInline
           ourWeddingStart={true}
           weddingDate="24.OCTUBRE.26"
-          bgImage={assetUrl("cover")}
+          bgImage={assetUrl("middle-image", 4)}
           brideName="Elizabeth "
           symbolr={"y"}
           groomName={"Miguel"}
@@ -917,17 +920,9 @@ const WeddingEliMiguel = () => {
         {timelineData.events?.map((event, index) => {
           const isLast = index === (timelineData.events?.length ?? 0) - 1;
 
-          const date = event.date
-            ? new Date(event.date)
-            : undefined;
+          
 
-          const time = date
-            ? date.toLocaleTimeString("es-MX", {
-                hour: "numeric",
-                minute: "2-digit",
-                hour12: true,
-              })
-            : "";
+          const time = event.date ? dayjs(event.date).format("h:mm A") : "";
 
           return (
             <Fade triggerOnce={true} direction="up">
@@ -1349,7 +1344,7 @@ const WeddingEliMiguel = () => {
         <ImageMiddle
           bgPosition="center"
           height="50vh"
-          bgImage={assetUrl("middle-image", 4)}
+          bgImage={assetUrl("cover")}
           bgPositionY="50%"
         ></ImageMiddle>
         <Box
