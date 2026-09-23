@@ -141,7 +141,7 @@ const WeddingEliMiguel = () => {
     {
       bgColor: "white",
       eventName: "Ceremonia  - Recepción",
-      date: new Date(2026, 10, 6, 16, 0, 0),
+      date: new Date(2026, 10, 6, 16, 40, 0),
       endDate :  new Date(2026, 10, 6, 23, 0, 0),
       locationName: "Casa Parotta",
       address: "Ponciano Arriaga, Constitucion, 83150 Hermosillo, Son.",
