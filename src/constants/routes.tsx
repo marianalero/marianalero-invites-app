@@ -91,7 +91,7 @@ import XVCenicienta from "../pages/clientInvitations/XVCenicienta";
 import WeddingMariela from "../pages/clientInvitations/WeddingMariela";
 import XVKate from "../pages/clientInvitations/XVKate";
 import XVIsabellaGrijalva from "../pages/clientInvitations/XVIsabellaGrijalva";
-import XVIsabellaGrijalvapPink from "../pages/clientInvitations/XVIsabellaGrijalvapPink";
+
 import WeddingEliMiguel from "../pages/clientInvitations/WeddingEliMiguel";
 import XVIvannaDurazo from "../pages/clientInvitations/XVIvannaDurazo";
 
