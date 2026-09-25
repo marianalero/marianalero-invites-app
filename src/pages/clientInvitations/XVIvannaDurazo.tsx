@@ -29,39 +29,35 @@ import Gallery from "../../components/Gallery/Gallert";
 // Background Palette
 // =========================
 
-// =========================
-// Background Palette
-// =========================
+export const BG_MAIN = "#FCF8F2"; // Marfil cálido - fondo principal
 
-export const BG_MAIN = "#FFF9F8"; // Rosa casi blanco
+export const BG_SECTION = "#FFFDF9"; // Marfil casi blanco - tarjetas / secciones
 
-export const BG_SECTION = "#FFFFFF"; // Tarjetas / secciones
+export const BG_ALT = "#F8E9EC"; // Rosa muy tenue - secciones alternas
 
-export const BG_ALT = "#FCECEF"; // Rosa muy tenue
-
-export const BG_ACCENT = "#E8B6C420"; // Rosa translúcido
+export const BG_ACCENT = "#E7A0B020"; // Rosa blush translúcido para bloques
 
 
 // =========================
 // Primary Palette
 // =========================
 
-export const PRIMARY = "#D99AAA"; // Rosa empolvado principal
+export const PRIMARY = "#D88FA2"; // Rosa blush principal
 
-export const PRIMARY_DARK = "#B96F82"; // Rosa viejo / profundo
+export const PRIMARY_DARK = "#B85F78"; // Rosa antiguo / profundo
 
-export const PRIMARY_LIGHT = "#F2D6DC"; // Rosa claro
+export const PRIMARY_LIGHT = "#F1CBD3"; // Rosa blush claro
 
 
 // =========================
-// Secondary Pink Palette
+// Pink Palette
 // =========================
 
-export const PINK = "#E5B4C0"; // Blush
+export const PINK = "#E5A0B1"; // Rosa empolvado
 
-export const PINK_DARK = "#A85D72"; // Rosa profundo
+export const PINK_DARK = "#C56F86"; // Rosa profundo
 
-export const PINK_LIGHT = "#F8E8EC"; // Rosa muy pálido
+export const PINK_LIGHT = "#F6E1E5"; // Rosa muy claro
 
 
 // =========================
@@ -70,37 +66,32 @@ export const PINK_LIGHT = "#F8E8EC"; // Rosa muy pálido
 
 export const WHITE = "#FFFFFF";
 
-export const IVORY = "#FFF9F7";
+export const IVORY = "#FCF8F2"; // Marfil cálido
 
-export const BEIGE = "#E9DDD5";
+export const BEIGE = "#E8D8CB"; // Beige rosado
 
-export const TEXT_PRIMARY = "#1f1f1f";
+export const TEXT_PRIMARY = "#534644"; // Café rosado / texto principal
 
-export const TEXT_SECONDARY = "#2e2628";
+export const TEXT_SECONDARY = "#8D7776"; // Rosa grisáceo / texto secundario
 
-export const GOLD = "#C7A96B";
+export const GOLD = "#D2B080"; // Champagne dorado suave
 
-export const BORDER = "#EBD8DC";
+export const BORDER = "#E8D9D4"; // Beige rosado claro
 
-export const DIVIDER = "#E8D5DA";
-
-
-// =========================
-// Effects
-// =========================
+export const DIVIDER = "#E5CFD0"; // Rosa beige para divisores
 
 export const SHADOW =
-  "0px 10px 30px rgba(185,111,130,.10)";
+  "0px 10px 30px rgba(113,128,96,.10)";
 
 export const MAGIC_GLOW =
-  "0 0 30px rgba(217,154,170,.25)";
+  "0 0 30px rgba(175,196,154,.25)";
 
-export const STORY_DIVIDER = "#EED9DE";
-const MAIN_TYPO = "pinyon-script-regular ";
-const SECOND_TYPO = "noto-serif-display-400";
-const BODY_TYPO = "manrope-400 to-upper";
+export const STORY_DIVIDER = "#DCE3D2";
+const MAIN_TYPO = "eyesome";
+const SECOND_TYPO = "prata";
+const BODY_TYPO = "raleway-400 to-upper";
 
-const MEDIA_KEY = "invitacion-xv-isabella-grijalva";
+const MEDIA_KEY = "invitacion-xv-ivanna-durazo";
 const EMPTY_ASSET = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 
 const dresscode: DressCodeProps = {
@@ -125,11 +116,11 @@ const calendarButtonProps = {
         color: PRIMARY,
     },
 };
-const COUNTDOWN_DATE = new Date(2026, 10, 13);
-const RSVP_DATE_LINE = new Date(2026, 10, 1);
-const INVITATION_ID = 39;
+const COUNTDOWN_DATE = new Date(2026, 10, 27);
+const RSVP_DATE_LINE = new Date(2026, 10, 15);
+const INVITATION_ID = 0;
 
-const XVIsabellaGrijalvapPink = () => {
+const XVIvannaDurazo = () => {
   const [searchParams] = useSearchParams();
   const invitedGuests: number = useMemo(() => {
     const num = Number(searchParams.get("number"));
@@ -147,15 +138,16 @@ const XVIsabellaGrijalvapPink = () => {
     cloudAssets.filter((asset) => asset.assetKind === kind)[index]?.secureUrl ?? EMPTY_ASSET;
 
   const eventCards: EventCardProps[] = [
-    { eventName: "Misa y Recepción", date: new Date(2026, 3, 11, 17, 0, 0),
-     locationName: "Villa Toscana",
-     address: "C. Quintero Arce 280, Puerta Grande, 83246 Hermosillo, Son.", 
+    { eventName: "Recepción", 
+      date: new Date(2026, 3, 11, 20, 0, 0),
+     locationName: "La Casona de Xochimilco",
+     address: "C. Morelos 1, Villa de Seris, 83280 Hermosillo, Son.", 
      size: 6, color: PRIMARY_DARK,
-      icon: assetUrl("gallery",0), 
+      icon: assetUrl("reception",0), 
       iconSize: "180px",
        mainTypo: MAIN_TYPO, 
        bodyTypo: BODY_TYPO, 
-       href: "https://maps.app.goo.gl/CjowVEM3qFEvejJ89", 
+       href: "https://maps.app.goo.gl/gWqjWBH56ehQAb7g9", 
        fontSize: "45px",
         colorButton: PRIMARY,
          bgColor: BG_MAIN },
@@ -173,27 +165,27 @@ const XVIsabellaGrijalvapPink = () => {
             {
                 eventName: "Misa",
                 date: new Date(2026, 0, 31, 17, 0, 0),
-                icon:assetUrl("icon",0),
+                icon:assetUrl("icon",5),
             },
             {
                 eventName: "Recepción",
                 date: new Date(2026, 0, 31, 20, 0, 0),
-                icon:assetUrl("icon",1),
+                icon:assetUrl("icon",6),
             },
             {
                 eventName: "Vals",
                 date: new Date(2026,  0, 31,21,0,0),
-                icon:assetUrl("icon",2),
+                icon:assetUrl("icon",7),
             },
            {
                 eventName: "Vals",
                 date: new Date(2026,  0, 31,21,0,0),
-                icon:assetUrl("icon",3),
+                icon:assetUrl("icon",8),
             },
             {
                 eventName: "Fin del evento",
                 date: new Date(2026,  1, 1,2,0,0),
-                icon:assetUrl("icon",4),
+                icon:assetUrl("icon",9),
             },
         ],
     };
@@ -221,318 +213,160 @@ const XVIsabellaGrijalvapPink = () => {
         onEnter={handleEnter}
         // musicRef={musicRef}
         sealImage={assetUrl("icon",12)}
-        envelopeColor={PRIMARY_LIGHT}
+        envelopeColor={PRIMARY}
         overlayColor={PRIMARY_DARK}
         envelopeHighlight={PRIMARY_LIGHT}
         shadowColor={SHADOW}
       ></EnvelopeIntro>
-     <Box
-      component="section"
+    <Box
       sx={{
-        minHeight: "100svh",
+        minHeight: "100vh",
         width: "100%",
         position: "relative",
         overflow: "hidden",
+        backgroundColor: BG_MAIN,
 
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
 
-        background: `
-   linear-gradient(
-    180deg,
-    #FBE8EC 0%,
-    #FFF9F7 48%,
-    #F3DDE2 100%
-  )
-`,
-
-        px: { xs: 2, sm: 3 },
-        py: { xs: 6, md: 8 },
+        px: { xs: 3, sm: 5 },
+        py: 8,
       }}
     >
-      {/* ========================================= */}
-      {/* CONTENIDO */}
-      {/* ========================================= */}
-
       <Box
+        component="img"
+        src={assetUrl("cover")}
+        alt=""
         sx={{
-          position: "relative",
-          zIndex: 2,
-
+          position: "absolute",
+          inset: 0,
           width: "100%",
-          maxWidth: "430px",
-
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-
-          textAlign: "center",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 0,
         }}
-      >
-        {/* ========================================= */}
-        {/* MIS XV AÑOS */}
-        {/* ========================================= */}
+      />
+      {/* Contenido central */}
+      <Box
+         sx={{
+            position: "relative",
+            zIndex: 2,
+            width: "100%",
+            maxWidth: 650,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
 
-        <Typography
-          sx={{
-            fontFamily: "'Instrument Serif', serif",
-            fontSize: {
-              xs: "0.85rem",
-              md: "0.95rem",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              inset: "-80px -40px",
+              background:
+                "radial-gradient(ellipse at center, rgba(252,248,242,0.92) 0%, rgba(252,248,242,0.70) 38%, rgba(252,248,242,0) 75%)",
+              zIndex: -1,
+              pointerEvents: "none",
             },
-
-            letterSpacing: "0.25em",
-
-            textTransform: "uppercase",
-
+          }}
+      >
+        {/* MIS XV */}
+        <Typography
+        className={SECOND_TYPO}
+          sx={{
+           
+            
+            fontSize: { xs: "1.5rem", sm: "1.6rem" },
+            letterSpacing: "0.38em",
+            fontWeight: 600,
             color: TEXT_PRIMARY,
-
-            mb: 2,
+            textTransform: "uppercase",
+            ml: "0.38em",
+            mb:2,
+            textShadow: "0 1px 5px rgba(252,248,242,0.95)",
           }}
         >
-          Mis XV años
+          Mis XV
         </Typography>
-
-        {/* ========================================= */}
-        {/* ARCO + FOTO + FLORES */}
-        {/* ========================================= */}
-
+        <Box
+  component="img"
+  src="/assets/quinceanera.jpg"
+  alt="Quinceañera"
+  sx={{
+    width: { xs: 350, sm: 350, md: 350 },
+    height: { xs: "60vh", sm: "60vh", md: "60vh" },
+    objectFit: "cover",
+    objectPosition: "center",
+    borderRadius: "20% 20% 20% 20%",
+    border: `2px solid ${GOLD}`,
+    p: 0.6,
+    backgroundColor: BG_MAIN,
+    mb: 3,
+  }}
+/>
+        {/* Detalle dorado */}
         <Box
           sx={{
-            position: "relative",
-
-            width: {
-              xs: "82vw",
-              sm: "330px",
-              md: "360px",
-            },
-
-            aspectRatio: "0.70",
-
-            mb: 1,
+            width: 45,
+            height: 1,
+            backgroundColor: GOLD,
+            mb: 3,
           }}
-        >
-          {/* ===================================== */}
-          {/* FLORES */}
-          {/* ===================================== */}
+        />
 
-          <Box
-            component="img"
-            src={assetUrl("ornament",2)}
-            alt=""
-            sx={{
-              position: "absolute",
-
-              /*
-               * Hacemos que la ilustración sea
-               * ligeramente más grande que el arco
-               */
-              top: "-35%",
-              left: "-25px",
-
-              width: "calc(50% + 70px)",
-              height: "calc(100% + 70px)",
-
-              objectFit: "contain",
-
-              zIndex: 4,
-
-              pointerEvents: "none",
-
-              /*
-               * Importante:
-               * las flores no deben afectar
-               * la foto
-               */
-            }}
-          />
-
-          {/* ===================================== */}
-          {/* ARCO EXTERIOR */}
-          {/* ===================================== */}
-
-          <Box
-            sx={{
-              position: "absolute",
-
-              inset: 0,
-
-              border: `1px solid ${GOLD}`,
-
-              borderRadius: "180px 180px 0 0",
-
-              zIndex: 2,
-
-              pointerEvents: "none",
-            }}
-          />
-
-          {/* ===================================== */}
-          {/* SEGUNDO ARCO */}
-          {/* ===================================== */}
-
-          <Box
-            sx={{
-              position: "absolute",
-
-              inset: "6px",
-
-              border: `1px solid rgba(199,169,107,0.45)`,
-
-              borderRadius: "174px 174px 0 0",
-
-              zIndex: 2,
-
-              pointerEvents: "none",
-            }}
-          />
-
-          {/* ===================================== */}
-          {/* FOTO */}
-          {/* ===================================== */}
-
-          <Box
-            sx={{
-              position: "absolute",
-
-              inset: "12px",
-
-              overflow: "hidden",
-
-              borderRadius: "160px 160px 0 0",
-
-              zIndex: 1,
-
-              backgroundColor: BEIGE,
-            }}
-          >
-            <Box
-              component="img"
-              src={assetUrl("cover")}
-              alt=""
-              sx={{
-                width: "100%",
-                height: "100%",
-
-                display: "block",
-
-                objectFit: "cover",
-
-                objectPosition: "center",
-              }}
-            />
-          </Box>
-        </Box>
-
-        {/* ========================================= */}
-        {/* NOMBRE */}
-        {/* ========================================= */}
-
+        {/* Nombre */}
         <Typography
-          component="h1"
+        className={MAIN_TYPO}
           sx={{
-            position: "relative",
-
-            zIndex: 10,
-
-            fontFamily: "'Pinyon Script', cursive",
-
+            
             fontSize: {
-              xs: "4.5rem",
-              sm: "5rem",
-              md: "5.5rem",
+              xs: "4.2rem",
+              sm: "5.8rem",
+              md: "7rem",
             },
-
+            lineHeight: 0.95,
             fontWeight: 400,
-
-            lineHeight: 0.8,
-
-            color: PINK_DARK,
-
-            mt: -1,
-
-            mb: 2,
+            color: PRIMARY_DARK,
 
             whiteSpace: "nowrap",
+
+             textShadow: `
+      0 1px 0 rgba(255,255,255,0.9),
+      0 2px 8px rgba(252,248,242,0.75)
+    `,
           }}
         >
-         Isabella Grijalva
+          Ivanna
         </Typography>
 
-        {/* ========================================= */}
-        {/* ORNAMENTO */}
-        {/* ========================================= */}
+        {/* Frase */}
+     
+        {/* Fecha */}
+       <Box
+  sx={{
+    mt: 3,
+    px: 3,
+    py: 1,
+    backgroundColor: "rgba(252, 248, 242, 0.88)",
+    border: `1px solid ${GOLD}`,
+    borderRadius: "2px",
+  }}
+>
+  <Typography
+  className={BODY_TYPO}
+    sx={{
 
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-
-            gap: 1.5,
-
-            mb: 1.5,
-          }}
-        >
-          <Box
-            sx={{
-              width: 45,
-              height: "1px",
-
-              backgroundColor: GOLD,
-
-              opacity: 0.7,
-            }}
-          />
-
-          <Box
-            sx={{
-              width: 6,
-              height: 6,
-
-              border: `1px solid ${GOLD}`,
-
-              transform: "rotate(45deg)",
-            }}
-          />
-
-          <Box
-            sx={{
-              width: 45,
-              height: "1px",
-
-              backgroundColor: GOLD,
-
-              opacity: 0.7,
-            }}
-          />
-        </Box>
-
-        {/* ========================================= */}
-        {/* FECHA */}
-        {/* ========================================= */}
-
-        <Typography
-          sx={{
-            fontFamily: "'Manrope', sans-serif",
-
-            fontSize: {
-              xs: "0.7rem",
-              md: "0.75rem",
-            },
-
-            fontWeight: 500,
-
-            letterSpacing: "0.2em",
-
-            color: TEXT_PRIMARY,
-
-            textTransform: "uppercase",
-          }}
-        >
-          13 de Noviembre 2026
-        </Typography>
+   
+      fontWeight: 500,
+      letterSpacing: "0.25em",
+      color: PRIMARY_DARK,
+      ml: "0.25em",
+      whiteSpace: "nowrap",
+    }}
+  >
+    28 · NOVIEMBRE · 2027
+  </Typography>
+</Box>
       </Box>
     </Box>
 
@@ -572,15 +406,19 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
               component="img"
               src={assetUrl("ornament", 1)}
               sx={{
-                width: { xs: 150, md: 250 },
+                width: { xs: 120, md: 150 },
                
               }}
             />
           </Grid>
         </Grid>
       </Box>
+      <Box
+      height="70vh" bgcolor="lightgray"
+      >
 
-      <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",1)}></ImageMiddle>
+      </Box>
+      {/* <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",1)}></ImageMiddle> */}
       <div
         style={{
           backgroundColor: BG_MAIN,
@@ -594,13 +432,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
               sx={{
                 width: "100%",
                 position: "relative",
-                // mt: 6,
-                // mb: 6,
-                // borderColor: PRIMARY,
-                // borderWidth: "2px",
-                // borderStyle: "solid",
-                // px: 3,
-                // py: 3,
+               
               }}
             >
             
@@ -630,8 +462,21 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 </Fade>
               </div> */}
 
-              <Grid container spacing={2} justifyContent="center" mb={3}>
-               
+              <Grid container spacing={2} justifyContent="center" >
+               <Grid
+                  size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
+                  display="flex"
+                  justifyContent="center"
+                >
+                  <Box
+                    component="img"
+                    src={assetUrl("ornament", 0)}
+                    sx={{
+                      height: { xs: 100, md: 150 },
+                     
+                    }}
+                  />
+                </Grid>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
@@ -719,6 +564,20 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     </Typography>
                   </Fade>
                 </Grid>
+                <Grid
+                  size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
+                  display="flex"
+                  justifyContent="center"
+                >
+                  <Box
+                    component="img"
+                    src={assetUrl("ornament", 0)}
+                    sx={{
+                      height: { xs: 100, md: 150 },
+                      mb: 2,
+                    }}
+                  />
+                </Grid>
               </Grid>
             </Box>
           </Grid>
@@ -734,11 +593,11 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
       >
         <Box
                     component="img"
-                    src={assetUrl("ornament",6)}
+                    src={assetUrl("ornament",2)}
                     sx={{
                       position: "absolute",
                       top: { xs:-70, sm: -60, md: -40 },
-                      left: { xs: -20, sm: -60, md: -30 },
+                      left: { xs: -35, sm: -60, md: -30 },
                       width: { xs: 150, md: 350 },
                       // transform: "rotate(120deg)",
                       opacity: 0.92,
@@ -749,7 +608,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   />
                    <Box
                     component="img"
-                    src={assetUrl("ornament",6)}
+                    src={assetUrl("ornament",4)}
                     sx={{
                       position: "absolute",
                       bottom: { xs: -20, sm: -60, md: -40 },
@@ -863,13 +722,13 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 <Grid
                   size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
                   display="flex"
-                  justifyContent="center"
+                  justifyContent="left"
                 >
                   <Box
                     component="img"
                     src={assetUrl("ornament", 1)}
                     sx={{
-                      height: { xs: 120, md: 250 },
+                      height: { xs: 100, md: 150 },
                       mb: 2,
                     }}
                   />
@@ -908,25 +767,11 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                         color: PRIMARY,
                       }}
                     >
-                       Alberto Armenta 
+                      Marcos Gallardo y Ma. Fernanda GallardoAlberto Armenta 
                     </Typography>
                   </Fade>
                 </Grid>
-                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
-                  <Fade direction="up">
-                    <Typography
-                      variant="h1"
-                      className={`${MAIN_TYPO} tex-`}
-                      sx={{
-                        fontSize: "1.5rem",
-                        lineHeight: 1,
-                        color: PRIMARY,
-                      }}
-                    >
-                      Y
-                    </Typography>
-                  </Fade>
-                </Grid>
+                
 
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
@@ -941,7 +786,24 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                         fontFeatureSettings: '"liga" 0, "locl" 0',
                       }}
                     >
-                      Maribel Con
+                      Esteban Alcaraz y Rebeca Arteaga
+                    </Typography>
+                  </Fade>
+                </Grid>
+                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
+                  <Fade direction="up">
+                    <Typography
+                      variant="h1"
+                      className={`${MAIN_TYPO}`}
+                      translate="no"
+                      sx={{
+                        fontSize: "2rem",
+                        lineHeight: 1,
+                        color: PRIMARY,
+                        fontFeatureSettings: '"liga" 0, "locl" 0',
+                      }}
+                    >
+                     Ana Durazo y Aide Durazo 
                     </Typography>
                   </Fade>
                 </Grid>
@@ -963,13 +825,13 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 <Grid
                   size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
                   display="flex"
-                  justifyContent="center"
+                  justifyContent="right"
                 >
                   <Box
                     component="img"
                     src={assetUrl("ornament", 1)}
                     sx={{
-                      height: { xs: 120, md: 250 },
+                      height: { xs: 100, md: 150 },
                       mb: 2,
                     }}
                   />
@@ -987,14 +849,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
     position: "relative",
     minHeight: "70svh",
     overflow: "hidden",
-    background: `
-  linear-gradient(
-    135deg,
-    #F8E3E8 0%,
-    #FFF9F7 42%,
-    #F1D2DA 100%
-  )
-`,
+    backgroundColor: BG_ACCENT,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -1171,9 +1026,9 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       </Typography>
                   <Box display={"flex"} justifyContent={"center"}>
                       <CalendarButton
-                          title="XV Isabella Grijalva"
-                          startDate="20261113T170000"
-                          endDate="20261114T020000"
+                          title="XV Ivanna"
+                          startDate="20261127T200000"
+                          endDate="20261128T020000"
                           location="Villa Toscana"
                           
                           // fileName="boda-valentina-sebastian"
@@ -1277,7 +1132,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     </Typography>
                     <Box
                       component="img"
-                      src={assetUrl("icon",10)}
+                      src={assetUrl("icon",0)}
                       alt="Sobre"
                       sx={{
                         width: { xs: 120, md: 110 },
@@ -1312,14 +1167,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             </Fade>
           </div>
           
-          <Box
-            component="img"
-            src={assetUrl("ornament", 1)}
-            alt="Sobre"
-            sx={{
-              width: { xs: 150, md: 110 },
-            }}
-          />
+          
           <RSVPForm
             dateLine={RSVP_DATE_LINE}
             textColor={TEXT_PRIMARY}
@@ -1348,7 +1196,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           <DressCode {...dresscode}></DressCode>
           <Grid paddingBottom={2}>
             <Fade direction="up">
-              <Adornment image={assetUrl("ornament")} width={"100px"} />
+              <Adornment image={assetUrl("ornament")} width={"300px"} />
             </Fade>
           </Grid>
           <WithoutKids
@@ -1366,4 +1214,4 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
     </div>
   );
 };
-export default  XVIsabellaGrijalvapPink;
+export default  XVIvannaDurazo;

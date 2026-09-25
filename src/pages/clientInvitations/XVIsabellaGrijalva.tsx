@@ -42,7 +42,7 @@ export const BG_ACCENT = "#E7B8C520"; // Rosa muy tenue para bloques
 // Primary Palette
 // =========================
 
-export const PRIMARY = "#AFC49A"; // Verde pistache principal
+export const PRIMARY = "#96a884"; // Verde pistache principal
 
 export const PRIMARY_DARK = "#718060"; // Verde salvia oscuro
 
@@ -70,9 +70,9 @@ export const IVORY = "#FCFAF5";
 
 export const BEIGE = "#E8DED0";
 
-export const TEXT_PRIMARY = "#4F554A"; // Verde grisáceo
+export const TEXT_PRIMARY = "#1d1d1d"; // Verde grisáceo
 
-export const TEXT_SECONDARY = "#7D7D73";
+export const TEXT_SECONDARY = "#1d1d1d";
 
 export const GOLD = "#C7A96B"; // Dorado suave
 
@@ -102,11 +102,11 @@ const EMPTY_ASSET = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 const dresscode: DressCodeProps = {
   mainTypo: `${MAIN_TYPO}`,
   bodyTypo: BODY_TYPO,
-  color: PRIMARY_DARK,
+  color: TEXT_PRIMARY,
   type: 1,
   title: "Formal",
   fontSize: "2rem",
-  // omitColorsLabel: "Color azul reservado para la quinceañera.",
+  omitColorsLabel: "Colores reservados para la quinceañera: rosa postel, verde pistache y dorado",
 };
 
 const calendarButtonProps = {
@@ -117,8 +117,8 @@ const calendarButtonProps = {
         py: 1.5,
         textTransform: "none",
         fontFamily: BODY_TYPO,
-        borderColor: PRIMARY,
-        color: PRIMARY,
+        borderColor: PRIMARY_DARK,
+        color: PRIMARY_DARK,
     },
 };
 const COUNTDOWN_DATE = new Date(2026, 10, 13);
@@ -143,7 +143,7 @@ const XVIsabellaGrijalva = () => {
     cloudAssets.filter((asset) => asset.assetKind === kind)[index]?.secureUrl ?? EMPTY_ASSET;
 
   const eventCards: EventCardProps[] = [
-    { eventName: "Misa y Recepción", date: new Date(2026, 3, 11, 17, 0, 0),
+    { eventName: "Misa y Recepción", date: new Date(2026, 3, 11, 18, 0, 0),
      locationName: "Villa Toscana",
      address: "C. Quintero Arce 280, Puerta Grande, 83246 Hermosillo, Son.", 
      size: 6, color: PRIMARY_DARK,
@@ -168,7 +168,7 @@ const XVIsabellaGrijalva = () => {
         events: [
             {
                 eventName: "Misa",
-                date: new Date(2026, 0, 31, 17, 0, 0),
+                date: new Date(2026, 0, 31, 18, 0, 0),
                 icon:assetUrl("icon",5),
             },
             {
@@ -181,14 +181,9 @@ const XVIsabellaGrijalva = () => {
                 date: new Date(2026,  0, 31,21,0,0),
                 icon:assetUrl("icon",7),
             },
-           {
-                eventName: "Vals",
-                date: new Date(2026,  0, 31,21,0,0),
-                icon:assetUrl("icon",8),
-            },
             {
                 eventName: "Fin del evento",
-                date: new Date(2026,  1, 1,2,0,0),
+                date: new Date(2026,  1, 1,1,0,0),
                 icon:assetUrl("icon",9),
             },
         ],
@@ -216,7 +211,7 @@ const XVIsabellaGrijalva = () => {
         open={showIntro}
         onEnter={handleEnter}
         // musicRef={musicRef}
-        sealImage={assetUrl("icon",12)}
+        sealImage={assetUrl("icon",11)}
         envelopeColor={PRIMARY}
         overlayColor={PRIMARY_DARK}
         envelopeHighlight={PRIMARY_LIGHT}
@@ -609,7 +604,14 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={assetUrl("ornament",6)} style={{ width: "150px" }} />
+                  <Box
+                    component="img"
+                    src={assetUrl("ornament", 6)}
+                    sx={{
+                      width: { xs: 150, md: 250 },
+                    
+                    }}
+                  />
                 </Fade>
               </div>
              
@@ -644,7 +646,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       sx={{
                         mb: 2,
                         mt: 2,
-                        color: PRIMARY_DARK,
+                        color: TEXT_PRIMARY,
                       }}
                     >
                       Mis Padres
@@ -660,7 +662,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       sx={{
                         fontSize: "2rem",
                         lineHeight: 1,
-                        color: PRIMARY,
+                        color: TEXT_PRIMARY,
                       }}
                     >
                       Jesús Octavio Grijalva
@@ -675,7 +677,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       sx={{
                         fontSize: "1.5rem",
                         lineHeight: 1,
-                        color: PRIMARY,
+                        color: TEXT_PRIMARY,
                       }}
                     >
                       Y
@@ -692,7 +694,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       sx={{
                         fontSize: "2rem",
                         lineHeight: 1,
-                        color: PRIMARY,
+                        color: TEXT_PRIMARY,
                         fontFeatureSettings: '"liga" 0, "locl" 0',
                       }}
                     >
@@ -733,7 +735,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     src={assetUrl("ornament",6)}
                     sx={{
                       position: "absolute",
-                      top: { xs:-70, sm: -60, md: -40 },
+                      top: { xs:-70, sm: -80, md: -80 },
                       left: { xs: -20, sm: -60, md: -30 },
                       width: { xs: 150, md: 350 },
                       // transform: "rotate(120deg)",
@@ -749,7 +751,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     sx={{
                       position: "absolute",
                       bottom: { xs: -20, sm: -60, md: -40 },
-                      right: { xs: -50, sm: -60, md: -30 },
+                      right: { xs: -50, sm: -60, md: -120 },
                       width: { xs: 180, md: 350 },
                       transform: "rotate(290deg)",
                       opacity: 0.92,
@@ -774,7 +776,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
               sx={{
                 fontSize: "1.3rem",
                 lineHeight: 1.2,
-                color: PRIMARY_DARK,
+                color: TEXT_PRIMARY,
                 fontFeatureSettings: '"liga" 0, "locl" 0',
               }}
             >
@@ -787,8 +789,8 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           eventDate={COUNTDOWN_DATE}
           title={{
             fontFamily: '"Pinyon Script"',
-            color: PRIMARY_DARK,
-            fontSize: "1.8rem",
+            color: TEXT_PRIMARY,
+            fontSize: "2em",
             fontWeight: 700,
             lineHeight: 1.5,
             dateFormat: "DD MMMM YYYY",
@@ -817,7 +819,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           }}
         />
       </div>
-      <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",2)}></ImageMiddle>
+      <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",2)} bgPositionY="30%"></ImageMiddle>
       <div
         style={{
           backgroundColor: BG_MAIN,
@@ -865,7 +867,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     component="img"
                     src={assetUrl("ornament", 1)}
                     sx={{
-                      height: { xs: 120, md: 250 },
+                      height: { xs: 120, md: 120 },
                       mb: 2,
                     }}
                   />
@@ -885,7 +887,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       sx={{
                         mb: 2,
                         mt: 2,
-                        color: PRIMARY_DARK,
+                        color: TEXT_PRIMARY,
                       }}
                     >
                       Mis Padrinos
@@ -901,7 +903,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       sx={{
                         fontSize: "2rem",
                         lineHeight: 1,
-                        color: PRIMARY,
+                        color: TEXT_PRIMARY,
                       }}
                     >
                        Alberto Armenta 
@@ -916,7 +918,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       sx={{
                         fontSize: "1.5rem",
                         lineHeight: 1,
-                        color: PRIMARY,
+                        color: TEXT_PRIMARY,
                       }}
                     >
                       Y
@@ -933,7 +935,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                       sx={{
                         fontSize: "2rem",
                         lineHeight: 1,
-                        color: PRIMARY,
+                        color: TEXT_PRIMARY,
                         fontFeatureSettings: '"liga" 0, "locl" 0',
                       }}
                     >
@@ -965,7 +967,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     component="img"
                     src={assetUrl("ornament", 1)}
                     sx={{
-                      height: { xs: 120, md: 250 },
+                      height: { xs: 120, md: 120 },
                       mb: 2,
                     }}
                   />
@@ -1162,7 +1164,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
     ))}
   </Stack>
    <Box mt={2}>
-                  <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:PRIMARY_DARK, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
+                  <Typography textAlign={"center"} className={`${BODY_TYPO}`} sx={{color:TEXT_PRIMARY, fontSize:"1.2rem", letterSpacing:"2px", textTransform:"uppercase", mb:1,fontStyle:"italic"}}>
                       No queremos que te pierdas este día
                       </Typography>
                   <Box display={"flex"} justifyContent={"center"}>
@@ -1181,30 +1183,41 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
 </Box>
        <Box position="relative" bgcolor={BG_SECTION}>
           <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
-           <div
-                style={{
+           <Box
+                sx={{
                   position: "absolute",
-                  top: "calc(10% - 100px)",
-                  right: "calc(10% - 130px)",
-                  // transform: "scale(-1,1)",
+                  top: { xs: "calc(8% - 40px)", md: "calc(10% - 100px)" },
+                  right: { xs: "calc(4% - 50px)", md: "calc(10% - 200px)" },
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={assetUrl("ornament",5)} style={{ height: "150px" }} />
+                  <Box
+                    component="img"
+                    src={assetUrl("ornament", 5)}
+                    sx={{
+                      height: { xs: 90, sm: 120, md: 150 },
+                    }}
+                  />
                 </Fade>
-              </div>
-           <div
-                style={{
+              </Box>
+           <Box
+                sx={{
                   position: "absolute",
-                  bottom: "calc(10% - 100px)",
-                  left: "calc(10% - 130px)",
+                  bottom: { xs: "calc(6% - 40px)", md: "calc(10% - 100px)" },
+                  left: { xs: "calc(4% - 50px)", md: "calc(10% - 200px)" },
                   transform: "scale(-1,1)",
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={assetUrl("ornament",5)} style={{ height: "150px" }} />
+                  <Box
+                    component="img"
+                    src={assetUrl("ornament", 5)}
+                    sx={{
+                      height: { xs: 90, sm: 120, md: 150 },
+                    }}
+                  />
                 </Fade>
-              </div>
+              </Box>
         </Box>      
       <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",3)}></ImageMiddle>
       <div
@@ -1223,31 +1236,42 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
               }}
             >
               
-              <div
-                style={{
+              <Box
+                sx={{
                   position: "absolute",
-                  top: "calc(5% - 100px)",
-                  right: "calc(5% - 100px)",
-                  // transform: "scale(-1,1)",
+                  top: { xs: "calc(4% - 40px)", md: "calc(5% - 100px)" },
+                  right: { xs: "calc(-5% - 40px)", md: "calc(5% - 150px)" },
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={assetUrl("ornament",4)} style={{ height: "150px" }} />
+                  <Box
+                    component="img"
+                    src={assetUrl("ornament", 4)}
+                    sx={{
+                      height: { xs: 90, sm: 120, md: 150 },
+                    }}
+                  />
                 </Fade>
-              </div>
+              </Box>
              
-              <div
-                style={{
+              <Box
+                sx={{
                   position: "absolute",
-                  bottom: "calc(10% - 100px)",
-                  left: "calc(10% - 130px)",
+                  bottom: { xs: "calc(6% - 40px)", md: "calc(10% - 100px)" },
+                  left: { xs: "calc(5% - 90px)", md: "calc(10% - 230px)" },
                   transform: "scale(-1,1)",
                 }}
               >
                 <Fade direction="up" triggerOnce={true}>
-                  <img src={assetUrl("ornament",3)} style={{ height: "150px" }} />
+                  <Box
+                    component="img"
+                    src={assetUrl("ornament", 3)}
+                    sx={{
+                      height: { xs: 120, sm: 120, md: 150 },
+                    }}
+                  />
                 </Fade>
-              </div>
+              </Box>
 
               <Box>
                 <Container maxWidth="md">
@@ -1255,7 +1279,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     <Typography
                       fontSize={"2rem"}
                       className={MAIN_TYPO}
-                      color={PRIMARY_DARK}
+                      color={TEXT_PRIMARY}
                     >
                       Lluvia de sobres
                     </Typography>
@@ -1273,7 +1297,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     </Typography>
                     <Box
                       component="img"
-                      src={assetUrl("icon",11)}
+                      src={assetUrl("icon",10)}
                       alt="Sobre"
                       sx={{
                         width: { xs: 120, md: 110 },
@@ -1295,18 +1319,24 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             position: "relative",
           }}
         >
-          <div
-            style={{
+          <Box
+            sx={{
               position: "absolute",
-              bottom: "calc(5% - 100px)",
-              right: "calc(-10% - 70px)",
+              bottom: { xs: "calc(4% - 40px)", md: "calc(5% - 100px)" },
+              right: { xs: "calc(-6% - 70px)", md: "calc(5% - 200px)" },
               transform: "translate(-50%, -50%)",
             }}
           >
             <Fade direction="up" triggerOnce={true}>
-              <img src={assetUrl("ornament",3)} style={{ height: "130px" }} />
+              <Box
+                component="img"
+                src={assetUrl("ornament", 3)}
+                sx={{
+                  height: { xs: 120, sm: 110, md: 150 },
+                }}
+              />
             </Fade>
-          </div>
+          </Box>
           
           <Box
             component="img"
@@ -1323,7 +1353,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             mainTypo={MAIN_TYPO}
             bodyTypo={BODY_TYPO}
             count={invitedGuests}
-            color={PRIMARY}
+            color={TEXT_PRIMARY}
             colorButton={PRIMARY}
             invitationId={INVITATION_ID}
             bgColor={"transparent"}

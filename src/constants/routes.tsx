@@ -93,6 +93,7 @@ import XVKate from "../pages/clientInvitations/XVKate";
 import XVIsabellaGrijalva from "../pages/clientInvitations/XVIsabellaGrijalva";
 import XVIsabellaGrijalvapPink from "../pages/clientInvitations/XVIsabellaGrijalvapPink";
 import WeddingEliMiguel from "../pages/clientInvitations/WeddingEliMiguel";
+import XVIvannaDurazo from "../pages/clientInvitations/XVIvannaDurazo";
 
 interface RouteConfig {
   path: string;
@@ -203,9 +204,10 @@ const routes: RouteConfig[] = [
 {path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
 
 
-{path:'/prev-ig', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
-{path:'/prev-ig-p', element:<XVIsabellaGrijalvapPink></XVIsabellaGrijalvapPink>},
-{path:'/prev-em', element:<WeddingEliMiguel></WeddingEliMiguel>},
+{path:'/prev-ig-2', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
+// {path:'/prev-ig-p', element:<XVIsabellaGrijalvapPink></XVIsabellaGrijalvapPink>},
+{path:'/prev-id', element:<XVIvannaDurazo></XVIvannaDurazo>},
+
 ];
 
 
