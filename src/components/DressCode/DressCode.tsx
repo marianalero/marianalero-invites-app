@@ -21,6 +21,7 @@ export interface DressCodeProps
     fontSize?:string;
     bodyFontSize?:string;
     imageSize?:string;
+    hideWhite?:boolean;
 }
 
 const DressCode  = (props:DressCodeProps) => 
@@ -107,7 +108,10 @@ const DressCode  = (props:DressCodeProps) =>
   {props.omitColors && props.omitColors.length > 0 && (
     <>
       {/* Primer círculo blanco */}
-      <div
+      {
+        !props.hideWhite && (
+
+          <div
         style={{
           backgroundColor: "#FFFFFF",
           borderColor: "lightgray",
@@ -118,13 +122,16 @@ const DressCode  = (props:DressCodeProps) =>
           width: "40px",
         }}
       ></div>
+        )
+      }
+      
 
       {/* Colores de props.omitColors */}
       {props.omitColors.map((item, index) => (
         <div
           key={index}
           style={{
-            backgroundColor: item,
+            background: item,
             borderRadius: "50%",
             height: "40px",
             width: "40px",

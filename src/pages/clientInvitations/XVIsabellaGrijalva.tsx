@@ -106,7 +106,9 @@ const dresscode: DressCodeProps = {
   type: 1,
   title: "Formal",
   fontSize: "2rem",
-  omitColorsLabel: "Colores reservados para la quinceañera: rosa postel, verde pistache y dorado",
+  omitColorsLabel: "Colores reservados para la quinceañera",
+  hideWhite:true,
+  omitColors : ["#AFC49A","#E5B4C0","linear-gradient(135deg, #9D783C 0%, #D6B66B 18%, #FFF0B8 35%, #C7A96B 50%, #F1D990 68%, #A47E40 100%)"]
 };
 
 const calendarButtonProps = {
