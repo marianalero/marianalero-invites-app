@@ -51,7 +51,13 @@ export default function ResponsiveLayout({ children }: ResponsiveLayoutProps) {
     ? menuItems.filter((item) => item.roles.includes(user.role))
     : [];
 
-  const title = routeTitles[location.pathname] ?? "Panel";
+  const title = location.pathname.endsWith("/features/questions")
+    ? "Preguntas personalizadas"
+    : location.pathname.endsWith("/features/confirmation")
+      ? "Confirmación de asistencia"
+      : /\/invitations\/\d+\/features$/.test(location.pathname)
+        ? "Funcionalidades"
+        : routeTitles[location.pathname] ?? "Panel";
 
   useEffect(() => {
     document.title = `${title} | Mariana Lero Invitaciones`;

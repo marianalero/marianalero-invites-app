@@ -19,7 +19,7 @@ import { Dialog, DialogContent, Box, Typography, DialogActions } from "@mui/mate
 import CustomButton from "../../components/CustomButton/CustomButton";
 import Adornment from "../../components/Adornment/Adornment";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
-import RSVPFormV2 from "../../components/RSVP/RSVPFormV2";
+import RSVPForm from "../../components/RSVP/RSVPForm";
 const WeddingCendyAdrian  = () => {
     const [searchParams] = useSearchParams();
     const invitedGuests: number | undefined = useMemo(() => {
@@ -238,7 +238,7 @@ const WeddingCendyAdrian  = () => {
             <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
             <ImageMiddle bgPosition="60%" height="100vh" bgImage={`${URL_IMAGES}enmedio3.jpeg`}></ImageMiddle>
             <GiftList {...giftListData} ></GiftList>
-            <RSVPFormV2 
+            <RSVPForm 
             textColor="white"
                 colorButton={COLOR_PRIMARY}     
                 mainTypo={MAIN_TYPO} 
@@ -252,7 +252,7 @@ const WeddingCendyAdrian  = () => {
                 bgColor=""
             >
                 
-            </RSVPFormV2>
+            </RSVPForm>
             <DressCode {...dresscode}></DressCode>
             
 

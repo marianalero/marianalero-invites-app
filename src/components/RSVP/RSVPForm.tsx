@@ -19,6 +19,13 @@ import 'dayjs/locale/de';
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import i18n from '../../i18n';
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
+import { FeatureCode, hasFeature } from '../../models/invitationFeatures';
+import { useInvitationFeatures } from '../../hooks/useInvitationFeatures';
+import { Answer, Question } from '../../models/question';
+import { getQuestionsByInvitationId } from '../../services/invitationApiClient';
+import RsvpQuestionFields from './RsvpQuestionFields';
+import WhatsAppConfirmButton from './WhatsAppConfirmButton';
+import { missingRequiredQuestions } from '../../models/confirmation';
 // Helper function to convert numbers to words
 const numberToWords = (num: number, language: string): string => {
     const wordsEs: { [key: number]: string } = {
@@ -52,10 +59,14 @@ const numberToWords = (num: number, language: string): string => {
 };
 
 const RSVPForm  = (props:RSVPType) => {
+    const { features, status } = useInvitationFeatures(props.invitationId);
 
     const backgroundPositionDesktop = `${props.bgPosition ?? "center"} ${props.bgPositionY ?? "center"}`;
     const backgroundPositionMobile = `${props.mobileBgPosition ?? props.bgPosition ?? "center"} ${props.mobileBgPositionY ?? props.bgPositionY ?? "center"}`;
     const [errorName, setErrorName] = useState(false);
+    const [questions, setQuestions] = useState<Question[]>([]);
+    const [answers, setAnswers] = useState<Answer[]>([]);
+    const [questionError, setQuestionError] = useState("");
     const [guest, setGuest] = useState<Guest>({
     id: 0,
     fullName: '',
@@ -82,6 +93,7 @@ const RSVPForm  = (props:RSVPType) => {
             if (props.guestId && props.guestId > 0 && props.guest === undefined) {
                 const response = await getGuestById(props.guestId, props.invitationId);
                 setGuest(response);
+                setAnswers((response.answers || []).map(answer => ({ questionId: answer.questionId, response: answer.response })));
 
                 if (response.totalConfirmed == 0) {
                     updateGuest({
@@ -110,6 +122,24 @@ const RSVPForm  = (props:RSVPType) => {
     }, [props.count, props.guestId, props.invitationId]);
 
     useEffect(() => {
+        if (status === "loading") return;
+        let cancelled = false;
+        const loadQuestions = async () => {
+            const questionsEnabled = status === "error" || hasFeature(features, FeatureCode.questions);
+            const method = features?.confirmationMethod ?? "form";
+            const responseQuestions = questionsEnabled && method === "form"
+                ? await getQuestionsByInvitationId(props.invitationId)
+                : [];
+            if (cancelled) return;
+            setQuestions(responseQuestions);
+        };
+        loadQuestions();
+        return () => {
+            cancelled = true;
+        };
+    }, [features, status, props.invitationId]);
+
+    useEffect(() => {
         dayjs.extend(advancedFormat);
         dayjs.locale(i18n.language);
     }, [i18n.language]);
@@ -129,6 +159,11 @@ const RSVPForm  = (props:RSVPType) => {
         setRadioValue(value);
     };
     const handleSend =async ()=> {
+        if (radioValue === "yes" && missingRequiredQuestions(questions, answers).length > 0) {
+            setQuestionError("Responde las preguntas obligatorias.");
+            return;
+        }
+        setQuestionError("");
         if(guest.fullName.trim() === "") {
             setErrorName(true);
         } else {
@@ -143,7 +178,8 @@ const RSVPForm  = (props:RSVPType) => {
             totalAssigned: guest.totalAssigned,
             invitationId: props.invitationId,
             phoneNumber: guest.phoneNumber,
-            companion: guest.companion
+            companion: guest.companion,
+            answers: answers
             }
             const response = await CreateAndConfirm(createParam);
             setGuest(response);
@@ -157,6 +193,7 @@ const RSVPForm  = (props:RSVPType) => {
                 phoneNumber: guest.phoneNumber,
                 companion: guest.companion,
                 invitationId: props.invitationId,
+                answers: answers
             });
 
             if(!response.state.hasError){
@@ -508,6 +545,20 @@ const RSVPForm  = (props:RSVPType) => {
                                 )}
                             </>
                         )}
+                        <RsvpQuestionFields
+                            questions={questions}
+                            answers={answers}
+                            onChange={setAnswers}
+                            disabled={disabledRSVP || disabledForm}
+                            textColor={props.textColor}
+                            bodyTypo={props.bodyTypo}
+                            colorButton={props.colorButton}
+                        />
+                        {questionError && (
+                            <Grid size={12} display="flex" justifyContent="center">
+                                <Typography align="center" sx={{ color: props.colorButton }}>{questionError}</Typography>
+                            </Grid>
+                        )}
                         
                         {!disabledRSVP && (
                             <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
@@ -535,6 +586,13 @@ const RSVPForm  = (props:RSVPType) => {
         </Grid>
 
         );
+    }
+    const confirmationMethod = features?.confirmationMethod ?? "form";
+    if (status === "ready" && (confirmationMethod === "none" || !hasFeature(features, FeatureCode.rsvp))) {
+        return null;
+    }
+    if (status === "ready" && features && confirmationMethod === "whatsapp") {
+        return <WhatsAppConfirmButton features={features} rsvp={props} />;
     }
     return ( 
         <div>

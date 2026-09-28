@@ -83,7 +83,7 @@ const URL_SONG = `${URL_REPO}canciones/Photograph-Ed Sheeran.mp3`;
 //     6: "HaroldyElena-Por-Siempre.mp3",
 // };
 const COUNTDOWN_DATE = new Date(2026, 10, 6);
-const RSVP_DATE_LINE = new Date(2026, 8, 28);
+// const RSVP_DATE_LINE = new Date(2026, 8, 28);
 
 const qoute: QouteProps = {
     qoute: "Lo que Dios unió, que el amor lo conserve por siempre",
@@ -1310,7 +1310,7 @@ de esta celebración.</Typography>
                     <RSVPForm 
                     padding={1}
                         guest={guest || undefined}
-                        dateLine={RSVP_DATE_LINE}
+                        // dateLine={RSVP_DATE_LINE}
                             textColor={"white"}
                             colorButton={"white"} 
                             bgColor={BUTTON_PRIMARY} 

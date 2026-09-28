@@ -2,9 +2,11 @@ export interface Question {
   id: number;
   invitationId: number;
   text: string;
-  type?: 'text' | 'select' | 'boolean'; // Puedes expandir
-  options?: string[]; // Para select/radio
-  isRequired: boolean;
+  type?: string;
+  optionsJson?: string | null;
+  options?: string[];
+  isRequired?: boolean;
+  sortOrder?: number;
 }
 
 export interface Answer {

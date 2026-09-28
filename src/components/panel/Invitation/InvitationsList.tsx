@@ -127,7 +127,7 @@ export default function InvitationsList() {
       field: "actions",
       headerName: "",
       type: "actions",
-      width: 220,
+      width: 280,
       renderCell: (params) => (
         <InvitationActions
           invitation={params.row}
