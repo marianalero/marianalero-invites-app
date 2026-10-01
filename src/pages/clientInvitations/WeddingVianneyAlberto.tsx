@@ -10,9 +10,11 @@ import Grid from '@mui/material/Grid2';
 import FooterInvites from "../../components/Footer/FooterInvites";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Box, Container, Divider, Paper, Stack, Typography,  } from "@mui/material";
-
-
+import { Box, Button, Card, Container, Divider, Paper, Stack, Typography,  } from "@mui/material";
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar as faCalendarRegular } from "@fortawesome/free-regular-svg-icons";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import { Fade } from "react-awesome-reveal";
 import CoverInline from "../../components/Cover/CoverImage/CoverInline";
@@ -23,9 +25,10 @@ import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 import Gallery from "../../components/Gallery/Gallert";
-import EventCardImage from "../../components/EventCard/EventCardImage";
+import dayjs from "dayjs";
+import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 
-const INVITATION_ID = 9;
+const INVITATION_ID = 0;
 const BG_MAIN = "#FCFBF8";
 // const BG_SECTION = "#F2F1EC";
 const BG_ACCENT = "#A6A998";
@@ -90,7 +93,7 @@ const eventCards: EventCardProps[] = [
 
 const giftListData: GiftListProps = {
      title: "Mesa de regalos",
-
+    
     mainPhrase:
         "Lo más valioso para nosotros es contar con tu compañía. Si deseas consentirnos con un regalo, aquí encontrarás algunas opciones.",
 
@@ -98,7 +101,7 @@ const giftListData: GiftListProps = {
         {
             number: "60024483",
             link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60024483",
-            icon: `${URL_IMAGES}mesa/7.png`,
+            icon: `${URL_IMAGES}liverpool.svg`,
         },
     ],
 
@@ -113,7 +116,7 @@ const giftListData: GiftListProps = {
     envelopePhrase: "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
     secondPhrase: "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
     envelopeTitleColor: TEXT_PRIMARY,
-    bankIconStart: `${URL_IMAGES}iconos (17)/7.svg`,
+    bankIconStart: `${URL_IMAGES}iconos/14.svg`,
     bankDetails: [
         {
             numbers: [
@@ -139,43 +142,53 @@ const withOutKids: WithoutKidsProps = {
 };
 
 
-// const timelineData: CustomizedTimelineProps = {
+const timelineData: CustomizedTimelineProps = {
     
-//     mainTypo: MAIN_TYPO,
-//     bodyTypo: BODY_TYPO,
-//     colorPrimary: CHAMPAGNE,
-//     colorTitle: CHAMPAGNE,
-//     colorBody: CHAMPAGNE,
-//     fontSize: "50px",
-//     bgColor: BG_ACCENT,
-//     events: [
-//         {
-//             eventName: "Cóctel  de bienvenida",
-//             date: new Date(2026, 9, 9, 17, 0, 0),
-//             icon: `${URL_IMAGES}iconos (17)/2.svg`,
-//         },
-//         {
-//             eventName: "Nupcias",
-//             date: new Date(2026, 9, 9, 17, 30, 0),
-//             icon: `${URL_IMAGES}iconos (17)/4.svg`,
-//         },
-//         {
-//             eventName: "Fotos",
-//             date: new Date(2026, 9, 9, 18, 0, 0),
-//             icon: `${URL_IMAGES}iconos (17)/5.svg`,
-//         },
-//         {
-//             eventName: "Cena",
-//             date: new Date(2026, 9, 9, 18, 30, 0),
-//             icon: `${URL_IMAGES}iconos (17)/6.svg`,
-//         },
-//         {
-//             eventName: "Inicio de fiesta",
-//             date: new Date(2026, 9, 9, 19, 30, 0),
-//             icon: `${URL_IMAGES}iconos (17)/8.svg`,
-//         },
-//     ],
-// };
+    mainTypo: MAIN_TYPO,
+    bodyTypo: BODY_TYPO,
+    colorPrimary: BG_MAIN,
+    colorTitle: BG_MAIN,
+    colorBody: BG_MAIN,
+    fontSize: "50px",
+    bgColor: BG_ACCENT,
+    events: [
+        {
+            eventName: "Ceremonia Religiosa",
+            date: new Date(2026, 9, 9, 17, 0, 0),
+            icon: `${URL_IMAGES}iconos/2.svg`,
+        },
+        {
+            eventName: "Ceremonia Civil",
+            date: new Date(2026, 9, 9, 19, 30, 0),
+            icon: `${URL_IMAGES}iconos/3.svg`,
+        },
+        {
+            eventName: "Recepcion",
+            date: new Date(2026, 9, 9, 20, 0, 0),
+            icon: `${URL_IMAGES}iconos/4.svg`,
+        },
+        {
+            eventName: "Cena",
+            date: new Date(2026, 9, 9, 20, 30, 0),
+            icon: `${URL_IMAGES}iconos/6.svg`,
+        },
+          {
+            eventName: "Vals",
+            date: new Date(2026, 9, 9, 21, 0, 0),
+            icon: `${URL_IMAGES}iconos/7.svg`,
+        },
+        {
+            eventName: "Inicio de fiesta",
+            date: new Date(2026, 9, 9, 21, 30, 0),
+            icon: `${URL_IMAGES}iconos/9.svg`,
+        },
+         {
+            eventName: "Fin del evento",
+            date: new Date(2026, 9, 9, 2, 30, 0),
+            icon: `${URL_IMAGES}iconos/11.svg`,
+        },
+    ],
+};
 
 const introSealPosition = {
     top: "60%",
@@ -279,7 +292,7 @@ const WeddingVianneyAlberto  = () => {
 
 
     useEffect(() => {
-        document.title = "Boda Avielisse & Oskar";
+        document.title = "Boda Vianney & Alberto";
     }, []);
 
     return (
@@ -313,7 +326,7 @@ const WeddingVianneyAlberto  = () => {
                 primaryColor={TEXT_PRIMARY}
 
                 envelopeImg={`${URL_REPO}demos/black-envelope.png`}
-                sealImg={`${URL_IMAGES}seal.png`}
+                sealImg={`${URL_IMAGES}sello.png`}
 
                 sealPosition={introSealPosition}
                 // bottomRightCornerImg={`${URL_IMAGES}demos/white-flowers/4.png`}
@@ -445,7 +458,7 @@ const WeddingVianneyAlberto  = () => {
 
             <Box
     sx={{
-        backgroundColor: BG_MAIN,
+        backgroundColor: BG_ACCENT,
         py: { xs: 8, md: 10 },
         px: 3,
     }}
@@ -453,10 +466,11 @@ const WeddingVianneyAlberto  = () => {
     <Container maxWidth="sm">
 
         <Typography
+        className={MAIN_TYPO}
             sx={{
-                fontFamily: "'Alex Brush', cursive",
+                
                 fontSize: { xs: 52, md: 64 },
-                color: TITLE_COLOR,
+                color: BG_MAIN,
                 textAlign: "center",
                 lineHeight: 1,
             }}
@@ -464,33 +478,32 @@ const WeddingVianneyAlberto  = () => {
             Padrinos
         </Typography>
 
-        <Divider
-            sx={{
-                width: 70,
-                mx: "auto",
-                my: 3,
-                borderColor: CHAMPAGNE,
-                borderBottomWidth: 2,
-            }}
-        />
+       
 
         <Stack spacing={5} alignItems="center">
         {
             godparents.map((item,index) => (
-            <Typography
-            key={index}
-            className={BODY_TYPO}
-                sx={{
-                    color: TEXT_DARK,
-                    
-                    textAlign: "center",
-                    fontWeight: 400,
-                    letterSpacing: 0.3,
-                    lineHeight: 1.8,
-                }}
-            >
-                {item.names}
-            </Typography>
+                 <><Divider
+                    sx={{
+                        width: 70,
+                        mx: "auto",
+                        my: 3,
+                        borderColor: BG_MAIN,
+                        borderBottomWidth: 2,
+                    }} /><Typography
+                        key={index}
+                        className={BODY_TYPO}
+                        sx={{
+                            color: "#020202",
+
+                            textAlign: "center",
+                            fontWeight: 400,
+                            letterSpacing: 0.3,
+                            lineHeight: 1.8,
+                        }}
+                    >
+                        {item.names}
+                    </Typography></>
 
     
             ))
@@ -505,7 +518,198 @@ const WeddingVianneyAlberto  = () => {
             <Grid container spacing={2} padding={4} >
             {
                 eventCards.map((item,index) => (          
-                   <EventCardImage key={index} {...item}></EventCardImage>
+                   <Card key={index}
+      elevation={0}
+      sx={{
+        width: "100%",
+        maxWidth: 420,
+        overflow: "hidden",
+        borderRadius: "22px",
+        backgroundColor: BG_CARD,
+        border: "1px solid rgba(80, 80, 70, 0.08)",
+        boxShadow: "0 8px 30px rgba(40, 40, 30, 0.08)",
+      }}
+    >
+      {/* IMAGEN */}
+      <Box
+        sx={{
+          width: "100%",
+          aspectRatio: "1.25 / 1",
+          overflow: "hidden",
+        }}
+      >
+        <Box
+          component="img"
+          src={item.image}
+          alt={item.eventName}
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+          }}
+        />
+      </Box>
+
+      {/* CONTENIDO */}
+      <Box
+        sx={{
+          px: { xs: 3, sm: 4 },
+          pt: 3.5,
+          pb: 3.5,
+          textAlign: "center",
+        }}
+      >
+        {/* TÍTULO */}
+        <Typography
+        className={MAIN_TYPO}
+          sx={{
+           
+            fontSize: {
+              xs: "2.1rem",
+              sm: "2.4rem",
+            },
+            lineHeight: 0.95,
+            color: "#777773",
+            mb: 2.5,
+          }}
+        >
+          {item.eventName}
+        </Typography>
+
+        {/* FECHA */}
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={1}
+          sx={{ mb: 1.2 }}
+        >
+          <FontAwesomeIcon fontSize={"20px"} color={item.color} icon={faCalendarRegular} />
+
+          <Typography
+          className={BODY_TYPO}
+            sx={{
+              
+            
+              fontWeight: 600,
+              letterSpacing: "0.08em",
+              color: "#686861",
+              textTransform: "uppercase",
+            }}
+          >
+            {dayjs(item.date).format("dddd DD MMMM YYYY")}
+          </Typography>
+        </Stack>
+
+        {/* DIVISOR */}
+        <Box
+          sx={{
+            width: 32,
+            height: 1,
+            backgroundColor: "#B7B8AC",
+            mx: "auto",
+            my: 2,
+          }}
+        />
+
+        {/* HORA */}
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={0.8}
+          sx={{ mb: 2.5 }}
+        >
+          <AccessTimeIcon
+            sx={{
+              fontSize: 15,
+              color: "#85857D",
+            }}
+          />
+
+          <Typography
+          className={BODY_TYPO}
+            sx={{
+  
+              
+              letterSpacing: "0.1em",
+              color: "#686861",
+            }}
+          >
+            {dayjs(item.date).format("hh:mm A")}
+          </Typography>
+        </Stack>
+
+        {/* IGLESIA */}
+        <Typography
+        className={BODY_TYPO}
+          sx={{
+            
+            
+            fontWeight: 600,
+            letterSpacing: "0.04em",
+            lineHeight: 1.45,
+            color: "#383833",
+            textTransform: "uppercase",
+            maxWidth: 290,
+            mx: "auto",
+          }}
+        >
+          {item.locationName}
+        </Typography>
+
+        {/* DIRECCIÓN */}
+        <Typography
+        className={BODY_TYPO}
+          sx={{
+            mt: 1,
+            
+            
+            lineHeight: 1.45,
+            color: "#696961",
+            maxWidth: 300,
+            mx: "auto",
+          }}
+        >
+          {item.address}
+        </Typography>
+
+        {/* UBICACIÓN */}
+        {item.href && (
+          <Button
+            component="a"
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="contained"
+            disableElevation
+            startIcon={
+              <LocationOnOutlinedIcon sx={{ fontSize: 15 }} />
+            }
+            sx={{
+              mt: 2.5,
+              px: 2.8,
+              py: 0.9,
+              borderRadius: "50px",
+              backgroundColor: "#A9ADA0",
+              color: "#FFFFFF",
+              fontFamily: "'Montserrat', sans-serif",
+              fontSize: "0.62rem",
+              fontWeight: 500,
+              letterSpacing: "0.04em",
+              textTransform: "none",
+
+              "&:hover": {
+                backgroundColor: "#999E93",
+              },
+            }}
+          >
+            Ver ubicación
+          </Button>
+        )}
+      </Box>
+    </Card>
                 ))
             }
             </Grid>
@@ -528,6 +732,7 @@ const WeddingVianneyAlberto  = () => {
  
 
             </div>
+                <CustomizedTimeline {...timelineData} ></CustomizedTimeline>
             {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpg`} bgPositionY="30%"></ImageMiddle> */}
               
             <div style={{backgroundColor:BG_MAIN}}>
@@ -543,7 +748,7 @@ const WeddingVianneyAlberto  = () => {
                     </div>
                     <Box
                         sx={{
-                            backgroundColor: BG_ACCENT,
+                            backgroundColor: "lightgray",
                             position: "relative",
                             maxWidth: "750px",
                             mx: "auto",
@@ -722,23 +927,23 @@ const WeddingVianneyAlberto  = () => {
                         </Container>
                     </Box>
                 </Grid>
-               
-                    <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
-                         <Fade direction="up" >
-                    <Box 
-                        component="img" 
-                        src={`${URL_IMAGES}flores/6.png`} 
-                        alt="Description" 
-                        sx={{ 
-                            height: { xs: 120, md: 150 }, 
-                
-                            opacity:.8,
-                            transform: "rotate(270deg)",
-                    }}
-                        />
-                        </Fade>
-                 
-                    </Grid>
+                 <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
+               <Fade direction="up" >
+                               
+                                <Divider
+                                sx={{
+                                    width: 90,
+                                    mx: "auto",
+                                    my: 2,
+                                    borderColor: TEXT_DARK,
+                                    borderBottomWidth: 2,
+                                }}
+                            />
+
+                                    
+                            
+                            </Fade >
+                   </Grid>
                     <Grid size={{xs:12,sm:12,md:12,lg:12}} display={"flex"} justifyContent={"center"}>
                          <WithoutKids {...withOutKids} /> 
                     </Grid>
