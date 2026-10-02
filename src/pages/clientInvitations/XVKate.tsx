@@ -51,7 +51,7 @@ const SECOND_TYPO = "playfair-display-400";
 const BODY_TYPO = "lora";
 
 const COUNTDOWN_DATE = new Date(2026, 9, 10);
-const RSVP_DATE_LINE = new Date(2026, 9, 1);
+const RSVP_DATE_LINE = new Date(2026, 9, 5);
 const MEDIA_KEY = "xv-kate";
 const EMPTY_ASSET =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
