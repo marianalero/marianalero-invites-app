@@ -25,7 +25,7 @@ import EventCard from "../../components/EventCard/EventCard";
 import MiniGallery from "../../components/MiniGallery/MiniGallery";
 import { Fade } from "react-awesome-reveal";
 import { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
-import CoverInline from "../../components/Cover/CoverImage/CoverInline";
+
 
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineItem from "@mui/lab/TimelineItem";
