@@ -36,13 +36,17 @@ import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIn
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
+import { getAssets } from "../../services/mediaApiClient";
+import type { InvitationAsset } from "../../models/invitationAsset";
 
-const INVITATION_ID = 9;
+const INVITATION_ID = 47;
 const COLOR_PRIMARY = "#1A1A1A";
 const MAIN_TYPO = "playfair-display-400 to-upper";
 const SECONDARY_TYPO = "the-seasons";
 const BODY_TYPO = "lora";
-const URL_IMAGES = `${URL_REPO}demos/`;
+const MEDIA_KEY = "demo-blanco-y-negro";
+const EMPTY_ASSET =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 const URL_SONG = `${URL_REPO}canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 11, 5);
 const RSVP_DATE_LINE = new Date(2026, 10, 5);
@@ -82,17 +86,10 @@ const eventCards: EventCardProps[] = [
     },
 ];
 
-const giftListData: GiftListProps = {
+const giftListBase: Omit<GiftListProps, "items"> = {
     title: "Sugerencias de regalos",
     fontSize: "1.5rem",
     mainPhrase: "Si su deseo es hacernos algún obsequio compartimos las opciones",
-    items: [
-        {
-            link: "https://ejemplo.com/mesa-de-regalos",
-            icon: `${URL_IMAGES}liverpool-negro.png`,
-        },
-    ],
-    giftIcon: `${URL_IMAGES}/iconos/14.svg`,
     mainTypo: MAIN_TYPO,
     bodyTypo: BODY_TYPO,
     color: COLOR_PRIMARY,
@@ -103,7 +100,6 @@ const giftListData: GiftListProps = {
     envelopePhrase: "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
     secondPhrase: "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
     envelopeTitleColor: COLOR_PRIMARY,
-    bankIconStart: `${URL_IMAGES}iconos/13.svg`,
     bankDetails: [
         {
             numbers: [
@@ -143,42 +139,33 @@ const qoute: QouteProps = {
     fontsize: "1.5rem",
 };
 
-const timelineData: CustomizedTimelineProps = {
-    mainTypo: MAIN_TYPO,
-    bodyTypo: BODY_TYPO,
-    colorPrimary: "white",
-    colorTitle: "white",
-    colorBody: "white",
-    fontSize: "50px",
-    bgColor: COLOR_PRIMARY,
-    events: [
-        {
-            eventName: "Ceremonia Civil",
-            date: new Date(2025, 10, 16, 19, 0, 0),
-            icon: `${URL_IMAGES}iconos/1.svg`,
-        },
-        {
-            eventName: "Cóctel  de bienvenida",
-            date: new Date(2025, 10, 16, 20, 0, 0),
-            icon: `${URL_IMAGES}iconos/5.svg`,
-        },
-        {
-            eventName: "Primer baile",
-            date: new Date(2025, 10, 16, 21, 20, 0),
-            icon: `${URL_IMAGES}iconos/7.svg`,
-        },
-        {
-            eventName: "Cena",
-            date: new Date(2025, 10, 16, 21, 30, 0),
-            icon: `${URL_IMAGES}iconos/6.svg`,
-        },
-        {
-            eventName: "Fin del evento",
-            date: new Date(2025, 10, 16, 2, 0, 0),
-            icon: `${URL_IMAGES}iconos/just-married.svg`,
-        },
-    ],
-};
+const timelineEvents = [
+    {
+        eventName: "Ceremonia Civil",
+        date: new Date(2025, 10, 16, 19, 0, 0),
+        iconIndex: 1,
+    },
+    {
+        eventName: "Cóctel  de bienvenida",
+        date: new Date(2025, 10, 16, 20, 0, 0),
+        iconIndex: 2,
+    },
+    {
+        eventName: "Primer baile",
+        date: new Date(2025, 10, 16, 21, 20, 0),
+        iconIndex: 4,
+    },
+    {
+        eventName: "Cena",
+        date: new Date(2025, 10, 16, 21, 30, 0),
+        iconIndex: 3,
+    },
+    {
+        eventName: "Fin del evento",
+        date: new Date(2025, 10, 16, 2, 0, 0),
+        iconIndex: 9,
+    },
+];
 
 const introSealPosition = {
     top: "60%",
@@ -217,12 +204,6 @@ const calendarButtonProps = {
     },
 };
 
-const galleryImages = [
-    `${URL_IMAGES}demoBW1.jpg`,
-    `${URL_IMAGES}demoBW2.jpg`,
-    `${URL_IMAGES}demoBW3.jpg`,
-];
-
 const WeddingBWDemo  = () => {
     const [searchParams] = useSearchParams();
 
@@ -240,7 +221,49 @@ const WeddingBWDemo  = () => {
     const [showIntro, setShowIntro] = useState(true);
     const [showInvitation, setShowInvitation] = useState(false);
     const [guest, setGuest] = useState<Guest | null>(null);
+    const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
     const musicRef = useRef<MusicFabPlayerHandle>(null);
+
+    useEffect(() => {
+        getAssets(MEDIA_KEY).then(setCloudAssets).catch(() => setCloudAssets([]));
+    }, []);
+
+    const assetUrl = (kind: string, index = 0) =>
+        cloudAssets
+            .filter((asset) => asset.assetKind === kind)
+            .sort((a, b) => a.sortOrder - b.sortOrder)[index]?.secureUrl ?? EMPTY_ASSET;
+
+    const galleryImages = cloudAssets
+        .filter((asset) => asset.assetKind === "mini-gallery")
+        .sort((a, b) => a.sortOrder - b.sortOrder)
+        .map((asset) => asset.secureUrl);
+
+    const giftListData: GiftListProps = {
+        ...giftListBase,
+        giftIcon: assetUrl("icon", 7),
+        bankIconStart: assetUrl("icon", 6),
+        items: [
+            {
+                link: "https://ejemplo.com/mesa-de-regalos",
+                icon: assetUrl("icon"),
+            },
+        ],
+    };
+
+    const timelineData: CustomizedTimelineProps = {
+        mainTypo: MAIN_TYPO,
+        bodyTypo: BODY_TYPO,
+        colorPrimary: "white",
+        colorTitle: "white",
+        colorBody: "white",
+        fontSize: "50px",
+        bgColor: COLOR_PRIMARY,
+        events: timelineEvents.map((event) => ({
+            eventName: event.eventName,
+            date: event.date,
+            icon: assetUrl("icon", event.iconIndex),
+        })),
+    };
 
     const handleEnter = () => {
 
@@ -306,12 +329,12 @@ const WeddingBWDemo  = () => {
                 backgroundColor="#F8F6F2"
                 primaryColor={COLOR_PRIMARY}
 
-                envelopeImg={`${URL_IMAGES}black-envelope.png`}
-                sealImg={`${URL_IMAGES}seal.png`}
+                envelopeImg={assetUrl("envelope")}
+                sealImg={assetUrl("seal")}
 
                 sealPosition={introSealPosition}
-                bottomRightCornerImg={`${URL_IMAGES}white-flowers/4.png`}
-                topLeftCornerImg={`${URL_IMAGES}white-flowers/4.png`}
+                bottomRightCornerImg={assetUrl("ornament")}
+                topLeftCornerImg={assetUrl("ornament")}
                 bottomRightCornerPosition={introBottomRightCornerPosition}
                 topLeftCornerPosition={introTopLeftCornerPosition}
 
@@ -340,7 +363,7 @@ const WeddingBWDemo  = () => {
             <CoverInline 
                 ourWeddingStart={true}
                 weddingDate="5 de diciembre, 2026"
-                bgImage={`${URL_IMAGES}demoBW1.jpg`}
+                bgImage={assetUrl("cover")}
                 brideName="Valentina" 
                 symbolr={"&"} 
                 groomName={"Sebastian"} 
@@ -352,7 +375,7 @@ const WeddingBWDemo  = () => {
                ampersonClassName={MAIN_TYPO}
                 >
             </CoverInline>
-              <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "50px 20px" }}>
+              <div style={{backgroundImage: `url("${assetUrl("background")}")`, backgroundSize: "cover", backgroundPosition: "bottom", padding: "50px 20px" }}>
                 <Box padding={2} bgcolor={"rgb(250,250,250,.8)"}   display={"flex"}  justifyContent={"center"}>
            
                  <Qoute 
@@ -361,8 +384,8 @@ const WeddingBWDemo  = () => {
            
             </Box>
             </div>
-            <ImageMiddle bgPosition="30%" height="50vh" bgImage={`${URL_IMAGES}demoBW2.jpg`} bgPositionY="30%"></ImageMiddle>
-              <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+            <ImageMiddle bgPosition="30%" height="50vh" bgImage={assetUrl("mini-gallery", 1)} bgPositionY="30%"></ImageMiddle>
+              <div style={{backgroundImage: `url("${assetUrl("background")}")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             
             <Grid container spacing={2} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -404,7 +427,7 @@ const WeddingBWDemo  = () => {
             </div>
             <CountDown 
                 eventDate={COUNTDOWN_DATE}
-                bgImage={`${URL_IMAGES}demoBW4.jpg`}
+                bgImage={assetUrl("background", 2)}
                 typoHeader={MAIN_TYPO}
                 typoCountdown={BODY_TYPO} 
                 fontSize="1.8rem"
@@ -446,7 +469,7 @@ const WeddingBWDemo  = () => {
                     </Box>
                 </Grid>
             </Grid>
-            <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+            <div style={{backgroundImage: `url("${assetUrl("background", 1)}")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
             <Grid container spacing={2} padding={4} >
             {eventCards
                 .map((item,index) => (          
@@ -473,7 +496,7 @@ const WeddingBWDemo  = () => {
  
 
             </div>
-                          <div style={{backgroundImage: `url("${URL_IMAGES}demoBW3.jpg")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
+                          <div style={{backgroundImage: `url("${assetUrl("background", 3)}")`, backgroundSize: "cover", backgroundPosition: "center", padding: "50px 20px" }}>
 
              <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:"rgb(0,0,0,.5)"}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
@@ -529,7 +552,7 @@ const WeddingBWDemo  = () => {
             </Grid>	
       </Grid>
         </div>
-            <div style={{backgroundImage: `url("${URL_IMAGES}fondo1.png")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
+            <div style={{backgroundImage: `url("${assetUrl("background")}")`, backgroundSize: "cover", backgroundPosition: "left", padding: "50px 20px", backgroundRepeat:"no-repeat" }}>
             <Grid container spacing={2} padding={2} paddingBottom={0} >
                 <Grid size={{xs:12,sm:12,md:12,lg:12}} >
                     <Box display={"flex"} justifyContent={"center"} marginBottom={4}>
@@ -566,7 +589,7 @@ const WeddingBWDemo  = () => {
             >
                 
             </RSVPForm>
-                        <div style={{backgroundImage: `url("${URL_IMAGES}fondo2.png")`, backgroundSize: "cover", backgroundPosition: "right", padding: "50px 20px" }}>
+                        <div style={{backgroundImage: `url("${assetUrl("background", 1)}")`, backgroundSize: "cover", backgroundPosition: "right", padding: "50px 20px" }}>
 
                     <Box padding={2} bgcolor={"rgb(250,250,250,.8)"} display={"flex"} justifyContent={"center"} sx={{borderColor:COLOR_PRIMARY,borderStyle:"solid",borderWidth:"1.5px" ,}} >
                 <Grid container spacing={2} padding={2} paddingBottom={0} >

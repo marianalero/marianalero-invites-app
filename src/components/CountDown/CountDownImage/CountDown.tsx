@@ -16,6 +16,7 @@ export interface CountDownProps{
     padding?:string;
     alignItems?:string;
     bgPosition?:string;
+    height?:string;
 }
 const CountDown = (props:CountDownProps) => {
     const [timeRemaining, setTimeRemaining] = useState(0);
@@ -70,7 +71,7 @@ const CountDown = (props:CountDownProps) => {
         );
       };
     return (
-        <div id="countdown" style={{backgroundImage:`url('${props.bgImage}')`, padding: props.padding ? props.padding : "7em 0", alignItems: props.alignItems ? props.alignItems : "center", backgroundPosition: props.bgPosition ? props.bgPosition : "center center"}}  >
+        <div id="countdown" style={{ height:props.height ? props.height : "50vh", backgroundImage:`url('${props.bgImage}')`, padding: props.padding ? props.padding : "7em 0", alignItems: props.alignItems ? props.alignItems : "center", backgroundPosition: props.bgPosition ? props.bgPosition : "center center"}}  >
 			<div className="overlay"></div>
 			<div className="display-over" style={{marginTop: props.marginTop ? props.marginTop : "0"}}>
 				<div className="container" >
