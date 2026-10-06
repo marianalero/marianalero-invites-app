@@ -46,12 +46,12 @@ const GOLD_LIGHT = "#D8C39A"; // Champagne claro
 
 const BUTTON_PRIMARY = "#641D2B"; // Guinda
 
-const MAIN_TYPO = "alex-brush-regular";
+const MAIN_TYPO = "alex-brush-regular"; 
 const SECOND_TYPO = "playfair-display-400";
 const BODY_TYPO = "lora";
 
 const COUNTDOWN_DATE = new Date(2026, 9, 10);
-const RSVP_DATE_LINE = new Date(2026, 9, 5);
+// const RSVP_DATE_LINE = new Date(2026, 9, 5);
 const MEDIA_KEY = "xv-kate";
 const EMPTY_ASSET =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
@@ -1305,7 +1305,7 @@ const XVKate = () => {
           invitationId={INVITATION_ID}
           qrActive={false}
           classButtonName="btn-gold"
-          dateLine={RSVP_DATE_LINE}
+ 
           fontSize="2.5rem"
           numberInWords
           guestId={guestId}
