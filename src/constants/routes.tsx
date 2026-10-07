@@ -162,6 +162,7 @@ const routes: RouteConfig[] = [
     {path:'/boda-brisa-david', element:<WeddingBrisa></WeddingBrisa>},
     {path:'/boda-mariela-ivan', element:<WeddingMariela></WeddingMariela>},
     {path:'/boda-elizabeth-miguel', element:<WeddingEliMiguel></WeddingEliMiguel>},
+    {path:'/boda-diana-veronica-eliel-misael', element:<WeddingDianaMisael></WeddingDianaMisael>},
     {path:'/xv-kate-alejandra', element:<XVKate></XVKate>},
   //Bautizo
   //XV
@@ -207,7 +208,7 @@ const routes: RouteConfig[] = [
 
 {path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
 
-{path:'/prev-DM-1', element:<WeddingDianaMisael></WeddingDianaMisael>},
+{path:'/prev-dm-1', element:<WeddingDianaMisael></WeddingDianaMisael>},
 {path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
 
 

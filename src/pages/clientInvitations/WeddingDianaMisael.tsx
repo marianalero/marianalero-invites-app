@@ -77,7 +77,7 @@ const eventCards: EventCardProps[] = [
   {
     bgColor: "white",
     eventName: "Ceremonia y Recepción",
-    date: new Date(2026, 11, 5, 20, 0, 0),
+    date: new Date(2026, 11, 5, 17, 0, 0),
     locationName: "Agave Victoria Jardin de Eventos",
     address:
       "Profesora lucrecia Ruiz de Ayon, Hermosa 316, 83106 Hermosillo, Son.",
@@ -85,7 +85,7 @@ const eventCards: EventCardProps[] = [
     color: PRIMARY_DARK,
     mainTypo: MAIN_TYPO,
     bodyTypo: BODY_TYPO,
-    href: "https://maps.app.goo.gl/GAw8VVfjyR5yCkfP8",
+    href: "https://maps.app.goo.gl/ehBCUt2APvAMvHd87",
     colorButton: PRIMARY,
     colorIcon: PRIMARY,
     fontSize: "2rem",
@@ -118,7 +118,7 @@ const giftListBase: Omit<GiftListProps, "items"> = {
           number: "4152314000465362",
         },
       ],
-      bank: "BANCO",
+      bank: "BBVA",
       name: "Diana Medina",
       color: PRIMARY,
       bodyTypo: BODY_TYPO,
@@ -135,6 +135,7 @@ const dresscode: DressCodeProps = {
   type: 2,
   title: "Formal",
   fontSize: "2rem",
+  omitColorsLabel:"Por favor, evita los tonos blanco y rojo."
 };
 
 const withOutKids: WithoutKidsProps = {
@@ -629,6 +630,25 @@ const WeddingDianaMisael = () => {
                         className={SECONDARY_TYPO}
                       >
                         Josue Molina
+                      </Typography>
+                    </Fade>
+                  </Grid>
+                   <Grid size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
+                    <Fade direction="up">
+                      <Typography
+                        sx={{ fontSize: "1rem" }}
+                        textAlign={"center"}
+                        className={SECONDARY_TYPO}
+                      >
+                        Dulce Medina
+
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: "1rem" }}
+                        textAlign={"center"}
+                        className={SECONDARY_TYPO}
+                      >
+                    Francisco Jaime
                       </Typography>
                     </Fade>
                   </Grid>

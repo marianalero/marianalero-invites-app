@@ -59,7 +59,7 @@ const BODY_TYPO = "lora to-upper";
 const URL_IMAGES = `${URL_REPO}xv/xv-evany/`;
 const URL_SONG = `${URL_REPO}canciones/Alphaville-ForeverYoung.mp3`;
 const COUNTDOWN_DATE = new Date(2026, 10, 13);
-const RSVP_DATE_LINE = new Date(2026, 9, 20);
+// const RSVP_DATE_LINE = new Date(2026, 9, 20);
 
 const eventCards: EventCardProps[] = [
     {
@@ -675,7 +675,7 @@ const XVEvany  = () => {
                          
                             <RSVPForm
                             hideTitle={true}
-                            dateLine={RSVP_DATE_LINE}
+                            // dateLine={RSVP_DATE_LINE}
                                 guest={guest || undefined}
                                 textColor={"#020202"}
                                 colorButton={BUTTON_PRIMARY}
