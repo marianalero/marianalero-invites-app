@@ -443,6 +443,7 @@ const WeddingDianaMisael = () => {
                     <Grid size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
                       <Fade direction="up">
                         <Typography
+                        translate="no"
                           sx={{ color: PRIMARY_DARK, fontSize: "1.5rem" }}
                           variant="h4"
                           textAlign={"center"}
@@ -451,6 +452,7 @@ const WeddingDianaMisael = () => {
                           Juan Pablo Medina Mazon
                         </Typography>
                         <Typography
+                        translate="no"
                           sx={{ color: PRIMARY_DARK, fontSize: "1.5rem" }}
                           variant="h4"
                           textAlign={"center"}
@@ -463,6 +465,7 @@ const WeddingDianaMisael = () => {
                     <Grid size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
                       <Fade direction="up">
                         <Typography
+                        translate="no"
                           sx={{ color: PRIMARY_DARK, fontSize: "1.5rem" }}
                           variant="h4"
                           textAlign={"center"}
@@ -475,6 +478,7 @@ const WeddingDianaMisael = () => {
                     <Grid size={{ xs: 12, sm: 4, md: 4, lg: 4 }}>
                       <Fade direction="up">
                         <Typography
+                        translate="no"
                           sx={{ color: PRIMARY_DARK, fontSize: "1.5rem" }}
                           variant="h4"
                           textAlign={"center"}
@@ -483,6 +487,7 @@ const WeddingDianaMisael = () => {
                           Marco Polo Guerrero Germán
                         </Typography>
                         <Typography
+                        translate="no"
                           sx={{ color: PRIMARY_DARK, fontSize: "1.5rem" }}
                           variant="h4"
                           textAlign={"center"}

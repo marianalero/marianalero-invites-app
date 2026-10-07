@@ -58,18 +58,18 @@ const Cover  = (props:CoverProps) => {
       {props.overlay && <div className="cover-overlay" />}
         <Fade direction="up" triggerOnce={true}>
             {props.ourWeddingStart && (
-                <h1 className="holder" style={{marginTop:props.margin ? props.margin : "16px",}}><span>{props.subtitle ?  props.subtitle : t("ourWedding")}</span></h1>
+                <h1  className="holder" style={{marginTop:props.margin ? props.margin : "16px",}}><span>{props.subtitle ?  props.subtitle : t("ourWedding")}</span></h1>
             )}
     
-        <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px",lineHeight:1}} paddingX={1} textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
+        <Typography translate="no"  sx={{fontSize:props.fontSize ? props.fontSize : "60px",lineHeight:1}} paddingX={1} textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
             {props.brideName}
         </Typography>
-        <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px",lineHeight:1}}  textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
+        <Typography translate="no" sx={{fontSize:props.fontSize ? props.fontSize : "60px",lineHeight:1}}  textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
 
             {props.symbolr} 
 
         </Typography>
-         <Typography sx={{fontSize:props.fontSize ? props.fontSize : "60px",lineHeight:1}} paddingX={1} textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
+         <Typography translate="no" sx={{fontSize:props.fontSize ? props.fontSize : "60px",lineHeight:1}} paddingX={1} textAlign={"center"} color='white' typography={"h2"} className={`${props.className}`}>
             {props.groomName}
         </Typography>
          {!props.ourWeddingStart && (

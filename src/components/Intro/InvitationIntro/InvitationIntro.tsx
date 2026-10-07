@@ -279,7 +279,7 @@ fontSizeNames,
           {/* Nombres */}
           <Fade direction="up" >
           <Typography
-            
+            translate="no"
             className={namesTypo}
             sx={{
               color: primaryColor,
