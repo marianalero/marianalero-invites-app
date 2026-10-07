@@ -96,7 +96,7 @@ const eventCards: EventCardProps[] = [
 const giftListBase: Omit<GiftListProps, "items"> = {
   title: " ",
   fontSize: "1.5rem",
-  mainPhrase: "Si su deseo es hacernos algún obsequio compartimos las opciones",
+  mainPhrase: "Si su deseo es hacernos algún obsequio, compartimos las opciones",
 
   mainTypo: MAIN_TYPO,
   bodyTypo: BODY_TYPO,
@@ -106,7 +106,7 @@ const giftListBase: Omit<GiftListProps, "items"> = {
   envelopeMainTypo: MAIN_TYPO,
   envelopeFontSize: "1.8rem",
   envelopePhrase:
-    "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
+    "Tendremos un buzón de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
   secondPhrase:
     "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
   envelopeTitleColor: PRIMARY_DARK,
@@ -333,7 +333,7 @@ const WeddingDianaMisael = () => {
         onEnter={handleEnter}
         musicRef={musicRef}
         title="Una celebración está por comenzar"
-        brideName="Diana Verónica"
+        brideName="Diana Veronica"
         groomName="Eliel Misael"
         ampersonSymbol="&"
         namesTypo={MAIN_TYPO}
@@ -370,7 +370,7 @@ const WeddingDianaMisael = () => {
           
           weddingDate="21 de Noviembre, 2026"
           bgImage={assetUrl("cover")}
-          brideName="Diana Verónica"
+          brideName="Diana Veronica"
           symbolr={"Y"}
           groomName={"Eliel Misael"}
           className={MAIN_TYPO}
@@ -456,7 +456,7 @@ const WeddingDianaMisael = () => {
                           textAlign={"center"}
                           className={MAIN_TYPO}
                         >
-                          Verónica Villanueva Salazar
+                          Veronica Villanueva Salazar
                         </Typography>
                       </Fade>
                     </Grid>
@@ -705,7 +705,7 @@ const WeddingDianaMisael = () => {
             </Typography>
             <Box display={"flex"} justifyContent={"center"}>
               <CalendarButton
-                title="Boda de Diana Verónica & Eliel Misael "
+                title="Boda de Diana Veronica & Eliel Misael "
                 startDate="20261021T180000"
                 endDate="20261121T235900"
                 location="Agave Victoria Jardin de Eventos"
