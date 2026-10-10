@@ -85,7 +85,7 @@ const eventCards: EventCardProps[] = [
     color: PRIMARY_DARK,
     mainTypo: MAIN_TYPO,
     bodyTypo: BODY_TYPO,
-    href: "https://maps.app.goo.gl/ehBCUt2APvAMvHd87",
+    href: "https://www.google.com/maps/search/?api=1&query=Agave%20Victoria%20Jard%C3%ADn%20de%20Eventos%4029.1488264%2C-110.9596725",
     colorButton: PRIMARY,
     colorIcon: PRIMARY,
     fontSize: "2rem",
