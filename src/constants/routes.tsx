@@ -212,7 +212,7 @@ const routes: RouteConfig[] = [
 {path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
 
 
-// {path:'/prev-ig-2', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
+{path:'/prev-ig-2', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
 // {path:'/prev-ig-p', element:<XVIsabellaGrijalvapPink></XVIsabellaGrijalvapPink>},
 {path:'/prev-id', element:<XVIvannaDurazo></XVIvannaDurazo>},
 
