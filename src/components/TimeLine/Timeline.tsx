@@ -48,7 +48,7 @@ const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
                             align="right"
                             >
                             <Fade direction="up" triggerOnce={true} >
-                              <img className="intinerario-icon" src={item.icon} height="60"/>
+                              <img className="intinerario-icon" src={item.icon} height={item.iconSize ? item.iconSize : "60"}width={item.iconSize ? item.iconSize : "60"}/>
                             </Fade>
                         </TimelineOppositeContent>
                         <TimelineSeparator>

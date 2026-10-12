@@ -6,9 +6,9 @@ import DressCode, {
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import Grid from "@mui/material/Grid2";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, IconButton, Paper, Stack, Typography } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Adornment from "../../components/Adornment/Adornment";
 
@@ -25,6 +25,11 @@ import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import Gallery from "../../components/Gallery/Gallert";
+import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
+import { URL_REPO } from "../../config";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { useSnackbar } from "../../context/snackbarContext";
+
 // =========================
 // Background Palette
 // =========================
@@ -126,13 +131,35 @@ const calendarButtonProps = {
 const COUNTDOWN_DATE = new Date(2026, 10, 13);
 const RSVP_DATE_LINE = new Date(2026, 10, 9);
 const INVITATION_ID = 39;
-
+const bankDetails = [
+     {
+      numbers: [
+         {
+          numberType: "Cuenta",
+          number: "4593404",
+        },
+        {
+          numberType: "CLABE",
+          number: "002760701945934043",
+        },
+        
+      ],
+      bank: "Banamex",
+      name: "Fabiola Sánchez Mézquita",
+   
+    },
+];
 const XVIsabellaGrijalva = () => {
+  const { showSnackbar } = useSnackbar();
   const [searchParams] = useSearchParams();
   const invitedGuests: number = useMemo(() => {
     const num = Number(searchParams.get("number"));
     return isNaN(num) ? 1 : num;
   }, [searchParams]);
+    const guestId: number | undefined = useMemo(() => {
+      const num = Number(searchParams.get("id"));
+      return isNaN(num) ? undefined : num;
+    }, [searchParams]);
   const [showIntro, setShowIntro] = useState(true);
   const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
 
@@ -173,32 +200,39 @@ const XVIsabellaGrijalva = () => {
                 date: new Date(2026, 0, 31, 18, 0, 0),
                 icon:assetUrl("icon",5),
             },
-            {
-                eventName: "Recepción",
-                date: new Date(2026, 0, 31, 20, 0, 0),
+             {
+                eventName: "Cóctel de bienvenida",
+                date: new Date(2026, 0, 31, 19, 0, 0),
                 icon:assetUrl("icon",6),
             },
             {
+                eventName: "Recepción",
+                date: new Date(2026, 0, 31, 20, 0, 0),
+                icon:assetUrl("icon",13),
+                iconSize:"40px"
+            },
+            {
                 eventName: "Vals",
-                date: new Date(2026,  0, 31,21,0,0),
+                date: new Date(2026,  0, 31,20,50,0),
                 icon:assetUrl("icon",7),
             },
             {
-                eventName: "Fin del evento",
-                date: new Date(2026,  1, 1,1,0,0),
-                icon:assetUrl("icon",9),
+                eventName: "Cena",
+                date: new Date(2026,  1, 1,21,15,0),
+                icon:assetUrl("icon",8),
             },
         ],
     };
-  //  const musicRef = useRef<MusicFabPlayerHandle>(null);
+   const musicRef = useRef<MusicFabPlayerHandle>(null);
+   const URL_SONG = `${URL_REPO}canciones/TerenceBlanchar -MaBelleEvangeline.mp3`;
   const handleEnter = () => {
-    // musicRef.current?.play();
+    musicRef.current?.play();
     setTimeout(() => {
       setShowIntro(false);
     }, ENVELOPE_OPEN_MS);
   };
   
-
+  
   return (
     <div
       style={{
@@ -209,6 +243,11 @@ const XVIsabellaGrijalva = () => {
         color: TEXT_PRIMARY,
       }}
     >
+      <MusicFabPlayer
+              ref={musicRef}
+              src={URL_SONG}
+              backgroundColor={TEXT_PRIMARY}
+            />
       <EnvelopeIntro
         open={showIntro}
         onEnter={handleEnter}
@@ -1275,39 +1314,176 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 </Fade>
               </Box>
 
-              <Box>
-                <Container maxWidth="md">
-                  <Stack spacing={3} alignItems="center" textAlign="center">
-                    <Typography
-                      fontSize={"2rem"}
-                      className={MAIN_TYPO}
-                      color={TEXT_PRIMARY}
-                    >
-                      Lluvia de sobres
-                    </Typography>
+              
+<Box>
+  <Container maxWidth="md">
+    <Stack spacing={3} alignItems="center" textAlign="center">
+      <Typography
+        fontSize="2rem"
+        className={MAIN_TYPO}
+        color={TEXT_PRIMARY}
+      >
+        Lluvia de sobres
+      </Typography>
 
-                    <Typography
-                      maxWidth={650}
-                      className={BODY_TYPO}
-                      lineHeight={1.5}
-                      color={TEXT_PRIMARY}
-                    >
-                      Tu presencia será el regalo más valioso para mí.
-                      <br />
-                      Si además deseas obsequiarme un detalle, con mucho cariño
-                      agradeceré que sea en sobre.
-                    </Typography>
-                    <Box
-                      component="img"
-                      src={assetUrl("icon",10)}
-                      alt="Sobre"
+      <Typography
+        maxWidth={650}
+        className={BODY_TYPO}
+        lineHeight={1.5}
+        color={TEXT_PRIMARY}
+      >
+        Tu presencia será el regalo más valioso para mí.
+        <br />
+        Si además deseas obsequiarme un detalle, con mucho cariño
+        agradeceré que sea en sobre.
+      </Typography>
+
+      <Box
+        component="img"
+        src={assetUrl("icon", 10)}
+        alt="Sobre"
+        sx={{
+          width: { xs: 120, md: 110 },
+        }}
+      />
+
+      {bankDetails?.map((bank, index) => (
+        <Paper
+          key={index}
+          elevation={0}
+          sx={{
+            bgcolor: BG_ACCENT,
+            borderRadius: 0,
+            p: { xs: 2.5, sm: 4 },
+            width: "100%",
+            maxWidth: "100%",
+            boxSizing: "border-box",
+            border: "1.5px solid rgba(190,170,130,.45)",
+            boxShadow: "0 10px 25px rgba(0,0,0,.05)",
+            mt: 2,
+          }}
+        >
+          <Stack
+            spacing={2}
+            alignItems="center"
+            sx={{ width: "100%", minWidth: 0 }}
+          >
+            <Box
+              component="img"
+              src={assetUrl("icon", 12)}
+              alt="Datos bancarios"
+              sx={{ height: 40 }}
+            />
+
+            {bank.numbers?.map((num, numberIndex) => (
+              <Box
+                key={`${num.numberType}-${numberIndex}`}
+                sx={{
+                  width: "100%",
+                  minWidth: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 1,
+                }}
+              >
+                <Typography
+                  className={BODY_TYPO}
+                  sx={{
+                    letterSpacing: ".18em",
+                    fontSize: "1rem",
+                    color: TEXT_PRIMARY,
+                  }}
+                >
+                  {num.numberType}
+                </Typography>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 0.25,
+                    width: "100%",
+                    maxWidth: "100%",
+                    minWidth: 0,
+                  }}
+                >
+                  <Typography
+                    className={BODY_TYPO}
+                    sx={{
+                      fontSize: {
+                        xs: "clamp(0.78rem, 3.5vw, 1.25rem)",
+                        sm: "1.65rem",
+                        md: "1.9rem",
+                      },
+                      letterSpacing: {
+                        xs: "0.01em",
+                        sm: "0.04em",
+                      },
+                      overflowWrap: "anywhere",
+                      color: TEXT_PRIMARY,
+                      textAlign: "center",
+                      lineHeight: 1.1,
+                      minWidth: 0,
+                    }}
+                  >
+                    {num.number}
+                  </Typography>
+
+                  <IconButton
+                    size="small"
+                    aria-label={`Copiar ${num.numberType}`}
+                    onClick={() => {
+                      navigator.clipboard
+                        .writeText(String(num.number).trim())
+                        .then(() => {
+                          showSnackbar("Número copiado", "success");
+                        })
+                        .catch(() => {
+                          showSnackbar(
+                            "No se pudo copiar el número",
+                            "error",
+                          );
+                        });
+                    }}
+                    sx={{
+                      flexShrink: 0,
+                      p: { xs: 0.35, sm: 0.75 },
+                    }}
+                  >
+                    <ContentCopyIcon
                       sx={{
-                        width: { xs: 120, md: 110 },
+                        color: TEXT_PRIMARY,
+                        fontSize: {
+                          xs: "1rem",
+                          sm: "1.35rem",
+                        },
                       }}
                     />
-                  </Stack>
-                </Container>
+                  </IconButton>
+                </Box>
               </Box>
+            ))}
+
+            <Typography
+              className={BODY_TYPO}
+              sx={{
+                fontSize: "1rem",
+                color: TEXT_PRIMARY,
+                opacity: 0.85,
+                textAlign: "center",
+              }}
+            >
+              {bank.name}
+            </Typography>
+          </Stack>
+        </Paper>
+      ))}
+    </Stack>
+  </Container>
+</Box>
+
             </Box>
           </Grid>
         </Grid>
@@ -1359,7 +1535,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             colorButton={PRIMARY}
             invitationId={INVITATION_ID}
             bgColor={"transparent"}
-        
+            guestId={guestId}
             hidePhoneNumberInput={true}
             transparencyButton={true}
           ></RSVPForm>
