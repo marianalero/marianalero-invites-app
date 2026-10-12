@@ -120,7 +120,7 @@ const colorPalette = [
 
 const URL_SONG = `${URL_REPO}canciones/LanaDelRey-VideoGames.mp3`;
 const giftListData: GiftListProps = {
-  title: "Luvia de Sobres",
+  title: "Lluvia de Sobres",
 
   mainTypo: MAIN_TYPO,
   bodyTypo: BODY_TYPO,

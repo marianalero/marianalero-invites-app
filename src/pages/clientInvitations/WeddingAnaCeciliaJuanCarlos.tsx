@@ -165,7 +165,7 @@ const godParents = [
 ];
 const URL_SONG = `${URL_REPO}canciones/cancion.mp3`;
 const giftListData: GiftListProps = {
-  title: "Luvia de Sobres",
+  title: "Lluvia de Sobres",
 
   mainTypo: MAIN_TYPO,
   bodyTypo: BODY_TYPO,
