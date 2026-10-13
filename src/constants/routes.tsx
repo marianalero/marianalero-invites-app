@@ -186,7 +186,7 @@ const routes: RouteConfig[] = [
    {path:'/xv-briana-cristina', element: <XVBrianna></XVBrianna>},
    {path:'/xv-evany', element: <XVEvany></XVEvany>},
    {path:'/xv-danna-sophia', element: <XVDannaSophia></XVDannaSophia >},
-   {path:'/invitacion-xv-isabella-grijalva', element: <XVIsabellaGrijalva></XVIsabellaGrijalva>},
+   {path:'/xv-isabella-grijalva', element: <XVIsabellaGrijalva></XVIsabellaGrijalva>},
   {path:'/xv-michel', element:<XVMichelle></XVMichelle>},
   {path:'/xv-camila-fernanda', element:<XVCamilaFernanda></XVCamilaFernanda>},
 
