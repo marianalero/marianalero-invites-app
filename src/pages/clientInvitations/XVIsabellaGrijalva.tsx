@@ -149,11 +149,11 @@ const bankDetails = [
       numbers: [
          {
           numberType: "Cuenta",
-          number: "4593404",
+          number: "4353150",
         },
         {
           numberType: "CLABE",
-          number: "002760701945934043",
+          number: "002760702343531500",
         },
         
       ],
@@ -236,7 +236,7 @@ const XVIsabellaGrijalva = () => {
             },
             {
                 eventName: "Fin del evento",
-                date: new Date(2026,  1, 1,23,0,0),
+                date: new Date(2026,  1, 1,1,0,0),
                 icon:assetUrl("icon",9),
             },
         ],
@@ -1388,7 +1388,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           >
             <Box
               component="img"
-              src={assetUrl("icon", index == 0 ? 13 :12)}
+              src={assetUrl("icon", index == 0 ? 14 :12)}
               alt="Datos bancarios"
               sx={{ height: 40 }}
             />
