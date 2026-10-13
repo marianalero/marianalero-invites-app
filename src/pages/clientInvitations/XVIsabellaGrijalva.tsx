@@ -135,6 +135,19 @@ const bankDetails = [
      {
       numbers: [
          {
+          numberType: "Tarjeta",
+          number: "4152314699556596",
+        },
+        
+        
+      ],
+      bank: "BBVA ",
+      name: "Isabella Grijalva Sánchez ",
+   
+    },
+    {
+      numbers: [
+         {
           numberType: "Cuenta",
           number: "4593404",
         },
@@ -220,6 +233,11 @@ const XVIsabellaGrijalva = () => {
                 eventName: "Cena",
                 date: new Date(2026,  1, 1,21,15,0),
                 icon:assetUrl("icon",8),
+            },
+            {
+                eventName: "Fin del evento",
+                date: new Date(2026,  1, 1,23,0,0),
+                icon:assetUrl("icon",9),
             },
         ],
     };

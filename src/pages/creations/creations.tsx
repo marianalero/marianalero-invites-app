@@ -363,7 +363,159 @@ const invitations: InvitationItem[] = [
     link:"https://marianalero-invites.com/baby-shower-jose-alejandro",
     hide:false,
     package: "Esencia"
-   }
+   },
+  {
+    title: "Brandon & Alejandra",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/boda/boda-brandon-alejandra/og.jpeg",
+    link: "https://marianalero-invites.com/boda-brandon-alejandra",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Avielisse & Oskar",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/boda/boda-avielisse-oskar/og.jpg",
+    link: "https://marianalero-invites.com/boda-avielisse-oskar",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Erika & Edwin",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/boda/boda-erika-edwin/og.jpeg",
+    link: "https://marianalero-invites.com/boda-erika-edwin",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Anna & Juan Angel",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/boda/boda-ana-juan-angel/og.png",
+    link: "https://marianalero-invites.com/boda-ana-juan-angel",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Mitzia & Jhovanny",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/boda/boda-mitzia-jhovanny/og.jpg",
+    link: "https://marianalero-invites.com/boda-mitzia-jhovanny",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Arantxa & Jhoan",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/boda/boda-arantxa-jhoan/og.jpeg",
+    link: "https://marianalero-invites.com/boda-arantxa-jhoan",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Ana Cecilia & Juan Carlos",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/og/ac-jc.jpg",
+    link: "https://marianalero-invites.com/boda-ana-cecilia-juan-carlos",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Brisa & David",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/og/br.png",
+    link: "https://marianalero-invites.com/boda-brisa-david",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Mariela & Ivan",
+    category: "Bodas",
+    imageUrl: "https://marianalero.github.io/invites-images/og/mi.png",
+    link: "https://marianalero-invites.com/boda-mariela-ivan",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Elizabeth & Miguel",
+    category: "Bodas",
+    imageUrl: "https://res.cloudinary.com/dgikurjhr/image/upload/v1790189318/invitations/invitacion-elizabeth-miguel/yhh1u5pjp9ecrgrftil3.jpg",
+    link: "https://marianalero-invites.com/boda-elizabeth-miguel",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Diana Veronica & Eliel Misael",
+    category: "Bodas",
+    imageUrl: "https://res.cloudinary.com/dgikurjhr/image/upload/v1791401656/invitations/invitacion-diana-veronica-eliel-misael/dpavv0wxgf3r2oh9cs4g.jpg",
+    link: "https://marianalero-invites.com/boda-diana-veronica-eliel-misael",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "XV Kate Alejandra",
+    category: "XV Años",
+    imageUrl: "https://res.cloudinary.com/dgikurjhr/image/upload/v1789588152/invitations/xv-kate/na1evfzd9znd0fphoqnd.jpg",
+    link: "https://marianalero-invites.com/xv-kate-alejandra",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "XV Evany",
+    category: "XV Años",
+    imageUrl: "https://marianalero.github.io/invites-images/xv/xv-evany/og.jpg",
+    link: "https://marianalero-invites.com/xv-evany",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "XV Danna Sophia",
+    category: "XV Años",
+    imageUrl: "https://marianalero.github.io/invites-images/xv/xv-danna-sophia/og.jpeg",
+    link: "https://marianalero-invites.com/xv-danna-sophia",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "XV Isabella Grijalva",
+    category: "XV Años",
+    imageUrl: "https://res.cloudinary.com/dgikurjhr/image/upload/v1789588172/invitations/invitacion-xv-isabella-grijalva/ekbhplsacis5bhqoiiiy.jpg",
+    link: "https://marianalero-invites.com/invitacion-xv-isabella-grijalva",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "XV Michel",
+    category: "XV Años",
+    imageUrl: "https://marianalero.github.io/invites-images/xv/xv-michelle-centeno/og.jpeg",
+    link: "https://marianalero-invites.com/xv-michel",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "XV Camila Fernanda",
+    category: "XV Años",
+    imageUrl: "https://res.cloudinary.com/dgikurjhr/image/upload/v1789668917/invitations/xv-camila-fernanda/kyyhk9bh4ljjkwoixhgc.png",
+    link: "https://marianalero-invites.com/xv-camila-fernanda",
+    hide: false,
+    package: "Celebra +"
+  },
+  {
+    title: "Bautizo Ivanna",
+    category: "Bautizo",
+    imageUrl: "https://marianalero.github.io/invites-images/bautizo-ivanna/portada.png",
+    link: "https://marianalero-invites.com/bautizo-ivanna",
+    hide: false,
+    package: "Memorias"
+  },
+  {
+    title: "30 Mariana",
+    category: "Cumpleaños",
+    imageUrl: "https://marianalero.github.io/invites-images/otros/mariana-30/3.png",
+    link: "https://marianalero-invites.com/mariana-30",
+    hide: false,
+    package: "Esencia"
+  }
 
 
 ];
