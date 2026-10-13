@@ -1388,7 +1388,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           >
             <Box
               component="img"
-              src={assetUrl("icon", 12)}
+              src={assetUrl("icon", index == 0 ? 13 :12)}
               alt="Datos bancarios"
               sx={{ height: 40 }}
             />
