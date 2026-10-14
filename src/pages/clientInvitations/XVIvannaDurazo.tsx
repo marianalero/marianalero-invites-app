@@ -512,7 +512,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                         color: PRIMARY,
                       }}
                     >
-                      Jesús Octavio Grijalva
+                       Alejandro Durazo 
                     </Typography>
                   </Fade>
                 </Grid>
@@ -545,7 +545,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                         fontFeatureSettings: '"liga" 0, "locl" 0',
                       }}
                     >
-                      Liz Fabiola Sánchez
+                      Crucita Márquez
                     </Typography>
                   </Fade>
                 </Grid>
@@ -767,7 +767,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                         color: PRIMARY,
                       }}
                     >
-                      Marcos Gallardo y Ma. Fernanda GallardoAlberto Armenta 
+                      Marco Gallardo y Ma. Fernanda GallardoAlberto Armenta 
                     </Typography>
                   </Fade>
                 </Grid>
