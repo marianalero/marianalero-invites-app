@@ -30,11 +30,29 @@ const sealVariants = {
         y: 0,
         opacity: 1,
     },
+    /** Gentle pulse while waiting for the tap that opens the envelope. */
+    idle: {
+        scale: [1, 1.09, 1, 1.05, 1],
+        rotate: [0, -5, 3, -2, 0],
+        y: [0, -7, 0, -3, 0],
+        opacity: 1,
+        transition: {
+            duration: 1.8,
+            repeat: Infinity,
+            repeatDelay: 0.7,
+            ease: "easeInOut",
+            times: [0, 0.22, 0.42, 0.62, 1],
+        },
+    },
     open: {
         scale: 0.9,
         rotate: 8,
         y: 120,
         opacity: 0,
+        transition: {
+            duration: SEAL_DURATION,
+            ease: [0.4, 0, 0.2, 1],
+        },
     },
 };
 

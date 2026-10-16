@@ -6,7 +6,7 @@ import DressCode, {
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import Grid from "@mui/material/Grid2";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, IconButton, Paper, Stack, Typography } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -15,7 +15,7 @@ import Adornment from "../../components/Adornment/Adornment";
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import { ENVELOPE_OPEN_MS } from "../../components/EnvelopeIntro/animations";
 import EnvelopeIntro from "../../components/EnvelopeIntro/EnvelopeIntro";
-
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import EditorialCountdown from "../../components/EditorialCountdown";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import { getAssets } from "../../services/mediaApiClient";
@@ -87,9 +87,9 @@ export const MAGIC_GLOW =
   "0 0 30px rgba(175,196,154,.25)";
 
 export const STORY_DIVIDER = "#DCE3D2";
-const MAIN_TYPO = "eyesome";
+const MAIN_TYPO = "pinyon-script-regular";
 const SECOND_TYPO = "prata";
-const BODY_TYPO = "raleway-400 to-upper";
+const BODY_TYPO = "playfair-display-400";
 
 const MEDIA_KEY = "invitacion-xv-ivanna-durazo";
 const EMPTY_ASSET = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
@@ -101,7 +101,7 @@ const dresscode: DressCodeProps = {
   type: 1,
   title: "Formal",
   fontSize: "2rem",
-  // omitColorsLabel: "Color azul reservado para la quinceañera.",
+  omitColorsLabel: "Colores Rosa y Verde Menta reservado para la quinceañera.",
 };
 
 const calendarButtonProps = {
@@ -138,6 +138,19 @@ const XVIvannaDurazo = () => {
     cloudAssets.filter((asset) => asset.assetKind === kind)[index]?.secureUrl ?? EMPTY_ASSET;
 
   const eventCards: EventCardProps[] = [
+     { eventName: "Misa", 
+      date: new Date(2026, 3, 11, 17, 30, 0),
+     locationName: "Parroquia Santa Eduwiges",
+     address: "C. Israel González S/N, Modelo, 83190 Hermosillo, Son.", 
+     size: 6, color: PRIMARY_DARK,
+      icon: assetUrl("church",0), 
+      iconSize: "180px",
+       mainTypo: MAIN_TYPO, 
+       bodyTypo: BODY_TYPO, 
+       href: "https://maps.app.goo.gl/ZgTecwyRu9KDuix77", 
+       fontSize: "45px",
+        colorButton: PRIMARY,
+         bgColor: BG_MAIN },
     { eventName: "Recepción", 
       date: new Date(2026, 3, 11, 20, 0, 0),
      locationName: "La Casona de Xochimilco",
@@ -162,30 +175,26 @@ const XVIvannaDurazo = () => {
         bgColor: BG_MAIN, 
         fontSize:"38px",
         events: [
-            {
-                eventName: "Misa",
-                date: new Date(2026, 0, 31, 17, 0, 0),
-                icon:assetUrl("icon",5),
-            },
+          
             {
                 eventName: "Recepción",
                 date: new Date(2026, 0, 31, 20, 0, 0),
-                icon:assetUrl("icon",6),
+                icon:assetUrl("icon",1),
             },
             {
                 eventName: "Vals",
-                date: new Date(2026,  0, 31,21,0,0),
-                icon:assetUrl("icon",7),
+                date: new Date(2026,  0, 31,21,15,0),
+                icon:assetUrl("icon",2),
             },
            {
-                eventName: "Vals",
-                date: new Date(2026,  0, 31,21,0,0),
-                icon:assetUrl("icon",8),
+                eventName: "Cena",
+                date: new Date(2026,  0, 31,21,50,0),
+                icon:assetUrl("icon",3),
             },
             {
                 eventName: "Fin del evento",
-                date: new Date(2026,  1, 1,2,0,0),
-                icon:assetUrl("icon",9),
+                date: new Date(2026,  1, 1,1,0,0),
+                icon:assetUrl("icon",4),
             },
         ],
     };
@@ -212,8 +221,8 @@ const XVIvannaDurazo = () => {
         open={showIntro}
         onEnter={handleEnter}
         // musicRef={musicRef}
-        sealImage={assetUrl("icon",12)}
-        envelopeColor={PRIMARY}
+        sealImage={assetUrl("seal")}
+        envelopeColor={PRIMARY_LIGHT}
         overlayColor={PRIMARY_DARK}
         envelopeHighlight={PRIMARY_LIGHT}
         shadowColor={SHADOW}
@@ -385,7 +394,7 @@ const XVIvannaDurazo = () => {
           >
             <Typography
               textAlign="center"
-              className={`${SECOND_TYPO} italic`}
+              className={`${BODY_TYPO} italic`}
               fontSize="1rem"
               
               lineHeight={1.55}
@@ -406,7 +415,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
               component="img"
               src={assetUrl("ornament", 1)}
               sx={{
-                width: { xs: 120, md: 150 },
+                width: { xs: 80, md: 100 },
                
               }}
             />
@@ -480,7 +489,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
-                      className={`${SECOND_TYPO}`}
+                      className={`${BODY_TYPO}`}
                       mb={2}
                       lineHeight={1.5}
                     >
@@ -489,7 +498,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     </Typography>
 
                     <Typography
-                      className={BODY_TYPO}
+                      className={SECOND_TYPO}
                       sx={{
                         mb: 2,
                         mt: 2,
@@ -555,7 +564,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
-                      className={SECOND_TYPO}
+                      className={BODY_TYPO}
                       sx={{ mt: 2 }}
                       lineHeight={1.5}
                     >
@@ -631,7 +640,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             mt={2}
           >
             <Typography
-              className={`${SECOND_TYPO} italic`}
+              className={`${BODY_TYPO} italic`}
               translate="no"
               align="center"
               sx={{
@@ -736,7 +745,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12 }}>
                   <Fade direction="up">
                     <Typography
-                      className={`${SECOND_TYPO}`}
+                      className={`${BODY_TYPO}`}
                       mb={2}
                       lineHeight={1.5}
                     >
@@ -744,11 +753,12 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                     </Typography>
 
                     <Typography
-                      className={BODY_TYPO}
+                      className={MAIN_TYPO}
                       sx={{
                         mb: 2,
                         mt: 2,
                         color: PRIMARY_DARK,
+                        fontSize:"1.5rem"
                       }}
                     >
                       Mis Padrinos
@@ -760,9 +770,9 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   <Fade direction="up">
                     <Typography
                       variant="h1"
-                      className={`${MAIN_TYPO} tex-`}
+                      className={`${SECOND_TYPO} italic`}
                       sx={{
-                        fontSize: "2rem",
+                        fontSize: "1rem",
                         lineHeight: 1,
                         color: PRIMARY,
                       }}
@@ -777,10 +787,10 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   <Fade direction="up">
                     <Typography
                       variant="h1"
-                      className={`${MAIN_TYPO}`}
+                      className={`${SECOND_TYPO} italic`}
                       translate="no"
                       sx={{
-                        fontSize: "2rem",
+                        fontSize: "1rem",
                         lineHeight: 1,
                         color: PRIMARY,
                         fontFeatureSettings: '"liga" 0, "locl" 0',
@@ -794,10 +804,10 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   <Fade direction="up">
                     <Typography
                       variant="h1"
-                      className={`${MAIN_TYPO}`}
+                      className={`${SECOND_TYPO} italic`}
                       translate="no"
                       sx={{
-                        fontSize: "2rem",
+                        fontSize: "1rem",
                         lineHeight: 1,
                         color: PRIMARY,
                         fontFeatureSettings: '"liga" 0, "locl" 0',
@@ -988,10 +998,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             className={BODY_TYPO}
             sx={{
               mt: 1.2,
-              fontSize: {
-                xs: "0.75rem",
-                md: "0.8rem",
-              },
+             
               lineHeight: 1.65,
               
               maxWidth: 330,
@@ -1086,7 +1093,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 style={{
                   position: "absolute",
                   top: "calc(5% - 100px)",
-                  right: "calc(5% - 100px)",
+                  right: "calc(2% - 100px)",
                   // transform: "scale(-1,1)",
                 }}
               >
@@ -1138,6 +1145,89 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                         width: { xs: 120, md: 110 },
                       }}
                     />
+
+                    <Paper
+                                          
+                                          elevation={0}
+                                          sx={{
+                                            bgcolor: BG_MAIN,
+                                            borderRadius: "0",
+                                            p: 4,
+                                            border: "1.5px solid rgba(190,170,130,.45)",
+                                             boxShadow: `0px 18px 40px ${SHADOW}`,
+                                          }}
+                                        >
+                                            <Stack>
+                                       
+                                            <Box >
+                    
+                                            
+                                              <Typography
+                                              className={SECOND_TYPO}
+                                              sx={{
+                                                letterSpacing: ".18em",
+                                                fontSize: "1rem",
+                                                color: TEXT_PRIMARY,
+                                                textAlign: "center",
+                                              }}
+                                            >
+                                              Tarjeta
+                                            </Typography>
+                    
+                                            <Typography
+                                              className={BODY_TYPO}
+                                              sx={{
+                                                fontSize: {
+                                                  xs: "1.2rem",
+                                                  sm: "1.9rem",
+                                                },
+                                                letterSpacing: "0.04em",
+                                                whiteSpace: "nowrap",
+                                                color: TEXT_PRIMARY,
+                                                // letterSpacing: ".04em",
+                                                textAlign: "center",
+                                                lineHeight: 1.1,
+                                              }}
+                                            >
+                                              5579 1004 8987 0608
+                                              <IconButton
+                                                onClick={() => {
+                                                  navigator.clipboard.writeText(
+                                                    "5579100489870608",
+                                                  );
+                                                }}
+                                              >
+                                                <ContentCopyIcon sx={{ color: TEXT_PRIMARY }} />
+                                              </IconButton>
+                                            </Typography>
+                                            </Box>
+
+                                        
+                    
+                                            <Typography
+                                              className={BODY_TYPO}
+                                              sx={{
+                                                fontSize: ".9rem",
+                                                color: TEXT_PRIMARY,
+                                                opacity: 0.85,
+                                                textAlign: "center",
+                                              }}
+                                            >
+                                              Santander 
+                                            </Typography>
+                                              <Typography
+                                              className={BODY_TYPO}
+                                              sx={{
+                                                fontSize: ".9rem",
+                                                color: TEXT_PRIMARY,
+                                                opacity: 0.85,
+                                                textAlign: "center",
+                                              }}
+                                            >
+                                              Crucita Marquez
+                                            </Typography>
+                                          </Stack>
+                                        </Paper>
                   </Stack>
                 </Container>
               </Box>
@@ -1179,7 +1269,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             colorButton={PRIMARY}
             invitationId={INVITATION_ID}
             bgColor={"transparent"}
-        
+            fontSize="2rem"
             hidePhoneNumberInput={true}
             transparencyButton={true}
           ></RSVPForm>
@@ -1200,7 +1290,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             </Fade>
           </Grid>
           <WithoutKids
-            bodyTypo={SECOND_TYPO}
+            bodyTypo={BODY_TYPO}
             textColor={TEXT_PRIMARY}
             subtitle2="NO NIÑOS"
           ></WithoutKids>
