@@ -9,7 +9,7 @@ import {
     FLAP_DURATION,
     leftVariants,
     rightVariants,
-    sealVariants,
+    
 } from "./animations";
 import { useEnvelopeGeometry } from "./geometry";
 
@@ -94,7 +94,7 @@ const EnvelopeIntro = ({
                     src={sealImage}
                     className="seal"
                     onClick={handleSealClick}
-                    variants={sealVariants}
+                    
                     initial="closed"
                     animate={
                         isOpening ? "open" : reduceMotion ? "closed" : "idle"
