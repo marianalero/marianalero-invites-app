@@ -22,7 +22,6 @@ import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 
-import EnvelopeIntro from "../../components/EnvelopeIntro/EnvelopeIntro";
 import { ENVELOPE_OPEN_MS } from "../../components/EnvelopeIntro/animations";
 
 import { getAssets } from "../../services/mediaApiClient";
@@ -43,7 +42,7 @@ const EMPTY_ASSET =
 
 const BG_MAIN = "#F7F3EB";       // Marfil
 const BG_SECTION = "#EDE8DE";    // Beige cálido
-const BG_SAGE = "#DCE1D5";       // Salvia claro
+
 const BG_DARK = "#344A3D";       // Verde bosque
 
 const SAGE = "#667B63";          // Verde salvia
