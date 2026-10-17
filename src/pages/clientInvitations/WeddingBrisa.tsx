@@ -935,6 +935,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
                             <Typography mt={2} sx={{color:TITLE_COLOR, fontSize: "2rem",lineHeight:1,fontWeight:700}} variant="body1" textAlign={"center"} className={SECOND_TYPO} >¡Confirma tu asistencia!</Typography>
 
                             <RSVPForm
+                            hideDateLine={true}
                             dateLine={RSVP_DATE_LINE}
                                 guest={guest || undefined}
                                 textColor={BODY_COLOR}
