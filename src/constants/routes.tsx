@@ -45,6 +45,7 @@ import DemoOne from "../pages/demos/examples/DemoOne";
 import DemoOneBI from "../pages/demos/examples/DemoOneBI";
 import DemoTree from "../pages/demos/examples/DemoTree";
 import DemoTwo from "../pages/demos/examples/DemoTwo";
+import IntroOptionsPage from "../pages/demos/examples/IntroOptionsPage";
 import FaqPage from "../pages/faq/faq";
 import RegisterGuestPage from "../pages/guests/guests";
 import HomePage from "../pages/home/HomePage";
@@ -113,6 +114,8 @@ const routes: RouteConfig[] = [
     { path: '/demos', element: <DemosPage /> },
     {path:'/demos/1', element: <DemoOne></DemoOne>},
     {path:'/demos/2', element: <DemoTwo></DemoTwo>},
+    {path:'/elige-intro', element: <IntroOptionsPage />},
+    {path:'/demos/intro-foto', element: <IntroOptionsPage />},
     {path:'/demos/3', element: <DemoTree></DemoTree>},
     {path:'/demos/baby-shower', element: <BabyShower></BabyShower>},
     {path:"/demos/bw-demo", element: <WeddingBWDemo></WeddingBWDemo>},

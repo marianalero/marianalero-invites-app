@@ -298,7 +298,7 @@ const RSVPForm  = (props:RSVPType) => {
                 }
             </Typography>
             )}
-            {props.dateLine && (
+            {props.dateLine && !props.hideDateLine && (
                  <Typography textAlign="center" variant="body1" className={props.bodyTypo} sx={{color:props.textColor}}>
                {t("RSVP.dateLineStart")} {getFormattedDate(props.dateLine!)}.
             </Typography>

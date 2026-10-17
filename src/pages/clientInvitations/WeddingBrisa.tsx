@@ -90,7 +90,7 @@ const SECOND_TYPO_REG = "PermianSansTypeface";
 const BODY_TYPO = "baskervville-500";
 const URL_IMAGES = `${URL_REPO}boda/boda-brisa-rey/`;
 const COUNTDOWN_DATE = new Date(2026, 10, 14);
-const RSVP_DATE_LINE = new Date(2026, 9, 16);
+const RSVP_DATE_LINE = new Date(2026, 9, 30);
 
 const eventCards: EventCardProps[] = [
     {

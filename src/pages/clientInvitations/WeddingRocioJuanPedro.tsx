@@ -32,6 +32,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import dayjs from "dayjs";
+import PhotoCoverIntro from "../../components/Intro/PhotoCoverIntro/PhotoCoverIntro";
 ;
 
 const INVITATION_ID = 48;
@@ -246,16 +247,22 @@ const WeddingRocioJuanPedro = () => {
       />
 
       {/* INTRO */}
-      <EnvelopeIntro
-        open={showIntro}
-        onEnter={handleEnter}
-        musicRef={musicRef}
-        sealImage={assetUrl("seal")}
-        envelopeColor={BG_DARK}
-        overlayColor={BG_SAGE}
-        envelopeHighlight={BG_SAGE}
-        shadowColor={BG_SAGE}
-      />
+      <PhotoCoverIntro
+          open={showIntro}
+          onEnter={handleEnter}
+          musicRef={musicRef}
+          image={assetUrl("cover")}
+          imagePosition="center 40%"
+          // portraitImage={PORTRAIT}
+          monogramText="AR"
+          monogramTypo="allura-regular"
+          phrase="nos casamos"
+          names="Angela y Ramiro"
+          namesTypo="great-vibes-regular"
+          date="08 de enero 2028"
+          extraText="Un día para celebrar juntos"
+          bodyTypo="instrument-sans"
+        />
 
       {/* INVITACIÓN */}
       <Box>
