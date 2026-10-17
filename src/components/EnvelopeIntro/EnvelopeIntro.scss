@@ -62,6 +62,44 @@
     z-index: 20;
     cursor: pointer;
     filter: drop-shadow(0 8px 18px var(--shadow));
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transform-origin: center;
+        animation: seal-invite 2.2s ease-in-out infinite;
+    }
+}
+
+.envelope-overlay.is-opening .seal img {
+    animation: none;
+}
+
+@keyframes seal-invite {
+    0%,
+    48%,
+    100% {
+        transform: scale(1);
+    }
+
+    12% {
+        transform: scale(1.08);
+    }
+
+    24% {
+        transform: scale(1);
+    }
+
+    36% {
+        transform: scale(1.05);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .seal img {
+        animation: none;
+    }
 }
 
 @media (min-width: 900px) and (orientation: landscape) {
