@@ -100,6 +100,7 @@ import WeddingEliMiguel from "../pages/clientInvitations/WeddingEliMiguel";
 import XVIvannaDurazo from "../pages/clientInvitations/XVIvannaDurazo";
 import WeddingDianaMisael from "../pages/clientInvitations/WeddingDianaMisael";
 import WeddingRocioJuanPedro from "../pages/clientInvitations/WeddingRocioJuanPedro";
+import WeddingBerenice from "../pages/clientInvitations/WeddingBerenice";
 
 interface RouteConfig {
   path: string;
@@ -220,6 +221,7 @@ const routes: RouteConfig[] = [
 // {path:'/prev-ig-p', element:<XVIsabellaGrijalvapPink></XVIsabellaGrijalvapPink>},
 {path:'/prev-id-2', element:<XVIvannaDurazo></XVIvannaDurazo>},
 {path:'/prev-rj-1', element:<WeddingRocioJuanPedro></WeddingRocioJuanPedro>},
+{path:'/prev-bc-1', element:<WeddingBerenice></WeddingBerenice>},
 
 ];
 

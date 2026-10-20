@@ -32,7 +32,8 @@ import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import dayjs from "dayjs";
 import PhotoCoverIntro from "../../components/Intro/PhotoCoverIntro/PhotoCoverIntro";
-;
+
+
 
 const INVITATION_ID = 48;
 const MEDIA_KEY = "invitacion-rocio-juan-pedro";
@@ -253,14 +254,14 @@ const WeddingRocioJuanPedro = () => {
           image={assetUrl("cover")}
           imagePosition="center 40%"
           // portraitImage={PORTRAIT}
-          monogramText="AR"
-          monogramTypo="allura-regular"
-          phrase="nos casamos"
-          names="Angela y Ramiro"
-          namesTypo="great-vibes-regular"
-          date="08 de enero 2028"
+          monogramText=""
+          monogramTypo={MAIN_TYPO}
+          phrase="Nos casamos"
+          names="Rocio y Juan Pedro"
+          namesTypo={MAIN_TYPO}
+          date="28 de Noviembre 2026"
           extraText="Un día para celebrar juntos"
-          bodyTypo="instrument-sans"
+          bodyTypo={BODY_TYPO}
         />
 
       {/* INVITACIÓN */}

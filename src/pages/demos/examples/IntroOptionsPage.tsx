@@ -14,8 +14,6 @@ type IntroOption = "foto" | "sobre" | "sello";
 const URL_SONG = `${URL_REPO}/canciones/AThousandYears-ChristinaPerri-Violin.mp3`;
 const COVER =
   "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80";
-const PORTRAIT =
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80";
 const ENVELOPE = `${URL_REPO}demos/black-envelope.png`;
 const SEAL = `${URL_REPO}boda/boda-vianney-alberto/sello.png`;
 
@@ -226,7 +224,7 @@ const IntroOptionsPage = () => {
           musicRef={musicRef}
           image={COVER}
           imagePosition="center 40%"
-          portraitImage={PORTRAIT}
+         
           monogramText="AR"
           monogramTypo="allura-regular"
           phrase="nos casamos"
