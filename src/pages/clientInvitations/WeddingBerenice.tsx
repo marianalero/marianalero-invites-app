@@ -161,7 +161,7 @@ const WeddingBerenice = () => {
       color: TEXT_PRIMARY,
       mainTypo: SECONDARY_TYPO,
       bodyTypo: BODY_TYPO,
-      href: "https://maps.app.goo.gl/VeGRnXQ6iFzxzKfW8",
+      href: "https://maps.app.goo.gl/9yDBTzkVZFSkENJy9",
       colorButton: BUTTON_PRIMARY,
       colorIcon: TEXT_PRIMARY,
       fontSize: "2rem",
