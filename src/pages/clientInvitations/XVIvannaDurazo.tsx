@@ -8,7 +8,7 @@ import FooterInvites from "../../components/Footer/FooterInvites";
 import Grid from "@mui/material/Grid2";
 import { Box, Container, IconButton, Paper, Stack, Typography } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Adornment from "../../components/Adornment/Adornment";
 
@@ -24,7 +24,11 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import CustomizedTimeline, { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
-import Gallery from "../../components/Gallery/Gallert";
+import Gallery from "../../components/GalleryV2/Gallery";
+import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
+import { URL_REPO } from "../../config";
+import PhotoCoverIntro from "../../components/Intro/PhotoCoverIntro/PhotoCoverIntro";
+
 // =========================
 // Background Palette
 // =========================
@@ -119,7 +123,7 @@ const calendarButtonProps = {
 const COUNTDOWN_DATE = new Date(2026, 10, 27);
 const RSVP_DATE_LINE = new Date(2026, 10, 15);
 const INVITATION_ID = 0;
-
+const URL_SONG = `${URL_REPO}canciones/PhotographPiaCover.mp3`;
 const XVIvannaDurazo = () => {
   const [searchParams] = useSearchParams();
   const invitedGuests: number = useMemo(() => {
@@ -137,6 +141,14 @@ const XVIvannaDurazo = () => {
   const assetUrl = (kind: string, index = 0) =>
     cloudAssets.filter((asset) => asset.assetKind === kind)[index]?.secureUrl ?? EMPTY_ASSET;
 
+   const galleryImages = cloudAssets
+    .filter((asset) => asset.assetKind === "gallery")
+    .sort((a, b) => a.sortOrder - b.sortOrder)
+    .map((asset) => asset.secureUrl);
+ const minigalleryImages = cloudAssets
+    .filter((asset) => asset.assetKind === "mini-gallery")
+    .sort((a, b) => a.sortOrder - b.sortOrder)
+    .map((asset) => asset.secureUrl);
   const eventCards: EventCardProps[] = [
      { eventName: "Misa", 
       date: new Date(2026, 3, 11, 17, 30, 0),
@@ -198,9 +210,9 @@ const XVIvannaDurazo = () => {
             },
         ],
     };
-  //  const musicRef = useRef<MusicFabPlayerHandle>(null);
+   const musicRef = useRef<MusicFabPlayerHandle>(null);
   const handleEnter = () => {
-    // musicRef.current?.play();
+    musicRef.current?.play();
     setTimeout(() => {
       setShowIntro(false);
     }, ENVELOPE_OPEN_MS);
@@ -217,16 +229,29 @@ const XVIvannaDurazo = () => {
         color: TEXT_PRIMARY,
       }}
     >
-      <EnvelopeIntro
-        open={showIntro}
-        onEnter={handleEnter}
-        // musicRef={musicRef}
-        sealImage={assetUrl("seal")}
-        envelopeColor={PRIMARY_LIGHT}
-        overlayColor={PRIMARY_DARK}
-        envelopeHighlight={PRIMARY_LIGHT}
-        shadowColor={SHADOW}
-      ></EnvelopeIntro>
+
+        <MusicFabPlayer
+              ref={musicRef}
+              src={URL_SONG}
+              backgroundColor={TEXT_PRIMARY}
+            />
+      <PhotoCoverIntro
+          open={showIntro}
+          onEnter={handleEnter}
+          musicRef={musicRef}
+          image={assetUrl("cover",1)}
+          imagePosition="center 40%"
+          // portraitImage={PORTRAIT}
+          monogramText=""
+          monogramTypo={MAIN_TYPO}
+          phrase="MIS XV AÑOS"
+          names="Ivanna Durazo"
+          namesTypo={MAIN_TYPO}
+          date="27 de Noviembre 2026"
+          extraText="Un día para celebrar juntos"
+          bodyTypo={BODY_TYPO}
+        />
+
     <Box
       sx={{
         minHeight: "100vh",
@@ -299,7 +324,7 @@ const XVIvannaDurazo = () => {
         </Typography>
         <Box
   component="img"
-  src="/assets/quinceanera.jpg"
+  src={assetUrl("cover",1)}
   alt="Quinceañera"
   sx={{
     width: { xs: 350, sm: 350, md: 350 },
@@ -373,7 +398,7 @@ const XVIvannaDurazo = () => {
       whiteSpace: "nowrap",
     }}
   >
-    28 · NOVIEMBRE · 2027
+    27 · NOVIEMBRE · 2027
   </Typography>
 </Box>
       </Box>
@@ -422,12 +447,12 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           </Grid>
         </Grid>
       </Box>
-      <Box
+      {/* <Box
       height="70vh" bgcolor="lightgray"
       >
 
-      </Box>
-      {/* <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",1)}></ImageMiddle> */}
+      </Box> */}
+      <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",0)}></ImageMiddle>
       <div
         style={{
           backgroundColor: BG_MAIN,
@@ -689,7 +714,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           }}
         />
       </div>
-      <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",2)}></ImageMiddle>
+      <ImageMiddle bgPosition="50%" height="50vh" bgImage={assetUrl("middle-image",1)}></ImageMiddle>
       <div
         style={{
           backgroundColor: BG_MAIN,
@@ -713,19 +738,8 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
               }}
             >
               
-              {/* <div
-                style={{
-                  position: "absolute",
-                  top: "calc(5% - 100px)",
-                  right: "calc(10% - 100px)",
-                  transform: "scale(-1,1)",
-                }}
-              >
-                <Fade direction="up" triggerOnce={true}>
-                  <img src={assetUrl("ornament")} style={{ width: "100px" }} />
-                </Fade>
-              </div>
-               */}
+              
+              
 
               <Grid container spacing={2} justifyContent="center" mb={3}>
                 <Grid
@@ -850,6 +864,102 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             </Box>
           </Grid>
         </Grid>
+         <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5, p: 2, position:"relative" }}>
+          <div
+                style={{
+                  position: "absolute",
+                  top: "calc(60% - 100px)",
+                  left: "calc(15% - 100px)",
+                  transform: "scale(-1,1)",
+                }}
+              >
+                <Fade direction="up" triggerOnce={true}>
+                  <img src={assetUrl("ornament",3)} style={{ width: "100px" }} />
+                </Fade>
+              </div>
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "calc(10% - 100px)",
+                  right: "calc(12% - 100px)",
+                  transform: "scale(-1,1)",
+                }}
+              >
+                <Fade direction="up" triggerOnce={true}>
+                  <img src={assetUrl("ornament",2)} style={{ width: "100px" }} />
+                </Fade>
+              </div>
+                  {/* FILA 1 */}
+                  <Box
+                    sx={{
+                      display: "grid",
+                      gridTemplateColumns: "0.95fr 1.35fr",
+                      gap: 1.5,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src={minigalleryImages[1]}
+                      sx={{
+                        width: "100%",
+                        aspectRatio: "3 / 4",
+                        objectFit: "cover",
+                        borderRadius: "22px",
+                        boxShadow: "0 10px 28px rgba(0,0,0,.08)",
+                      }}
+                    />
+        
+                    <Box
+                      component="img"
+                      src={minigalleryImages[3]}
+                      sx={{
+                        width: "100%",
+                        aspectRatio: "4 / 3",
+                        objectFit: "cover",
+                        borderRadius: "22px",
+                        boxShadow: "0 10px 28px rgba(0,0,0,.08)",
+                      }}
+                    />
+                  </Box>
+        
+                  {/* FILA 2 (Invertida) */}
+                  <Box
+                    sx={{
+                      display: "grid",
+                      gridTemplateColumns: "1.35fr 0.95fr",
+                      gap: 1.5,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src={minigalleryImages[2]}
+                      sx={{
+                        width: "100%",
+                        aspectRatio: "4 / 3",
+                        objectFit: "cover",
+                        borderRadius: "22px",
+                        boxShadow: "0 10px 28px rgba(0,0,0,.08)",
+                      }}
+                    />
+        
+                    <Box
+                      component="img"
+                      src={minigalleryImages[0]}
+                      sx={{
+                        width: "100%",
+                        aspectRatio: "3 / 4",
+                        objectFit: "cover",
+                        borderRadius: "22px",
+                        boxShadow: "0 10px 28px rgba(0,0,0,.08)",
+                      }}
+                    />
+                  </Box>
+        
+                  {/* FILA 3 */}
+                 
+                </Box>
       </div>
        <Box
  id="ubicacion"
@@ -1072,7 +1182,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 </Fade>
               </div>
         </Box>      
-      <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",3)}></ImageMiddle>
+      <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",2)}></ImageMiddle>
       <div
         style={{
           backgroundColor: BG_ALT,
@@ -1295,9 +1405,17 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             subtitle2="NO NIÑOS"
           ></WithoutKids>
         </Box>
-         <Grid paddingTop={2}>
-         <Gallery photos={[assetUrl("middle-image",0)]}></Gallery>
-         </Grid>
+         <Gallery
+                           images={galleryImages}
+                            bgMain={BG_MAIN} 
+                            titleColor={PRIMARY_DARK} 
+                            bodyColor={TEXT_PRIMARY} 
+                            title={""} 
+                            subtitle={""}
+                            mainTypo={MAIN_TYPO}
+                            bodyTypo={BODY_TYPO}
+                            
+                            />
       </div>
 
       <FooterInvites bgColor={BG_SECTION} color={TEXT_PRIMARY}></FooterInvites>

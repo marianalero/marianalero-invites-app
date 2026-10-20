@@ -193,7 +193,7 @@ const routes: RouteConfig[] = [
    {path:'/xv-isabella-grijalva', element: <XVIsabellaGrijalva></XVIsabellaGrijalva>},
   {path:'/xv-michel', element:<XVMichelle></XVMichelle>},
   {path:'/xv-camila-fernanda', element:<XVCamilaFernanda></XVCamilaFernanda>},
-
+{path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
 
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},
@@ -211,15 +211,10 @@ const routes: RouteConfig[] = [
    {path:'/mariana-30', element: <Mariana30></Mariana30>},
   //Borradores
 
+
+
 {path:'/prev-va-1', element:<WeddingVianneyAlberto></WeddingVianneyAlberto>},
-
-{path:'/prev-dm-1', element:<WeddingDianaMisael></WeddingDianaMisael>},
-{path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
-
-
-{path:'/prev-ig-3', element:<XVIsabellaGrijalva></XVIsabellaGrijalva>},
-// {path:'/prev-ig-p', element:<XVIsabellaGrijalvapPink></XVIsabellaGrijalvapPink>},
-{path:'/prev-id-2', element:<XVIvannaDurazo></XVIvannaDurazo>},
+{path:'/prev-id-3', element:<XVIvannaDurazo></XVIvannaDurazo>},
 {path:'/prev-rj-1', element:<WeddingRocioJuanPedro></WeddingRocioJuanPedro>},
 {path:'/prev-bc-1', element:<WeddingBerenice></WeddingBerenice>},
 
