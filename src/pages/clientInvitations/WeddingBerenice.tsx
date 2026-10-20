@@ -104,7 +104,33 @@ const calendarButtonProps = {
         },
   },
 };
-
+const godParents = [
+  {
+    title: "",
+    names: ["Lizbeth Álamo Cruz", "Moisés Franco Morales"],
+  },
+  {
+    title: "",
+    names: [
+      "Cinthia Figueroa Mendoza",
+      "César Franco Morales",
+    ],
+  },
+  {
+    title: "",
+    names: [
+      "Yulissa Peraza Soto",
+      "Cristo Franco Ochoa",
+    ],
+  },
+  {
+    title: "",
+    names: [
+      "Carlos Adrián López Angulo",
+   
+    ],
+  },
+];
 
 const WeddingBerenice = () => {
   const [searchParams] = useSearchParams();
@@ -543,7 +569,107 @@ const WeddingBerenice = () => {
           padding="1em"
           alignItems="end"
         ></CountDown>
-        
+          <Box
+          sx={{
+            background: BG_MAIN,
+            py: { xs: 8, md: 12 },
+            px: 3,
+          }}
+        >
+          {/* Título */}
+          <Fade direction="up" triggerOnce={true}>
+            <Typography
+              className={MAIN_TYPO}
+              textAlign="center"
+              sx={{
+                color: TITLE_COLOR,
+                fontSize: { xs: 34, md: 42 },
+                
+                mb: 2,
+              }}
+            >
+              Padrinos
+            </Typography>
+
+            <Typography
+              className={BODY_TYPO}
+              textAlign="center"
+              sx={{
+                color: TEXT_PRIMARY,
+                fontWeight: 300,
+                
+                maxWidth: 500,
+                mx: "auto",
+              }}
+            >
+              Con mucho cariño agradecemos a quienes nos acompañan como padrinos
+              en este momento tan especial.
+            </Typography>
+            <Box
+  sx={{
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    // py: 2,
+    // px: 3,
+  }}
+>
+  <Box
+    component="img"
+    src={assetUrl("ornament",2)}
+    alt=""
+    aria-hidden="true"
+    sx={{
+      display: "block",
+      width: "100%",
+      maxWidth: 250,
+      height: "auto",
+      objectFit: "contain",
+      opacity: 0.8,
+    }}
+  />
+</Box>
+          </Fade>
+          <Grid container spacing={6}>
+            {godParents.map((item, index) => (
+              <Grid size={{ xs: 12, md: 6 }} key={index}>
+                <Box textAlign="center">
+                  <Fade direction="up" triggerOnce={true}>
+
+
+                    {item.names.map((n, i) => (
+                      <Typography
+                        key={i}
+                        className={SECONDARY_TYPO}
+                        sx={{
+                          mt: 1,
+
+                          color: TAUPE_PRIMARY,
+                          fontSize: 24,
+                          fontWeight: 300,
+                          lineHeight: 1.8,
+                        }}
+                      >
+                        {n}
+                      </Typography>
+                    ))}
+
+                    <Box
+                      sx={{
+                        width: 80,
+                        height: 2,
+                        background: BORDER_COLOR,
+                        mx: "auto",
+                        mt: 2,
+                      }}
+                    />
+                  </Fade>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
         <div style={{ backgroundColor: BG_ACCENT , padding: "50px 20px" }}>
           <Grid container spacing={2} padding={4}>
             {eventCards.map((item, index) => (
