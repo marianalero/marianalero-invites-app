@@ -10,7 +10,8 @@ import MusicFabPlayer, {
   MusicFabPlayerHandle,
 } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
-import { Box, Button, Paper,Typography } from "@mui/material";
+import { Box, Button, IconButton, Paper,Stack,Typography } from "@mui/material";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import { Fade } from "react-awesome-reveal";
@@ -192,16 +193,12 @@ const WeddingBerenice = () => {
       {
         numbers: [
           {
-            numberType: "Cuenta",
-            number: "152 667 7937",
-          },
-          {
-            numberType: "CLABE",
-            number: "012 180 01526677937 9",
+            numberType: "Tarjeta",
+            number: "4152 3140 5187 2011",
           },
         ],
         bank: "BBVA Bancomer",
-        name: " Elizabeth Salazar",
+        name: "Berenice Franco",
         textColor: TEXT_PRIMARY,
         bodyTypo: BODY_TYPO,
         bgColor: "white",
@@ -247,7 +244,7 @@ const WeddingBerenice = () => {
       },
       {
         eventName: "Cena",
-        date: new Date(2025, 10, 16, 20, 30, 0),
+        date: new Date(2025, 10, 16, 22, 30, 0),
         icon: assetUrl("icon", 5),
       },
       {
@@ -775,7 +772,7 @@ const WeddingBerenice = () => {
                    <Box
             sx={{
               position: "absolute",
-              top: "60%",
+              top: "75%",
               left: -55,
               zIndex: 0,
               opacity: 0.75,
@@ -833,6 +830,107 @@ const WeddingBerenice = () => {
                     Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros, contaremos con un buzón de sobres el día del evento. <br></br>
                    
                   </Typography>
+
+                    {giftListData.bankDetails?.map((bank, index) => (
+                                      <Paper
+                                        key={index}
+                                        elevation={0}
+                                        sx={{
+                                          bgcolor: bank.bgColor,
+                                          borderRadius: "0",
+                                          p: 4,
+                                          border: "1.5px solid rgba(190,170,130,.45)",
+                                           boxShadow: `0px 18px 40px ${SHADOW_COLOR}`,
+                                          
+                                        }}
+                                      >
+                                        
+                                        
+                                          <Stack
+                                          spacing={2}
+                          alignItems="center"
+                          sx={{ width: "100%", minWidth: 0 }}
+                                          >
+                                            <Box
+                                                                    component="img"
+                                                                    src={assetUrl("icon",9)}
+                                                                    sx={{
+                                                                      height: 40,
+                                                                      width:200,
+                                                                    }}
+                                                                  />
+                                      {bank.numbers.map((bankNumber, bni) => (
+                                          <Box key={bni}>
+                                            
+                                          
+                                            <Typography
+                                            className={SECONDARY_TYPO}
+                                            sx={{
+                                              letterSpacing: ".18em",
+                                              fontSize: "1.5rem",
+                                              color: TEXT_PRIMARY,
+                                              textAlign: "center",
+                                            }}
+                                          >
+                                            {bankNumber.numberType}
+                                          </Typography>
+                  
+                                          <Typography
+                                            className={BODY_TYPO}
+                                            sx={{
+                                              fontSize: {
+                                                xs: "1rem",
+                                                sm: "1.5rem",
+                                              },
+                                              letterSpacing: "0.04em",
+                                              whiteSpace: "nowrap",
+                                              color: TEXT_PRIMARY,
+                                              // letterSpacing: ".04em",
+                                              textAlign: "center",
+                                              lineHeight: 1.1,
+                                            }}
+                                          >
+                                            {bankNumber.number}
+                                            <IconButton
+                                              onClick={() => {
+                                                navigator.clipboard.writeText(
+                                                  bank.numbers[0].number.trim(),
+                                                );
+                                              }}
+                                            >
+                                              <ContentCopyIcon sx={{ color: TEXT_PRIMARY }} />
+                                            </IconButton>
+                                          </Typography>
+                                          </Box>
+                  
+                                      ))}
+                                      
+                  
+                                          <Typography
+                                            className={BODY_TYPO}
+                                            sx={{
+                                              fontSize: ".9rem",
+                                              color: TEXT_PRIMARY,
+                                              opacity: 0.85,
+                                              textAlign: "center",
+                                            }}
+                                          >
+                                            {bank.bank}
+                                          </Typography>
+                                            <Typography
+                                            className={BODY_TYPO}
+                                            sx={{
+                                              fontSize: ".9rem",
+                                              color: TEXT_PRIMARY,
+                                              opacity: 0.85,
+                                              textAlign: "center",
+                                            }}
+                                          >
+                                            {bank.name}
+                                          </Typography>
+                                        </Stack>
+                                      </Paper>
+                                    ))}
                 </Paper>
               </Box>
             </Grid>
