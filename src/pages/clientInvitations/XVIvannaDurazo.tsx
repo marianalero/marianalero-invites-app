@@ -14,7 +14,7 @@ import Adornment from "../../components/Adornment/Adornment";
 
 import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import { ENVELOPE_OPEN_MS } from "../../components/EnvelopeIntro/animations";
-import EnvelopeIntro from "../../components/EnvelopeIntro/EnvelopeIntro";
+
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import EditorialCountdown from "../../components/EditorialCountdown";
 import RSVPForm from "../../components/RSVP/RSVPForm";
