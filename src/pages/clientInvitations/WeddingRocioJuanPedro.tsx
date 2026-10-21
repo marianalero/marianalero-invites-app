@@ -32,6 +32,8 @@ import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import dayjs from "dayjs";
 import PhotoCoverIntro from "../../components/Intro/PhotoCoverIntro/PhotoCoverIntro";
+import Gallery from "../../components/GalleryV2/Gallery";
+import MiniGallery from "../../components/MiniGallery/MiniGallery";
 
 
 
@@ -229,7 +231,10 @@ const WeddingRocioJuanPedro = () => {
   useEffect(() => {
     document.title = "Boda B. Rocio & Juan Pedro";
   }, []);
-
+   const galleryImages = cloudAssets
+    .filter((asset) => asset.assetKind === "gallery")
+    .sort((a, b) => a.sortOrder - b.sortOrder)
+    .map((asset) => asset.secureUrl);
   return (
     <div
       style={{
@@ -964,7 +969,7 @@ const WeddingRocioJuanPedro = () => {
         <ImageMiddle
           bgPosition="50%"
           height="80vh"
-          bgImage={assetUrl("mini-gallery")}
+          bgImage={assetUrl("middle-image",2)}
           bgPositionY="50%"
         ></ImageMiddle>
          <Box
@@ -1496,30 +1501,14 @@ const WeddingRocioJuanPedro = () => {
      Un amor, una vida, infinitos recuerdos.
     </Typography>
   </Box>
- <Box
-            sx={{
-              width: "100%",
-              maxWidth: 430,
-              aspectRatio: "4 / 5",
-              overflow: "hidden",
-              borderRadius: "50% 50% 0 0 / 35% 35% 0 0",
-              border: `1px solid ${CHAMPAGNE}`,
-              borderBottom: 0,
-            }}
-          >
-            <Box
-              component="img"
-              src={assetUrl("gallery",0)}
-              alt="Fotografía de los novios"
-              sx={{
-                display: "block",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center",
-              }}
-            />
-          </Box>
+   <MiniGallery
+                     images={galleryImages}
+                      backgroundColor={BG_DARK}
+                     spacing={8}
+                     gap={6}
+                     imageHeightDesktop={580}
+                     imageHeightMobile={260}
+                     />
   <Box
     sx={{
       width: 45,
