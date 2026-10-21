@@ -67,7 +67,7 @@ const BODY_TYPO = "montserrat-400 ";
 const URL_SONG = `${URL_REPO}canciones/ReyliBarba-CasateConmigo.mp3`;
 
 const COUNTDOWN_DATE = new Date(2026, 10, 28);
-const RSVP_DATE_LINE = new Date(2026, 9, 20);
+const RSVP_DATE_LINE = new Date(2026, 10, 7);
 
 const calendarButtonProps = {
   variant: "outlined" as const,
