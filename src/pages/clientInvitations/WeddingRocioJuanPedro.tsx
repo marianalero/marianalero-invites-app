@@ -127,7 +127,7 @@ const WeddingRocioJuanPedro = () => {
       color: TEXT_PRIMARY,
       mainTypo: SECONDARY_TYPO,
       bodyTypo: BODY_TYPO,
-      href: "https://maps.app.goo.gl/VeGRnXQ6iFzxzKfW8",
+      href: "https://maps.app.goo.gl/LwLStUjKgK2QX9nJA?g_st=iwb",
       colorButton: FOREST,
       colorIcon: TEXT_PRIMARY,
       fontSize: "2rem",
