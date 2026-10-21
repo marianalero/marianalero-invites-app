@@ -94,21 +94,24 @@ const Gallery = ({ images,bgMain,titleColor,bodyColor,title,subtitle,mainTypo,bo
           }}
         /> */}
 
-        {/* FOTO 4 */}
-        <GalleryImage
-          src={images[3]}
-          sx={{
-            mt: 2,
-          }}
-        />
+      {images[3] && (
 
-        {/* FOTO 5 */}
-        <GalleryImage
-          src={images[2]}
-          sx={{
-            mt: -2,
-          }}
-        />
+      <GalleryImage
+                src={images[3]}
+                sx={{
+                  mt: 2,
+                }}
+              />
+      )}
+         {images[2] && (
+
+      <GalleryImage
+                src={images[2]}
+                sx={{
+                  mt: 2,
+                }}
+              />
+      )}
       </Box>
     </Box>
   );

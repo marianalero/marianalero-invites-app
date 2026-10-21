@@ -11,10 +11,7 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useMemo, useRef, useState } from "react";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Adornment from "../../components/Adornment/Adornment";
-
-import WithoutKids from "../../components/WithOutKids/WithoutKids";
 import { ENVELOPE_OPEN_MS } from "../../components/EnvelopeIntro/animations";
-
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import EditorialCountdown from "../../components/EditorialCountdown";
 import RSVPForm from "../../components/RSVP/RSVPForm";
@@ -28,6 +25,8 @@ import Gallery from "../../components/GalleryV2/Gallery";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
 import { URL_REPO } from "../../config";
 import PhotoCoverIntro from "../../components/Intro/PhotoCoverIntro/PhotoCoverIntro";
+import { Guest } from "../../models/guest";
+import { getGuestById } from "../../services/guestApiClient";
 
 // =========================
 // Background Palette
@@ -98,15 +97,7 @@ const BODY_TYPO = "playfair-display-400";
 const MEDIA_KEY = "invitacion-xv-ivanna-durazo";
 const EMPTY_ASSET = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 
-const dresscode: DressCodeProps = {
-  mainTypo: `${MAIN_TYPO}`,
-  bodyTypo: BODY_TYPO,
-  color: PRIMARY_DARK,
-  type: 1,
-  title: "Formal",
-  fontSize: "2rem",
-  omitColorsLabel: "Colores Rosa y Verde Menta reservado para la quinceañera.",
-};
+
 
 const calendarButtonProps = {
     variant: "outlined" as const,
@@ -125,11 +116,16 @@ const RSVP_DATE_LINE = new Date(2026, 10, 15);
 const INVITATION_ID = 0;
 const URL_SONG = `${URL_REPO}canciones/PhotographPiaCover.mp3`;
 const XVIvannaDurazo = () => {
+   const [guest, setGuest] = useState<Guest | null>(null);
   const [searchParams] = useSearchParams();
   const invitedGuests: number = useMemo(() => {
     const num = Number(searchParams.get("number"));
     return isNaN(num) ? 1 : num;
   }, [searchParams]);
+  const guestId: number | undefined = useMemo(() => {
+      const num = Number(searchParams.get("id"));
+      return isNaN(num) ? undefined : num;
+    }, [searchParams]);
   const [showIntro, setShowIntro] = useState(true);
   const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
 
@@ -149,6 +145,37 @@ const XVIvannaDurazo = () => {
     .filter((asset) => asset.assetKind === "mini-gallery")
     .sort((a, b) => a.sortOrder - b.sortOrder)
     .map((asset) => asset.secureUrl);
+
+    useEffect(() => {
+        const fetchGuest = async () => {
+          if (guestId) {
+            try {
+              const data = await getGuestById(guestId, INVITATION_ID);
+              console.log("Fetched guest data:", data);
+              setGuest(data);
+            } catch (error) {
+              console.error("Error fetching guest:", error);
+            }
+          }
+        };
+    
+        fetchGuest();
+      }, [guestId]);
+
+  const dresscode: DressCodeProps = {
+  mainTypo: `${MAIN_TYPO}`,
+  bodyTypo: BODY_TYPO,
+  color: PRIMARY_DARK,
+  type: 3,
+  title: "Formal",
+  fontSize: "2rem",
+  image:assetUrl("icon",5),
+  imageSize:"200px",
+  omitColorsLabel: "Colores reservados para la quinceañera:",
+  hideWhite:true,
+  omitColors : ["#CE929C","#C8E1C1","#6C364E","#3E4244"]
+};
+
   const eventCards: EventCardProps[] = [
      { eventName: "Misa", 
       date: new Date(2026, 3, 11, 17, 30, 0),
@@ -253,7 +280,7 @@ const XVIvannaDurazo = () => {
           bodyTypo={BODY_TYPO}
         />
 
-    <Box
+    {/* <Box
       sx={{
         minHeight: "100vh",
         width: "100%",
@@ -283,7 +310,7 @@ const XVIvannaDurazo = () => {
           zIndex: 0,
         }}
       />
-      {/* Contenido central */}
+    
       <Box
          sx={{
             position: "relative",
@@ -305,7 +332,7 @@ const XVIvannaDurazo = () => {
             },
           }}
       >
-        {/* MIS XV */}
+       
         <Typography
         className={SECOND_TYPO}
           sx={{
@@ -339,7 +366,7 @@ const XVIvannaDurazo = () => {
     mb: 3,
   }}
 />
-        {/* Detalle dorado */}
+      
         <Box
           sx={{
             width: 45,
@@ -349,7 +376,7 @@ const XVIvannaDurazo = () => {
           }}
         />
 
-        {/* Nombre */}
+        
         <Typography
         className={MAIN_TYPO}
           sx={{
@@ -374,9 +401,7 @@ const XVIvannaDurazo = () => {
           Ivanna
         </Typography>
 
-        {/* Frase */}
-     
-        {/* Fecha */}
+ 
        <Box
   sx={{
     mt: 3,
@@ -403,8 +428,302 @@ const XVIvannaDurazo = () => {
   </Typography>
 </Box>
       </Box>
-    </Box>
+    </Box> */}
+  <Box
+      component="section"
+      sx={{
+        minHeight: "100svh",
+        width: "100%",
+        position: "relative",
+        overflow: "hidden",
 
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
+        background: `
+   radial-gradient(
+    ellipse at center,
+    #FCF8F2 0%,
+    #FBF1E9 40%,
+    transparent 75%
+  ),
+  linear-gradient(
+    120deg,
+    #E8A49D 0%,
+    #F3C3B7 30%,
+    #F9DDD2 65%,
+    #EBAFA7 100%
+  )
+`,
+
+        px: { xs: 2, sm: 3 },
+        py: { xs: 6, md: 8 },
+      }}
+    >
+      {/* ========================================= */}
+      {/* CONTENIDO */}
+      {/* ========================================= */}
+
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 2,
+
+          width: "100%",
+          maxWidth: "430px",
+
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+
+          textAlign: "center",
+        }}
+      >
+        {/* ========================================= */}
+        {/* MIS XV AÑOS */}
+        {/* ========================================= */}
+
+        <Typography
+        className={SECOND_TYPO}
+          sx={{
+            
+            fontSize: {
+              xs: "0.85rem",
+              md: "0.95rem",
+            },
+
+            letterSpacing: "0.25em",
+
+            textTransform: "uppercase",
+
+            color: TEXT_PRIMARY,
+
+            mb: 2,
+          }}
+        >
+          Mis XV años
+        </Typography>
+
+        {/* ========================================= */}
+        {/* ARCO + FOTO + FLORES */}
+        {/* ========================================= */}
+
+        <Box
+          sx={{
+            position: "relative",
+
+            width: {
+              xs: "82vw",
+              sm: "330px",
+              md: "360px",
+            },
+
+            aspectRatio: "0.70",
+
+            mb: 1,
+          }}
+        >
+          {/* ===================================== */}
+          {/* FLORES */}
+          {/* ===================================== */}
+          <Box
+            component="img"
+            src={assetUrl("ornament",1)}
+            alt=""
+            sx={{
+              position: "absolute",
+              top: "-30%",
+              left: "-40px",
+
+              width: "calc(40%)",
+              height: "calc(80%)",
+              transform : "scale(-1) rotate(90deg)",
+              objectFit: "contain",
+
+              zIndex: 4,
+
+              pointerEvents: "none",
+
+              /*
+               * Importante:
+               * las flores no deben afectar
+               * la foto
+               */
+            }}
+          />
+          <Box
+            component="img"
+            src={assetUrl("ornament",1)}
+            alt=""
+            sx={{
+              position: "absolute",
+              bottom: "-35%",
+              right: "-45px",
+
+              width: "calc(30%)",
+              height: "calc(80%)",
+              transform : "scale(-1) rotate(110deg)",
+              objectFit: "contain",
+
+              zIndex: 4,
+
+              pointerEvents: "none",
+
+              /*
+               * Importante:
+               * las flores no deben afectar
+               * la foto
+               */
+            }}
+          />
+
+          {/* ===================================== */}
+          {/* ARCO EXTERIOR */}
+          {/* ===================================== */}
+
+          <Box
+            sx={{
+              position: "absolute",
+
+              inset: 0,
+
+              border: `1px solid ${GOLD}`,
+
+              borderRadius: "180px 180px 0 0",
+
+              zIndex: 2,
+
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* ===================================== */}
+          {/* SEGUNDO ARCO */}
+          {/* ===================================== */}
+
+          <Box
+            sx={{
+              position: "absolute",
+
+              inset: "6px",
+
+              border: `1px solid rgba(199,169,107,0.45)`,
+
+              borderRadius: "174px 174px 0 0",
+
+              zIndex: 2,
+
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* ===================================== */}
+          {/* FOTO */}
+          {/* ===================================== */}
+
+          <Box
+            sx={{
+              position: "absolute",
+
+              inset: "12px",
+
+              overflow: "hidden",
+
+              borderRadius: "160px 160px 0 0",
+
+              zIndex: 1,
+
+              backgroundColor: BEIGE,
+            }}
+          >
+            <Box
+              component="img"
+              src={assetUrl("cover",2)}
+              alt=""
+              sx={{
+                width: "100%",
+                height: "100%",
+
+                display: "block",
+
+                objectFit: "cover",
+
+                objectPosition: "center",
+              }}
+            />
+          </Box>
+        </Box>
+
+        {/* ========================================= */}
+        {/* NOMBRE */}
+        {/* ========================================= */}
+
+        <Typography
+        className={MAIN_TYPO}
+          component="h1"
+          sx={{
+            position: "relative",
+
+            zIndex: 10,
+
+           
+
+            fontSize: {
+              xs: "4.5rem",
+              sm: "5rem",
+              md: "5.5rem",
+            },
+
+            fontWeight: 400,
+
+            lineHeight: 0.8,
+
+            color: PINK_DARK,
+
+            mt: -1,
+
+            mb: 2,
+
+            whiteSpace: "nowrap",
+          }}
+        >
+         Ivanna Durazo
+</Typography>
+      
+     
+
+        {/* ========================================= */}
+        {/* FECHA */}
+        {/* ========================================= */}
+
+     <Box
+  sx={{
+    mt: 3,
+    px: 3,
+    py: 1,
+    backgroundColor: "rgba(252, 248, 242, 0.88)",
+    border: `1px solid ${GOLD}`,
+    borderRadius: "2px",
+  }}
+>
+  <Typography
+  className={BODY_TYPO}
+    sx={{
+
+   
+      fontWeight: 500,
+      letterSpacing: "0.25em",
+      color: PRIMARY_DARK,
+      ml: "0.25em",
+      whiteSpace: "nowrap",
+    }}
+  >
+    27 · NOVIEMBRE · 2027
+  </Typography>
+</Box>
+      </Box>
+    </Box>
       <Box
         p={2}
         sx={{
@@ -448,11 +767,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           </Grid>
         </Grid>
       </Box>
-      {/* <Box
-      height="70vh" bgcolor="lightgray"
-      >
-
-      </Box> */}
+     
       <ImageMiddle bgPosition="50%" height="70vh" bgImage={assetUrl("middle-image",0)}></ImageMiddle>
       <div
         style={{
@@ -484,18 +799,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                 </Fade>
               </div>
              
-              {/* <div
-                style={{
-                  position: "absolute",
-                  bottom: "calc(3% - 100px)",
-                  left: "calc(5% - 100px)",
-                  transform: "scale(-1,1)",
-                }}
-              >
-                <Fade direction="up" triggerOnce={true}>
-                  <img src={assetUrl("ornament")} style={{ width: "100px" }} />
-                </Fade>
-              </div> */}
+            
 
               <Grid container spacing={2} justifyContent="center" >
                <Grid
@@ -792,7 +1096,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                         color: PRIMARY,
                       }}
                     >
-                      Marco Gallardo y Ma. Fernanda GallardoAlberto Armenta 
+                      Marco Gallardo y Ma. Fernanda Gallardo
                     </Typography>
                   </Fade>
                 </Grid>
@@ -935,7 +1239,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   >
                     <Box
                       component="img"
-                      src={minigalleryImages[2]}
+                      src={minigalleryImages[0]}
                       sx={{
                         width: "100%",
                         aspectRatio: "4 / 3",
@@ -947,7 +1251,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
         
                     <Box
                       component="img"
-                      src={minigalleryImages[0]}
+                      src={minigalleryImages[2]}
                       sx={{
                         width: "100%",
                         aspectRatio: "3 / 4",
@@ -1347,7 +1651,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
         </Grid>
       </div>
 
-      <Box bgcolor={BG_ACCENT}>
+      <Box bgcolor={BG_ACCENT} padding={2}>
         <Box
           textAlign="center"
           sx={{
@@ -1358,7 +1662,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           <div
             style={{
               position: "absolute",
-              bottom: "calc(5% - 100px)",
+              bottom: "calc(-15% - 100px)",
               right: "calc(-10% - 70px)",
               transform: "translate(-50%, -50%)",
             }}
@@ -1369,21 +1673,110 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           </div>
           
           
-          <RSVPForm
-            dateLine={RSVP_DATE_LINE}
-            textColor={TEXT_PRIMARY}
-            qrActive={false}
-            mainTypo={MAIN_TYPO}
-            bodyTypo={BODY_TYPO}
-            count={invitedGuests}
-            color={PRIMARY}
-            colorButton={PRIMARY}
-            invitationId={INVITATION_ID}
-            bgColor={"transparent"}
-            fontSize="2rem"
+          <Box
+          display="flex"
+          justifyContent="center"
+          sx={{
+            my: 8,
+          }}
+        >
+          <Box
+            sx={{
+              width: {
+                xs: "88%",
+                sm: 340,
+              },
+              background: PRIMARY,
+              borderRadius: "180px 180px 0 0",
+              px: 4,
+              py: 6,
+              textAlign: "center",
+              boxShadow: `0px 18px 40px ${SHADOW}`,
+            }}
+          >
+            <Typography
+            className={BODY_TYPO}
+              sx={{
+                
+                color: "#FFF",
+                letterSpacing: ".28em",
+                fontSize: ".8rem",
+                textTransform: "uppercase",
+                lineHeight: 1.8,
+              }}
+            >
+              Hemos
+              <br />
+              Reservado
+            </Typography>
+
+            <Typography
+            className={MAIN_TYPO}
+              sx={{
+                mr:3,
+                color: "#FFF",
+                fontSize: {
+                  xs: "3rem",
+                  md: "5rem",
+                },
+                lineHeight: 1,
+                my: 2,
+              }}
+            >
+              {guest ? guest.totalAssigned : invitedGuests}
+            </Typography>
+
+            <Typography
+            className={BODY_TYPO}
+              sx={{
+                
+                color: "#FFF",
+                letterSpacing: ".18em",
+                fontSize: ".8rem",
+                textTransform: "uppercase",
+                lineHeight: 1.8,
+              }}
+            >
+              Lugares para
+              <br />
+              celebrar juntos
+            </Typography>
+            <Typography
+            className={MAIN_TYPO}
+              sx={{
+                
+                color: "#FFF",
+                
+                fontSize: "2rem",
+             
+                lineHeight: 1.8,
+                mt: 2,
+              }}
+            >
+              Confirma tu asistencia
+            </Typography>
+            <RSVPForm
             hidePhoneNumberInput={true}
-            transparencyButton={true}
-          ></RSVPForm>
+              padding={1}
+              guest={guest || undefined}
+              dateLine={RSVP_DATE_LINE}
+              textColor={"white"}
+              colorButton={"white"}
+              bgColor={PRIMARY}
+              mainTypo={SECOND_TYPO}
+              bodyTypo={BODY_TYPO}
+              count={invitedGuests}
+              color={"white"}
+              guestId={guestId}
+              invitationId={INVITATION_ID}
+              qrActive={false}
+              transparencyButton={true}
+              fontSize="2rem"
+              hideLabelAssignedPeople={true}
+              hideTitle={true}
+            ></RSVPForm>
+          </Box>
+        </Box>
         </Box>
       </Box>
 
@@ -1393,20 +1786,50 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
           padding: "50px 20px",
         }}
       >
-        <Box sx={{ backgroundColor: BG_ALT }}>
+        <Box sx={{ backgroundColor: BG_ALT, mb:4 }}>
           <DressCode {...dresscode}></DressCode>
           <Grid paddingBottom={2}>
             <Fade direction="up">
               <Adornment image={assetUrl("ornament")} width={"300px"} />
             </Fade>
           </Grid>
-          <WithoutKids
-            bodyTypo={BODY_TYPO}
-            textColor={TEXT_PRIMARY}
-            subtitle2="NO NIÑOS"
-          ></WithoutKids>
+        
         </Box>
-         <Gallery
+        <Box sx={{
+          p:2,
+          backgroundColor:BG_MAIN,
+          display:"grid",
+           position: "relative",
+        }}>
+         
+          <div
+            style={{
+              zIndex:2,
+              position: "absolute",
+              top: "calc(20%)",
+              left: "calc(5%)",
+              transform: "translate(-50%, -50%) rotate(90deg)",
+            }}
+          >
+            <Fade direction="up" triggerOnce={true}>
+              <img src={assetUrl("ornament",4)} style={{ height: "130px" }} />
+            </Fade>
+          </div>
+          <div
+            style={{
+              zIndex:2,
+              position: "absolute",
+              bottom: "calc(-1%)",
+              right: "calc(-25%)",
+              transform: "translate(-50%, -50%) rotate(90deg) scale(-1)",
+            }}
+          >
+            <Fade direction="up" triggerOnce={true}>
+              <img src={assetUrl("ornament",4)} style={{ height: "130px" }} />
+            </Fade>
+          </div>
+       
+   <Gallery
                            images={galleryImages}
                             bgMain={BG_MAIN} 
                             titleColor={PRIMARY_DARK} 
@@ -1417,6 +1840,11 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                             bodyTypo={BODY_TYPO}
                             
                             />
+          <Typography className={MAIN_TYPO} fontSize={"2rem"} align="center">
+            Lo más bonito de este día será compartirlo con quienes hacen mi vida especial
+          </Typography>
+        </Box>
+      
       </div>
 
       <FooterInvites bgColor={BG_SECTION} color={TEXT_PRIMARY}></FooterInvites>
