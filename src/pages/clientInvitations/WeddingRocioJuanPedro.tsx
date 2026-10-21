@@ -789,9 +789,9 @@ const WeddingRocioJuanPedro = () => {
             </Typography>
             <Box display={"flex"} justifyContent={"center"}>
               <CalendarButton
-                title="Boda de Elizabeth & Miguel"
-                startDate="20261024T164000"
-                endDate="20261024T230000"
+                title="Boda de Rocio & Juan Pedro"
+                startDate="20261028T173000"
+                endDate="20261029T20000"
                 location="Casa Parotta"
                 // fileName="boda-valentina-sebastian"
                 buttonProps={calendarButtonProps}
