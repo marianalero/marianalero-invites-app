@@ -1,4 +1,4 @@
-import { Backdrop, Box, CircularProgress, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { RefObject, useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
@@ -34,6 +34,8 @@ export interface PhotoCoverIntroProps {
   monogramWidth?: number | string;
 
   textColor?: string;
+  /** Color de fondo de esta invitación. Se ve detrás de la foto y al cargar. */
+  backgroundColor?: string;
   buttonLabel?: string;
   showHeart?: boolean;
   /** Capa sobre la foto para que el texto se lea. */
@@ -63,6 +65,7 @@ const PhotoCoverIntro = ({
   monogramTypo,
   monogramWidth = 92,
   textColor = "#ffffff",
+  backgroundColor = "#1b242c",
   buttonLabel = "Abrir invitación",
   showHeart = true,
   overlay = DEFAULT_OVERLAY,
@@ -112,51 +115,28 @@ const PhotoCoverIntro = ({
     onEnter();
   };
 
-  const visible = open && loaded;
+  const coverOn = open;
   const showMonogram = Boolean(monogramImage || monogramText);
 
   return (
-    <>
-      <Backdrop
-        open={open && !loaded}
-        sx={{
-          zIndex: 10000,
-          color: textColor,
-          backgroundColor: "#1b242c",
-          flexDirection: "column",
-          gap: 2,
-        }}
-      >
-        <CircularProgress sx={{ color: textColor }} size={52} />
-        <Typography
-          className={bodyTypo}
-          sx={{
-            color: textColor,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            fontSize: "0.78rem",
-          }}
-        >
-          Cargando invitación...
-        </Typography>
-      </Backdrop>
-
-      <Box
-        aria-hidden={!open}
-        sx={{
-          position: "fixed",
-          inset: 0,
-          zIndex: 9999,
-          overflow: "auto",
-          backgroundColor: "#1b242c",
-          color: textColor,
-          opacity: visible ? 1 : 0,
-          filter: visible ? "blur(0px)" : "blur(18px)",
-          transform: visible ? "scale(1)" : "scale(1.04)",
-          transition: "all 1.2s cubic-bezier(0.22, 1, 0.36, 1)",
-          pointerEvents: visible ? "auto" : "none",
-        }}
-      >
+    <Box
+      aria-hidden={!open}
+      sx={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 9999,
+        overflow: "auto",
+        backgroundColor,
+        color: textColor,
+        opacity: coverOn ? 1 : 0,
+        filter: coverOn ? "blur(0px)" : "blur(18px)",
+        transform: coverOn ? "scale(1)" : "scale(1.04)",
+        transition:
+          "opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)",
+        pointerEvents: coverOn ? "auto" : "none",
+      }}
+    >
+      {image && (
         <Box
           component="img"
           src={image}
@@ -169,8 +149,11 @@ const PhotoCoverIntro = ({
             height: "100%",
             objectFit: "cover",
             objectPosition: imagePosition,
+            opacity: loaded ? 1 : 0,
+            transition: "opacity 0.6s ease",
           }}
         />
+      )}
 
         <Box
           sx={{
@@ -192,6 +175,8 @@ const PhotoCoverIntro = ({
             px: 3,
             pt: 2,
             pb: "7vh",
+            opacity: loaded ? 1 : 0,
+            transition: "opacity 0.6s ease",
           }}
         >
           {portraitImage && (
@@ -378,8 +363,34 @@ const PhotoCoverIntro = ({
           </Box>
           </Box>
         </Box>
+        {open && !loaded && (
+          <Box
+            sx={{
+              position: "absolute",
+              inset: 0,
+              zIndex: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 2,
+            }}
+          >
+            <CircularProgress sx={{ color: textColor }} size={52} />
+            <Typography
+              className={bodyTypo}
+              sx={{
+                color: textColor,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                fontSize: "0.78rem",
+              }}
+            >
+              Cargando invitación...
+            </Typography>
+          </Box>
+        )}
       </Box>
-    </>
   );
 };
 

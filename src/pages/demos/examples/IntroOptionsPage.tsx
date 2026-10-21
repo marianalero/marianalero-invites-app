@@ -16,6 +16,9 @@ const COVER =
   "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80";
 const ENVELOPE = `${URL_REPO}demos/black-envelope.png`;
 const SEAL = `${URL_REPO}boda/boda-vianney-alberto/sello.png`;
+const FOTO_BACKGROUND = "#0c2340";
+const SOBRE_BACKGROUND = "#f6f1ea";
+const SELLO_BACKGROUND = "#0c0c0c";
 
 const OPTIONS: {
   id: IntroOption;
@@ -160,7 +163,7 @@ const IntroOptionsPage = () => {
                 background: "#fffdf9",
                 textAlign: "left",
                 cursor: "pointer",
-                color: "inherit",
+                color: "#3d342c",
                 boxShadow: "0 16px 40px rgba(61,52,44,0.06)",
                 transition: "transform .35s ease, box-shadow .35s ease",
                 "&:hover": {
@@ -233,6 +236,7 @@ const IntroOptionsPage = () => {
           date="08 de enero 2028"
           extraText="Un día para celebrar juntos"
           bodyTypo="instrument-sans"
+          backgroundColor={FOTO_BACKGROUND}
         />
       )}
 
@@ -249,7 +253,7 @@ const IntroOptionsPage = () => {
           ampersonTypo="great-vibes-regular"
           guestTypo="instrument-sans"
           bodyTypo="instrument-sans"
-          backgroundColor="#f6f1ea"
+          backgroundColor={SOBRE_BACKGROUND}
           primaryColor="#3d342c"
           envelopeImg={ENVELOPE}
           sealImg={SEAL}
@@ -265,7 +269,7 @@ const IntroOptionsPage = () => {
           musicRef={musicRef}
           sealImage={SEAL}
           envelopeColor="#141414"
-          overlayColor="#0c0c0c"
+          overlayColor={SELLO_BACKGROUND}
           envelopeHighlight="rgba(255,255,255,.05)"
           shadowColor="rgba(0,0,0,.5)"
         />
@@ -284,13 +288,21 @@ const IntroOptionsPage = () => {
           filter: showInvitation ? "none" : "blur(16px)",
           transform: showInvitation ? "scale(1)" : "scale(1.03)",
           transition: "opacity 1.2s ease, filter 1.2s ease, transform 1.2s ease",
-          background: "#f6f1ea",
+          background:
+            option === "foto"
+              ? FOTO_BACKGROUND
+              : option === "sello"
+                ? SELLO_BACKGROUND
+                : SOBRE_BACKGROUND,
         }}
       >
         <Box>
           <Typography
             className="great-vibes-regular"
-            sx={{ fontSize: { xs: "3.2rem", md: "4rem" }, color: "#3d342c" }}
+            sx={{
+              fontSize: { xs: "3.2rem", md: "4rem" },
+              color: option === "sobre" ? "#3d342c" : "#f4efe6",
+            }}
           >
             Angela y Ramiro
           </Typography>
@@ -301,7 +313,7 @@ const IntroOptionsPage = () => {
               letterSpacing: "0.18em",
               textTransform: "uppercase",
               fontSize: "0.78rem",
-              color: "#6d6258",
+              color: option === "sobre" ? "#6d6258" : "rgba(244,239,230,0.72)",
             }}
           >
             Aquí empieza la invitación

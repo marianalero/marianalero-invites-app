@@ -236,6 +236,7 @@ const XVIvannaDurazo = () => {
               backgroundColor={TEXT_PRIMARY}
             />
       <PhotoCoverIntro
+      backgroundColor={BG_MAIN}
           open={showIntro}
           onEnter={handleEnter}
           musicRef={musicRef}

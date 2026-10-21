@@ -248,6 +248,7 @@ const WeddingRocioJuanPedro = () => {
 
       {/* INTRO */}
       <PhotoCoverIntro
+      backgroundColor={BG_MAIN}
           open={showIntro}
           onEnter={handleEnter}
           musicRef={musicRef}
