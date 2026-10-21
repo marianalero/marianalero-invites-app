@@ -792,7 +792,7 @@ const WeddingRocioJuanPedro = () => {
                 title="Boda de Rocio & Juan Pedro"
                 startDate="20261028T173000"
                 endDate="20261029T20000"
-                location="Casa Parotta"
+                location=""
                 // fileName="boda-valentina-sebastian"
                 buttonProps={calendarButtonProps}
               />
