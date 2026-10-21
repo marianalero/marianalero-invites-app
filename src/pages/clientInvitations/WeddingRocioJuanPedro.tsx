@@ -32,7 +32,6 @@ import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import dayjs from "dayjs";
 import PhotoCoverIntro from "../../components/Intro/PhotoCoverIntro/PhotoCoverIntro";
-import Gallery from "../../components/GalleryV2/Gallery";
 import MiniGallery from "../../components/MiniGallery/MiniGallery";
 
 
