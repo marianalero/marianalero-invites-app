@@ -39,7 +39,6 @@ import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 import { getAssets } from "../../services/mediaApiClient";
 import type { InvitationAsset } from "../../models/invitationAsset";
-import Gallery from "../../components/Gallery/Gallert"
 import dayjs from "dayjs";
 import CustomizedTimeline, {
   CustomizedTimelineProps,
