@@ -195,7 +195,7 @@ const WeddingVianneyAlberto = () => {
       {
         number: "60024483",
         link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60024483",
-        icon: assetUrl("icon", 7),
+        icon: assetUrl("icon", 1),
       },
     ],
     fontSize: "3rem",
@@ -529,9 +529,9 @@ const WeddingVianneyAlberto = () => {
           typoHeader={SECONDARY_TYPO}
           typoCountdown={BODY_TYPO}
           fontSize="2rem"
-          marginTop="30px"
+          marginTop="50px"
           padding="1em"
-          alignItems="start"
+          alignItems="end"
         ></CountDown>
 
         <Box
@@ -1044,6 +1044,20 @@ const WeddingVianneyAlberto = () => {
               textAlign: "center",
             }}
           >
+          <Typography
+              className={SECONDARY_TYPO}
+                sx={{
+              
+                  fontSize: { xs: "0.7rem", sm: "0.75rem" },
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                 
+                  mb: 2,
+                }}
+              >
+                Gracias por ser parte de este día
+              </Typography>
+          
             {/* FOTO */}
             <Box
               sx={{
@@ -1075,20 +1089,7 @@ const WeddingVianneyAlberto = () => {
                 mt: { xs: 4, sm: 5 },
               }}
             >
-              <Typography
-              className={SECONDARY_TYPO}
-                sx={{
               
-                  fontSize: { xs: "0.7rem", sm: "0.75rem" },
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                 
-                  mb: 2,
-                }}
-              >
-                Gracias por ser parte de este día
-              </Typography>
-          
               <Typography
           className={MAIN_TYPO}
                 sx={{
