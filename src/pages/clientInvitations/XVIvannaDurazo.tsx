@@ -224,7 +224,7 @@ const XVIvannaDurazo = () => {
             {
                 eventName: "Recepción",
                 date: new Date(2026, 0, 31, 20, 0, 0),
-                icon:assetUrl("icon",1),
+                icon:assetUrl("icon",3),
             },
             {
                 eventName: "Vals",
@@ -234,7 +234,7 @@ const XVIvannaDurazo = () => {
            {
                 eventName: "Cena",
                 date: new Date(2026,  0, 31,21,50,0),
-                icon:assetUrl("icon",3),
+                icon:assetUrl("icon",1),
             },
             {
                 eventName: "Fin del evento",
