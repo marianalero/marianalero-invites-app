@@ -170,6 +170,22 @@ const WeddingRocioJuanPedro = () => {
         outlineColor: true,
         mainTypo: MAIN_TYPO,
       },
+      {
+        numbers: [
+          {
+            numberType: "TARJETA",
+            number: "4152 3146 5689 2109 ",
+          },
+          
+        ],
+        bank: "BBVA ",
+        name: "Juan Pedro Escoboza",
+        textColor: TEXT_PRIMARY,
+        bodyTypo: BODY_TYPO,
+        bgColor: "white",
+        outlineColor: true,
+        mainTypo: MAIN_TYPO,
+      },
     ],
   };
 
@@ -1182,7 +1198,7 @@ const WeddingRocioJuanPedro = () => {
                           sx={{
                             fontSize: {
                               xs: "1.2rem",
-                              sm: "1.9rem",
+                              sm: "1.5rem",
                             },
                             letterSpacing: "0.04em",
                             whiteSpace: "nowrap",

@@ -525,7 +525,7 @@ const WeddingBerenice = () => {
                         className={SECONDARY_TYPO}
                       >
                      
-                        César Castro Salmerón y Monserrat Ortiz García
+                        César Castro Salmerón y Monzerrat Ortiz García
                       </Typography>
                     </Fade>
                   </Grid>
