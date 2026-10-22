@@ -43,6 +43,7 @@ import dayjs from "dayjs";
 import CustomizedTimeline, {
   CustomizedTimelineProps,
 } from "../../components/TimeLine/Timeline";
+import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 
 const INVITATION_ID = 51;
 const MEDIA_KEY = "boda-vianey-y-alberto";
@@ -392,9 +393,9 @@ const WeddingVianneyAlberto = () => {
             sx={{
               height: "25vh",
               width: "80vw",
-              backgroundImage: `url("${assetUrl("background", 0)}")`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              // backgroundImage: `url("${assetUrl("background", 1)}")`,
+              // backgroundSize: "cover",
+              // backgroundPosition: "center",
               boxShadow: `8px 8px 8px ${CHAMPAGNE}`,
               position: "relative",
             }}
@@ -428,13 +429,13 @@ const WeddingVianneyAlberto = () => {
             </Grid>
           </Box>
         </div>
-        {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={assetUrl("middle-image")} bgPositionY="30%"></ImageMiddle> */}
-        <Box height={"100vh"} bgcolor="lightgray"></Box>
+         <ImageMiddle bgPosition="30%" height="70vh" bgImage={assetUrl("middle-image")} bgPositionY="30%"></ImageMiddle> 
+      
         <div
           style={{
-            backgroundImage: `url("${assetUrl("background", 1)}")`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            // backgroundImage: `url("${assetUrl("background", 0)}")`,
+            // backgroundSize: "cover",
+            // backgroundPosition: "center",
             padding: "50px 20px",
           }}
         >
@@ -523,7 +524,7 @@ const WeddingVianneyAlberto = () => {
         </div>
         <CountDown
           eventDate={COUNTDOWN_DATE}
-          bgImage={assetUrl("background", 2)}
+          bgImage={assetUrl("background", 0)}
           typoHeader={SECONDARY_TYPO}
           typoCountdown={BODY_TYPO}
           fontSize="2rem"
@@ -808,7 +809,7 @@ const WeddingVianneyAlberto = () => {
           </Box>
         </div>
         <CustomizedTimeline {...timelineData}></CustomizedTimeline>
-        {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={assetUrl("middle-image", 1)} bgPositionY="30%"></ImageMiddle> */}
+        <ImageMiddle bgPosition="30%" height="70vh" bgImage={assetUrl("middle-image", 1)} bgPositionY="30%"></ImageMiddle>
 
         <div style={{ backgroundColor: BG_MAIN }}>
           <Grid container spacing={2} padding={2} paddingBottom={0}>
@@ -866,9 +867,9 @@ const WeddingVianneyAlberto = () => {
         </Box>
         <div
           style={{
-            backgroundImage: `url("${assetUrl("background", 0)}")`,
-            backgroundSize: "cover",
-            backgroundPosition: "right",
+            // backgroundImage: `url("${assetUrl("background", 0)}")`,
+            // backgroundSize: "cover",
+            // backgroundPosition: "right",
             padding: "50px 20px",
           }}
         >
