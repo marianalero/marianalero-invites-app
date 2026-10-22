@@ -37,13 +37,18 @@ import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIn
 import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
-import Gallery from "../../components/Gallery/Gallert";
+import { getAssets } from "../../services/mediaApiClient";
+import type { InvitationAsset } from "../../models/invitationAsset";
+import Gallery from "../../components/Gallery/Gallert"
 import dayjs from "dayjs";
 import CustomizedTimeline, {
   CustomizedTimelineProps,
 } from "../../components/TimeLine/Timeline";
 
 const INVITATION_ID = 0;
+const MEDIA_KEY = "boda-vianney-alberto";
+const EMPTY_ASSET =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 const BG_MAIN = "#FCFBF8";
 // const BG_SECTION = "#F2F1EC";
 const BG_ACCENT = "#A6A998";
@@ -63,144 +68,13 @@ const TITLE_COLOR = "#777777";
 const MAIN_TYPO = "alex-brush-regular";
 const SECONDARY_TYPO = "dm-serif-display-regular-italic";
 const BODY_TYPO = "pt-serif-caption-regular to-upper";
-const URL_IMAGES = `${URL_REPO}boda/boda-vianney-alberto/`;
 const URL_SONG = `${URL_REPO}canciones/AThousandYears-ChristinaPerri.mp3`;
 const COUNTDOWN_DATE = new Date(2027, 1, 13);
 const RSVP_DATE_LINE = new Date(2027, 0, 31);
 
-const eventCards: EventCardProps[] = [
-  {
-    eventName: "Ceremonia Religiosa",
-    date: new Date(2027, 1, 13, 17, 0, 0),
-    locationName: "Parroquia nuestra Señora del Carmen",
-    address: "Calle Jesús García 17, Col del Razo, Hermosillo, Son.",
-    size: 12,
-    color: TEXT_PRIMARY,
-    mainTypo: MAIN_TYPO,
-    bodyTypo: BODY_TYPO,
-    href: "https://maps.app.goo.gl/e7LWxcETpMncdFzz5",
-    colorButton: BUTTON_PRIMARY,
-    colorIcon: BUTTON_PRIMARY,
-    fontSize: "4rem",
-    bgColor: BG_CARD,
-    borderSquare: true,
-    image: `${URL_IMAGES}iglesia.jpg`,
-  },
-  {
-    eventName: "Recepción",
-    date: new Date(2027, 1, 13, 17, 0, 0),
-    locationName: "Hacienda Jesusita",
-    address: "Av. San Antonio 109, Seccion 562, Palo Verde, Hermosillo, Son.",
-    size: 12,
-    color: TEXT_PRIMARY,
-    mainTypo: MAIN_TYPO,
-    bodyTypo: BODY_TYPO,
-    href: "https://maps.app.goo.gl/FkAiYStqEi99qrPQA",
-    colorButton: BUTTON_PRIMARY,
-    colorIcon: BUTTON_PRIMARY,
-    fontSize: "4rem",
-    bgColor: BG_CARD,
-    borderSquare: true,
-    image: `${URL_IMAGES}recepcion.jpg`,
-  },
-];
-
-const giftListData: GiftListProps = {
-  title: "Mesa de regalos",
-
-  mainPhrase:
-    "Lo más valioso para nosotros es contar con tu compañía. Si deseas consentirnos con un regalo, aquí encontrarás algunas opciones.",
-
-  items: [
-    {
-      number: "60024483",
-      link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60024483",
-      icon: `${URL_IMAGES}liverpool.svg`,
-    },
-  ],
-
-  fontSize: "3rem",
-  mainTypo: MAIN_TYPO,
-  bodyTypo: BODY_TYPO,
-  color: TEXT_PRIMARY,
-  bgColor: BG_MAIN,
-  showEnvelope: true,
-  envelopeMainTypo: MAIN_TYPO,
-  envelopeFontSize: "3rem",
-  envelopePhrase:
-    "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
-  secondPhrase:
-    "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
-  envelopeTitleColor: TEXT_PRIMARY,
-  bankIconStart: `${URL_IMAGES}iconos/14.svg`,
-  bankDetails: [
-    {
-      numbers: [
-        {
-          numberType: "Tarjeta",
-          number: "4152314557382366 ",
-        },
-      ],
-      bank: "BBVA Bancomer",
-      name: "Alberto Mendivil",
-      color: TEXT_PRIMARY,
-      bodyTypo: BODY_TYPO,
-      bgColor: "white",
-      outlineColor: true,
-    },
-  ],
-};
-
 const withOutKids: WithoutKidsProps = {
   bodyTypo: BODY_TYPO,
   subtitle2: "no niños",
-};
-
-const timelineData: CustomizedTimelineProps = {
-  mainTypo: MAIN_TYPO,
-  bodyTypo: BODY_TYPO,
-  colorPrimary: BG_MAIN,
-  colorTitle: BG_MAIN,
-  colorBody: BG_MAIN,
-  fontSize: "50px",
-  bgColor: BG_ACCENT,
-  events: [
-    {
-      eventName: "Ceremonia Religiosa",
-      date: new Date(2026, 9, 9, 17, 0, 0),
-      icon: `${URL_IMAGES}iconos/2.svg`,
-    },
-    {
-      eventName: "Ceremonia Civil",
-      date: new Date(2026, 9, 9, 19, 30, 0),
-      icon: `${URL_IMAGES}iconos/3.svg`,
-    },
-    {
-      eventName: "Recepcion",
-      date: new Date(2026, 9, 9, 20, 0, 0),
-      icon: `${URL_IMAGES}iconos/4.svg`,
-    },
-    {
-      eventName: "Cena",
-      date: new Date(2026, 9, 9, 20, 30, 0),
-      icon: `${URL_IMAGES}iconos/6.svg`,
-    },
-    {
-      eventName: "Vals",
-      date: new Date(2026, 9, 9, 21, 0, 0),
-      icon: `${URL_IMAGES}iconos/7.svg`,
-    },
-    {
-      eventName: "Inicio de fiesta",
-      date: new Date(2026, 9, 9, 21, 30, 0),
-      icon: `${URL_IMAGES}iconos/9.svg`,
-    },
-    {
-      eventName: "Fin del evento",
-      date: new Date(2026, 9, 9, 2, 30, 0),
-      icon: `${URL_IMAGES}iconos/11.svg`,
-    },
-  ],
 };
 
 const introSealPosition = {
@@ -240,12 +114,6 @@ const calendarButtonProps = {
   },
 };
 
-const galleryImages = [
-  `${URL_IMAGES}galeria1.jpg`,
-  `${URL_IMAGES}galeria2.jpg`,
-  `${URL_IMAGES}galeria3.jpg`,
-];
-
 const godparents = [
   {
     names: ["María Jesús Gámez Ramírez y Filiberto Gámez Domínguez"],
@@ -267,6 +135,147 @@ const WeddingVianneyAlberto = () => {
     const num = Number(searchParams.get("id"));
     return isNaN(num) ? undefined : num;
   }, [searchParams]);
+
+  const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
+
+  useEffect(() => {
+    getAssets(MEDIA_KEY)
+      .then(setCloudAssets)
+      .catch(() => setCloudAssets([]));
+  }, []);
+
+  const assetUrl = (kind: string, index = 0) =>
+    cloudAssets
+      .filter((asset) => asset.assetKind === kind)
+      .sort((a, b) => a.sortOrder - b.sortOrder)[index]?.secureUrl ??
+    EMPTY_ASSET;
+
+  const eventCards: EventCardProps[] = [
+    {
+      eventName: "Ceremonia Religiosa",
+      date: new Date(2027, 1, 13, 17, 0, 0),
+      locationName: "Parroquia nuestra Señora del Carmen",
+      address: "Calle Jesús García 17, Col del Razo, Hermosillo, Son.",
+      size: 12,
+      color: TEXT_PRIMARY,
+      mainTypo: MAIN_TYPO,
+      bodyTypo: BODY_TYPO,
+      href: "https://maps.app.goo.gl/e7LWxcETpMncdFzz5",
+      colorButton: BUTTON_PRIMARY,
+      colorIcon: BUTTON_PRIMARY,
+      fontSize: "4rem",
+      bgColor: BG_CARD,
+      borderSquare: true,
+      image: assetUrl("church"),
+    },
+    {
+      eventName: "Recepción",
+      date: new Date(2027, 1, 13, 17, 0, 0),
+      locationName: "Hacienda Jesusita",
+      address: "Av. San Antonio 109, Seccion 562, Palo Verde, Hermosillo, Son.",
+      size: 12,
+      color: TEXT_PRIMARY,
+      mainTypo: MAIN_TYPO,
+      bodyTypo: BODY_TYPO,
+      href: "https://maps.app.goo.gl/FkAiYStqEi99qrPQA",
+      colorButton: BUTTON_PRIMARY,
+      colorIcon: BUTTON_PRIMARY,
+      fontSize: "4rem",
+      bgColor: BG_CARD,
+      borderSquare: true,
+      image: assetUrl("reception"),
+    },
+  ];
+
+  const giftListData: GiftListProps = {
+    title: "Mesa de regalos",
+    mainPhrase:
+      "Lo más valioso para nosotros es contar con tu compañía. Si deseas consentirnos con un regalo, aquí encontrarás algunas opciones.",
+    items: [
+      {
+        number: "60024483",
+        link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60024483",
+        icon: assetUrl("icon", 7),
+      },
+    ],
+    fontSize: "3rem",
+    mainTypo: MAIN_TYPO,
+    bodyTypo: BODY_TYPO,
+    color: TEXT_PRIMARY,
+    bgColor: BG_MAIN,
+    showEnvelope: true,
+    envelopeMainTypo: MAIN_TYPO,
+    envelopeFontSize: "3rem",
+    envelopePhrase:
+      "Tendremos un buzon de sobres el dia del evento, por si deseas hacernos un regalo en efectivo.",
+    secondPhrase:
+      "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
+    envelopeTitleColor: TEXT_PRIMARY,
+    bankIconStart: assetUrl("icon", 8),
+    bankDetails: [
+      {
+        numbers: [
+          {
+            numberType: "Tarjeta",
+            number: "4152314557382366 ",
+          },
+        ],
+        bank: "BBVA Bancomer",
+        name: "Alberto Mendivil",
+        color: TEXT_PRIMARY,
+        bodyTypo: BODY_TYPO,
+        bgColor: "white",
+        outlineColor: true,
+      },
+    ],
+  };
+
+  const timelineData: CustomizedTimelineProps = {
+    mainTypo: MAIN_TYPO,
+    bodyTypo: BODY_TYPO,
+    colorPrimary: BG_MAIN,
+    colorTitle: BG_MAIN,
+    colorBody: BG_MAIN,
+    fontSize: "50px",
+    bgColor: BG_ACCENT,
+    events: [
+      {
+        eventName: "Ceremonia Religiosa",
+        date: new Date(2026, 9, 9, 17, 0, 0),
+        icon: assetUrl("icon", 0),
+      },
+      {
+        eventName: "Recepcion",
+        date: new Date(2026, 9, 9, 20, 0, 0),
+        icon: assetUrl("icon", 2),
+      },
+      {
+        eventName: "Cena",
+        date: new Date(2026, 9, 9, 20, 30, 0),
+        icon: assetUrl("icon", 3),
+      },
+      {
+        eventName: "Vals",
+        date: new Date(2026, 9, 9, 21, 0, 0),
+        icon: assetUrl("icon", 4),
+      },
+      {
+        eventName: "Inicio de fiesta",
+        date: new Date(2026, 9, 9, 21, 30, 0),
+        icon: assetUrl("icon", 5),
+      },
+      {
+        eventName: "Fin del evento",
+        date: new Date(2026, 9, 9, 2, 30, 0),
+        icon: assetUrl("icon", 6),
+      },
+    ],
+  };
+
+  const galleryImages = cloudAssets
+    .filter((asset) => asset.assetKind === "gallery")
+    .sort((a, b) => a.sortOrder - b.sortOrder)
+    .map((asset) => asset.secureUrl);
 
   // INTRO STATES
   const [showIntro, setShowIntro] = useState(true);
@@ -335,11 +344,11 @@ const WeddingVianneyAlberto = () => {
         bodyTypo={BODY_TYPO}
         backgroundColor={BG_MAIN}
         primaryColor={TEXT_PRIMARY}
-        envelopeImg={`${URL_REPO}demos/black-envelope.png`}
-        sealImg={`${URL_IMAGES}sello.png`}
+        envelopeImg={assetUrl("envelope")}
+        sealImg={assetUrl("seal")}
         sealPosition={introSealPosition}
-        // bottomRightCornerImg={`${URL_IMAGES}demos/white-flowers/4.png`}
-        // topLeftCornerImg={`${URL_IMAGES}demos/white-flowers/4.png`}
+        // bottomRightCornerImg={assetUrl("ornament")}
+        // topLeftCornerImg={assetUrl("ornament")}
         bottomRightCornerPosition={introBottomRightCornerPosition}
         topLeftCornerPosition={introTopLeftCornerPosition}
         guestName={guest ? guest.fullName : ""}
@@ -361,7 +370,7 @@ const WeddingVianneyAlberto = () => {
         <CoverInline
           ourWeddingStart={true}
           weddingDate="13 de Febrero, 2027"
-          bgImage={`${URL_IMAGES}portada.jpg`}
+          bgImage={assetUrl("cover")}
           brideName="Vianney Idalia"
           symbolr={"&"}
           groomName={"Alberto "}
@@ -389,7 +398,7 @@ const WeddingVianneyAlberto = () => {
             sx={{
               height: "25vh",
               width: "80vw",
-              backgroundImage: `url("${URL_IMAGES}fondo2.png")`,
+              backgroundImage: `url("${assetUrl("background", 0)}")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               boxShadow: `8px 8px 8px ${CHAMPAGNE}`,
@@ -425,11 +434,11 @@ const WeddingVianneyAlberto = () => {
             </Grid>
           </Box>
         </div>
-        {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio.jpg`} bgPositionY="30%"></ImageMiddle> */}
+        {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={assetUrl("middle-image")} bgPositionY="30%"></ImageMiddle> */}
         <Box height={"100vh"} bgcolor="lightgray"></Box>
         <div
           style={{
-            backgroundImage: `url("${URL_IMAGES}fondo1.png")`,
+            backgroundImage: `url("${assetUrl("background", 1)}")`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             padding: "50px 20px",
@@ -520,7 +529,7 @@ const WeddingVianneyAlberto = () => {
         </div>
         <CountDown
           eventDate={COUNTDOWN_DATE}
-          bgImage={`${URL_IMAGES}contador.jpg`}
+          bgImage={assetUrl("background", 2)}
           typoHeader={SECONDARY_TYPO}
           typoCountdown={BODY_TYPO}
           fontSize="2rem"
@@ -805,7 +814,7 @@ const WeddingVianneyAlberto = () => {
           </Box>
         </div>
         <CustomizedTimeline {...timelineData}></CustomizedTimeline>
-        {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={`${URL_IMAGES}enmedio2.jpg`} bgPositionY="30%"></ImageMiddle> */}
+        {/* <ImageMiddle bgPosition="30%" height="70vh" bgImage={assetUrl("middle-image", 1)} bgPositionY="30%"></ImageMiddle> */}
 
         <div style={{ backgroundColor: BG_MAIN }}>
           <Grid container spacing={2} padding={2} paddingBottom={0}>
@@ -863,7 +872,7 @@ const WeddingVianneyAlberto = () => {
         </Box>
         <div
           style={{
-            backgroundImage: `url("${URL_IMAGES}fondo2.png")`,
+            backgroundImage: `url("${assetUrl("background", 0)}")`,
             backgroundSize: "cover",
             backgroundPosition: "right",
             padding: "50px 20px",
@@ -1028,7 +1037,80 @@ const WeddingVianneyAlberto = () => {
           </Box>
 
           <div style={{ height: 100 }}></div>
-          <Gallery photos={galleryImages}></Gallery>
+          <Box
+            component="section"
+            sx={{
+              mt:2,
+              width: "100%",
+              px: { xs: 2.5, sm: 4 },
+              py: { xs: 7, sm: 9 },
+              backgroundColor: BG_CARD,
+              textAlign: "center",
+            }}
+          >
+            {/* FOTO */}
+            <Box
+              sx={{
+                width: "100%",
+                maxWidth: 430,
+                mx: "auto",
+                borderRadius: "2px",
+                overflow: "hidden",
+              }}
+            >
+              <Box
+                component="img"
+                src={assetUrl("gallery")}
+                alt="Novios"
+                sx={{
+                  display: "block",
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                }}
+              />
+            </Box>
+          
+            {/* TEXTO */}
+            <Box
+              sx={{
+                maxWidth: 430,
+                mx: "auto",
+                mt: { xs: 4, sm: 5 },
+              }}
+            >
+              <Typography
+              className={SECONDARY_TYPO}
+                sx={{
+              
+                  fontSize: { xs: "0.7rem", sm: "0.75rem" },
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                 
+                  mb: 2,
+                }}
+              >
+                Gracias por ser parte de este día
+              </Typography>
+          
+              <Typography
+          className={MAIN_TYPO}
+                sx={{
+                 
+                  fontSize: { xs: "2rem", sm: "2.3rem" },
+                  lineHeight: 1.15,
+                  color:TEXT_DARK ,
+                }}
+              >
+                Y así comienza nuestro
+                <br />
+                para siempre.
+              </Typography>
+          
+              {/* Detalle */}
+            
+            </Box>
+          </Box>
         </div>
         <FooterInvites bgColor={"white"} color={BUTTON_PRIMARY}></FooterInvites>
       </Box>
