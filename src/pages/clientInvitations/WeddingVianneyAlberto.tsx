@@ -177,7 +177,7 @@ const WeddingVianneyAlberto = () => {
       color: TEXT_PRIMARY,
       mainTypo: MAIN_TYPO,
       bodyTypo: BODY_TYPO,
-      href: "https://maps.app.goo.gl/FkAiYStqEi99qrPQA",
+      href: "https://maps.app.goo.gl/KETwTtphm37dDZ1D7",
       colorButton: BUTTON_PRIMARY,
       colorIcon: BUTTON_PRIMARY,
       fontSize: "4rem",
@@ -212,6 +212,7 @@ const WeddingVianneyAlberto = () => {
       "O bien, si deseas puedes hacer una transferencia a nuestra cuenta bancaria:",
     envelopeTitleColor: TEXT_PRIMARY,
     bankIconStart: assetUrl("icon", 8),
+    iconSize:"70PX",
     bankDetails: [
       {
         numbers: [
