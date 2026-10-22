@@ -94,9 +94,9 @@ export const MAGIC_GLOW =
   "0 0 30px rgba(175,196,154,.25)";
 
 export const STORY_DIVIDER = "#DCE3D2";
-const MAIN_TYPO = "allura-regular";
+const MAIN_TYPO = "pinyon-script-regular";
 const SECOND_TYPO = "prata";
-const BODY_TYPO = "playfair-display-400";
+const BODY_TYPO = "playfair-display-400 italic";
 
 const MEDIA_KEY = "invitacion-xv-ivanna-durazo";
 const EMPTY_ASSET = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
@@ -1095,9 +1095,9 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   <Fade direction="up">
                     <Typography
                       variant="h1"
-                      className={`${SECOND_TYPO} italic`}
+                      className={`allura-regular`}
                       sx={{
-                        fontSize: "1rem",
+                        fontSize: "1.3rem",
                         lineHeight: 1,
                         color: PRIMARY,
                       }}
@@ -1112,10 +1112,10 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   <Fade direction="up">
                     <Typography
                       variant="h1"
-                      className={`${SECOND_TYPO} italic`}
+                      className={`allura-regular`}
                       translate="no"
                       sx={{
-                        fontSize: "1rem",
+                        fontSize: "1.3rem",
                         lineHeight: 1,
                         color: PRIMARY,
                         fontFeatureSettings: '"liga" 0, "locl" 0',
@@ -1129,10 +1129,10 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   <Fade direction="up">
                     <Typography
                       variant="h1"
-                      className={`${SECOND_TYPO} italic`}
+                      className={`allura-regular`}
                       translate="no"
                       sx={{
-                        fontSize: "1rem",
+                        fontSize: "1.3rem",
                         lineHeight: 1,
                         color: PRIMARY,
                         fontFeatureSettings: '"liga" 0, "locl" 0',
