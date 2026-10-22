@@ -44,8 +44,8 @@ import CustomizedTimeline, {
   CustomizedTimelineProps,
 } from "../../components/TimeLine/Timeline";
 
-const INVITATION_ID = 0;
-const MEDIA_KEY = "boda-vianney-alberto";
+const INVITATION_ID = 51;
+const MEDIA_KEY = "boda-vianney-y-alberto";
 const EMPTY_ASSET =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 const BG_MAIN = "#FCFBF8";
