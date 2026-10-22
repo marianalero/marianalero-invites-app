@@ -184,7 +184,7 @@ const XVIvannaDurazo = () => {
 
   const eventCards: EventCardProps[] = [
      { eventName: "Misa", 
-      date: new Date(2026, 3, 11, 17, 30, 0),
+      date: new Date(2026, 3, 11, 17, 0, 0),
      locationName: "Parroquia Santa Eduwiges",
      address: "C. Israel González S/N, Modelo, 83190 Hermosillo, Son.", 
      size: 6, color: PRIMARY_DARK,
