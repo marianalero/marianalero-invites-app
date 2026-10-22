@@ -36,7 +36,7 @@ import MiniGallery from "../../components/MiniGallery/MiniGallery";
 
 
 
-const INVITATION_ID = 48;
+const INVITATION_ID = 49;
 const MEDIA_KEY = "invitacion-rocio-juan-pedro";
 const EMPTY_ASSET =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
