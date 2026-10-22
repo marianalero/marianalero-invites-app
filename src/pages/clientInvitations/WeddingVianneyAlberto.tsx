@@ -821,7 +821,7 @@ const WeddingVianneyAlberto = () => {
         </div>
         <Box
           sx={{
-            backgroundColor: "lightgray",
+            backgroundColor: BG_ACCENT,
             position: "relative",
             maxWidth: "750px",
             mx: "auto",
