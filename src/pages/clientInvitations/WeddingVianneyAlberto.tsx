@@ -372,7 +372,7 @@ const WeddingVianneyAlberto = () => {
           bgSize="cover"
           overlay={true}
           fontSize="2.5rem"
-          verticalPosition="top"
+          verticalPosition="bottom"
           ampersonClassName={MAIN_TYPO}
           bodyTypoClassName={BODY_TYPO}
         ></CoverInline>
