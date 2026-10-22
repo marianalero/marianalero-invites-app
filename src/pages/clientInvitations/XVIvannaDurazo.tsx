@@ -27,6 +27,10 @@ import { URL_REPO } from "../../config";
 import PhotoCoverIntro from "../../components/Intro/PhotoCoverIntro/PhotoCoverIntro";
 import { Guest } from "../../models/guest";
 import { getGuestById } from "../../services/guestApiClient";
+import {
+  AccessTimeRounded,
+} from "@mui/icons-material";
+import dayjs from "dayjs";
 
 // =========================
 // Background Palette
@@ -90,7 +94,7 @@ export const MAGIC_GLOW =
   "0 0 30px rgba(175,196,154,.25)";
 
 export const STORY_DIVIDER = "#DCE3D2";
-const MAIN_TYPO = "pinyon-script-regular";
+const MAIN_TYPO = "allura-regular";
 const SECOND_TYPO = "prata";
 const BODY_TYPO = "playfair-display-400";
 
@@ -98,7 +102,12 @@ const MEDIA_KEY = "invitacion-xv-ivanna-durazo";
 const EMPTY_ASSET = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 
 
-
+const colores = [
+  { nombre: "Rosa", hex: "#CC929F" },
+  { nombre: "Menta", hex: "#C8E1C1" },
+  { nombre: "Borgoña", hex: "#71334D" },
+  { nombre: "Oxford", hex: "#3D4143" },
+];
 const calendarButtonProps = {
     variant: "outlined" as const,
     sx: {
@@ -171,9 +180,6 @@ const XVIvannaDurazo = () => {
   fontSize: "2rem",
   image:assetUrl("icon",5),
   imageSize:"200px",
-  omitColorsLabel: "Colores reservados para la quinceañera:",
-  hideWhite:true,
-  omitColors : ["#CE929C","#C8E1C1","#6C364E","#3E4244"]
 };
 
   const eventCards: EventCardProps[] = [
@@ -719,7 +725,7 @@ const XVIvannaDurazo = () => {
       whiteSpace: "nowrap",
     }}
   >
-    27 · NOVIEMBRE · 2027
+    27 · NOVIEMBRE · 2026
   </Typography>
 </Box>
       </Box>
@@ -1205,7 +1211,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   >
                     <Box
                       component="img"
-                      src={minigalleryImages[1]}
+                      src={minigalleryImages[0]}
                       sx={{
                         width: "100%",
                         aspectRatio: "3 / 4",
@@ -1217,7 +1223,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
         
                     <Box
                       component="img"
-                      src={minigalleryImages[3]}
+                      src={minigalleryImages[1]}
                       sx={{
                         width: "100%",
                         aspectRatio: "4 / 3",
@@ -1239,7 +1245,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                   >
                     <Box
                       component="img"
-                      src={minigalleryImages[0]}
+                      src={minigalleryImages[3]}
                       sx={{
                         width: "100%",
                         aspectRatio: "4 / 3",
@@ -1423,7 +1429,32 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
             <br />
            
           </Typography>
+<Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                gap={1}
+                mb={2}
+              >
+                <AccessTimeRounded
+                  sx={{
+                    fontSize: 20,
+                    color: PRIMARY,
+                  }}
+                />
 
+                <Typography
+                mt={1}
+                fontSize={"1.5rem"}
+                  className={BODY_TYPO}
+                  sx={{
+                    color: TEXT_PRIMARY,
+                    letterSpacing: ".05em",
+                  }}
+                >
+  {dayjs(item.date).format("hh:mm a")}
+                  </Typography>
+              </Box>
           {/* BOTÓN */}
           <Box
             sx={{
@@ -1788,11 +1819,78 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
       >
         <Box sx={{ backgroundColor: BG_ALT, mb:4 }}>
           <DressCode {...dresscode}></DressCode>
-          <Grid paddingBottom={2}>
+           <Box
+      component="section"
+      sx={{
+        width: "100%",
+        boxSizing: "border-box",
+        py: { xs: 5, md: 7 },
+        px: 3,
+        bgcolor: "#F7E9EC",
+        textAlign: "center",
+      }}
+    >
+      <Typography
+        
+        className={SECOND_TYPO}
+
+        sx={{
+          color:TEXT_PRIMARY,
+          
+          fontSize: "1rem",
+          fontWeight: 400,
+          lineHeight: 1.3,
+          mb: { xs: 4, md: 5 },
+        }}
+      >
+        Colores reservados para la quinceañera:
+      </Typography>
+
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="flex-start"
+        flexWrap="wrap"
+        gap={{ xs: 2, sm: 3 }}
+      >
+        {colores.map((color) => (
+          <Stack
+            key={color.hex}
+            alignItems="center"
+            spacing={1.5}
+            
+          >
+            <Box
+              sx={{
+                width: 50,
+                height:50,
+                borderRadius: "50%",
+                bgcolor: color.hex,
+                flexShrink: 0,
+              }}
+            />
+
+            <Typography
+             className={BODY_TYPO}
+              sx={{
+                color: TEXT_SECONDARY,
+             
+                fontSize: { xs: 12, sm: 13 },
+                textAlign: "center",
+              }}
+            >
+              {color.nombre}
+            </Typography>
+          </Stack>
+        ))}
+      </Stack>
+      <Grid paddingBottom={2}>
             <Fade direction="up">
               <Adornment image={assetUrl("ornament")} width={"300px"} />
             </Fade>
           </Grid>
+    </Box>
+          
         
         </Box>
         <Box sx={{
