@@ -272,11 +272,6 @@ const WeddingVianneyAlberto = () => {
     ],
   };
 
-  const galleryImages = cloudAssets
-    .filter((asset) => asset.assetKind === "gallery")
-    .sort((a, b) => a.sortOrder - b.sortOrder)
-    .map((asset) => asset.secureUrl);
-
   // INTRO STATES
   const [showIntro, setShowIntro] = useState(true);
   const [showInvitation, setShowInvitation] = useState(false);
