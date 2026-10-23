@@ -3,9 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import GiftList, { GiftListProps } from "../../components/Gifts/GiftList";
 import formal from "./../../assets/iconos/dresscode/formal.svg";
-import WithoutKids, {
-  WithoutKidsProps,
-} from "../../components/WithOutKids/WithoutKids";
 
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from "@mui/material/Grid2";
@@ -71,11 +68,6 @@ const BODY_TYPO = "pt-serif-caption-regular to-upper";
 const URL_SONG = `${URL_REPO}canciones/AThousandYears-ChristinaPerri.mp3`;
 const COUNTDOWN_DATE = new Date(2027, 1, 13);
 const RSVP_DATE_LINE = new Date(2027, 0, 31);
-
-const withOutKids: WithoutKidsProps = {
-  bodyTypo: BODY_TYPO,
-  subtitle2: "no niños",
-};
 
 const introSealPosition = {
   top: "60%",
