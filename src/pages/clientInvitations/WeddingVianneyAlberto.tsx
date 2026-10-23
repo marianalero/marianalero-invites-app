@@ -244,7 +244,7 @@ const WeddingVianneyAlberto = () => {
       },
       {
         eventName: "Vals",
-        date: new Date(2026, 9, 9, 21, 0, 0),
+        date: new Date(2026, 9, 9, 21, 30, 0),
         icon: assetUrl("icon", 5),
       },
       {
