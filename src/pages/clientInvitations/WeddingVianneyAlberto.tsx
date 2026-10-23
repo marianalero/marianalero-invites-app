@@ -153,7 +153,7 @@ const WeddingVianneyAlberto = () => {
   const eventCards: EventCardProps[] = [
     {
       eventName: "Ceremonia Religiosa",
-      date: new Date(2027, 1, 13, 17, 0, 0),
+      date: new Date(2027, 1, 13, 19, 0, 0),
       locationName: "Parroquia nuestra Señora del Carmen",
       address: "Calle Jesús García 17, Col del Razo, Hermosillo, Son.",
       size: 12,
@@ -170,7 +170,7 @@ const WeddingVianneyAlberto = () => {
     },
     {
       eventName: "Recepción",
-      date: new Date(2027, 1, 13, 17, 0, 0),
+      date: new Date(2027, 1, 13, 21, 0, 0),
       locationName: "Hacienda Jesusita",
       address: "Av. San Antonio 109, Seccion 562, Palo Verde, Hermosillo, Son.",
       size: 12,
@@ -242,32 +242,33 @@ const WeddingVianneyAlberto = () => {
     events: [
       {
         eventName: "Ceremonia Religiosa",
-        date: new Date(2026, 9, 9, 17, 0, 0),
+        date: new Date(2026, 9, 9, 19, 0, 0),
         icon: assetUrl("icon", 0),
       },
       {
         eventName: "Recepcion",
-        date: new Date(2026, 9, 9, 20, 0, 0),
-        icon: assetUrl("icon", 2),
-      },
-      {
-        eventName: "Cena",
-        date: new Date(2026, 9, 9, 20, 30, 0),
+        date: new Date(2026, 9, 9, 21, 0, 0),
         icon: assetUrl("icon", 3),
       },
       {
         eventName: "Vals",
         date: new Date(2026, 9, 9, 21, 0, 0),
-        icon: assetUrl("icon", 4),
-      },
-      {
-        eventName: "Inicio de fiesta",
-        date: new Date(2026, 9, 9, 21, 30, 0),
         icon: assetUrl("icon", 5),
       },
       {
-        eventName: "Fin del evento",
-        date: new Date(2026, 9, 9, 2, 30, 0),
+        eventName: "Cena",
+        date: new Date(2026, 9, 9, 22, 0, 0),
+        icon: assetUrl("icon", 4),
+      },
+      
+      {
+        eventName: "Liga y Ramo",
+        date: new Date(2026, 9, 9, 23, 0, 0),
+        icon: assetUrl("icon", 9),
+      },
+      {
+        eventName: "Tanda",
+        date: new Date(2026, 9, 9, 23, 30, 0),
         icon: assetUrl("icon", 6),
       },
     ],
@@ -1005,30 +1006,8 @@ const WeddingVianneyAlberto = () => {
                   </Container>
                 </Box>
               </Grid>
-              <Grid
-                size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
-                display={"flex"}
-                justifyContent={"center"}
-              >
-                <Fade direction="up">
-                  <Divider
-                    sx={{
-                      width: 90,
-                      mx: "auto",
-                      my: 2,
-                      borderColor: TEXT_DARK,
-                      borderBottomWidth: 2,
-                    }}
-                  />
-                </Fade>
-              </Grid>
-              <Grid
-                size={{ xs: 12, sm: 12, md: 12, lg: 12 }}
-                display={"flex"}
-                justifyContent={"center"}
-              >
-                <WithoutKids {...withOutKids} />
-              </Grid>
+            
+              
             </Grid>
           </Box>
 
