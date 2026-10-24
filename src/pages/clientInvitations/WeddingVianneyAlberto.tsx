@@ -979,17 +979,7 @@ const WeddingVianneyAlberto = () => {
                                 Formal o Vaquero
                               </Typography>
 
-                              <Typography
-                                sx={{
-                                  color: TEXT_PRIMARY,
-                                  fontSize: 14,
-                                  textAlign: "center",
-                                  fontStyle: "italic",
-                                  lineHeight: 1.7,
-                                }}
-                              >
-                                De preferencia, vestimenta formal.
-                              </Typography>
+                              
                             </Stack>
                           </Grid>
                         </Grid>
