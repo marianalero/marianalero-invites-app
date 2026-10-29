@@ -201,6 +201,7 @@ const routes: RouteConfig[] = [
   {path:'/xv-camila-fernanda', element:<XVCamilaFernanda></XVCamilaFernanda>},
   {path:'/xv-ivanna-durazo', element:<XVIvannaDurazo></XVIvannaDurazo>},
 {path:'/prev-cenicienta', element:<XVCenicienta></XVCenicienta>},
+{path:'/xv-melissa', element:<XVMelissa></XVMelissa>},
 
   {path:'/bau-alondra', element: <BauAlondra></BauAlondra>},
   {path:'/bau-matias', element: <BauMatias></BauMatias>},

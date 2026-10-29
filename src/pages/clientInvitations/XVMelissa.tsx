@@ -613,7 +613,7 @@ const URL_SONG =  song  ==1 ? `${URL_REPO}canciones/NovemberRain.mp3` : `${URL_R
                       }}
                     >
                       Ismael Rubio Cordero +<br></br>
-                      Maria Martina Aguilar Melendez
+                      Maria Martina Aguilar Melendrez
                     </Typography>
                     
                   </Fade>
@@ -828,7 +828,7 @@ const URL_SONG =  song  ==1 ? `${URL_REPO}canciones/NovemberRain.mp3` : `${URL_R
                               src={minigalleryImages[3]}
                               sx={{
                                 width: "100%",
-                                aspectRatio: "4 / 3",
+                                aspectRatio: "4 / 4",
                                 objectFit: "cover",
                                 borderRadius: "22px",
                                 boxShadow: "0 10px 28px rgba(0,0,0,.08)",
