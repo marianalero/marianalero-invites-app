@@ -400,6 +400,14 @@
   font-weight: 500!important;
   font-style: normal;
 }
+
+.onest-400 {
+  font-family: "Onest", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .italic{
   font-style: italic!important;
 }

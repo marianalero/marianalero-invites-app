@@ -21,13 +21,14 @@ export interface CustomizedTimelineProps {
     events?:Event[];
     fontSize?:string;
     position?: 'left' | 'right' | 'alternate' | 'alternate-reverse';
+    title?:string;
 }
 const CustomizedTimeline = (props:CustomizedTimelineProps) =>{
     return (
         <Grid container spacing={2} display={"flex"} alignItems={"center"} padding={4} sx={{backgroundColor:props.bgColor}}>
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
             <Fade direction="up" triggerOnce={true}>
-              <Typography variant='h4' style={{fontSize: props.fontSize ? props.fontSize :"2rem"}} color={props.colorTitle} textAlign={"center"} className={`${props.mainTypo}`}>{t("timeline.title")}</Typography>
+              <Typography variant='h4' style={{fontSize: props.fontSize ? props.fontSize :"2rem"}} color={props.colorTitle} textAlign={"center"} className={`${props.mainTypo}`}>{ props.title ? props.title : t("timeline.title")}</Typography>
             </Fade>
             </Grid>	
             <Grid size={{xs:12,sm:12,md:12,lg:12}} >
