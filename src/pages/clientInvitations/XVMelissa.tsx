@@ -135,12 +135,8 @@ const XVMelissa = () => {
       const num = Number(searchParams.get("id"));
       return isNaN(num) ? undefined : num;
     }, [searchParams]);
-     const song: number | undefined = useMemo(() => {
-      const sn = Number(searchParams.get("song"));
-      return isNaN(sn) ? undefined : sn;
-    }, [searchParams]);
 
-const URL_SONG =  song  ==1 ? `${URL_REPO}canciones/NovemberRain.mp3` : `${URL_REPO}canciones/NovemberRain-Solo.mp3`;
+const URL_SONG = `${URL_REPO}canciones/NovemberRain.mp3` //: `${URL_REPO}canciones/NovemberRain-Solo.mp3`;
   const [showIntro, setShowIntro] = useState(true);
   const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
 
