@@ -1670,7 +1670,7 @@ Con mucha alegría, quiero compartir contigo la celebración de mis XV años<br>
                                                 textAlign: "center",
                                               }}
                                             >
-                                              Crucita Marquez
+                                              Ma. De la Cruz Márquez Quihuis.
                                             </Typography>
                                           </Stack>
                                         </Paper>
