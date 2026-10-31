@@ -8,6 +8,7 @@ import WithoutKids, { WithoutKidsProps } from "../../components/WithOutKids/With
 import CountDown from "../../components/CountDown/CountDownImage/CountDown";
 import Grid from '@mui/material/Grid2';
 import FooterInvites from "../../components/Footer/FooterInvites";
+import AlbumEntry from "../../components/album/AlbumEntry";
 import Qoute, { QouteProps } from "../../components/Qoute/Qoute";
 import ImageMiddle from "../../components/ImageMiddle/ImageMiddle";
 import MusicFabPlayer, { MusicFabPlayerHandle } from "../../components/MusicFabPlayer/MusicFabPlayer";
@@ -618,6 +619,7 @@ Foto de <a href="https://unsplash.com/es/@dazmanov?utm_source=unsplash&utm_mediu
                 Foto de <a href="https://unsplash.com/es/@mrsrachelmcdermott?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Rachel McDermott</a> en <a href="https://unsplash.com/es/fotos/mujer-con-anillo-de-bodas-con-hombre-de-la-mano-fAIklKagBcw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
                      </Typography>
          </div>
+            <AlbumEntry mediaKey={MEDIA_KEY} />
             <FooterInvites bgColor={"white"} color={COLOR_PRIMARY}></FooterInvites>
             </Box>
           

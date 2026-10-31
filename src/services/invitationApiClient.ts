@@ -62,6 +62,11 @@ async function setQuestionsEnabled(id: number, enabled: boolean): Promise<Invita
   return data;
 }
 
+async function setAlbumEnabled(id: number, enabled: boolean): Promise<InvitationFeatures> {
+  const { data } = await apiClient.put<InvitationFeatures>(`invitation/${id}/features/album`, { enabled });
+  return data;
+}
+
 async function getManagedQuestions(id: number): Promise<Question[]> {
   const { data } = await apiClient.get<Question[]>(`invitation/${id}/questions`);
   return data;
@@ -114,6 +119,7 @@ export {
   getInvitationFeatures,
   updateConfirmation,
   setQuestionsEnabled,
+  setAlbumEnabled,
   getManagedQuestions,
   createQuestion,
   updateQuestion,
