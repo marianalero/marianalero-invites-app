@@ -936,7 +936,7 @@ La vida nos regaló la coincidencia más hermosa y el tiempo nos dio la inquebra
 
                             <RSVPForm
                             hideDateLine={true}
-                            dateLine={RSVP_DATE_LINE}
+                        
                                 guest={guest || undefined}
                                 textColor={BODY_COLOR}
                                 colorButton={BUTTON_PRIMARY}
