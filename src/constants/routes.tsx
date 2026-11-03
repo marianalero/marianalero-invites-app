@@ -104,6 +104,8 @@ import WeddingBerenice from "../pages/clientInvitations/WeddingBerenice";
 import XVIvannaDurazo from "../pages/clientInvitations/XVIvannaDurazo";
 import XVMelissa from "../pages/clientInvitations/XVMelissa";
 
+import WeddingSolHector from "../pages/clientInvitations/WeddingSolHector";
+
 interface RouteConfig {
   path: string;
   element: React.ReactNode;
@@ -222,9 +224,7 @@ const routes: RouteConfig[] = [
 
 
 {path:'/prev-m-1', element:<XVMelissa></XVMelissa>},
-
-
-
+  {path:'/prev-sh-1', element:<WeddingSolHector></WeddingSolHector>},
 ];
 
 
