@@ -303,6 +303,12 @@ const lodgingOptions = [
     phoneNumber:"662 401 2130"
    
   },
+  {
+    name: "Hotel Las Bugambilias",
+    description: "Carretera Hermosillo-Ures km 57, Guadalupe de Ures, Sonora",
+    phoneNumber:"623 105 0125"
+   
+  },
 ];
 
     const isSmallScreen = useMediaQuery('(max-width:600px)');
@@ -365,7 +371,7 @@ const lodgingOptions = [
                 title="Una celebración está por comenzar"
                 fontSizeNames="2rem"
 
-                brideName="Sol"
+                brideName="Soledad"
                 groomName="Hector"
                 ampersonSymbol="&"
 
@@ -461,7 +467,7 @@ const lodgingOptions = [
                   },
                 }}
               >
-                Sol  & Hector
+                Soledad & Hector
               </Typography>
 
            
