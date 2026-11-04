@@ -165,7 +165,7 @@ const URL_SONG = `${URL_REPO}canciones/Milugarfavorito.mp3` //: `${URL_REPO}canc
 
   const eventCards: EventCardProps[] = [
      { eventName: "Misa", 
-      date: new Date(2026, 3, 11, 18, 0, 0),
+      date: new Date(2026, 3, 11, 17, 0, 0),
      locationName: "Templo Parroquial San Carlos Borromeo",
      address: "C. Republica de Panama, Alvaro Obregon, 83170 Hermosillo, Son.", 
      size: 6, color: PRIMARY_DARK,
@@ -178,7 +178,7 @@ const URL_SONG = `${URL_REPO}canciones/Milugarfavorito.mp3` //: `${URL_REPO}canc
         colorButton: PRIMARY,
          bgColor: BG_MAIN },
     { eventName: "Recepción", 
-      date: new Date(2026, 3, 11, 20, 0, 0),
+      date: new Date(2026, 3, 11, 19, 30, 0),
      locationName: "",
      address: "Saturnino Campoy #926 % Juan de Dios Bojorquez y Hnos. Talamantes col. El Sahuaro", 
      size: 6, color: PRIMARY_DARK,
