@@ -831,8 +831,8 @@ Gracias por permitirme compartir con ellos mis sueños, mis alegrías y mis logr
             <Box display={"flex"} justifyContent={"center"}>
               <CalendarButton
                 title="XV Iker Omar"
-                startDate="20261219T173000"
-                endDate="20261220T20000"
+                startDate="20261204T170000"
+                endDate="20261205T10000"
                 location=""
                 // fileName="boda-valentina-sebastian"
                 buttonProps={calendarButtonProps}
