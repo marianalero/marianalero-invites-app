@@ -346,7 +346,7 @@ const URL_SONG = `${URL_REPO}canciones/Milugarfavorito.mp3` //: `${URL_REPO}canc
         fontSize:"1.5rem"
       }}
     >
-      19 DICIEMBRE 2026
+      04 DICIEMBRE 2026
     </Typography>
 
     
