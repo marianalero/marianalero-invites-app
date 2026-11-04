@@ -129,7 +129,7 @@ const calendarButtonProps = {
     },
 };
 const COUNTDOWN_DATE = new Date(2026, 10, 13);
-const RSVP_DATE_LINE = new Date(2026, 10, 3);
+const RSVP_DATE_LINE = new Date(2026, 10, 11);
 const INVITATION_ID = 39;
 const bankDetails = [
      {
