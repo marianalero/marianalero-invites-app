@@ -106,6 +106,7 @@ import XVMelissa from "../pages/clientInvitations/XVMelissa";
 
 import WeddingSolHector from "../pages/clientInvitations/WeddingSolHector";
 import XVIker from "../pages/clientInvitations/XVIKER";
+import XVDanielaNatalhi from "../pages/clientInvitations/XVDanielaNatalhi";
 
 interface RouteConfig {
   path: string;
@@ -229,6 +230,7 @@ const routes: RouteConfig[] = [
 
 
   {path:'/prev-sh-1', element:<WeddingSolHector></WeddingSolHector>},
+  {path:'/prev-dn-1', element: <XVDanielaNatalhi></XVDanielaNatalhi>}
 
 ];
 
