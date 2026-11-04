@@ -268,7 +268,7 @@ const EditorialCountdown = ({
                   lineHeight: titleStyle.lineHeight,
                   fontStyle: titleStyle.fontStyle,
                   textTransform: titleStyle.textTransform,
-                  
+                  textShadow: "0 2px 8px rgba(0, 0, 0, 0.35)"
                 }}
               >
                 {titleContent}

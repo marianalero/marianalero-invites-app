@@ -28,6 +28,7 @@ import { getAssets } from "../../services/mediaApiClient";
 import type { InvitationAsset } from "../../models/invitationAsset";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
 import EditorialCountdown from "../../components/EditorialCountdown";
+import ArrowOutwardRoundedIcon from "@mui/icons-material/ArrowOutwardRounded";
 
 import RSVPForm from "../../components/RSVP/RSVPForm";
 
@@ -108,7 +109,7 @@ const RSVP_DATE_LINE = new Date(2026, 10, 26);
 const INVITATION_ID = 53;
 /** Solo celulares bajos y angostos; no cambia iPhone normal ni desktop. */
 const COVER_SMALL_PHONE = "@media (max-width: 430px) and (max-height: 740px)";
-const URL_SONG = `${URL_REPO}/canciones/Athousandyears-ChristinaPerri-Sax.mp3`;
+const URL_SONG = `${URL_REPO}/canciones/CarinLeon-DesdeQueTeTengo.mp3`;
 
 
 
@@ -369,7 +370,7 @@ const lodgingOptions = [
                 musicRef={musicRef}
 
                 title="Una celebración está por comenzar"
-                fontSizeNames="2rem"
+                fontSizeNames="3rem"
 
                 brideName="Soledad"
                 groomName="Hector"
@@ -441,7 +442,7 @@ const lodgingOptions = [
                 },
               }}
             >
-               <Box
+               {/* <Box
                 component="img"
                 src={monograma1}
                 alt="AJA"
@@ -450,7 +451,7 @@ const lodgingOptions = [
                     mb: { xs: 1.5, md: 2 },
                     opacity:.8
                 }}
-                />
+                /> */}
               <Typography
                 className={MAIN_TYPO}
                 sx={{
@@ -460,14 +461,14 @@ const lodgingOptions = [
                     mt:-50
                   },
                   color: TEXT_PRIMARY,
-                  lineHeight: 2,
+                  lineHeight: 1,
                   [COVER_SMALL_PHONE]: {
                     fontSize: "3.6rem",
                     lineHeight: 1.1,
                   },
                 }}
               >
-                Soledad & Hector
+                Soledad<br></br>&<br></br> Hector
               </Typography>
 
            
@@ -1165,12 +1166,12 @@ const lodgingOptions = [
 
                 <Typography
                   sx={{
-                    fontSize: "0.8rem",
+                    
                     color: TEXT_PRIMARY,
                     letterSpacing: "0.04em",
                   }}
                 >
-                  Ver mesa de regalos ↗
+                  Ver mesa de regalos <ArrowOutwardRoundedIcon />
                 </Typography>
               </CardActionArea>
             </Card>
@@ -1210,6 +1211,17 @@ const lodgingOptions = [
             >
               {giftListData.envelopePhrase}
             </Typography>
+             <Box
+    component="img"
+    src={assetUrl("icon",13)}
+    alt=""
+    sx={{
+      width: 150,
+      height: "auto",
+      objectFit: "contain",
+      mb: 3,
+    }}
+  />
           </Box>
         )}
       </Box>
@@ -1402,8 +1414,65 @@ const lodgingOptions = [
 >
   Más recomendaciones en Instagram
 </Button>
-     
+ 
     </Box>
+    <Box
+  sx={{
+    bgcolor: "#F8F4EC",
+    mt: 6,
+    pt: 7,
+    pb: 8,
+    px: 3,
+    textAlign: "center",
+  }}
+>
+  <Box
+    sx={{
+      width: 45,
+      height: "1px",
+      bgcolor: "#B9A184",
+      mx: "auto",
+      mb: 4,
+    }}
+  />
+
+  <Box
+    component="img"
+    src={assetUrl("icon",12)}
+    alt="Monograma de los novios"
+    sx={{
+      width: 125,
+      height: "auto",
+      objectFit: "contain",
+      mb: 3,
+    }}
+  />
+
+  <Typography
+    className="BODY_TYPO"
+    sx={{
+      maxWidth: 300,
+      mx: "auto",
+      fontSize: "0.95rem",
+      lineHeight: 1.8,
+      color: "#3F352E",
+    }}
+  >
+    Una nueva etapa, la misma historia de amor y muchas razones para celebrar.
+  </Typography>
+
+  <Typography
+    className="SECONDARY_TYPO"
+    sx={{
+      mt: 4,
+      fontSize: "0.7rem",
+      letterSpacing: "0.15em",
+      color: "#6D755B",
+    }}
+  >
+    GRACIAS POR ACOMPAÑARNOS
+  </Typography>
+</Box>
 
             <div style={{height:100}}></div>
               <FooterInvites bgColor={BG_MAIN} color={BUTTON_PRIMARY}></FooterInvites>
