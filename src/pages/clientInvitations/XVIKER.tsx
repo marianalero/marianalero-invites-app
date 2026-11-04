@@ -179,7 +179,7 @@ const URL_SONG = `${URL_REPO}canciones/Milugarfavorito.mp3` //: `${URL_REPO}canc
          bgColor: BG_MAIN },
     { eventName: "Recepción", 
       date: new Date(2026, 3, 11, 19, 30, 0),
-     locationName: "",
+     locationName: "Fiestas Sahuaro",
      address: "Saturnino Campoy #926 % Juan de Dios Bojorquez y Hnos. Talamantes col. El Sahuaro", 
      size: 6, color: PRIMARY_DARK,
       image: assetUrl("reception",0), 
