@@ -183,7 +183,7 @@ const WeddingSolHector  = () => {
     const rama = assetUrl("ornament", 1);
     const ramaRosa = assetUrl("ornament", 5);
     // const sobre = assetUrl("ornament", 3);
-    const monograma1 = assetUrl("icon", 4);
+
     const monograma2 = assetUrl("icon", 5);
     // const camara = assetUrl("icon", 7);
     // const banco = assetUrl("icon", 8);
