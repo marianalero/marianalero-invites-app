@@ -107,6 +107,7 @@ import XVMelissa from "../pages/clientInvitations/XVMelissa";
 import WeddingSolHector from "../pages/clientInvitations/WeddingSolHector";
 import XVIker from "../pages/clientInvitations/XVIKER";
 import XVDanielaNatalhi from "../pages/clientInvitations/XVDanielaNatalhi";
+import BabyShowerAmelia from "../pages/clientInvitations/BabyShowerAmelia2";
 
 interface RouteConfig {
   path: string;
@@ -225,6 +226,7 @@ const routes: RouteConfig[] = [
    {path:'/baby-shower-jose-alejandro', element: <BabyShowerJoseAlejandro></BabyShowerJoseAlejandro>},
    {path:'/juan-pablo-12', element: <JuanPablo></JuanPablo>},
    {path:'/mariana-30', element: <Mariana30></Mariana30>},
+   {path:'/baby-shower-amelia', element: <BabyShowerAmelia></BabyShowerAmelia>},
   //Borradores
 
 
