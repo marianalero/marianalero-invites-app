@@ -141,6 +141,7 @@ const BabyShowerAmelia = () => {
 
   const eventCards: EventCardProps[] = [
     { eventName: "", date: new Date(2026, 3, 11, 17, 30, 0),
+      endDate: new Date(2026, 3, 11, 21, 0, 0),
      locationName: "Jardín Lucrecia",
      address: "Av. Lucrecia Ruiz de Ayón 49-b, San Luis Rey, 83106 Hermosillo, Son.", 
      size: 6, color: PRIMARY_DARK,
