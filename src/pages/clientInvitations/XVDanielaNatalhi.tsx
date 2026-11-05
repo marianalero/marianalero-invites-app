@@ -150,7 +150,7 @@ const calendarButtonProps = {
     },
 };
 const COUNTDOWN_DATE = new Date(2026, 10, 21);
-const RSVP_DATE_LINE = new Date(2026, 10, 20);
+const RSVP_DATE_LINE = new Date(2026, 10, 17);
 const INVITATION_ID = 55;
 const URL_SONG = `${URL_REPO}canciones/Art Deco.mp3`;
 const XVDanielaNatalhi = () => {
@@ -313,7 +313,7 @@ const XVDanielaNatalhi = () => {
           phrase="MIS XV AÑOS"
           names="Daniela Natalhi"
           namesTypo={MAIN_TYPO}
-          date="27 de Noviembre 2026"
+          date="21 de Noviembre 2026"
           extraText="Un día para celebrar juntos"
           bodyTypo={BODY_TYPO}
         />
@@ -1109,6 +1109,7 @@ const XVDanielaNatalhi = () => {
                 />
 
                 <Typography
+                translate="no"
                 mt={1}
                 fontSize={"1.5rem"}
                   className={BODY_TYPO}
