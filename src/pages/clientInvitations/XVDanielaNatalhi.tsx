@@ -30,6 +30,9 @@ import {
 } from "@mui/icons-material";
 import dayjs from "dayjs";
 import CustomButton from "../../components/CustomButton/CustomButton";
+import Adornment from "../../components/Adornment/Adornment";
+import WithoutKids from "../../components/WithOutKids/WithoutKids";
+
 
 
 // =========================
@@ -206,6 +209,9 @@ const XVDanielaNatalhi = () => {
   fontSize: "2rem",
   image:assetUrl("icon",1),
   imageSize:"200px",
+  hideWhite:true,
+  omitColorsLabel:"Color plateado reservado para la quinceañera:",
+  omitColors : [SILVER_METALLIC]
 };
 
   const eventCards: EventCardProps[] = [
@@ -1205,9 +1211,18 @@ const XVDanielaNatalhi = () => {
                       className={MAIN_TYPO}
                       color={PRIMARY_DARK}
                     >
-                      Lluvia de sobres
+                      Sugerencia de regalos
                     </Typography>
-                    <Box
+                     <Typography
+                      maxWidth={650}
+                      className={BODY_TYPO}
+                      lineHeight={1.5}
+                      color={TEXT_PRIMARY}
+                    >
+                     El mejor regalo es compartir este día contigo. 
+                    </Typography>
+                    <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
+ <Box
                       component="img"
                       src={assetUrl("icon",0)}
                       alt="Sobre"
@@ -1215,16 +1230,32 @@ const XVDanielaNatalhi = () => {
                         width: { xs: 120, md: 110 },
                       }}
                     />
+                     <Typography
+                     alignItems={"center"}
+                      maxWidth={650}
+                      className={SECOND_TYPO}
+                      lineHeight={1.5}
+                      color={TEXT_PRIMARY}
+                    >
+                     O
+                    </Typography>
+                     <Box
+                      component="img"
+                      src={assetUrl("icon",2)}
+                      alt="Sobre"
+                      sx={{
+                        width: { xs: 120, md: 110 },
+                      }}
+                    />
+                    </Box>
+                   
                     <Typography
                       maxWidth={650}
                       className={BODY_TYPO}
                       lineHeight={1.5}
                       color={TEXT_PRIMARY}
                     >
-                      Tu presencia será el regalo más valioso para mí.
-                      <br />
-                      Si además deseas obsequiarme un detalle, con mucho cariño
-                      agradeceré que sea en sobre.
+                      Si deseas obsequiarme algo, agradeceré regalos o sobre.
                     </Typography>
                    
 
@@ -1452,41 +1483,32 @@ const XVDanielaNatalhi = () => {
       >
         <Box sx={{ backgroundColor: BG_SECTION, mb:4 }}>
           <DressCode {...dresscode}></DressCode>
-           {/* <Box
-      component="section"
-      sx={{
-        width: "100%",
-        boxSizing: "border-box",
-        py: { xs: 5, md: 7 },
-        px: 3,
-        bgcolor: "#F7E9EC",
-        textAlign: "center",
-      }}
-    >
-      <Typography
-        
-        className={SECOND_TYPO}
-
-        sx={{
-          color:TEXT_PRIMARY,
-          
-          fontSize: "1rem",
-          fontWeight: 400,
-          lineHeight: 1.3,
-          mb: { xs: 4, md: 5 },
-        }}
-      >
-        Colores reservados para la quinceañera:
-      </Typography>
-
-      
-      <Grid paddingBottom={2}>
+         <Grid paddingBottom={2}>
             <Fade direction="up">
-              <Adornment image={assetUrl("ornament")} width={"300px"} />
+              <Adornment image={assetUrl("ornament")} width={"250px"} />
             </Fade>
           </Grid>
-    </Box> */}
-          
+          <Grid container p={2}>
+            <Grid  display="flex" justifyContent={"center"} size={{ xs: 12, sm: 12, md: 12, lg: 12 }} >
+            <Typography textAlign={"center"}
+                            className={BODY_TYPO}
+                            sx={{
+                              color: TEXT_PRIMARY,
+                              fontSize: {
+                                xs: ".95rem",
+                                md: "1.1rem",
+                              },
+                              lineHeight: 2.2,
+                              opacity: 0.95,
+                            }}
+                          >
+                            Adoramos a los pequeños,<br></br>
+                            sin embargo esta celebración está destinada<br></br>
+                            exclusivamente para adultos.<br></br>
+                            ¡Agradecemos su comprensión!
+                          </Typography>
+                          </Grid>
+          </Grid>
         
         </Box>
         <Box sx={{
