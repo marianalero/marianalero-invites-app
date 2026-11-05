@@ -589,7 +589,7 @@ const BabyShowerAmelia = () => {
             color: TEXT_SECONDARY,
           }}
         >
-          SÁBADO
+          VIERNES
         </Typography>
 
         <Typography
