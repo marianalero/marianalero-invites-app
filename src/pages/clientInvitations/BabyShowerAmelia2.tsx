@@ -140,7 +140,7 @@ const BabyShowerAmelia = () => {
     cloudAssets.filter((asset) => asset.assetKind === kind)[index]?.secureUrl ?? EMPTY_ASSET;
 
   const eventCards: EventCardProps[] = [
-    { eventName: "", date: new Date(2026, 3, 11, 17, 30, 0),
+    { eventName: "", date: new Date(2026, 3, 11, 17, 0, 0),
       endDate: new Date(2026, 3, 11, 21, 0, 0),
      locationName: "Jardín Lucrecia",
      address: "Av. Lucrecia Ruiz de Ayón 49-b, San Luis Rey, 83106 Hermosillo, Son.", 
