@@ -327,22 +327,32 @@ const BabyShowerAmelia = () => {
           />
 
             
+        <Box
+          sx={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: "46%",
+            zIndex: 10,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            px: 2.5,
+            gap: 0.75,
+          }}
+        >
         <Typography
   className={SECOND_TYPO}
   sx={{
-    position: "relative",
-    zIndex: 10,
-    top:"40%",
     fontSize: {
-      xs: "2.5rem",
-      md: "2.5rem",
+      xs: "2.2rem",
+      md: "2.4rem",
     },
-    lineHeight:1,
-    letterSpacing: "0.25em",
+    lineHeight: 1.05,
+    letterSpacing: "0.22em",
     textTransform: "uppercase",
     color: TEXT_PRIMARY,
-
-    mb: 2,
   }}
 >
   BABY SHOWER
@@ -351,27 +361,17 @@ const BabyShowerAmelia = () => {
         className={MAIN_TYPO}
           component="h1"
           sx={{
-            position: "relative",
-            top:"45%",
-            zIndex: 10,
-
-           
-
             fontSize: {
-              xs: "5.5rem",
+              xs: "5rem",
               sm: "5rem",
-              md: "5.5rem",
+              md: "5.2rem",
             },
 
             fontWeight: 400,
 
-            lineHeight: 0.8,
+            lineHeight: 0.85,
 
             color: PRIMARY,
-            ml:-3,
-            mt: -1,
-
-            mb: 2,
 
             whiteSpace: "nowrap",
           }}
@@ -389,8 +389,6 @@ const BabyShowerAmelia = () => {
             justifyContent: "center",
 
             gap: 1.5,
-
-            mb: 1.5,
           }}
         >
           <Box
@@ -433,12 +431,9 @@ const BabyShowerAmelia = () => {
 <Typography
   className={BODY_TYPO}
   sx={{
-    position: "relative",
-    zIndex: 10,
-    bottom:"-50%",
     fontSize: {
-      xs: "1.3rem",
-      md: "1.5rem",
+      xs: "1.15rem",
+      md: "1.3rem",
     },
 
     fontWeight: 500,
@@ -449,6 +444,7 @@ const BabyShowerAmelia = () => {
 >
   27.11.2026
 </Typography>
+        </Box>
        
       </Box>
     </Box>
