@@ -18,6 +18,7 @@ interface CloudinaryUploadSignature {
   apiKey: string;
   timestamp: number;
   folder: string;
+  transformation?: string;
   signature: string;
 }
 

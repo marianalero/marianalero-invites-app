@@ -36,6 +36,7 @@ async function uploadInvitationAsset(input: UploadAssetInput): Promise<Invitatio
   body.append("api_key", signature.apiKey);
   body.append("timestamp", String(signature.timestamp));
   body.append("folder", signature.folder);
+  if (signature.transformation) body.append("transformation", signature.transformation);
   body.append("signature", signature.signature);
 
   const uploaded = await uploadToCloudinary(
