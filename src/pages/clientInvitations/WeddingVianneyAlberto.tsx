@@ -185,9 +185,9 @@ const WeddingVianneyAlberto = () => {
       "Lo más valioso para nosotros es contar con tu compañía. Si deseas consentirnos con un regalo, aquí encontrarás algunas opciones.",
     items: [
       {
-        number: "60024483",
-        link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60024483",
-        icon: assetUrl("icon", 1),
+        number: "60026393",
+        link: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/60026393",
+        icon: assetUrl("icon", 0),
       },
     ],
     fontSize: "3rem",
@@ -235,7 +235,7 @@ const WeddingVianneyAlberto = () => {
       {
         eventName: "Ceremonia Religiosa",
         date: new Date(2026, 9, 9, 19, 0, 0),
-        icon: assetUrl("icon", 0),
+        icon: assetUrl("icon", 1),
       },
       {
         eventName: "Recepcion",
