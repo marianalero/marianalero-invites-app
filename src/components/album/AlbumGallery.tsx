@@ -44,7 +44,19 @@ export default function AlbumGallery({ items, identity, onOpen }: Props) {
               }}
             >
               {item.resourceType === "video" ? (
-                <Box sx={{ width: "100%", aspectRatio: ratio ?? "3 / 4", bgcolor: `${identity.text}14` }} />
+                <Box sx={{ position: "relative", width: "100%", aspectRatio: ratio ?? "3 / 4", bgcolor: `${identity.text}14` }}>
+                  <Box
+                    component="img"
+                    src={videoPoster(item.secureUrl)}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    onError={(event) => {
+                      event.currentTarget.style.display = "none";
+                    }}
+                    sx={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  />
+                </Box>
               ) : (
                 <Box
                   component="img"
@@ -93,4 +105,11 @@ export default function AlbumGallery({ items, identity, onOpen }: Props) {
       })}
     </Box>
   );
+}
+
+function videoPoster(url: string) {
+  const marker = "/upload/";
+  const index = url.indexOf(marker);
+  if (!url.includes("res.cloudinary.com") || index < 0) return url;
+  return `${url.slice(0, index + marker.length)}so_0,c_limit,w_640,f_jpg/${url.slice(index + marker.length)}`;
 }

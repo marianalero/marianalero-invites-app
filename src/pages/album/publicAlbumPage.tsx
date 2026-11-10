@@ -11,11 +11,13 @@ import AlbumUploadNotice, { type AlbumUploadJob } from "../../components/album/A
 import { AlbumEmptyState, AlbumExpiredState, AlbumUnavailable } from "../../components/album/AlbumStates";
 import { getAlbumIdentity, onAccent } from "../../components/album/albumVisualIdentity";
 import { albumTitle, momentLabel, oversizeLabel } from "../../components/album/albumFormat";
+import { prepareAlbumImage } from "../../components/album/prepareAlbumImage";
 import { getPublicAlbum, uploadAlbumFile } from "../../services/albumApiClient";
 import type { PublicAlbum, PublicAlbumItem } from "../../models/album";
 
 const MAX_IMAGE_BYTES = 12 * 1024 * 1024;
 const MAX_VIDEO_BYTES = 80 * 1024 * 1024;
+const UPLOAD_SLOTS = 2;
 const ACCEPT = "image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm,.jpg,.jpeg,.png,.webp,.mp4,.mov,.webm";
 
 export default function PublicAlbumPage() {
@@ -94,30 +96,31 @@ export default function PublicAlbumPage() {
   const drain = useCallback(async () => {
     if (drainingRef.current) return;
     drainingRef.current = true;
-    try {
+
+    const runSlot = async () => {
       for (;;) {
         const next = jobsRef.current.find((job) => job.status === "queued");
-        if (!next) break;
-        const problem = classifyFile(next.file);
-        if (problem) {
-          next.status = problem === "skip" ? "failed" : "oversized";
-          next.notice = problem === "skip" ? undefined : problem;
-          publishJobs();
-          continue;
-        }
+        if (!next) return;
         next.status = "uploading";
         next.progress = 0;
         next.notice = undefined;
         publishJobs();
         try {
-          const created = await uploadAlbumFile(slugRef.current, next.file, (progress) => {
-            if (next.status !== "uploading" || next.progress === progress) return;
-            next.progress = progress;
-            publishJobs();
-          });
-          next.status = "done";
-          next.progress = 100;
-          addCreated(created);
+          const file = isVideoFile(next.file) ? next.file : await prepareAlbumImage(next.file);
+          const problem = sizeProblem(next.file.name, file);
+          if (problem) {
+            next.status = "oversized";
+            next.notice = problem;
+          } else {
+            const created = await uploadAlbumFile(slugRef.current, file, (progress) => {
+              if (next.status !== "uploading" || next.progress === progress) return;
+              next.progress = progress;
+              publishJobs();
+            });
+            next.status = "done";
+            next.progress = 100;
+            addCreated(created);
+          }
         } catch (error) {
           next.status = "failed";
           next.notice = undefined;
@@ -127,6 +130,10 @@ export default function PublicAlbumPage() {
         }
         publishJobs();
       }
+    };
+
+    try {
+      await Promise.all(Array.from({ length: UPLOAD_SLOTS }, () => runSlot()));
     } finally {
       drainingRef.current = false;
       if (jobsRef.current.some((job) => job.status === "queued")) {
@@ -244,11 +251,29 @@ export default function PublicAlbumPage() {
 }
 
 function classifyFile(file: File) {
-  const extension = file.name.split(".").pop()?.toLowerCase() ?? "";
-  const video = ["mp4", "mov", "webm"].includes(extension);
-  const image = ["jpg", "jpeg", "png", "webp"].includes(extension);
+  const video = isVideoFile(file);
+  const image = isImageFile(file);
   if (!video && !image) return "skip" as const;
-  const limit = video ? MAX_VIDEO_BYTES : MAX_IMAGE_BYTES;
-  if (file.size > limit) return oversizeLabel(file.name, video ? "80 MB" : "12 MB");
+  if (video && file.size > MAX_VIDEO_BYTES) return oversizeLabel(file.name, "80 MB");
   return undefined;
+}
+
+function sizeProblem(originalName: string, file: File) {
+  const video = isVideoFile(file);
+  if (file.size > (video ? MAX_VIDEO_BYTES : MAX_IMAGE_BYTES)) {
+    return oversizeLabel(originalName, video ? "80 MB" : "12 MB");
+  }
+  return undefined;
+}
+
+function extensionOf(file: File) {
+  return file.name.split(".").pop()?.toLowerCase() ?? "";
+}
+
+function isVideoFile(file: File) {
+  return ["mp4", "mov", "webm"].includes(extensionOf(file));
+}
+
+function isImageFile(file: File) {
+  return ["jpg", "jpeg", "png", "webp"].includes(extensionOf(file));
 }
