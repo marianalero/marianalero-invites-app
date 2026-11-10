@@ -240,12 +240,12 @@ const WeddingVianneyAlberto = () => {
       {
         eventName: "Recepcion",
         date: new Date(2026, 9, 9, 21, 0, 0),
-        icon: assetUrl("icon", 3),
+        icon: assetUrl("icon", 2),
       },
       {
         eventName: "Vals",
         date: new Date(2026, 9, 9, 21, 30, 0),
-        icon: assetUrl("icon", 5),
+        icon: assetUrl("icon", 3),
       },
       {
         eventName: "Cena",
@@ -256,7 +256,7 @@ const WeddingVianneyAlberto = () => {
       {
         eventName: "Liga y Ramo",
         date: new Date(2026, 9, 9, 23, 0, 0),
-        icon: assetUrl("icon", 9),
+        icon: assetUrl("icon", 5),
       },
       {
         eventName: "Tanda",
