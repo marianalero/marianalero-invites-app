@@ -1,7 +1,5 @@
+import { useEffect } from "react";
 
-import React from "react";
-import {Helmet} from "react-helmet";
- 
 interface SeoProps {
   title: string;
   description: string;
@@ -9,29 +7,48 @@ interface SeoProps {
   url?: string;
 }
 
-const Seo: React.FC<SeoProps> = ({ title, description, image, url }) => {
-  const defaultImage = "https://marianalero.github.io/";
-  const defaultUrl = "https://marianalero.github.io/";
+const defaultImage = "https://marianalero.github.io/";
+const defaultUrl = "https://marianalero.github.io/";
 
-  return (
-    <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
+function setMeta(attribute: "name" | "property", key: string, content: string) {
+  const selector = `meta[${attribute}="${key}"]`;
+  let element = document.head.querySelector<HTMLMetaElement>(selector);
+  const created = !element;
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+  const previous = element.getAttribute("content");
+  element.setAttribute("content", content);
+  return () => {
+    if (created) element?.remove();
+    else if (previous == null) element?.removeAttribute("content");
+    else element.setAttribute("content", previous);
+  };
+}
 
-      {/* Open Graph (para Facebook y otros) */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image || defaultImage} />
-      <meta property="og:url" content={url || defaultUrl} />
-      <meta property="og:type" content="website" />
+export default function Seo({ title, description, image, url }: SeoProps) {
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = title;
+    const restore = [
+      () => {
+        document.title = previousTitle;
+      },
+      setMeta("name", "description", description),
+      setMeta("property", "og:title", title),
+      setMeta("property", "og:description", description),
+      setMeta("property", "og:image", image || defaultImage),
+      setMeta("property", "og:url", url || defaultUrl),
+      setMeta("property", "og:type", "website"),
+      setMeta("name", "twitter:title", title),
+      setMeta("name", "twitter:description", description),
+      setMeta("name", "twitter:image", image || defaultImage),
+      setMeta("name", "twitter:card", "summary_large_image"),
+    ];
+    return () => restore.forEach((fn) => fn());
+  }, [title, description, image, url]);
 
-      {/* Twitter Card */}
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image || defaultImage} />
-      <meta name="twitter:card" content="summary_large_image" />
-    </Helmet>
-  );
-};
-
-export default Seo;
+  return null;
+}

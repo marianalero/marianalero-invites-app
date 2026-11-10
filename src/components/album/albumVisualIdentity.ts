@@ -115,7 +115,7 @@ const identities: Record<string, AlbumIdentity> = {
   },
   "demo-cenicienta": {
     titleClass: "parisienne-regular",
-    bodyClass: "montserat-regular to-upper",
+    bodyClass: "montserat-regular",
     background: "#FCFBF7",
     text: "#4A4A4A",
     accent: "#4A4A4A",

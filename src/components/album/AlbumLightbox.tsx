@@ -4,7 +4,6 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import type { PublicAlbumItem } from "../../models/album";
-import { albumLargeImage } from "./cloudinaryMedia";
 
 interface Props {
   items: PublicAlbumItem[];
@@ -55,7 +54,7 @@ export default function AlbumLightbox({ items, index, onClose, onChange }: Props
             ) : (
               <Box
                 component="img"
-                src={albumLargeImage(item.secureUrl)}
+                src={item.secureUrl}
                 alt=""
                 sx={{ width: "auto", maxWidth: "100%", maxHeight: "72vh", objectFit: "contain", borderRadius: "12px" }}
               />

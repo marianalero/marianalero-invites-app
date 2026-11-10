@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import type { PublicAlbumItem } from "../../models/album";
 import type { AlbumIdentity } from "./albumVisualIdentity";
-import { albumThumbnail } from "./cloudinaryMedia";
 
 interface Props {
   items: PublicAlbumItem[];
@@ -44,21 +43,25 @@ export default function AlbumGallery({ items, identity, onOpen }: Props) {
                 boxShadow: "0 10px 24px rgba(40, 30, 20, 0.08)",
               }}
             >
-              <Box
-                component="img"
-                src={albumThumbnail(item.secureUrl, item.resourceType)}
-                alt=""
-                loading="lazy"
-                decoding="async"
-                sx={{
-                  width: "100%",
-                  height: "auto",
-                  display: "block",
-                  aspectRatio: ratio,
-                  objectFit: "cover",
-                  backgroundColor: `${identity.text}10`,
-                }}
-              />
+              {item.resourceType === "video" ? (
+                <Box sx={{ width: "100%", aspectRatio: ratio ?? "3 / 4", bgcolor: `${identity.text}14` }} />
+              ) : (
+                <Box
+                  component="img"
+                  src={item.secureUrl}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  sx={{
+                    width: "100%",
+                    height: "auto",
+                    display: "block",
+                    aspectRatio: ratio,
+                    objectFit: "cover",
+                    backgroundColor: `${identity.text}10`,
+                  }}
+                />
+              )}
               {item.resourceType === "video" && (
                 <Box
                   sx={{

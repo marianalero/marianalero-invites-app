@@ -10,8 +10,7 @@ export interface PublicAlbumItem {
 }
 
 export interface PublicAlbum {
-  brideName?: string | null;
-  groomName?: string | null;
+  name?: string | null;
   quote?: string | null;
   eventDate: string;
   headerImageUrl?: string | null;

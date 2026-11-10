@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import type { AlbumIdentity } from "./albumVisualIdentity";
 import { onAccent } from "./albumVisualIdentity";
-import { albumHeaderImage } from "./cloudinaryMedia";
 import { formatAlbumDate } from "./albumFormat";
 
 interface Props {
@@ -45,7 +44,7 @@ export default function AlbumHeader({
       {headerImageUrl && (
         <Box
           component="img"
-          src={albumHeaderImage(headerImageUrl)}
+          src={headerImageUrl}
           alt={names}
           sx={{
             width: { xs: 148, sm: 196 },

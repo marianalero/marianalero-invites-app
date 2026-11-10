@@ -7,16 +7,15 @@ import Seo from "../../components/Seo/Seo";
 import AlbumHeader from "../../components/album/AlbumHeader";
 import AlbumGallery from "../../components/album/AlbumGallery";
 import AlbumLightbox from "../../components/album/AlbumLightbox";
-import AlbumUploader, { type AlbumUploadEntry } from "../../components/album/AlbumUploader";
+import AlbumUploadNotice, { type AlbumUploadJob } from "../../components/album/AlbumUploadNotice";
 import { AlbumEmptyState, AlbumExpiredState, AlbumUnavailable } from "../../components/album/AlbumStates";
 import { getAlbumIdentity, onAccent } from "../../components/album/albumVisualIdentity";
-import { coupleNames, momentLabel } from "../../components/album/albumFormat";
-import { getPublicAlbum, readApiError, uploadAlbumFile } from "../../services/albumApiClient";
-import type { PublicAlbum } from "../../models/album";
+import { albumTitle, momentLabel, oversizeLabel } from "../../components/album/albumFormat";
+import { getPublicAlbum, uploadAlbumFile } from "../../services/albumApiClient";
+import type { PublicAlbum, PublicAlbumItem } from "../../models/album";
 
 const MAX_IMAGE_BYTES = 12 * 1024 * 1024;
 const MAX_VIDEO_BYTES = 80 * 1024 * 1024;
-const MAX_BATCH = 15;
 const ACCEPT = "image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm,.jpg,.jpeg,.png,.webp,.mp4,.mov,.webm";
 
 export default function PublicAlbumPage() {
@@ -24,20 +23,38 @@ export default function PublicAlbumPage() {
   const identity = getAlbumIdentity(slug);
   const inputRef = useRef<HTMLInputElement>(null);
   const headerButton = useRef<HTMLButtonElement | null>(null);
+  const jobsRef = useRef<AlbumUploadJob[]>([]);
+  const drainingRef = useRef(false);
+  const slugRef = useRef(slug);
   const [album, setAlbum] = useState<PublicAlbum | null>(null);
   const [missing, setMissing] = useState(false);
   const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [entries, setEntries] = useState<AlbumUploadEntry[]>([]);
-  const [uploaderOpen, setUploaderOpen] = useState(false);
-  const [busy, setBusy] = useState(false);
-  const [finished, setFinished] = useState(false);
+  const [jobs, setJobs] = useState<AlbumUploadJob[]>([]);
   const [showFab, setShowFab] = useState(false);
 
-  const refresh = useCallback(async () => {
-    const latest = await getPublicAlbum(slug).catch(() => null);
-    if (latest) setAlbum(latest);
+  useEffect(() => {
+    slugRef.current = slug;
   }, [slug]);
+
+  const publishJobs = useCallback(() => {
+    setJobs(jobsRef.current.map((job) => ({ ...job })));
+  }, []);
+
+  const syncAlbum = useCallback(async (keepLocal: boolean) => {
+    const latest = await getPublicAlbum(slugRef.current).catch(() => null);
+    if (!latest) return;
+    setAlbum((current) => {
+      if (!current || !keepLocal) return latest;
+      const known = new Set(latest.items.map((item) => item.id));
+      const localOnly = current.items.filter((item) => !known.has(item.id));
+      return {
+        ...latest,
+        items: [...localOnly, ...latest.items],
+        totalItems: latest.totalItems + localOnly.length,
+      };
+    });
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -66,79 +83,94 @@ export default function PublicAlbumPage() {
     return () => observer.disconnect();
   }, [album, loading]);
 
-  const openPicker = () => inputRef.current?.click();
+  const addCreated = useCallback((created: PublicAlbumItem) => {
+    setAlbum((current) => current ? {
+      ...current,
+      items: [created, ...current.items.filter((item) => item.id !== created.id)],
+      totalItems: current.items.some((item) => item.id === created.id) ? current.totalItems : current.totalItems + 1,
+    } : current);
+  }, []);
 
-  const onFiles = (list: FileList | null) => {
-    const selected = Array.from(list ?? []).slice(0, MAX_BATCH);
-    if (!selected.length) return;
-    const next = selected.map((file) => {
-      const problem = validateFile(file);
-      return {
-        id: `${file.name}-${file.size}-${crypto.randomUUID()}`,
-        file,
-        previewUrl: URL.createObjectURL(file),
-        status: problem ? "error" as const : "pending" as const,
-        progress: 0,
-        error: problem,
-      };
-    });
-    setEntries((current) => [...current, ...next]);
-    setFinished(false);
-    setUploaderOpen(true);
-    if (inputRef.current) inputRef.current.value = "";
-  };
-
-  const uploadOne = useCallback(async (entry: AlbumUploadEntry) => {
-    setEntries((current) => current.map((item) => item.id === entry.id ? { ...item, status: "uploading", progress: 0, error: undefined } : item));
+  const drain = useCallback(async () => {
+    if (drainingRef.current) return;
+    drainingRef.current = true;
     try {
-      const created = await uploadAlbumFile(slug, entry.file, (progress) => {
-        setEntries((current) => current.map((item) => item.id === entry.id ? { ...item, progress } : item));
-      });
-      setEntries((current) => current.map((item) => item.id === entry.id ? { ...item, status: "done", progress: 100 } : item));
-      setAlbum((current) => current ? {
-        ...current,
-        items: [created, ...current.items.filter((item) => item.id !== created.id)],
-        totalItems: current.items.some((item) => item.id === created.id) ? current.totalItems : current.totalItems + 1,
-      } : current);
-    } catch (error) {
-      const message = readApiError(error, "No se pudo subir el archivo.");
-      setEntries((current) => current.map((item) => item.id === entry.id ? { ...item, status: "error", error: message } : item));
-      if (axios.isAxiosError(error) && (error.response?.status === 409 || error.response?.status === 404)) {
-        await refresh();
+      for (;;) {
+        const next = jobsRef.current.find((job) => job.status === "queued");
+        if (!next) break;
+        const problem = classifyFile(next.file);
+        if (problem) {
+          next.status = problem === "skip" ? "failed" : "oversized";
+          next.notice = problem === "skip" ? undefined : problem;
+          publishJobs();
+          continue;
+        }
+        next.status = "uploading";
+        next.progress = 0;
+        next.notice = undefined;
+        publishJobs();
+        try {
+          const created = await uploadAlbumFile(slugRef.current, next.file, (progress) => {
+            if (next.status !== "uploading" || next.progress === progress) return;
+            next.progress = progress;
+            publishJobs();
+          });
+          next.status = "done";
+          next.progress = 100;
+          addCreated(created);
+        } catch (error) {
+          next.status = "failed";
+          next.notice = undefined;
+          if (axios.isAxiosError(error) && (error.response?.status === 409 || error.response?.status === 404)) {
+            await syncAlbum(false);
+          }
+        }
+        publishJobs();
+      }
+    } finally {
+      drainingRef.current = false;
+      if (jobsRef.current.some((job) => job.status === "queued")) {
+        void drain();
+        return;
+      }
+      if (jobsRef.current.some((job) => job.status === "done")) {
+        void syncAlbum(true);
       }
     }
-  }, [refresh, slug]);
+  }, [addCreated, publishJobs, syncAlbum]);
 
-  const startUpload = async () => {
-    const queue = entries.filter((entry) => entry.status === "pending");
-    if (!queue.length) return;
-    setBusy(true);
-    for (const entry of queue) {
-      await uploadOne(entry);
-    }
-    setBusy(false);
-    setFinished(true);
-    await refresh();
+  const enqueue = (list: FileList | null) => {
+    const selected = Array.from(list ?? []);
+    if (inputRef.current) inputRef.current.value = "";
+    if (!selected.length) return;
+
+    const running = jobsRef.current.some((job) => job.status === "queued" || job.status === "uploading");
+    if (!running) jobsRef.current = [];
+
+    const next = selected.flatMap((file) => {
+      const problem = classifyFile(file);
+      if (problem === "skip") return [];
+      return [{
+        id: crypto.randomUUID(),
+        file,
+        status: problem ? "oversized" as const : "queued" as const,
+        progress: 0,
+        notice: problem || undefined,
+      }];
+    });
+    if (!next.length) return;
+    jobsRef.current = [...jobsRef.current, ...next];
+    publishJobs();
+    void drain();
   };
 
-  const retry = async (id: string) => {
-    const entry = entries.find((item) => item.id === id);
-    if (!entry) return;
-    setBusy(true);
-    setFinished(false);
-    await uploadOne({ ...entry, status: "pending", error: undefined });
-    setBusy(false);
-    setFinished(true);
-    await refresh();
+  const dismissNotice = () => {
+    if (jobsRef.current.some((job) => job.status === "queued" || job.status === "uploading")) return;
+    jobsRef.current = [];
+    setJobs([]);
   };
 
-  const closeUploader = () => {
-    if (busy) return;
-    entries.forEach((entry) => URL.revokeObjectURL(entry.previewUrl));
-    setEntries([]);
-    setFinished(false);
-    setUploaderOpen(false);
-  };
+  const openPicker = () => inputRef.current?.click();
 
   if (loading) {
     return (
@@ -150,8 +182,9 @@ export default function PublicAlbumPage() {
 
   if (missing || !album) return <AlbumUnavailable identity={identity} />;
 
-  const names = coupleNames(album.brideName, album.groomName);
+  const names = albumTitle(album.name);
   const canUpload = !album.isExpired;
+  const hasItems = album.items.length > 0;
 
   return (
     <Box className={identity.bodyClass} sx={{ minHeight: "100vh", bgcolor: identity.background, color: identity.text, overflowX: "hidden" }}>
@@ -163,14 +196,14 @@ export default function PublicAlbumPage() {
         headerImageUrl={album.headerImageUrl}
         expiresAt={album.expiresAt}
         expired={album.isExpired}
-        showUpload={canUpload}
+        showUpload={canUpload && hasItems}
         uploadRef={(node) => { headerButton.current = node; }}
         onUpload={openPicker}
       />
       {album.isExpired ? (
         <AlbumExpiredState identity={identity} />
-      ) : album.items.length === 0 ? (
-        <AlbumEmptyState identity={identity} onUpload={openPicker} />
+      ) : !hasItems ? (
+        <AlbumEmptyState identity={identity} onBrowse={openPicker} onFiles={enqueue} />
       ) : (
         <>
           <Typography className={identity.bodyClass} sx={{ textAlign: "center", mb: 2, letterSpacing: "0.04em" }}>
@@ -180,18 +213,16 @@ export default function PublicAlbumPage() {
         </>
       )}
       <AlbumLightbox items={album.items} index={activeIndex} onClose={() => setActiveIndex(null)} onChange={setActiveIndex} />
-      <AlbumUploader
-        open={uploaderOpen}
-        identity={identity}
-        entries={entries}
-        busy={busy}
-        finished={finished}
-        onClose={closeUploader}
-        onStart={startUpload}
-        onRetry={retry}
+      <AlbumUploadNotice jobs={jobs} aboveFab={showFab} onDismiss={dismissNotice} />
+      <input
+        ref={inputRef}
+        multiple
+        type="file"
+        accept={ACCEPT}
+        onChange={(event) => enqueue(event.target.files)}
+        style={{ position: "absolute", width: 1, height: 1, padding: 0, margin: -1, overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}
       />
-      <input ref={inputRef} hidden multiple type="file" accept={ACCEPT} onChange={(event) => onFiles(event.target.files)} />
-      {canUpload && (
+      {canUpload && hasItems && (
         <Fab
           aria-label="Subir fotos y videos"
           onClick={openPicker}
@@ -199,7 +230,7 @@ export default function PublicAlbumPage() {
             display: { xs: showFab ? "flex" : "none", md: "none" },
             position: "fixed",
             right: 20,
-            bottom: 24,
+            bottom: "calc(24px + env(safe-area-inset-bottom, 0px))",
             bgcolor: identity.accent,
             color: onAccent(identity.accent),
             "&:hover": { bgcolor: identity.accent },
@@ -212,11 +243,12 @@ export default function PublicAlbumPage() {
   );
 }
 
-function validateFile(file: File) {
+function classifyFile(file: File) {
   const extension = file.name.split(".").pop()?.toLowerCase() ?? "";
   const video = ["mp4", "mov", "webm"].includes(extension);
   const image = ["jpg", "jpeg", "png", "webp"].includes(extension);
-  if (!video && !image) return "Usa una foto JPG, PNG o WEBP, o un video MP4, MOV o WEBM.";
-  if (file.size > (video ? MAX_VIDEO_BYTES : MAX_IMAGE_BYTES)) return video ? "El video supera 80 MB." : "La foto supera 12 MB.";
+  if (!video && !image) return "skip" as const;
+  const limit = video ? MAX_VIDEO_BYTES : MAX_IMAGE_BYTES;
+  if (file.size > limit) return oversizeLabel(file.name, video ? "80 MB" : "12 MB");
   return undefined;
 }

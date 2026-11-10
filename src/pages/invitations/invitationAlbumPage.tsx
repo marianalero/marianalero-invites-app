@@ -6,7 +6,6 @@ import Grid from "@mui/material/Grid2";
 import ResponsiveLayout from "../../layouts/headerPanel";
 import FeaturePageFrame, { burgundyButtonSx } from "../../components/panel/Invitation/features/FeaturePageFrame";
 import { formatAlbumDate, momentLabel } from "../../components/album/albumFormat";
-import { albumThumbnail } from "../../components/album/cloudinaryMedia";
 import { deleteAlbumItem, getManagedAlbum, readApiError } from "../../services/albumApiClient";
 import { getInvitationById } from "../../services/invitationApiClient";
 import { useSnackbar } from "../../context/snackbarContext";
@@ -115,9 +114,9 @@ export default function InvitationAlbumPage() {
                       {album.items.map((item) => (
                         <Box key={item.id} sx={{ borderRadius: "18px", overflow: "hidden", bgcolor: "#fff", border: "1px solid rgba(200,173,120,.28)" }}>
                           {item.resourceType === "video" ? (
-                            <Box component="video" src={item.secureUrl} poster={albumThumbnail(item.secureUrl, "video")} controls sx={{ width: "100%", aspectRatio: "1", objectFit: "cover", bgcolor: "#111", display: "block" }} />
+                            <Box component="video" src={item.secureUrl} preload="none" controls playsInline sx={{ width: "100%", aspectRatio: "1", objectFit: "cover", bgcolor: "#111", display: "block" }} />
                           ) : (
-                            <Box component="img" src={albumThumbnail(item.secureUrl, "image")} alt="" sx={{ width: "100%", aspectRatio: "1", objectFit: "cover", display: "block" }} />
+                            <Box component="img" src={item.secureUrl} alt="" sx={{ width: "100%", aspectRatio: "1", objectFit: "cover", display: "block" }} />
                           )}
                           <Box sx={{ p: 1.2, display: "flex", justifyContent: "space-between", gap: 1, alignItems: "center" }}>
                             <Box>

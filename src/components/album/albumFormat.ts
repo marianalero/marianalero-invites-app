@@ -9,17 +9,20 @@ export function momentLabel(count: number) {
   return count === 1 ? "1 momento" : `${count} momentos`;
 }
 
-export function coupleNames(bride?: string | null, groom?: string | null) {
-  const left = bride?.trim();
-  const right = groom?.trim();
-  if (left && right) return `${left} & ${right}`;
-  return left || right || "Nuestro álbum";
+export function albumTitle(name?: string | null) {
+  const value = name?.trim();
+  return value || "Nuestro álbum";
 }
 
-export function uploadSummary(done: number, failed: number) {
-  const uploaded = done === 1 ? "1 archivo subido correctamente." : `${done} archivos subidos correctamente.`;
-  const rejected = failed === 1 ? "1 archivo no pudo subirse." : `${failed} archivos no pudieron subirse.`;
-  if (done > 0 && failed > 0) return `${uploaded} ${rejected}`;
-  if (failed > 0) return rejected;
-  return uploaded;
+export function uploadProgressLabel(count: number) {
+  return count === 1 ? "Subiendo 1 elemento..." : `Subiendo ${count} elementos...`;
+}
+
+export function uploadResultLabel(done: number) {
+  if (done <= 0) return "";
+  return done === 1 ? "Se agregó 1 elemento." : `Se agregaron ${done} elementos.`;
+}
+
+export function oversizeLabel(fileName: string, limit: string) {
+  return `${fileName} supera el límite de ${limit}.`;
 }
