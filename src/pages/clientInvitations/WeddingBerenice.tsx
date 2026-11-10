@@ -78,7 +78,7 @@ const BODY_TYPO = "montserrat-400 ";
 const URL_SONG = `${URL_REPO}canciones/Unconditionally-KatyPerryPiano.mp3`;
 
 const COUNTDOWN_DATE = new Date(2026, 10, 28);
-const RSVP_DATE_LINE = new Date(2026, 10, 10);
+const RSVP_DATE_LINE = new Date(2026, 10, 13);
 const BG_GRADIENT_ROMANTIC =
   "linear-gradient(180deg, #DCC5B2 0%, #EDE0D4 50%, #F8F3EB  100%)";
 const calendarButtonProps = {
