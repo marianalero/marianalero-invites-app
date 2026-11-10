@@ -17,6 +17,7 @@ import {
   getInvitationById,
   getInvitationFeatures,
   readApiError,
+  setAlbumEnabled,
   setQuestionsEnabled,
 } from "../../services/invitationApiClient";
 import { useSnackbar } from "../../context/snackbarContext";
@@ -63,6 +64,19 @@ export default function InvitationFeaturesPage() {
     } catch (error) {
       setFeatures(previous);
       showSnackbar(readApiError(error, "No se pudo actualizar las preguntas."), "error");
+    }
+  };
+
+  const handleAlbum = async (enabled: boolean) => {
+    if (!features) return;
+    const previous = features;
+    setFeatures({ ...features, album: enabled });
+    try {
+      const updated = await setAlbumEnabled(invitationId, enabled);
+      setFeatures(updated);
+    } catch (error) {
+      setFeatures(previous);
+      showSnackbar(readApiError(error, "No se pudo actualizar el álbum."), "error");
     }
   };
 
@@ -130,9 +144,11 @@ export default function InvitationFeaturesPage() {
                   title="Álbum de fotos"
                   description="Permite a los invitados compartir fotos y videos del evento."
                   showSwitch
-                  switchChecked={false}
-                  switchDisabled
-                  comingSoon
+                  switchChecked={Boolean(features.album)}
+                  onSwitch={handleAlbum}
+                  actionLabel="Administrar"
+                  configureDisabled={!features.album}
+                  onConfigure={() => navigate(`/invitations/${invitationId}/features/album`)}
                 />
                 <FeatureCard
                   icon={<TableRestaurantRoundedIcon />}

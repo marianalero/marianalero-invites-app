@@ -5,6 +5,7 @@ import DressCode, {
 import EventCard from "../../components/EventCard/EventCard";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import FooterInvites from "../../components/Footer/FooterInvites";
+import AlbumEntry from "../../components/album/AlbumEntry";
 import Grid from "@mui/material/Grid2";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
@@ -1018,6 +1019,7 @@ const XVCamilaFernanda = () => {
         </Box>
       </div>
 
+      <AlbumEntry mediaKey={MEDIA_KEY} />
       <FooterInvites bgColor={BG_SECTION} color={TEXT_PRIMARY}></FooterInvites>
     </div>
   );

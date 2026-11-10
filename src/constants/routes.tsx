@@ -53,6 +53,8 @@ import InvitationsPage from "../pages/invitations/invitationsPage";
 import InvitationFeaturesPage from "../pages/invitations/invitationFeaturesPage";
 import ConfirmationSettingsPage from "../pages/invitations/confirmationSettingsPage";
 import InvitationQuestionsPage from "../pages/invitations/invitationQuestionsPage";
+import InvitationAlbumPage from "../pages/invitations/invitationAlbumPage";
+import PublicAlbumPage from "../pages/album/publicAlbumPage";
 import LoginPage from "../pages/login/login";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import TermsConditions from "../pages/termsConditions/TermsConditions";
@@ -145,6 +147,8 @@ const routes: RouteConfig[] = [
   { path: '/invitations/:id/features', element: <InvitationFeaturesPage />, protected: true, adminOnly: true },
   { path: '/invitations/:id/features/confirmation', element: <ConfirmationSettingsPage />, protected: true, adminOnly: true },
   { path: '/invitations/:id/features/questions', element: <InvitationQuestionsPage />, protected: true, adminOnly: true },
+  { path: '/invitations/:id/features/album', element: <InvitationAlbumPage />, protected: true, adminOnly: true },
+  { path: '/invitacion/:slug/album', element: <PublicAlbumPage /> },
   //Bodas
    {path:'/boda-fernanda-mario', element: <WeddingFerMario></WeddingFerMario>},
    {path:'/boda-rocio-mariana', element: <WeddingRocioMariana></WeddingRocioMariana>},

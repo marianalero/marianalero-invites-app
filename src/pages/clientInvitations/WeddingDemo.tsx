@@ -21,6 +21,7 @@ import dayjs from "dayjs";
 import { CustomizedTimelineProps } from "../../components/TimeLine/Timeline";
 import Timeline from "@mui/lab/Timeline";
 import FooterInvites from "../../components/Footer/FooterInvites";
+import AlbumEntry from "../../components/album/AlbumEntry";
 import CountDownSimple from "../../components/CountDown/CountDownSimple/CountDownSimple";
 import RSVPForm from "../../components/RSVP/RSVPForm";
 import { useSearchParams } from "react-router-dom";
@@ -1423,6 +1424,7 @@ const WeddingDemoRose  = () => {
     </Paper>
 </Box>
             <div style={{height:100}}></div>
+              <AlbumEntry mediaKey={MEDIA_KEY} />
               <FooterInvites bgColor={BG_MAIN} color={BUTTON_PRIMARY}></FooterInvites>
                 </Box>
         </div>
