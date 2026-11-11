@@ -5,6 +5,7 @@ import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import Grid from "@mui/material/Grid2";
 import ResponsiveLayout from "../../layouts/headerPanel";
 import FeaturePageFrame, { burgundyButtonSx } from "../../components/panel/Invitation/features/FeaturePageFrame";
+import AlbumQrPanel from "../../components/album/AlbumQrPanel";
 import { formatAlbumDate, momentLabel } from "../../components/album/albumFormat";
 import { deleteAlbumItem, getManagedAlbum, readApiError } from "../../services/albumApiClient";
 import { getInvitationById } from "../../services/invitationApiClient";
@@ -98,12 +99,12 @@ export default function InvitationAlbumPage() {
                 </Typography>
               ) : (
                 <Box>
-                  <Typography sx={{ fontFamily: "Montserrat, sans-serif", color: "#3a2a25", mb: 0.5 }}>
+                  {publicUrl && album.mediaKey && (
+                    <AlbumQrPanel albumUrl={publicUrl} slug={album.mediaKey} />
+                  )}
+                  <Typography sx={{ fontFamily: "Montserrat, sans-serif", color: "#3a2a25", mb: 2 }}>
                     {momentLabel(album.totalItems)}
                     {album.expiresAt ? ` · Disponible hasta ${formatAlbumDate(album.expiresAt)}` : " · El plazo de un mes empieza con el primer momento."}
-                  </Typography>
-                  <Typography sx={{ fontFamily: "Montserrat, sans-serif", color: "#7d5f55", fontSize: ".9rem", mb: 2 }}>
-                    {publicUrl}
                   </Typography>
                   {album.items.length === 0 ? (
                     <Typography sx={{ fontFamily: "Montserrat, sans-serif", color: "#7d5f55" }}>
