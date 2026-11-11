@@ -19,7 +19,7 @@ const Gallery = ({ photos }: GalleryProps) => {
       sx={{ px: 2 }}
     >
       {photos.map((src, index) => (
-        <ImageListItem key={src}>
+        <ImageListItem key={`${index}-${src}`}>
           <GalleryImage
             src={src}
             width={imageWidth}

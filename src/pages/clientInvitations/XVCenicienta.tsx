@@ -92,6 +92,35 @@ const XVCamilaFernanda = () => {
     cloudAssets.filter((asset) => asset.assetKind === kind)[index]?.secureUrl ??
     EMPTY_ASSET;
 
+  const albumSection = {
+    title: "Nuestro álbum",
+    bodyText:
+      "Cada recuerdo cuenta. Comparte las fotos y los videos de esta noche.",
+    qrCaption: "Escanea para abrir el álbum",
+    mobileLinkText: "Ver álbum",
+    titleFontClass: MAIN_TYPO,
+    bodyFontClass: BODY_TYPO,
+    qrCaptionFontClass: SECOND_TYPO,
+    titleColor: PRIMARY_DARK,
+    bodyColor: TEXT_PRIMARY,
+    captionColor: TEXT_SECONDARY,
+    backgroundColor: BG_SECTION,
+    borderColor: BORDER,
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 28,
+    padding: { xs: 3, md: 5 },
+    maxWidth: 560,
+    cameraImage: assetUrl("icon", 7),
+    showCamera: true,
+    ornamentImage: assetUrl("icon", 10),
+    showOrnament: true,
+    qrSize: 168,
+    qrBackgroundColor: WHITE,
+    qrContainerColor: PRIMARY_LIGHT,
+    qrBorderRadius: 20,
+  };
+
   const eventCards: EventCardProps[] = [
     {
       eventName: "Misa Religiosa",
@@ -1019,7 +1048,7 @@ const XVCamilaFernanda = () => {
         </Box>
       </div>
 
-      <AlbumEntry mediaKey={MEDIA_KEY} />
+      <AlbumEntry mediaKey={MEDIA_KEY} config={albumSection} />
       <FooterInvites bgColor={BG_SECTION} color={TEXT_PRIMARY}></FooterInvites>
     </div>
   );

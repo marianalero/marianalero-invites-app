@@ -120,6 +120,13 @@ const identities: Record<string, AlbumIdentity> = {
     text: "#4A4A4A",
     accent: "#4A4A4A",
   },
+  "invitacion-arantxa-jhoan": {
+    titleClass: "parisienne-regular",
+    bodyClass: "instrument-sans",
+    background: "#FBF7F2",
+    text: "#5E4638",
+    accent: "#C96D33",
+  },
   "invitacion-maria-lourdes-francisco-michel": {
     titleClass: "alex-brush-regular",
     bodyClass: "montserrat-400",

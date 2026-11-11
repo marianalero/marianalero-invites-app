@@ -31,58 +31,53 @@ import CalendarButton from "../../components/CalendarButton/CalendarButton";
 import { getGuestById } from "../../services/guestApiClient";
 import { Guest } from "../../models/guest";
 import Gallery from "../../components/Gallery/Gallert";
-
-import imgDrs01124 from "../../assets/boda-arantxa-jhoan/DRS01124.jpeg";
-// import imgDrs01183 from "../../assets/boda-arantxa-jhoan/DRS01183.jpeg";
-import imgDrs01274 from "../../assets/boda-arantxa-jhoan/DRS01274.jpeg";
-import imgCp1 from "../../assets/boda-arantxa-jhoan/cp1.jpeg";
-import imgCp2 from "../../assets/boda-arantxa-jhoan/cp2.jpeg";
-import imgG1 from "../../assets/boda-arantxa-jhoan/g1.jpeg";
-import imgG3 from "../../assets/boda-arantxa-jhoan/g3.jpeg";
-
-import imgItinerario from "../../assets/boda-arantxa-jhoan/itinerario.jpeg";
-import imgMng1 from "../../assets/boda-arantxa-jhoan/mng1.jpeg";
-import imgMng2 from "../../assets/boda-arantxa-jhoan/mng2.jpeg";
-import imgMng3 from "../../assets/boda-arantxa-jhoan/mng3.jpeg";
-import imgMng4 from "../../assets/boda-arantxa-jhoan/mng4.jpeg";
-import imgMng5 from "../../assets/boda-arantxa-jhoan/mng5.jpeg";
-import imgMng6 from "../../assets/boda-arantxa-jhoan/mng6.jpeg";
-import imgMng7 from "../../assets/boda-arantxa-jhoan/mng7.jpeg";
-import imgConf from "../../assets/boda-arantxa-jhoan/confirmacion.jpeg";
-//import imgNoAsignada from "../../assets/boda-arantxa-jhoan/no asginada.jpeg";
-// import deco1 from "../../assets/boda-arantxa-jhoan/deco/1.png";
-import deco2 from "../../assets/boda-arantxa-jhoan/deco/2.png";
-import deco3 from "../../assets/boda-arantxa-jhoan/deco/3.png";
-import deco4 from "../../assets/boda-arantxa-jhoan/deco/4.png";
-import deco5 from "../../assets/boda-arantxa-jhoan/deco/5.png";
-import deco6 from "../../assets/boda-arantxa-jhoan/deco/6.png";
-import deco7 from "../../assets/boda-arantxa-jhoan/deco/7.png";
-import deco8 from "../../assets/boda-arantxa-jhoan/deco/8.png";
-import deco9 from "../../assets/boda-arantxa-jhoan/deco/9.png";
-import deco10 from "../../assets/boda-arantxa-jhoan/deco/10.png";
-// import deco11 from "../../assets/boda-arantxa-jhoan/deco/11.png";
-import icono1 from "../../assets/boda-arantxa-jhoan/iconos/1.png";
-import icono2 from "../../assets/boda-arantxa-jhoan/iconos/2.png";
-import icono3 from "../../assets/boda-arantxa-jhoan/iconos/3.png";
-import icono4 from "../../assets/boda-arantxa-jhoan/iconos/4.png";
-import icono5 from "../../assets/boda-arantxa-jhoan/iconos/5.png";
-import imgDresscode from "../../assets/boda-arantxa-jhoan/iconos/dresscode.png";
-import imgRecepcion from "../../assets/boda-arantxa-jhoan/iconos/recepcion.png";
-import iconoSobre from "../../assets/boda-arantxa-jhoan/iconos/sobre.png";
 import EditorialCountdown from "../../components/EditorialCountdown";
-// import fondoHroz from "../../assets/boda-arantxa-jhoan/fondo-horz.png";
-import sobreIntro from "../../assets/boda-arantxa-jhoan/sobre-intro.png";
-import sello from "../../assets/boda-arantxa-jhoan/sello.png";
-import fondoVer from "../../assets/boda-arantxa-jhoan/fondo-ver.png";
-import bancomer from "../../assets/boda-arantxa-jhoan/bancomer.png";
+import { getAssets } from "../../services/mediaApiClient";
+import type { InvitationAsset } from "../../models/invitationAsset";
 import {
   AccessTimeRounded,
   DirectionsCarOutlined,
   LocationOnOutlined,
 } from "@mui/icons-material";
 import InvitationIntro from "../../components/Intro/InvitationIntro/InvitationIntro";
+import AlbumEntry from "../../components/album/AlbumEntry";
 import { useSnackbar } from "../../context/snackbarContext";
 const INVITATION_ID = 36;
+
+/**
+ * Imágenes en Cloudinary (panel > Medios, clave MEDIA_KEY).
+ * Tipo de imagen e índice (sortOrder) que usa esta invitación:
+ *
+ *  background     0  fondo-ver.png (portada)
+ *  envelope       0  sobre-intro.png
+ *  seal           0  sello.png
+ *  middle-image   0  cp1.jpeg
+ *  middle-image   1  cp2.jpeg
+ *  middle-image   2  itinerario.jpeg
+ *  middle-image   3  confirmacion.jpeg
+ *  middle-image   4  DRS01274.jpeg
+ *  gallery        0  g3.jpeg
+ *  gallery        1  DRS01124.jpeg
+ *  gallery        2  mng4.jpeg
+ *  gallery        3  mng6.jpeg
+ *  mini-gallery   0  mng7.jpeg
+ *  mini-gallery   1  mng1.jpeg
+ *  mini-gallery   2  mng2.jpeg
+ *  mini-gallery   3  mng3.jpeg
+ *  mini-gallery   4  mng5.jpeg
+ *  mini-gallery   5  g1.jpeg
+ *  reception      0  iconos/recepcion.png
+ *  ornament       0  deco/1.png (no se usa)
+ *  ornament       1-9  deco/2.png a deco/10.png
+ *  ornament       10 deco/11.png (no se usa)
+ *  icon           0-4  iconos/1.png a iconos/5.png
+ *  icon           5  iconos/dresscode.png
+ *  icon           6  iconos/sobre.png
+ *  icon           7  bancomer.png
+ */
+const MEDIA_KEY = "invitacion-arantxa-jhoan";
+const EMPTY_ASSET =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
 // 🎨 BACKGROUNDS
 const BG_MAIN = "#FBF7F2";
 // const BG_SECTION = "#FFFDFC";
@@ -134,7 +129,6 @@ const giftListData: GiftListProps = {
   secondPhrase:
     "Para quienes prefieran la comodidad digital, les compartimos nuestros datos:",
   envelopeTitleColor: TEXT_PRIMARY,
-  bankIconStart: iconoSobre,
   bankDetails: [
     {
       numbers: [
@@ -154,48 +148,6 @@ const giftListData: GiftListProps = {
   ],
 };
 
-const timelineData: CustomizedTimelineProps = {
-  mainTypo: MAIN_TYPO,
-  bodyTypo: BODY_TYPO,
-  colorPrimary: TEXT_PRIMARY,
-  colorTitle: TEXT_PRIMARY,
-  colorBody: TEXT_PRIMARY,
-  fontSize: "50px",
-  bgColor: TEXT_PRIMARY,
-  events: [
-    {
-      eventName: "Ceremonia Civil",
-      date: new Date(2025, 10, 16, 20, 0, 0),
-      icon: icono1,
-      iconSize: "100px",
-    },
-    {
-      eventName: "Fotos en jardín ",
-      date: new Date(2025, 10, 16, 20, 30, 0),
-      icon: icono2,
-      iconSize: "120px",
-    },
-    {
-      eventName: "Recepción",
-      date: new Date(2025, 10, 16, 21, 0, 0),
-      icon: icono4,
-      iconSize: "70px",
-    },
-    {
-      eventName: "Cena",
-      date: new Date(2025, 10, 16, 21, 30, 0),
-      icon: icono3,
-      iconSize: "100px",
-    },
-    {
-      eventName: "Vals",
-      date: new Date(2025, 10, 16, 22, 0, 0),
-      icon: icono5,
-      iconSize: "150px",
-    },
-  ],
-};
-
 const calendarButtonProps = {
   variant: "outlined" as const,
   sx: {
@@ -208,17 +160,6 @@ const calendarButtonProps = {
     color: TEXT_PRIMARY,
   },
 };
-
-const galleryImages = [
-  imgG3,
-  imgDrs01124,
-  imgMng4,
-  imgMng6,
-  // imgDrs01183,
-  // imgDrs01274,
-];
-
-const miniGallery = [imgMng7, imgMng1, imgMng2, imgMng3, imgMng5, imgG1];
 
 const introSealPosition = {
   top: "65%",
@@ -262,11 +203,6 @@ const WeddingAranxaJhoan = () => {
     return isNaN(num) ? undefined : num;
   }, [searchParams]);
 
-  // const songUrl = useMemo(() => {
-  //     const songId = Number(searchParams.get("song"));
-  //     const fileName = SONGS_BY_ID[songId] ?? SONGS_BY_ID[1];
-  //     return `${URL_SONG}${encodeURIComponent(fileName)}`;
-  // }, [searchParams]);
 
   // INTRO STATES
   const [showIntro, setShowIntro] = useState(true);
@@ -274,6 +210,105 @@ const WeddingAranxaJhoan = () => {
   const [guest, setGuest] = useState<Guest | null>(null);
   const musicRef = useRef<MusicFabPlayerHandle>(null);
   const { showSnackbar } = useSnackbar();
+  const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
+
+  useEffect(() => {
+    getAssets(MEDIA_KEY)
+      .then(setCloudAssets)
+      .catch(() => setCloudAssets([]));
+  }, []);
+
+  const assetUrl = (kind: string, index = 0) =>
+    cloudAssets
+      .filter((asset) => asset.assetKind === kind)
+      .sort((a, b) => a.sortOrder - b.sortOrder)[index]?.secureUrl ??
+    EMPTY_ASSET;
+
+  const galleryImages = [
+    assetUrl("gallery", 0),
+    assetUrl("gallery", 1),
+    assetUrl("gallery", 2),
+    assetUrl("gallery", 3),
+  ];
+
+  const miniGallery = [
+    assetUrl("mini-gallery", 0),
+    assetUrl("mini-gallery", 1),
+    assetUrl("mini-gallery", 2),
+    assetUrl("mini-gallery", 3),
+    assetUrl("mini-gallery", 4),
+    assetUrl("mini-gallery", 5),
+  ];
+
+  const albumSection = {
+  title: "Nuestro álbum",
+  bodyText:
+    "Cada recuerdo cuenta. Comparte las fotos y los videos de esta noche.",
+  qrCaption: "Escanea para abrir el álbum",
+  mobileLinkText: "Ver álbum",
+  titleFontClass: MAIN_TYPO,
+  bodyFontClass: BODY_TYPO,
+  qrCaptionFontClass: SECONDARY_TYPO,
+  titleColor: TITLE_COLOR ,
+  bodyColor: TEXT_PRIMARY,
+  captionColor: TEXT_PRIMARY,
+  backgroundColor: BG_ACCENT,
+  borderColor: BORDER_COLOR,
+  borderWidth: 1,
+  borderStyle: "solid",
+  borderRadius: 2,
+  padding: { xs: 3, md: 5 },
+  maxWidth: 560,
+  cameraImage: assetUrl("icon", 8),
+  showCamera: true,
+  ornamentImage:"",
+  showOrnament: true,
+  qrSize: 168,
+  qrBackgroundColor: "#fff",
+  qrContainerColor: TITLE_COLOR,
+  qrBorderRadius: 20,
+};
+  const timelineData: CustomizedTimelineProps = {
+    mainTypo: MAIN_TYPO,
+    bodyTypo: BODY_TYPO,
+    colorPrimary: TEXT_PRIMARY,
+    colorTitle: TEXT_PRIMARY,
+    colorBody: TEXT_PRIMARY,
+    fontSize: "50px",
+    bgColor: TEXT_PRIMARY,
+    events: [
+      {
+        eventName: "Ceremonia Civil",
+        date: new Date(2025, 10, 16, 20, 0, 0),
+        icon: assetUrl("icon", 0),
+        iconSize: "100px",
+      },
+      {
+        eventName: "Fotos en jardín ",
+        date: new Date(2025, 10, 16, 20, 30, 0),
+        icon: assetUrl("icon", 1),
+        iconSize: "120px",
+      },
+      {
+        eventName: "Recepción",
+        date: new Date(2025, 10, 16, 21, 0, 0),
+        icon: assetUrl("icon", 3),
+        iconSize: "70px",
+      },
+      {
+        eventName: "Cena",
+        date: new Date(2025, 10, 16, 21, 30, 0),
+        icon: assetUrl("icon", 2),
+        iconSize: "100px",
+      },
+      {
+        eventName: "Vals",
+        date: new Date(2025, 10, 16, 22, 0, 0),
+        icon: assetUrl("icon", 4),
+        iconSize: "150px",
+      },
+    ],
+  };
 
   const handleEnter = () => {
     musicRef.current?.play();
@@ -335,11 +370,11 @@ const WeddingAranxaJhoan = () => {
         bodyTypo={BODY_TYPO}
         backgroundColor={BG_MAIN}
         primaryColor={TEXT_PRIMARY}
-        envelopeImg={sobreIntro}
-        sealImg={sello}
+        envelopeImg={assetUrl("envelope")}
+        sealImg={assetUrl("seal")}
         sealPosition={introSealPosition}
-        bottomRightCornerImg={deco10}
-        topLeftCornerImg={deco8}
+        bottomRightCornerImg={assetUrl("ornament", 9)}
+        topLeftCornerImg={assetUrl("ornament", 7)}
         bottomRightCornerPosition={introBottomRightCornerPosition}
         topLeftCornerPosition={introTopLeftCornerPosition}
         guestName={guest ? guest.fullName : ""}
@@ -365,7 +400,7 @@ const WeddingAranxaJhoan = () => {
             minHeight: "100vh",
             overflow: "hidden",
             // bgcolor: BG_MAIN,
-            backgroundImage: `url(${fondoVer})`,
+            backgroundImage: `url(${assetUrl("background")})`,
           }}
         >
           <Fade triggerOnce={true} direction="up">
@@ -462,7 +497,7 @@ const WeddingAranxaJhoan = () => {
 
           <Box
             component="img"
-            src={deco4}
+            src={assetUrl("ornament", 3)}
             sx={{
               position: "absolute",
               top: { xs: -30, sm: -60, md: -40 },
@@ -480,7 +515,7 @@ const WeddingAranxaJhoan = () => {
           />
           <Box
             component="img"
-            src={deco3}
+            src={assetUrl("ornament", 2)}
             sx={{
               position: "absolute",
               top: { xs: 50, sm: -60, md: 60 },
@@ -499,7 +534,7 @@ const WeddingAranxaJhoan = () => {
           <Fade triggerOnce={true} direction="right">
             <Box
               component="img"
-              src={deco6}
+              src={assetUrl("ornament", 5)}
               sx={{
                 zIndex: 10,
                 position: "absolute",
@@ -518,7 +553,7 @@ const WeddingAranxaJhoan = () => {
             />
             <Box
               component="img"
-              src={deco7}
+              src={assetUrl("ornament", 6)}
               sx={{
                 position: "absolute",
                 bottom: { xs: -30, sm: -60, md: -10 },
@@ -540,7 +575,7 @@ const WeddingAranxaJhoan = () => {
         <ImageMiddle
           bgPosition="30%"
           height="100vh"
-          bgImage={imgCp1}
+          bgImage={assetUrl("middle-image", 0)}
           bgPositionY="20%"
         ></ImageMiddle>
 
@@ -566,7 +601,7 @@ const WeddingAranxaJhoan = () => {
           >
             <Fade direction="right" triggerOnce>
               <img
-                src={deco7}
+                src={assetUrl("ornament", 6)}
                 style={{
                   height: 190,
                   transform: "scale(-1) rotate(220deg)",
@@ -586,7 +621,7 @@ const WeddingAranxaJhoan = () => {
           >
             <Fade direction="left" triggerOnce>
               <img
-                src={deco5}
+                src={assetUrl("ornament", 4)}
                 style={{
                   height: 170,
                   transform: "rotate(-20deg)",
@@ -605,7 +640,7 @@ const WeddingAranxaJhoan = () => {
           >
             <Fade direction="left" triggerOnce>
               <img
-                src={deco6}
+                src={assetUrl("ornament", 5)}
                 style={{
                   height: 170,
                   transform: "rotate(-50deg)",
@@ -846,7 +881,7 @@ const WeddingAranxaJhoan = () => {
           >
             <Fade direction="right" triggerOnce>
               <img
-                src={deco9}
+                src={assetUrl("ornament", 8)}
                 style={{
                   height: 300,
                   transform: " rotate(-10deg)",
@@ -893,7 +928,7 @@ const WeddingAranxaJhoan = () => {
               <Fade triggerOnce direction="up">
                 <Box
                   component="img"
-                  src={imgRecepcion}
+                  src={assetUrl("reception")}
                   sx={{
                     width: "100%",
                     maxWidth: 260,
@@ -1107,7 +1142,7 @@ const WeddingAranxaJhoan = () => {
         <ImageMiddle
           bgPosition="center"
           height="70vh"
-          bgImage={imgCp2}
+          bgImage={assetUrl("middle-image", 1)}
           bgPositionY="30%"
         ></ImageMiddle>
         <div
@@ -1262,7 +1297,7 @@ const WeddingAranxaJhoan = () => {
           >
             <Fade direction="right" triggerOnce>
               <img
-                src={deco8}
+                src={assetUrl("ornament", 7)}
                 style={{
                   height: 200,
                   // transform: "rotate(-10deg)"
@@ -1282,7 +1317,7 @@ const WeddingAranxaJhoan = () => {
           >
             <Fade direction="right" triggerOnce>
               <img
-                src={deco9}
+                src={assetUrl("ornament", 8)}
                 style={{
                   height: 300,
                   // transform: "rotate(-10deg)"
@@ -1292,7 +1327,7 @@ const WeddingAranxaJhoan = () => {
           </Box>
         </div>
         <ImageMiddle
-          bgImage={imgItinerario}
+          bgImage={assetUrl("middle-image", 2)}
           height="80vh"
           bgPositionY="40%"
         ></ImageMiddle>
@@ -1307,7 +1342,7 @@ const WeddingAranxaJhoan = () => {
           <Fade triggerOnce={true} direction="right">
             {/* <Box
                         component="img"
-                        src={deco6}
+                        src={assetUrl("ornament", 5)}
                         sx={{
                             zIndex:1,
                             position: "absolute",
@@ -1319,7 +1354,7 @@ const WeddingAranxaJhoan = () => {
                     /> */}
             <Box
               component="img"
-              src={deco5}
+              src={assetUrl("ornament", 4)}
               sx={{
                 position: "absolute",
                 top: { xs: -120, sm: -120, md: -80 },
@@ -1375,7 +1410,7 @@ const WeddingAranxaJhoan = () => {
                 <Fade triggerOnce={true} direction="up">
                   <Box
                     component="img"
-                    src={imgDresscode}
+                    src={assetUrl("icon", 5)}
                     sx={{
                       height: { xs: "20vh", sm: "30vh", md: "50vh" },
                       maxHeight: 300,
@@ -1461,7 +1496,7 @@ const WeddingAranxaJhoan = () => {
         <ImageMiddle
           bgPosition="center"
           height="70vh"
-          bgImage={imgConf}
+          bgImage={assetUrl("middle-image", 3)}
           bgPositionY="25%"
         ></ImageMiddle>
         <Box bgcolor={BG_ACCENT} px={3} py={2}>
@@ -1507,7 +1542,7 @@ const WeddingAranxaJhoan = () => {
                     >
                       <Box
                         component="img"
-                        src={iconoSobre}
+                        src={assetUrl("icon", 6)}
                         sx={{
                           height: "100px",
                         }}
@@ -1558,7 +1593,7 @@ const WeddingAranxaJhoan = () => {
                         >
                           <Box
                             component="img"
-                            src={bancomer}
+                            src={assetUrl("icon", 7)}
                             sx={{
                               height: 40,
                             }}
@@ -1656,7 +1691,7 @@ const WeddingAranxaJhoan = () => {
         <ImageMiddle
           bgPosition="center"
           height="70vh"
-          bgImage={imgDrs01274}
+          bgImage={assetUrl("middle-image", 4)}
           bgPositionY="35%"
         ></ImageMiddle>
         <Box
@@ -1773,7 +1808,7 @@ const WeddingAranxaJhoan = () => {
           >
             <Box
               component="img"
-              src={deco2}
+              src={assetUrl("ornament", 1)}
               sx={{
                 height: "120px",
               }}
@@ -1880,11 +1915,13 @@ const WeddingAranxaJhoan = () => {
             </Fade>
           </Box>
         </Box>
+<AlbumEntry mediaKey={MEDIA_KEY} config={albumSection} />
 
         <div style={{ padding: "10px 10px" }}>
           <div style={{ height: 50 }}></div>
           <Gallery photos={galleryImages}></Gallery>
         </div>
+        
         <FooterInvites bgColor={"white"} color={TEXT_PRIMARY}></FooterInvites>
       </Box>
     </div>
