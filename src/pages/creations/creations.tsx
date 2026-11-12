@@ -117,14 +117,14 @@ const invitations: InvitationItem[] = [
       package: "Celebra +"
   }
   ,
-  {
-      title: "Quinceañera Valentina",
-      category: "XV Años",
-      imageUrl: "/images/xv/22.png",
-      link: "https://marianalero-invites.com/xv-valentina",
-      hide: false,
-      package: "Celebra +"
-  },
+  // {
+  //     title: "Quinceañera Valentina",
+  //     category: "XV Años",
+  //     imageUrl: "/images/xv/22.png",
+  //     link: "https://marianalero-invites.com/xv-valentina",
+  //     hide: false,
+  //     package: "Celebra +"
+  // },
   {
       title: "Quinceañera Karla Ximena",
       category: "XV Años",
@@ -142,27 +142,13 @@ const invitations: InvitationItem[] = [
       package: "Celebra +",
       
   },
-  {
-      title: "Quinceañera Dainaly",
-      category: "XV Años",
-      imageUrl: "/images/xv/25.png",
-      link: "https://marianalero-invites.com/xv-dainaly",
-      hide: false,
-      package: "Celebra +"
-  },
-   {
-       title: "Quinceañera Alexia",
-       category: "XV Años",
-       imageUrl: "/images/xv/26.png",
-       link: "https://marianalero-invites.com/xv-alexia",
-       hide: false,
-        package: "Celebra +"
-   },
+  
+   
    {
       title:"Quinceañera Dalia",
       category:"XV Años",
       imageUrl:"/images/xv/27.png",
-      link:"https://marianalero-invites.com/xv-daniela",
+      link:"https://marianalero-invites.com/xv-dalia",
       hide:false,
       package: "Celebra +"
    }
@@ -332,14 +318,14 @@ const invitations: InvitationItem[] = [
     hide:false,
     package: "Memorias"
    },
-   {
-    title :"XV Joely",
-    category:"XV Años",
-    imageUrl:"/images/xv/33.png",
-    link:"https://marianalero-invites.com/xv-joely-patricia",
-    hide:false,
-    package: "Celebra +"
-   },
+  //  {
+  //   title :"XV Joely",
+  //   category:"XV Años",
+  //   imageUrl:"/images/xv/33.png",
+  //   link:"https://marianalero-invites.com/xv-joely-patricia",
+  //   hide:false,
+  //   package: "Celebra +"
+  //  },
    {
     title:"XV Kimberly",
     category:"XV Años",
