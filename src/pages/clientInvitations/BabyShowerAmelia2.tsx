@@ -975,7 +975,7 @@ const BabyShowerAmelia = () => {
           >
             <Box
               component="img"
-              src={assetUrl("icon", index == 0 ? 14 :12)}
+              src={assetUrl("icon", 1)}
               alt="Datos bancarios"
               sx={{ height: 40 }}
             />
@@ -1018,7 +1018,7 @@ const BabyShowerAmelia = () => {
                     className={BODY_TYPO}
                     sx={{
                       fontSize: {
-                        xs: "clamp(0.78rem, 3.5vw, 1.25rem)",
+                        xs: "clamp(1rem, 3.5vw, 1.25rem)",
                         sm: "1.65rem",
                         md: "1.9rem",
                       },
@@ -1070,17 +1070,7 @@ const BabyShowerAmelia = () => {
                 </Box>
               </Box>
             ))}
-            <Typography
-              className={BODY_TYPO}
-              sx={{
-                fontSize: "1rem",
-                color: TEXT_PRIMARY,
-                opacity: 0.85,
-                textAlign: "center",
-              }}
-            >
-              {bank.bank}
-            </Typography>
+            
             <Typography
               className={BODY_TYPO}
               sx={{
