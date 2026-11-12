@@ -99,7 +99,7 @@ const bankDetails = [
       numbers: [
          {
           numberType: "Tarjeta",
-          number: "4153 3139 7610 0987",
+          number: "4152 3139 7610 0987",
         },
         
         
