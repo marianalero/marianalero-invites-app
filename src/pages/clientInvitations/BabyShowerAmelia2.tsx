@@ -4,8 +4,8 @@ import { Fade } from "react-awesome-reveal";
 import { EventCardProps } from "../../components/EventCard/models/EventCardProps";
 import FooterInvites from "../../components/Footer/FooterInvites";
 import Grid from "@mui/material/Grid2";
-import { Box, Container, Stack, Typography } from "@mui/material";
-
+import { Box, Container, IconButton, Paper, Stack, Typography } from "@mui/material";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useEffect,  useRef, useState } from "react";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
@@ -28,6 +28,7 @@ import {
   AccessTimeRounded,
 } from "@mui/icons-material";
 import dayjs from "dayjs";
+import { useSnackbar } from "../../context/snackbarContext";
 export const BG_MAIN = "#F6EFE7"; // Marfil cálido - fondo principal
 export const BG_SECTION = "#FFFCF8"; // Marfil claro - tarjetas y secciones
 export const BG_ALT = "#EDE2D7"; // Beige nude - secciones alternas
@@ -93,40 +94,40 @@ const calendarButtonProps = {
 const COUNTDOWN_DATE = new Date(2026, 10, 27);
 
 const INVITATION_ID = 56;
-// const bankDetails = [
-//      {
-//       numbers: [
-//          {
-//           numberType: "Tarjeta",
-//           number: "4152314699556596",
-//         },
+const bankDetails = [
+     {
+      numbers: [
+         {
+          numberType: "Tarjeta",
+          number: "4153 3139 7610 0987",
+        },
         
         
-//       ],
-//       bank: "BBVA ",
-//       name: "Isabella Grijalva Sánchez ",
+      ],
+      bank: "BBVA ",
+      name: "Alejandra Manzanares ",
    
-//     },
-//     {
-//       numbers: [
-//          {
-//           numberType: "Cuenta",
-//           number: "4353150",
-//         },
-//         {
-//           numberType: "CLABE",
-//           number: "002760702343531500",
-//         },
+    },
+    {
+      numbers: [
+         {
+          numberType: "Cuenta",
+          number: "4353150",
+        },
+        {
+          numberType: "CLABE",
+          number: "002760702343531500",
+        },
         
-//       ],
-//       bank: "Banamex",
-//       name: "Fabiola Sánchez Mézquita",
+      ],
+      bank: "Banamex",
+      name: "Fabiola Sánchez Mézquita",
    
-//     },
-// ];
+    },
+];
 const BabyShowerAmelia = () => {
   
-
+  const { showSnackbar } = useSnackbar();
   
   const [showIntro, setShowIntro] = useState(true);
   const [cloudAssets, setCloudAssets] = useState<InvitationAsset[]>([]);
@@ -966,7 +967,7 @@ const BabyShowerAmelia = () => {
                  
      
 
-      {/* {bankDetails?.map((bank, index) => (
+       {bankDetails?.map((bank, index) => (
         <Paper
           key={index}
           elevation={0}
@@ -1084,7 +1085,17 @@ const BabyShowerAmelia = () => {
                 </Box>
               </Box>
             ))}
-
+            <Typography
+              className={BODY_TYPO}
+              sx={{
+                fontSize: "1rem",
+                color: TEXT_PRIMARY,
+                opacity: 0.85,
+                textAlign: "center",
+              }}
+            >
+              {bank.bank}
+            </Typography>
             <Typography
               className={BODY_TYPO}
               sx={{
@@ -1098,7 +1109,7 @@ const BabyShowerAmelia = () => {
             </Typography>
           </Stack>
         </Paper>
-      ))} */}
+      ))} 
     </Stack>
   </Container>
 
