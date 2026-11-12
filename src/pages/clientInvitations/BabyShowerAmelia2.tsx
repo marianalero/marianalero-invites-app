@@ -108,22 +108,7 @@ const bankDetails = [
       name: "Alejandra Manzanares ",
    
     },
-    {
-      numbers: [
-         {
-          numberType: "Cuenta",
-          number: "4353150",
-        },
-        {
-          numberType: "CLABE",
-          number: "002760702343531500",
-        },
-        
-      ],
-      bank: "Banamex",
-      name: "Fabiola Sánchez Mézquita",
-   
-    },
+    
 ];
 const BabyShowerAmelia = () => {
   
