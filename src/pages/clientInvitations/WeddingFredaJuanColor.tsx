@@ -403,7 +403,7 @@ const WeddingFredaJuanColor  = () => {
             bgPositionY="center"
             mobileBgPosition="50%"
             mobileBgPositionY="25%"
-            dateLine={new Date(2026,10,5)}
+            dateLine={new Date(2026,10,24)}
                 textColor={"white"}
                 colorButton={"white"} 
                 bgColor={COLOR_BG} 
